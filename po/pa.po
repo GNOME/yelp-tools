@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: pa\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-03-01 07:04+0100\n"
-"PO-Revision-Date: 2005-03-01 18:24+0530\n"
+"PO-Revision-Date: 2005-03-02 05:33+0530\n"
 "Last-Translator: Amanpreet Singh Alam <amanpreetalam@yahoo.com>\n"
 "Language-Team: Punjabi <fedora-trans-pa@redhat.com>\n"
 "MIME-Version: 1.0\n"
@@ -192,9 +192,8 @@ msgstr "format.figure.number.flat"
 #. Then this: ghelp:gnome-doc-xslt#format.manvolnum
 #.
 #: xslt/docbook/common/db-format.xml.in.h:143
-#, fuzzy
 msgid "format.manvolnum"
-msgstr "format.table.number"
+msgstr "format.manvolnum"
 
 #.
 #. part - A division in a book
@@ -211,9 +210,8 @@ msgstr "format.table.number"
 #. Then this: ghelp:gnome-doc-xslt#format.part.label
 #.
 #: xslt/docbook/common/db-format.xml.in.h:158
-#, fuzzy
 msgid "format.part.label"
-msgstr "format.chapter.label"
+msgstr "format.part.label"
 
 #.
 #. part - A division in a book
@@ -226,9 +224,8 @@ msgstr "format.chapter.label"
 #. Then this: ghelp:gnome-doc-xslt#format.part.number
 #.
 #: xslt/docbook/common/db-format.xml.in.h:169
-#, fuzzy
 msgid "format.part.number"
-msgstr "format.table.number"
+msgstr "format.part.number"
 
 #.
 #. quote - An inline quotation
@@ -276,9 +273,8 @@ msgstr "format.quote.outer"
 #. Then this: ghelp:gnome-doc-xslt#format.refentry.label
 #.
 #: xslt/docbook/common/db-format.xml.in.h:209
-#, fuzzy
 msgid "format.refentry.label"
-msgstr "format.figure.label"
+msgstr "format.refentry.label"
 
 #.
 #. http://docbook.org/tdg/en/html/section.html
@@ -370,9 +366,8 @@ msgstr "format.table.number.flat"
 #. Then this: ghelp:gnome-doc-xslt#format.tooltip.glossentry
 #.
 #: xslt/docbook/common/db-format.xml.in.h:287
-#, fuzzy
 msgid "format.tooltip.glossentry"
-msgstr "format.quote.outer"
+msgstr "format.tooltip.glossentry"
 
 #.
 #. This template formats a tooltip for mailto: links.
@@ -382,9 +377,8 @@ msgstr "format.quote.outer"
 #. Then this: ghelp:gnome-doc-xslt#format.tooltip.mailto
 #.
 #: xslt/docbook/common/db-format.xml.in.h:295
-#, fuzzy
 msgid "format.tooltip.mailto"
-msgstr "format.table.label"
+msgstr "format.tooltip.mailto"
 
 #. Used as a header before a list of authors.
 #: xslt/gettext/l10n.xml.in.h:2
