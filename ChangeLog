@@ -1,5 +1,11 @@
 2005-03-31  Shaun McCance  <shaunm@gnome.org>
 
+	* autogen.sh:
+	* gnome-autogen.sh:
+	- Use local gnome-autogen.sh to avoid circular dependency, #171894
+
+2005-03-31  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/gettext/gettext.xsl:
 	- Plural form rules for more languages, from Changwoo Ryu
 
