@@ -30,6 +30,9 @@
 <xsl:include href="db2html-cmdsynopsis.xsl"
              doc:summary="true"
              doc:include="true"/>
+<xsl:include href="db2html-css.xsl"
+             doc:summary="true"
+             doc:include="true"/>
 <xsl:include href="db2html-division.xsl"
              doc:summary="true"
              doc:include="true"/>

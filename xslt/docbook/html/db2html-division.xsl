@@ -30,9 +30,7 @@
   <!-- FIXME -->
   <html>
     <head>
-      <style>
-        .odd { background-color: #F0F0F0; }
-      </style>
+      <xsl:call-template name="db2html.css"/>
     </head>
     <body>
       <xsl:apply-templates select=".">
@@ -127,20 +125,34 @@
     </xsl:call-template>
   </xsl:if>
   <div class="{local-name(.)}">
-    <xsl:if test="not(title) and $info/title">
+    <xsl:variable name="titles" select="title | subtitle"/>
+    <xsl:if test="not($titles)">
       <xsl:apply-templates select="$info/title">
         <xsl:with-param name="title_for" select="."/>
         <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
       </xsl:apply-templates>
-      <xsl:if test="not(subtitle) and $info/subtitle">
-        <xsl:apply-templates select="$info/subtitle">
-          <xsl:with-param name="title_for" select="."/>
-          <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
-        </xsl:apply-templates>
-      </xsl:if>
+      <xsl:apply-templates select="$info/subtitle">
+        <xsl:with-param name="title_for" select="."/>
+        <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
+      </xsl:apply-templates>
+    </xsl:if>
+    <xsl:apply-templates select="$titles">
+      <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
+      <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+    </xsl:apply-templates>
+    <xsl:if test="$autotoc_divisions">
+      <xsl:call-template name="db2html.autotoc">
+        <xsl:with-param name="node" select="."/>
+        <xsl:with-param name="info" select="$info"/>
+        <xsl:with-param name="divisions" select="$divisions"/>
+        <xsl:with-param name="toc_depth" select="1"/>
+        <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+      </xsl:call-template>
     </xsl:if>
     <!-- OPTIMIZE: This select is fairly slow. -->
-    <xsl:for-each select="*[not(. = $divisions) and not(. = $entries)]">
+    <xsl:for-each select="*[not(. = $divisions) and
+                            not(. = $entries)   and
+                            not(. = $titles)    ]">
       <xsl:apply-templates select=".">
         <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
         <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
