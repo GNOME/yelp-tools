@@ -15,7 +15,7 @@ xml2po: xml2po.py configure.ac
 	  < $(srcdir)/xml2po.py > xml2po
 	chmod +x xml2po
 
-README: README.in
+$(srcdir)/README: README.in
 	sed -e "s/\@VERSION\@/@VERSION@/g" < README.in > README
 
 publish: dist
@@ -24,6 +24,7 @@ publish: dist
 
 EXTRA_DIST = \
 	     README    \
+	     README.in \
 	     TODO      \
 	     xml2po.py \
              xml2po.pc.in

@@ -32,10 +32,10 @@ $(DOC_H_FILE): $(DOC_H_DOCS);
 	done;
 
 .PHONY: dist-header
-dist-header: $(DOC_H_FILE)
-	$(INSTALL_DATA) $(DOC_H_FILE) $(distdir)/$(DOC_H_FILE)
+dist-doc-header: $(DOC_H_FILE)
+	$(INSTALL_DATA) $(srcdir)/$(DOC_H_FILE) $(distdir)/$(DOC_H_FILE)
 
-doc-dist-hook: $(if $(DOC_H_FILE),dist-header)
+doc-dist-hook: $(if $(DOC_H_FILE),dist-doc-header)
 
 .PHONY: chean-doc-header
 _clean_doc_header = $(if $(DOC_H_FILE),clean-doc-header)
@@ -157,7 +157,7 @@ db2omf_args =									\
 	--stringparam db2omf.lang $(dir $(2))					\
 	--stringparam db2omf.omf_dir $(OMF_DIR)					\
 	--stringparam db2omf.help_dir $(HELP_DIR)				\
-	--stringparam db2omf.omf_in `pwd`/$(_DOC_OMF_IN)			\
+	--stringparam db2omf.omf_in $(srcdir)/$(_DOC_OMF_IN)			\
 	$(_db2omf) $(2)
 
 ## @ _DOC_OMF_IN
@@ -312,7 +312,8 @@ _DOC_C_DOCS =								\
 	$(_DOC_C_MODULE)
 
 ## @ _DOC_C_DOCS_NOENT
-## All documentation files in the C locale
+## All documentation files in the C locale,
+## except files included with a SYSTEM entity
 _DOC_C_DOCS_NOENT =							\
 	$(_DOC_C_MODULE)	$(_DOC_C_INCLUDES)			\
 	$(_RNGDOC_C_DOCS)	$(_XSLDOC_C_DOCS)
@@ -430,18 +431,21 @@ maintainer-clean:					\
 .PHONY: dist-docs dist-omf dist-dsk
 
 dist-docs: $(_DOC_C_DOCS) $(_DOC_LC_DOCS) $(_DOC_POFILES)
-	for lc in C $(DOC_LINGUAS); do \
-	  $(mkinstalldirs) $(distdir)/$$lc; \
+	@for lc in C $(DOC_LINGUAS); do \
+	  echo " $(mkinstalldirs) $(distdir)/$$lc"; \
+	  $(mkinstalldirs) "$(distdir)/$$lc"; \
 	done
-	for doc in $(_DOC_C_DOCS) $(_DOC_LC_DOCS) $(_DOC_POFILES); do \
-	  $(INSTALL_DATA) $$doc $(distdir)/$$doc; \
+	@for doc in $(_DOC_C_DOCS) $(_DOC_LC_DOCS) $(_DOC_POFILES); do \
+	  if test -f "$$doc"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$(INSTALL_DATA) $$d$$doc $(distdir)/$$doc"; \
+	  $(INSTALL_DATA) "$$d$$doc" "$(distdir)/$$doc"; \
 	done
 
 dist-omf:
-	$(INSTALL_DATA) $(_DOC_OMF_IN) $(distdir)/$(_DOC_OMF_IN)
+	$(INSTALL_DATA) $(srcdir)/$(_DOC_OMF_IN) $(distdir)/$(_DOC_OMF_IN)
 
 dist-dsk:
-	$(INSTALL_DATA) $(_DOC_DSK_IN) $(distdir)/$(_DOC_DSK_IN)
+	$(INSTALL_DATA) $(srcdir)/$(_DOC_DSK_IN) $(distdir)/$(_DOC_DSK_IN)
 
 doc-dist-hook: 					\
 	$(if $(DOC_MODULE),dist-docs)		\
@@ -458,11 +462,14 @@ check:							\
 	$(if $(DOC_MODULE),check-doc)			\
 	$(if $(_DOC_OMF_IN),check-omf)
 check-doc: $(_DOC_C_DOCS) $(_DOC_LC_DOCS)
-	for lc in C $(DOC_LINGUAS); do \
-	  xmllint --noout --xinclude --postvalid $$lc/$(DOC_MODULE).xml; \
+	@for lc in C $(DOC_LINGUAS); do \
+	  if test -f "$$lc"; then d=; else d="$(srcdir)/"; fi; \
+	  echo " (cd $$d$$lc && xmllint --noout --xinclude --postvalid $(DOC_MODULE).xml)"; \
+	  (cd $$d$$lc && xmllint --noout --xinclude --postvalid $(DOC_MODULE).xml); \
 	done
 check-omf: $(_DOC_OMF_ALL)
-	for omf in $(_DOC_OMF_ALL); do \
+	@for omf in $(_DOC_OMF_ALL); do \
+	  echo "xmllint --noout --dtdvalid 'http://scrollkeeper.sourceforge.net/dtds/scrollkeeper-omf-1.0/scrollkeeper-omf.dtd' $$omf"; \
 	  xmllint --noout --dtdvalid 'http://scrollkeeper.sourceforge.net/dtds/scrollkeeper-omf-1.0/scrollkeeper-omf.dtd' $$omf; \
 	done
 
@@ -473,23 +480,42 @@ install-data-local:					\
 	$(if $(_DOC_OMF_IN),install-omf)
 #	$(if $(_DOC_DSK_IN),install-dsk)
 install-doc:
-	for lc in C $(DOC_LINGUAS); do \
+	@for lc in C $(DOC_LINGUAS); do \
+	  echo "$(mkinstalldirs) $(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$lc"; \
 	  $(mkinstalldirs) $(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$lc; \
 	done
-	for doc in $(_DOC_C_DOCS) $(_DOC_LC_DOCS); do \
-	  $(INSTALL_DATA) $$doc $(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$doc; \
+	@for doc in $(_DOC_C_DOCS) $(_DOC_LC_DOCS); do \
+	  if test -f "$$doc"; then d=; else d="$(srcdir)/"; fi; \
+	  echo "$(INSTALL_DATA) $$d$$doc $(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$doc"; \
+	  $(INSTALL_DATA) $$d$$doc $(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$doc; \
 	done
 install-html:
 	echo install-html
 install-omf:
 	$(mkinstalldirs) $(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)
-	for omf in $(_DOC_OMF_ALL); do \
+	@for omf in $(_DOC_OMF_ALL); do \
+	  echo "$(INSTALL_DATA) $$omf $(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf"; \
 	  $(INSTALL_DATA) $$omf $(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf; \
 	done
-	-scrollkeeper-update -p $(localstatedir)/scrollkeeper -o $(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)
+	-scrollkeeper-update -p "$(localstatedir)/scrollkeeper" -o "$(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)"
 install-dsk:
 	echo install-dsk
 
-# uninstall
-# installcheck
-# installdirs
+.PHONY: uninstall-doc uninstall-html uninstall-omf uninstall-dsk
+uninstall-local:					\
+	$(if $(DOC_MODULE),uninstall-doc)			\
+	$(if $(_DOC_HTML_ALL),uninstall-html)		\
+	$(if $(_DOC_OMF_IN),uninstall-omf)
+#	$(if $(_DOC_DSK_IN),uninstall-dsk)
+uninstall-doc:
+	@for doc in $(_DOC_C_DOCS) $(_DOC_LC_DOCS); do \
+	  echo " rm -f $(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$doc"; \
+	  rm -f "$(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$doc"; \
+	done
+uninstall-omf:
+	@for omf in $(_DOC_OMF_ALL); do \
+	  echo " scrollkeeper-uninstall -p $(localstatedir)/scrollkeeper -o $(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf"; \
+	  -scrollkeeper-uninstall -p "$(localstatedir)/scrollkeeper" -o "$(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf"; \
+	  echo "rm -f $(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf"; \
+	  rm -f "$(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf"; \
+	done
