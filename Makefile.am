@@ -16,6 +16,8 @@ share_DATA = gnome-doc-utils.make
 
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = gnome-doc-utils.pc
+
+bin_SCRIPTS = gnome-doc-prepare
 endif
 
 # doc must go last
@@ -26,6 +28,7 @@ EXTRA_DIST = 						\
 	$(share_DATA)					\
 	$(pkgconfig_DATA)				\
 	bootstrap.make					\
+	gnome-doc-prepare.in				\
 	intltool-extract.in  				\
 	intltool-merge.in    				\
 	intltool-update.in				\

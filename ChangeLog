@@ -1,5 +1,12 @@
 2004-12-08  Shaun McCance  <shaunm@gnome.org>
 
+	* Makefile.am:
+	* configure.in:
+	* gnome-doc-prepare.in:
+	- Added gnome-doc-prepare.in, renamed from danilo's shaunize
+
+2004-12-08  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/docbook/omf/db2omf.xsl:
 	- Put file:// in the URL
 
