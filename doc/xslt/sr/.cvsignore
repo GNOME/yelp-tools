@@ -26,5 +26,7 @@ db-label.xml
 db-xref.xml
 format2xsl.xml
 gettext.xml
+gnome-doc-xslt.xml
+legal.xml
 rngdoc.xml
 xsldoc.xml

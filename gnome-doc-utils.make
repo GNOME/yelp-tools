@@ -1,5 +1,5 @@
 ################################################################################
-## @@ Generating .h files
+## @@ Generating Header Files
 
 ## @ DOC_H_FILE
 ## The name of the header file to generate
@@ -50,7 +50,7 @@ all: $(DOC_H_FILE)
 
 
 ################################################################################
-## @@ Public variables
+## @@ Generating Documentation Files
 
 ## @ DOC_MODULE
 ## The name of the document being built
@@ -83,7 +83,7 @@ XSLDOC_DIRS ?=
 
 
 ################################################################################
-## For bootstrapping gnome-doc-utils only
+## Variables for Bootstrapping
 
 _xml2po ?= `which xml2po`
 
@@ -147,7 +147,7 @@ xsldoc: $(_XSLDOC_C_DOCS)
 
 
 ################################################################################
-## @@ OMF Files
+## @@ Rules for OMF Files
 
 db2omf_args =									\
 	--stringparam db2omf.basename $(DOC_MODULE)				\
@@ -194,7 +194,66 @@ omf: $(_DOC_OMF_ALL)
 
 
 ################################################################################
-## @@ Desktop Entry Files
+## @@ Rules for .cvsignore Files
+
+## @ _CVSIGNORE_TOP
+## The .cvsignore file in the top directory
+_CVSIGNORE_TOP = $(if $(DOC_MODULE), .cvsignore)
+
+## @ _CVSIGNORE_C
+## The .cvsignore file in the C directory
+_CVSIGNORE_C = $(if $(DOC_MODULE), C/.cvsignore)
+
+## @ _CVSIGNORE_LC
+## The .cvsignore files in other locale directories
+_CVSIGNORE_LC = $(if $(DOC_MODULE),$(foreach lc,$(DOC_LINGUAS),$(lc)/.cvsignore))
+
+## @ _CVSIGNORE_TOP_FILES
+## The list of files to be listed in the top-level .cvsignore file
+_CVSIGNORE_TOP_FILES = $(_DOC_OMF_ALL) $(_DOC_DSK_ALL)
+
+## @ _CVSIGNORE_C_FILES
+## The list of files to be listed in the .cvsignore file in the C directory
+_CVSIGNORE_C_FILES = $(_RNGDOC_C_DOCS) $(_XSLDOC_C_DOCS)
+
+## @ _CVSIGNORE_C_FILES
+## The list of files to be listed in the .cvsignore files in other
+## locale directories
+_CVSIGNORE_LC_FILES = $(_DOC_LC_DOCS)
+
+$(_CVSIGNORE_TOP) : $(_CVSIGNORE_TOP_FILES)
+	if ! test -f $@; then touch $@; fi
+	cat $@ > $@.tmp
+	for file in $^; do \
+	  echo $$file >> $@.tmp; \
+	done
+	cat $@.tmp | sort | uniq > $@
+	rm $@.tmp
+
+$(_CVSIGNORE_C) : $(_CVSIGNORE_C_FILES)
+	if ! test -f $@; then touch $@; fi
+	cat $@ > $@.tmp
+	for file in $^; do \
+	  echo $$file | sed -e 's/.*\///' >> $@.tmp; \
+	done
+	cat $@.tmp | sort | uniq > $@
+	rm $@.tmp
+
+$(_CVSIGNORE_LC) : $(_CVSIGNORE_LC_FILES)
+	if ! test -f $@; then touch $@; fi
+	cat $@ > $@.tmp
+	for file in $(wildcard $(_CVSIGNORE_LC_FILES),$(dir $@)/*); do \
+	  echo $$file | sed -e 's/.*\///' >> $@.tmp; \
+	done
+	cat $@.tmp | sort | uniq > $@
+	rm $@.tmp
+
+.PHONY: cvsignore
+cvsignore: $(_CVSIGNORE_TOP) $(_CVSIGNROE_C) $(_CVSIGNORE_LC)
+
+
+################################################################################
+## @@ Rules for Desktop Entry Files
 
 ## @ _DOC_DSK_IN
 ## The desktop entry input file

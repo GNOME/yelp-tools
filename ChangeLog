@@ -1,5 +1,13 @@
 2004-10-05  Shaun McCance  <shaunm@gnome.org>
 
+	* gnome-doc-utils.make:
+	* doc/xslt/.cvsignore:
+	* doc/xslt/C/.cvsignore:
+	* doc/xslt/sr/.cvsignore:
+	- Some automatic .cvsignore file updating
+
+2004-10-05  Shaun McCance  <shaunm@gnome.org>
+
 	* bootstrap.make:
 	- Set PYTHONPATH for the bootstrapped xml2po
 
