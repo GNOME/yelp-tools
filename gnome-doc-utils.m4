@@ -14,7 +14,7 @@ AC_ARG_WITH([omfdir],
 OMF_DIR="$with_omfdir"
 AC_SUBST(OMF_DIR)
 
-GNOME_DOC_RULE=''
+GNOME_DOC_RULE='include $(top_srcdir)/gnome-doc-utils.make'
 AC_SUBST(GNOME_DOC_RULE)
 
 AC_OUTPUT_COMMANDS([

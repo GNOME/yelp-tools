@@ -1,33 +1,64 @@
-# These are things that should be set by Makefile.am
+## Public variables
 
 DOC_MODULE ?=
 DOC_ENTITIES ?=
+DOC_INCLUDES ?=
+
+DOC_FORMATS ?=
 
 DOC_LINGUAS ?=
-DOC_PODIR ?= $(DOC_MODULE).po
+DOC_PODIR ?=
 
-XSLDOC_SOURCE_DIRS ?=
-XSLDOC_PARAMS ?=
+XSLDOC_DIRS ?=
+RNGDOC_DIRS ?=
 
-RNGDOC_SOURCE_DIRS ?=
-RNGDOC_PARAMS ?=
 
-# This is for testing purposes
-echo :
-	@echo omf_in   :: $(doc_omf_in)
-	@echo dsk_in   :: $(doc_dsk_in)
-	@echo omf_outs :: $(doc_omf_outs)
-	@echo dsk_outs :: $(doc_dsk_outs)
-	@echo sources :: $(doc_sources)
-	@echo locales :: $(doc_locales)
+## Setting variables
 
-# These are private variables used throughout this file
-doc_omf_in = $(DOC_MODULE).omf.in
-doc_dsk_in = $(DOC_MODULE).desktop.in
-doc_omf_outs = $(foreach lang,$(DOC_LINGUAS),$lang/$(DOC_MODULE)-$lang.omf)
-doc_dsk_outs = $(foreach lang,$(DOC_LINGUAS),$lang/$(DOC_MODULE).$lang.desktop)
+_RNGDOC_RNGS = $(foreach dir,$(RNGDOC_DIRS),		\
+	$(wildcard $(dir)/*.rng))
+_RNGDOC_C_DOCS = $(foreach rng,$(_RNGDOC_RNGS),		\
+	C/$(basename $(notdir $(rng))).xml)
 
-doc_sources = C/$(DOC_MODULE).xml $(patsubst %,C/%,$(DOC_ENTITIES))
-doc_locales = $(foreach lang,$(DOC_LINGUAS),$(patsubst C/%,$lang/%,$(doc_sources)))
+_XSLDOC_XSLS = $(foreach dir,$(XSLDOC_DIRS),		\
+	$(wildcard $(dir)/*.xsl))
+_XSLDOC_C_DOCS = $(foreach xsl,$(_XSLDOC_XSLS),		\
+	C/$(basename $(notdir $(xsl))).xml)
 
+_DOC_C_ENTITIES = $(foreach ent,$(DOC_ENTITIES),C/$(ent))
+_DOC_C_INCLUDES = $(foreach inc,$(DOC_INCLUDES),C/$(inc))
+
+_DOC_C_MODULES = C/$(DOC_MODULE).xml
+_DOC_C_DOCS =							\
+	$(_DOC_C_ENTITIES) $(_DOC_C_INCLUDES)			\
+	$(_RNGDOC_C_DOCS)  $(_XSLDOCS_C_DOCS)			\
+	$(_DOC_C_MODULES)
+
+_RNGDOC_LC_DOCS =							\
+	$(foreach lc,$(DOC_LINGUAS),$(foreach doc,$(_RNGDOC_C_DOCS),	\
+		$(lc)/$(notdir $(doc)) ))
+_XSLDOC_LC_DOCS =							\
+	$(foreach lc,$(DOC_LINGUAS),$(foreach doc,$(_XSLDOC_C_DOCS),	\
+		$(lc)/$(notdir $(doc)) ))
+
+_DOC_LC_ENTITIES =							\
+	$(foreach lc,$(DOC_LINGUAS),$(foreach ent,$(_DOC_C_ENTITIES),	\
+		$(lc)/$(notdir $(ent)) ))
+_DOC_LC_INCLUDES =							\
+	$(foreach lc,$(DOC_LINGUAS),$(foreach inc,$(_DOC_C_INCLUDES),	\
+		$(lc)/$(notdir $(inc)) ))
+
+_DOC_LC_MODULES = $(foreach lc,$(DOC_LINGUAS),$(lc)/$(DOC_MODULE).xml)
+_DOC_LC_DOCS =								\
+	$(_DOC_LC_ENTITIES) $(_DOC_LC_INCLUDES)				\
+	$(_RNGDOC_LC_DOCS)  $(_XSLDOC_LC_DOCS)				\
+	$(_DOC_LC_MODULES)
+
+_DOC_OMF_IN = $(DOC_MODULE).omf.in
+_DOC_OMF_OUTS =								\
+	$(foreach lc,C $(DOC_LINGUAS),$(lc)/$(DOC_MODULE)-$(lc).omf
+
+_DOC_DESKTOP_IN = $(DOC_MODULE).desktop.in
+_DOC_DESKTOP_OUTS =							\
+	$(foreach lc,C $(DOC_LINGUAS),$(lc)/$(DOC_MODULE).$(lc).desktop
 

@@ -1,9 +1,10 @@
-DOC_MODULE = bar
+@GNOME_DOC_RULE@
 
-XSLDOC_SOURCE_DIRS = 				\
+DOC_MODULE = gnome-doc-xslt
+
+DOC_LINGUAS = sr
+
+XSLDOC_DIRS = 					\
 	$(top_srcdir)/xslt/gettext		\
-	$(top_srcdir)/xslt/docbook		\
 	$(top_srcdir)/xslt/docbook/common	\
 	$(top_srcdir)/xslt/docbook/html
-
-include $(top_srcdir)/gnome-doc-utils.make
