@@ -204,6 +204,9 @@
               sect2info    | sect3info    | sect4info        | sect5info    |
               sectioninfo  | setindexinfo | setinfo          ">
   <xsl:param name="role"/>
+  <xsl:call-template name="gettext">
+    <xsl:with-param name="msgid" select="'About This Document'"/>
+  </xsl:call-template>
 <!-- FIXME 
   <xsl:call-template name="db.label.name"/>
 -->

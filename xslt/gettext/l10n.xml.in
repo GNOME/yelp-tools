@@ -3,64 +3,9 @@
 <l10n xmlns="http://www.gnome.org/~shaunm/gnome-doc-utils/xsl-format">
 
 <msg>
-  <msgid>About This Article</msgid>
-  <!-- Link to the titlepage of a <article> -->
-  <_msgstr>About This Article</_msgstr>
-</msg>
-<msg>
-  <msgid>About This Bibliography</msgid>
-  <!-- Link to the titlepage of a <bibliography> -->
-  <_msgstr>About This Bibliography</_msgstr>
-</msg>
-<msg>
-  <msgid>About This Book</msgid>
-  <!-- Link to the titlepage of a <book> -->
-  <_msgstr>About This Book</_msgstr>
-</msg>
-<msg>
-  <msgid>About This Chapter</msgid>
-  <!-- Link to the titlepage of a <chapter> -->
-  <_msgstr>About This Chapter</_msgstr>
-</msg>
-<msg>
-  <msgid>About This Entry</msgid>
-  <!-- Link to the titlepage of a <refentry> -->
-  <_msgstr>About This Entry</_msgstr>
-</msg>
-<msg>
-  <msgid>About This Glossary</msgid>
-  <!-- Link to the titlepage of a <glossary> -->
-  <_msgstr>About This Glossary</_msgstr>
-</msg>
-<msg>
-  <msgid>About This Index</msgid>
-  <!-- Link to the titlepage of an <index> and <setindex> -->
-  <_msgstr>About This Index</_msgstr>
-</msg>
-<msg>
-  <msgid>About This Part</msgid>
-  <!-- Link to the titlepage of a <part> -->
-  <_msgstr>About This Part</_msgstr>
-</msg>
-<msg>
-  <msgid>About This Preface</msgid>
-  <!-- Link to the titlepage of a <preface> -->
-  <_msgstr>About This Preface</_msgstr>
-</msg>
-<msg>
-  <msgid>About This Reference</msgid>
-  <!-- Link to the titlepage of a <reference> -->
-  <_msgstr>About This Reference</_msgstr>
-</msg>
-<msg>
-  <msgid>About This Section</msgid>
-  <!-- Link to the titlepage of any of <sect*> and <refsect*> -->
-  <_msgstr>About This Section</_msgstr>
-</msg>
-<msg>
-  <msgid>About This Set</msgid>
-  <!-- Link to the titlepage of a <set> -->
-  <_msgstr>About This Set</_msgstr>
+  <msgid>About This Document</msgid>
+  <!-- Link to the titlepage -->
+  <_msgstr>About This Document</_msgstr>
 </msg>
 <msg>
   <msgid>Affiliation</msgid>

@@ -1,3 +1,19 @@
+2004-12-29  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/common/db-chunk.xsl:
+	* xslt/docbook/html/db2html-division.xsl:
+	* xslt/docbook/html/db2html-info.xsl:
+	* xslt/docbook/html/db2html-qanda.xsl:
+	* xslt/docbook/html/db2html-refentry.xsl:
+	* xslt/docbook/html/db2html.xsl:
+	- Removed toc, index, and cover until I actually use them
+	- Changed much of the processing order for chunking
+	- Changed how the info document is called
+
+	* xslt/docbook/common/db-label.xsl:
+	* xslt/gettext/l10n.xml.in:
+	- Added 'About This Document' for *info elements
+
 2004-12-27  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/common/db-chunk.xsl:

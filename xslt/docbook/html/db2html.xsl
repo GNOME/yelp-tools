@@ -88,20 +88,6 @@
   <xsl:apply-templates select="node()"/>
 </xsl:template>
 
-<!-- Implement the stub templates from db-chunk -->
-<xsl:template name="info">
-  <xsl:param name="node"/>
-  <xsl:param name="info"/>
-  <xsl:param name="depth_in_chunk"/>
-  <xsl:param name="depth_of_chunk"/>
-  <xsl:call-template name="db2html.info">
-    <xsl:with-param name="node" select="$node"/>
-    <xsl:with-param name="info" select="$info"/>
-    <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
-    <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
-  </xsl:call-template>
-</xsl:template>
-
 <!-- Implement the format2xsl stub templates -->
 <xsl:template name="format2xsl.element.name">
   <xsl:param name="name"/>

@@ -137,7 +137,7 @@
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
   </xsl:param>
-  <xsl:call-template name="db2html.division.content">
+  <xsl:call-template name="db2html.division.div">
     <xsl:with-param name="divisions" select="refsect2"/>
     <xsl:with-param name="info" select="refsect1info"/>
     <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
@@ -154,7 +154,7 @@
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
   </xsl:param>
-  <xsl:call-template name="db2html.division.content">
+  <xsl:call-template name="db2html.division.div">
     <xsl:with-param name="divisions" select="refsect3"/>
     <xsl:with-param name="info" select="refsect2info"/>
     <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
@@ -171,7 +171,7 @@
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
   </xsl:param>
-  <xsl:call-template name="db2html.division.content">
+  <xsl:call-template name="db2html.division.div">
     <xsl:with-param name="divisions" select="/false"/>
     <xsl:with-param name="info" select="refsect3info"/>
     <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
@@ -188,7 +188,7 @@
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
   </xsl:param>
-  <xsl:call-template name="db2html.division.content">
+  <xsl:call-template name="db2html.division.div">
     <xsl:with-param name="divisions" select="refsection"/>
     <xsl:with-param name="info" select="refsectioninfo"/>
     <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>

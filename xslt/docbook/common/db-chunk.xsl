@@ -88,19 +88,6 @@
 <xsl:param name="db.chunk.extension"/>
 
 
-<!-- == db.chunk.cover_basename ============================================ -->
-
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db.chunk.cover_basename</name>
-  <purpose>
-    The base filename for the coversheet
-  </purpose>
-</parameter>
-
-<xsl:param name="db.chunk.cover_basename"
-           select="concat($db.chunk.basename, '-cover')"/>
-
-
 <!-- == db.chunk.info_basename ============================================= -->
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
@@ -114,32 +101,6 @@
            select="concat($db.chunk.basename, '-info')"/>
 
 
-<!-- == db.chunk.index_basename ============================================ -->
-
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db.chunk.index_basename</name>
-  <purpose>
-    The base filename for the index
-  </purpose>
-</parameter>
-
-<xsl:param name="db.chunk.index_basename"
-           select="concat($db.chunk.basename, '-index')"/>
-
-
-<!-- == db.chunk.toc_basename ============================================== -->
-
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db.chunk.toc_basename</name>
-  <purpose>
-    The base filename for the table of contents
-  </purpose>
-</parameter>
-
-<xsl:param name="db.chunk.toc_basename"
-           select="concat($db.chunk.basename, '-toc')"/>
-
-
 <!-- == db.chunk =========================================================== -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
@@ -151,12 +112,6 @@
     <name>node</name>
     <purpose>
       The source element for the output document
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>info</name>
-    <purpose>
-      The info child element
     </purpose>
   </parameter>
   <parameter>
@@ -189,21 +144,11 @@
 
 <xsl:template name="db.chunk">
   <xsl:param name="node" select="."/>
-  <xsl:param name="info"/>
   <xsl:param name="template"/>
   <xsl:param name="href">
     <xsl:choose>
-      <xsl:when test="$template = 'cover'">
-        <xsl:value-of select="$db.chunk.cover_basename"/>
-      </xsl:when>
       <xsl:when test="$template = 'info'">
         <xsl:value-of select="$db.chunk.info_basename"/>
-      </xsl:when>
-      <xsl:when test="$template = 'index'">
-        <xsl:value-of select="$db.chunk.index_basename"/>
-      </xsl:when>
-      <xsl:when test="$template = 'toc'">
-        <xsl:value-of select="$db.chunk.toc_basename"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:value-of select="$node/@id"/>
@@ -216,10 +161,15 @@
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
   </xsl:param>
+  <xsl:if test="string($template) = ''">
+    <xsl:call-template name="db.chunk.children">
+      <xsl:with-param name="node" select="$node"/>
+      <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+    </xsl:call-template>
+  </xsl:if>
   <exsl:document href="{$href}">
     <xsl:call-template name="db.chunk.content">
       <xsl:with-param name="node" select="$node"/>
-      <xsl:with-param name="info" select="$info"/>
       <xsl:with-param name="template" select="$template"/>
       <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
     </xsl:call-template>
@@ -241,12 +191,6 @@
     </purpose>
   </parameter>
   <parameter>
-    <name>info</name>
-    <purpose>
-      The info child element
-    </purpose>
-  </parameter>
-  <parameter>
     <name>template</name>
     <purpose>
       The named template to call to create the content
@@ -264,22 +208,9 @@
     <template>db.chunk</template>.
   </para>
   <para>
-    The content can be generated either by calling a named template or by
-    applying matched templates.  If <parameter>template</parameter> is set
-    to a known value, the template with that name is called.  Otherwise,
-    matched templates will be applied to <parameter>node</parameter> in
-    the mode <mode>db.chunk.mode</mode>.  Since XSLT doesn't allow the
-    name of a  called template to be an attribute value template, the
-    value of <parameter>template</parameter> must come from a fixed
-    vocabulary.  Currently, the supported values are
-    <literal>'cover'</literal>, <literal>'info'</literal>,
-    <literal>'toc'</literal>, and <literal>'index'</literal>.
-  </para>
-  <para>
     This template will always pass the <parameter>depth_in_chunk</parameter>
     and <parameter>depth_of_chunk</parameter> parameters with appropriate
-    values to the templates it calls.  Additionally, the parameter
-    <parameter>node</parameter> will be passed to all named templates.
+    values to the templates it calls.
   </para>
 </template>
 
@@ -292,42 +223,65 @@
     </xsl:call-template>
   </xsl:param>
   <xsl:choose>
-    <xsl:when test="$template = 'cover'">
-      <xsl:call-template name="cover">
-        <xsl:with-param name="node" select="$node"/>
-        <xsl:with-param name="depth_in_chunk" select="0"/>
-        <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
-      </xsl:call-template>
-    </xsl:when>
     <xsl:when test="$template = 'info'">
-      <xsl:call-template name="info">
-        <xsl:with-param name="node" select="$node"/>
-        <xsl:with-param name="info" select="$info"/>
+      <xsl:apply-templates mode="db.chunk.info.content.mode" select="$node">
         <xsl:with-param name="depth_in_chunk" select="0"/>
         <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
-      </xsl:call-template>
-    </xsl:when>
-    <xsl:when test="$template = 'toc'">
-      <xsl:call-template name="toc">
-        <xsl:with-param name="node" select="$node"/>
-        <xsl:with-param name="depth_in_chunk" select="0"/>
-        <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
-      </xsl:call-template>
-    </xsl:when>
-    <xsl:when test="$template = 'index'">
-      <xsl:call-template name="index">
-        <xsl:with-param name="node" select="$node"/>
-        <xsl:with-param name="depth_in_chunk" select="0"/>
-        <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
-      </xsl:call-template>
+      </xsl:apply-templates>
     </xsl:when>
     <xsl:otherwise>
-      <xsl:apply-templates mode="db.chunk.mode" select="$node">
+      <xsl:apply-templates mode="db.chunk.content.mode" select="$node">
         <xsl:with-param name="depth_in_chunk" select="0"/>
         <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
       </xsl:apply-templates>
     </xsl:otherwise>
   </xsl:choose>
+</xsl:template>
+
+
+<!-- == db.chunk.children ================================================== -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db.chunk.children</name>
+  <purpose>
+    Create new documents for the children of an element
+  </purpose>
+  <parameter>
+    <name>node</name>
+    <purpose>
+      The parent element
+    </purpose>
+  </parameter>
+  <parameter>
+    <name>depth_of_chunk</name>
+    <purpose>
+      The depth of the parent element
+    </purpose>
+  </parameter>
+</template>
+
+<xsl:template name="db.chunk.children">
+  <xsl:param name="node" select="."/>
+  <xsl:param name="depth_of_chunk">
+    <xsl:call-template name="db.chunk.depth-of-chunk">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:call-template>
+  </xsl:param>
+  <xsl:if test="$depth_of_chunk &lt; $db.chunk.max_depth">
+    <xsl:for-each select="$node/*[contains($db.chunk.chunks_,
+                                    concat(' ', local-name(.), ' '))]">
+      <xsl:call-template name="db.chunk">
+        <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk + 1"/>
+      </xsl:call-template>
+    </xsl:for-each>
+  </xsl:if>
+  <xsl:if test="$depth_of_chunk = 0">
+    <xsl:call-template name="db.chunk">
+      <xsl:with-param name="node" select="$node"/>
+      <xsl:with-param name="template" select="'info'"/>
+      <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk + 1"/>
+    </xsl:call-template>
+  </xsl:if>
 </xsl:template>
 
 
@@ -593,15 +547,19 @@
   <xsl:choose>
     <xsl:when test="$db.chunk.chunk_top">
       <xsl:call-template name="db.chunk">
-        <xsl:with-param name="node" select="*"/>
+        <xsl:with-param name="node" select="*[1]"/>
         <xsl:with-param name="depth_of_chunk" select="0"/>
       </xsl:call-template>
     </xsl:when>
     <xsl:otherwise>
-      <xsl:apply-templates mode="db.chunk.mode" select="*">
+      <xsl:apply-templates mode="db.chunk.content.mode" select="*">
         <xsl:with-param name="depth_in_chunk" select="0"/>
         <xsl:with-param name="depth_of_chunk" select="0"/>
       </xsl:apply-templates>
+      <xsl:call-template name="db.chunk.children">
+        <xsl:with-param name="node" select="*[1]"/>
+        <xsl:with-param name="depth_of_chunk" select="0"/>
+      </xsl:call-template>
     </xsl:otherwise>
   </xsl:choose>
 </xsl:template>
