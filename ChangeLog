@@ -1,5 +1,11 @@
 2005-03-10  Christian Persch  <chpe@cvs.gnome.org>
 
+	* gnome-doc-utils.m4:
+
+	Fix for srcdir != builddir. Part of bug #169768.
+
+2005-03-10  Christian Persch  <chpe@cvs.gnome.org>
+
 	* xslt/docbook/common/Makefile.am:
 	* xslt/gettext/Makefile.am:
 
