@@ -1,5 +1,10 @@
 2004-09-20  Shaun McCance  <shaunm@gnome.org>
 
+	* gnome-doc-utils.make:
+	- Do the dist checks in the target reqs, also s/disc/dist/
+
+2004-09-20  Shaun McCance  <shaunm@gnome.org>
+
 	* Makefile.am:
 	* configure.in:
 	* gnome-doc-utils.m4:

@@ -383,16 +383,13 @@ dist-omf:
 dist-dsk:
 	echo dist-dsk
 
-_dist_docs = $(if $(DOC_MODULE),dist-docs)
-_dist_omf  = $(if $(_DOC_OMF_IN),dist-omf)
-_dist_dsk  = $(if $(_DOC_DSK_IN),dist-dsk)
-
 echo-hook:
-	echo $(_disc_docs)
+	echo $(_dist_docs)
 
-dist-hook: 						\
-	$(_dist_omf)		$(_dist_dsk)		\
-	$(_dist_docs)
+dist-hook: 					\
+	$(if $(DOC_MODULE),dist-docs)		\
+	$(if $(_DOC_OMF_IN),dist-omf)		\
+	$(if $(_DOC_DSK_IN),dist-dsk)
 
 all: $(_DOC_ALL)
 
