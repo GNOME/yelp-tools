@@ -85,15 +85,15 @@ class MessageOutput:
         out.write("""msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\\n"
 "POT-Creation-Date: %s\\n"
-"Language-Team: LANGUAGE\\n"
-"Last-Translator: TRANSLATOR\\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\\n"
+"Language-Team: LANGUAGE <LL@li.org>\\n"
 "MIME-Version: 1.0\\n"
 "Content-Type: text/plain; charset=UTF-8\\n"
 "Content-Transfer-Encoding: 8bit\\n"
 
-""" % (time.strftime("%Y-%m-%d %H:%M %z")))
+""" % (time.strftime("%Y-%m-%d %H:%M%z")))
 
     def outputAll(self, out):
         self.outputHeader(out)
