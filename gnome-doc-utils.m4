@@ -2,22 +2,22 @@ dnl GNOME_DOC_INIT
 
 AC_DEFUN([GNOME_DOC_INIT],
 [
-AC_ARG_WITH([helpdir],
-  AC_HELP_STRING([--with-helpdir=DIR], [path to help docs]),,
-  [with_helpdir='${datadir}/gnome/help'])
-HELP_DIR="$with_helpdir"
+AC_ARG_WITH([help-dir],
+  AC_HELP_STRING([--with-help-dir=DIR], [path to help docs]),,
+  [with_help_dir='${datadir}/gnome/help'])
+HELP_DIR="$with_help_dir"
 AC_SUBST(HELP_DIR)
 
-AC_ARG_WITH([omfdir],
-  AC_HELP_STRING([--with-omfdir=DIR], [path to OMF files]),,
-  [with_omfdir='${datadir}/omf'])
-OMF_DIR="$with_omfdir"
+AC_ARG_WITH([omf-dir],
+  AC_HELP_STRING([--with-omf-dir=DIR], [path to OMF files]),,
+  [with_omf_dir='${datadir}/omf'])
+OMF_DIR="$with_omf_dir"
 AC_SUBST(OMF_DIR)
 
-AC_ARG_WITH([helpformats],
-  AC_HELP_STRING([--with-helpformats=FORMATS], [list of formats]),,
-  [with_helpformats=''])
-DOC_USER_FORMATS="$with_helpformats"
+AC_ARG_WITH([help-formats],
+  AC_HELP_STRING([--with-help-formats=FORMATS], [list of formats]),,
+  [with_help_formats=''])
+DOC_USER_FORMATS="$with_help_formats"
 AC_SUBST(DOC_USER_FORMATS)
 
 GNOME_DOC_RULE='include $(top_srcdir)/gnome-doc-utils.make'

@@ -1,5 +1,12 @@
 2004-09-20  Shaun McCance  <shaunm@gnome.org>
 
+	* Makefile.am:
+	* configure.in:
+	* gnome-doc-utils.m4:
+	- Hooked up --enable-build-utils
+
+2004-09-20  Shaun McCance  <shaunm@gnome.org>
+
 	* gnome-doc-utils.make:
 	- Initial hooks for xml2po magic
 	- Set up a (non-working) dist-hook, since EXTRA_DIST can't do subdirs
