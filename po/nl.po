@@ -8,313 +8,350 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-10-08 11:22+0200\n"
-"PO-Revision-Date: 2004-10-08 11:43+0200\n"
+"POT-Creation-Date: 2004-10-21 11:25+0200\n"
+"PO-Revision-Date: 2004-10-29 22:11+0200\n"
 "Last-Translator: Taco Witte <tcwitte@cs.uu.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit"
+"Content-Transfer-Encoding: 8bit\n"
 
-#. Section %t{number}
+#. Chapter %t{number}
 #: xslt/docbook/common/db-format.xml.in.h:2
-msgid "format.section.label,header"
-msgstr "format.section.label,header"
+msgid "format.chapter.label"
+msgstr "format.chapter.label"
+
+#. FIXME
+#: xslt/docbook/common/db-format.xml.in.h:4
+msgid "format.citetitle"
+msgstr "format.citetitle"
+
+#. FIXME
+#: xslt/docbook/common/db-format.xml.in.h:6
+msgid "format.date"
+msgstr "format.date"
+
+#. %t{parent}-%1{number}
+#: xslt/docbook/common/db-format.xml.in.h:8
+msgid "format.example.number"
+msgstr "format.example.number"
+
+#. %1{number}
+#: xslt/docbook/common/db-format.xml.in.h:10
+msgid "format.example.number.flat"
+msgstr "format.example.number.flat"
+
+#. Figure %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:12
+msgid "format.figure.label"
+msgstr "format.figure.label"
+
+#. %t{parent}-%1{number}
+#: xslt/docbook/common/db-format.xml.in.h:14
+msgid "format.figure.number"
+msgstr "format.figure.number"
+
+#. %1{number}
+#: xslt/docbook/common/db-format.xml.in.h:16
+msgid "format.figure.number.flat"
+msgstr "format.figure.number.flat"
+
+#. ‘%t{node}’
+#: xslt/docbook/common/db-format.xml.in.h:18
+msgid "format.quote.outer"
+msgstr "format.quote.outer"
 
 #. Section %t{number}
-#: xslt/docbook/common/db-format.xml.in.h:4
-msgid "format.section.label,subject"
-msgstr "format.section.label,subject"
+#: xslt/docbook/common/db-format.xml.in.h:20
+msgid "format.section.label"
+msgstr "format.section.label"
 
-#: xslt/docbook/common/db-format.xml.in.h:6
-#, no-c-format
-msgid "‘%t{node}’"
-msgstr "‘%t{node}’"
+#. Table %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:22
+msgid "format.table.label"
+msgstr "format.table.label"
 
-#: xslt/docbook/common/db-format.xml.in.h:8
-#, no-c-format
-msgid "“%t{node}”"
-msgstr "“%t{node}”"
+#. %t{parent}-%1{number}
+#: xslt/docbook/common/db-format.xml.in.h:24
+msgid "format.table.number"
+msgstr "format.table.number"
+
+#. %1{number}
+#: xslt/docbook/common/db-format.xml.in.h:26
+msgid "format.table.number.flat"
+msgstr "format.table.number.flat"
 
 #: xslt/gettext/l10n.xml.in.h:1
-msgid "&#8216;"
-msgstr "&#8216;"
-
-#: xslt/gettext/l10n.xml.in.h:2
-msgid "&#8217;"
-msgstr "&#8217;"
-
-#: xslt/gettext/l10n.xml.in.h:3
-msgid "&#8220;"
-msgstr "&#8220;"
-
-#: xslt/gettext/l10n.xml.in.h:4
-msgid "&#8221;"
-msgstr "&#8221;"
-
-#: xslt/gettext/l10n.xml.in.h:5
 msgid "About This Article"
 msgstr "Over dit artikel"
 
-#: xslt/gettext/l10n.xml.in.h:6
+#: xslt/gettext/l10n.xml.in.h:2
 msgid "About This Bibliography"
 msgstr "Over deze bibliografie"
 
-#: xslt/gettext/l10n.xml.in.h:7
+#: xslt/gettext/l10n.xml.in.h:3
 msgid "About This Book"
 msgstr "Over dit boek"
 
-#: xslt/gettext/l10n.xml.in.h:8
+#: xslt/gettext/l10n.xml.in.h:4
 msgid "About This Chapter"
 msgstr "Over dit hoofdstuk"
 
-#: xslt/gettext/l10n.xml.in.h:9
+#: xslt/gettext/l10n.xml.in.h:5
 msgid "About This Entry"
 msgstr "Over deze ingang"
 
-#: xslt/gettext/l10n.xml.in.h:10
+#: xslt/gettext/l10n.xml.in.h:6
 msgid "About This Glossary"
 msgstr "Over deze verklarende woordenlijst"
 
-#: xslt/gettext/l10n.xml.in.h:11
+#: xslt/gettext/l10n.xml.in.h:7
 msgid "About This Index"
 msgstr "Over deze index"
 
-#: xslt/gettext/l10n.xml.in.h:12
+#: xslt/gettext/l10n.xml.in.h:8
 msgid "About This Part"
 msgstr "Over dit deel"
 
-#: xslt/gettext/l10n.xml.in.h:13
+#: xslt/gettext/l10n.xml.in.h:9
 msgid "About This Preface"
 msgstr "Over deze inleiding"
 
-#: xslt/gettext/l10n.xml.in.h:14
+#: xslt/gettext/l10n.xml.in.h:10
 msgid "About This Reference"
 msgstr "Over deze referentie"
 
-#: xslt/gettext/l10n.xml.in.h:15
+#: xslt/gettext/l10n.xml.in.h:11
 msgid "About This Section"
 msgstr "Over deze paragraaf"
 
-#: xslt/gettext/l10n.xml.in.h:16
+#: xslt/gettext/l10n.xml.in.h:12
 msgid "About This Set"
 msgstr "Over deze verzameling"
 
-#: xslt/gettext/l10n.xml.in.h:17
+#: xslt/gettext/l10n.xml.in.h:13
 msgid "Affiliation"
 msgstr "Verwantschap"
 
-#: xslt/gettext/l10n.xml.in.h:18
-msgid "Appendix"
-msgstr "Appendix"
-
-#: xslt/gettext/l10n.xml.in.h:19
-msgid "Article"
-msgstr "Artikel"
-
-#: xslt/gettext/l10n.xml.in.h:20
+#: xslt/gettext/l10n.xml.in.h:14
 msgid "Audience"
 msgstr "Doelgroep"
 
-#: xslt/gettext/l10n.xml.in.h:21
+#: xslt/gettext/l10n.xml.in.h:15
 msgid "Author"
 msgstr "Auteur"
 
-#: xslt/gettext/l10n.xml.in.h:22
+#: xslt/gettext/l10n.xml.in.h:16
 msgid "Authors"
 msgstr "Auteurs"
 
-#: xslt/gettext/l10n.xml.in.h:23
-msgid "Bibliography"
-msgstr "Bibliografie"
-
-#: xslt/gettext/l10n.xml.in.h:24
-msgid "Book"
-msgstr "Boek"
-
-#: xslt/gettext/l10n.xml.in.h:25
+#: xslt/gettext/l10n.xml.in.h:17
 msgid "Caution"
 msgstr "Let op"
 
-#: xslt/gettext/l10n.xml.in.h:26
-msgid "Chapter"
-msgstr "Hoofdstuk"
-
-#: xslt/gettext/l10n.xml.in.h:27
+#: xslt/gettext/l10n.xml.in.h:18
 msgid "Collaborator"
 msgstr "Medewerker"
 
-#: xslt/gettext/l10n.xml.in.h:28
+#: xslt/gettext/l10n.xml.in.h:19
 msgid "Collaborators"
 msgstr "Medewerkers"
 
-#: xslt/gettext/l10n.xml.in.h:29
+#: xslt/gettext/l10n.xml.in.h:20
 msgid "Colophon"
 msgstr "Colofon"
 
-#: xslt/gettext/l10n.xml.in.h:30
+#: xslt/gettext/l10n.xml.in.h:21
 msgid "Contents"
 msgstr "Inhoud"
 
-#: xslt/gettext/l10n.xml.in.h:31
+#: xslt/gettext/l10n.xml.in.h:22
 msgid "Copyright"
 msgstr "Auteursrecht"
 
-#: xslt/gettext/l10n.xml.in.h:32
+#: xslt/gettext/l10n.xml.in.h:23
 msgid "Copyrights"
 msgstr "Auteursrechten"
 
-#: xslt/gettext/l10n.xml.in.h:33
+#: xslt/gettext/l10n.xml.in.h:24
 msgid "Date"
 msgstr "Datum"
 
-#: xslt/gettext/l10n.xml.in.h:34
+#: xslt/gettext/l10n.xml.in.h:25
 msgid "Dedication"
 msgstr "Toewijding"
 
-#: xslt/gettext/l10n.xml.in.h:35
+#: xslt/gettext/l10n.xml.in.h:26
 msgid "Editor"
 msgstr "Redacteur"
 
-#: xslt/gettext/l10n.xml.in.h:36
+#: xslt/gettext/l10n.xml.in.h:27
 msgid "Editors"
 msgstr "Redacteurs"
 
-#: xslt/gettext/l10n.xml.in.h:37
+#: xslt/gettext/l10n.xml.in.h:28
 msgid "Email"
 msgstr "E-mail"
 
-#: xslt/gettext/l10n.xml.in.h:38
-msgid "Example"
-msgstr "Voorbeeld"
-
-#: xslt/gettext/l10n.xml.in.h:39
-msgid "Figure"
-msgstr "Figuur"
-
-#: xslt/gettext/l10n.xml.in.h:40
-msgid "Glossary"
-msgstr "Verklarende woordenlijst"
-
-#: xslt/gettext/l10n.xml.in.h:41
+#: xslt/gettext/l10n.xml.in.h:29
 msgid "Important"
 msgstr "Belangrijk"
 
-#: xslt/gettext/l10n.xml.in.h:42
+#: xslt/gettext/l10n.xml.in.h:30
 msgid "Index"
 msgstr "Index"
 
-#: xslt/gettext/l10n.xml.in.h:43
+#: xslt/gettext/l10n.xml.in.h:31
 msgid "Legal Notice"
 msgstr "Juridische opmerking"
 
-#: xslt/gettext/l10n.xml.in.h:44
+#: xslt/gettext/l10n.xml.in.h:32
 msgid "Level"
 msgstr "Niveau"
 
-#: xslt/gettext/l10n.xml.in.h:45
+#: xslt/gettext/l10n.xml.in.h:33
 msgid "Message Audience"
 msgstr "Berichtsdoelgroep"
 
-#: xslt/gettext/l10n.xml.in.h:46
+#: xslt/gettext/l10n.xml.in.h:34
 msgid "Message Level"
 msgstr "Berichtsniveau"
 
-#: xslt/gettext/l10n.xml.in.h:47
+#: xslt/gettext/l10n.xml.in.h:35
 msgid "Message Origin"
 msgstr "Berichtsoorsprong"
 
-#: xslt/gettext/l10n.xml.in.h:48
+#: xslt/gettext/l10n.xml.in.h:36
 msgid "Note"
 msgstr "Opmerking"
 
-#: xslt/gettext/l10n.xml.in.h:49
+#: xslt/gettext/l10n.xml.in.h:37
 msgid "Origin"
 msgstr "Oorsprong"
 
-#: xslt/gettext/l10n.xml.in.h:50
+#: xslt/gettext/l10n.xml.in.h:38
 msgid "Other Contributor"
 msgstr "Andere medewerker"
 
-#: xslt/gettext/l10n.xml.in.h:51
+#: xslt/gettext/l10n.xml.in.h:39
 msgid "Other Contributors"
 msgstr "Andere medewerkers"
 
-#: xslt/gettext/l10n.xml.in.h:52
-msgid "Part"
-msgstr "Deel"
-
-#: xslt/gettext/l10n.xml.in.h:53
+#: xslt/gettext/l10n.xml.in.h:40
 msgid "Preface"
 msgstr "Inleiding"
 
-#: xslt/gettext/l10n.xml.in.h:54
+#: xslt/gettext/l10n.xml.in.h:41
 msgid "Publisher"
 msgstr "Uitgever"
 
-#: xslt/gettext/l10n.xml.in.h:55
+#: xslt/gettext/l10n.xml.in.h:42
 msgid "Publishers"
 msgstr "Uitgevers"
 
-#: xslt/gettext/l10n.xml.in.h:56
+#: xslt/gettext/l10n.xml.in.h:43
 msgid "Reference"
 msgstr "Referentie"
 
-#: xslt/gettext/l10n.xml.in.h:57
-msgid "Reference Entry"
-msgstr "Referentie ingang"
-
-#: xslt/gettext/l10n.xml.in.h:58
-msgid "Reference Section"
-msgstr "Referentie paragraaf"
-
-#: xslt/gettext/l10n.xml.in.h:59
+#: xslt/gettext/l10n.xml.in.h:44
 msgid "Release Information"
 msgstr "Uitgave-informatie"
 
-#: xslt/gettext/l10n.xml.in.h:60
+#: xslt/gettext/l10n.xml.in.h:45
 msgid "Revision History"
 msgstr "Overzicht van herzieningen"
 
-#: xslt/gettext/l10n.xml.in.h:61
-msgid "Section"
-msgstr "Paragraaf"
-
-#: xslt/gettext/l10n.xml.in.h:62
+#: xslt/gettext/l10n.xml.in.h:46
 msgid "See"
 msgstr "Zie"
 
-#: xslt/gettext/l10n.xml.in.h:63
+#: xslt/gettext/l10n.xml.in.h:47
 msgid "See Also"
 msgstr "Zie ook"
 
-#: xslt/gettext/l10n.xml.in.h:64
+#: xslt/gettext/l10n.xml.in.h:48
 msgid "Set Index"
 msgstr "Verzamelingsindex"
 
-#: xslt/gettext/l10n.xml.in.h:65
-msgid "Table"
-msgstr "Tabel"
-
-#: xslt/gettext/l10n.xml.in.h:66
+#: xslt/gettext/l10n.xml.in.h:49
 msgid "Table of Contents"
 msgstr "Inhoudsopgave"
 
-#: xslt/gettext/l10n.xml.in.h:67
+#: xslt/gettext/l10n.xml.in.h:50
 msgid "Tip"
 msgstr "Tip"
 
-#: xslt/gettext/l10n.xml.in.h:68
+#: xslt/gettext/l10n.xml.in.h:51
 msgid "Title"
 msgstr "Titel"
 
-#: xslt/gettext/l10n.xml.in.h:69
+#: xslt/gettext/l10n.xml.in.h:52
 msgid "Unknown"
 msgstr "Onbekend"
 
-#: xslt/gettext/l10n.xml.in.h:70
+#: xslt/gettext/l10n.xml.in.h:53
 msgid "Warning"
 msgstr "Waarschuwing"
+
+#~ msgid "format.section.label,subject"
+#~ msgstr "format.section.label,subject"
+
+#~ msgid "‘%t{node}’"
+#~ msgstr "‘%t{node}’"
+
+#~ msgid "“%t{node}”"
+#~ msgstr "“%t{node}”"
+
+#~ msgid "&#8216;"
+#~ msgstr "&#8216;"
+
+#~ msgid "&#8217;"
+#~ msgstr "&#8217;"
+
+#~ msgid "&#8220;"
+#~ msgstr "&#8220;"
+
+#~ msgid "&#8221;"
+#~ msgstr "&#8221;"
+
+#~ msgid "Appendix"
+#~ msgstr "Appendix"
+
+#~ msgid "Article"
+#~ msgstr "Artikel"
+
+#~ msgid "Bibliography"
+#~ msgstr "Bibliografie"
+
+#~ msgid "Book"
+#~ msgstr "Boek"
+
+#~ msgid "Chapter"
+#~ msgstr "Hoofdstuk"
+
+#~ msgid "Example"
+#~ msgstr "Voorbeeld"
+
+#~ msgid "Figure"
+#~ msgstr "Figuur"
+
+#~ msgid "Glossary"
+#~ msgstr "Verklarende woordenlijst"
+
+#~ msgid "Part"
+#~ msgstr "Deel"
+
+#~ msgid "Reference Entry"
+#~ msgstr "Referentie ingang"
+
+#~ msgid "Reference Section"
+#~ msgstr "Referentie paragraaf"
+
+#~ msgid "Section"
+#~ msgstr "Paragraaf"
+
+#~ msgid "Table"
+#~ msgstr "Tabel"
 
 #~ msgid "%t{name} %t{number}"
 #~ msgstr "%t{name} %t{number}"
