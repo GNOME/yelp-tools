@@ -1,3 +1,7 @@
+2005-04-06  Danilo Šegan  <dsegan@gmx.net>
+
+	* configure.in (ALL_LINGUAS): Added "sr" and "sr@Latn".
+
 2005-04-04  Shaun McCance  <shaunm@gnome.org>
 
 	* gnome-doc-utils.make:

@@ -26,7 +26,7 @@ GETTEXT_PACKAGE=gnome-doc-utils
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE")
 
-ALL_LINGUAS="ar bg ca cs da de el en_CA en_GB es et fi fr gu hi hu id it ja ko lt nb ne nl no pa pt pt_BR ro rw sk sq sv tr uk vi wa zh_CN zh_TW"
+ALL_LINGUAS="ar bg ca cs da de el en_CA en_GB es et fi fr gu hi hu id it ja ko lt nb ne nl no pa pt pt_BR ro rw sk sq sr sr@Latn sv tr uk vi wa zh_CN zh_TW"
 
 AM_GLIB_GNU_GETTEXT
 
