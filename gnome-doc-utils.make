@@ -255,7 +255,7 @@ $(_DOC_LC_DOCS) : $(_DOC_C_DOCS)
 	cp C/$(shell echo $@ | sed -e 's/^.*\///') $@
 
 $(_DOC_LINGUAS):
-	if ! test -d $@; then echo $@; fi
+	if ! test -d $@; then mkdir $@; fi
 
 ################################################################################
 ## @@ All Documentation

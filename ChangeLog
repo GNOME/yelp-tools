@@ -1,5 +1,13 @@
 2004-07-22  Shaun McCance  <shaunm@gnome.org>
 
+	* gnome-doc-utils.make:
+	- echo is not mkdir
+
+	* xslt/docbook/html/db2html-callout.xsl:
+	- Some stylistic stuff
+
+2004-07-22  Shaun McCance  <shaunm@gnome.org>
+
 	* configure.in:
 	- s/GNOME-DOC-UTILS/GNOME_DOC_UTILS/
 

@@ -8,29 +8,54 @@
 <doc:title>Callout Elements</doc:title>
 
 
+<!-- == Color Parameters =================================================== -->
+
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.co.color</name>
-</parameter>
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.co.background_color</name>
-</parameter>
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.co.border_color</name>
-</parameter>
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.co.color.hover</name>
-</parameter>
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.co.background_color.hover</name>
-</parameter>
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.co.border_color.hover</name>
+  <description>
+    The text color for callout dingbats
+  </description>
 </parameter>
 <xsl:param name="db2html.co.color" select="'#FFFFFF'"/>
+
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.co.background_color</name>
+  <description>
+    The background color for callout dingbats
+  </description>
+</parameter>
 <xsl:param name="db2html.co.background_color" select="'#000000'"/>
+
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.co.border_color</name>
+  <description>
+    The border color for callout dingbats
+  </description>
+</parameter>
 <xsl:param name="db2html.co.border_color" select="'#000000'"/>
+
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.co.color.hover</name>
+  <description>
+    The hover text color for callout dingbats
+  </description>
+</parameter>
 <xsl:param name="db2html.co.color.hover" select="'#FFFFFF'"/>
+
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.co.background_color.hover</name>
+  <description>
+    The hover background color for callout dingbat
+  </description>
+</parameter>
 <xsl:param name="db2html.co.background_color.hover" select="'#333333'"/>
+
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.co.border_color.hover</name>
+  <description>
+    The hover border color for callout dingbats
+  </description>
+</parameter>
 <xsl:param name="db2html.co.border_color.hover" select="'#333333'"/>
 
 
@@ -46,18 +71,19 @@
 <xsl:template name="db2html.callout.css">
   <xsl:text>
     span[class="co"] {
+      font-size: 8px;
       padding-left:  0.4em;
       padding-right: 0.4em;
       margin-left:   0.2em;
       margin-right:  0.2em;
       border: solid 1px;
+      -moz-border-radius: 8px;
       color: </xsl:text>
       <xsl:value-of select="$db2html.co.color"/><xsl:text>;
       background-color: </xsl:text>
       <xsl:value-of select="$db2html.co.background_color"/><xsl:text>;
       border-color: </xsl:text>
       <xsl:value-of select="$db2html.co.border_color"/><xsl:text>;
-      -moz-border-radius: 0.6em;
     }
     span[class="co"]:hover {
       color: </xsl:text>
