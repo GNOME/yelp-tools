@@ -8,13 +8,13 @@
 <ref:title>Titles and Subtitles</ref:title>
 
 
-<!-- == db2html-title.label == -->
+<!-- == db2html.title.label == -->
 
-<ref:refname>db2html-title.label</ref:refname>
+<ref:refname>db2html.title.label</ref:refname>
 <ref:refpurpose></ref:refpurpose>
 <ref:para></ref:para>
 
-<xsl:template name="db2html-title.label">
+<xsl:template name="db2html.title.label">
   <xsl:param name="node" select="."/>
   <span class="label">
     <xsl:call-template name="db2html-label.label">
@@ -24,20 +24,20 @@
 </xsl:template>
 
 
-<!-- == db2html-title.title.block == -->
+<!-- == db2html.title.block == -->
 
-<ref:refname>db2html-title.title.block</ref:refname>
+<ref:refname>db2html.title.block</ref:refname>
 <ref:refpurpose></ref:refpurpose>
 <ref:para></ref:para>
 
-<xsl:template name="db2html-title.title.block">
+<xsl:template name="db2html.title.block">
   <xsl:param name="node" select="."/>
   <div class="{name(.)}">
     <xsl:call-template name="db2html-xref.anchor">
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
     <i>
-      <xsl:call-template name="db2html-title.label">
+      <xsl:call-template name="db2html.title.label">
 	<xsl:with-param name="node" select="$node"/>
       </xsl:call-template>
     </i>
@@ -46,13 +46,13 @@
 </xsl:template>
 
 
-<!-- == db2html-title.title.simple == -->
+<!-- == db2html.title.simple == -->
 
-<ref:refname>db2html-title.title.simple</ref:refname>
+<ref:refname>db2html.title.simple</ref:refname>
 <ref:refpurpose></ref:refpurpose>
 <ref:para></ref:para>
 
-<xsl:template name="db2html-title.title.simple">
+<xsl:template name="db2html.title.simple">
   <xsl:param name="node" select="."/>
   <div class="{local-name(.)}">
     <xsl:call-template name="db2html-xref.anchor">
@@ -65,13 +65,13 @@
 </xsl:template>
 
 
-<!-- == db2html-title.title.header == -->
+<!-- == db2html.title.header == -->
 
-<ref:refname>db2html-title.title.header</ref:refname>
+<ref:refname>db2html.title.header</ref:refname>
 <ref:refpurpose></ref:refpurpose>
 <ref:para></ref:para>
 
-<xsl:template name="db2html-title.title.header">
+<xsl:template name="db2html.title.header">
   <xsl:param name="node" select="."/>
   <xsl:param name="depth_in_chunk">
     <xsl:call-template name="db2html-depth.depth-in-chunk">
@@ -97,7 +97,7 @@
     <xsl:call-template name="db2html-xref.anchor">
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
-    <xsl:call-template name="db2html-title.label">
+    <xsl:call-template name="db2html.title.label">
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
     <xsl:apply-templates select="$node/node()"/>
@@ -105,17 +105,17 @@
 </xsl:template>
 
 <xsl:template match="title">
-  <xsl:call-template name="db2html-title.title.header"/>
+  <xsl:call-template name="db2html.title.header"/>
 </xsl:template>
 
 
-<!-- == db2html-title.subtitle.header == -->
+<!-- == db2html.subtitle.header == -->
 
-<ref:refname>db2html-title.subtitle.header</ref:refname>
+<ref:refname>db2html.subtitle.header</ref:refname>
 <ref:refpurpose></ref:refpurpose>
 <ref:para></ref:para>
 
-<xsl:template name="db2html-title.subtitle.header">
+<xsl:template name="db2html.subtitle.header">
   <xsl:param name="node" select="."/>
   <xsl:param name="depth_in_chunk">
     <xsl:call-template name="db2html-depth.depth-in-chunk">
@@ -141,7 +141,7 @@
     <xsl:call-template name="db2html-xref.anchor">
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
-    <xsl:call-template name="db2html-title.label">
+    <xsl:call-template name="db2html.title.label">
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
     <xsl:apply-templates select="$node/node()"/>
@@ -149,7 +149,7 @@
 </xsl:template>
 
 <xsl:template match="subtitle">
-  <xsl:call-template name="db2html-title.subtitle.header"/>
+  <xsl:call-template name="db2html.subtitle.header"/>
 </xsl:template>
 
 </xsl:stylesheet>

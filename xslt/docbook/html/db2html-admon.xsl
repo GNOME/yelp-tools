@@ -8,51 +8,51 @@
 <ref:title>Admonitions</ref:title>
 
 
-<!-- == db2html_admon.graphics_path == -->
+<!-- == db2html.admon.graphics_path == -->
 
-<ref:refname>db2html_admon.graphics_path</ref:refname>
+<ref:refname>db2html.admon.graphics_path</ref:refname>
 <ref:refpurpose>The path to admonition graphics</ref:refpurpose>
 
-<xsl:param name="db2html_admon.graphics_path"/>
+<xsl:param name="db2html.admon.graphics_path"/>
 
 
-<!-- == db2html_admon.graphics_extension == -->
+<!-- == db2html.admon.graphics_extension == -->
 
-<ref:refname>db2html_admon.graphics_extension</ref:refname>
+<ref:refname>db2html.admon.graphics_extension</ref:refname>
 <ref:refpurpose>The file extension for admonition graphics</ref:refpurpose>
 
-<xsl:param name="db2html_admon.graphics_extension" select="'png'"/>
+<xsl:param name="db2html.admon.graphics_extension" select="'png'"/>
 
 
-<!-- == db2html_admon.text_only == -->
+<!-- == db2html.admon.text_only == -->
 
-<ref:refname>db2html_admon.text_only</ref:refname>
+<ref:refname>db2html.admon.text_only</ref:refname>
 <ref:refpurpose>Whether to render admonitions text-only</ref:refpurpose>
 
-<xsl:param name="db2html_admon.text_only" select="false()"/>
+<xsl:param name="db2html.admon.text_only" select="false()"/>
 
 
-<!-- == db2html-admon.admon -->
+<!-- == db2html.admon -->
 
-<ref:refname>db2html-admon.admon</ref:refname>
+<ref:refname>db2html.admon</ref:refname>
 <ref:refpurpose>Render admonition elements</ref:refpurpose>
 <ref:para>
   This template renders the DocBook admonition elements.  The template
-  simply calls <ref:function>db2html-admon.admon.text</ref:function> or
-  <ref:function>db2html-admon.admon.boxed</ref:function>, depending on
-  the value of <ref:parameter>$db2html_admon.text_only</ref:parameter>.
+  simply calls <ref:function>db2html.admon.text</ref:function> or
+  <ref:function>db2html.admon.boxed</ref:function>, depending on
+  the value of <ref:parameter>$db2html.admon.text_only</ref:parameter>.
 </ref:para>
 
-<xsl:template name="db2html-admon.admon">
+<xsl:template name="db2html.admon">
   <xsl:param name="node" select="."/>
   <xsl:choose>
-    <xsl:when test="$db2html_admon.text_only">
-      <xsl:call-template name="db2html-admon.admon.text">
+    <xsl:when test="$db2html.admon.text_only">
+      <xsl:call-template name="db2html.admon.text">
 	<xsl:with-param name="node" select="$node"/>
       </xsl:call-template>
     </xsl:when>
     <xsl:otherwise>
-      <xsl:call-template name="db2html-admon.admon.boxed">
+      <xsl:call-template name="db2html.admon.boxed">
 	<xsl:with-param name="node" select="$node"/>
       </xsl:call-template>
     </xsl:otherwise>
@@ -60,7 +60,7 @@
 </xsl:template>
 
 <xsl:template match="caution | important | note | tip | warning">
-  <xsl:call-template name="db2html-admon.admon"/>
+  <xsl:call-template name="db2html.admon"/>
 </xsl:template>
 
 <xsl:template match="
@@ -73,21 +73,21 @@
 </xsl:template>
 
 
-<!-- == db2html-admon.admon.boxed -->
+<!-- == db2html.admon.boxed -->
 
-<ref:refname>db2html-admon.admon.boxed</ref:refname>
+<ref:refname>db2html.admon.boxed</ref:refname>
 <ref:refpurpose>
   Render admonition elements as stylized boxes with admonition graphics
 </ref:refpurpose>
 
-<xsl:template name="db2html-admon.admon">
+<xsl:template name="db2html.admon">
   <xsl:param name="node" select="."/>
   <div class="admonition">
     <div class="{name(.)}">
       <table style="border: none;">
 	<tr>
 	  <td rowspan="2" align="center" valign="top" class="image">
-	    <xsl:call-template name="db2html-admon.image">
+	    <xsl:call-template name="db2html.admon.image">
 	      <xsl:with-param name="node" select="$node"/>
 	    </xsl:call-template>
 	  </td>
@@ -106,14 +106,14 @@
 </xsl:template>
 
 
-<!-- == db2html-admon.admon.text -->
+<!-- == db2html.admon.text -->
 
-<ref:refname>db2html-admon.admon.text</ref:refname>
+<ref:refname>db2html.admon.text</ref:refname>
 <ref:refpurpose>
   Render admonition elements as simple text blocks
 </ref:refpurpose>
 
-<xsl:template name="db2html-admon.admon">
+<xsl:template name="db2html.admon">
   <xsl:param name="node" select="."/>
   <div class="admonition">
     <div class="{name(.)}">
@@ -126,20 +126,20 @@
 </xsl:template>
 
 
-<!-- == db2html-admon.image -->
+<!-- == db2html.admon.image -->
 
-<ref:refname>db2html-admon.image</ref:refname>
+<ref:refname>db2html.admon.image</ref:refname>
 <ref:refpurpose>
   Create the <ref:xmltag>img</ref:xmltag> for an admonition graphic
 </ref:refpurpose>
 
-<xsl:template name="db2html-admon.image">
+<xsl:template name="db2html.admon.image">
   <xsl:param name="node" select="."/>
   <img>
     <xsl:attribute name="src">
-      <xsl:value-of select="$db2html_admon.graphics_path"/>
+      <xsl:value-of select="$db2html.admon.graphics_path"/>
       <xsl:value-of select="name($node)"/>
-      <xsl:value-of select="$db2html_admon.graphics_extension"/>
+      <xsl:value-of select="$db2html.admon.graphics_extension"/>
     </xsl:attribute>
   </img>
 </xsl:template>
