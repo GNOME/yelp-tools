@@ -1,5 +1,10 @@
 2005-01-02  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/xsldoc/xsldoc.xsl:
+	- Always output at least one refsection
+
+2005-01-02  Shaun McCance  <shaunm@gnome.org>
+
 	* doc/xslt/C/gnome-doc-xslt.xml:
 	* xslt/docbook/common/Makefile.am:
 	* xslt/docbook/common/db-format.xml.in:
