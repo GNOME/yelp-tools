@@ -250,9 +250,12 @@ _DOC_LC_DOCS =								\
 
 # FIXME: fix the dependancy
 # FIXME: hook xml2po up
+$(_DOC_LC_DOCS) : $(_DOC_LINGUAS)
 $(_DOC_LC_DOCS) : $(_DOC_C_DOCS)
 	cp C/$(shell echo $@ | sed -e 's/^.*\///') $@
 
+$(_DOC_LINGUAS):
+	if ! test -d $@; then echo $@; fi
 
 ################################################################################
 ## @@ All Documentation
