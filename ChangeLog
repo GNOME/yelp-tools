@@ -1,3 +1,8 @@
+2005-01-23  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/html/db2html-info.xsl:
+	- Changed 'Other Credits' to 'Other Contributors'
+
 2005-01-19  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/common/db-xref.xsl:

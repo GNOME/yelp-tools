@@ -420,7 +420,8 @@
     <div>
       <h2 class="othercredit">
         <xsl:call-template name="gettext">
-          <xsl:with-param name="msgid" select="'Other Credits'"/>
+          <xsl:with-param name="msgid" select="'Other Contributor'"/>
+          <xsl:with-param name="number" select="count($othercredits)"/>
         </xsl:call-template>
       </h2>
       <dl>
