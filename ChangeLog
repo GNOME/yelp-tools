@@ -1,3 +1,8 @@
+2005-01-24  Shaun McCance  <shaunm@gnome.org>
+
+	* Makefile.am:
+	- Dont put gnome-doc-utils.make in DISTCLEANFILES (#160292) (kmarass)
+
 2005-01-23  Alessio Frusciante  <algol@firenze.linux.it>
 
 	* configure.in: Added "it" (Italian) to ALL_LINGUAS.
