@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gnome-doc-utils 0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-11-23 16:57+0900\n"
-"PO-Revision-Date: 2004-11-23 16:59+0900\n"
+"PO-Revision-Date: 2004-11-24 06:59+0900\n"
 "Last-Translator: Satoru SATOH <ss@gnome.gr.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "MIME-Version: 1.0\n"
@@ -18,121 +18,117 @@ msgstr ""
 #. Appendix %t{number}
 #: xslt/docbook/common/db-format.xml.in.h:2
 msgid "format.appendix.label"
-msgstr "format.appendix.label"
+msgstr ""
 
 #. Chapter %t{number}
 #: xslt/docbook/common/db-format.xml.in.h:4
 msgid "format.chapter.label"
-msgstr "format.chapter.label"
+msgstr ""
 
 #: xslt/docbook/common/db-format.xml.in.h:5
 msgid "format.citetitle"
-msgstr "format.citetitle"
+msgstr ""
 
 #. FIXME
 #: xslt/docbook/common/db-format.xml.in.h:7
 msgid "format.date"
-msgstr "format.date"
+msgstr ""
 
 #. Figure %t{example}
 #: xslt/docbook/common/db-format.xml.in.h:9
 msgid "format.example.label"
-msgstr "format.example.label"
+msgstr ""
 
 #. %t{parent}-%1{number}
 #: xslt/docbook/common/db-format.xml.in.h:11
 msgid "format.example.number"
-msgstr "format.example.number"
+msgstr ""
 
 #. %1{number}
 #: xslt/docbook/common/db-format.xml.in.h:13
 msgid "format.example.number.flat"
-msgstr "format.example.number.flat"
+msgstr ""
 
 #. Figure %t{number}
 #: xslt/docbook/common/db-format.xml.in.h:15
 msgid "format.figure.label"
-msgstr "format.figure.label"
+msgstr ""
 
 #. %t{parent}-%1{number}
 #: xslt/docbook/common/db-format.xml.in.h:17
 msgid "format.figure.number"
-msgstr "format.figure.number"
+msgstr ""
 
 #. %1{number}
 #: xslt/docbook/common/db-format.xml.in.h:19
 msgid "format.figure.number.flat"
-msgstr "format.figure.number.flat"
+msgstr ""
 
 #. ‘%t{node}’
 #: xslt/docbook/common/db-format.xml.in.h:21
 msgid "format.quote.inner"
-msgstr "format.quote.inner"
+msgstr ""
 
 #. “%t{node}”
 #: xslt/docbook/common/db-format.xml.in.h:23
 msgid "format.quote.outer"
-msgstr "format.quote.outer"
+msgstr ""
 
 #. Section %t{number}
 #: xslt/docbook/common/db-format.xml.in.h:25
 msgid "format.section.label"
-msgstr "format.section.label"
+msgstr ""
 
 #. Table %t{number}
 #: xslt/docbook/common/db-format.xml.in.h:27
 msgid "format.table.label"
-msgstr "format.table.label"
+msgstr ""
 
 #. %t{parent}-%1{number}
 #: xslt/docbook/common/db-format.xml.in.h:29
 msgid "format.table.number"
-msgstr "format.table.number"
+msgstr ""
 
 #. %1{number}
 #: xslt/docbook/common/db-format.xml.in.h:31
 msgid "format.table.number.flat"
-msgstr "format.table.number.flat"
+msgstr ""
 
 #. Used as a header before a list of authors.
 #: xslt/gettext/l10n.xml.in.h:2
 msgid "<msgstr form=\"0\">Author</msgstr> <msgstr form=\"1\">Authors</msgstr>"
-msgstr "<msgstr form=\"0\">著者</msgstr> <msgstr form=\"1\">著者</msgstr>"
+msgstr "著者"
 
 #. Used as a header before a list of collaborators.
 #: xslt/gettext/l10n.xml.in.h:4
 msgid ""
 "<msgstr form=\"0\">Collaborator</msgstr> <msgstr form=\"1\">Collaborators</"
 "msgstr>"
-msgstr ""
-"<msgstr form=\"0\">協力者</msgstr> <msgstr form=\"1\">協力者</msgstr>"
+msgstr "協力者"
 
 #. Used as a header before a list of copyrights.
 #: xslt/gettext/l10n.xml.in.h:6
 msgid ""
 "<msgstr form=\"0\">Copyright</msgstr> <msgstr form=\"1\">Copyrights</msgstr>"
-msgstr ""
-"<msgstr form=\"0\">著作</msgstr> <msgstr form=\"1\">著作</msgstr>"
+msgstr "著作"
 
 #. Used as a header before a list of editors.
 #: xslt/gettext/l10n.xml.in.h:8
 msgid "<msgstr form=\"0\">Editor</msgstr> <msgstr form=\"1\">Editors</msgstr>"
-msgstr "<msgstr form=\"0\">編集</msgstr> <msgstr form=\"1\">編集</msgstr>"
+msgstr "編集"
 
 #. Used as a header before a list of contributors.
 #: xslt/gettext/l10n.xml.in.h:10
 msgid ""
 "<msgstr form=\"0\">Other Contributor</msgstr> <msgstr form=\"1\">Other "
 "Contributors</msgstr>"
-msgstr ""
-"<msgstr form=\"0\">他の協力者</msgstr><msgstr form=\"1\">他の協力者</msgstr>"
+msgstr "他の協力者"
 
 #. Used as a header before a list of publishers.
 #: xslt/gettext/l10n.xml.in.h:12
 msgid ""
 "<msgstr form=\"0\">Publisher</msgstr> <msgstr form=\"1\">Publishers</msgstr>"
-msgstr ""
-"<msgstr form=\"0\">発行者</msgstr> <msgstr form=\"1\">発行者</msgstr>"
+msgstr "発行者"
 
 #: xslt/gettext/l10n.xml.in.h:13
 msgid "About This Article"
