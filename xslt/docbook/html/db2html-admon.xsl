@@ -1,7 +1,7 @@
 <?xml version='1.0'?>
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-		xmlns:ref="http://www.gnome.org/~shaunm/mallard/refentry"
+		xmlns:ref="http://www.gnome.org/~shaunm/mallard/reference"
 		exclude-result-prefixes="ref"
                 version="1.0">
 

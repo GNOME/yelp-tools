@@ -2,10 +2,15 @@
 ## Public variables
 
 DOC_MODULE ?=
+
+# Files included with a SYSTEM entity
 DOC_ENTITIES ?=
+
+# Files included with XInclude
 DOC_INCLUDES ?=
 
-DOC_FORMATS ?=
+# Any of docbook, html, man, and info
+DOC_FORMATS ?= docbook
 
 DOC_LINGUAS ?=
 DOC_PODIR ?= $(DOC_MODULE).po
@@ -35,40 +40,39 @@ _xsldoc ?= `pkg-config --variable xsldoc gnome-doc-utils`
 ################################################################################
 ## Setting internal variables
 
-_RNGDOC_RNGS = $(foreach dir,$(RNGDOC_DIRS),		\
+_RNGDOC_RNGS = $(foreach dir,$(RNGDOC_DIRS),				\
 	$(wildcard $(dir)/*.rng))
-_RNGDOC_C_DOCS = $(foreach rng,$(_RNGDOC_RNGS),		\
+_RNGDOC_C_DOCS = $(foreach rng,$(_RNGDOC_RNGS),				\
 	C/$(basename $(notdir $(rng))).xml)
-
-_XSLDOC_XSLS = $(foreach dir,$(XSLDOC_DIRS),		\
-	$(wildcard $(dir)/*.xsl))
-_XSLDOC_C_DOCS = $(foreach xsl,$(_XSLDOC_XSLS),		\
-	C/$(basename $(notdir $(xsl))).xml)
-
-_DOC_C_ENTITIES = $(foreach ent,$(DOC_ENTITIES),C/$(ent))
-_DOC_C_INCLUDES = $(foreach inc,$(DOC_INCLUDES),C/$(inc))
-
-_DOC_C_MODULES = C/$(DOC_MODULE).xml
-_DOC_C_DOCS =							\
-	$(_DOC_C_ENTITIES) $(_DOC_C_INCLUDES)			\
-	$(_RNGDOC_C_DOCS)  $(_XSLDOC_C_DOCS)			\
-	$(_DOC_C_MODULES)
-
 _RNGDOC_LC_DOCS =							\
 	$(foreach lc,$(DOC_LINGUAS),$(foreach doc,$(_RNGDOC_C_DOCS),	\
 		$(lc)/$(notdir $(doc)) ))
+
+_XSLDOC_XSLS = $(foreach dir,$(XSLDOC_DIRS),				\
+	$(wildcard $(dir)/*.xsl))
+_XSLDOC_C_DOCS = $(foreach xsl,$(_XSLDOC_XSLS),				\
+	C/$(basename $(notdir $(xsl))).xml)
 _XSLDOC_LC_DOCS =							\
 	$(foreach lc,$(DOC_LINGUAS),$(foreach doc,$(_XSLDOC_C_DOCS),	\
 		$(lc)/$(notdir $(doc)) ))
 
+_DOC_C_ENTITIES = $(foreach ent,$(DOC_ENTITIES),C/$(ent))
 _DOC_LC_ENTITIES =							\
 	$(foreach lc,$(DOC_LINGUAS),$(foreach ent,$(_DOC_C_ENTITIES),	\
 		$(lc)/$(notdir $(ent)) ))
+
+_DOC_C_INCLUDES = $(foreach inc,$(DOC_INCLUDES),C/$(inc))
 _DOC_LC_INCLUDES =							\
 	$(foreach lc,$(DOC_LINGUAS),$(foreach inc,$(_DOC_C_INCLUDES),	\
 		$(lc)/$(notdir $(inc)) ))
 
+_DOC_C_MODULES = C/$(DOC_MODULE).xml
 _DOC_LC_MODULES = $(foreach lc,$(DOC_LINGUAS),$(lc)/$(DOC_MODULE).xml)
+
+_DOC_C_DOCS =								\
+	$(_DOC_C_ENTITIES) $(_DOC_C_INCLUDES)				\
+	$(_RNGDOC_C_DOCS)  $(_XSLDOC_C_DOCS)				\
+	$(_DOC_C_MODULES)
 _DOC_LC_DOCS =								\
 	$(_DOC_LC_ENTITIES) $(_DOC_LC_INCLUDES)				\
 	$(_RNGDOC_LC_DOCS)  $(_XSLDOC_LC_DOCS)				\
@@ -94,6 +98,7 @@ all: $(_DOC_C_DOCS) C/$(DOC_MODULE).omf C/$(DOC_MODULE).desktop
 ################################################################################
 ## The clean target
 
+.PHONY: clean-lc-docs clean-omf clean-desktop clean-rngdoc clean-xsldoc
 clean: clean-lc-docs clean-omf clean-desktop clean-rngdoc clean-xsldoc
 clean-lc-docs :	; rm -f $(_DOC_LC_DOCS)
 clean-omf :	; rm -f $(_DOC_OMF_OUTS)
@@ -133,14 +138,21 @@ $(_DOC_OMF_OUTS) : %/$(DOC_MODULE).omf : %/$(DOC_MODULE).xml
 ################################################################################
 ## Building rngdoc and xsldoc files
 
-id_param = --stringparam $(1)doc.id \
-	$(shell echo $(basename $(notdir $(2))) | sed -e 's/[^A-Za-z0-9_-]/_/g')
-
 # Fix the dependancies on these!
 
-$(_RNGDOC_C_DOCS) : C/% : $(filter $(basename %), $(_RNGDOC_RNGS))
-	xsltproc -o $@ $(_RNGDOC_PARAMS) $(call id_param,rng,$@) $(_rngdoc) $<
+xsldoc_args =									\
+	$(_RNGDOC_PARAMS) --stringparam rngdoc.id				\
+	$(shell echo $(basename $(notdir $(1))) | sed -e 's/[^A-Za-z0-9_-]/_/g')\
+	$(_rngdoc) $(filter %/$(basename $(notdir $(1))).rng,$(_RNGDOC_RNGS))
 
-$(_XSLDOC_C_DOCS) : C/% : $(filter $(basename %), $(_XSLDOC_XSLS))
-	xsltproc -o $@ $(_XSLDOC_PARAMS) $(call id_param,xsl,$@) $(_xsldoc) $<
+$(_RNGDOC_C_DOCS) : C/% : $(filter $(basename %), $(_RNGDOC_RNGS))
+	xsltproc -o $@ $(call rngdoc_args,$@)
+
+xsldoc_args =									\
+	$(_XSLDOC_PARAMS) --stringparam xsldoc.id				\
+	$(shell echo $(basename $(notdir $(1))) | sed -e 's/[^A-Za-z0-9_-]/_/g')\
+	$(_xsldoc) $(filter %/$(basename $(notdir $(1))).xsl,$(_XSLDOC_XSLS))
+
+$(_XSLDOC_C_DOCS) : C/% : $(_XSLDOC_XSLS)
+	xsltproc -o $@ $(call xsldoc_args,$@)
 

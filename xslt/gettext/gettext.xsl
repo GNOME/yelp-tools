@@ -1,11 +1,16 @@
 <?xml version='1.0'?>
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-		xmlns:ref="http://www.gnome.org/~shaunm/mallard/refentry"
+		xmlns:ref="http://www.gnome.org/~shaunm/mallard/reference"
                 version="1.0">
 
 <xsl:variable name="l10n" select="document('l10n.xml')"/>
 <xsl:key name="msgid" match="msg" use="msgid"/>
+
+<ref:title>Gettext</ref:title>
+
+
+<!-- == gettext == -->
 
 <ref:refname>gettext</ref:refname>
 

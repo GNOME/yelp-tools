@@ -1,3 +1,24 @@
+2004-04-03  Shaun McCance  <shaunm@gnome.org>
+
+	* gnome-doc-utils.make:
+	- Got the xsldoc and rngdoc builds working
+
+	* doc/xslt/C/gnome-doc-xslt.xml:
+	- Sectioned off db2html
+
+	* xslt/docbook/html/db2html-admon.xsl:
+	* xslt/docbook/html/db2html-cmdsynopsis.xsl:
+	* xslt/docbook/html/db2html-inline.xsl:
+	* xslt/docbook/html/db2html-label.xsl:
+	* xslt/docbook/html/db2html-title.xsl:
+	* xslt/docbook/omf/db2omf.xsl:
+	* xslt/gettext/gettext.xsl:
+	- s/refentry/reference/
+
+	* xslt/xsldoc/xsldoc.xsl:
+	- Split out xsldoc.params
+	- Put in xsldoc.named
+
 2004-04-02  Shaun McCance  <shaunm@gnome.org>
 
 	* gnome-doc-utils.make:
