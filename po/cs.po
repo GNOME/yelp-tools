@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-08 23:55+0100\n"
-"PO-Revision-Date: 2004-11-08 23:59+0100\n"
+"POT-Creation-Date: 2004-11-09 11:12+0100\n"
+"PO-Revision-Date: 2004-11-09 15:08+0100\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,9 @@ msgstr "Kapitola %t{number}"
 
 #: xslt/docbook/common/db-format.xml.in.h:3
 msgid "format.citetitle"
-msgstr "<msg:msgstr role=\"article\">„%t{node}”</msg:msgstr> <msg:msgstr><i>%t{node}</i></msg:msgstr>"
+msgstr ""
+"<msg:msgstr role=\"article\">„%t{node}”</msg:msgstr> <msg:msgstr><i>%t{node}"
+"</i></msg:msgstr>"
 
 #. FIXME
 #: xslt/docbook/common/db-format.xml.in.h:5
@@ -62,26 +64,31 @@ msgstr "%1{number}"
 
 #. ‘%t{node}’
 #: xslt/docbook/common/db-format.xml.in.h:19
+msgid "format.quote.inner"
+msgstr "‚%t{node}’"
+
+#. “%t{node}”
+#: xslt/docbook/common/db-format.xml.in.h:21
 msgid "format.quote.outer"
 msgstr "„%t{node}”"
 
 #. Section %t{number}
-#: xslt/docbook/common/db-format.xml.in.h:21
+#: xslt/docbook/common/db-format.xml.in.h:23
 msgid "format.section.label"
 msgstr "Oddíl %t{number}"
 
 #. Table %t{number}
-#: xslt/docbook/common/db-format.xml.in.h:23
+#: xslt/docbook/common/db-format.xml.in.h:25
 msgid "format.table.label"
 msgstr "Tabulka %t{number}"
 
 #. %t{parent}-%1{number}
-#: xslt/docbook/common/db-format.xml.in.h:25
+#: xslt/docbook/common/db-format.xml.in.h:27
 msgid "format.table.number"
 msgstr "%t{parent}.%1{number}"
 
 #. %1{number}
-#: xslt/docbook/common/db-format.xml.in.h:27
+#: xslt/docbook/common/db-format.xml.in.h:29
 msgid "format.table.number.flat"
 msgstr "%1{number}"
 
