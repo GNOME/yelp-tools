@@ -8,19 +8,11 @@
 <doc:title>Images and Other Media</doc:title>
 
 
-<!-- == db2html.media.mediadata ============================================ -->
+<!-- == db2html.imagedata ================================================== -->
 
-<xsl:template name="db2html.media.mediadata">
-  <xsl:variable name="element">
-    <xsl:choose>
-      <xsl:when test="self::imagedata or self::graphic or self::inlinegraphic">
-        <xsl:value-of select="'img'"/>
-      </xsl:when>
-    </xsl:choose>
-  </xsl:variable>
-  <xsl:element name="{$element}">
+<xsl:template name="db2html.imagedata">
+  <img>
     <xsl:attribute name="src">
-      <xsl:value-of select="$mediaobject_path"/>
       <xsl:choose>
         <xsl:when test="@fileref">
           <!-- FIXME: do this less stupidly, or not at all -->
@@ -68,47 +60,50 @@
         <xsl:value-of select="phrase[1]"/>
       </xsl:attribute>
     </xsl:if>
-  </xsl:element>
+    <!-- FIXME: longdesc -->
+  </img>
 </xsl:template>
 
 
-<!-- == db2html.media.mediaobject ========================================== -->
+<!-- == db2html.mediaobject ================================================ -->
 
-<xsl:template name="db2html.media.mediaobject">
+<xsl:template name="db2html.mediaobject">
   <xsl:choose>
-		<xsl:when test="$text_only">
-			<xsl:apply-templates select="textobject[1]"/>
-		</xsl:when>
-		<xsl:when test="imageobject[imagedata/@format = 'PNG']">
-			<xsl:apply-templates
-					select="imageobject[imagedata/@format = 'PNG'][1]">
-				<xsl:with-param name="textobject" select="textobject[1]"/>
-			</xsl:apply-templates>
-		</xsl:when>
-		<xsl:when test="imageobjectco[imageobject/imagedata/@format = 'PNG']">
-			<xsl:apply-templates
-					select="imageobjectco[imageobject/imagedata/@format = 'PNG'][1]">
-				<xsl:with-param name="textobject" select="textobject[1]"/>
-			</xsl:apply-templates>
-		</xsl:when>
-		<xsl:otherwise>
-			<xsl:apply-templates select="(imageobject | imageobjectco)[1]">
-				<xsl:with-param name="textobject" select="textobject[1]"/>
-			</xsl:apply-templates>
-		</xsl:otherwise>
-	</xsl:choose>
+    <xsl:when test="$text_only">
+      <xsl:apply-templates select="textobject[1]"/>
+    </xsl:when>
+    <xsl:when test="imageobject[imagedata/@format = 'PNG']">
+      <xsl:apply-templates
+       select="imageobject[imagedata/@format = 'PNG'][1]">
+        <xsl:with-param name="textobject" select="textobject[1]"/>
+      </xsl:apply-templates>
+    </xsl:when>
+    <xsl:when test="imageobjectco[imageobject/imagedata/@format = 'PNG']">
+      <xsl:apply-templates
+       select="imageobjectco[imageobject/imagedata/@format = 'PNG'][1]">
+        <xsl:with-param name="textobject" select="textobject[1]"/>
+      </xsl:apply-templates>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:apply-templates select="(imageobject | imageobjectco)[1]">
+        <xsl:with-param name="textobject" select="textobject[1]"/>
+      </xsl:apply-templates>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
-<!-- ======================================================================= -->
+
+<!-- == Matched Templates ================================================== -->
+
+<!-- = graphic = -->
+<xsl:template match="graphic">
+  <div class="graphic">
+    <xsl:call-template name="db2html.anchor"/>
+    <xsl:call-template name="db2html.imagedata"/>
+  </div>
+</xsl:template>
 
 <!--
-<xsl:template match="graphic">
-	<xsl:param name="textobject" select="false()"/>
-	<xsl:call-template name="mediadata">
-		<xsl:with-param name="textobject" select="textobject"/>
-	</xsl:call-template>
-</xsl:template>
-
 <xsl:template match="graphicco">
 	<xsl:param name="textobject" select="false()"/>
 	<xsl:call-template name="anchor"/>
@@ -123,21 +118,19 @@
 
 <xsl:template match="audioobject">
 </xsl:template>
+-->
 
+<!-- = imagedata = -->
 <xsl:template match="imagedata">
-	<xsl:param name="textobject" select="false()"/>
-	<xsl:call-template name="mediadata">
-		<xsl:with-param name="textobject" select="textobject"/>
-	</xsl:call-template>
+  <xsl:call-template name="db2html.imagedata"/>
 </xsl:template>
 
+<!-- = imageobject = -->
 <xsl:template match="imageobject">
-	<xsl:param name="textobject" select="false()"/>
-	<xsl:apply-templates select="imagedata">
-		<xsl:with-param name="textobject" select="$textobject"/>
-	</xsl:apply-templates>
+  <xsl:apply-templates select="imagedata"/>
 </xsl:template>
 
+<!--
 <xsl:template match="imageobjectco">
 	<xsl:param name="textobject" select="false()"/>
 	<xsl:call-template name="anchor"/>
@@ -146,43 +139,48 @@
 	</xsl:apply-templates>
 	<xsl:apply-templates select="calloutlist"/>
 </xsl:template>
+-->
 
+<!-- = inlinegraphic = -->
 <xsl:template match="inlinegraphic">
-	<xsl:param name="textobject" select="false()"/>
-	<span class="{name(.)}">
-		<xsl:call-template name="anchor"/>
-		<xsl:call-template name="mediadata">
-			<xsl:with-param name="textobject" select="textobject"/>
-		</xsl:call-template>
-	</span>
+  <span class="inlinegraphic">
+    <xsl:call-template name="db2html.anchor"/>
+    <xsl:call-template name="db2html.imagedata"/>
+  </span>
 </xsl:template>
 
+<!-- = inlinemediaobject = -->
 <xsl:template match="inlinemediaobject">
-	<span class="{name(.)}">
-		<xsl:call-template name="anchor"/>
-		<xsl:call-template name="mediaobject"/>
-	</span>
+  <span class="inlinemediaobject">
+    <xsl:call-template name="db2html.anchor"/>
+    <xsl:call-template name="db2html.mediaobject"/>
+  </span>
 </xsl:template>
 
+<!-- = mediaojbect = -->
 <xsl:template match="mediaobject">
-	<div class="{name(.)}">
-		<xsl:call-template name="anchor"/>
-		<xsl:call-template name="mediaobject"/>
-		<xsl:apply-templates select="caption"/>
-	</div>
+  <div class="mediaobject">
+    <xsl:call-template name="db2html.anchor"/>
+    <xsl:call-template name="db2html.mediaobject"/>
+    <xsl:apply-templates select="caption"/>
+  </div>
 </xsl:template>
 
+<!--
 <xsl:template match="mediaobjectco">
 	<div class="{name(.)}">
 		<xsl:call-template name="anchor"/>
 		<xsl:call-template name="mediaobject"/>
 	</div>
 </xsl:template>
+-->
 
+<!-- = screenshot = -->
 <xsl:template match="screenshot">
-	<xsl:call-template name="block.simple"/>
+  <xsl:call-template name="db2html.block"/>
 </xsl:template>
 
+<!--
 <xsl:template match="textdata">
 </xsl:template>
 
@@ -195,7 +193,5 @@
 <xsl:template match="videoobject">
 </xsl:template>
 -->
-
-<!-- ======================================================================= -->
 
 </xsl:stylesheet>

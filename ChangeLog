@@ -1,3 +1,18 @@
+2004-05-21  Shaun McCance  <shaunm@gnome.org>
+
+	* configure.in:
+	* test/Makefile.am:
+	* test/testdocs/Makefile:
+	* test/testdocs/Makefile.am:
+	- Just having a Makefile for testdocs, and not using autostuff
+
+	* xslt/docbook/html/db2html-list.xsl:
+	- Implemented orderedlist and procedure
+
+	* xslt/docbook/html/db2html-media.xsl:
+	- Changed mediadata to imagedata, only using with imagedata and *graphic
+	- Implemented some elements
+
 2004-05-19  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/html/Makefile.am:

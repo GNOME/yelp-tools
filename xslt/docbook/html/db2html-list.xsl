@@ -7,6 +7,7 @@
 
 <doc:title>Lists</doc:title>
 
+
 <!-- ======================================================================= -->
 <!-- == itemizedlist ======================================================= -->
 
@@ -49,130 +50,161 @@
         </xsl:choose>
       </xsl:attribute>
     </xsl:if>
-    <xsl:call-template name="anchor"/>
+    <xsl:call-template name="db2html.anchor"/>
     <xsl:apply-templates/>
   </li>
 </xsl:template>
 
+
 <!-- ======================================================================= -->
 <!-- == orderedlist ======================================================== -->
 
-<!--
+
+<!-- == db2html.orderedlist.start ========================================== -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.orderedlist.start</name>
+  <description>
+    Determine the starting number for an ordered list
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The <xmltag>orderedlist</xmltag> element
+    </description>
+  </parameter>
+</template>
+
 <xsl:template name="orderedlist.start">
-	<xsl:param name="list" select="."/>
-	<xsl:choose>
-		<xsl:when test="$list/@continutation != 'continues'">1</xsl:when>
-		<xsl:otherwise>
-			<xsl:variable name="prevlist"
-				select="$list/preceding::orderedlist[1]"/>
-			<xsl:choose>
-				<xsl:when test="count($prevlist) = 0">1</xsl:when>
-				<xsl:otherwise>
-					<xsl:variable name="prevlength" select="count($prevlist/listitem)"/>
-					<xsl:variable name="prevstart">
-						<xsl:call-template name="orderedlist.start">
-							<xsl:with-param name="list" select="$prevlist"/>
-						</xsl:call-template>
-					</xsl:variable>
-					<xsl:value-of select="$prevstart + $prevlength"/>
-				</xsl:otherwise>
-			</xsl:choose>
-		</xsl:otherwise>
-	</xsl:choose>
+  <xsl:param name="node" select="."/>
+  <xsl:choose>
+    <xsl:when test="@continutation != 'continues'">1</xsl:when>
+    <xsl:otherwise>
+      <xsl:variable name="prevlist"
+                    select="preceding::orderedlist[1]"/>
+      <xsl:choose>
+        <xsl:when test="count($prevlist) = 0">1</xsl:when>
+        <xsl:otherwise>
+          <xsl:variable name="prevlength" select="count($prevlist/listitem)"/>
+          <xsl:variable name="prevstart">
+            <xsl:call-template name="orderedlist.start">
+              <xsl:with-param name="node" select="$prevlist"/>
+            </xsl:call-template>
+          </xsl:variable>
+          <xsl:value-of select="$prevstart + $prevlength"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
+
+<!-- = orderedlist = -->
 <xsl:template match="orderedlist">
-	<xsl:variable name="start">
-		<xsl:choose>
-			<xsl:when test="@continuation = 'continues'">
-				<xsl:call-template name="orderedlist.start"/>
-			</xsl:when>
-			<xsl:otherwise>1</xsl:otherwise>
-		</xsl:choose>
-	</xsl:variable>
-	<div class="{name(.)}">
-		<xsl:call-template name="anchor"/>
-		<xsl:apply-templates select="*[name(.) != 'listitem']"/>
-		<ol>
-			<xsl:if test="@numeration">
-				<xsl:attribute name="type">
-					<xsl:choose>
-						<xsl:when test="@numeration = 'arabic'">1</xsl:when>
-						<xsl:when test="@numeration = 'loweralpha'">a</xsl:when>
-						<xsl:when test="@numeration = 'lowerroman'">i</xsl:when>
-						<xsl:when test="@numeration = 'upperalpha'">A</xsl:when>
-						<xsl:when test="@numeration = 'upperroman'">I</xsl:when>
-						<xsl:otherwise>1</xsl:otherwise>
-					</xsl:choose>
-				</xsl:attribute>
-			</xsl:if>
-			<xsl:if test="$start != '1'">
-				<xsl:attribute name="start">
-					<xsl:value-of select="$start"/>
-				</xsl:attribute>
-			</xsl:if>
-			<xsl:if test="@spacing = 'compact'">
-				<xsl:attribute name="compact">
-					<xsl:value-of select="@spacing"/>
-				</xsl:attribute>
-			</xsl:if>
-			 FIXME: inheritnum
-			<xsl:apply-templates select="listitem"/>
-		</ol>
-	</div>
+  <xsl:variable name="start">
+    <xsl:choose>
+      <xsl:when test="@continuation = 'continues'">
+        <xsl:call-template name="orderedlist.start"/>
+      </xsl:when>
+      <xsl:otherwise>1</xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+  <div class="orderedlist">
+    <xsl:call-template name="db2html.anchor"/>
+    <xsl:apply-templates select="*[name(.) != 'listitem']"/>
+    <ol>
+      <xsl:if test="@numeration">
+        <xsl:attribute name="type">
+          <xsl:choose>
+            <xsl:when test="@numeration = 'arabic'">1</xsl:when>
+            <xsl:when test="@numeration = 'loweralpha'">a</xsl:when>
+            <xsl:when test="@numeration = 'lowerroman'">i</xsl:when>
+            <xsl:when test="@numeration = 'upperalpha'">A</xsl:when>
+            <xsl:when test="@numeration = 'upperroman'">I</xsl:when>
+            <xsl:otherwise>1</xsl:otherwise>
+          </xsl:choose>
+        </xsl:attribute>
+      </xsl:if>
+      <xsl:if test="$start != '1'">
+        <xsl:attribute name="start">
+          <xsl:value-of select="$start"/>
+        </xsl:attribute>
+      </xsl:if>
+      <xsl:if test="@spacing = 'compact'">
+        <xsl:attribute name="compact">
+          <xsl:value-of select="@spacing"/>
+        </xsl:attribute>
+      </xsl:if>
+      <!-- FIXME: @inheritnum -->
+      <xsl:apply-templates select="listitem"/>
+    </ol>
+  </div>
 </xsl:template>
 
+<!-- = orderedlist/listitem = -->
 <xsl:template match="orderedlist/listitem">
-	<li>
-		<xsl:if test="@override">
-			<xsl:attribute name="value">
-				<xsl:value-of select="@override"/>
-			</xsl:attribute>
-		</xsl:if>
-		<xsl:call-template name="anchor"/>
-		<xsl:apply-templates/>
-	</li>
+  <li>
+    <xsl:if test="@override">
+      <xsl:attribute name="value">
+        <xsl:value-of select="@override"/>
+      </xsl:attribute>
+    </xsl:if>
+    <xsl:call-template name="db2html.anchor"/>
+    <xsl:apply-templates/>
+  </li>
 </xsl:template>
--->
+
 
 <!-- ======================================================================= -->
 <!-- == procedure ========================================================== -->
 
-<!--
+<!-- = procedure = -->
 <xsl:template match="procedure">
-	<div class="{name(.)}">
-		<xsl:call-template name="anchor"/>
-		<xsl:apply-templates select="*[name(.) != 'step']"/>
-		<xsl:choose>
-			<xsl:when test="count(step) = 1">
-				<ul>
-					<xsl:apply-templates select="step"/>
-				</ul>
-			</xsl:when>
-			<xsl:otherwise>
-				<ol>
-					<xsl:apply-templates select="step"/>
-				</ol>
-			</xsl:otherwise>
-		</xsl:choose>
-	</div>	
+  <div class="procedure">
+    <xsl:call-template name="db2html.anchor"/>
+    <xsl:apply-templates select="*[name(.) != 'step']"/>
+    <xsl:choose>
+      <xsl:when test="count(step) = 1">
+        <ul>
+          <xsl:apply-templates select="step"/>
+        </ul>
+      </xsl:when>
+      <xsl:otherwise>
+        <ol>
+          <xsl:apply-templates select="step"/>
+        </ol>
+      </xsl:otherwise>
+    </xsl:choose>
+  </div>	
 </xsl:template>
 
+<!-- FIXME: Do something with @performance -->
+
+<!-- = step = -->
 <xsl:template match="step">
-	<li>
-		<xsl:apply-templates/>
-	</li>
+  <li>
+    <xsl:apply-templates/>
+  </li>
 </xsl:template>
 
+<!-- = substeps = -->
 <xsl:template match="substeps">
-	<div class="{name(.)}">
-		<xsl:call-template name="anchor"/>
-		<ol>
-			<xsl:apply-templates/>
-		</ol>
-	</div>
+  <xsl:variable name="depth" select="count(ancestor::substeps)"/>
+  <div class="substeps">
+    <xsl:call-template name="db2html.anchor"/>
+    <ol>
+      <xsl:attribute name="type">
+        <xsl:choose>
+          <xsl:when test="$depth mod 3 = 0">a</xsl:when>
+          <xsl:when test="$depth mod 3 = 1">i</xsl:when>
+          <xsl:when test="$depth mod 3 = 2">1</xsl:when>
+        </xsl:choose>
+      </xsl:attribute>
+      <xsl:apply-templates/>
+    </ol>
+  </div>
 </xsl:template>
--->
+
 
 <!-- ======================================================================= -->
 <!-- == segmentedlist ====================================================== -->
@@ -248,8 +280,8 @@
 
 <!--
 <xsl:template match="variablelist">
-	<div class="{name(.)}">
-		<xsl:call-template name="anchor"/>
+	<div class="variablelist">
+		<xsl:call-template name="db2html.anchor"/>
 		<xsl:apply-templates select="*[name(.) != 'varlistentry']"/>
 		<dl>
 			<xsl:apply-templates select="varlistentry"/>
@@ -259,7 +291,7 @@
 
 <xsl:template match="varlistentry">
 	<dt>
-		<xsl:call-template name="anchor"/>
+		<xsl:call-template name="db2html.anchor"/>
 		<xsl:for-each select="term">
 			<xsl:if test="position() != 1">
 				<xsl:text>, </xsl:text>
@@ -272,7 +304,7 @@
 
 <xsl:template match="varlistentry/listitem">
 	<dd>
-		<xsl:call-template name="anchor"/>
+		<xsl:call-template name="db2html.anchor"/>
 		<xsl:apply-templates/>
 	</dd>
 </xsl:template>
