@@ -8,6 +8,8 @@ commondir = $(datadir)/xml2po
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = xml2po.pc
 
+man_MANS = xml2po.1
+
 xml2po: xml2po.py configure.ac
 	sed -e "s/^VERSION =.*/VERSION = \"@VERSION@\"/" \
 	    -e "s+^submodes_path =.*+submodes_path = \"$(commondir)\"+" \
@@ -18,6 +20,9 @@ xml2po: xml2po.py configure.ac
 $(srcdir)/README: README.in
 	sed -e "s/\@VERSION\@/@VERSION@/g" < README.in > README
 
+xml2po.1: xml2po.1.xml
+	docbook2x-man --to-stdout xml2po.1.xml >xml2po.1
+
 publish: dist
 	scp @PACKAGE@-@VERSION@.tar.gz danilo@kvota.net:/home/danilo/kvota.net/hacks/xml2po
 
@@ -27,4 +32,6 @@ EXTRA_DIST = \
 	     README.in \
 	     TODO      \
 	     xml2po.py \
-             xml2po.pc.in
+             xml2po.pc.in \
+             xml2po.1.xml \
+	     xml2po.1

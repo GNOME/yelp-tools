@@ -9,6 +9,7 @@ config.status
 config.log
 config.sub
 xml2po
+xml2po.1
 xml2po.pc
 README
 aclocal.m4

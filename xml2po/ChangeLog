@@ -1,3 +1,9 @@
+2005-03-02  Danilo Šegan  <dsegan@gmx.net>
+
+	* .cvsignore: Added xml2po.1.
+	* xml2po.1.xml: Added manpage source by Daniel Leidert.
+	* Makefile.am: Handle "xml2po.1.xml" and "xml2po.1".
+
 2005-03-01  Danilo Šegan  <dsegan@gmx.net>
 
 	* TODO (DONE): add tags in source references and output PO header.
