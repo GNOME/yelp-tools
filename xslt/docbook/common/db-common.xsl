@@ -8,6 +8,44 @@
 <doc:title>Common DocBook Templates</doc:title>
 
 
+<!-- == db.dingbat ========================================================= -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db.dingbat</name>
+  <description>
+    Render a character from a logical name, possibly localized
+  </description>
+  <parameter>
+    <name>dingbat</name>
+    <description>
+      The logical name of the character
+    </description>
+  </parameter>
+</template>
+
+<xsl:template name="db.dingbat">
+  <xsl:param name="dingbat"/>
+  <xsl:choose>
+    <xsl:when test="$dingbat = 'copyright'">
+      <!-- U+00A9 -->
+      <xsl:value-of select="'©'"/>
+    </xsl:when>
+    <xsl:when test="$dingbat = 'registered'">
+      <!-- U+00AE -->
+      <xsl:value-of select="'®'"/>
+    </xsl:when>
+    <xsl:when test="$dingbat = 'trade'">
+      <!-- U+2122 -->
+      <xsl:value-of select="'™'"/>
+    </xsl:when>
+    <xsl:when test="$dingbat = 'service'">
+      <!-- U+2120 -->
+      <xsl:value-of select="'℠'"/>
+    </xsl:when>
+  </xsl:choose>
+</xsl:template>
+
+
 <!-- == db.personname ====================================================== -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">

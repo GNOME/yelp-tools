@@ -80,7 +80,7 @@
 
 <!-- = ackno = -->
 <xsl:template match="ackno">
-  <xsl:call-template name="para"/>
+  <xsl:call-template name="db2html.para"/>
 </xsl:template>
 
 <!-- = address = -->

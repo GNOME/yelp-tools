@@ -1,9 +1,17 @@
 db2html = $(top_srcdir)/xslt/docbook/html/db2html.xsl
 
-tests = $(wildcard *.xml)
-htmls = $(patsubst %.xml,%.html,$(tests))
+tests = $(filter-out template.xml,$(wildcard *.xml))
+htmls = $(patsubst %.xml,html/%,$(tests))
 
-$(htmls) : %.html : %.xml
-	xsltproc -o $@ $(db2html) $<
+htmlargs =							\
+	-o $@/$(patsubst html/%,%.html,$1)			\
+	--stringparam db.chunk.max_depth 0 			\
+	--param db.chunk.chunk_top 'false()'			\
+	--stringparam db.chunk.basename $(patsubst html/%,%,$1)	\
+	$(db2html)
 
-check-local: $(htmls)
+$(htmls) : html/% : %.xml
+	@mkdir -p $@
+	xsltproc $(call htmlargs,$@) $<
+
+test: $(htmls)

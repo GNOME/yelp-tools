@@ -10,6 +10,18 @@
 <doc:title>Chunking</doc:title>
 
 
+<!-- == db.chunk.chunk_top ================================================= -->
+
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db.chunk.chunk_top</name>
+  <description>
+    Whether the top-level chunk should be output with the chunking mechanism
+  </description>
+</parameter>
+
+<xsl:param name="db.chunk.chunk_top" select="false()"/>
+
+
 <!-- == db.chunk.max_depth ================================================= -->
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
@@ -35,6 +47,18 @@
 </xsl:param>
 
 
+<!-- == db.chunk.basename ================================================== -->
+
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db.chunk.basename</name>
+  <description>
+    The basename of the output file, without an extension
+  </description>
+</parameter>
+
+<xsl:param name="db.chunk.basename"/>
+
+
 <!-- == db.chunk.extension ================================================= -->
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
@@ -45,6 +69,78 @@
 </parameter>
 
 <xsl:param name="db.chunk.extension"/>
+
+
+<!-- == db.chunk.cover_filename ============================================ -->
+
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db.chunk.cover_filename</name>
+  <description>
+    The filename for the coversheet
+  </description>
+</parameter>
+
+<xsl:param name="db.chunk.cover_filename"
+           select="concat($db.chunk.basename, '-cover', $db.chunk.extension)"/>
+
+
+<!-- == db.chunk.info_filename ============================================= -->
+
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db.chunk.info_filename</name>
+  <description>
+    The filename for the titlepage
+  </description>
+</parameter>
+
+<xsl:param name="db.chunk.info_filename"
+           select="concat($db.chunk.basename, '-info', $db.chunk.extension)"/>
+
+
+<!-- == db.chunk.index_filename ============================================ -->
+
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db.chunk.index_filename</name>
+  <description>
+    The filename for the index
+  </description>
+</parameter>
+
+<xsl:param name="db.chunk.index_filename"
+           select="concat($db.chunk.basename, '-index', $db.chunk.extension)"/>
+
+
+<!-- == db.chunk.toc_filename ============================================== -->
+
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db.chunk.toc_filename</name>
+  <description>
+    The filename for the table of contents
+  </description>
+</parameter>
+
+<xsl:param name="db.chunk.toc_filename"
+           select="concat($db.chunk.basename, '-toc', $db.chunk.extension)"/>
+
+
+<!-- ======================================================================= -->
+
+<xsl:template match="/">
+  <xsl:choose>
+    <xsl:when test="$db.chunk.chunk_top">
+      <xsl:call-template name="db.chunk">
+        <xsl:with-param name="node" select="*"/>
+        <xsl:with-param name="depth_of_chunk" select="0"/>
+      </xsl:call-template>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:apply-templates mode="db.chunk.mode" select="*">
+        <xsl:with-param name="depth_in_chunk" select="0"/>
+        <xsl:with-param name="depth_of_chunk" select="0"/>
+      </xsl:apply-templates>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
 
 
 <!-- == db.chunk =========================================================== -->
@@ -98,7 +194,25 @@
   <xsl:param name="node" select="."/>
   <xsl:param name="info"/>
   <xsl:param name="template"/>
-  <xsl:param name="href" select="concat($node/@id, $db.chunk.extension)"/>
+  <xsl:param name="href">
+    <xsl:choose>
+      <xsl:when test="$template = 'cover'">
+        <xsl:value-of select="$db.chunk.cover_filename"/>
+      </xsl:when>
+      <xsl:when test="$template = 'info'">
+        <xsl:value-of select="$db.chunk.info_filename"/>
+      </xsl:when>
+      <xsl:when test="$template = 'index'">
+        <xsl:value-of select="$db.chunk.index_filename"/>
+      </xsl:when>
+      <xsl:when test="$template = 'toc'">
+        <xsl:value-of select="$db.chunk.toc_filename"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="concat($node/@id, $db.chunk.extension)"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:param>
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk">
       <xsl:with-param name="node" select="$node"/>

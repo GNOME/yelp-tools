@@ -319,8 +319,10 @@
   <xsl:param name="node" select="."/>
   <xsl:param name="info" select="'FIXME'"/>
   <xsl:variable name="translators" select="
+                $info/corpcredit[@role = 'translator']               |
                 $info/othercredit[@role = 'translator']              |
-                $info/authorgroup/othercredit[@role = 'translator'] "/>
+                $info/authorgroup/corpcredit[@role = 'translator']   |
+                $info/authorgroup/othercredit[@role = 'translator']  "/>
   <xsl:if test="$translators">
     <div>
       <h2 class="translator">
@@ -405,8 +407,10 @@
   <xsl:param name="node" select="."/>
   <xsl:param name="info" select="'FIXME'"/>
   <xsl:variable name="othercredits" select="
-                $info/conbrib                                       |
-                $info/othercredit[@role != 'translator']            |
+                $info/conbrib                                        |
+                $info/corpcredit[@role != 'translator']              |
+                $info/othercredit[@role != 'translator']             |
+                $info/authorgroup/corpcredit[@role != 'translator']  |
                 $info/authorgroup/othercredit[@role != 'translator'] "/>
   <xsl:if test="$othercredits">
     <div>
@@ -493,7 +497,7 @@
 <!-- = db2html.info.mode == author = -->
 <xsl:template mode="db2html.info.mode" match="author">
   <dt class="author">
-    <xsl:variable name="node" select="(. | personname)[-1]"/>
+    <xsl:variable name="node" select="(. | personname)[last()]"/>
     <xsl:call-template name="db.personname">
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
@@ -542,6 +546,24 @@
   </dt>
 </xsl:template>
 
+<!-- = db2html.info.mode == corpcredit = -->
+<xsl:template mode="db2html.info.mode" match="corpname">
+  <dt>
+    <xsl:attribute name="class">
+      <xsl:choose>
+        <xsl:when test="@role = 'translator'">
+          <xsl:text>translator</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>othercredit</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:attribute>
+    <!-- Can occur outside db2html.info.mode, so apply those templates -->
+    <xsl:apply-templates select="."/>
+  </dt>
+</xsl:template>
+
 <!-- = db2html.info.mode == copyright = -->
 <xsl:template mode="db2html.info.mode" match="copyright">
   <dt class="copyright">
@@ -568,7 +590,7 @@
 <!-- = db2html.info.mode == editor = -->
 <xsl:template mode="db2html.info.mode" match="editor">
   <dt class="editor">
-    <xsl:variable name="node" select="(. | personname)[-1]"/>
+    <xsl:variable name="node" select="(. | personname)[last()]"/>
     <xsl:call-template name="db.personname">
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
@@ -621,7 +643,7 @@
         </xsl:otherwise>
       </xsl:choose>
     </xsl:attribute>
-    <xsl:variable name="node" select="(. | personname)[-1]"/>
+    <xsl:variable name="node" select="(. | personname)[last()]"/>
     <xsl:call-template name="db.personname">
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>

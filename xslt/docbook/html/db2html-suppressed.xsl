@@ -10,6 +10,9 @@ supported, while other elements are expected only to be processed in certain
 modes because of the DocBook content model.
 -->
 
+<!-- Not supported -->
+<xsl:template match="beginpage"/>
+
 <!-- Not matched, but used by db2html.info -->
 <xsl:template match="appendixinfo"/>
 <xsl:template match="articleinfo"/>

@@ -1,5 +1,40 @@
 2004-05-10  Shaun McCance  <shaunm@gnome.org>
 
+	* test/testdocs/Makefile.am:
+	- Hooking up the testdocs right
+
+	* xslt/docbook/Makefile.am:
+	- Added common to SUBDIRS
+
+	* xslt/docbook/common/db-chunk.xsl:
+	- Added db.chunk.chunk_top and filename params for special files
+
+	* xslt/docbook/common/db-common.xsl:
+	* xslt/gettext/gettext.xsl:
+	- Moved db.dingbat from gettext to db-common
+
+	* xslt/docbook/html/db2html-block.xsl:
+	- Changed para to db2html.para, as it should be
+
+	* xslt/docbook/html/db2html-info.xsl:
+	- Added support for corpcredit
+	- Made db.personname calling work
+
+	* xslt/docbook/html/db2html-inline.xsl:
+	- Added code and corpcredit support
+	- Calling db.dingbat, now in db-common
+
+	* xslt/docbook/html/db2html-label.xsl:
+	- Fixed erroneous $sect reference
+
+	* xslt/docbook/html/db2html-suppressed.xsl:
+	- Added beginpage
+
+	* xslt/docbook/html/db2html.xsl:
+	- Moved stuff around, putting more work on db-chunk
+
+2004-05-10  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/docbook/common/Makefile.am:
 	* xslt/docbook/common/db-common.am:
 	- Added these files

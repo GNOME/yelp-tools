@@ -77,23 +77,6 @@
 
 <!-- ======================================================================= -->
 
-<xsl:template name="dingbat" doc:private="true">
-  <xsl:param name="dingbat"/>
-  <xsl:choose>
-    <xsl:when test="$dingbat = 'copyright'">
-      <xsl:value-of select="'&#x00A9;'"/>
-    </xsl:when>
-    <xsl:when test="$dingbat = 'registered'">
-      <xsl:value-of select="'&#x00AE;'"/>
-    </xsl:when>
-    <xsl:when test="$dingbat = 'trade'">
-      <xsl:value-of select="'&#x2122;'"/>
-    </xsl:when>
-    <xsl:when test="$dingbat = 'service'">
-      <xsl:value-of select="'&#x2120;'"/>
-    </xsl:when>
-  </xsl:choose>
-</xsl:template>
 
 <!-- ======================================================================= -->
 

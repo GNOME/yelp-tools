@@ -478,7 +478,7 @@
               local-name(..) = 'partintro' or
               local-name(..) = 'preface'   ">
       <xsl:number value="
-                  count(preceding-sibling::*[name(.) = name($sect)]) + 1"/>
+                  count(preceding-sibling::*[name(.) = name(current())]) + 1"/>
     </xsl:when>
     <xsl:otherwise>
       <xsl:call-template name="db2html.label.number">

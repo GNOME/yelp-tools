@@ -133,6 +133,7 @@
   <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
+<!-- = citation = -->
 <xsl:template match="citation">
   <span class="citation-punc">
     <xsl:text>[</xsl:text>
@@ -143,6 +144,13 @@
 
 <!-- = classname = -->
 <xsl:template match="classname">
+  <xsl:call-template name="db2html.inline">
+    <xsl:with-param name="mono" select="true()"/>
+  </xsl:call-template>
+</xsl:template>
+
+<!-- = code = -->
+<xsl:template match="code">
   <xsl:call-template name="db2html.inline">
     <xsl:with-param name="mono" select="true()"/>
   </xsl:call-template>
@@ -171,6 +179,11 @@
 
 <!-- = corpauthor = -->
 <xsl:template match="corpauthor">
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
+<!-- = corpcredit = -->
+<xsl:template match="corpcredit">
   <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
@@ -529,7 +542,7 @@
   <span class="productname-punc">
     <xsl:call-template name="db2html.inline"/>
     <xsl:if test="@class">
-      <xsl:call-template name="db2html.dingbat">
+      <xsl:call-template name="db.dingbat">
         <xsl:with-param name="dingbat" select="@class"/>
       </xsl:call-template>
     </xsl:if>
@@ -747,7 +760,7 @@
     </xsl:choose>
   </xsl:variable>
   <span class="trademark">
-    <xsl:call-template name="db2html.dingbat">
+    <xsl:call-template name="db.dingbat">
       <xsl:with-param name="dingbat" select="$class"/>
     </xsl:call-template>
   </span>
