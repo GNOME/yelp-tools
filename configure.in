@@ -16,6 +16,7 @@ doc/xslt/Makefile
 po/Makefile.in
 xslt/Makefile
 xslt/docbook/Makefile
+xslt/docbook/common/Makefile
 xslt/docbook/html/Makefile
 xslt/docbook/omf/Makefile
 xslt/gettext/Makefile

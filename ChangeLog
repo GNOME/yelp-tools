@@ -1,3 +1,15 @@
+2004-05-27  Shaun McCance  <shaunm@gnome.org>
+
+	* configure.in:
+	* xslt/docbook/common/Makefile.am:
+	- Fixed xslt/docbook/commom/Makefile.am and added to configure.in
+
+	* gnome-doc-utils.make:
+	- Moved some rules around and made things build
+
+	* doc/gnome-doc-make/gnome-doc-make.awk:
+	- Fixed some boundary cases and handled intro paras on sections
+
 2004-05-26  Shaun McCance  <shaunm@gnome.org>
 
 	* test/testdoc1/help/testdoc1/C/testdoc1.xml:
