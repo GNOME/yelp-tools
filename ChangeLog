@@ -1,3 +1,20 @@
+2004-05-06  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/html/Makefile.am:
+	* xslt/docbook/html/TODO:
+	* xslt/docbook/html/db2html-block.xsl:
+	* xslt/docbook/html/db2html-xref.xsl:
+	* xslt/docbook/html/db2html.xsl:
+	- Adding db2html-block and db2html-xref
+
+	* xslt/docbook/html/db2html-admon.xsl:
+	* xslt/docbook/html/db2html-inline.xsl:
+	* xslt/docbook/html/db2html-label.xsl:
+	* xslt/docbook/html/db2html-title.xsl:
+	- Fixed templates names and formatting changes
+
+	* xslt/gettext/gettext.xsl:
+	- Fixed $lang attribute default value
 2004-05-05  Shaun McCance  <shaunm@gnome.org>
 
 	* configure.in:

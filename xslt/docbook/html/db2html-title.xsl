@@ -1,9 +1,9 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='utf-8'?><!-- -*- indent-tabs-mode: nil -*- -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 		xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
 		exclude-result-prefixes="doc"
-                version="1.0">
+		version="1.0">
 
 <doc:title>Titles and Subtitles</doc:title>
 
@@ -26,7 +26,7 @@
 <xsl:template name="db2html.title.label">
   <xsl:param name="node" select="."/>
   <span class="label">
-    <xsl:call-template name="db2html-label.label">
+    <xsl:call-template name="db2html.label">
       <xsl:with-param name="node" select="$node/.."/>
     </xsl:call-template>
   </span>
@@ -51,7 +51,7 @@
 <xsl:template name="db2html.title.block">
   <xsl:param name="node" select="."/>
   <div class="{name(.)}">
-    <xsl:call-template name="db2html-xref.anchor">
+    <xsl:call-template name="db2html.anchor">
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
     <i>
@@ -82,7 +82,7 @@
 <xsl:template name="db2html.title.simple">
   <xsl:param name="node" select="."/>
   <div class="{local-name(.)}">
-    <xsl:call-template name="db2html-xref.anchor">
+    <xsl:call-template name="db2html.anchor">
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
     <b>
@@ -136,7 +136,7 @@
     <xsl:attribute name="class">
       <xsl:value-of select="local-name($node/..)"/>
     </xsl:attribute>
-    <xsl:call-template name="db2html-xref.anchor">
+    <xsl:call-template name="db2html.anchor">
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
     <xsl:call-template name="db2html.title.label">
@@ -195,7 +195,7 @@
     <xsl:attribute name="class">
       <xsl:value-of select="local-name($node/..)"/>
     </xsl:attribute>
-    <xsl:call-template name="db2html-xref.anchor">
+    <xsl:call-template name="db2html.anchor">
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
     <xsl:call-template name="db2html.title.label">

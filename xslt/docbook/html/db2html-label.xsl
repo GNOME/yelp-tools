@@ -1,8 +1,8 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='utf-8'?><!-- -*- indent-tabs-mode: nil -*- -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-		xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
-		exclude-result-prefixes="doc"
+                xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
+                exclude-result-prefixes="doc"
                 version="1.0">
 
 <doc:title>Automatic Labels</doc:title>
@@ -59,17 +59,17 @@
 <!-- == db2html.label.mode ================================================= -->
 
 <mode xmlns="http://www.gnome.org/~shaunm/xsldoc">>
-  <name>db2html.label.mode</name>
-  <FIXME/>
+<name>db2html.label.mode</name>
+<FIXME/>
 </mode>
 
 <xsl:template mode="db2html.label.mode" match="
-	      appendix  | article    | book      | bibliography | chapter    |
-	      colophon  | example    | figure    | glossary     | index      |
-	      part      | preface    | reference | refsect1     | refsect2   |
-	      refsect3  | refsection | refentry  | sect1        | sect2      |
-	      sect3     | sect4      | sect5     | section      | set        |
-	      setindex  | simplesect | table     ">
+              appendix  | article    | book      | bibliography | chapter    |
+              colophon  | example    | figure    | glossary     | index      |
+              part      | preface    | reference | refsect1     | refsect2   |
+              refsect3  | refsection | refentry  | sect1        | sect2      |
+              sect3     | sect4      | sect5     | section      | set        |
+              setindex  | simplesect | table     ">
   <xsl:call-template name="db2html.label.name"/>
   <xsl:text> </xsl:text>
   <xsl:call-template name="db2html.label.number"/>
@@ -88,12 +88,12 @@
 </xsl:template>
 
 <xsl:template mode="db2html.label.mode" match="
-	      appendixinfo | articleinfo  | bibliographyinfo | bookinfo     |
-	      chapterinfo  | glossaryinfo | indexinfo        | partinfo     |
-	      prefaceinfo  | refentryinfo | referenceinfo    | refsect1info |
-	      refsect2info | refsect3info | refsectioninfo   | sect1info    |
-	      sect2info    | sect3info    | sect4info        | sect5info    |
-	      sectioninfo  | setindexinfo | setinfo          ">
+              appendixinfo | articleinfo  | bibliographyinfo | bookinfo     |
+              chapterinfo  | glossaryinfo | indexinfo        | partinfo     |
+              prefaceinfo  | refentryinfo | referenceinfo    | refsect1info |
+              refsect2info | refsect3info | refsectioninfo   | sect1info    |
+              sect2info    | sect3info    | sect4info        | sect5info    |
+              sectioninfo  | setindexinfo | setinfo          ">
   <xsl:call-template name="db2html.label.name"/>
 </xsl:template>
 
@@ -137,8 +137,8 @@
 <!-- == db2html.label.name.mode ============================================ -->
 
 <mode xmlns="http://www.gnome.org/~shaunm/xsldoc">>
-  <name>db2html.label.name.mode</name>
-  <FIXME/>
+<name>db2html.label.name.mode</name>
+<FIXME/>
 </mode>
 
 <xsl:template mode="db2html.label.name.mode" match="appendixinfo">
@@ -208,9 +208,9 @@
 </xsl:template>
 
 <xsl:template mode="db2html.label.name.mode" match="
-	      refsect1info | refsect2info | refsect3info | refsectioninfo |
-	      sect1info    | sect2info    | sect3info    | sect4info      |
-	      sect5info    | sectioninfo  ">
+              refsect1info | refsect2info | refsect3info | refsectioninfo |
+              sect1info    | sect2info    | sect3info    | sect4info      |
+              sect5info    | sectioninfo  ">
   <xsl:call-template name="gettext">
     <xsl:with-param name="msgid" select="'About This Section'"/>
   </xsl:call-template>
@@ -349,14 +349,14 @@
 </xsl:template>
 
 <xsl:template mode="db2html.label.name.mode" match="
-	      refsect1 | refsect2 | refsect3 | refsection">
+              refsect1 | refsect2 | refsect3 | refsection">
   <xsl:call-template name="gettext">
     <xsl:with-param name="msgid" select="'Reference Section'"/>
   </xsl:call-template>
 </xsl:template>
 
 <xsl:template mode="db2html.label.name.mode" match="
-	      sect1 | sect2 | sect3 | sect4 | section | simplesect">
+              sect1 | sect2 | sect3 | sect4 | section | simplesect">
   <xsl:call-template name="gettext">
     <xsl:with-param name="msgid" select="'Section'"/>
   </xsl:call-template>
@@ -436,26 +436,26 @@
 <!-- == db2html.label.number.mode ============================================ -->
 
 <mode xmlns="http://www.gnome.org/~shaunm/xsldoc">>
-  <name>db2html.label.number.mode</name>
-  <FIXME/>
+<name>db2html.label.number.mode</name>
+<FIXME/>
 </mode>
 
 <xsl:template mode="db2html.label.number.mode" match="appendix">
   <xsl:number format="A" value="
-	      count(preceding-sibling::appendix) + 1 +
-	      count(parent::part/preceding-sibling::part/appendix)"/>
+              count(preceding-sibling::appendix) + 1 +
+              count(parent::part/preceding-sibling::part/appendix)"/>
 </xsl:template>
 
 <xsl:template mode="db2html.label.number.mode" match="article">
   <xsl:number format="I" value="$num
-	      count(preceding-sibling::article) + 1 +
-	      count(parent::part/preceding-sibling::part/article)"/>
+              count(preceding-sibling::article) + 1 +
+              count(parent::part/preceding-sibling::part/article)"/>
 </xsl:template>
 
 <xsl:template mode="db2html.label.number.mode" match="chapter">
   <xsl:number value="$num
-	      count(preceding-sibling::chapter) + 1 +
-	      count(parent::part/preceding-sibling::part/chapter)"/>
+              count(preceding-sibling::chapter) + 1 +
+              count(parent::part/preceding-sibling::part/chapter)"/>
 </xsl:template>
 
 <xsl:template mode="db2html.label.number.mode" match="part">
@@ -464,37 +464,37 @@
 
 <xsl:template mode="db2html.label.number.mode" match="reference">
   <xsl:number format="I" value="
-	      count(preceding-sibling::reference) + 1 +
-	      count(parent::part/preceding-sibling::part/reference)"/>
+              count(preceding-sibling::reference) + 1 +
+              count(parent::part/preceding-sibling::part/reference)"/>
 </xsl:template>
 
 <xsl:template mode="db2html.label.number.mode" match="
-	      refentry | refsect1   | refsect2 | refsect3 | refsection |
-	      sect1    | sect2      | sect3    | sect4    | sect5      |
-	      section  | simplesect ">
+              refentry | refsect1   | refsect2 | refsect3 | refsection |
+              sect1    | sect2      | sect3    | sect4    | sect5      |
+              section  | simplesect ">
   <xsl:choose>
     <xsl:when test="
-	      local-name(..) = 'article'   or
-	      local-name(..) = 'partintro' or
-	      local-name(..) = 'preface'   ">
+              local-name(..) = 'article'   or
+              local-name(..) = 'partintro' or
+              local-name(..) = 'preface'   ">
       <xsl:number value="
-		  count(preceding-sibling::*[name(.) = name($sect)]) + 1"/>
+                  count(preceding-sibling::*[name(.) = name($sect)]) + 1"/>
     </xsl:when>
     <xsl:otherwise>
       <xsl:call-template name="db2html.label.number">
-	<xsl:with-param name="node" select=".."/>
+        <xsl:with-param name="node" select=".."/>
       </xsl:call-template>
       <xsl:text>.</xsl:text>
       <xsl:number value="
-		  count(preceding-sibling::*
-		    [local-name(.) = local-name(current())]) + 1"/>
+                  count(preceding-sibling::*
+                  [local-name(.) = local-name(current())]) + 1"/>
     </xsl:otherwise>
   </xsl:choose>
 </xsl:template>
 
 <xsl:template mode="db2html.label.number.mode" match="
-	      book  | bibliography | colophon | glossary |
-	      index | preface      | set      | setindex "/>
+              book  | bibliography | colophon | glossary |
+              index | preface      | set      | setindex "/>
 
 <xsl:template mode="db2html.label.number.mode" match="synopfragment">
   <xsl:value-of select="count(preceding-sibling::synopfragment) + 1"/>
@@ -514,57 +514,57 @@
 
 <xsl:template mode="db2html.label.number.mode" match="example | figure | table">
   <xsl:variable name="section" select="
-		ancestor::*[parent::article][
-		  local-name(.) = 'refentry' or local-name(.) = 'sect1' or
-		  local-name(.) = 'section'  or local-name(.) = 'simplesect'
-		]"/>
+                ancestor::*[parent::article][
+                local-name(.) = 'refentry' or local-name(.) = 'sect1' or
+                local-name(.) = 'section'  or local-name(.) = 'simplesect'
+                ]"/>
   <xsl:variable name="parent">
     <xsl:choose>
       <xsl:when test="$section">
-	<xsl:call-template name="db2html.label.number">
-	  <xsl:with-param name="node" select="$section[last()]"/>
-	</xsl:call-template>
+        <xsl:call-template name="db2html.label.number">
+          <xsl:with-param name="node" select="$section[last()]"/>
+        </xsl:call-template>
       </xsl:when>
       <xsl:otherwise>
-	<xsl:variable name="chapter" select="
-		      ancestor::*[
-		        local-name(.) = 'appendix' or local-name(.) = 'chapter'
-		      ]"/>
-	<xsl:if test="$chapter">
-	  <xsl:call-template name="db2html.label.number">
-	    <xsl:with-param name="node" select="$chapter[1]"/>
-	  </xsl:call-template>
-	</xsl:if>
+        <xsl:variable name="chapter" select="
+                      ancestor::*[
+                      local-name(.) = 'appendix' or local-name(.) = 'chapter'
+                      ]"/>
+        <xsl:if test="$chapter">
+          <xsl:call-template name="db2html.label.number">
+            <xsl:with-param name="node" select="$chapter[1]"/>
+          </xsl:call-template>
+        </xsl:if>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
   <xsl:variable name="num">
     <xsl:choose>
       <xsl:when test="$section">
-	<xsl:value-of select="count(
-		      ancestor-or-self::*[
-		        ancestor::refentry[parent::article]   |
-		        ancestor::sect1[parent::article]      |
-		        ancestor::section[parent::article]    |
-		        ancestor::simplesect[parent::article]
-		      ]/preceding-sibling::*/descendant-or-self::*[
-		        name(.) = name(current())
-		      ]) + 1"/>
-   </xsl:when>
-   <xsl:when test="
-	     ancestor::*[
-	       local-name(.) = 'appendix' or local-name(.) = 'chapter'
-	     ]">
-     <xsl:value-of select="count(
-		   ancestor-or-self::*[
-		     ancestor::appendix | ancestor::chapter
-		   ]/preceding-sibling::*/descendant-or-self::*[
-		     name(.) = name(current())
-		   ]) + 1"/>
-   </xsl:when>
-   <xsl:otherwise>
-     <xsl:value-of select="count(preceding::*[name(.) = name(current())]) + 1"/>
-   </xsl:otherwise>
+        <xsl:value-of select="count(
+                      ancestor-or-self::*[
+                      ancestor::refentry[parent::article]   |
+                      ancestor::sect1[parent::article]      |
+                      ancestor::section[parent::article]    |
+                      ancestor::simplesect[parent::article]
+                      ]/preceding-sibling::*/descendant-or-self::*[
+                      name(.) = name(current())
+                      ]) + 1"/>
+      </xsl:when>
+      <xsl:when test="
+                ancestor::*[
+                local-name(.) = 'appendix' or local-name(.) = 'chapter'
+                ]">
+        <xsl:value-of select="count(
+                      ancestor-or-self::*[
+                      ancestor::appendix | ancestor::chapter
+                      ]/preceding-sibling::*/descendant-or-self::*[
+                      name(.) = name(current())
+                      ]) + 1"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="count(preceding::*[name(.) = name(current())]) + 1"/>
+      </xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
   <xsl:choose>

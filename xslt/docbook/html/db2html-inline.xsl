@@ -1,14 +1,14 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='utf-8'?><!-- -*- indent-tabs-mode: nil -*- -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-		xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
-		exclude-result-prefixes="doc"
+                xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
+                exclude-result-prefixes="doc"
                 version="1.0">
 
 <doc:title>Inline Elements</doc:title>
 
 
-<!-- == db2html.inline == -->
+<!-- == db2html.inline ===================================================== -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.inline</name>
@@ -58,41 +58,39 @@
     <xsl:call-template name="db2html.anchor"/>
     <xsl:choose>
       <xsl:when test="$bold or $italic or $mono or $underline or $sans">
-	<xsl:variable name="style">
-	  <xsl:if test="$bold">
-	    <xsl:text>font-weight: bold; </xsl:text>
-	  </xsl:if>
-	  <xsl:if test="$italic">
-	    <xsl:text>font-style: italic; </xsl:text>
-	  </xsl:if>
-	  <xsl:if test="$underline">
-	    <xsl:text>text-decoration: underline; </xsl:text>
-	  </xsl:if>
-	  <xsl:choose>
-	    <xsl:when test="$mono">
-	      <xsl:text>font-family: monospace; </xsl:text>
-	    </xsl:when>
-	    <xsl:when test="$sans">
-	      <xsl:text>font-family: sans-serif; </xsl:text>
-	    </xsl:when>
-	  </xsl:choose>
-	</xsl:variable>
-	<span>
-	  <xsl:attribute name="style">
-	    <xsl:value-of select="$style"/>
-	  </xsl:attribute>
-	  <xsl:apply-templates/>
-	</span>
+        <xsl:variable name="style">
+          <xsl:if test="$bold">
+            <xsl:text>font-weight: bold; </xsl:text>
+          </xsl:if>
+          <xsl:if test="$italic">
+            <xsl:text>font-style: italic; </xsl:text>
+          </xsl:if>
+          <xsl:if test="$underline">
+            <xsl:text>text-decoration: underline; </xsl:text>
+          </xsl:if>
+          <xsl:choose>
+            <xsl:when test="$mono">
+              <xsl:text>font-family: monospace; </xsl:text>
+            </xsl:when>
+            <xsl:when test="$sans">
+              <xsl:text>font-family: sans-serif; </xsl:text>
+            </xsl:when>
+          </xsl:choose>
+        </xsl:variable>
+        <xsl:attribute name="style">
+          <xsl:value-of select="$style"/>
+        </xsl:attribute>
+        <xsl:apply-templates/>
       </xsl:when>
       <xsl:otherwise>
-	<xsl:apply-templates/>
+        <xsl:apply-templates/>
       </xsl:otherwise>
     </xsl:choose>
   </span>
 </xsl:template>
 
 
-<!-- == Matched Templates == -->
+<!-- == Matched Templates ================================================== -->
 
 <!-- = abbrev = -->
 <xsl:template match="abbrev">
@@ -197,11 +195,11 @@
     <tt>
       <xsl:text>&lt;</xsl:text>
       <a>
-	<xsl:attribute name="href">
-	  <xsl:text>mailto:</xsl:text>
-	  <xsl:value-of select="."/>
-	</xsl:attribute>
-	<xsl:call-template name="db2html.inline"/>
+        <xsl:attribute name="href">
+          <xsl:text>mailto:</xsl:text>
+          <xsl:value-of select="."/>
+        </xsl:attribute>
+        <xsl:call-template name="db2html.inline"/>
       </a>
       <xsl:text>&gt;</xsl:text>
     </tt>
@@ -374,7 +372,7 @@
   <span class="keycombo">
     <xsl:for-each select="*">
       <xsl:if test="position() != 1">
-	<xsl:value-of select="$joinchar"/>
+        <xsl:value-of select="$joinchar"/>
       </xsl:if>
       <xsl:apply-templates select="."/>
     </xsl:for-each>
@@ -419,15 +417,15 @@
   <span class="menuchoice">
     <xsl:for-each select="*[local-name(.) != 'shortcut']">
       <xsl:if test="position() != 1">
-	<xsl:text>&#x00A0;→ </xsl:text>
+        <xsl:text>&#x00A0;→ </xsl:text>
       </xsl:if>
       <xsl:apply-templates select="."/>
     </xsl:for-each>
     <xsl:if test="shortcut">
       <span class="shortcut-punc">
-	<xsl:text> (</xsl:text>
-	<xsl:apply-templates select="shortcut"/>
-	<xsl:text>)</xsl:text>
+        <xsl:text> (</xsl:text>
+        <xsl:apply-templates select="shortcut"/>
+        <xsl:text>)</xsl:text>
       </span>
     </xsl:if>
   </span>
@@ -505,7 +503,7 @@
     <xsl:call-template name="db2html.inline"/>
     <xsl:if test="@class">
       <xsl:call-template name="db2html.dingbat">
-	<xsl:with-param name="dingbat" select="@class"/>
+        <xsl:with-param name="dingbat" select="@class"/>
       </xsl:call-template>
     </xsl:if>
   </span>
@@ -533,22 +531,22 @@
   <span class="quote-punc">
     <xsl:choose>
       <xsl:when test="(count(ancestor::quote) mod 2) = 0">
-	<xsl:call-template name="gettext">
-	  <xsl:with-param name="msgid" select="'“'"/>
-	</xsl:call-template>
-	<xsl:call-template name="db2html.inline"/>
-	<xsl:call-template name="gettext">
-	  <xsl:with-param name="msgid" select="'”'"/>
-	</xsl:call-template>
+        <xsl:call-template name="gettext">
+          <xsl:with-param name="msgid" select="'“'"/>
+        </xsl:call-template>
+        <xsl:call-template name="db2html.inline"/>
+        <xsl:call-template name="gettext">
+          <xsl:with-param name="msgid" select="'”'"/>
+        </xsl:call-template>
       </xsl:when>
       <xsl:otherwise>
-	<xsl:call-template name="gettext">
-	  <xsl:with-param name="msgid" select="'‘'"/>
-	</xsl:call-template>
-	<xsl:call-template name="db2html.inline"/>
-	<xsl:call-template name="gettext">
-	  <xsl:with-param name="msgid" select="'’'"/>
-	</xsl:call-template>
+        <xsl:call-template name="gettext">
+          <xsl:with-param name="msgid" select="'‘'"/>
+        </xsl:call-template>
+        <xsl:call-template name="db2html.inline"/>
+        <xsl:call-template name="gettext">
+          <xsl:with-param name="msgid" select="'’'"/>
+        </xsl:call-template>
       </xsl:otherwise>
     </xsl:choose>
   </span>
@@ -573,7 +571,7 @@
   <xsl:variable name="class">
     <xsl:choose>
       <xsl:when test="@class">
-	<xsl:value-of select="@class"/>
+        <xsl:value-of select="@class"/>
       </xsl:when>
       <xsl:otherwise>element</xsl:otherwise>
     </xsl:choose>
@@ -582,58 +580,58 @@
     <xsl:call-template name="db2html.anchor"/>
     <xsl:choose>
       <xsl:when test="$class = 'attribute'">
-	<xsl:apply-templates/>
+        <xsl:apply-templates/>
       </xsl:when>
       <xsl:when test="$class = 'attvalue'">
-	<xsl:apply-templates/>
+        <xsl:apply-templates/>
       </xsl:when>
       <xsl:when test="$class = 'element'">
-	<xsl:apply-templates/>
+        <xsl:apply-templates/>
       </xsl:when>
       <xsl:when test="$class = 'emptytag'">
-	<xsl:text>&lt;</xsl:text>
-	<xsl:apply-templates/>
-	<xsl:text>/&gt;</xsl:text>
+        <xsl:text>&lt;</xsl:text>
+        <xsl:apply-templates/>
+        <xsl:text>/&gt;</xsl:text>
       </xsl:when>
       <xsl:when test="$class = 'endtag'">
-	<xsl:text>&lt;/</xsl:text>
-	<xsl:apply-templates/>
-	<xsl:text>&gt;</xsl:text>
+        <xsl:text>&lt;/</xsl:text>
+        <xsl:apply-templates/>
+        <xsl:text>&gt;</xsl:text>
       </xsl:when>
       <xsl:when test="$class = 'genentity'">
-	<xsl:text>&amp;</xsl:text>
-	<xsl:apply-templates/>
-	<xsl:text>;</xsl:text>
+        <xsl:text>&amp;</xsl:text>
+        <xsl:apply-templates/>
+        <xsl:text>;</xsl:text>
       </xsl:when>
       <xsl:when test="$class = 'numcharref'">
-	<xsl:text>&amp;#</xsl:text>
-	<xsl:apply-templates/>
-	<xsl:text>;</xsl:text>
+        <xsl:text>&amp;#</xsl:text>
+        <xsl:apply-templates/>
+        <xsl:text>;</xsl:text>
       </xsl:when>
       <xsl:when test="$class = 'paramentity'">
-	<xsl:text>%</xsl:text>
-	<xsl:apply-templates/>
-	<xsl:text>;</xsl:text>
+        <xsl:text>%</xsl:text>
+        <xsl:apply-templates/>
+        <xsl:text>;</xsl:text>
       </xsl:when>
       <xsl:when test="$class = 'pi'">
-	<xsl:text>&lt;?</xsl:text>
-	<xsl:apply-templates/>
-	<xsl:text>&gt;</xsl:text>
+        <xsl:text>&lt;?</xsl:text>
+        <xsl:apply-templates/>
+        <xsl:text>&gt;</xsl:text>
       </xsl:when>
       <xsl:when test="$class = 'sgmlcomment'">
-	<xsl:text>&lt;!--</xsl:text>
-	<xsl:apply-templates/>
-	<xsl:text>--&gt;</xsl:text>
+        <xsl:text>&lt;!--</xsl:text>
+        <xsl:apply-templates/>
+        <xsl:text>--&gt;</xsl:text>
       </xsl:when>
       <xsl:when test="$class = 'starttag'">
-	<xsl:text>&lt;</xsl:text>
-	<xsl:apply-templates/>
-	<xsl:text>&gt;</xsl:text>
+        <xsl:text>&lt;</xsl:text>
+        <xsl:apply-templates/>
+        <xsl:text>&gt;</xsl:text>
       </xsl:when>
       <xsl:when test="$class = 'xmlpi'">
-	<xsl:text>&lt;?</xsl:text>
-	<xsl:apply-templates/>
-	<xsl:text>?&gt;</xsl:text>
+        <xsl:text>&lt;?</xsl:text>
+        <xsl:apply-templates/>
+        <xsl:text>?&gt;</xsl:text>
       </xsl:when>
     </xsl:choose>
   </tt>
@@ -709,10 +707,10 @@
   <xsl:variable name="class">
     <xsl:choose>
       <xsl:when test="@class">
-	<xsl:value-of select="@class"/>
+        <xsl:value-of select="@class"/>
       </xsl:when>
       <xsl:otherwise>
-	<xsl:value-of select="'trade'"/>
+        <xsl:value-of select="'trade'"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:variable>

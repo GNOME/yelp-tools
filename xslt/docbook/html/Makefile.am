@@ -2,6 +2,7 @@ xsldir=$(datadir)/sgml/gnome/docbook/html
 
 xsl_DATA =				\
 	db2html-admon.xsl		\
+	db2html-block.xsl		\
 	db2html-cmdsynopsis.xsl		\
 	db2html-ebnf.xsl		\
 	db2html-funcsynopsis.xsl	\
@@ -10,6 +11,7 @@ xsl_DATA =				\
 	db2html-label.xsl		\
 	db2html-suppressed.xsl		\
 	db2html-title.xsl		\
+	db2html-xref.xsl		\
 	db2html.xsl
 
 EXTRA_DIST=$(xsl_DATA)

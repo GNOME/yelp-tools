@@ -1,4 +1,4 @@
-<?xml version='1.0'?>
+<?xml version='1.0' encoding='utf-8'?><!-- -*- indent-tabs-mode: nil -*- -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 		xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
@@ -20,13 +20,16 @@
 
 <xsl:template name="gettext">
   <xsl:param name="msgid"/>
-  <xsl:param name="lang" select="$lang"/>
+  <xsl:param name="lang" select="ancestor-or-self::*[@lang][1]/@lang"/>
 
   <xsl:for-each select="$l10n">
     <xsl:variable name="msg" select="key('msgid', $msgid)"/>
     <xsl:choose>
       <xsl:when test="$msg/msgstr[@xml:lang = $lang]">
 	<xsl:value-of select="$msg/msgstr[@xml:lang = $lang]"/>
+      </xsl:when>
+      <xsl:when test="$msg/msgstr[@xml:lang = 'C']">
+	<xsl:value-of select="$msg/msgstr[@xml:lang = 'C']"/>
       </xsl:when>
       <xsl:when test="$msg/msgstr[not(@xml:lang)]">
 	<xsl:value-of select="$msg/msgstr[not(@xml:lang)]"/>

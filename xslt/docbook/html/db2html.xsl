@@ -5,9 +5,12 @@
 		exclude-result-prefixes="doc"
                 version="1.0">
 
+  <xsl:include href="../../gettext/gettext.xsl"/>
+
   <xsl:include href="../common/db-chunk.xsl"/>
 
   <xsl:include href="db2html-admon.xsl"/>
+  <xsl:include href="db2html-block.xsl"/>
   <xsl:include href="db2html-cmdsynopsis.xsl"/>
   <xsl:include href="db2html-ebnf.xsl"/>
   <xsl:include href="db2html-funcsynopsis.xsl"/>
@@ -16,5 +19,6 @@
   <xsl:include href="db2html-label.xsl"/>
   <xsl:include href="db2html-suppressed.xsl"/>
   <xsl:include href="db2html-title.xsl"/>
+  <xsl:include href="db2html-xref.xsl"/>
 
 </xsl:stylesheet>
