@@ -268,6 +268,9 @@
     </refnamediv>
     <refsection>
       <title>Description</title>
+      <xsl:if test="not(doc:description/node())">
+        <para/>
+      </xsl:if>
       <xsl:apply-templates mode="xsldoc.docbook.mode"
                            select="doc:description/node()"/>
     </refsection>
@@ -292,6 +295,9 @@
     </refnamediv>
     <refsection>
       <title>Description</title>
+      <xsl:if test="not(doc:description/node())">
+        <para/>
+      </xsl:if>
       <xsl:apply-templates mode="xsldoc.docbook.mode"
                            select="doc:description/node()"/>
     </refsection>
@@ -316,6 +322,9 @@
     </refnamediv>
     <refsection>
       <title>Description</title>
+      <xsl:if test="not(doc:description/node())">
+        <para/>
+      </xsl:if>
       <xsl:apply-templates mode="xsldoc.docbook.mode"
                            select="doc:description/node()"/>
     </refsection>

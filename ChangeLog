@@ -1,6 +1,11 @@
 2005-01-02  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/xsldoc/xsldoc.xsl:
+	- Insert dummy paragraphs in refsection to validate
+
+2005-01-02  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/xsldoc/xsldoc.xsl:
 	- Get the refsections right
 
 2005-01-02  Shaun McCance  <shaunm@gnome.org>
