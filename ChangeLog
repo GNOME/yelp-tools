@@ -1,3 +1,11 @@
+2004-03-09  Shaun McCance  <shaunm@gnome.org>
+
+	* gnome-doc-utils.m4:
+	- Minor changes
+
+	* test
+	- Adding a test document
+
 2004-03-08  Shaun McCance  <shaunm@gnome.org>
 
 	* Makefile.am:

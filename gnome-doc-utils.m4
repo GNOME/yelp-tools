@@ -2,12 +2,6 @@ dnl GNOME_DOC_INIT
 
 AC_DEFUN([GNOME_DOC_INIT],
 [
-AC_ARG_WITH(docdir,
-  AC_HELP_STRING([--with-docdir=DIR], [path to simple docs]),,
-  [with_docdir='${datadir}/doc'])
-DOC_DIR="$with_docdir"
-AC_SUBST(DOC_DIR)
-
 AC_ARG_WITH(helpdir,
   AC_HELP_STRING([--with-helpdir=DIR], [path to help docs]),,
   [with_helpdir='${datadir}/help'])
@@ -20,4 +14,6 @@ AC_ARG_WITH(omfdir,
 OMF_DIR="$with_omfdir"
 AC_SUBST(OMF_DIR)
 
+GNOME_DOC_RULE=''
+AC_SUBST(GNOME_DOC_RULE)
 ])

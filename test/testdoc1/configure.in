@@ -1,0 +1,10 @@
+AC_INIT
+AM_INIT_AUTOMAKE(testdoc1, 0.1)
+
+GNOME_DOC_INIT
+
+AC_OUTPUT([
+Makefile
+help/Makefile
+help/testdoc1/Makefile
+])

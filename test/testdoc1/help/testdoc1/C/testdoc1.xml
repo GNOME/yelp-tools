@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+    "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+  <!ENTITY legal SYSTEM "legal.xml">
+  <!ENTITY GFDL SYSTEM "fdl-appendix.xml">
+]>
+
+<article id="index" lang="en">
+  <articleinfo>
+    <title>GNOME Documentation Utilites Test Document 1</title>
+    <copyright>
+      <year>2002</year>
+      <holder>Shaun McCance</holder>
+    </copyright>
+    <publisher>
+      <publishername>GNOME Documentation Project</publishername>
+    </publisher>
+    &legal;
+    <authorgroup>
+      <author>
+        <firstname>Shaun</firstname>
+        <surname>McCance</surname>
+        <affiliation>
+          <orgname>GNOME Documentation Project</orgname>
+        </affiliation>
+	<email>shaunm@gnome.org</email>
+      </author>
+    </authorgroup>
+    <legalnotice>
+      <title>Feedback</title>
+      <para>To report a bug or make a suggestion regarding this package or
+        this manual, follow the directions in the
+        <ulink url="ghelp:gnome-feedback">GNOME Feedback Page</ulink>.
+      </para>
+    </legalnotice>
+  </articleinfo>
+
+  <sect1 id="intro">
+    <title>Introduction</title>
+
+    <para>This is a test document.  The content is irrelevant.</para>
+  </sect1>
+
+  &GFDL;
+
+</article>
+
+
