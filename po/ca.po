@@ -1,0 +1,410 @@
+# Traducció al català del paquet gnome-doc-utils
+# Copyright (C) 2004 Free Software Foundation
+# This file is distributed under the same license as the gnome-doc-utils package.
+# Xavier Conde Rueda <xaviconde@eresmas.com>, 2004.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-doc-utils\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-09-15 10:08+0200\n"
+"PO-Revision-Date: 2004-08-01 19:52+0200\n"
+"Last-Translator: Xavier Conde Rueda <xaviconde@eresmas.com>\n"
+"Language-Team: Catalan <tradgnome@softcatala.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Section %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:2
+msgid "format.section.label,header"
+msgstr ""
+
+#. Section %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:4
+msgid "format.section.label,subject"
+msgstr ""
+
+#: xslt/docbook/common/db-format.xml.in.h:6
+#, no-c-format
+msgid "‘%t{node}’"
+msgstr "‘%t{node}’"
+
+#: xslt/docbook/common/db-format.xml.in.h:8
+#, no-c-format
+msgid "“%t{node}”"
+msgstr "“%t{node}”"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:1
+msgid "&#8216;"
+msgstr "&#8216;"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:2
+msgid "&#8217;"
+msgstr "&#8217;"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:3
+msgid "&#8220;"
+msgstr "&#8220;"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:4
+msgid "&#8221;"
+msgstr "&#8221;"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:5
+msgid "About This Article"
+msgstr "Quant a aquest article"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:6
+msgid "About This Bibliography"
+msgstr "Quant a aquesta bibliografia"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:7
+msgid "About This Book"
+msgstr "Quant a aquest llibre"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:8
+msgid "About This Chapter"
+msgstr "Quant a aquest capítol"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:9
+msgid "About This Entry"
+msgstr "Quant a aquesta entrada"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:10
+msgid "About This Glossary"
+msgstr "Quant a aquest glossari"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:11
+msgid "About This Index"
+msgstr "Quant a aquest índex"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:12
+msgid "About This Part"
+msgstr "Quant a aquesta part"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:13
+msgid "About This Preface"
+msgstr "Quant a aquest prefaci"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:14
+msgid "About This Reference"
+msgstr "Quant a aquesta referència"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:15
+msgid "About This Section"
+msgstr "Quant a aquesta secció"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:16
+msgid "About This Set"
+msgstr "Quant a aquest joc"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:17
+msgid "Affiliation"
+msgstr "Afiliació"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:18
+msgid "Appendix"
+msgstr "Apèndix"
+
+# source\ui\utlui\initui.src string STR_AUTH_TYPE_ARTICLE
+# Projecte_Open_Office_1.1 [sw.po]
+#: xslt/gettext/l10n.xml.in.h:19
+msgid "Article"
+msgstr "Article de revista"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:20
+msgid "Audience"
+msgstr "Audiència"
+
+# Mozilla 1.3->author.label
+#: xslt/gettext/l10n.xml.in.h:21
+msgid "Author"
+msgstr "Autor"
+
+# Mozilla 1.3->authorButton.label
+#: xslt/gettext/l10n.xml.in.h:22
+msgid "Authors"
+msgstr "Autors"
+
+# source\ui\utlui\initui.src string RID_SW_SHELLRES STR_TOX_AUTH
+# Projecte_Open_Office_1.1 [sw.po]
+#: xslt/gettext/l10n.xml.in.h:23
+msgid "Bibliography"
+msgstr "Bibliografia"
+
+# source\ui\utlui\initui.src string STR_AUTH_TYPE_BOOK
+# Projecte_Open_Office_1.1 [sw.po]
+#: xslt/gettext/l10n.xml.in.h:24
+msgid "Book"
+msgstr "Llibre"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:25
+msgid "Caution"
+msgstr "Compte"
+
+# source\ui\fldui\fldui.src string STR_CHAPTERFLD
+# Projecte_Open_Office_1.1 [sw.po]
+#: xslt/gettext/l10n.xml.in.h:26
+msgid "Chapter"
+msgstr "Capítol"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:27
+msgid "Collaborator"
+msgstr "Col·laborador"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:28
+msgid "Collaborators"
+msgstr "Col·laboradors"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:29
+msgid "Colophon"
+msgstr "Colofó"
+
+# Mozilla 1.3->tab1.label
+#: xslt/gettext/l10n.xml.in.h:30
+msgid "Contents"
+msgstr "Contingut"
+
+# Mozilla 1.3->copyrightButton.label
+#: xslt/gettext/l10n.xml.in.h:31
+msgid "Copyright"
+msgstr "Copyright"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:32
+msgid "Copyrights"
+msgstr "Copyrights"
+
+# Winrar 2.9->String:rarlng.dll
+#: xslt/gettext/l10n.xml.in.h:33
+msgid "Date"
+msgstr "Data"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:34
+msgid "Dedication"
+msgstr "Dedicatòria"
+
+# source\ui\utlui\initui.src string STR_AUTH_FIELD_EDITOR
+# Projecte_Open_Office_1.1 [sw.po]
+#: xslt/gettext/l10n.xml.in.h:35
+msgid "Editor"
+msgstr "Editor"
+
+# Projecte_Mandrake [tm-mandrake.po]
+#: xslt/gettext/l10n.xml.in.h:36
+msgid "Editors"
+msgstr "Editors"
+
+# Netscape_4.7->Dialog Box Control:RESDLL.DLL
+#: xslt/gettext/l10n.xml.in.h:37
+msgid "Email"
+msgstr "Correu electrònic"
+
+# source\ui\utlui\poolfmt.src string STR_POOLCHR_HTML_SAMPLE
+# Projecte_Open_Office_1.1 [sw.po]
+#: xslt/gettext/l10n.xml.in.h:38
+msgid "Example"
+msgstr "Exemple"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:39
+msgid "Figure"
+msgstr "Imatge"
+
+# Mozilla 1.3->glossaryButton.label
+#: xslt/gettext/l10n.xml.in.h:40
+msgid "Glossary"
+msgstr "Glossari"
+
+# Mozilla 1.3->mailnews.labels.description.1
+#: xslt/gettext/l10n.xml.in.h:41
+msgid "Important"
+msgstr "Important"
+
+# source\ui\index\multmrk.src fixedline DLG_MULTMRK FL_TOX
+# source\ui\index\multmrk.src fixedtext DLG_MULTMRK FT_ENTRY
+# Projecte_Open_Office_1.1 [sw.po]
+#: xslt/gettext/l10n.xml.in.h:42
+msgid "Index"
+msgstr "Índex"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:43
+msgid "Legal Notice"
+msgstr "Informació legal"
+
+# Projecte_Mandrake [tm-mandrake.po]
+#: xslt/gettext/l10n.xml.in.h:44
+msgid "Level"
+msgstr "Nivell"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:45
+msgid "Message Audience"
+msgstr "Audiència del missatge"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:46
+msgid "Message Level"
+msgstr "Nivell del missatge"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:47
+msgid "Message Origin"
+msgstr "Origen del missatge"
+
+# source\ui\fldui\fldui.src string STR_POSTITFLD
+# Projecte_Open_Office_1.1 [sw.po]
+#: xslt/gettext/l10n.xml.in.h:48
+msgid "Note"
+msgstr "Nota"
+
+# source\core\chaos.src string RID_CNT_POOL_PRES_NAME_START+WID_TRASH_RESTORE-WID_CHAOS_START
+# source\core\chaos.src string RID_CNT_POOL_PRES_NAME_START+WID_TRASH_ORIGIN-WID_CHAOS_START
+# Projecte_Open_Office_1.1 [chaos.po]
+#: xslt/gettext/l10n.xml.in.h:49
+msgid "Origin"
+msgstr "Origen"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:50
+msgid "Other Contributor"
+msgstr "Altre contribuïdor"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:51
+msgid "Other Contributors"
+msgstr "Altres contribuïdors"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:52
+msgid "Part"
+msgstr "Part"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:53
+msgid "Preface"
+msgstr "Prefaci"
+
+# source\ui\utlui\initui.src string STR_AUTH_FIELD_PAGES
+# source\ui\utlui\initui.src string STR_AUTH_FIELD_PUBLISHER
+# Projecte_Open_Office_1.1 [sw.po]
+#: xslt/gettext/l10n.xml.in.h:54
+msgid "Publisher"
+msgstr "Editors"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:55
+msgid "Publishers"
+msgstr "Editors"
+
+# source\ui\fldui\fldui.src string FMT_USERVAR_TEXT
+# source\ui\fldui\fldui.src string FMT_DBFLD_DB
+# source\ui\fldui\fldui.src string FMT_DBFLD_SYS
+# source\ui\fldui\fldui.src string FMT_REG_AUTHOR
+# source\ui\fldui\fldui.src string FMT_REG_TIME
+# source\ui\fldui\fldui.src string FMT_REG_DATE
+# source\ui\fldui\fldui.src string FMT_REF_TEXT
+# Projecte_Open_Office_1.1 [sw.po]
+#: xslt/gettext/l10n.xml.in.h:56
+msgid "Reference"
+msgstr "Referència"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:57
+msgid "Reference Entry"
+msgstr "Entrada de referència"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:58
+msgid "Reference Section"
+msgstr "Secció de referència"
+
+#: xslt/gettext/l10n.xml.in.h:59
+msgid "Release Information"
+msgstr "Informació de la versió"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:60
+msgid "Revision History"
+msgstr "Historia de la revisió"
+
+# source\ui\app\app.src string STR_REGION_DEFNAME
+# Projecte_Open_Office_1.1 [sw.po]
+#: xslt/gettext/l10n.xml.in.h:61
+msgid "Section"
+msgstr "Secció"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:62
+msgid "See"
+msgstr "Vegeu"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:63
+msgid "See Also"
+msgstr "Vegeu també"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:64
+msgid "Set Index"
+msgstr "Estableix l'índex"
+
+# Netscape_4.7->Menu:RESDLL.DLL
+#: xslt/gettext/l10n.xml.in.h:65
+msgid "Table"
+msgstr "Taula"
+
+# source\ui\utlui\initui.src string RID_SW_SHELLRES STR_TOC
+# Projecte_Open_Office_1.1 [sw.po]
+#: xslt/gettext/l10n.xml.in.h:66
+msgid "Table of Contents"
+msgstr "Índex de contingut"
+
+# Gnome_2.6_Desktop [yelp.HEAD.ca.po]
+#: xslt/gettext/l10n.xml.in.h:67
+msgid "Tip"
+msgstr "Suggeriment"
+
+# Netscape_4.7->String:RESDLL.DLL
+#: xslt/gettext/l10n.xml.in.h:68
+msgid "Title"
+msgstr "Títol"
+
+# Winrar 2.9->String:rarlng.dll
+#: xslt/gettext/l10n.xml.in.h:69
+msgid "Unknown"
+msgstr "Desconegut"
+
+# Winrar 2.9->String:rarlng.dll
+#: xslt/gettext/l10n.xml.in.h:70
+msgid "Warning"
+msgstr "Atenció"
+
+#~ msgid "%t{name} %t{number}"
+#~ msgstr "%t{name} %t{number}"
