@@ -1,5 +1,10 @@
 2004-12-01  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/html/db2html-autotoc.xsl:
+	- Autotoc li for refentry
+
+2004-12-01  Shaun McCance  <shaunm@gnome.org>
+
 	* po/cs.po:
 	- Removed the broken format.example.label translation
 

@@ -139,7 +139,7 @@
         </xsl:call-template>
       </xsl:attribute>
       <xsl:attribute name="title">
-        <xsl:value-of select="title"/>
+        <xsl:value-of select="normalize-space(title)"/>
       </xsl:attribute>
       <xsl:apply-templates select="title/node()"/>
     </a>
@@ -149,6 +149,26 @@
         <xsl:with-param name="toc_depth" select="$toc_depth"/>
       </xsl:call-template>
     </xsl:if>
+  </li>
+</xsl:template>
+
+<xsl:template mode="db2html.autotoc.mode" match="refentry">
+  <xsl:param name="toc_depth" select="0"/>
+  <li>
+    <xsl:call-template name="db2html.autotoc.label"/>
+    <a>
+      <xsl:attribute name="href">
+        <xsl:call-template name="db.xref.target">
+          <xsl:with-param name="linkend" select="@id"/>
+          <xsl:with-param name="target" select="."/>
+        </xsl:call-template>
+      </xsl:attribute>
+      <!-- FIXME: refmeta not required -->
+      <xsl:attribute name="title">
+        <xsl:value-of select="normalize-space(refmeta/refentrytitle)"/>
+      </xsl:attribute>
+      <xsl:apply-templates select="refmeta/refentrytitle/node()"/>
+    </a>
   </li>
 </xsl:template>
 
