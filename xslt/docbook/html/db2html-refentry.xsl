@@ -40,7 +40,7 @@
   </xsl:param>
 
   <div class="refentry">
-    <!-- FIXME: manvolnum? -->
+    <!-- FIXME: refmeta not required -->
     <xsl:call-template name="db2html.title.header">
       <xsl:with-param name="node"
                       select="refmeta/refentrytitle | refmeta/manvolnum"/>

@@ -165,9 +165,29 @@
       </xsl:attribute>
       <!-- FIXME: refmeta not required -->
       <xsl:attribute name="title">
-        <xsl:value-of select="normalize-space(refmeta/refentrytitle)"/>
+        <xsl:choose>
+          <xsl:when test="refmeta/refentrytitle">
+            <xsl:value-of select="normalize-space(refmeta/refentrytitle)"/>
+          </xsl:when>
+          <xsl:when test="refentryinfo/title">
+            <xsl:value-of select="normalize-space(refentryinfo/title)"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="normalize-space(refnamediv/refname[1])"/>
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:attribute>
-      <xsl:apply-templates select="refmeta/refentrytitle/node()"/>
+      <xsl:choose>
+        <xsl:when test="refmeta/refentrytitle">
+          <xsl:apply-templates select="refmeta/refentrytitle/node()"/>
+        </xsl:when>
+        <xsl:when test="refentryinfo/title">
+          <xsl:apply-templates select="refentryinfo/title/node()"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:apply-templates select="refnamediv/refname[1]/node()"/>
+        </xsl:otherwise>
+      </xsl:choose>
     </a>
   </li>
 </xsl:template>

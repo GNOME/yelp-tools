@@ -1,6 +1,12 @@
 2004-12-01  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/html/db2html-autotoc.xsl:
+	* xslt/docbook/html/db2html-refentry.xsl:
+	- More robust refentry title stuff
+
+2004-12-01  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/html/db2html-autotoc.xsl:
 	- Autotoc li for refentry
 
 2004-12-01  Shaun McCance  <shaunm@gnome.org>
