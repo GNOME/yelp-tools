@@ -436,6 +436,14 @@ $(_DOC_LC_DOCS) : $(_DOC_C_DOCS)
 	(cd $(dir $@) && \
 	  $(_xml2po) -e -p $(patsubst %/$(notdir $@),%,$@).po $${d}$(notdir $@) > $(notdir $@))
 
+## @ _DOC_POT
+## A pot file
+_DOC_POT = $(if $(DOC_MODULE),$(DOC_MODULE).pot)
+.PHONY: pot
+pot: $(_DOC_POT)
+$(_DOC_POT): $(_DOC_C_DOCS_NOENT)
+	$(_xml2po) -e -o $@ $^
+
 
 ################################################################################
 ## @@ All Documentation
