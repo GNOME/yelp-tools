@@ -10,6 +10,9 @@ supported, while other elements are expected only to be processed in certain
 modes because of the DocBook content model.
 -->
 
+<!-- Suppressed by processing expectations -->
+<xsl:template match="screeninfo"/>
+
 <!-- Not supported -->
 <xsl:template match="alt"/>
 <xsl:template match="beginpage"/>

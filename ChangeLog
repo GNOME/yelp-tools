@@ -1,5 +1,14 @@
 2004-11-10  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/html/db2html-division.xsl:
+	* xslt/docbook/html/db2html-suppressed.xsl:
+	- Implemented preface and screeninfo
+
+	* xslt/docbook/html/db2html.xsl:
+	- Nicer errors on unmatched elements
+
+2004-11-10  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/docbook/common/db-chunk.xsl:
 	* xslt/docbook/common/db-common.xsl:
 	* xslt/docbook/common/db-format.xml.in:

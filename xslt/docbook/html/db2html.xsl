@@ -78,14 +78,11 @@
 
 <!-- Just for now, to see the crap -->
 <xsl:template match="*">
-  <div>
-    <span style="color: #CC3333;">
-      <xsl:text>FIXME: </xsl:text>
-      <xsl:value-of select="local-name(.)"/>
-      <xsl:text> </xsl:text>
-    </span>
-    <xsl:apply-templates/>
-  </div>
+  <xsl:message>
+    <xsl:text>Unmatched element: </xsl:text>
+    <xsl:value-of select="local-name(.)"/>
+  </xsl:message>
+  <xsl:apply-templates select="node()"/>
 </xsl:template>
 
 <!-- Implement the stub templates from db-chunk -->
