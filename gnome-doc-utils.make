@@ -308,7 +308,7 @@ _DOC_LC_DOCS =								\
 	$(if $(findstring html,$(_DOC_REAL_FORMATS)),$(_DOC_LC_HTML))
 
 $(_DOC_POFILES): $(_DOC_C_DOCS)
-	if ! test -d $(dir $@); then mkdir $@; fi
+	if ! test -d $(dir $@); then mkdir $(dir $@); fi
 	if ! test -f $@; then \
 	  (cd $(dir $@) && $(xml2po) -e $(_DOC_C_DOCS_NOENT:%=../%) > $(notdir $@)); \
 	else \
