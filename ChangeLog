@@ -1,3 +1,14 @@
+2005-02-28  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/common/db-format.xml.in:
+	- Lots and lots of translator comments and documentation
+
+	* xslt/gettext/format2xsl.xsl:
+	- Fixed attribute-clobbering issue
+
+	* xslt/xsldoc/xsldoc.xsl:
+	- Extra sections get copied in
+
 2005-02-27  Shaun McCance  <shaunm@gnome.org>
 
 	* doc/xslt/C/translating.xml:

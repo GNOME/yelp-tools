@@ -349,7 +349,10 @@
 <!-- == -->
 <xsl:template match="*">
   <xsl:copy>
-    <xsl:apply-templates/>
+    <xsl:for-each select="attribute::*">
+      <xsl:copy-of select="."/>
+    </xsl:for-each>
+    <xsl:apply-templates select="node()"/>
   </xsl:copy>
 </xsl:template>
 
@@ -365,7 +368,7 @@
           <doc:parameter>
             <doc:name>lang</doc:name>
             <doc:purpose>
-              The language language to use for formatting
+              The language to use for formatting
             </doc:purpose>
           </doc:parameter>
         </xsl:if>

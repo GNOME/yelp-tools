@@ -274,6 +274,11 @@
       <xsl:apply-templates mode="xsldoc.docbook.mode"
                            select="doc:description/node()"/>
     </refsection>
+    <xsl:for-each select="doc:section">
+      <refsection>
+        <xsl:apply-templates mode="xsldoc.docbook.mode" select="*"/>
+      </refsection>
+    </xsl:for-each>
   </refentry>
 </xsl:template>
 
@@ -303,6 +308,11 @@
       <xsl:apply-templates mode="xsldoc.docbook.mode"
                            select="doc:description/node()"/>
     </refsection>
+    <xsl:for-each select="doc:section">
+      <refsection>
+        <xsl:apply-templates mode="xsldoc.docbook.mode" select="*"/>
+      </refsection>
+    </xsl:for-each>
   </refentry>
 </xsl:template>
 
@@ -361,6 +371,11 @@
                              select="doc:description/node()"/>
       </refsection>
     </xsl:if>
+    <xsl:for-each select="doc:section">
+      <refsection>
+        <xsl:apply-templates mode="xsldoc.docbook.mode" select="*"/>
+      </refsection>
+    </xsl:for-each>
   </refentry>
 </xsl:template>
 
