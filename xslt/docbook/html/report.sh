@@ -2,23 +2,18 @@
 
 echo "<report>"
 for element in `cat elements`; do
-    echo "<element name='"$element"'>"
-    for file in db2html*.xsl; do
-	match=`xml sel -t \
-	    -m "//xsl:template[not(@mode)][@match='"$element"']" \
-	    -v "@match" $file`;
-	if test x"$match" != x""; then
-	    echo "  <template href='"$file"'/>"
-	fi;
-	modes=`xml sel -t \
-	    -m "//xsl:template[@mode][@match='"$element"']" \
-	    -v "concat(@mode, ' ')" $file`;
-	if test x"$modes" != x""; then
-	    for mode in $modes; do
-		echo "  <template href='"$file"' mode='"$mode"'/>";
-	    done;
-	fi;
-    done;
-    echo "</element>"
+    echo "<element name='"$element"'/>"
+done;
+for file in db2html*.xsl; do
+    echo "<file href='"$file"'>";
+    xml sel -t \
+	-m "//xsl:template[@match and not(@mode)]" \
+	-e template -a match -v "@match" \
+	$file;
+    xml sel -t \
+	-m "//xsl:template[@match and @mode]" \
+	-e template -a match -v "@match" --break -a mode -v "@mode" \
+	$file;
+    echo "</file>";
 done;
 echo "</report>"

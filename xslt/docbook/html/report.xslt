@@ -17,7 +17,10 @@
     </head>
     <body>
       <p>
-	<xsl:value-of select="count(element[not(template[not(@mode)])])"/>
+	<xsl:value-of select="
+		      count(element) -
+		      count(element[@name =
+		        /report/file/template[not(@mode)]/@match])"/>
 	<xsl:text> unmatched elements</xsl:text>
       </p>
       <table>
@@ -39,22 +42,24 @@
 	      </span>
 	    </td>
 	    <td>
-	      <xsl:for-each select="template[not(@mode)]">
+	      <xsl:for-each select="
+		/report/file/template[not(@mode)][@match=current()/@name]">
 		<xsl:if test="position() != 1">
 		  <br/>
 		</xsl:if>
 		<span class="file">
-		  <xsl:value-of select="@href"/>
+		  <xsl:value-of select="../@href"/>
 		</span>
 	      </xsl:for-each>
 	    </td>
 	    <td>
-	      <xsl:for-each select="template[@mode]">
+	      <xsl:for-each select="
+		/report/file/template[@mode][@match=current()/@name]">
 		<xsl:if test="position() != 1">
 		  <br/>
 		</xsl:if>
 		<span class="file">
-		  <xsl:value-of select="@href"/>
+		  <xsl:value-of select="../@href"/>
 		</span>
 		<xsl:text> in </xsl:text>
 		<span class="mode">
