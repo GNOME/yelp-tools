@@ -1,3 +1,26 @@
+2005-03-01  Danilo Šegan  <dsegan@gmx.net>
+
+	* TODO (DONE): add tags in source references and output PO header.
+
+	* xml2po.py (MessageOutput.outputMessage): Add "tag" in source
+	references.
+	(processElementTag): Pass node.name as tag to outputMessage.
+	(MessageOutput.outputHeader): output PO file header.
+	(MessageOutput.outputAll): call outputHeader.
+
+2005-03-01  Danilo Šegan  <dsegan@gmx.net>
+
+	Fix #168571.
+	
+	* examples/two.po: Updated example.
+
+	* xml2po.py (processElementTag): Rewritten.
+	(processFinalTag): Removed.
+	(worthOutputting): Final tags are worth if non-empty.
+	(doSerialize): Respect new processElementTag semantics.
+	(isFinalNode): Also 1 if all node.children are final.
+	(getTranslation): Updated doc string.
+
 2005-02-23  Danilo Šegan  <dsegan@gmx.net>
 
 	* xml2po.py (replaceNodeContentsWithText): Use ParserCtxt instead.

@@ -15,8 +15,6 @@ TODO:
 
  o support for redefining DTD or parts of it [Karl]
 
- o add "#. tag: title" for <title> tags [Karl]
-
  o allow tags in messages to be replaced with placeholders                [R1]
    (such as <a href="...">blah</a> being replaced with 
    <placeholder1>blah</placeholder1>)
@@ -104,3 +102,7 @@ DONE:
 
  o allow reusing existing translations in XML files (we need to have 
    both translated XML and original XML file with same structure) (1.0.10)
+
+ o add "#. tag: title" for <title> tags [Karl]
+   actually, now references are #. file:lineno(tag) (1.0.11)
+

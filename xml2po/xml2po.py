@@ -54,7 +54,7 @@ class MessageOutput:
     def setFilename(self, filename):
         self.filename = filename
 
-    def outputMessage(self, text, lineno = 0, comment = None, spacepreserve = 0):
+    def outputMessage(self, text, lineno = 0, comment = None, spacepreserve = 0, tag = None):
         """Adds a string to the list of messages."""
         if (text.strip() != ''):
             t = escapePoString(normalizeString(text, not spacepreserve))
@@ -67,26 +67,41 @@ class MessageOutput:
                 if spacepreserve:
                     self.nowrap[t] = 1
                 if t in self.linenos.keys():
-                    self.linenos[t].append((self.filename, lineno))
+                    self.linenos[t].append((self.filename, tag, lineno))
                 else:
-                    self.linenos[t] = [ (self.filename, lineno) ]
+                    self.linenos[t] = [ (self.filename, tag, lineno) ]
                 if (not self.do_translations) and comment and not t in self.comments:
                     self.comments[t] = comment
             else:
                 if t in self.linenos.keys():
-                    self.linenos[t].append((self.filename, lineno))
+                    self.linenos[t].append((self.filename, tag, lineno))
                 else:
-                    self.linenos[t] = [ (self.filename, lineno) ]
+                    self.linenos[t] = [ (self.filename, tag, lineno) ]
                 if comment and not t in self.comments:
                     self.comments[t] = comment
 
+    def outputHeader(self, out):
+        out.write("""msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\\n"
+"Language-Team: LANGUAGE\\n"
+"Last-Translator: TRANSLATOR\\n"
+"MIME-Version: 1.0\\n"
+"Content-Type: text/plain; charset=UTF-8\\n"
+"Content-Transfer-Encoding: 8bit\\n"
+
+""")
+
     def outputAll(self, out):
+        self.outputHeader(out)
+        
         for k in self.messages:
             if k in self.comments:
                 out.write("#. %s\n" % (self.comments[k].replace("\n","\n#. ")))
             references = ""
             for reference in self.linenos[k]:
-                references += "%s:%d " % (reference[0], reference[1])
+                references += "%s:%d(%s) " % (reference[0], reference[2], reference[1])
             out.write("#: %s\n" % (references))
             if k in self.nowrap and self.nowrap[k]:
                 out.write("#, no-wrap\n")
@@ -193,8 +208,8 @@ def unEscapePoString(text):
 def getTranslation(text, spacepreserve = 0):
     """Returns a translation via gettext for specified snippet.
 
-    text may be a string when it is used verbatim, or a tuple (pair), with
-    first component being a string, and the other being a list of replacements.
+    text should be a string to look for, spacepreserve set to 1
+    when spaces should be preserved.
     """
     text = normalizeString(text, not spacepreserve)
     if (text.strip() == ''):
@@ -235,6 +250,15 @@ def isFinalNode(node):
     #node.type =='text' or not node.children or
     if node.type == 'element' and node.name in ultimate_tags:
         return 1
+    elif node.children:
+        final_children = 1
+        child = node.children
+        while child and final_children:
+            if not isFinalNode(child):
+                final_children = 0
+            child = child.next
+        if final_children:
+            return 1
     return 0
 
 def ignoreNode(node):
@@ -298,19 +322,6 @@ def replaceNodeContentsWithText(node,text):
     else:
         node.setContent(text)
 
-def processFinalTag(node, outtxt):
-    """node must be isFinalTag, this must be checked before calling this function."""
-    global semitrans
-    if mode == 'merge':
-        outtxt = getTranslation(outtxt, isSpacePreserveNode(node))
-        for i in semitrans.keys():
-            outtxt = outtxt.replace('<placeholder-%d/>' % (i), semitrans[i])
-        replaceNodeContentsWithText(node,outtxt)
-    else:
-        if node.name not in ignored_tags:
-            msg.outputMessage(outtxt, node.lineNo(), getCommentForNode(node), isSpacePreserveNode(node))
-    return outtxt
-
 def autoNodeIsFinal(node):
     """Returns 1 if node is text node, contains non-whitespace text nodes or entities."""
     final = 0
@@ -334,7 +345,8 @@ def worthOutputting(node):
     """
     worth = 1
     parent = node.parent
-    while parent:
+    final = isFinalNode(node)
+    while not final and parent:
         if isFinalNode(parent):
             worth = 0
             break
@@ -347,40 +359,42 @@ def worthOutputting(node):
 def processElementTag(node):
     """Process node with node.type == 'element'."""
     if node.type == 'element':
-        global PlaceHolder
-        global semitrans
-        final = isFinalNode(node)
         outtxt = ''
-        if final:
-            storeholder = PlaceHolder
-            PlaceHolder = 0
-            storesemi = semitrans
-            semitrans = {}
-        child = node.children
-        while child:
-            if isFinalNode(child):
-                PlaceHolder += 1
-                newmsg = doSerialize(child)
-                result = '<placeholder-%d/>' % (PlaceHolder)
-                if mode=='merge':
-                    semitrans[PlaceHolder] = getTranslation(newmsg, isSpacePreserveNode(node))
-            else:
-                result = doSerialize(child)
-            outtxt += result
-            child = child.next
 
-        if final:
-            outtxt = processFinalTag(node, outtxt)
-            PlaceHolder = storeholder
-            semitrans = storesemi
-            return '<%s>%s</%s>' % (startTagForNode(node), outtxt, node.name)
+        if not worthOutputting(node):
+            child = node.children
+            while child:
+                outtxt += doSerialize(child)
+                child = child.next
         else:
-            if worthOutputting(node):
-                if mode == 'merge':
-                    replaceNodeContentsWithText(node,getTranslation(outtxt, isSpacePreserveNode(node)))
+            PlaceHolder = 0
+            submsgs = {}
+
+            child = node.children
+            while child:
+                if isFinalNode(child):
+                    PlaceHolder += 1
+                    (starttag, submsg, endtag) = processElementTag(child)
+                    outtxt += '<placeholder-%d/>' % (PlaceHolder)
+                    if mode=='merge':
+                        submsgs[PlaceHolder] = (starttag, getTranslation(submsg, isSpacePreserveNode(node)), endtag)
                 else:
-                    msg.outputMessage(outtxt, node.lineNo(), getCommentForNode(node), isSpacePreserveNode(node))
-            return '<%s>%s</%s>' % (startTagForNode(node), outtxt, node.name)
+                    outtxt += doSerialize(child)
+
+                child = child.next
+
+            if mode=='merge':
+                outtxt = getTranslation(outtxt, isSpacePreserveNode(node))
+                for i in submsgs.keys():
+                    outtxt = outtxt.replace('<placeholder-%d/>' % (i), ''.join(submsgs[i]))
+                if worthOutputting(node):
+                    replaceNodeContentsWithText(node, outtxt)
+            elif worthOutputting(node):
+                msg.outputMessage(outtxt, node.lineNo(), getCommentForNode(node), isSpacePreserveNode(node), tag = node.name)
+
+        starttag = '<' + startTagForNode(node) + '>'
+        endtag = '</' + node.name + '>'
+        return (starttag, outtxt, endtag)
     else:
         raise Exception("You must pass node with node.type=='element'.")
 
@@ -429,7 +443,7 @@ def doSerialize(node):
     elif node.type == 'text':
         return node.serialize('utf-8')
     elif node.type == 'element':
-        return processElementTag(node)
+        return ''.join(processElementTag(node))
     else:
         child = node.children
         outtxt = ''
@@ -527,7 +541,7 @@ libxml2.registerErrorHandler(xml_error_handler, None)
 if __name__ != '__main__': raise NotImplementedError
 
 # Parameters
-submodes_path = "/home/danilo/cvs/i18n/xml2po/modes"
+submodes_path = "/home/danilo/cvs/gnom/gnome-doc-utils/xml2po/modes"
 default_mode = 'docbook'
 
 filename = ''
