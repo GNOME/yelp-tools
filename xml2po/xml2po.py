@@ -566,7 +566,7 @@ def usage (with_help = False):
         	print >> sys.stderr, """
 OPTIONS may be some of:
     -a    --automatic-tags     Automatically decides if tags are to be considered
-                                 "final" or not (overrides -f and -i options)
+                                 "final" or not
     -k    --keep-entities      Don't expand entities
     -e    --expand-all-entities  Expand ALL entities (including SYSTEM ones)
     -m    --mode=TYPE          Treat tags as type TYPE (default: docbook)
