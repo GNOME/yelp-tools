@@ -183,7 +183,7 @@
   <xsl:param name="node" select="."/>
   <msg:msg id="format.quote.inner">
     <!-- ‘%t{node}’ -->
-    <_msg:msgstr>format.quote.outer</_msg:msgstr>
+    <_msg:msgstr>format.quote.inner</_msg:msgstr>
     <msg:msgstr xml:lang="C">‘%t{node}’</msg:msgstr>
   </msg:msg>
   <msg:arg name="node">

@@ -1,5 +1,10 @@
 2004-11-08  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/common/db-format.xml.in:
+	- Fixed copy & paste error in format.quote.inner
+
+2004-11-08  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/Makefile.am:
 	* xslt/docbook/common/db-format.xml.in:
 	* xslt/xsldoc/xsldoc.xsl:
