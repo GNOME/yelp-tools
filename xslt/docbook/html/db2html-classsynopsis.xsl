@@ -81,6 +81,26 @@
   <xsl:apply-templates/>
 </xsl:template>
 
+<!-- = methodparam = -->
+<xsl:template match="methodparam">
+  <span class="methodparam">
+    <xsl:for-each select="*">
+      <xsl:if test="position() != 1">
+        <xsl:text> </xsl:text>
+      </xsl:if>
+      <xsl:apply-templates select="."/>
+    </xsl:for-each>
+  </span>
+</xsl:template>
+
+<!-- = methodparam/parameter = -->
+<xsl:template match="methodparam/parameter">
+  <xsl:call-template name="db2html.inline">
+    <xsl:with-param name="mono" select="true()"/>
+    <xsl:with-param name="italic" select="true()"/>
+  </xsl:call-template>
+</xsl:template>
+
 <!-- = ooclass = -->
 <xsl:template match="ooclass">
   <span class="ooclass" style="font-family: monospace;">
@@ -117,27 +137,19 @@
   </span>
 </xsl:template>
 
-<!-- = methodparam/parameter = -->
-<xsl:template match="methodparam/parameter">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="mono" select="true()"/>
-    <xsl:with-param name="italic" select="true()"/>
-  </xsl:call-template>
-</xsl:template>
-
 
 <!-- == class.cpp.modifier ================================================= -->
 
 <xsl:template name="class.cpp.modifier" doc:private="true">
   <!-- For C++, we expect the first modifier to be the visibility -->
   <xsl:if test="../self::classsynopsis">
-    <xsl:variable name="pres" select="
+    <xsl:variable name="prec" select="
                   preceding-sibling::constructorsynopsis |
                   preceding-sibling::destructorsynopsis  |
                   preceding-sibling::fieldsynopsis       |
                   preceding-sibling::methodsynopsis      "/>
-    <xsl:if test="not($pres[modifier][last()][modifier[1] = current()/modifier[1]])">
-      <xsl:if test="$pres">
+    <xsl:if test="not($prec[modifier][last()][modifier[1] = current()/modifier[1]])">
+      <xsl:if test="$prec">
         <xsl:text>&#x000A;</xsl:text>
       </xsl:if>
       <xsl:apply-templates select="modifier[1]"/>

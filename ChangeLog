@@ -1,5 +1,19 @@
 2004-09-18  Shaun McCance  <shaunm@gnome.org>
 
+	* *//.cvsignore
+	- Updating some .cvsignore files
+
+	* test/testdocs/classsynopsis.x001.xml:
+	- Small adjustment to the classsynopsis test
+
+	* xslt/docbook/html/db2html-classsynopsis.xsl:
+	- Adjusted methodparam code
+
+	* xslt/docbook/html/db2html-table.xsl:
+	- Adjusted table handling
+
+2004-09-18  Shaun McCance  <shaunm@gnome.org>
+
 	* configure.in:
 	- Fixed build problem
 

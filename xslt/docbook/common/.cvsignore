@@ -1,2 +1,4 @@
 Makefile
 Makefile.in
+db-format.xml
+db-format.xsl

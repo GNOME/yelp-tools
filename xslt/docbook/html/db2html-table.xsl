@@ -239,9 +239,19 @@
       <xsl:when test="tgroup">
         <xsl:apply-templates select="tgroup"/>
       </xsl:when>
-      <!-- FIXME -->
+      <!-- I am not going to allow the neurotic mixing of HTML and CALS
+           that the DTD does. -->
+      <xsl:when test="tr">
+        <xsl:apply-templates select="col | colgroup | tr"/>
+        <xsl:apply-templates select="caption"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:apply-templates select="thead"/>
+        <xsl:apply-templates select="tbody"/>
+        <xsl:apply-templates select="tfoot"/>
+        <xsl:apply-templates select="caption"/>
+      </xsl:otherwise>
     </xsl:choose>
-    <xsl:apply-templates select="caption"/>
   </div>
 </xsl:template>
 

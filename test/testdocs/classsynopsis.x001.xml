@@ -26,11 +26,6 @@
   </fieldsynopsis>
   <constructorsynopsis>
     <modifier>public</modifier>
-    <methodname>Catalog</methodname>
-    <void/>
-  </constructorsynopsis>
-  <constructorsynopsis>
-    <modifier>public</modifier>
     <methodparam>
       <type>Foo</type>
       <parameter>arg1</parameter>

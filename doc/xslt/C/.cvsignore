@@ -1,8 +1,12 @@
 db-chunk.xml
 db-common.xml
+db-format.xml
+db-label.xml
+db-xref.xml
 db2html-admon.xml
 db2html-autotoc.xml
 db2html-block.xml
+db2html-callout.xml
 db2html-classsynopsis.xml
 db2html-cmdsynopsis.xml
 db2html-css.xml
@@ -21,6 +25,7 @@ db2html-title.xml
 db2html-xref.xml
 db2html.xml
 db2omf.xml
+format2xsl.xml
 gettext.xml
 gnome-doc-xslt.omf
 rngdoc.xml
