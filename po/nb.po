@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-16 17:50+0100\n"
-"PO-Revision-Date: 2004-11-16 17:53+0100\n"
+"POT-Creation-Date: 2005-01-15 23:04+0100\n"
+"PO-Revision-Date: 2005-01-15 23:07+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmal <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -34,7 +34,7 @@ msgstr ""
 msgid "format.date"
 msgstr ""
 
-#. Figure %t{example}
+#. Example %t{number}
 #: xslt/docbook/common/db-format.xml.in.h:9
 msgid "format.example.label"
 msgstr ""
@@ -64,40 +64,70 @@ msgstr ""
 msgid "format.figure.number.flat"
 msgstr ""
 
-#. ‘%t{node}’
+#. (%t{node})
 #: xslt/docbook/common/db-format.xml.in.h:21
+msgid "format.manvolnum"
+msgstr ""
+
+#. Part %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:23
+msgid "format.part.label"
+msgstr ""
+
+#. %I{number}
+#: xslt/docbook/common/db-format.xml.in.h:25
+msgid "format.part.number"
+msgstr ""
+
+#. ‘%t{node}’
+#: xslt/docbook/common/db-format.xml.in.h:27
 msgid "format.quote.inner"
 msgstr ""
 
 #. “%t{node}”
-#: xslt/docbook/common/db-format.xml.in.h:23
+#: xslt/docbook/common/db-format.xml.in.h:29
 msgid "format.quote.outer"
 msgstr ""
 
+#. %t{title}
+#: xslt/docbook/common/db-format.xml.in.h:31
+msgid "format.refentry.label"
+msgstr ""
+
 #. Section %t{number}
-#: xslt/docbook/common/db-format.xml.in.h:25
+#: xslt/docbook/common/db-format.xml.in.h:33
 msgid "format.section.label"
 msgstr ""
 
 #. Table %t{number}
-#: xslt/docbook/common/db-format.xml.in.h:27
+#: xslt/docbook/common/db-format.xml.in.h:35
 msgid "format.table.label"
 msgstr ""
 
 #. %t{parent}-%1{number}
-#: xslt/docbook/common/db-format.xml.in.h:29
+#: xslt/docbook/common/db-format.xml.in.h:37
 msgid "format.table.number"
 msgstr ""
 
 #. %1{number}
-#: xslt/docbook/common/db-format.xml.in.h:31
+#: xslt/docbook/common/db-format.xml.in.h:39
 msgid "format.table.number.flat"
+msgstr ""
+
+#. Read the definition for ‘%s{node}’
+#: xslt/docbook/common/db-format.xml.in.h:41
+msgid "format.tooltip.glossentry"
+msgstr ""
+
+#. Send email to ‘%s{address}’
+#: xslt/docbook/common/db-format.xml.in.h:43
+msgid "format.tooltip.mailto"
 msgstr ""
 
 #. Used as a header before a list of authors.
 #: xslt/gettext/l10n.xml.in.h:2
 msgid "<msgstr form=\"0\">Author</msgstr> <msgstr form=\"1\">Authors</msgstr>"
-msgstr ""
+msgstr "<msgstr form=\"0\">Forfatter</msgstr> <msgstr form=\"1\">Forfattere</msgstr>"
 
 #. Used as a header before a list of collaborators.
 #: xslt/gettext/l10n.xml.in.h:4
@@ -122,181 +152,170 @@ msgstr ""
 msgid ""
 "<msgstr form=\"0\">Other Contributor</msgstr> <msgstr form=\"1\">Other "
 "Contributors</msgstr>"
-msgstr ""
+msgstr "<msgstr form=\"0\">Annen bidragsyter</msgstr> <msgstr form=\"1\">Andre bidragsytere</msgstr>"
 
 #. Used as a header before a list of publishers.
 #: xslt/gettext/l10n.xml.in.h:12
 msgid ""
 "<msgstr form=\"0\">Publisher</msgstr> <msgstr form=\"1\">Publishers</msgstr>"
-msgstr ""
+msgstr "<msgstr form=\"0\">Utgiver</msgstr> <msgstr form=\"1\">Utgivere</msgstr>"
 
-#: xslt/gettext/l10n.xml.in.h:13
-msgid "About This Article"
-msgstr ""
-
+#. Link to the titlepage
 #: xslt/gettext/l10n.xml.in.h:14
-msgid "About This Bibliography"
-msgstr "Om denne bibliografien"
+msgid "About This Document"
+msgstr "Om dette dokumentet"
 
 #: xslt/gettext/l10n.xml.in.h:15
-msgid "About This Book"
-msgstr "Om denne boken"
-
-#: xslt/gettext/l10n.xml.in.h:16
-msgid "About This Chapter"
-msgstr "Om dette kapittelet"
-
-#: xslt/gettext/l10n.xml.in.h:17
-msgid "About This Entry"
-msgstr "Om denne oppføringen"
-
-#: xslt/gettext/l10n.xml.in.h:18
-msgid "About This Glossary"
-msgstr "Om denne ordlisten"
-
-#: xslt/gettext/l10n.xml.in.h:19
-msgid "About This Index"
-msgstr "Om denne indeksen"
-
-#: xslt/gettext/l10n.xml.in.h:20
-msgid "About This Part"
-msgstr "Om denne delen"
-
-#: xslt/gettext/l10n.xml.in.h:21
-msgid "About This Preface"
-msgstr "Om denne innledningen"
-
-#: xslt/gettext/l10n.xml.in.h:22
-msgid "About This Reference"
-msgstr "Om denne referansen"
-
-#: xslt/gettext/l10n.xml.in.h:23
-msgid "About This Section"
-msgstr ""
-
-#: xslt/gettext/l10n.xml.in.h:24
-msgid "About This Set"
-msgstr ""
-
-#: xslt/gettext/l10n.xml.in.h:25
 msgid "Affiliation"
 msgstr "Tilhørighet"
 
 #. This is an abbreviated form of 'Message Audience'.
 #. Feel free to use the same word/phrase for both.
-#: xslt/gettext/l10n.xml.in.h:28
+#: xslt/gettext/l10n.xml.in.h:18
 msgid "Audience"
 msgstr "Målgruppe"
 
-#: xslt/gettext/l10n.xml.in.h:29
+#: xslt/gettext/l10n.xml.in.h:19
 msgid "Caution"
 msgstr "Advarsel"
 
-#: xslt/gettext/l10n.xml.in.h:30
+#: xslt/gettext/l10n.xml.in.h:20
 msgid "Colophon"
 msgstr "Kolofon"
 
 #. This is an abbreviated form of 'Table of Contents'.
 #. Feel free to use the same word/phrase for both.
-#: xslt/gettext/l10n.xml.in.h:33
+#: xslt/gettext/l10n.xml.in.h:23
 msgid "Contents"
 msgstr "Innhold"
 
 #. Used as a header for date column in the revision history.
-#: xslt/gettext/l10n.xml.in.h:35
+#: xslt/gettext/l10n.xml.in.h:25
 msgid "Date"
 msgstr "Dato"
 
-#: xslt/gettext/l10n.xml.in.h:36
+#: xslt/gettext/l10n.xml.in.h:26
 msgid "Dedication"
-msgstr ""
+msgstr "Tilegnet"
 
-#: xslt/gettext/l10n.xml.in.h:37
+#: xslt/gettext/l10n.xml.in.h:27
 msgid "Email"
 msgstr "E-post"
 
-#: xslt/gettext/l10n.xml.in.h:38
+#: xslt/gettext/l10n.xml.in.h:28
 msgid "Important"
 msgstr "Viktig"
 
-#: xslt/gettext/l10n.xml.in.h:39
+#: xslt/gettext/l10n.xml.in.h:29
 msgid "Index"
 msgstr "Indeks"
 
-#: xslt/gettext/l10n.xml.in.h:40
+#: xslt/gettext/l10n.xml.in.h:30
 msgid "Legal Notice"
 msgstr ""
 
 #. This is an abbreviated form of 'Message Level'.
 #. Feel free to use the same word/phrase for both.
-#: xslt/gettext/l10n.xml.in.h:43
+#: xslt/gettext/l10n.xml.in.h:33
 msgid "Level"
 msgstr "Nivå"
 
-#: xslt/gettext/l10n.xml.in.h:44
+#: xslt/gettext/l10n.xml.in.h:34
 msgid "Message Audience"
 msgstr ""
 
-#: xslt/gettext/l10n.xml.in.h:45
+#: xslt/gettext/l10n.xml.in.h:35
 msgid "Message Level"
 msgstr ""
 
-#: xslt/gettext/l10n.xml.in.h:46
+#: xslt/gettext/l10n.xml.in.h:36
 msgid "Message Origin"
 msgstr ""
 
-#: xslt/gettext/l10n.xml.in.h:47
+#: xslt/gettext/l10n.xml.in.h:37
+msgid "Name"
+msgstr "Navn"
+
+#: xslt/gettext/l10n.xml.in.h:38
 msgid "Note"
-msgstr ""
+msgstr "Merknad"
 
 #. This is an abbreviated form of 'Message Origin'.
 #. Feel free to use the same word/phrase for both.
-#: xslt/gettext/l10n.xml.in.h:50
+#: xslt/gettext/l10n.xml.in.h:41
 msgid "Origin"
-msgstr ""
+msgstr "Opprinnelse"
 
-#: xslt/gettext/l10n.xml.in.h:51
+#: xslt/gettext/l10n.xml.in.h:42
 msgid "Preface"
-msgstr ""
+msgstr "Forord"
 
-#: xslt/gettext/l10n.xml.in.h:52
+#: xslt/gettext/l10n.xml.in.h:43
 msgid "Reference"
-msgstr ""
+msgstr "Referanse"
 
-#: xslt/gettext/l10n.xml.in.h:53
+#: xslt/gettext/l10n.xml.in.h:44
 msgid "Release Information"
 msgstr ""
 
-#: xslt/gettext/l10n.xml.in.h:54
+#: xslt/gettext/l10n.xml.in.h:45
 msgid "Revision History"
 msgstr ""
 
-#: xslt/gettext/l10n.xml.in.h:55
+#: xslt/gettext/l10n.xml.in.h:46
 msgid "See"
 msgstr "Se"
 
-#: xslt/gettext/l10n.xml.in.h:56
+#: xslt/gettext/l10n.xml.in.h:47
 msgid "See Also"
 msgstr "Se også"
 
-#: xslt/gettext/l10n.xml.in.h:57
+#: xslt/gettext/l10n.xml.in.h:48
 msgid "Set Index"
 msgstr "Sett indeks"
 
+#: xslt/gettext/l10n.xml.in.h:49
+msgid "Synopsis"
+msgstr ""
+
 #. Used for a link to a table of contents.
-#: xslt/gettext/l10n.xml.in.h:59
+#: xslt/gettext/l10n.xml.in.h:51
 msgid "Table of Contents"
 msgstr "Innholdsfortegnelse"
 
-#: xslt/gettext/l10n.xml.in.h:60
+#: xslt/gettext/l10n.xml.in.h:52
 msgid "Tip"
 msgstr "Tips"
 
 #. Used as a header for title column in the revision history.
-#: xslt/gettext/l10n.xml.in.h:62
+#: xslt/gettext/l10n.xml.in.h:54
 msgid "Title"
 msgstr "Tittel"
 
-#: xslt/gettext/l10n.xml.in.h:63
+#: xslt/gettext/l10n.xml.in.h:55
 msgid "Warning"
 msgstr "Advarsel"
+
+#~ msgid "About This Bibliography"
+#~ msgstr "Om denne bibliografien"
+
+#~ msgid "About This Book"
+#~ msgstr "Om denne boken"
+
+#~ msgid "About This Chapter"
+#~ msgstr "Om dette kapittelet"
+
+#~ msgid "About This Glossary"
+#~ msgstr "Om denne ordlisten"
+
+#~ msgid "About This Index"
+#~ msgstr "Om denne indeksen"
+
+#~ msgid "About This Part"
+#~ msgstr "Om denne delen"
+
+#~ msgid "About This Preface"
+#~ msgstr "Om denne innledningen"
+
+#~ msgid "About This Reference"
+#~ msgstr "Om denne referansen"
