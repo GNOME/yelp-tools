@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<section id="translating">
+  <title>Translating the Stylesheets</title>
+  <para>The GNOME documentation stylesheets use two different mechanisms for
+  internationalization.  The simpler method is provided by
+  <filename>gettext.xsl</filename>.  This method reads in translated strings
+  from a simple <filename>l10n.xml</filename> file, which is easily managed
+  using PO files and <command>intltool</command>.  The other method is
+  provided by <filename>format2xsl.xsl</filename>.  This method converts
+  special format files to XSLT stylesheets at build time.  It is considerably
+  more flexible than the <filename>gettext</filename> method, as it allows
+  translators programmer-level control over the formatted output.</para>
+
+  <para>Generally, the <filename>gettext</filename> method is used only
+  for simple string lookups that require no special formatting.  However,
+  since it tends to have better performance than the
+  <filename>format2xsl</filename> method, it is preferred whenever
+  possible.  If you are providing translations and find that a string marked
+  for translation is insufficient for your locale, you should request to have
+  that translation reworked using <filename>format2xsl</filename>.  Document
+  processing is a much more difficult task for internationalization than most
+  simple application translations in GNOME.  The maintainers don't know all
+  the nuances of document processing in every language, so the only way we
+  can improve the internationalization support is with the help of the
+  translators.</para>
+
+  <section id="translating-gettext">
+    <title>The <filename>gettext</filename> Method</title>
+    <para/>
+  </section>
+
+  <section id="translating-format2xsl">
+    <title>The <filename>format2xsl</filename> Method</title>
+    <para/>
+  </section>
+</section>

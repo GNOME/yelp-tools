@@ -5,7 +5,7 @@
 
 <article id="index" lang="en">
   <articleinfo>
-    <title>GNOME XSLT Manual</title>
+    <title>GNOME Documentation XSLT Manual</title>
     <copyright>
       <year>2004</year>
       <holder>Shaun McCance</holder>
@@ -47,5 +47,6 @@
   <include href="rngdoc.xml" xmlns="http://www.w3.org/2001/XInclude"/>
   <include href="xsldoc.xml" xmlns="http://www.w3.org/2001/XInclude"/>
   <include href="gettext.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+  <include href="translating.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 
 </article>

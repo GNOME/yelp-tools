@@ -9,6 +9,8 @@
 
 <xsl:namespace-alias stylesheet-prefix="xslt" result-prefix="xsl"/>
 
+<xsl:include href="gettext.xsl"/>
+
 <xsl:output method="xml" encoding="UTF-8"/>
 
 <!-- == format2xsl == -->
@@ -116,6 +118,9 @@
   <xsl:param name="template"/>
   <xsl:param name="lang"/>
   <xsl:choose>
+    <xsl:when test="xsl:template">
+      <xsl:apply-templates select="xsl:template/node()"/>
+    </xsl:when>
     <xsl:when test="msg:msgstr[@role]">
       <xslt:choose>
         <xsl:for-each select="msg:msgstr[@role]">
@@ -188,83 +193,24 @@
           <xsl:sort select="contains(@xml:lang, '_')" order="descending"/>
           <xsl:sort select="string-length(@xml:lang)" order="descending"/>
           <xsl:variable name="lang_lang">
-            <xsl:choose>
-              <xsl:when test="contains(@xml:lang, '_')">
-                <xsl:value-of select="substring-before(@xml:lang, '_')"/>
-              </xsl:when>
-              <xsl:when test="contains(@xml:lang, '@')">
-                <xsl:value-of select="substring-before(@xml:lang, '@')"/>
-              </xsl:when>
-              <xsl:when test="contains(@xml:lang, '.')">
-                <xsl:value-of select="substring-before(@xml:lang, '.')"/>
-              </xsl:when>
-              <xsl:otherwise>
-                <xsl:value-of select="@xml:lang"/>
-              </xsl:otherwise>
-            </xsl:choose>
-          </xsl:variable>
-          <xsl:variable name="lang_sans_lang">
-            <xsl:value-of select="substring-after(@xml:lang, $lang_lang)"/>
+            <xsl:call-template name="gettext.get.language">
+              <xsl:with-param name="lang" select="@xml:lang"/>
+            </xsl:call-template>
           </xsl:variable>
           <xsl:variable name="lang_region">
-            <xsl:if test="starts-with($lang_sans_lang, '_')">
-              <xsl:choose>
-                <xsl:when test="contains($lang_sans_lang, '@')">
-                  <xsl:value-of select="substring-after(
-                                substring-before($lang_sans_lang, '@'),
-                                '_')"/>
-                </xsl:when>
-                <xsl:when test="contains($lang_sans_lang, '.')">
-                  <xsl:value-of select="substring-after(
-                                substring-before($lang_sans_lang, '.'),
-                                '_')"/>
-                </xsl:when>
-                <xsl:otherwise>
-                  <xsl:value-of select="substring-after($lang_sans_lang, '_')"/>
-                </xsl:otherwise>
-              </xsl:choose>
-            </xsl:if>
-          </xsl:variable>
-          <xsl:variable name="lang_sans_region">
-            <xsl:choose>
-              <xsl:when test="$lang_region">
-                <xsl:value-of select="substring-after($lang_sans_lang,
-                                        concat('_', $lang_region))"/>
-              </xsl:when>
-              <xsl:otherwise>
-                <xsl:value-of select="$lang_sans_lang"/>
-              </xsl:otherwise>
-            </xsl:choose>
+            <xsl:call-template name="gettext.get.region">
+              <xsl:with-param name="lang" select="@xml:lang"/>
+            </xsl:call-template>
           </xsl:variable>
           <xsl:variable name="lang_variant">
-            <xsl:if test="starts-with($lang_sans_region, '@')">
-              <xsl:choose>
-                <xsl:when test="contains($lang_sans_region, '.')">
-                  <xsl:value-of select="substring-after(
-                                          substring-before($lang_sans_region, '.'),
-                                          '@')"/>
-                </xsl:when>
-                <xsl:otherwise>
-                  <xsl:value-of select="substring-after($lang_sans_region, '@')"/>
-                </xsl:otherwise>
-              </xsl:choose>
-            </xsl:if>
-          </xsl:variable>
-          <xsl:variable name="lang_sans_variant">
-            <xsl:choose>
-              <xsl:when test="$lang_variant">
-                <xsl:value-of select="substring-after($lang_sans_region,
-                                        concat('@', $lang_region))"/>
-              </xsl:when>
-              <xsl:otherwise>
-                <xsl:value-of select="$lang_sans_region"/>
-              </xsl:otherwise>
-            </xsl:choose>
+            <xsl:call-template name="gettext.get.variant">
+              <xsl:with-param name="lang" select="@xml:lang"/>
+            </xsl:call-template>
           </xsl:variable>
           <xsl:variable name="lang_charset">
-            <xsl:if test="starts-with($lang_sans_variant, '.')">
-              <xsl:value-of select="substring-after($lang_sans_variant, '.')"/>
-            </xsl:if>
+            <xsl:call-template name="gettext.get.charset">
+              <xsl:with-param name="lang" select="@xml:lang"/>
+            </xsl:call-template>
           </xsl:variable>
           <xsl:variable name="element">
             <xsl:choose>
@@ -289,7 +235,7 @@
                     <xsl:text>'</xsl:text>
                   </xsl:if>
                   <xsl:if test="$lang_variant != ''">
-                    <xsl:text> nand $lang_variant = '</xsl:text>
+                    <xsl:text> and $lang_variant = '</xsl:text>
                     <xsl:value-of select="$lang_variant"/>
                     <xsl:text>'</xsl:text>
                   </xsl:if>
@@ -360,6 +306,16 @@
   </xsl:copy>
 </xsl:template>
 
+<!-- == xsl:* == -->
+<xsl:template match="xsl:*">
+  <xsl:copy>
+    <xsl:for-each select="attribute::*">
+      <xsl:copy/>
+    </xsl:for-each>
+    <xsl:apply-templates/>
+  </xsl:copy>
+</xsl:template>
+
 <!-- == xsl:apply-templates == -->
 <xsl:template match="xsl:apply-templates">
   <xslt:apply-templates>
@@ -368,16 +324,6 @@
     </xsl:for-each>
     <xsl:apply-templates/>
   </xslt:apply-templates>
-</xsl:template>
-
-<!-- == xsl:call-template == -->
-<xsl:template match="xsl:call-template">
-  <xslt:call-template>
-    <xsl:for-each select="attribute::*">
-      <xsl:copy/>
-    </xsl:for-each>
-    <xsl:apply-templates/>
-  </xslt:call-template>
 </xsl:template>
 
 <!-- == xsl:number == -->
@@ -397,99 +343,30 @@
   </xslt:number>
 </xsl:template>
 
-<!-- == xsl:param == -->
-<xsl:template match="xsl:param">
-  <xslt:param name="{@name}">
-    <xsl:for-each select="attribute::*">
-      <xsl:copy/>
-    </xsl:for-each>
-    <xsl:apply-templates/>
-  </xslt:param>
-</xsl:template>
-
 <!-- == xsl:template == -->
 <xsl:template match="xsl:template">
   <xslt:template name="{@name}">
     <xsl:apply-templates select="xsl:param"/>
     <xslt:param name="lang" select="$node/ancestor-or-self::*[@lang][1]/@lang"/>
     <xslt:variable name="lang_lang">
-      <xslt:choose>
-        <xslt:when test="contains($lang, '_')">
-          <xslt:value-of select="substring-before($lang, '_')"/>
-        </xslt:when>
-        <xslt:when test="contains($lang, '@')">
-          <xslt:value-of select="substring-before($lang, '@')"/>
-        </xslt:when>
-        <xslt:when test="contains($lang, '.')">
-          <xslt:value-of select="substring-before($lang, '.')"/>
-        </xslt:when>
-        <xslt:otherwise>
-          <xslt:value-of select="$lang"/>
-        </xslt:otherwise>
-      </xslt:choose>
-    </xslt:variable>
-    <xslt:variable name="lang_sans_lang">
-      <xslt:value-of select="substring-after($lang, $lang_lang)"/>
+      <xslt:call-template name="gettext.get.language">
+        <xslt:with-param name="lang" select="$lang"/>
+      </xslt:call-template>
     </xslt:variable>
     <xslt:variable name="lang_region">
-      <xslt:if test="starts-with($lang_sans_lang, '_')">
-        <xslt:choose>
-          <xslt:when test="contains($lang_sans_lang, '@')">
-            <xslt:value-of select="substring-after(
-                                     substring-before($lang_sans_lang, '@'),
-                                     '_')"/>
-          </xslt:when>
-          <xslt:when test="contains($lang_sans_lang, '.')">
-            <xslt:value-of select="substring-after(
-                                     substring-before($lang_sans_lang, '.'),
-                                     '_')"/>
-          </xslt:when>
-          <xslt:otherwise>
-            <xslt:value-of select="substring-after($lang_sans_lang, '_')"/>
-          </xslt:otherwise>
-        </xslt:choose>
-      </xslt:if>
-    </xslt:variable>
-    <xslt:variable name="lang_sans_region">
-      <xslt:choose>
-        <xslt:when test="$lang_region">
-          <xslt:value-of select="substring-after($lang_sans_lang,
-                                   concat('_', $lang_region))"/>
-        </xslt:when>
-        <xslt:otherwise>
-          <xslt:value-of select="$lang_sans_lang"/>
-        </xslt:otherwise>
-      </xslt:choose>
+      <xslt:call-template name="gettext.get.region">
+        <xslt:with-param name="lang" select="$lang"/>
+      </xslt:call-template>
     </xslt:variable>
     <xslt:variable name="lang_variant">
-      <xslt:if test="starts-with($lang_sans_region, '@')">
-        <xslt:choose>
-          <xslt:when test="contains($lang_sans_region, '.')">
-            <xslt:value-of select="substring-after(
-                                     substring-before($lang_sans_region, '.'),
-                                     '@')"/>
-          </xslt:when>
-          <xslt:otherwise>
-            <xslt:value-of select="substring-after($lang_sans_region, '@')"/>
-          </xslt:otherwise>
-        </xslt:choose>
-      </xslt:if>
-    </xslt:variable>
-    <xslt:variable name="lang_sans_variant">
-      <xslt:choose>
-        <xslt:when test="$lang_variant">
-          <xslt:value-of select="substring-after($lang_sans_region,
-                                   concat('@', $lang_region))"/>
-        </xslt:when>
-        <xslt:otherwise>
-          <xslt:value-of select="$lang_sans_region"/>
-        </xslt:otherwise>
-      </xslt:choose>
+      <xslt:call-template name="gettext.get.variant">
+        <xslt:with-param name="lang" select="$lang"/>
+      </xslt:call-template>
     </xslt:variable>
     <xslt:variable name="lang_charset">
-      <xslt:if test="starts-with($lang_sans_variant, '.')">
-        <xslt:value-of select="substring-after($lang_sans_variant, '.')"/>
-      </xslt:if>
+      <xslt:call-template name="gettext.get.charset">
+        <xslt:with-param name="lang" select="$lang"/>
+      </xslt:call-template>
     </xslt:variable>
     <xsl:apply-templates select="msg:msg"/>
   </xslt:template>
@@ -500,21 +377,6 @@
   <xslt:stylesheet version="1.0">
     <xsl:apply-templates/>
   </xslt:stylesheet>
-</xsl:template>
-
-<!-- == xsl:value-of == -->
-<xsl:template match="xsl:value-of">
-  <xslt:value-of select="{@select}"/>
-</xsl:template>
-
-<!-- == xsl:with-param == -->
-<xsl:template match="xsl:with-param">
-  <xslt:with-param name="{@name}">
-    <xsl:for-each select="attribute::*">
-      <xsl:copy/>
-    </xsl:for-each>
-    <xsl:apply-templates/>
-  </xslt:with-param>
 </xsl:template>
 
 </xsl:stylesheet>

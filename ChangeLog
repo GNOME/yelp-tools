@@ -1,3 +1,16 @@
+2004-10-21  Shaun McCance  <shaunm@gnome.org>
+
+	* doc/xslt/Makefile.am:
+	* doc/xslt/C/gnome-doc-xslt.xml:
+	* doc/xslt/C/translating.xml:
+	- Stub for documentation for translators
+
+	* xslt/docbook/common/db-format.xml.in:
+	* xslt/gettext/format2xsl.xsl:
+	* xslt/gettext/gettext.xsl:
+	* xslt/gettext/l10n.xml.in:
+	- Massively improved translation mechanisms, almost finished
+
 2004-10-20  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/html/db2html-admon.xsl:

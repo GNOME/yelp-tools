@@ -3,7 +3,7 @@ include $(top_srcdir)/bootstrap.make
 dist-hook: doc-dist-hook
 
 DOC_MODULE = gnome-doc-xslt
-DOC_INCLUDES = legal.xml
+DOC_INCLUDES = legal.xml translating.xml
 
 DOC_LINGUAS = sr
 

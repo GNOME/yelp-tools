@@ -1,31 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?><!-- -*- indent-tabs-mode: nil -*- -->
 
-<l10n>
-
-<msg>
-	<!-- LEFT DOUBLE QUOTATION MARK
-	The opening quotation mark for outer quotes. -->
-	<msgid>&#8220;</msgid>
-	<_msgstr>&#8220;</_msgstr>
-</msg>
-<msg>
-	<!-- RIGHT DOUBLE QUOTATION MARK
-	The closing quotation mark for outer quotes. -->
-	<msgid>&#8221;</msgid>
-	<_msgstr>&#8221;</_msgstr>
-</msg>
-<msg>
-	<!-- LEFT SINGLE QUOTATION MARK
-	The opening quotation mark for inner quotes. -->
-	<msgid>&#8216;</msgid>
-	<_msgstr>&#8216;</_msgstr>
-</msg>
-<msg>
-	<!-- RIGHT SINGLE QUOTATION MARK
-	The closing quotation mark for inner quotes. -->
-	<msgid>&#8217;</msgid>
-	<_msgstr>&#8217;</_msgstr>
-</msg>
+<l10n xmlns="http://www.gnome.org/~shaunm/gnome-doc-utils/xsl-format">
 
 <msg>
 	<!-- Link to the titlepage of a <article> -->
@@ -97,16 +72,6 @@
 	<_msgstr>Affiliation</_msgstr>
 </msg>
 <msg>
-	<!-- Used for the <appendix> element. -->
-	<msgid>Appendix</msgid>
-	<_msgstr>Appendix</_msgstr>
-</msg>
-<msg>
-	<!-- Used for the <article> element. -->
-	<msgid>Article</msgid>
-	<_msgstr>Article</_msgstr>
-</msg>
-<msg>
 	<!-- This is an abbreviated form of 'Message Audience'.
 	Feel free to use the same word/phrase for both. -->
 	<msgid>Audience</msgid>
@@ -123,24 +88,9 @@
 	<_msgstr>Authors</_msgstr>
 </msg>
 <msg>
-	<!-- Used for the <bibliography> element. -->
-	<msgid>Bibliography</msgid>
-	<_msgstr>Bibliography</_msgstr>
-</msg>
-<msg>
-	<!-- Used for the <book> element. -->
-	<msgid>Book</msgid>
-	<_msgstr>Book</_msgstr>
-</msg>
-<msg>
 	<!-- Used for the <caution> element. -->
 	<msgid>Caution</msgid>
 	<_msgstr>Caution</_msgstr>
-</msg>
-<msg>
-	<!-- Used for the <chapter> element. -->
-	<msgid>Chapter</msgid>
-	<_msgstr>Chapter</_msgstr>
 </msg>
 <msg>
 	<!-- Used for the <colophon> element. -->
@@ -203,21 +153,6 @@
 	<_msgstr>Email</_msgstr>
 </msg>
 <msg>
-	<!-- Used for the <example> element. -->
-	<msgid>Example</msgid>
-	<_msgstr>Example</_msgstr>
-</msg>
-<msg>
-	<!-- Used for the <figure> element. -->
-	<msgid>Figure</msgid>
-	<_msgstr>Figure</_msgstr>
-</msg>
-<msg>
-	<!-- Used for the <glossary> element. -->
-	<msgid>Glossary</msgid>
-	<_msgstr>Glossary</_msgstr>
-</msg>
-<msg>
 	<!-- Used for the <important> element. -->
 	<msgid>Important</msgid>
 	<_msgstr>Important</_msgstr>
@@ -275,11 +210,6 @@
 	<_msgstr>Other Contributors</_msgstr>
 </msg>
 <msg>
-	<!-- Used for the <part> element. -->
-	<msgid>Part</msgid>
-	<_msgstr>Part</_msgstr>
-</msg>
-<msg>
 	<!-- Used for the <preface> element. -->
 	<msgid>Preface</msgid>
 	<_msgstr>Preface</_msgstr>
@@ -300,16 +230,6 @@
 	<_msgstr>Reference</_msgstr>
 </msg>
 <msg>
-	<!-- Used for the <refentry> element. -->
-	<msgid>Reference Entry</msgid>
-	<_msgstr>Reference Entry</_msgstr>
-</msg>
-<msg>
-	<!-- Used for the <refsect*> elements. -->
-	<msgid>Reference Section</msgid>
-	<_msgstr>Reference Section</_msgstr>
-</msg>
-<msg>
 	<!-- Used for the <releaseinfo> element. -->
 	<msgid>Release Information</msgid>
 	<_msgstr>Release Information</_msgstr>
@@ -318,11 +238,6 @@
 	<!-- Used for the <revhistory> element. -->
 	<msgid>Revision History</msgid>
 	<_msgstr>Revision History</_msgstr>
-</msg>
-<msg>
-	<!-- Used for the <sect*> elements. -->
-	<msgid>Section</msgid>
-	<_msgstr>Section</_msgstr>
 </msg>
 <msg>
 	<!-- Used for the <see> element. -->
@@ -338,11 +253,6 @@
 	<!-- Used for the <setindex> element. -->
 	<msgid>Set Index</msgid>
 	<_msgstr>Set Index</_msgstr>
-</msg>
-<msg>
-	<!-- Used for the <table> element. -->
-	<msgid>Table</msgid>
-	<_msgstr>Table</_msgstr>
 </msg>
 <msg>
 	<!-- Used for a link to a table of contents. -->

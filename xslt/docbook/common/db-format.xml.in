@@ -43,6 +43,74 @@
 </xsl:template>
 
 
+<!-- == format.date ======================================================== -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>format.date</name>
+  <description>
+    Format a date
+  </description>
+  <parameter>
+    <node>year</node>
+    <description>
+      The year in the Gregorian calendar
+    </description>
+  </parameter>
+  <parameter>
+    <name>month</name>
+    <description>
+      The number of the month
+    </description>
+  </parameter>
+  <parameter>
+    <name>day</name>
+    <description>
+      The number of the day in the month
+    </description>
+  </parameter>
+</template>
+
+<xsl:template name="format.date">
+  <xsl:param name="year"/>
+  <xsl:param name="month"/>
+  <xsl:param name="day"/>
+  <msg:msg id="format.date">
+    <!-- FIXME -->
+    <_msg:msgstr>format.date</_msg:msgstr>
+    <msg:msgstr xml:lang="C">
+      <xsl:template>
+        <xsl:choose>
+          <xsl:when test="$month =  1"><xsl:text>January </xsl:text></xsl:when>
+          <xsl:when test="$month =  2"><xsl:text>February </xsl:text></xsl:when>
+          <xsl:when test="$month =  3"><xsl:text>March </xsl:text></xsl:when>
+          <xsl:when test="$month =  4"><xsl:text>April </xsl:text></xsl:when>
+          <xsl:when test="$month =  5"><xsl:text>May </xsl:text></xsl:when>
+          <xsl:when test="$month =  6"><xsl:text>June </xsl:text></xsl:when>
+          <xsl:when test="$month =  7"><xsl:text>July </xsl:text></xsl:when>
+          <xsl:when test="$month =  8"><xsl:text>August </xsl:text></xsl:when>
+          <xsl:when test="$month =  9"><xsl:text>September </xsl:text></xsl:when>
+          <xsl:when test="$month = 10"><xsl:text>October </xsl:text></xsl:when>
+          <xsl:when test="$month = 11"><xsl:text>November </xsl:text></xsl:when>
+          <xsl:when test="$month = 12"><xsl:text>December </xsl:text></xsl:when>
+        </xsl:choose>
+        <xsl:value-of select="$day"/>
+        <xsl:text>, </xsl:text>
+        <xsl:value-of select="$year"/>
+      </xsl:template>
+    </msg:msgstr>
+  </msg:msg>
+  <msg:arg name="year">
+    <xsl:value-of select="$year"/>
+  </msg:arg>
+  <msg:arg name="month">
+    <xsl:value-of select="$month"/>
+  </msg:arg>
+  <msg:arg name="day">
+    <xsl:value-of select="$day"/>
+  </msg:arg>
+</xsl:template>
+
+
 <!-- == format.quote.outer ================================================= -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
