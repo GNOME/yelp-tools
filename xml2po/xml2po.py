@@ -362,7 +362,7 @@ def worthOutputting(node):
     parent = node.parent
     final = isFinalNode(node)
     while not final and parent:
-        if isFinalNode(parent):
+        if isFinalNode(parent) and worthOutputting(parent):
             worth = 0
             break
         parent = parent.parent

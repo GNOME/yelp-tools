@@ -1,3 +1,7 @@
+2005-03-06  Danilo Šegan  <dsegan@gmx.net>
+
+	* xml2po.py (worthOutputting): Also check if worthOutputting(parent).
+
 2005-03-04  Danilo Šegan  <dsegan@gmx.net>
 
 	* xml2po.py (replaceNodeContentsWithText): Add DTD for entity
