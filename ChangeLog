@@ -1,5 +1,26 @@
 2004-04-02  Shaun McCance  <shaunm@gnome.org>
 
+	* gnome-doc-utils.make:
+	- More targets, more rngdoc and xsldoc stuff
+
+	* doc/xslt/Makefile.am:
+	- Added more XSLDIRS
+
+	* doc/xslt/C/gnome-doc-xslt.xml:
+	- Including xsldoc-generated docs
+
+	* xslt/docbook/omf/db2omf.xsl:
+	- Formatting
+
+	* xslt/rngdoc/rngdoc.xsl:
+	- Added rngdoc.id
+
+	* xslt/xsldoc/xsldoc.xsl:
+	- Added xsldoc.id
+	- Stuff to pull param documentation
+
+2004-04-02  Shaun McCance  <shaunm@gnome.org>
+
 	* Makefile.am:
 	* bootstrap.make:
 	* doc/xslt/Makefile.am:

@@ -11,6 +11,14 @@
 <ref:title>Documenting RELAX NG Schemes</ref:title>
 
 
+<!-- == rngdoc.id == -->
+
+<ref:refname>rngdoc.id</ref:refname>
+<ref:refpurpose>The id of the top-level element in the output</ref:refpurpose>
+
+<xsl:param name="id"/>
+
+
 <!-- == rngdoc.toplevel_element == -->
 
 <ref:refname>rngdoc.toplevel_element</ref:refname>

@@ -10,6 +10,14 @@
 <ref:title>Documenting XSLT Stylesheets</ref:title>
 
 
+<!-- == xsldoc.id == -->
+
+<ref:refname>xsldoc.id</ref:refname>
+<ref:refpurpose>The id of the top-level element in the output</ref:refpurpose>
+
+<xsl:param name="id"/>
+
+
 <!-- == xsldoc.toplevel_element == -->
 
 <ref:refname>xsldoc.toplevel_element</ref:refname>
@@ -62,30 +70,48 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
+  <xsl:variable name="params"
+		select="ref:refname[following-sibling::xsl:*[1]/self::xsl:param]"/>
 
-  <xsl:element name="{toplevel_element}">
+  <xsl:element name="{$toplevel_element}">
+    <xsl:attribute name="id">
+      <xsl:value-of select="$xsldoc.id"/>
+    </xsl:attribute>
+    <title>
+      <xsl:apply-templates select="ref:title[1]/node()"/>
+    </title>
+    <xsl:if test="$params">
+      <section>
+	<xsl:attribute name="id">
+	  <xsl:value-of select="concat($xsldoc.id, '-params')"/>
+	</xsl:attribute>
+	<title>Stylesheet Parameters</title>
+	<xsl:for-each select="$params">
+	  <refentry>
+	    <refnamediv>
+	      <refname>
+		<xsl:apply-templates/>
+	      </refname>
+	      <xsl:if test="following-sibling::ref:*[1]/self::ref:refpurpose">
+		<refpurpose>
+		  <xsl:apply-templates select="following-sibling::ref:*[1]"/>
+		</refpurpose>
+	      </xsl:if>
+	    </refnamediv>
+	  </refentry>
+	</xsl:for-each>
+      </section>
+    </xsl:if>
     <section>
-      <title>Stylesheet Parameters</title>
-      <xsl:for-each
-       select="ref:refname[following-sibling::xsl:*[1]/self::xsl:param]">
-	<refentry>
-	  <refnamediv>
-	    <refname>
-	      <xsl:apply-templates/>
-	    </refname>
-	    <xsl:if test="following-sibling::ref:*[1]/self::ref:refpurpose">
-	      <refpurpose>
-		<xsl:apply-templates select="following-sibling::ref:*[1]"/>
-	      </refpurpose>
-	    </xsl:if>
-	  </refnamediv>
-	</refentry>
-      </xsl:for-each>
-    </section>
-    <section>
+      <xsl:attribute name="id">
+	<xsl:value-of select="concat($xsldoc.id, '-named')"/>
+      </xsl:attribute>
       <title>Named Templates</title>
     </section>
     <section>
+      <xsl:attribute name="id">
+	<xsl:value-of select="concat($xsldoc.id, '-matched')"/>
+      </xsl:attribute>
       <title>Matched Templates</title>
     </section>
   </xsl:element>

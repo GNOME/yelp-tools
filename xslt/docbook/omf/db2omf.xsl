@@ -5,9 +5,7 @@
 		exclude-result-prefixes="ref"
                 version="1.0">
 
-<xsl:output method="xml"
-	    encoding="utf-8"
-	    indent="yes"/>
+<xsl:output method="xml" encoding="utf-8" indent="yes"/>
 
 <ref:title>DocBook to ScrollKeeper OMF</ref:title>
 

@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
 "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
-<!ENTITY legal SYSTEM "legal.xml">
 ]>
 
-<article id="index" lang="en">
+<article id="index" lang="en"
+	 xmlns:xi="http://www.w3.org/2001/XInclude">
   <articleinfo>
     <title>GNOME XSLT Manual</title>
     <copyright>
@@ -14,7 +14,7 @@
     <publisher>
       <publishername>GNOME Documentation Project</publishername>
     </publisher>
-    &legal;
+    <xi:include href="legal.xml"/>
     <authorgroup>
       <author>
         <firstname>Shaun</firstname>
@@ -37,4 +37,15 @@
 
     <para>Foo</para>
   </section>
+
+  <xi:include href="db2html-admon.xml"/>
+  <xi:include href="db2html-cmdsynopsis.xml"/>
+  <xi:include href="db2html-inline.xml"/>
+  <xi:include href="db2html-label.xml"/>
+  <xi:include href="db2html-title.xml"/>
+  <xi:include href="db2omf.xml"/>
+  <xi:include href="rngdoc.xml"/>
+  <xi:include href="xsldoc.xml"/>
+  <xi:include href="gettext.xml"/>
+
 </article>

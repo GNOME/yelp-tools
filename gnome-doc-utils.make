@@ -1,3 +1,4 @@
+################################################################################
 ## Public variables
 
 DOC_MODULE ?=
@@ -13,6 +14,17 @@ XSLDOC_DIRS ?=
 RNGDOC_DIRS ?=
 
 
+################################################################################
+## Convenience variables
+## It might be useful to expose these
+
+_DB2OMF_PARAMS = 						\
+	--stringparam db2omf.omf_in `pwd`/$(_DOC_OMF_IN)
+_RNGDOC_PARAMS =
+_XSLDOC_PARAMS =
+
+
+################################################################################
 ## For bootstrapping gnome-doc-utils only
 
 _db2omf ?= `pkg-config --variable db2omf gnome-doc-utils`
@@ -20,7 +32,8 @@ _rngdoc ?= `pkg-config --variable rngdoc gnome-doc-utils`
 _xsldoc ?= `pkg-config --variable xsldoc gnome-doc-utils`
 
 
-## Setting variables
+################################################################################
+## Setting internal variables
 
 _RNGDOC_RNGS = $(foreach dir,$(RNGDOC_DIRS),		\
 	$(wildcard $(dir)/*.rng))
@@ -38,7 +51,7 @@ _DOC_C_INCLUDES = $(foreach inc,$(DOC_INCLUDES),C/$(inc))
 _DOC_C_MODULES = C/$(DOC_MODULE).xml
 _DOC_C_DOCS =							\
 	$(_DOC_C_ENTITIES) $(_DOC_C_INCLUDES)			\
-	$(_RNGDOC_C_DOCS)  $(_XSLDOCS_C_DOCS)			\
+	$(_RNGDOC_C_DOCS)  $(_XSLDOC_C_DOCS)			\
 	$(_DOC_C_MODULES)
 
 _RNGDOC_LC_DOCS =							\
@@ -70,31 +83,64 @@ _DOC_DESKTOP_OUTS =							\
 	$(foreach lc,C $(DOC_LINGUAS),$(lc)/$(DOC_MODULE).desktop)
 
 
-## Targets
+################################################################################
+## The all target
 
 # Uncomment when xml2po is hooked up
 #all: $(_DOC_C_DOCS) $(_DOC_LC_DOCS) $(_DOC_OMF_OUTS) $(_DOC_DESKTOP_OUTS)
 all: $(_DOC_C_DOCS) C/$(DOC_MODULE).omf C/$(DOC_MODULE).desktop
 
-## Building .desktop files
+
+################################################################################
+## The clean target
+
+clean: clean-lc-docs clean-omf clean-desktop clean-rngdoc clean-xsldoc
+clean-lc-docs :	; rm -f $(_DOC_LC_DOCS)
+clean-omf :	; rm -f $(_DOC_OMF_OUTS)
+clean-desktop :	; rm -f $(_DOC_DESKTOP_OUTS)
+clean-rngdoc :	; rm -f $(_RNGDOC_C_DOCS)
+clean-xsldoc :	; rm -f $(_XSLDOC_C_DOCS)
+
+
+################################################################################
+## Some extra convenience targets
+
+.PHONY: omf
+omf: $(_DOC_OMF_OUTS)
+
+.PHONY: desktop
+desktop: $(_DOC_DESKTOP_OUTS)
+
+.PHONY: rngdoc
+rngdoc: $(_RNGDOC_C_DOCS)
+
+.PHONY: xsldoc
+xsldoc: $(_XSLDOC_C_DOCS)
+
+
+################################################################################
+## Building metadata files
 
 $(_DOC_DESKTOP_OUTS) : $(_DOC_DESKTOP_IN)
 $(_DOC_DESKTOP_OUTS) : %/$(DOC_MODULE).desktop : %/$(DOC_MODULE).xml
+	echo $@
 
-
-## Building .omf files
-
-$(_ODC_OMF_OUTS) : $(_DOC_OMF_IN)
+$(_DOC_OMF_OUTS) : $(_DOC_OMF_IN)
 $(_DOC_OMF_OUTS) : %/$(DOC_MODULE).omf : %/$(DOC_MODULE).xml
-	xsltproc -o $@ \
-	--stringparam db2omf.omf_in `pwd`/$(_DOC_OMF_IN) \
-	$(_db2omf) $<
+	xsltproc -o $@ $(_DB2OMF_PARAMS) $(_db2omf) $<
 
-## Building rngdoc files
+
+################################################################################
+## Building rngdoc and xsldoc files
+
+id_param = --stringparam $(1)doc.id \
+	$(shell echo $(basename $(notdir $(2))) | sed -e 's/[^A-Za-z0-9_-]/_/g')
+
+# Fix the dependancies on these!
+
 $(_RNGDOC_C_DOCS) : C/% : $(filter $(basename %), $(_RNGDOC_RNGS))
-	xsltproc -o $@ $(_rngdoc) $<
+	xsltproc -o $@ $(_RNGDOC_PARAMS) $(call id_param,rng,$@) $(_rngdoc) $<
 
-## Building xsldoc files
 $(_XSLDOC_C_DOCS) : C/% : $(filter $(basename %), $(_XSLDOC_XSLS))
-	xsltproc -o $@ $(_xsldoc) $<
+	xsltproc -o $@ $(_XSLDOC_PARAMS) $(call id_param,xsl,$@) $(_xsldoc) $<
 
