@@ -1,3 +1,18 @@
+Changes in 0.2.0:
+-----------------
+* Fixes for builddir != srcdir
+* Plural form rules for more languages, from Changwoo Ryu
+* Fixed DOC_H_FILE build system, fixes #170680
+* Updated licensing terms
+* Made -p POFILE and -u POFILE work directly on PO file (Danilo)
+* Made -p POFILE read directly PO file, instead of depending on msgfmt (Danilo)
+* Updated translations:
+  rw      (Steve Murphy)
+  hi      (Rajesh Ranjan)
+  en_CA   (Adam Weinberger)
+  da      (Martin Willemoes Hansen)
+  pt_BR   (Raphael Higino)
+
 Changes in 0.1.3:
 -----------------
 * Updated translator comments and documentation
