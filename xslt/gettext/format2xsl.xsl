@@ -54,7 +54,8 @@
           </xsl:if>
           <xsl:choose>
             <xsl:when test="$type = 't'">
-              <xsl:if test="not($arg/xsl:apply-templates or $arg/xsl:call-template)">
+              <xsl:if test="namespace-uri($arg/*[1]) !=
+                              'http://www.w3.org/1999/XSL/Transform'">
                 <xsl:message terminate="yes">
                   <xsl:value-of select="concat(
                                 'format2xsl: Error in template ', $template/@name,

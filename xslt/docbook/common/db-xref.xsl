@@ -140,6 +140,8 @@
 
 <!-- == db.xref.tooltip.mode =============================================== -->
 
+<xsl:template mode="db.xref.tooltip.mode" match="*" priority="-1"/>
+
 <xsl:template mode="db.xref.tooltip.mode" match="*[title]">
   <xsl:value-of select="normalize-space(title)"/>
 </xsl:template>
@@ -148,6 +150,25 @@
   <xsl:call-template name="format.tooltip.glossentry">
     <xsl:with-param name="node" select="."/>
   </xsl:call-template>
+</xsl:template>
+
+<xsl:template mode="db.xref.tooltip.mode" match="refentry">
+  <xsl:choose>
+    <xsl:when test="refmeta/refentrytitle">
+      <xsl:value-of select="normalize-space(refmeta/refentrytitle)"/>
+      <xsl:if test="refmeta/manvolnum">
+        <xsl:call-template name="format.manvolnum">
+          <xsl:with-param name="node" select="refmeta/manvolnum[1]"/>
+        </xsl:call-template>
+      </xsl:if>
+    </xsl:when>
+    <xsl:when test="refentryinfo/title">
+      <xsl:value-of select="normalize-space(refentryinfo/title)"/>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:value-of select="normalize-space(refnamediv/refname[1])"/>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
 </xsl:stylesheet>

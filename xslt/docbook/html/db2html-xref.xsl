@@ -44,17 +44,18 @@
         <xsl:with-param name="linkend" select="$linkend"/>
       </xsl:call-template>
     </xsl:attribute>
-    <xsl:if test="$target/title">
-      <xsl:attribute name="title">
-        <xsl:value-of select="$target/title"/>
-      </xsl:attribute>
-    </xsl:if>
+    <xsl:attribute name="title">
+      <xsl:call-template name="db.xref.tooltip">
+        <xsl:with-param name="linkend" select="$linkend"/>
+        <xsl:with-param name="target" select="$target"/>
+      </xsl:call-template>
+    </xsl:attribute>
     <xsl:choose>
       <xsl:when test="normalize-space(.) != ''">
         <xsl:apply-templates/>
       </xsl:when>
       <xsl:when test="@endterm">
-        <xsl:apply-templates select="id(@endterm)/node()"/>
+        <xsl:apply-templates select="key('idkey', @endterm)/node()"/>
       </xsl:when>
     </xsl:choose>
   </a>

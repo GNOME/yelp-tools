@@ -137,9 +137,15 @@
         </xsl:call-template>
       </xsl:attribute>
       <xsl:attribute name="title">
-        <xsl:value-of select="normalize-space(title)"/>
+        <xsl:call-template name="db.xref.tooltip">
+          <xsl:with-param name="linkend" select="@id"/>
+          <xsl:with-param name="target" select="."/>
+        </xsl:call-template>
       </xsl:attribute>
-      <xsl:apply-templates select="title/node()"/>
+      <xsl:call-template name="db.label">
+        <xsl:with-param name="node" select="."/>
+        <xsl:with-param name="role" select="'title'"/>
+      </xsl:call-template> 
     </a>
     <xsl:if test="$toc_depth &gt; 0">
       <xsl:call-template name="db2html.autotoc">
@@ -161,12 +167,11 @@
           <xsl:with-param name="target" select="."/>
         </xsl:call-template>
       </xsl:attribute>
-      <!-- FIXME: refmeta not required -->
       <xsl:attribute name="title">
-        <xsl:call-template name="db.label">
-          <xsl:with-param name="node" select="."/>
-          <xsl:with-param name="role" select="'title'"/>
-        </xsl:call-template> 
+        <xsl:call-template name="db.xref.tooltip">
+          <xsl:with-param name="linkend" select="@id"/>
+          <xsl:with-param name="target" select="."/>
+        </xsl:call-template>
       </xsl:attribute>
       <xsl:call-template name="db.label">
         <xsl:with-param name="node" select="."/>

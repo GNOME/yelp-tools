@@ -40,10 +40,8 @@
       margin-top: 0em;  margin-bottom: 0em;
       padding-top: 0em; padding-bottom: 0em;
     }
-    div + div { margin-top: 1em; }
-    div + p   { margin-top: 1em; }
-    p   + div { margin-top: 1em; }
-    p   + p    { margin-top: 1em; }
+    div + * { margin-top: 1em; }
+    p   + * { margin-top: 1em; }
     p { text-align: justify; }
     <xsl:call-template name="db2html.css.custom"/>
   </style>

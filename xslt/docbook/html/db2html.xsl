@@ -9,7 +9,7 @@
 <doc:title>DocBook to HTML conversion</doc:title>
 
 <!-- Setting parameters for included stylesheets -->
-<xsl:param name="db.chunk.extension" select="'.html'" doc:private="true"/>
+<xsl:param name="db.chunk.extension" select="'.xhtml'" doc:private="true"/>
 
 <xsl:include href="../../gettext/gettext.xsl"/>
 

@@ -1,5 +1,29 @@
 2004-12-27  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/common/db-format.xml.in:
+	- Use titleabbrev when available for xrefs
+
+	* xslt/docbook/common/db-xref.xsl:
+	- Tooltips for refentry links
+
+	* xslt/docbook/html/db2html-autotoc.xsl:
+	* xslt/docbook/html/db2html-xref.xsl:
+	- Do tooltips correctly
+
+	* xslt/docbook/html/db2html-block.xsl:
+	- Strip leading newlines from verbatim elements
+
+	* xslt/docbook/html/db2html-css.xsl:
+	- More inclusive sibling matcher
+
+	* xslt/docbook/html/db2html.xsl:
+	- Use the .xhtml extension
+
+	* xslt/gettext/format2xsl.xsl:
+	- Be nicer to %t arguments
+
+2004-12-27  Shaun McCance  <shaunm@gnome.org>
+
 	* Makefile.am:
 	- Added scrollkeeper stuff to distuninstallcheck_listfiles
 

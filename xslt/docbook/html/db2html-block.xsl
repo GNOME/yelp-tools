@@ -158,7 +158,31 @@
       <pre class="linenumbering" style="float: left; text-align: right;"><xsl:call-template name="db.linenumbering"/></pre>
     </xsl:if>
     <pre class="{local-name(.)}">
-      <xsl:apply-templates/>
+      <!-- Strip off a leading newline -->
+      <xsl:if test="node()[1]/self::text()">
+        <xsl:choose>
+          <!-- CR LF -->
+          <xsl:when test="starts-with(text()[1], '&#x000D;&#x000A;')">
+            <xsl:value-of select="substring-after(text()[1], '&#x000D;&#x000A;')"/>
+          </xsl:when>
+          <!-- CR -->
+          <xsl:when test="starts-with(text()[1], '&#x000D;')">
+            <xsl:value-of select="substring-after(text()[1], '&#x000D;')"/>
+          </xsl:when>
+          <!-- LF -->
+          <xsl:when test="starts-with(text()[1], '&#x000A;')">
+            <xsl:value-of select="substring-after(text()[1], '&#x000A;')"/>
+          </xsl:when>
+          <!-- NEL -->
+          <xsl:when test="starts-with(text()[1], '&#x0085;')">
+            <xsl:value-of select="substring-after(text()[1], '&#x0085;')"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="text()[1]"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:if>
+      <xsl:apply-templates select="node()[not(position() = 1 and self::text())]"/>
     </pre>
   </div>
 </xsl:template>
