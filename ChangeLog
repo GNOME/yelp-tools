@@ -1,5 +1,10 @@
 2004-04-05  Shaun McCance  <shaunm@gnome.org>
 
+	* doc/xslt/gnome-doc-xslt.desktop.in
+	- Adding gnome-doc-xslt.desktop.in
+
+2004-04-05  Shaun McCance  <shaunm@gnome.org>
+
 	* gnome-doc-utils.make:
 	- Fix for silly problem with rngdoc building
 
