@@ -1,5 +1,11 @@
 2005-01-02  Shaun McCance  <shaunm@gnome.org>
 
+	* NEWS:
+	* configure.in:
+	- Version 0.1.1
+
+2005-01-02  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/xsldoc/xsldoc.xsl:
 	- Insert dummy paragraphs in refsection to validate
 

@@ -1,0 +1,30 @@
+Changes in 0.1.1:
+-----------------
+* Added gnome-doc-prepare, renamed from danilo's shaunize
+* Better handling of titles for division nodes
+* Improvements to translator documentation, still incomplete
+* Changed chunking behavior to be more sane
+* Implemented (currently ugly) navigation bar
+* Various format2xsl improvements
+* Lots of stylistic improvements
+* Added tooltips on all links
+* Corrections for OMF generator
+* Some corrections to the build utils
+* Updated translations:
+  bg      (Alexander Shopov)
+  cs      (Miloslav Trmac)
+  de      (Hendrik Brandt)
+  el      (Kostas Papadimas)
+  en_CA   (Adam Weinberger)
+  en_GB   (David Lodge)
+  es      (Francisco Javier F. Serrador)
+  fi      (Tommi Vainikainen)
+  ja      (Satoru SATOH)
+  lt      (Žygimantas Beručka)
+  nl      (Taco Witte)
+  pa      (Amanpreet Singh Alam)
+  pt      (Duarte Loreto)
+  pt_BR   (Raphael Higino)
+  sk      (Marcel Telka)
+  zh_CN   (Funda Wang)
+  nb      (Kjartan Maraas)
