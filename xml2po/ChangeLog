@@ -1,3 +1,7 @@
+2005-03-04  Danilo Šegan  <dsegan@gmx.net>
+
+	* modes/docbook.py (docbookXmlMode.getFinalTags): Remove 'title'.
+
 2005-03-03  Danilo Šegan  <dsegan@gmx.net>
 
 	* xml2po.1.xml: Remove -f, -i references here as well.
