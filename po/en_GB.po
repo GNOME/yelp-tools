@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-10-17 14:56+0100\n"
-"PO-Revision-Date: 2004-10-17 14:56+0100\n"
+"POT-Creation-Date: 2004-10-19 20:07+0100\n"
+"PO-Revision-Date: 2004-10-19 20:07+0100\n"
 "Last-Translator: David Lodge <dave@cirt.net>\n"
 "Language-Team: English/GB <en@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -22,25 +22,60 @@ msgstr ""
 msgid "format.chapter.label"
 msgstr "format.chapter.label"
 
-#. Figure %t{number}
+#. FIXME
 #: xslt/docbook/common/db-format.xml.in.h:4
+msgid "format.citetitle"
+msgstr "format.citetitle"
+
+#. %t{parent}-%1{number}
+#: xslt/docbook/common/db-format.xml.in.h:6
+msgid "format.example.number"
+msgstr "format.example.number"
+
+#. %1{number}
+#: xslt/docbook/common/db-format.xml.in.h:8
+msgid "format.example.number.flat"
+msgstr "format.example.number.flat"
+
+#. Figure %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:10
 msgid "format.figure.label"
 msgstr "format.figure.label"
 
+#. %t{parent}-%1{number}
+#: xslt/docbook/common/db-format.xml.in.h:12
+msgid "format.figure.number"
+msgstr "format.figure.number"
+
+#. %1{number}
+#: xslt/docbook/common/db-format.xml.in.h:14
+msgid "format.figure.number.flat"
+msgstr "format.figure.number.flat"
+
 #. ‘%t{node}’
-#: xslt/docbook/common/db-format.xml.in.h:6
+#: xslt/docbook/common/db-format.xml.in.h:16
 msgid "format.quote.outer"
 msgstr "format.quote.outer"
 
 #. Section %t{number}
-#: xslt/docbook/common/db-format.xml.in.h:8
+#: xslt/docbook/common/db-format.xml.in.h:18
 msgid "format.section.label"
 msgstr "format.section.label"
 
 #. Table %t{number}
-#: xslt/docbook/common/db-format.xml.in.h:10
+#: xslt/docbook/common/db-format.xml.in.h:20
 msgid "format.table.label"
 msgstr "format.table.label"
+
+#. %t{parent}-%1{number}
+#: xslt/docbook/common/db-format.xml.in.h:22
+msgid "format.table.number"
+msgstr "format.table.number"
+
+#. %1{number}
+#: xslt/docbook/common/db-format.xml.in.h:24
+msgid "format.table.number.flat"
+msgstr "format.table.number.flat"
 
 #: xslt/gettext/l10n.xml.in.h:1
 msgid "&#8216;"
