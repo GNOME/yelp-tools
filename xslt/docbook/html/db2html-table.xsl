@@ -8,6 +8,14 @@
 <doc:title>Tables</doc:title>
 
 
+<!-- == Quick Matchers ===================================================== -->
+
+<xsl:template match="entry/para[
+              not(preceding-sibling::* or following-sibling::*)]">
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
+
 <!-- == Matched Templates ================================================== -->
 
 <!-- = entry | entrytbl = -->

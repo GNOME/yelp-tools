@@ -106,8 +106,16 @@
   <xsl:param name="toc_depth" select="0"/>
   <!-- FIXME -->
   <li>
-    <xsl:call-template name="db2html.autotoc.label"/>
-    <xsl:apply-templates select="title/node()"/>
+    <a>
+      <xsl:attribute name="href">
+        <xsl:call-template name="db.xref.target">
+          <xsl:with-param name="linkend" select="@id"/>
+          <xsl:with-param name="target" select="."/>
+        </xsl:call-template>
+      </xsl:attribute>
+      <xsl:call-template name="db2html.autotoc.label"/>
+      <xsl:apply-templates select="title/node()"/>
+    </a>
     <xsl:if test="$toc_depth &gt; 0">
       <xsl:call-template name="db2html.autotoc">
         <xsl:with-param name="toc_depth" select="$toc_depth"/>

@@ -1,3 +1,36 @@
+2004-07-19  Shaun McCance  <shaunm@gnome.org>
+
+	* configure.in:
+	- Added libxslt 1.1.8 dependancy for bug #141532
+
+	* xslt/docbook/common/db-chunk.xsl:
+	- Fixed incorrectness in db.chunk.depth-in-chunk
+
+	* xslt/docbook/common/db-xref.xsl:
+	- Fixed incorrectness in db.xref.target
+
+	* xslt/docbook/html/Makefile.am:
+	* xslt/docbook/html/db2html-callout.xsl:
+	* xslt/docbook/html/db2html.xsl:
+	- Added db2html-callout.xsl
+
+	* xslt/docbook/html/db2html-autotoc.xsl:
+	- Made autotoc actually link
+
+	* xslt/docbook/html/db2html-css.xsl:
+	* xslt/docbook/html/db2html-list.xsl:
+	* xslt/docbook/html/db2html-table.xsl:
+	- Lots more style information
+	- Moved CSS bits to seperate files
+	- Nice de-<p>-ifyer for singleton <para>s in <listitem>s and <entry>s
+
+	* xslt/docbook/html/db2html-suppressed.xsl:
+	- Added listitem and indexterm & friends
+
+	* xslt/docbook/html/db2html-title.xsl:
+	- Style information, see above
+	- Removed #141532 work-around
+
 2004-07-14  Shaun McCance  <shaunm@gnome.org>
 
 	* test/testdocs/table.x001.xml:

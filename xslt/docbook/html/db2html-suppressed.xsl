@@ -16,6 +16,22 @@ modes because of the DocBook content model.
 <xsl:template match="bibliocoverage"/>
 <xsl:template match="bridgehead"/>
 
+<!-- Explicitly matched by parent -->
+<xsl:template match="listitem"/>
+
+<!-- Index elements, not yet supported -->
+<xsl:template match="indexterm"/>
+<xsl:template match="primary"/>
+<xsl:template match="primaryie"/>
+<xsl:template match="secondary"/>
+<xsl:template match="secondaryie"/>
+<xsl:template match="see"/>
+<xsl:template match="seeie"/>
+<xsl:template match="seealso"/>
+<xsl:template match="seealsoie"/>
+<xsl:template match="tertiary"/>
+<xsl:template match="tertiaryie"/>
+
 <!-- Unmatched info elements, supported indirectly -->
 <xsl:template match="appendixinfo"/>
 <xsl:template match="blockinfo"/>

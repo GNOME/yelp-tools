@@ -108,15 +108,10 @@
       <xsl:with-param name="node" select="$target"/>
     </xsl:call-template>
   </xsl:variable>
-  <xsl:choose>
-    <xsl:when test="$target_chunk_id = $linkend">
-      <xsl:value-of select="concat('#', $linkend)"/>
-    </xsl:when>
-    <xsl:otherwise>
-      <xsl:value-of select="concat($target_chunk_id, $db.chunk.extension,
-                                   '#', $linkend)"/>
-    </xsl:otherwise>
-  </xsl:choose>
+  <xsl:value-of select="concat(
+                  $target_chunk_id,
+                  $db.chunk.extension,
+                  '#', $linkend)"/>
 </xsl:template>
 
 </xsl:stylesheet>

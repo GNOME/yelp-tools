@@ -27,6 +27,9 @@
 <xsl:include href="db2html-block.xsl"
              doc:summary="true"
              doc:include="true"/>
+<xsl:include href="db2html-callout.xsl"
+             doc:summary="true"
+             doc:include="true"/>
 <xsl:include href="db2html-classsynopsis.xsl"
              doc:summary="true"
              doc:include="true"/>
