@@ -499,10 +499,14 @@ dist-fig: $(_DOC_C_FIGURES) $(_DOC_LC_FIGURES)
 	done;
 
 dist-omf:
-	$(INSTALL_DATA) $(srcdir)/$(_DOC_OMF_IN) $(distdir)/$(_DOC_OMF_IN)
+	@if test -f "$(_DOC_OMF_IN)"; then d=; else d="$(srcdir)/"; fi; \
+	echo "$(INSTALL_DATA) $$d$(_DOC_OMF_IN) $(distdir)/$(notdir $(_DOC_OMF_IN))"; \
+	$(INSTALL_DATA) "$$d$(_DOC_OMF_IN)" "$(distdir)/$(notdir $(_DOC_OMF_IN))"
 
 dist-dsk:
-	$(INSTALL_DATA) $(srcdir)/$(_DOC_DSK_IN) $(distdir)/$(_DOC_DSK_IN)
+	@if test -f "$(_DOC_DSK_IN)"; then d=; else d="$(srcdir)/"; fi; \
+	echo "$(INSTALL_DATA) $$d$(_DOC_DSK_IN) $(distdir)/$(notdir $(_DOC_DSK_IN))"; \
+	$(INSTALL_DATA) "$$d$(_DOC_DSK_IN)" "$(distdir)/$(notdir $(_DOC_DSK_IN))"
 
 
 .PHONY: check-doc check-omf

@@ -18,7 +18,7 @@ fi
 
 PKG_CHECK_MODULES(GNOME_DOC_UTILS,
 [
-	libxml-2.0 >= 2.6.0
+	libxml-2.0 >= 2.6.12
 	libxslt    >= 1.1.8
 ])
 
