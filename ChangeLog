@@ -1,5 +1,14 @@
 2004-12-27  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/common/db-chunk.xsl:
+	* xslt/docbook/html/db2html-autotoc.xsl:
+	- Corrected the use of db.chunk.chunks_
+
+	* xslt/docbook/common/db-label.xsl:
+	- Removed a spurious >
+
+2004-12-27  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/docbook/common/db-format.xml.in:
 	- Use titleabbrev when available for xrefs
 

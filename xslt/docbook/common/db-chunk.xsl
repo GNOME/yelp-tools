@@ -350,7 +350,8 @@
   <xsl:param name="node" select="."/>
   <xsl:variable name="divs"
                 select="count($node/ancestor-or-self::*
-                               [contains($db.chunk.chunks_, local-name(.))] )"/>
+                               [contains($db.chunk.chunks_,
+                                  concat(' ', local-name(.), ' '))] )"/>
   <xsl:choose>
     <xsl:when test="$divs &lt; ($db.chunk.max_depth + 1)">
       <xsl:value-of select="count($node/ancestor-or-self::*) - $divs"/>
@@ -381,7 +382,8 @@
   <xsl:param name="node" select="."/>
   <xsl:variable name="divs"
                 select="count($node/ancestor::*
-                               [contains($db.chunk.chunks_, local-name(.))] )"/>
+                               [contains($db.chunk.chunks_,
+                                  concat(' ', local-name(.), ' '))] )"/>
   <xsl:choose>
     <xsl:when test="$divs &lt; $db.chunk.max_depth">
       <xsl:value-of select="$divs"/>
@@ -401,6 +403,12 @@
     Determine the id of the containing chunk of an element
   </purpose>
   <parameter>
+    <name>id</name>
+    <purpose>
+      The id of the element for which to find the containing chunk id
+    </purpose>
+  </parameter>
+  <parameter>
     <name>node</name>
     <purpose>
       The element for which to find the containing chunk id
@@ -415,7 +423,8 @@
 </template>
 
 <xsl:template name="db.chunk.chunk-id">
-  <xsl:param name="node" select="."/>
+  <xsl:param name="id" select="@id"/>
+  <xsl:param name="node" select="key('idkey', $id)"/>
   <xsl:param name="depth_in_chunk">
     <xsl:call-template name="db.chunk.depth-in-chunk">
       <xsl:with-param name="node" select="$node"/>
@@ -484,7 +493,8 @@
     <xsl:when test="$axis = 'following'">
       <xsl:variable name="divs"
                     select="$node/following-sibling::*
-                             [contains($db.chunk.chunks_, local-name(.))]"/>
+                             [contains($db.chunk.chunks_,
+                                concat(' ', local-name(.), ' '))]"/>
       <xsl:choose>
         <xsl:when test="$divs">
           <xsl:value-of select="string($divs[1]/@id)"/>
@@ -502,7 +512,8 @@
     <!-- last-descendant -->
     <xsl:when test="$axis = 'last-descendant'">
       <xsl:variable name="divs"
-                    select="$node/*[contains($db.chunk.chunks_, local-name(.))]"/>
+                    select="$node/*[contains($db.chunk.chunks_,
+                                      concat(' ', local-name(.), ' '))]"/>
       <xsl:choose>
         <xsl:when test="($depth_of_chunk &gt;= $db.chunk.max_depth)">
           <xsl:value-of select="string($node/@id)"/>
@@ -526,7 +537,8 @@
     <!-- next -->
     <xsl:when test="$axis = 'next'">
       <xsl:variable name="divs"
-                    select="$node/*[contains($db.chunk.chunks_, local-name(.))]"/>
+                    select="$node/*[contains($db.chunk.chunks_,
+                                      concat(' ', local-name(.), ' '))]"/>
       <xsl:choose>
         <xsl:when test="($depth_of_chunk &lt; $db.chunk.max_depth) and $divs">
           <xsl:value-of select="string($divs[1]/@id)"/>
@@ -545,7 +557,8 @@
     <xsl:when test="$axis = 'previous'">
       <xsl:variable name="divs"
                     select="$node/preceding-sibling::*
-                             [contains($db.chunk.chunks_, local-name(.))]"/>
+                             [contains($db.chunk.chunks_,
+                                concat(' ', local-name(.), ' '))]"/>
       <xsl:choose>
         <xsl:when test="$divs and ($depth_of_chunk &lt; $db.chunk.max_depth)">
           <xsl:call-template name="db.chunk.chunk-id.axis">

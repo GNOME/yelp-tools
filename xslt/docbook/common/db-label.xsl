@@ -62,7 +62,7 @@
 
 <!-- == db.label.mode ====================================================== -->
 
-<mode xmlns="http://www.gnome.org/~shaunm/xsldoc">>
+<mode xmlns="http://www.gnome.org/~shaunm/xsldoc">
 <name>db.label.mode</name>
 <FIXME/>
 </mode>

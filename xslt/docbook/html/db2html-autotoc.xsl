@@ -151,7 +151,8 @@
       <xsl:call-template name="db2html.autotoc">
         <xsl:with-param name="toc_depth" select="$toc_depth"/>
         <xsl:with-param name="divisions"
-                        select="*[contains($db.chunk.chunks_, local-name(.))]"/>
+                        select="*[contains($db.chunk.chunks_,
+                                    concat(' ', local-name(.), ' '))]"/>
       </xsl:call-template>
     </xsl:if>
   </li>
