@@ -1,18 +1,27 @@
 <?xml version='1.0' encoding='utf-8'?>
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-		xmlns:ref="http://www.gnome.org/~shaunm/mallard/reference"
+		xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
 		exclude-result-prefixes="ref"
                 version="1.0">
 
-<ref:title>Titles and Subtitles</ref:title>
+<doc:title>Titles and Subtitles</doc:title>
 
 
-<!-- == db2html.title.label == -->
+<!-- == db2html.title.label ================================================ -->
 
-<ref:refname>db2html.title.label</ref:refname>
-<ref:refpurpose></ref:refpurpose>
-<ref:para></ref:para>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.title.label</name>
+  <description>
+    Generate the label for a title
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The element for which to generate a label
+    </description>
+  </parameter>
+</template>
 
 <xsl:template name="db2html.title.label">
   <xsl:param name="node" select="."/>
@@ -24,11 +33,20 @@
 </xsl:template>
 
 
-<!-- == db2html.title.block == -->
+<!-- == db2html.title.block ================================================ -->
 
-<ref:refname>db2html.title.block</ref:refname>
-<ref:refpurpose></ref:refpurpose>
-<ref:para></ref:para>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.title.block</name>
+  <description>
+    Generate a labelled block title
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The element for which to generate a title
+    </description>
+  </parameter>
+</template>
 
 <xsl:template name="db2html.title.block">
   <xsl:param name="node" select="."/>
@@ -46,10 +64,20 @@
 </xsl:template>
 
 
-<!-- == db2html.title.simple == -->
+<!-- == db2html.title.simple =============================================== -->
 
-<ref:refname>db2html.title.simple</ref:refname>
-<ref:refpurpose></ref:refpurpose>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.title.simple</name>
+  <description>
+    Generate a simple unlabelled title
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The element for which to generate a title
+    </description>
+  </parameter>
+</template>
 
 <xsl:template name="db2html.title.simple">
   <xsl:param name="node" select="."/>
@@ -64,11 +92,26 @@
 </xsl:template>
 
 
-<!-- == db2html.title.header == -->
+<!-- == db2html.title.header =============================================== -->
 
-<ref:refname>db2html.title.header</ref:refname>
-<ref:refpurpose></ref:refpurpose>
-<ref:para></ref:para>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.title.header</name>
+  <description>
+    Generate a header-level title
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The element for which to generate a title
+    </description>
+  </parameter>
+  <parameter>
+    <name>depth_in_chunk</name>
+    <description>
+      The depth of <parameter>node</parameter> in the containing chunk
+    </description>
+  </parameter>
+</template>
 
 <xsl:template name="db2html.title.header">
   <xsl:param name="node" select="."/>
@@ -108,11 +151,26 @@
 </xsl:template>
 
 
-<!-- == db2html.subtitle.header == -->
+<!-- == db2html.subtitle.header ============================================ -->
 
-<ref:refname>db2html.subtitle.header</ref:refname>
-<ref:refpurpose></ref:refpurpose>
-<ref:para></ref:para>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.subtitle.header</name>
+  <description>
+    Generate a header-level subtitle
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The element for which to generate a title
+    </description>
+  </parameter>
+  <parameter>
+    <name>depth_in_chunk</name>
+    <description>
+      The depth of <parameter>node</parameter> in the containing chunk
+    </description>
+  </parameter>
+</template>
 
 <xsl:template name="db2html.subtitle.header">
   <xsl:param name="node" select="."/>

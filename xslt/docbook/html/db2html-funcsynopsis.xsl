@@ -1,21 +1,22 @@
 <?xml version='1.0'?>
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-		xmlns:ref="http://www.gnome.org/~shaunm/mallard/reference"
+		xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
 		exclude-result-prefixes="ref"
                 version="1.0">
 
-<ref:title>Function Synopses</ref:title>
+<doc:title>Function Synopses</doc:title>
 
 
-<!-- == db2html.funcsynopsis.style == -->
+<!-- == db2html.funcsynopsis.style ========================================= -->
 
-<ref:refname>db2html.funcsynopsis.style</ref:refname>
-<ref:refpurpose>
-  How to render <ref:xmltag>funcsynopsis</ref:xmltag> elements,
-  either <ref:constant>'K&amp;R'</ref:constant> or
-  <ref:constant>'ANSI'</ref:constant>
-</ref:refpurpose>
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.funcsynopsis.style</name>
+  <description>
+    How to render <xmltag>funcsynopsis</xmltag> elements, either
+    <constant>'K&amp;R'</constant> or <constant>'ANSI'</constant>
+  </description>
+</parameter>
 
 <xsl:param name="db2html.funcsynopsis.style">
   <xsl:choose>
@@ -30,12 +31,21 @@
 </xsl:param>
 
 
-<!-- == db2html.funcsynopsis == -->
+<!-- == db2html.funcsynopsis =============================================== -->
 
-<ref:refname>db2html.funcsynopsis</ref:refname>
-<ref:refpurpose>
-  Process <ref:xmltag>funcsynopsis</ref:xmltag> elements
-</ref:refpurpose>
+<function xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.funcsynopsis</name>
+  <description>
+    Process a <xmltag>funcsynopsis</xmltag> element
+  </description>
+  <parameter>
+    <name>style</name>
+    <description>
+      How to render the <xmltag>funcsynopsis</xmltag> element, either
+      <constant>'K&amp;R'</constant> or <constant>'ANSI'</constant>
+    </description>
+  </parameter>
+</function>
 
 <xsl:template name="db2html.funcsynopsis">
   <xsl:param name="style">
