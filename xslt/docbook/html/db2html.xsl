@@ -25,6 +25,7 @@
 <xsl:include href="db2html-info.xsl"         doc:summary="true" doc:include="true"/>
 <xsl:include href="db2html-inline.xsl"       doc:summary="true" doc:include="true"/>
 <xsl:include href="db2html-label.xsl"        doc:summary="true" doc:include="true"/>
+<xsl:include href="db2html-media.xsl"        doc:summary="true" doc:include="true"/>
 <xsl:include href="db2html-list.xsl"         doc:summary="true" doc:include="true"/>
 <xsl:include href="db2html-qanda.xsl"        doc:summary="true" doc:include="true"/>
 <xsl:include href="db2html-suppressed.xsl"   doc:summary="true" doc:include="true"/>

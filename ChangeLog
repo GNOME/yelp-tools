@@ -1,3 +1,13 @@
+2004-05-19  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/html/Makefile.am:
+	* xslt/docbook/html/db2html-media.xsl:
+	* xslt/docbook/html/db2html.xsl:
+	- Added db2html-media, mostly commented out right now
+
+	* xslt/docbook/html/db2html-admon.xsl:
+	- Indentation changes, because I'm a bitch
+
 2004-05-14  Shaun McCance  <shaunm@gnome.org>
 
 	* doc/xslt/C/gnome-doc-xslt.xml:
