@@ -153,7 +153,7 @@ db2omf_args =									\
 	--stringparam db2omf.basename $(DOC_MODULE)				\
 	--stringparam db2omf.format $(3)					\
 	--stringparam db2omf.dtd						\
-		$(shell grep -h -m 1 PUBLIC $(2) | sed -e 's/.*PUBLIC //')	\
+	$(shell grep -h PUBLIC $(2) | head -n 1 | sed -e 's/.*PUBLIC //')	\
 	--stringparam db2omf.lang $(dir $(2))					\
 	--stringparam db2omf.omf_dir $(OMF_DIR)					\
 	--stringparam db2omf.help_dir $(HELP_DIR)				\

@@ -1,6 +1,11 @@
 2004-10-04  Shaun McCance  <shaunm@gnome.org>
 
 	* gnome-doc-utils.make:
+	- 'grep -m' is a GNUism.  Pipe through head instead.
+
+2004-10-04  Shaun McCance  <shaunm@gnome.org>
+
+	* gnome-doc-utils.make:
 	* xslt/docbook/omf/db2omf.xsl:
 	- More work on db2omf, 'make check-omf' now passes
 
