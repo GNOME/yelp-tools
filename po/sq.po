@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-18 03:41+0200\n"
+"POT-Creation-Date: 2004-08-19 11:42+0200\n"
 "PO-Revision-Date: 2004-07-28 19:48+0200\n"
 "Last-Translator: Laurent Dhima <laurenti@alblinux.net>\n"
 "Language-Team: Albanian <gnome-albanian-perkthyesit@lists.sourceforge.net>\n"
@@ -172,9 +172,10 @@ msgstr "Dedikimi"
 msgid "Editor"
 msgstr "Editori"
 
+#. GRUT modified this item
 #: xslt/gettext/l10n.xml.in.h:36
 msgid "Editors"
-msgstr "Editorë"
+msgstr "Botuesit"
 
 #: xslt/gettext/l10n.xml.in.h:37
 msgid "Email"
@@ -311,3 +312,4 @@ msgstr "Nuk njihet"
 #: xslt/gettext/l10n.xml.in.h:70
 msgid "Warning"
 msgstr "Kujdes"
+
