@@ -1,3 +1,12 @@
+2004-04-02  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/xsldoc/Makefile.am:
+	* xslt/xsldoc/xsldoc.xsl:
+	- Adding xsldoc.xsl
+
+	* xslt/rngdoc/rngdoc.xsl:
+	- Removed sectioning stuff
+
 2004-04-01  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/html/db2html-inline.xsl:

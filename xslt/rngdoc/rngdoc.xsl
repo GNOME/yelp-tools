@@ -8,15 +8,15 @@
 
 <xsl:output method="xml" encoding="utf-8" indent="yes"/>
 
+<ref:title>Documenting RELAX NG Schemes</ref:title>
 
-<!-- === Stylesheet Parameters === -->
-<ref:sect1/>
-<ref:title>Stylesheet Parameters</ref:title>
 
-<ref:refname>$rngdoc.toplevel_element</ref:refname>
+<!-- == rngdoc.toplevel_element == -->
+
+<ref:refname>rngdoc.toplevel_element</ref:refname>
 <ref:refpurpose>The top-level element in the generated DocBook</ref:refpurpose>
 <ref:para>
-  The <ref:parameter>$rngdoc.toplevel_element</ref:parameter> parameter
+  The <ref:parameter>rngdoc.toplevel_element</ref:parameter> parameter
   defines the top-level element used in the generated DocBook.  Allowed
   values are
   <ref:literal>'article'</ref:literal>,
@@ -28,6 +28,7 @@
   set by the <ref:xmltag role="xmlpi">rngdoc.toplevel_element</ref:xmltag>
   processing instruction in the source RELAX-NG file.
 </ref:para>
+
 <xsl:param name="rngdoc.toplevel_element">
   <xsl:choose>
     <xsl:when test="processing-instruction('rngdoc.toplevel_element')">
@@ -40,10 +41,9 @@
 </xsl:param>
 
 
-<!-- === Processing Divisions and Grammars === -->
-<ref:sect1/>
-<ref:title>Processing Divisions and Grammars</ref:title>
+<!-- == Matched Templates == -->
 
+<!-- = /rng:grammar = -->
 <xsl:template match="/rng:grammar">
   <xsl:variable name="toplevel_element">
     <xsl:choose>
@@ -72,6 +72,7 @@
   </xsl:element>
 </xsl:template>
 
+<!-- = rng:div = -->
 <xsl:template match="rng:div">
   <section>
     <xsl:if test="@ref:role">
@@ -87,11 +88,7 @@
   </section>
 </xsl:template>
 
-
-<!-- === Processing RELAX-NG in Reference Mode === -->
-<ref:sect1/>
-<ref:title>Processing RELAX-NG in Reference Mode</ref:title>
-
+<!-- = rng:define = -->
 <xsl:template mode="refentry.mode" match="rng:define">
   <xsl:choose>
     <xsl:when test="ref:refname">
@@ -109,44 +106,40 @@
   </xsl:choose>
 </xsl:template>
       
+<!-- = rng:element = -->
 <xsl:template mode="refentry.mode" match="rng:element">
 </xsl:template>
 
+<!-- = rng:include = -->
 <xsl:template match="rng:include">
 </xsl:template>
 
-
-<!-- === Processing Reference Elements === -->
-<ref:sect1/>
-<ref:title>Processing Reference Elements</ref:title>
-
+<!-- = ref:title = -->
 <xsl:template match="ref:title">
   <title>
     <xsl:apply-templates/>
   </title>
 </xsl:template>
 
+<!-- = ref:subtitle = -->
 <xsl:template match="ref:subtitle">
   <title>
     <xsl:apply-templates/>
   </title>
 </xsl:template>
 
-<xsl:template match="ref:refentry">
-  <refentry>
+<!-- = ref:refname = -->
+<xsl:template match="ref:refname">
+  <refname>
     <xsl:apply-templates/>
-  </refentry>
+  </refname>
 </xsl:template>
 
+<!-- = ref:refpurpose = -->
 <xsl:template match="ref:refpurpose">
   <refentry>
     <xsl:apply-templates/>
   </refentry>
 </xsl:template>
-
-<!-- === Outlining RELAX-NG Models === -->
-<ref:sect1/>
-<ref:title>Outlining RELAX-NG Models</ref:title>
-
 
 </xsl:stylesheet>
