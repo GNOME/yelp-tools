@@ -56,9 +56,22 @@ _DOC_LC_DOCS =								\
 
 _DOC_OMF_IN = $(DOC_MODULE).omf.in
 _DOC_OMF_OUTS =								\
-	$(foreach lc,C $(DOC_LINGUAS),$(lc)/$(DOC_MODULE)-$(lc).omf
+	$(foreach lc,C $(DOC_LINGUAS),$(lc)/$(DOC_MODULE).omf)
 
 _DOC_DESKTOP_IN = $(DOC_MODULE).desktop.in
 _DOC_DESKTOP_OUTS =							\
-	$(foreach lc,C $(DOC_LINGUAS),$(lc)/$(DOC_MODULE).$(lc).desktop
+	$(foreach lc,C $(DOC_LINGUAS),$(lc)/$(DOC_MODULE).desktop)
 
+
+## Building .desktop files
+
+$(_DOC_DESKTOP_OUTS) : $(_DOC_DESKTOP_IN)
+$(_DOC_DESKTOP_OUTS) : %/$(DOC_MODULE).desktop : %/$(DOC_MODULE).xml
+
+
+## Building .omf files
+
+$(_ODC_OMF_OUTS) : $(_DOC_OMF_IN)
+$(_DOC_OMF_OUTS) : %/$(DOC_MODULE).omf : %/$(DOC_MODULE).xml
+	xsltproc -o $@ --stringparam db2omf.omf_in $(_DOC_OMF_IN) $< \
+		`pkg-config --variable db2omf gnome-doc-utils`
