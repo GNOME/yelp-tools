@@ -1,4 +1,4 @@
-SUBDIRS = docbook
+SUBDIRS = po
 
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = gnome-doc-utils.pc
