@@ -1,5 +1,10 @@
 2004-04-26  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/omf/db2omf.xsl:
+	- Changes to the xsldoc
+
+2004-04-26  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/docbook/common/db-chunk.xsl:
 	* xslt/docbook/html/db2html-admon.xsl:
 	* xslt/docbook/html/db2html-cmdsynopsis.xsl:

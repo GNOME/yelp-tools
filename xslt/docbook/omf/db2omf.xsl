@@ -1,47 +1,61 @@
 <?xml version='1.0' encoding='utf-8'?>
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-		xmlns:ref="http://www.gnome.org/~shaunm/mallard/reference"
-		exclude-result-prefixes="ref"
+		xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
+		exclude-result-prefixes="doc"
                 version="1.0">
 
 <xsl:output method="xml" encoding="utf-8" indent="yes"/>
 
-<ref:title>DocBook to ScrollKeeper OMF</ref:title>
+<doc:title>DocBook to ScrollKeeper OMF</doc:title>
 
 
-<!-- == db2omf.lang == -->
+<!-- == db2omf.lang ======================================================== -->
 
-<ref:refname>db2omf.lang</ref:refname>
-<ref:refpurpose>
-  The written language of the referenced document
-</ref:refpurpose>
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2omf.lang</name>
+  <description>
+    The written language of the referenced document
+  </description>
+</parameter>
 
 <xsl:param name="db2omf.lang" select="/*/@lang | /*/@xml:lang"/>
 
 
-<!-- == db2omf.omf_in == -->
+<!-- == db2omf.omf_in ====================================================== -->
 
-<ref:refname>db2omf.omf_in</ref:refname>
-<ref:refpurpose>
-  Path to the .omf.in file containing common fields
-</ref:refpurpose>
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2omf.omf_in</name>
+  <description>
+    Path to the .omf.in file containing common fields
+  </description>
+</parameter>
 
 <xsl:param name="db2omf.omf_in"/>
+
 
 <xsl:variable name="omf_in" select="document($db2omf.omf_in)"/>
 
 
-<!-- == db2omf.omf == -->
+<!-- == db2omf.omf ========================================================= -->
 
-<ref:refname>db2omf.omf</ref:refname>
-<ref:refpurpose>
-  Generate the top-level <ref:xmltag>omf</ref:xmltag> and all its children
-</ref:refpurpose>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2omf.omf</name>
+  <description>
+    Generate the top-level <xmltag>omf</xmltag> and all its children
+  </description>
+  <parameter>
+    <name>info</name>
+    <description>
+      The info element containing metadata
+    </description>
+  </parameter>
+</template>
 
 <xsl:template name="db2omf.omf" match="/*">
-  <xsl:param name="info" select="*[substring(local-name(.),
-                                   string-length(local-name(.)) - 3)]"/>
+  <xsl:param name="info"
+	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
+		       = 'info']"/>
   <omf>
     <xsl:call-template name="db2omf.creator">
       <xsl:with-param name="info" select="$info"/>
@@ -89,16 +103,25 @@
 </xsl:template>
 
 
-<!-- == db2omf.creator == -->
+<!-- == db2omf.creator ===================================================== -->
 
-<ref:refname>db2omf.creator</ref:refname>
-<ref:refpurpose>
-  Generate all <ref:xmltag>creator</ref:xmltag> elements
-</ref:refpurpose>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2omf.creator</name>
+  <description>
+    Generate all <xmltag>creator</xmltag> elements
+  </description>
+  <parameter>
+    <name>info</name>
+    <description>
+      The info element containing metadata
+    </description>
+  </parameter>
+</template>
 
 <xsl:template name="db2omf.creator">
-  <xsl:param name="info" select="*[substring(local-name(.),
-                                   string-length(local-name(.)) - 3)]"/>
+  <xsl:param name="info"
+	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
+		       = 'info']"/>
   <xsl:for-each select="$info/author | $info/authorgroup/author">
     <!-- FIXME: We should put a personname formatter in docbook/common -->
     <creator>
@@ -128,44 +151,71 @@
 </xsl:template>
 
 
-<!-- == db2omf.maintainer == -->
+<!-- == db2omf.maintainer ================================================== -->
 
-<ref:refname>db2omf.maintainer</ref:refname>
-<ref:refpurpose>
-  Generate all <ref:xmltag>maintainer</ref:xmltag> elements
-</ref:refpurpose>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2omf.maintainer</name>
+  <description>
+    Generate all <xmltag>maintainer</xmltag> elements
+  </description>
+  <parameter>
+    <name>info</name>
+    <description>
+      The info element containing metadata
+    </description>
+  </parameter>
+</template>
 
 <xsl:template name="db2omf.maintainer">
-  <xsl:param name="info" select="*[substring(local-name(.),
-                                   string-length(local-name(.)) - 3)]"/>
+  <xsl:param name="info"
+	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
+		       = 'info']"/>
   <!-- FIXME -->
 </xsl:template>
 
 
-<!-- == db2omf.contributor == -->
+<!-- == db2omf.contributor ================================================= -->
 
-<ref:refname>db2omf.contributor</ref:refname>
-<ref:refpurpose>
-  Generate all <ref:xmltag>contributor</ref:xmltag> elements
-</ref:refpurpose>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2omf.contributor</name>
+  <description>
+    Generate all <xmltag>contributor</xmltag> elements
+  </description>
+  <parameter>
+    <name>info</name>
+    <description>
+      The info element containing metadata
+    </description>
+  </parameter>
+</template>
 
 <xsl:template name="db2omf.contributor">
-  <xsl:param name="info" select="*[substring(local-name(.),
-                                   string-length(local-name(.)) - 3)]"/>
+  <xsl:param name="info"
+	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
+		       = 'info']"/>
   <!-- FIXME -->
 </xsl:template>
 
 
-<!-- == db2omf.title == -->
+<!-- == db2omf.title ======================================================= -->
 
-<ref:refname>db2omf.title</ref:refname>
-<ref:refpurpose>
-  Generate the <ref:xmltag>title</ref:xmltag> element
-</ref:refpurpose>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2omf.title</name>
+  <description>
+    Generate the <xmltag>title</xmltag> element
+  </description>
+  <parameter>
+    <name>info</name>
+    <description>
+      The info element containing metadata
+    </description>
+  </parameter>
+</template>
 
 <xsl:template name="db2omf.title">
-  <xsl:param name="info" select="*[substring(local-name(.),
-                                   string-length(local-name(.)) - 3)]"/>
+  <xsl:param name="info"
+	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
+		       = 'info']"/>
   <xsl:variable name="title" select="($info/title | title)[1]"/>
   <xsl:if test="not($title)">
     <xsl:message>
@@ -178,30 +228,48 @@
 </xsl:template>
 
 
-<!-- == db2omf.date == -->
+<!-- == db2omf.date ======================================================== -->
 
-<ref:refname>db2omf.date</ref:refname>
-<ref:refpurpose>
-  Generate the <ref:xmltag>date</ref:xmltag> element
-</ref:refpurpose>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2omf.date</name>
+  <description>
+    Generate the <xmltag>date</xmltag> element
+  </description>
+  <parameter>
+    <name>info</name>
+    <description>
+      The info element containing metadata
+    </description>
+  </parameter>
+</template>
 
 <xsl:template name="db2omf.date">
-  <xsl:param name="info" select="*[substring(local-name(.),
-                                   string-length(local-name(.)) - 3)]"/>
+  <xsl:param name="info"
+	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
+		       = 'info']"/>
   <!-- FIXME -->
 </xsl:template>
 
 
-<!-- == db2omf.version == -->
+<!-- == db2omf.version ===================================================== -->
 
-<ref:refname>db2omf.version</ref:refname>
-<ref:refpurpose>
-  Generate the <ref:xmltag>version</ref:xmltag> element
-</ref:refpurpose>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2omf.verion</name>
+  <description>
+    Generate the <xmltag>version</xmltag> element
+  </description>
+  <parameter>
+    <name>info</name>
+    <description>
+      The info element containing metadata
+    </description>
+  </parameter>
+</template>
 
 <xsl:template name="db2omf.version">
-  <xsl:param name="info" select="*[substring(local-name(.),
-                                   string-length(local-name(.)) - 3)]"/>
+  <xsl:param name="info"
+	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
+		       = 'info']"/>
   <xsl:variable name="identifier"
 		select="$info/revhistory/revision[1]/revnumber"/>
   <xsl:variable name="date"
@@ -229,16 +297,25 @@
 </xsl:template>
 
 
-<!-- == db2omf.subject == -->
+<!-- == db2omf.subject ===================================================== -->
 
-<ref:refname>db2omf.subject</ref:refname>
-<ref:refpurpose>
-  Generate the <ref:xmltag>subject</ref:xmltag> element
-</ref:refpurpose>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2omf.subject</name>
+  <description>
+    Generate the <xmltag>subject</xmltag> element
+  </description>
+  <parameter>
+    <name>info</name>
+    <description>
+      The info element containing metadata
+    </description>
+  </parameter>
+</template>
 
 <xsl:template name="db2omf.subject">
-  <xsl:param name="info" select="*[substring(local-name(.),
-                                   string-length(local-name(.)) - 3)]"/>
+  <xsl:param name="info"
+	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
+		       = 'info']"/>
   <xsl:variable name="subject" select="$omf_in/omf/resource/subject"/>
   <xsl:if test="not($subject)">
     <xsl:message>
@@ -253,16 +330,25 @@
 </xsl:template>
 
 
-<!-- == db2omf.description == -->
+<!-- == db2omf.description ================================================= -->
 
-<ref:refname>db2omf.description</ref:refname>
-<ref:refpurpose>
-  Generate the <ref:xmltag>description</ref:xmltag> element
-</ref:refpurpose>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2omf.description</name>
+  <description>
+    Generate the <xmltag>description</xmltag> element
+  </description>
+  <parameter>
+    <name>info</name>
+    <description>
+      The info element containing metadata
+    </description>
+  </parameter>
+</template>
 
 <xsl:template name="db2omf.description">
-  <xsl:param name="info" select="*[substring(local-name(.),
-                                   string-length(local-name(.)) - 3)]"/>
+  <xsl:param name="info"
+	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
+		       = 'info']"/>
   <xsl:variable name="description" select="$info/abstract[@role = 'description']"/>
   <xsl:if test="not($description)">
     <xsl:message>
@@ -276,16 +362,25 @@
 </xsl:template>
 
 
-<!-- == db2omf.type == -->
+<!-- == db2omf.type ======================================================== -->
 
-<ref:refname>db2omf.type</ref:refname>
-<ref:refpurpose>
-  Generate the <ref:xmltag>type</ref:xmltag> element
-</ref:refpurpose>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2omf.type</name>
+  <description>
+    Generate the <xmltag>type</xmltag> element
+  </description>
+  <parameter>
+    <name>info</name>
+    <description>
+      The info element containing metadata
+    </description>
+  </parameter>
+</template>
 
 <xsl:template name="db2omf.type">
-  <xsl:param name="info" select="*[substring(local-name(.),
-                                   string-length(local-name(.)) - 3)]"/>
+  <xsl:param name="info"
+	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
+		       = 'info']"/>
   <xsl:variable name="type" select="$omf_in/omf/resource/type"/>
   <xsl:if test="not($type)">
     <xsl:message>
@@ -298,58 +393,94 @@
 </xsl:template>
 
 
-<!-- == db2omf.format == -->
+<!-- == db2omf.format ====================================================== -->
 
-<ref:refname>db2omf.format</ref:refname>
-<ref:refpurpose>
-  Generate the <ref:xmltag>format</ref:xmltag> element
-</ref:refpurpose>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2omf.format</name>
+  <description>
+    Generate the <xmltag>format</xmltag> element
+  </description>
+  <parameter>
+    <name>info</name>
+    <description>
+      The info element containing metadata
+    </description>
+  </parameter>
+</template>
 
 <xsl:template name="db2omf.format">
-  <xsl:param name="info" select="*[substring(local-name(.),
-                                   string-length(local-name(.)) - 3)]"/>
+  <xsl:param name="info"
+	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
+		       = 'info']"/>
   <!-- FIXME -->
 </xsl:template>
 
 
-<!-- == db2omf.identifier == -->
+<!-- == db2omf.identifier ================================================== -->
 
-<ref:refname>db2omf.identifier</ref:refname>
-<ref:refpurpose>
-  Generate the <ref:xmltag>identifier</ref:xmltag> element
-</ref:refpurpose>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2omf.identifier</name>
+  <description>
+    Generate the <xmltag>identifier</xmltag> element
+  </description>
+  <parameter>
+    <name>info</name>
+    <description>
+      The info element containing metadata
+    </description>
+  </parameter>
+</template>
 
 <xsl:template name="db2omf.identifier">
-  <xsl:param name="info" select="*[substring(local-name(.),
-                                   string-length(local-name(.)) - 3)]"/>
+  <xsl:param name="info"
+	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
+		       = 'info']"/>
   <!-- FIXME -->
 </xsl:template>
 
 
-<!-- == db2omf.language == -->
+<!-- == db2omf.language ==================================================== -->
 
-<ref:refname>db2omf.language</ref:refname>
-<ref:refpurpose>
-  Generate the <ref:xmltag>language</ref:xmltag> element
-</ref:refpurpose>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2omf.language</name>
+  <description>
+    Generate the <xmltag>language</xmltag> element
+  </description>
+  <parameter>
+    <name>info</name>
+    <description>
+      The info element containing metadata
+    </description>
+  </parameter>
+</template>
 
 <xsl:template name="db2omf.language">
-  <xsl:param name="info" select="*[substring(local-name(.),
-                                   string-length(local-name(.)) - 3)]"/>
+  <xsl:param name="info"
+	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
+		       = 'info']"/>
   <!-- FIXME -->
 </xsl:template>
 
 
-<!-- == db2omf.relation == -->
+<!-- == db2omf.relation ==================================================== -->
 
-<ref:refname>db2omf.relation</ref:refname>
-<ref:refpurpose>
-  Generate the <ref:xmltag>relation</ref:xmltag> element
-</ref:refpurpose>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2omf.relation</name>
+  <description>
+    Generate the <xmltag>relation</xmltag> element
+  </description>
+  <parameter>
+    <name>info</name>
+    <description>
+      The info element containing metadata
+    </description>
+  </parameter>
+</template>
 
 <xsl:template name="db2omf.relation">
-  <xsl:param name="info" select="*[substring(local-name(.),
-                                   string-length(local-name(.)) - 3)]"/>
+  <xsl:param name="info"
+	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
+		       = 'info']"/>
   <xsl:variable name="relation" select="$omf_in/omf/resource/relation"/>
   <xsl:if test="not($relation)">
     <xsl:message>
@@ -364,16 +495,25 @@
 </xsl:template>
 
 
-<!-- == db2omf.rights == -->
+<!-- == db2omf.rights ====================================================== -->
 
-<ref:refname>db2omf.rights</ref:refname>
-<ref:refpurpose>
-  Generate the <ref:xmltag>rights</ref:xmltag> element
-</ref:refpurpose>
+<template xmlns="http://www.gnome.org/~shaunm/name">
+  <name>db2omf.rights</name>
+  <description>
+    Generate the <xmltag>rights</xmltag> element
+  </description>
+  <parameter>
+    <name>info</name>
+    <description>
+      The info element containing metadata
+    </description>
+  </parameter>
+</template>
 
 <xsl:template name="db2omf.rights">
-  <xsl:param name="info" select="*[substring(local-name(.),
-                                   string-length(local-name(.)) - 3)]"/>
+  <xsl:param name="info"
+	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
+		       = 'info']"/>
   <!-- FIXME -->
 </xsl:template>
 
