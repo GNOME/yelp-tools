@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-24 20:18+0100\n"
-"PO-Revision-Date: 2004-12-27 00:38-0600\n"
+"POT-Creation-Date: 2005-01-02 12:07+0100\n"
+"PO-Revision-Date: 2005-01-02 14:58+0100\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -92,10 +92,10 @@ msgstr "‚%t{node}’"
 msgid "format.quote.outer"
 msgstr "„%t{node}”"
 
-#. Refentry %t{number}
+#. %t{title}
 #: xslt/docbook/common/db-format.xml.in.h:31
 msgid "format.refentry.label"
-msgstr ""
+msgstr "%t{title}"
 
 #. Section %t{number}
 #: xslt/docbook/common/db-format.xml.in.h:33
@@ -173,181 +173,171 @@ msgstr ""
 "<msgstr form=\"0\">Vydavatel</msgstr> <msgstr form=\"1\">Vydavatelé</msgstr> "
 "<msgstr form=\"2\">Vydavatelé</msgstr>"
 
-#: xslt/gettext/l10n.xml.in.h:13
-msgid "About This Article"
-msgstr "O tomto článku"
-
+#. Link to the titlepage
 #: xslt/gettext/l10n.xml.in.h:14
-msgid "About This Bibliography"
-msgstr "O této bibliografii"
+msgid "About This Document"
+msgstr "O tomto dokumentu"
 
 #: xslt/gettext/l10n.xml.in.h:15
-msgid "About This Book"
-msgstr "O této knize"
-
-#: xslt/gettext/l10n.xml.in.h:16
-msgid "About This Chapter"
-msgstr "O této kapitole"
-
-#: xslt/gettext/l10n.xml.in.h:17
-msgid "About This Entry"
-msgstr "O této položce"
-
-#: xslt/gettext/l10n.xml.in.h:18
-msgid "About This Glossary"
-msgstr "O tomto glosáři"
-
-#: xslt/gettext/l10n.xml.in.h:19
-msgid "About This Index"
-msgstr "O tomto rejstříku"
-
-#: xslt/gettext/l10n.xml.in.h:20
-msgid "About This Part"
-msgstr "O této části"
-
-#: xslt/gettext/l10n.xml.in.h:21
-msgid "About This Preface"
-msgstr "O této předmluvě"
-
-#: xslt/gettext/l10n.xml.in.h:22
-msgid "About This Reference"
-msgstr "O tomto odkazu"
-
-#: xslt/gettext/l10n.xml.in.h:23
-msgid "About This Section"
-msgstr "O tomto oddílu"
-
-#: xslt/gettext/l10n.xml.in.h:24
-msgid "About This Set"
-msgstr "O této sadě"
-
-#: xslt/gettext/l10n.xml.in.h:25
 msgid "Affiliation"
 msgstr "Přidružení"
 
 #. This is an abbreviated form of 'Message Audience'.
 #. Feel free to use the same word/phrase for both.
-#: xslt/gettext/l10n.xml.in.h:28
+#: xslt/gettext/l10n.xml.in.h:18
 msgid "Audience"
 msgstr "Čtenáři"
 
-#: xslt/gettext/l10n.xml.in.h:29
+#: xslt/gettext/l10n.xml.in.h:19
 msgid "Caution"
 msgstr "Upozornění"
 
-#: xslt/gettext/l10n.xml.in.h:30
+#: xslt/gettext/l10n.xml.in.h:20
 msgid "Colophon"
 msgstr "Tiráž"
 
 #. This is an abbreviated form of 'Table of Contents'.
 #. Feel free to use the same word/phrase for both.
-#: xslt/gettext/l10n.xml.in.h:33
+#: xslt/gettext/l10n.xml.in.h:23
 msgid "Contents"
 msgstr "Obsah"
 
 #. Used as a header for date column in the revision history.
-#: xslt/gettext/l10n.xml.in.h:35
+#: xslt/gettext/l10n.xml.in.h:25
 msgid "Date"
 msgstr "Datum"
 
-#: xslt/gettext/l10n.xml.in.h:36
+#: xslt/gettext/l10n.xml.in.h:26
 msgid "Dedication"
 msgstr "Věnování"
 
-#: xslt/gettext/l10n.xml.in.h:37
+#: xslt/gettext/l10n.xml.in.h:27
 msgid "Email"
 msgstr "E-mail"
 
-#: xslt/gettext/l10n.xml.in.h:38
+#: xslt/gettext/l10n.xml.in.h:28
 msgid "Important"
 msgstr "Důležité"
 
-#: xslt/gettext/l10n.xml.in.h:39
+#: xslt/gettext/l10n.xml.in.h:29
 msgid "Index"
 msgstr "Rejstřík"
 
-#: xslt/gettext/l10n.xml.in.h:40
+#: xslt/gettext/l10n.xml.in.h:30
 msgid "Legal Notice"
 msgstr "Právní upozornění"
 
 #. This is an abbreviated form of 'Message Level'.
 #. Feel free to use the same word/phrase for both.
-#: xslt/gettext/l10n.xml.in.h:43
+#: xslt/gettext/l10n.xml.in.h:33
 msgid "Level"
 msgstr "Úroveň"
 
-#: xslt/gettext/l10n.xml.in.h:44
+#: xslt/gettext/l10n.xml.in.h:34
 msgid "Message Audience"
 msgstr "Čtenáři zprávy"
 
-#: xslt/gettext/l10n.xml.in.h:45
+#: xslt/gettext/l10n.xml.in.h:35
 msgid "Message Level"
 msgstr "Úroveň zprávy"
 
-#: xslt/gettext/l10n.xml.in.h:46
+#: xslt/gettext/l10n.xml.in.h:36
 msgid "Message Origin"
 msgstr "Původ zprávy"
 
-#: xslt/gettext/l10n.xml.in.h:47
+#: xslt/gettext/l10n.xml.in.h:37
 msgid "Name"
 msgstr "Jméno"
 
-#: xslt/gettext/l10n.xml.in.h:48
+#: xslt/gettext/l10n.xml.in.h:38
 msgid "Note"
 msgstr "Upozornění"
 
 #. This is an abbreviated form of 'Message Origin'.
 #. Feel free to use the same word/phrase for both.
-#: xslt/gettext/l10n.xml.in.h:51
+#: xslt/gettext/l10n.xml.in.h:41
 msgid "Origin"
 msgstr "Původ"
 
-#: xslt/gettext/l10n.xml.in.h:52
+#: xslt/gettext/l10n.xml.in.h:42
 msgid "Preface"
 msgstr "Předmluva"
 
-#: xslt/gettext/l10n.xml.in.h:53
+#: xslt/gettext/l10n.xml.in.h:43
 msgid "Reference"
 msgstr "Odkaz"
 
-#: xslt/gettext/l10n.xml.in.h:54
+#: xslt/gettext/l10n.xml.in.h:44
 msgid "Release Information"
 msgstr "Informace o vydání"
 
-#: xslt/gettext/l10n.xml.in.h:55
+#: xslt/gettext/l10n.xml.in.h:45
 msgid "Revision History"
 msgstr "Historie revizí"
 
-#: xslt/gettext/l10n.xml.in.h:56
+#: xslt/gettext/l10n.xml.in.h:46
 msgid "See"
 msgstr "Viz"
 
-#: xslt/gettext/l10n.xml.in.h:57
+#: xslt/gettext/l10n.xml.in.h:47
 msgid "See Also"
 msgstr "Viz také"
 
-#: xslt/gettext/l10n.xml.in.h:58
+#: xslt/gettext/l10n.xml.in.h:48
 msgid "Set Index"
 msgstr "Rejstřík sady"
 
-#: xslt/gettext/l10n.xml.in.h:59
+#: xslt/gettext/l10n.xml.in.h:49
 msgid "Synopsis"
 msgstr "Souhrn"
 
 #. Used for a link to a table of contents.
-#: xslt/gettext/l10n.xml.in.h:61
+#: xslt/gettext/l10n.xml.in.h:51
 msgid "Table of Contents"
 msgstr "Obsah"
 
-#: xslt/gettext/l10n.xml.in.h:62
+#: xslt/gettext/l10n.xml.in.h:52
 msgid "Tip"
 msgstr "Tip"
 
 #. Used as a header for title column in the revision history.
-#: xslt/gettext/l10n.xml.in.h:64
+#: xslt/gettext/l10n.xml.in.h:54
 msgid "Title"
 msgstr "Název"
 
-#: xslt/gettext/l10n.xml.in.h:65
+#: xslt/gettext/l10n.xml.in.h:55
 msgid "Warning"
 msgstr "Varování"
+
+#~ msgid "About This Article"
+#~ msgstr "O tomto článku"
+
+#~ msgid "About This Bibliography"
+#~ msgstr "O této bibliografii"
+
+#~ msgid "About This Book"
+#~ msgstr "O této knize"
+
+#~ msgid "About This Chapter"
+#~ msgstr "O této kapitole"
+
+#~ msgid "About This Entry"
+#~ msgstr "O této položce"
+
+#~ msgid "About This Glossary"
+#~ msgstr "O tomto glosáři"
+
+#~ msgid "About This Index"
+#~ msgstr "O tomto rejstříku"
+
+#~ msgid "About This Part"
+#~ msgstr "O této části"
+
+#~ msgid "About This Preface"
+#~ msgstr "O této předmluvě"
+
+#~ msgid "About This Reference"
+#~ msgstr "O tomto odkazu"
+
+#~ msgid "About This Section"
+#~ msgstr "O tomto oddílu"
