@@ -75,6 +75,8 @@ confnum
 confsponsor
 conftitle
 constant
+constraint
+constraintdef
 constructorsynopsis
 contractnum
 contractsponsor
@@ -176,6 +178,7 @@ keyword
 keywordset
 label
 legalnotice
+lhs
 lineage
 lineannotation
 link
@@ -209,6 +212,7 @@ msgrel
 msgset
 msgsub
 msgtext
+nonterminal
 note
 objectinfo
 olink
@@ -242,6 +246,9 @@ primary
 primaryie
 printhistory
 procedure
+production
+productionrecap
+productionset
 productname
 productnumber
 programlisting
@@ -283,6 +290,7 @@ revhistory
 revision
 revnumber
 revremark
+rhs
 row
 sbr
 screen
