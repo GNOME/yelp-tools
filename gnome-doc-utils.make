@@ -71,10 +71,6 @@ _DOC_REAL_FORMATS = $(if $(DOC_USER_FORMATS),$(DOC_USER_FORMATS),$(DOC_FORMATS))
 ## The languages this document is translated into
 DOC_LINGUAS ?=
 
-## @ DOC_PODIR
-## The directory containing the po files for translation
-DOC_PODIR ?= $(if $(DOC_MODULE),$(DOC_MODULE).po)
-
 ## @ RNGDOC_DIRS
 ## The directories containing RNG files to be documented with rngdoc
 RNGDOC_DIRS ?=
@@ -86,6 +82,8 @@ XSLDOC_DIRS ?=
 
 ################################################################################
 ## For bootstrapping gnome-doc-utils only
+
+xml2po ?= xml2po
 
 _db2omf ?= `pkg-config --variable db2omf gnome-doc-utils`
 _rngdoc ?= `pkg-config --variable rngdoc gnome-doc-utils`
@@ -256,6 +254,11 @@ _DOC_C_HTML = $(patsubst %.xml,%.html,$(_DOC_C_MODULE))
 ################################################################################
 ## @@ Other Locale Documentation
 
+## @ _DOC_POFILES
+## The .po files used for translating the document
+_DOC_POFILES = $(if $(DOC_MODULE),					\
+	$(foreach lc,$(DOC_LINGUAS),$(lc)/$(DOC_MODULE).po))
+
 ## @ _DOC_LC_MODULE
 ## The top-level documentation file in all other locales
 _DOC_LC_MODULE = $(if $(DOC_MODULE),					\
@@ -300,14 +303,22 @@ _DOC_LC_DOCS =								\
 	$(_RNGDOC_LC_DOCS)  $(_XSLDOC_LC_DOCS)				\
 	$(if $(findstring html,$(_DOC_REAL_FORMATS)),$(_DOC_LC_HTML))
 
+$(_DOC_POFILES): $(_DOC_C_DOCS)
+	if ! test -d $(dir $@); then mkdir $@; fi
+	if ! test -f $@; then \
+	  $(xml2po) $(_DOC_C_DOCS) > $@; \
+	else \
+	  $(xml2po) -u $@ $(_DOC_C_DOCS); \
+	fi
+echo-po:
+	echo $(_DOC_POFILES)
+
 # FIXME: fix the dependancy
 # FIXME: hook xml2po up
 $(_DOC_LC_DOCS) : $(DOC_LINGUAS)
 $(_DOC_LC_DOCS) : $(_DOC_C_DOCS)
 	cp C/$(notdir $@) $@
 
-$(DOC_LINGUAS):
-	if ! test -d $@; then mkdir $@; fi
 
 ################################################################################
 ## @@ All Documentation
@@ -322,7 +333,7 @@ _DOC_HTML_ALL = $(if $(findstring html,$(_DOC_REAL_FORMATS)), \
 _DOC_ALL =								\
 	$(_DOC_C_DOCS)		$(_DOC_LC_DOCS)				\
 	$(_DOC_OMF_ALL)		$(_DOC_DSK_ALL)				\
-	$(_DOC_HTML_ALL)
+	$(_DOC_HTML_ALL)	$(_DOC_POFILES)
 
 
 ################################################################################
@@ -337,16 +348,14 @@ clean-lc:  ; rm -f $(_DOC_LC_DOCS)
 
 _clean_rngdoc = $(if $(RNGDOC_DIRS),clean-rngdoc)
 _clean_xsldoc = $(if $(XSLDOC_DIRS),clean-xsldoc)
-_clean_omf = $(if $(DOC_MODULE),clean-omf)
-_clean_dsk = $(if $(DOC_MODULE),clean-dsk)
+_clean_omf = $(if $(_DOC_OMF_IN),clean-omf)
+_clean_dsk = $(if $(_DOC_DSK_IN),clean-dsk)
 _clean_lc  = $(if $(DOC_LINGUAS),clean-lc)
 
 clean:							\
 	$(_clean_rngdoc)	$(_clean_xsldoc)	\
 	$(_clean_omf)		$(_clean_dsk)		\
 	$(_clean_lc)
-distclean:						\
-	$(_clean_omf)		$(_clean_dsk)
 mostlyclean:						\
 	$(_clean_rngdoc)	$(_clean_xsldoc)	\
 	$(_clean_omf)		$(_clean_dsk)		\
@@ -356,8 +365,34 @@ maintainer-clean:					\
 	$(_clean_omf)		$(_clean_dsk)		\
 	$(_clean_lc)
 
-# FIXME: need to handle figures, etc.
-EXTRA_DIST += $(_DOC_ALL) $(_DOC_OMF_IN) $(_DOC_DSK_IN)
+.PHONY: dist-docs dist-omf dist-dsk
+
+dist-docs:
+	for lc in C $(DOC_LINGUAS); do \
+	  $(mkinstalldirs) $(distdir)/$$lc; \
+	  touch $(distdir)/$$lc/foo; \
+	done
+	echo dist-docs
+	echo $(_DOC_C_DOCS)
+	echo $(_DOC_LC_DOCS)
+	echo $(_DOC_POFILES)
+
+dist-omf:
+	echo dist-omf
+
+dist-dsk:
+	echo dist-dsk
+
+_dist_docs = $(if $(DOC_MODULE),dist-docs)
+_dist_omf  = $(if $(_DOC_OMF_IN),dist-omf)
+_dist_dsk  = $(if $(_DOC_DSK_IN),dist-dsk)
+
+echo-hook:
+	echo $(_disc_docs)
+
+dist-hook: 						\
+	$(_dist_omf)		$(_dist_dsk)		\
+	$(_dist_docs)
 
 all: $(_DOC_ALL)
 
