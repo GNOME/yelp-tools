@@ -1,7 +1,7 @@
 # German translation of gnome-doc-utils.
 # Copyright (C) 2004 THE gnome-doc-utils'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-doc-utils package.
-# Hendrik Brandt <eru@gmx.li>, 2004.
+# Hendrik Brandt <heb@gnome-de.org>, 2004.
 # , fuzzy
 # 
 # 
@@ -9,85 +9,90 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils cvs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-09 20:54+0100\n"
-"PO-Revision-Date: 2004-11-09 20:59+0100\n"
-"Last-Translator: Hendrik Brandt <eru@gmx.li>\n"
+"POT-Creation-Date: 2004-12-07 13:32+0100\n"
+"PO-Revision-Date: 2004-12-07 13:34+0100\n"
+"Last-Translator: Hendrik Brandt <heb@gnome-de.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit"
 
-#. Chapter %t{number}
+#. Appendix %t{number}
 #: xslt/docbook/common/db-format.xml.in.h:2
+msgid "format.appendix.label"
+msgstr "format.appendix.label"
+
+#. Chapter %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:4
 msgid "format.chapter.label"
 msgstr "format.chapter.label"
 
-#: xslt/docbook/common/db-format.xml.in.h:3
+#: xslt/docbook/common/db-format.xml.in.h:5
 msgid "format.citetitle"
 msgstr "format.citetitle"
 
 #. FIXME
-#: xslt/docbook/common/db-format.xml.in.h:5
+#: xslt/docbook/common/db-format.xml.in.h:7
 msgid "format.date"
 msgstr "format.date"
 
-#. Figure %t{example}
-#: xslt/docbook/common/db-format.xml.in.h:7
+#. Example %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:9
 msgid "format.example.label"
 msgstr "format.example.label"
 
 #. %t{parent}-%1{number}
-#: xslt/docbook/common/db-format.xml.in.h:9
+#: xslt/docbook/common/db-format.xml.in.h:11
 msgid "format.example.number"
 msgstr "format.example.number"
 
 #. %1{number}
-#: xslt/docbook/common/db-format.xml.in.h:11
+#: xslt/docbook/common/db-format.xml.in.h:13
 msgid "format.example.number.flat"
 msgstr "format.example.number.flat"
 
 #. Figure %t{number}
-#: xslt/docbook/common/db-format.xml.in.h:13
+#: xslt/docbook/common/db-format.xml.in.h:15
 msgid "format.figure.label"
 msgstr "format.figure.label"
 
 #. %t{parent}-%1{number}
-#: xslt/docbook/common/db-format.xml.in.h:15
+#: xslt/docbook/common/db-format.xml.in.h:17
 msgid "format.figure.number"
 msgstr "format.figure.number"
 
 #. %1{number}
-#: xslt/docbook/common/db-format.xml.in.h:17
+#: xslt/docbook/common/db-format.xml.in.h:19
 msgid "format.figure.number.flat"
 msgstr "format.figure.number.flat"
 
 #. ‘%t{node}’
-#: xslt/docbook/common/db-format.xml.in.h:19
+#: xslt/docbook/common/db-format.xml.in.h:21
 msgid "format.quote.inner"
 msgstr "format.quote.inner"
 
 #. “%t{node}”
-#: xslt/docbook/common/db-format.xml.in.h:21
+#: xslt/docbook/common/db-format.xml.in.h:23
 msgid "format.quote.outer"
 msgstr "format.quote.outer"
 
 #. Section %t{number}
-#: xslt/docbook/common/db-format.xml.in.h:23
+#: xslt/docbook/common/db-format.xml.in.h:25
 msgid "format.section.label"
 msgstr "format.section.label"
 
 #. Table %t{number}
-#: xslt/docbook/common/db-format.xml.in.h:25
+#: xslt/docbook/common/db-format.xml.in.h:27
 msgid "format.table.label"
 msgstr "format.table.label"
 
 #. %t{parent}-%1{number}
-#: xslt/docbook/common/db-format.xml.in.h:27
+#: xslt/docbook/common/db-format.xml.in.h:29
 msgid "format.table.number"
 msgstr "format.table.number"
 
 #. %1{number}
-#: xslt/docbook/common/db-format.xml.in.h:29
+#: xslt/docbook/common/db-format.xml.in.h:31
 msgid "format.table.number.flat"
 msgstr "format.table.number.flat"
 
@@ -115,7 +120,8 @@ msgstr ""
 #. Used as a header before a list of editors.
 #: xslt/gettext/l10n.xml.in.h:8
 msgid "<msgstr form=\"0\">Editor</msgstr> <msgstr form=\"1\">Editors</msgstr>"
-msgstr "<msgstr form=\"0\">Redakteur</msgstr> <msgstr form=\"1\">Redakteure</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Redakteur</msgstr> <msgstr form=\"1\">Redakteure</msgstr>"
 
 #. Used as a header before a list of contributors.
 #: xslt/gettext/l10n.xml.in.h:10
@@ -123,14 +129,16 @@ msgid ""
 "<msgstr form=\"0\">Other Contributor</msgstr> <msgstr form=\"1\">Other "
 "Contributors</msgstr>"
 msgstr ""
-"<msgstr form=\"0\">Weitere Beteiligte</msgstr> <msgstr form=\"1\">Weitere Beteiligte</msgstr>"
+"<msgstr form=\"0\">Weitere Beteiligte</msgstr> <msgstr form=\"1\">Weitere "
+"Beteiligte</msgstr>"
 
 #. Used as a header before a list of publishers.
 #: xslt/gettext/l10n.xml.in.h:12
 msgid ""
 "<msgstr form=\"0\">Publisher</msgstr> <msgstr form=\"1\">Publishers</msgstr>"
 msgstr ""
-"<msgstr form=\"0\">Herausgeber</msgstr> <msgstr form=\"1\">Herausgeber</msgstr>"
+"<msgstr form=\"0\">Herausgeber</msgstr> <msgstr form=\"1\">Herausgeber</"
+"msgstr>"
 
 #: xslt/gettext/l10n.xml.in.h:13
 msgid "About This Article"
@@ -248,58 +256,66 @@ msgid "Message Origin"
 msgstr "Mitteilungsherkunft"
 
 #: xslt/gettext/l10n.xml.in.h:47
+msgid "Name"
+msgstr "Name"
+
+#: xslt/gettext/l10n.xml.in.h:48
 msgid "Note"
 msgstr "Anmerkung"
 
 #. This is an abbreviated form of 'Message Origin'.
 #. Feel free to use the same word/phrase for both.
-#: xslt/gettext/l10n.xml.in.h:50
+#: xslt/gettext/l10n.xml.in.h:51
 msgid "Origin"
 msgstr "Herkunft"
 
-#: xslt/gettext/l10n.xml.in.h:51
+#: xslt/gettext/l10n.xml.in.h:52
 msgid "Preface"
 msgstr "Vorwort"
 
-#: xslt/gettext/l10n.xml.in.h:52
+#: xslt/gettext/l10n.xml.in.h:53
 msgid "Reference"
 msgstr "Referenz"
 
-#: xslt/gettext/l10n.xml.in.h:53
+#: xslt/gettext/l10n.xml.in.h:54
 msgid "Release Information"
 msgstr "Informationen zur Ausgabe"
 
-#: xslt/gettext/l10n.xml.in.h:54
+#: xslt/gettext/l10n.xml.in.h:55
 msgid "Revision History"
 msgstr "Änderungsgeschichte"
 
-#: xslt/gettext/l10n.xml.in.h:55
+#: xslt/gettext/l10n.xml.in.h:56
 msgid "See"
 msgstr "Siehe"
 
-#: xslt/gettext/l10n.xml.in.h:56
+#: xslt/gettext/l10n.xml.in.h:57
 msgid "See Also"
 msgstr "Siehe auch"
 
-#: xslt/gettext/l10n.xml.in.h:57
+#: xslt/gettext/l10n.xml.in.h:58
 msgid "Set Index"
 msgstr "Index erzeugen"
 
-#. Used for a link to a table of contents.
 #: xslt/gettext/l10n.xml.in.h:59
+msgid "Synopsis"
+msgstr "Zusammenfassung"
+
+#. Used for a link to a table of contents.
+#: xslt/gettext/l10n.xml.in.h:61
 msgid "Table of Contents"
 msgstr "Inhaltsverzeichnis"
 
-#: xslt/gettext/l10n.xml.in.h:60
+#: xslt/gettext/l10n.xml.in.h:62
 msgid "Tip"
 msgstr "Tipp"
 
 #. Used as a header for title column in the revision history.
-#: xslt/gettext/l10n.xml.in.h:62
+#: xslt/gettext/l10n.xml.in.h:64
 msgid "Title"
 msgstr "Titel"
 
-#: xslt/gettext/l10n.xml.in.h:63
+#: xslt/gettext/l10n.xml.in.h:65
 msgid "Warning"
 msgstr "Warnung"
 
