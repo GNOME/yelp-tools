@@ -15,7 +15,6 @@ ALL_LINGUAS="ca cs en_CA en_GB es hu nl pt pt_BR sq sv uk wa"
 
 AC_OUTPUT([
 Makefile
-gnome-docize
 gnome-doc-utils.pc
 doc/Makefile
 doc/gnome-doc-make/Makefile
@@ -26,8 +25,8 @@ xslt/docbook/Makefile
 xslt/docbook/common/Makefile
 xslt/docbook/html/Makefile
 xslt/docbook/omf/Makefile
+xslt/docbook/utils/Makefile
 xslt/gettext/Makefile
 xslt/rngdoc/Makefile
 xslt/xsldoc/Makefile
-xslt/utils/Makefile
 ])

@@ -1,3 +1,8 @@
+2004-09-18  Shaun McCance  <shaunm@gnome.org>
+
+	* configure.in:
+	- Fixed build problem
+
 2004-09-17  Shaun McCance  <shaunm@gnome.org>
 
 	* Makefile.am:
