@@ -1,3 +1,4 @@
+# translation of el.po to 
 # translation of el.po to Greek
 # Greek translation of PACKAGE.
 # Copyright (C) 2004 THE PACKAGE'S COPYRIGHT HOLDER
@@ -5,20 +6,21 @@
 # cvs -z3 checkout, 2004.
 # Kostas <pkst@gmx.net>, 2004.
 # Kostas Papadimas <pkst@gnome.org>, 2004.
+# Nikos Charonitakis <charosn@her.forthnet.gr>, 2005.
 #
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: el\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-15 04:14+0100\n"
-"PO-Revision-Date: 2004-12-15 13:01+0200\n"
-"Last-Translator: Kostas Papadimas <pkst@gnome.org>\n"
-"Language-Team: Greek <nls@tux.hellug.gr>\n"
+"POT-Creation-Date: 2005-02-09 01:28+0200\n"
+"PO-Revision-Date: 2005-02-09 01:33+0200\n"
+"Last-Translator: Nikos Charonitakis <charosn@her.forthnet.gr>\n"
+"Language-Team:  <team@gnome.gr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.3.1\n"
+"X-Generator: KBabel 1.9.1\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
 #. Appendix %t{number}
@@ -70,40 +72,65 @@ msgstr "format.figure.number"
 msgid "format.figure.number.flat"
 msgstr "format.figure.number.flat"
 
-#. ‘%t{node}’
+#. (%t{node})
 #: xslt/docbook/common/db-format.xml.in.h:21
+msgid "format.manvolnum"
+msgstr "format.manvolnum"
+
+#. Part %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:23
+msgid "format.part.label"
+msgstr "format.part.label"
+
+#. %I{number}
+#: xslt/docbook/common/db-format.xml.in.h:25
+msgid "format.part.number"
+msgstr "format.part.number"
+
+#. ‘%t{node}’
+#: xslt/docbook/common/db-format.xml.in.h:27
 msgid "format.quote.inner"
 msgstr "format.quote.inner"
 
 #. “%t{node}”
-#: xslt/docbook/common/db-format.xml.in.h:23
+#: xslt/docbook/common/db-format.xml.in.h:29
 msgid "format.quote.outer"
 msgstr "format.quote.outer"
 
+#. %t{title}
+#: xslt/docbook/common/db-format.xml.in.h:31
+msgid "format.refentry.label"
+msgstr "format.refentry.label"
+
 #. Section %t{number}
-#: xslt/docbook/common/db-format.xml.in.h:25
+#: xslt/docbook/common/db-format.xml.in.h:33
 msgid "format.section.label"
 msgstr "format.section.label"
 
 #. Table %t{number}
-#: xslt/docbook/common/db-format.xml.in.h:27
+#: xslt/docbook/common/db-format.xml.in.h:35
 msgid "format.table.label"
 msgstr "format.table.label"
 
 #. %t{parent}-%1{number}
-#: xslt/docbook/common/db-format.xml.in.h:29
+#: xslt/docbook/common/db-format.xml.in.h:37
 msgid "format.table.number"
 msgstr "format.table.number"
 
 #. %1{number}
-#: xslt/docbook/common/db-format.xml.in.h:31
+#: xslt/docbook/common/db-format.xml.in.h:39
 msgid "format.table.number.flat"
 msgstr "format.table.number.flat"
 
-#. Read the definition for ‘%s{node}’.
-#: xslt/docbook/common/db-format.xml.in.h:33
+#. Read the definition for ‘%s{node}’
+#: xslt/docbook/common/db-format.xml.in.h:41
 msgid "format.tooltip.glossentry"
 msgstr "format.tooltip.glossentry"
+
+#. Send email to ‘%s{address}’
+#: xslt/docbook/common/db-format.xml.in.h:43
+msgid "format.tooltip.mailto"
+msgstr "format.tooltip.mailto"
 
 #. Used as a header before a list of authors.
 #: xslt/gettext/l10n.xml.in.h:2
@@ -112,13 +139,17 @@ msgstr "<msgstr form=\"0\">Συγγραφέας</msgstr> <msgstr form=\"1\">Συ
 
 #. Used as a header before a list of collaborators.
 #: xslt/gettext/l10n.xml.in.h:4
-msgid "<msgstr form=\"0\">Collaborator</msgstr> <msgstr form=\"1\">Collaborators</msgstr>"
+msgid ""
+"<msgstr form=\"0\">Collaborator</msgstr> <msgstr form=\"1\">Collaborators</"
+"msgstr>"
 msgstr "<msgstr form=\"0\">Συνεργάτης</msgstr> <msgstr form=\"1\">Συνεργάτες</msgstr>"
 
 #. Used as a header before a list of copyrights.
 #: xslt/gettext/l10n.xml.in.h:6
 msgid "<msgstr form=\"0\">Copyright</msgstr> <msgstr form=\"1\">Copyrights</msgstr>"
-msgstr "<msgstr form=\"0\">Πνευματικά δικαιώματα</msgstr> <msgstr form=\"1\">Πνευματικά δικαιώματα</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Πνευματικό δικαίωμα</msgstr> <msgstr form=\"1"
+"\">Πνευματικά δικαιώματα</msgstr>"
 
 #. Used as a header before a list of editors.
 #: xslt/gettext/l10n.xml.in.h:8
@@ -127,190 +158,151 @@ msgstr "<msgstr form=\"0\">Συντάκτης</msgstr> <msgstr form=\"1\">Συν
 
 #. Used as a header before a list of contributors.
 #: xslt/gettext/l10n.xml.in.h:10
-msgid "<msgstr form=\"0\">Other Contributor</msgstr> <msgstr form=\"1\">Other Contributors</msgstr>"
-msgstr "<msgstr form=\"0\">Άλλος συντελεστής</msgstr> <msgstr form=\"1\">Άλλοι συντελεστές</msgstr>"
+msgid ""
+"<msgstr form=\"0\">Other Contributor</msgstr> <msgstr form=\"1\">Other "
+"Contributors</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Άλλος Συντελεστής</msgstr> <msgstr form=\"1\">Άλλοι "
+"Συντελεστές</msgstr>"
 
 #. Used as a header before a list of publishers.
 #: xslt/gettext/l10n.xml.in.h:12
 msgid "<msgstr form=\"0\">Publisher</msgstr> <msgstr form=\"1\">Publishers</msgstr>"
 msgstr "<msgstr form=\"0\">Εκδότης</msgstr> <msgstr form=\"1\">Εκδότες</msgstr>"
 
-#: xslt/gettext/l10n.xml.in.h:13
-msgid "About This Article"
-msgstr "Περί αυτού του άρθρου"
-
+#. Link to the titlepage
 #: xslt/gettext/l10n.xml.in.h:14
-msgid "About This Bibliography"
-msgstr "Περί αυτής της βιβλιογραφίας"
+msgid "About This Document"
+msgstr "Περί Αυτού του Εγγράφου"
 
 #: xslt/gettext/l10n.xml.in.h:15
-msgid "About This Book"
-msgstr "Περί αυτού του βιβλίου"
-
-#: xslt/gettext/l10n.xml.in.h:16
-msgid "About This Chapter"
-msgstr "Περί αυτού του κεφαλαίου"
-
-#: xslt/gettext/l10n.xml.in.h:17
-msgid "About This Entry"
-msgstr "Περί αυτής της καταχώρησης"
-
-#: xslt/gettext/l10n.xml.in.h:18
-msgid "About This Glossary"
-msgstr "Περί αυτού του γλωσσάριου"
-
-#: xslt/gettext/l10n.xml.in.h:19
-msgid "About This Index"
-msgstr "Περί αυτού του καταλόγου"
-
-#: xslt/gettext/l10n.xml.in.h:20
-msgid "About This Part"
-msgstr "Περί αυτού του μέρους"
-
-#: xslt/gettext/l10n.xml.in.h:21
-msgid "About This Preface"
-msgstr "Περί αυτής του προλόγου"
-
-#: xslt/gettext/l10n.xml.in.h:22
-msgid "About This Reference"
-msgstr "Περί αυτής της αναφοράς"
-
-#: xslt/gettext/l10n.xml.in.h:23
-msgid "About This Section"
-msgstr "Περί αυτής της ενότητας"
-
-#: xslt/gettext/l10n.xml.in.h:24
-msgid "About This Set"
-msgstr "Περί αυτής της ομάδας"
-
-#: xslt/gettext/l10n.xml.in.h:25
 msgid "Affiliation"
 msgstr "Συνεργασία"
 
 #. This is an abbreviated form of 'Message Audience'.
 #. Feel free to use the same word/phrase for both.
-#: xslt/gettext/l10n.xml.in.h:28
+#: xslt/gettext/l10n.xml.in.h:18
 msgid "Audience"
-msgstr "Κοινό"
+msgstr "Ακροατήριο"
 
-#: xslt/gettext/l10n.xml.in.h:29
+#: xslt/gettext/l10n.xml.in.h:19
 msgid "Caution"
 msgstr "Προσοχή"
 
-#: xslt/gettext/l10n.xml.in.h:30
+#: xslt/gettext/l10n.xml.in.h:20
 msgid "Colophon"
 msgstr "Κολοφώνας"
 
 #. This is an abbreviated form of 'Table of Contents'.
 #. Feel free to use the same word/phrase for both.
-#: xslt/gettext/l10n.xml.in.h:33
+#: xslt/gettext/l10n.xml.in.h:23
 msgid "Contents"
 msgstr "Περιεχόμενα"
 
 #. Used as a header for date column in the revision history.
-#: xslt/gettext/l10n.xml.in.h:35
+#: xslt/gettext/l10n.xml.in.h:25
 msgid "Date"
 msgstr "Ημερομηνία"
 
-#: xslt/gettext/l10n.xml.in.h:36
+#: xslt/gettext/l10n.xml.in.h:26
 msgid "Dedication"
 msgstr "Αφιέρωση"
 
-#: xslt/gettext/l10n.xml.in.h:37
+#: xslt/gettext/l10n.xml.in.h:27
 msgid "Email"
 msgstr "Email"
 
-#: xslt/gettext/l10n.xml.in.h:38
+#: xslt/gettext/l10n.xml.in.h:28
 msgid "Important"
 msgstr "Σημαντικό"
 
-#: xslt/gettext/l10n.xml.in.h:39
+#: xslt/gettext/l10n.xml.in.h:29
 msgid "Index"
 msgstr "Κατάλογος"
 
-#: xslt/gettext/l10n.xml.in.h:40
+#: xslt/gettext/l10n.xml.in.h:30
 msgid "Legal Notice"
 msgstr "Νομική σημείωση"
 
 #. This is an abbreviated form of 'Message Level'.
 #. Feel free to use the same word/phrase for both.
-#: xslt/gettext/l10n.xml.in.h:43
+#: xslt/gettext/l10n.xml.in.h:33
 msgid "Level"
 msgstr "Επίπεδο"
 
-#: xslt/gettext/l10n.xml.in.h:44
+#: xslt/gettext/l10n.xml.in.h:34
 msgid "Message Audience"
-msgstr "Μήνυμα κοινού"
+msgstr "Ακροατήριο Μηνύματος"
 
-#: xslt/gettext/l10n.xml.in.h:45
+#: xslt/gettext/l10n.xml.in.h:35
 msgid "Message Level"
-msgstr "Επίπεδο κοινού"
+msgstr "Επίπεδο Μηνύματος"
 
-#: xslt/gettext/l10n.xml.in.h:46
+#: xslt/gettext/l10n.xml.in.h:36
 msgid "Message Origin"
-msgstr "Προέλευση μηνύματος"
+msgstr "Προέλευση Μηνύματος"
 
-#: xslt/gettext/l10n.xml.in.h:47
+#: xslt/gettext/l10n.xml.in.h:37
 msgid "Name"
 msgstr "Όνομα"
 
-#: xslt/gettext/l10n.xml.in.h:48
+#: xslt/gettext/l10n.xml.in.h:38
 msgid "Note"
 msgstr "Σημείωση"
 
 #. This is an abbreviated form of 'Message Origin'.
 #. Feel free to use the same word/phrase for both.
-#: xslt/gettext/l10n.xml.in.h:51
+#: xslt/gettext/l10n.xml.in.h:41
 msgid "Origin"
 msgstr "Προέλευση"
 
-#: xslt/gettext/l10n.xml.in.h:52
+#: xslt/gettext/l10n.xml.in.h:42
 msgid "Preface"
 msgstr "Πρόλογος"
 
-#: xslt/gettext/l10n.xml.in.h:53
+#: xslt/gettext/l10n.xml.in.h:43
 msgid "Reference"
 msgstr "Αναφορά"
 
-#: xslt/gettext/l10n.xml.in.h:54
+#: xslt/gettext/l10n.xml.in.h:44
 msgid "Release Information"
-msgstr "Πληροφορίες έκδοσης"
+msgstr "Πληροφορίες Έκδοσης"
 
-#: xslt/gettext/l10n.xml.in.h:55
+#: xslt/gettext/l10n.xml.in.h:45
 msgid "Revision History"
-msgstr "Ιστορικό αλλαγών"
+msgstr "Ιστορικό Αλλαγών"
 
-#: xslt/gettext/l10n.xml.in.h:56
+#: xslt/gettext/l10n.xml.in.h:46
 msgid "See"
 msgstr "Βλέπε"
 
-#: xslt/gettext/l10n.xml.in.h:57
+#: xslt/gettext/l10n.xml.in.h:47
 msgid "See Also"
-msgstr "Βλέπε ακόμα"
+msgstr "Βλέπε Ακόμα"
 
-#: xslt/gettext/l10n.xml.in.h:58
+#: xslt/gettext/l10n.xml.in.h:48
 msgid "Set Index"
-msgstr "Ορισμός καταλόγου"
+msgstr "Ορισμός Καταλόγου"
 
-#: xslt/gettext/l10n.xml.in.h:59
+#: xslt/gettext/l10n.xml.in.h:49
 msgid "Synopsis"
 msgstr "Σύνοψη"
 
 #. Used for a link to a table of contents.
-#: xslt/gettext/l10n.xml.in.h:61
+#: xslt/gettext/l10n.xml.in.h:51
 msgid "Table of Contents"
-msgstr "Πίνακας περιεχομένων"
+msgstr "Πίνακας Περιεχομένων"
 
-#: xslt/gettext/l10n.xml.in.h:62
+#: xslt/gettext/l10n.xml.in.h:52
 msgid "Tip"
 msgstr "Συμβουλή"
 
 #. Used as a header for title column in the revision history.
-#: xslt/gettext/l10n.xml.in.h:64
+#: xslt/gettext/l10n.xml.in.h:54
 msgid "Title"
 msgstr "Τίτλος"
 
-#: xslt/gettext/l10n.xml.in.h:65
+#: xslt/gettext/l10n.xml.in.h:55
 msgid "Warning"
 msgstr "Προειδοποίηση"
 
