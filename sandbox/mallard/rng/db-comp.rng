@@ -2,7 +2,7 @@
 <grammar xmlns="http://relaxng.org/ns/structure/1.0"
 	 xmlns:ref="http://www.gnome.org/~shaunm/mallard/reference">
 
-  <ref:title>DB Module for General Computer Terms</ref:title>
+  <ref:title>General Computer Terms</ref:title>
 
   <!-- Stub Content Models -->
 
@@ -12,7 +12,7 @@
     <define name="db-comp.stub.attr-common">
       <ref:refname>db-comp.stub.attr-common</ref:refname>
       <ref:refpurpose>
-	A stub model for common attributes.
+	A stub model for common attributes
       </ref:refpurpose>
       <notAllowed/>
     </define>
@@ -20,7 +20,7 @@
     <define name="db-comp.stub.inline">
       <ref:refname>db-comp.stub.inline</ref:refname>
       <ref:refpurpose>
-	A stub model for inline content.
+	A stub model for inline content
       </ref:refpurpose>
       <notAllowed/>
     </define>
@@ -28,7 +28,7 @@
     <define name="db-comp.stub.inline-restricted">
       <ref:refname>db-comp.stub.inline-restricted</ref:refname>
       <ref:refpurpose>
-	A stub model for restricted inline content.
+	A stub model for restricted inline content
       </ref:refpurpose>
       <notAllowed/>
     </define>
@@ -43,7 +43,7 @@
       <ref:refname>db-comp.choice.inline</ref:refname>
       <ref:refpurpose>
 	A <ref:xmltag>choice</ref:xmltag> containing the inline
-	elements defined by this module.
+	elements defined by this module
       </ref:refpurpose>
 
       <choice>
@@ -90,7 +90,7 @@
       <ref:refname>db-comp.choice.inline-error</ref:refname>
       <ref:refpurpose>
 	A <ref:xmltag>choice</ref:xmltag> containing the inline
-	elements used for errors.
+	elements used for errors
       </ref:refpurpose>
 
       <choice>
@@ -105,7 +105,7 @@
       <ref:refname>db-comp.choice.inline-prog</ref:refname>
       <ref:refpurpose>
 	A <ref:xmltag>choice</ref:xmltag> containing the inline
-	programming terms.
+	programming terms
       </ref:refpurpose>
 
       <choice>
@@ -138,7 +138,7 @@
 	<element name="accel">
 	  <ref:refname>accel</ref:refname>
 	  <ref:refpurpose>
-	    A keyboard shortcut in a graphical interface.
+	    A keyboard shortcut in a graphical interface
 	  </ref:refpurpose>
 
 	  <ref name="db-comp.stub.attr-common"/>
@@ -150,7 +150,7 @@
 	<element name="guibutton">
 	  <ref:refname>guibutton</ref:refname>
 	  <ref:refpurpose>
-	    The text on a button in a graphical interface.
+	    The text on a button in a graphical interface
 	  </ref:refpurpose>
 
 	  <ref name="db-comp.stub.attr-common"/>
@@ -808,7 +808,7 @@
 	<element name="xmltag">
 	  <ref:refname>xmltag</ref:refname>
 	  <ref:refpurpose>
-	    A unit of information.
+	    A component of XML markup
 	  </ref:refpurpose>
 
 	  <ref name="db-comp.stub.attr-common"/>

@@ -1,0 +1,12 @@
+2004-03-15  Shaun McCance  <shaunm@gnome.org>
+
+	* rng/db-admon.rng:
+	* rng/db-callout.rng:
+	* rng/db-cmdsynopsis.rng:
+	* rng/db-comp.rng:
+	* rng/db-credits.rng:
+	* rng/db-list.rng:
+	* rng/db-media.rng:
+	* rng/db-para.rng:
+	* rng/db-title.rng:
+	- Minor annotation changes

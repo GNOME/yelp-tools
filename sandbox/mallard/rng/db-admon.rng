@@ -2,7 +2,7 @@
 <grammar xmlns="http://relaxng.org/ns/structure/1.0"
 	 xmlns:ref="http://www.gnome.org/~shaunm/mallard/reference">
 
-  <ref:title>DB Module for Admonitions</ref:title>
+  <ref:title>Admonitions</ref:title>
 
   <!-- Stub Content Models -->
 

@@ -2,7 +2,7 @@
 <grammar xmlns="http://relaxng.org/ns/structure/1.0"
 	 xmlns:ref="http://www.gnome.org/~shaunm/mallard/reference">
 
-  <ref:title>DB Module for Media Objects</ref:title>
+  <ref:title>Media Objects</ref:title>
 
   <!-- Stub Content Models -->
 
