@@ -8,6 +8,42 @@
 <doc:title>Common Cross Reference Utilities</doc:title>
 
 
+<!-- == db.ulink.tooltip =================================================== -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db.ulink.tooltip</name>
+  <purpose>
+    Generate the tooltip for an external link
+  </purpose>
+</template>
+
+<xsl:template name="db.ulink.tooltip">
+  <xsl:param name="node" select="."/>
+  <xsl:param name="url" select="$node/@url"/>
+  <xsl:choose>
+    <xsl:when test="starts-with($url, 'mailto:')">
+      <xsl:variable name="addy" select="substring-after($url, 'mailto:')"/>
+      <xsl:call-template name="format.tooltip.mailto">
+        <xsl:with-param name="node" select="$node"/>
+        <xsl:with-param name="address">
+          <xsl:choose>
+            <xsl:when test="contains($addy, '?')">
+              <xsl:value-of select="substring-before($addy, '?')"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="$addy"/>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:with-param>
+      </xsl:call-template>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:value-of select="normalize-space($url)"/>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+
 <!-- == db.xref.content ==================================================== -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
@@ -36,7 +72,7 @@
       <xsl:call-template name="db.label">
         <xsl:with-param name="node" select="$target"/>
         <xsl:with-param name="role" select="'xref'"/>
-      </xsl:call-template>
+      </xsl:call-template> 
     </xsl:otherwise>
   </xsl:choose>
 </xsl:template>

@@ -222,7 +222,7 @@
     <_msg:msgstr>format.appendix.label</_msg:msgstr>
     <msg:msgstr xml:lang="C">
       <msg:msgstr role="header">%t{number}</msg:msgstr>
-      <msg:msgstr role="li">%t{number}</msg:msgstr>
+      <msg:msgstr role="li">%t{number}.&#x2002;</msg:msgstr>
       <msg:msgstr role="title">%t{title}</msg:msgstr>
       <msg:msgstr role="xref">Appendix %t{number} ― %t{title}</msg:msgstr>
       <msg:msgstr>Appendix %t{number}</msg:msgstr>
@@ -268,7 +268,7 @@
     <_msg:msgstr>format.chapter.label</_msg:msgstr>
     <msg:msgstr xml:lang="C">
       <msg:msgstr role="header">%t{number}</msg:msgstr>
-      <msg:msgstr role="li">%t{number}</msg:msgstr>
+      <msg:msgstr role="li">%t{number}.&#x2002;</msg:msgstr>
       <msg:msgstr role="title">%t{title}</msg:msgstr>
       <msg:msgstr role="xref">Chapter %t{number} ― %t{title}</msg:msgstr>
       <msg:msgstr>Chapter %t{number}</msg:msgstr>
@@ -371,6 +371,34 @@
 </xsl:template>
 
 
+<!-- == format.manvolnum =================================================== -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>format.manvolnum</name>
+  <purpose>
+    Format a <xmltag>manvolnum</xmltag> element
+  </purpose>
+  <parameter>
+    <name>node</name>
+    <purpose>
+      The <xmltag>manvolnum</xmltag> element to format
+    </purpose>
+  </parameter>
+</template>
+
+<xsl:template name="format.manvolnum">
+  <xsl:param name="node" select="."/>
+  <msg:msg id="format.manvolnum">
+    <!-- (%t{node}) -->
+    <_msg:msgstr>format.manvolnum</_msg:msgstr>
+    <msg:msgstr xml:lang="C">(%t{node})</msg:msgstr>
+  </msg:msg>
+  <msg:arg name="node">
+    <xsl:apply-templates select="$node/node()"/>
+  </msg:arg>
+</xsl:template>
+
+
 <!-- == format.part.label ================================================== -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
@@ -400,7 +428,7 @@
     <_msg:msgstr>format.part.label</_msg:msgstr>
     <msg:msgstr xml:lang="C">
       <msg:msgstr role="header">%t{number}</msg:msgstr>
-      <msg:msgstr role="li">%t{number}</msg:msgstr>
+      <msg:msgstr role="li">%t{number}&#x2002;</msg:msgstr>
       <msg:msgstr role="title">%t{title}</msg:msgstr>
       <msg:msgstr role="xref">Part %t{number} ― %t{title}</msg:msgstr>
       <msg:msgstr>Part %t{number}</msg:msgstr>
@@ -412,6 +440,61 @@
     </xsl:call-template>
   </msg:arg>
   <msg:arg name="title">
+    <xsl:apply-templates select="$node/title/node()"/>
+  </msg:arg>
+</xsl:template>
+
+
+<!-- == format.refentry.label ============================================== -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>format.refentry.label</name>
+  <purpose>
+    Format the label for a <xmltag>refentry</xmltag> element
+  </purpose>
+  <parameter>
+    <name>node</name>
+    <purpose>
+      The <xmltag>refentry</xmltag> element to format
+    </purpose>
+  </parameter>
+  <parameter>
+    <name>role</name>
+    <purpose>
+      The role of the label
+    </purpose>
+  </parameter>
+</template>
+
+<xsl:template name="format.refentry.label">
+  <xsl:param name="node" select="."/>
+  <xsl:param name="role"/>
+  <msg:msg id="format.chapter.label">
+    <!-- Refentry %t{number} -->
+    <_msg:msgstr>format.refentry.label</_msg:msgstr>
+    <msg:msgstr xml:lang="C">
+      <msg:msgstr role="title">%t{title}</msg:msgstr>
+      <msg:msgstr role="xref">%t{title}</msg:msgstr>
+      <msg:msgstr>%t{title}</msg:msgstr>
+    </msg:msgstr>
+  </msg:msg>
+  <msg:arg name="title">
+    <xsl:choose>
+      <xsl:when test="refmeta/refentrytitle">
+        <xsl:apply-templates select="refmeta/refentrytitle/node()"/>
+        <xsl:if test="refmeta/manvolnum">
+          <xsl:call-template name="format.manvolnum">
+            <xsl:with-param name="node" select="refmeta/manvolnum[1]"/>
+          </xsl:call-template>
+        </xsl:if>
+      </xsl:when>
+      <xsl:when test="refentryinfo/title">
+        <xsl:apply-templates select="refentryinfo/title/node()"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:apply-templates select="refnamediv/refname[1]/node()"/>
+      </xsl:otherwise>
+    </xsl:choose>
     <xsl:apply-templates select="$node/title/node()"/>
   </msg:arg>
 </xsl:template>
@@ -446,7 +529,7 @@
     <_msg:msgstr>format.section.label</_msg:msgstr>
     <msg:msgstr xml:lang="C">
       <msg:msgstr role="header">%t{number}</msg:msgstr>
-      <msg:msgstr role="li">%t{number}</msg:msgstr>
+      <msg:msgstr role="li">%t{number}.&#x2002;</msg:msgstr>
       <msg:msgstr role="title">%t{title}</msg:msgstr>
       <msg:msgstr role="xref">Section %t{number} ― %t{title}</msg:msgstr>
       <msg:msgstr>Section %t{number}</msg:msgstr>
@@ -741,12 +824,48 @@
 <xsl:template name="format.tooltip.glossentry">
   <xsl:param name="node" select="."/>
   <msg:msg id="format.tooltip.glossentry">
-    <!-- Read the definition for ‘%s{node}’. -->
+    <!-- Read the definition for ‘%s{node}’ -->
     <_msg:msgstr>format.tooltip.glossentry</_msg:msgstr>
-    <msg:msgstr xml:lang="C">Read the definition for ‘%s{node}’.</msg:msgstr>
+    <msg:msgstr xml:lang="C">Read the definition for ‘%s{node}’</msg:msgstr>
   </msg:msg>
   <msg:arg name="node">
     <xsl:value-of select="normalize-space($node/glossterm)"/>
+  </msg:arg>
+</xsl:template>
+
+
+<!-- == format.tooltip.mailto ============================================== -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>format.tooltip.mailto</name>
+  <purpose>
+    Format the tooltip for a link to a
+    <systemitem role="protocol">mailto</systemitem> URI.
+  </purpose>
+  <parameter>
+    <name>node</name>
+    <purpose>
+      The source node
+    </purpose>
+  </parameter>
+  <parameter>
+    <name>address</name>
+    <purpose>
+      The email address
+    </purpose>
+  </parameter>
+</template>
+
+<xsl:template name="format.tooltip.mailto">
+  <xsl:param name="node"/>
+  <xsl:param name="address"/>
+  <msg:msg id="format.tooltip.mailto">
+    <!-- Send email to ‘%s{address}’ -->
+    <_msg:msgstr>format.tooltip.mailto</_msg:msgstr>
+    <msg:msgstr xml:lang="C">Send email to ‘%s{address}’</msg:msgstr>
+  </msg:msg>
+  <msg:arg name="address">
+    <xsl:value-of select="normalize-space($address)"/>
   </msg:arg>
 </xsl:template>
 

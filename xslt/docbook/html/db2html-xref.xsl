@@ -69,8 +69,10 @@
 <xsl:template name="db2html.ulink" match="ulink">
   <xsl:param name="url" select="@url"/>
   <xsl:param name="content" select="false()"/>
-  <!-- FIXME: add @title -->
   <a class="ulink" href="{$url}">
+    <xsl:attribute name="title">
+      <xsl:call-template name="db.ulink.tooltip"/>
+    </xsl:attribute>
     <xsl:choose>
       <xsl:when test="$content">
         <xsl:copy-of select="$content"/>

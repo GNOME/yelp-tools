@@ -19,15 +19,12 @@
 
 <xsl:template name="db2html.autotoc.css">
   <xsl:text>
-    div[class~="autotoc"] { margin-left: 24px; padding: 0px; }
-    div[class~="autotoc"] ul { margin-left: 0px; padding-left: 0px; }
+    div[class~="autotoc"] { margin-left: 2em; padding: 0em; }
+    div[class~="autotoc"] ul { margin-left: 0em; padding-left: 0em; }
     div[class~="autotoc"] ul li {
-      margin-right: 0px;
-      padding: 0px;
+      margin-right: 0em;
+      padding: 0em;
       list-style-type: none;
-    }
-    div[class~="autotoc"] ul li span[class~="label"] {
-      margin-right: 0.8em;
     }
   </xsl:text>
 </xsl:template>
@@ -119,13 +116,6 @@
     <ul>
       <xsl:apply-templates mode="db2html.autotoc.mode" select="$divisions">
         <xsl:with-param name="toc_depth" select="$toc_depth - 1"/>
-        <xsl:with-param name="divisions" select="
-             appendix   | article    | bibliography | chapter    |
-             colophon   | dedication | glossary     | glossdiv   |
-             index      | lot        | part         | preface    |
-             refentry   | reference  | sect1        | sect2      |
-             sect3      | sect4      | sect5        | section    |
-             setindex   | simplesect | toc          "/>
       </xsl:apply-templates>
     </ul>
   </div>
@@ -150,10 +140,11 @@
       </xsl:attribute>
       <xsl:apply-templates select="title/node()"/>
     </a>
-    <!-- FIXME: How are we to pass $divisions through? -->
     <xsl:if test="$toc_depth &gt; 0">
       <xsl:call-template name="db2html.autotoc">
         <xsl:with-param name="toc_depth" select="$toc_depth"/>
+        <xsl:with-param name="divisions"
+                        select="*[contains($db.chunk.chunks_, local-name(.))]"/>
       </xsl:call-template>
     </xsl:if>
   </li>
@@ -162,7 +153,6 @@
 <xsl:template mode="db2html.autotoc.mode" match="refentry">
   <xsl:param name="toc_depth" select="0"/>
   <li>
-    <xsl:call-template name="db2html.autotoc.label"/>
     <a>
       <xsl:attribute name="href">
         <xsl:call-template name="db.xref.target">
@@ -172,30 +162,20 @@
       </xsl:attribute>
       <!-- FIXME: refmeta not required -->
       <xsl:attribute name="title">
-        <xsl:choose>
-          <xsl:when test="refmeta/refentrytitle">
-            <xsl:value-of select="normalize-space(refmeta/refentrytitle)"/>
-          </xsl:when>
-          <xsl:when test="refentryinfo/title">
-            <xsl:value-of select="normalize-space(refentryinfo/title)"/>
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:value-of select="normalize-space(refnamediv/refname[1])"/>
-          </xsl:otherwise>
-        </xsl:choose>
+        <xsl:call-template name="db.label">
+          <xsl:with-param name="node" select="."/>
+          <xsl:with-param name="role" select="'title'"/>
+        </xsl:call-template> 
       </xsl:attribute>
-      <xsl:choose>
-        <xsl:when test="refmeta/refentrytitle">
-          <xsl:apply-templates select="refmeta/refentrytitle/node()"/>
-        </xsl:when>
-        <xsl:when test="refentryinfo/title">
-          <xsl:apply-templates select="refentryinfo/title/node()"/>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:apply-templates select="refnamediv/refname[1]/node()"/>
-        </xsl:otherwise>
-      </xsl:choose>
+      <xsl:call-template name="db.label">
+        <xsl:with-param name="node" select="."/>
+        <xsl:with-param name="role" select="'title'"/>
+      </xsl:call-template> 
     </a>
+    <xsl:if test="refnamediv/refpurpose">
+      <xsl:text> — </xsl:text>
+      <xsl:apply-templates select="refnamediv/refpurpose[1]"/>
+    </xsl:if>
   </li>
 </xsl:template>
 

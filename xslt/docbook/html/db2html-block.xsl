@@ -41,7 +41,7 @@
   </purpose>
 </parameter>
 
-<xsl:param name="db2html.synopsis.bgcolor" select="'#EED680'"/>
+<xsl:param name="db2html.synopsis.bgcolor" select="''"/>
 
 
 <!-- == db2html.block ====================================================== -->

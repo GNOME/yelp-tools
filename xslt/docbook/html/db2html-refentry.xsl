@@ -30,6 +30,14 @@
 </xsl:template>
 
 
+<!-- = manvolnum = -->
+<xsl:template match="manvolnum">
+  <xsl:call-template name="format.manvolnum">
+    <xsl:with-param name="node" select="."/>
+  </xsl:call-template>
+</xsl:template>
+
+
 <!-- = refentry = -->
 <xsl:template match="refentry">
   <xsl:param name="depth_in_chunk">

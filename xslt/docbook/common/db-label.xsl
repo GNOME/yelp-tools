@@ -116,6 +116,15 @@
   </xsl:call-template>
 </xsl:template>
 
+<xsl:template mode="db.label.mode" match="refentry">
+  <xsl:param name="role"/>
+  <xsl:call-template name="format.refentry.label">
+    <xsl:with-param name="node" select="."/>
+    <xsl:with-param name="role" select="$role"/>
+    <xsl:with-param name="lang" select="ancestor-or-self::*[@lang][1]/@lang"/>
+  </xsl:call-template>
+</xsl:template>
+
 <xsl:template mode="db.label.mode" match="
               section | sect1 | sect2 | sect3 | sect4 | sect5 | simplesect">
   <xsl:param name="role"/>
@@ -141,7 +150,7 @@
               article  | book     | bibliography |
               colophon | glossary     | index     |
               qandadiv | qandaset | preface      | reference |
-              refentry | set      | setindex ">
+              set      | setindex ">
   <xsl:param name="role"/>
 <!-- FIXME 
   <xsl:call-template name="db.label.name"/>

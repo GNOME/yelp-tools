@@ -217,7 +217,13 @@
       <a>
         <xsl:attribute name="href">
           <xsl:text>mailto:</xsl:text>
-          <xsl:value-of select="."/>
+          <xsl:value-of select="string(.)"/>
+        </xsl:attribute>
+        <xsl:attribute name="title">
+          <xsl:call-template name="format.tooltip.mailto">
+            <xsl:with-param name="node" select="."/>
+            <xsl:with-param name="address" select="string(.)"/>
+          </xsl:call-template>
         </xsl:attribute>
         <xsl:call-template name="db2html.inline"/>
       </a>

@@ -1,5 +1,27 @@
 2004-12-22  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/common/db-format.xml.in:
+	* xslt/docbook/common/db-label.xsl:
+	* xslt/docbook/html/db2html-refentry.xsl:
+	- Added formatters for manvolnum, refentry labels, and mailto URIs
+
+	* xslt/docbook/common/db-xref.xsl:
+	* xslt/docbook/html/db2html-inline.xsl:
+	* xslt/docbook/html/db2html-xref.xsl:
+	- Added tooltips to email and ulink
+
+	* xslt/docbook/html/db2html-autotoc.xsl:
+	- Better refentry handling
+	- Formatting work
+
+	* xslt/docbook/html/db2html-block.xsl:
+	- Suppress bgcolor for synopsis for now
+
+	* xslt/docbook/html/db2html-suppressed.xsl:
+	- Some refentry-related stuff
+
+2004-12-22  Shaun McCance  <shaunm@gnome.org>
+
 	* po/bg.po:
 	- Fixed broken format string
 
