@@ -14,7 +14,7 @@
 
 <section id="translating">
   <title>Translating the Stylesheets</title>
-  <para>The GNOME documentation stylesheets use two different mechanisms for
+  <para>The Gnome documentation stylesheets use two different mechanisms for
   internationalization.  The simpler method is provided by &gettext_xsl;.
   This method reads in translated strings from a simple &l10n_xml; file, which
   is easily managed using PO files and <command>intltool</command>.  The other
@@ -29,14 +29,14 @@
   translations and find that a string marked for translation is insufficient
   for your locale, you should request to have that translation reworked using
   format strings.  Document processing is a much more difficult task for
-  internationalization than most simple application translations in GNOME.
+  internationalization than most simple application translations in Gnome.
   The maintainers don't know all the nuances of document processing in every
   language, so the only way we can improve the internationalization support is
   with the help of the translators.</para>
 
   <section id="translating-gettext">
     <title>The &gettext; Method</title>
-    <para>The GNOME documentation stylesheets provide an XSLT template called
+    <para>The Gnome documentation stylesheets provide an XSLT template called
     &gettext; which extracts localized values of strings from a localization
     file.  This file is easily translated with PO files using the XML mode of
     <command>intltool</command>.</para>
@@ -84,7 +84,7 @@ msgstr "Varování"]]></programlisting>
     have entries similar to this:</para>
 
     <programlisting><![CDATA[
-<msg xmlns=""http://www.gnome.org/~shaunm/gnome-doc-utils/xsl-format">
+<msg xmlns="http://www.gnome.org/~shaunm/gnome-doc-utils/xsl-format">
   <msgid>Author</msgid>
   <msgstr>
     <msgstr form="0">Author</msgstr>
@@ -101,7 +101,7 @@ msgstr "Varování"]]></programlisting>
     element with an <sgmltag class="attribute">xml:lang</sgmltag> attribute.
     For pluralized translations, however, the translation is a sequence of
     nested <sgmltag>msgstr</sgmltag> elements, each with a
-    <sgmltag class="attribute">form</sgmltag> attribute.  The &gettext; tamplate
+    <sgmltag class="attribute">form</sgmltag> attribute.  The &gettext; template
     extracts the correct string based on the plural form, which is computed from
     the number of referenced objects.</para>
 
@@ -127,7 +127,7 @@ msgstr ""
     text content is ignored by &gettext;.</para>
 
     <para>Note that translators may add a <sgmltag>msgstr</sgmltag> element
-    without <sgmltag class="attribute">form</sgmltag> attribute as a fallback
+    without a <sgmltag class="attribute">form</sgmltag> attribute as a fallback
     translation.  In the example above, the last two <sgmltag>msgstr</sgmltag>
     elements could have been replaced by a single <sgmltag>msgstr</sgmltag>
     element without a <sgmltag class="attribute">form</sgmltag> attribute.
@@ -143,6 +143,78 @@ msgstr ""
 
   <section id="translating-format2xsl">
     <title>The &format2xsl; Method</title>
-    <para/>
+    <para>The Gnome documentation stylesheets can translate more than simple
+    strings using the &format2xsl; template.  The &format2xsl; template creates
+    a localized XSLT stylesheet from an XML template file.  The template file
+    contains format strings which can be translated with PO files.</para>
+
+    <para>For instance, DocBook provides the <sgmltag>quote</sgmltag> element,
+    used to mark inline quotations. How to render an inline quotation depends
+    on the typographic conventions of the language.  In U.S. English, they are
+    rendered inside “double inverted-comma” quotation marks.  In German, they
+    are typically rendered inside «double angle» quotation marks.</para>
+
+    <para> In the template file <filename>db-format.xml.in</filename>, the
+    string <literal>format.quote.outer</literal> is marked for translation.
+    This is a placeholder for the format strings provided by translators.
+    The default value is <literal>“%t{node}”</literal>.  This contains the
+    format argument <literal>%t{node}</literal> which applies XSLT templates
+    to the parameter <parameter>node</parameter>.  What this means is that
+    the contents of the <sgmltag>quote</sgmltag> element will be rendered
+    however they would normally be rendered, but they will be wrapped in
+    quotation marks.</para>
+
+    <para>Each template format string has a set number of named arguments
+    availabe, which should be documented along with the template.  Note that
+    the default translation may not make use of all the availabe arguments.
+    Each argument is either a template argument, string argument, or number
+    argument.</para>
+
+    <para>Template arguments have the form <literal>%t{node}</literal>, and
+    work by applying further XSLT templates to the node.  String arguments have
+    the form <literal>%s{str}</literal>, and work by copying a string into the
+    formatted output.  For template and string arguments, translators must use
+    the correct prefix, either <literal>%t</literal> or <literal>%s</literal>.
+    The stylesheets will fail to build if the prefix is not correct.</para>
+
+    <para>Number arguments work similarly to string arguments, except that
+    translators have control over how the numbers are formatted.  Consider
+    the template string <literal>format.example.number</literal>.  The default
+    value for this is <literal>%t{parent}-%1{number}</literal>.  The template
+    argument calls the number formatter for the enclosing chapter, and the
+    number argument renders the number of the example in the chapter.  If
+    this were being called on the fifth example in the second chapter, the
+    value would be 2-5.</para>
+
+    <para>Unlike template and string arguments, translators may use a number
+    of different prefixes on number arguments.  The prefix indicates how to
+    format the number.  Currently, the prefixes <literal>%1</literal>,
+    <literal>%A</literal>, <literal>%a</literal>, <literal>%I</literal>, and
+    <literal>%i</literal> are supported.  The <literal>%1</literal> prefix
+    formats the number in decimal form using Arabic numerals.  The
+    <literal>%A</literal> and <literal>%a</literal> prefixes format numbers
+    as successive values of the Latin alphabet, either uppercase or lowercase.
+    The <literal>%I</literal> and <literal>%i</literal> prefixes format numbers
+    as Roman numerals, again either uppercase or lowercase.</para>
+
+    <note><para>These five types of number formatters are unlikely to be
+    sufficient, particularly for non-Western languages.  Translators who
+    would like to format numbers differently should contact the maintainers,
+    and we can try to add additional number formatters.</para></note>
+
+    <section id="translating-roles">
+      <title>Using Roles</title>
+
+      <para>In many cases, how to render an element depends on various
+      conditions, such as the grammatical role.  For these cases, the
+      &format2xsl; template can select localized format strings from a
+      list of alternatives, each marked with a
+      <sgmltag role="attribute">attribute</sgmltag> attribute.  The list
+      of valid roles will depend on the template; however, there are a
+      number of common cases, particularly for automatically generated
+      labels.</para>
+
+
+    </section>
   </section>
 </section>

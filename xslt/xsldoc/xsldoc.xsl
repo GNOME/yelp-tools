@@ -554,7 +554,7 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
-  <xsl:element name="{$toplevel_element}">
+  <xsl:element name="{$toplevel_element}" namespace="">
     <xsl:attribute name="id">
       <xsl:value-of select="concat($toplevel_element, '-', $xsldoc.id)"/>
     </xsl:attribute>

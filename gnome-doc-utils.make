@@ -91,9 +91,11 @@ XSLDOC_DIRS ?=
 
 _xml2po ?= `which xml2po`
 
-_db2omf ?= `pkg-config --variable db2omf gnome-doc-utils`
-_rngdoc ?= `pkg-config --variable rngdoc gnome-doc-utils`
-_xsldoc ?= `pkg-config --variable xsldoc gnome-doc-utils`
+_db2html ?= `pkg-config --variable db2html gnome-doc-utils`
+_db2omf  ?= `pkg-config --variable db2omf gnome-doc-utils`
+_rngdoc  ?= `pkg-config --variable rngdoc gnome-doc-utils`
+_xsldoc  ?= `pkg-config --variable xsldoc gnome-doc-utils`
+_chunks  ?= `pkg-congif --variable xmldir gnome-doc-utils`/xml/gnome/xslt/docbook/utils/chunks.xsl
 _credits ?= `pkg-congif --variable xmldir gnome-doc-utils`/xml/gnome/xslt/docbook/utils/credits.xsl
 _ids ?= `pkg-congif --variable xmldir gnome-doc-utils`/xml/gnome/xslt/docbook/utils/ids.xsl
 
@@ -146,7 +148,7 @@ _XSLDOC_C_DOCS = $(foreach xsl,$(_XSLDOC_XSLS),				\
 
 # FIXME: Fix the dependancies
 $(_XSLDOC_C_DOCS) : $(_XSLDOC_XSLS)
-	xsltproc -o $@ $(call xsldoc_args,$@,$<)
+	xsltproc $(call xsldoc_args,$@,$<) | xmllint --c14n - > $@
 
 .PHONY: xsldoc
 xsldoc: $(_XSLDOC_C_DOCS)
@@ -334,10 +336,11 @@ _DOC_C_FIGURES = $(if $(DOC_FIGURES),					\
 ## @ _DOC_C_HTML
 ## All HTML documentation in the C locale
 # FIXME: probably have to shell escape to determine the file names
-_DOC_C_HTML = $(patsubst %.xml,%.html,$(_DOC_C_MODULE))
+_DOC_C_HTML = $(shell xsltproc --xinclude 				\
+	--stringparam db.chunk.basename "$(DOC_MODULE)"			\
+	$(_chunks) "C/$(DOC_MODULE).xml")
 
-
-################################################################################
+###############################################################################
 ## @@ Other Locale Documentation
 
 ## @ _DOC_POFILES
@@ -417,6 +420,11 @@ $(_DOC_LC_DOCS) : $(_DOC_C_DOCS)
 ## All HTML documentation, only if it's built
 _DOC_HTML_ALL = $(if $(findstring html,$(_DOC_REAL_FORMATS)), \
 	$(_DOC_C_HTML) $(_DOC_LC_HTML))
+
+_DOC_HTML_TOPS = $(foreach lc,C $(DOC_LINGUAS),$(lc)/$(DOC_MODULE).html)
+
+$(_DOC_HTML_TOPS): $(_DOC_C_DOCS) $(_DOC_LC_DOCS)
+	xsltproc -o $@ --xinclude --param db.chunk.chunk_top "false()" --stringparam db.chunk.basename "$(DOC_MODULE)" --stringparam db.chunk.extension ".html" $(_db2html) $(patsubst %.html,%.xml,$@)
 
 
 ################################################################################

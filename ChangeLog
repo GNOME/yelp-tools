@@ -1,3 +1,15 @@
+2005-01-01  Shaun McCance  <shaunm@gnome.org>
+
+	* bootstrap.make:
+	* gnome-doc-utils.make:
+	- Added very basic HTML generation
+
+	* doc/xslt/C/translating.xml:
+	- Some translator documentation improvements
+
+	* xslt/xsldoc/xsldoc.xsl:
+	- Fix namespace problem
+
 2004-12-31  Žygimantas Beručka  <uid0@akl.lt>
 
 	* configure.in (ALL_LINGUAS): Added lt.
