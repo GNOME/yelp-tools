@@ -3,267 +3,267 @@
 <l10n xmlns="http://www.gnome.org/~shaunm/gnome-doc-utils/xsl-format">
 
 <msg>
-  <!-- Link to the titlepage of a <article> -->
   <msgid>About This Article</msgid>
+  <!-- Link to the titlepage of a <article> -->
   <_msgstr>About This Article</_msgstr>
 </msg>
 <msg>
-  <!-- Link to the titlepage of a <bibliography> -->
   <msgid>About This Bibliography</msgid>
+  <!-- Link to the titlepage of a <bibliography> -->
   <_msgstr>About This Bibliography</_msgstr>
 </msg>
 <msg>
-  <!-- Link to the titlepage of a <book> -->
   <msgid>About This Book</msgid>
+  <!-- Link to the titlepage of a <book> -->
   <_msgstr>About This Book</_msgstr>
 </msg>
 <msg>
-  <!-- Link to the titlepage of a <chapter> -->
   <msgid>About This Chapter</msgid>
+  <!-- Link to the titlepage of a <chapter> -->
   <_msgstr>About This Chapter</_msgstr>
 </msg>
 <msg>
-  <!-- Link to the titlepage of a <refentry> -->
   <msgid>About This Entry</msgid>
+  <!-- Link to the titlepage of a <refentry> -->
   <_msgstr>About This Entry</_msgstr>
 </msg>
 <msg>
-  <!-- Link to the titlepage of a <glossary> -->
   <msgid>About This Glossary</msgid>
+  <!-- Link to the titlepage of a <glossary> -->
   <_msgstr>About This Glossary</_msgstr>
 </msg>
 <msg>
-  <!-- Link to the titlepage of an <index> and <setindex> -->
   <msgid>About This Index</msgid>
+  <!-- Link to the titlepage of an <index> and <setindex> -->
   <_msgstr>About This Index</_msgstr>
 </msg>
 <msg>
-  <!-- Link to the titlepage of a <part> -->
   <msgid>About This Part</msgid>
+  <!-- Link to the titlepage of a <part> -->
   <_msgstr>About This Part</_msgstr>
 </msg>
 <msg>
-  <!-- Link to the titlepage of a <preface> -->
   <msgid>About This Preface</msgid>
+  <!-- Link to the titlepage of a <preface> -->
   <_msgstr>About This Preface</_msgstr>
 </msg>
 <msg>
-  <!-- Link to the titlepage of a <reference> -->
   <msgid>About This Reference</msgid>
+  <!-- Link to the titlepage of a <reference> -->
   <_msgstr>About This Reference</_msgstr>
 </msg>
 <msg>
-  <!-- Link to the titlepage of any of <sect*> and <refsect*> -->
   <msgid>About This Section</msgid>
+  <!-- Link to the titlepage of any of <sect*> and <refsect*> -->
   <_msgstr>About This Section</_msgstr>
 </msg>
 <msg>
-  <!-- Link to the titlepage of a <set> -->
   <msgid>About This Set</msgid>
+  <!-- Link to the titlepage of a <set> -->
   <_msgstr>About This Set</_msgstr>
 </msg>
 <msg>
+  <msgid>Affiliation</msgid>
   <!-- From the <affiliation> element.
        Used when listing authors/contributors, like so:
        Shaun McCance
          Affiliation: GNOME Documentation Project
   -->
-  <msgid>Affiliation</msgid>
   <_msgstr>Affiliation</_msgstr>
 </msg>
 <msg>
+  <msgid>Audience</msgid>
   <!-- This is an abbreviated form of 'Message Audience'.
        Feel free to use the same word/phrase for both. -->
-  <msgid>Audience</msgid>
   <_msgstr>Audience</_msgstr>
 </msg>
 <msg>
-  <!-- Used as a header before a list of authors. -->
   <msgid>Author</msgid>
+  <!-- Used as a header before a list of authors. -->
   <_msgstr>
     <msgstr form="0">Author</msgstr>
     <msgstr form="1">Authors</msgstr>
   </_msgstr>
 </msg>
 <msg>
-  <!-- Used for the <caution> element. -->
   <msgid>Caution</msgid>
+  <!-- Used for the <caution> element. -->
   <_msgstr>Caution</_msgstr>
 </msg>
 <msg>
-  <!-- Used for the <colophon> element. -->
   <msgid>Colophon</msgid>
+  <!-- Used for the <colophon> element. -->
   <_msgstr>Colophon</_msgstr>
 </msg>
 <msg>
+  <msgid>Contents</msgid>
   <!-- This is an abbreviated form of 'Table of Contents'.
        Feel free to use the same word/phrase for both. -->
-  <msgid>Contents</msgid>
   <_msgstr>Contents</_msgstr>
 </msg>
 <msg>
-  <!-- Used as a header before a list of collaborators. -->
   <msgid>Collaborator</msgid>
+  <!-- Used as a header before a list of collaborators. -->
   <_msgstr>
     <msgstr form="0">Collaborator</msgstr>
     <msgstr form="1">Collaborators</msgstr>
   </_msgstr>
 </msg>
 <msg>
-  <!-- Used as a header before a list of copyrights. -->
   <msgid>Copyright</msgid>
+  <!-- Used as a header before a list of copyrights. -->
   <_msgstr>
     <msgstr form="0">Copyright</msgstr>
     <msgstr form="1">Copyrights</msgstr>
   </_msgstr>
 </msg>
 <msg>
-  <!-- Used as a header for date column in the revision history. -->
   <msgid>Date</msgid>
+  <!-- Used as a header for date column in the revision history. -->
   <_msgstr>Date</_msgstr>
 </msg>
 <msg>
-  <!-- Used for the <dedication> element. -->
   <msgid>Dedication</msgid>
+  <!-- Used for the <dedication> element. -->
   <_msgstr>Dedication</_msgstr>
 </msg>
 <msg>
-  <!-- Used as a header before a list of editors. -->
   <msgid>Editor</msgid>
+  <!-- Used as a header before a list of editors. -->
   <_msgstr>
     <msgstr form="0">Editor</msgstr>
     <msgstr form="1">Editors</msgstr>
   </_msgstr>
 </msg>
 <msg>
+  <msgid>Email</msgid>
   <!-- From the <email> element.
        Used when listing authors/contributors, like so:
        Shaun McCance
          Email: shaunm@gnome.org
   -->
-  <msgid>Email</msgid>
   <_msgstr>Email</_msgstr>
 </msg>
 <msg>
-  <!-- Used for the <important> element. -->
   <msgid>Important</msgid>
+  <!-- Used for the <important> element. -->
   <_msgstr>Important</_msgstr>
 </msg>
 <msg>
-  <!-- Used for the <index> element. -->
   <msgid>Index</msgid>
+  <!-- Used for the <index> element. -->
   <_msgstr>Index</_msgstr>
 </msg>
 <msg>
-  <!-- Used for the <legalnotice> element. -->
   <msgid>Legal Notice</msgid>
+  <!-- Used for the <legalnotice> element. -->
   <_msgstr>Legal Notice</_msgstr>
 </msg>
 <msg>
+  <msgid>Level</msgid>
   <!-- This is an abbreviated form of 'Message Level'.
        Feel free to use the same word/phrase for both. -->
-  <msgid>Level</msgid>
   <_msgstr>Level</_msgstr>
 </msg>
 <msg>
-  <!-- Used for the <msgaud> element. -->
   <msgid>Message Audience</msgid>
+  <!-- Used for the <msgaud> element. -->
   <_msgstr>Message Audience</_msgstr>
 </msg>
 <msg>
-  <!-- Used for the <msglevel> element. -->
   <msgid>Message Level</msgid>
+  <!-- Used for the <msglevel> element. -->
   <_msgstr>Message Level</_msgstr>
 </msg>
 <msg>
-  <!-- Used for the <msgorig> element. -->
   <msgid>Message Origin</msgid>
+  <!-- Used for the <msgorig> element. -->
   <_msgstr>Message Origin</_msgstr>
 </msg>
 <msg>
-  <!-- Used for the <note> element. -->
   <msgid>Note</msgid>
+  <!-- Used for the <note> element. -->
   <_msgstr>Note</_msgstr>
 </msg>
 <msg>
+  <msgid>Origin</msgid>
   <!-- This is an abbreviated form of 'Message Origin'.
        Feel free to use the same word/phrase for both. -->
-  <msgid>Origin</msgid>
   <_msgstr>Origin</_msgstr>
 </msg>
 <msg>
-  <!-- Used as a header before a list of contributors. -->
   <msgid>Other Contributor</msgid>
+  <!-- Used as a header before a list of contributors. -->
   <_msgstr>
     <msgstr form="0">Other Contributor</msgstr>
     <msgstr form="1">Other Contributors</msgstr>
   </_msgstr>
 </msg>
 <msg>
-  <!-- Used for the <preface> element. -->
   <msgid>Preface</msgid>
+  <!-- Used for the <preface> element. -->
   <_msgstr>Preface</_msgstr>
 </msg>
 <msg>
-  <!-- Used as a header before a list of publishers. -->
   <msgid>Publisher</msgid>
+  <!-- Used as a header before a list of publishers. -->
   <_msgstr>
     <msgstr form="0">Publisher</msgstr>
     <msgstr form="1">Publishers</msgstr>
   </_msgstr>
 </msg>
 <msg>
-  <!-- Used for the <reference> element. -->
   <msgid>Reference</msgid>
+  <!-- Used for the <reference> element. -->
   <_msgstr>Reference</_msgstr>
 </msg>
 <msg>
-  <!-- Used for the <releaseinfo> element. -->
   <msgid>Release Information</msgid>
+  <!-- Used for the <releaseinfo> element. -->
   <_msgstr>Release Information</_msgstr>
 </msg>
 <msg>
-  <!-- Used for the <revhistory> element. -->
   <msgid>Revision History</msgid>
+  <!-- Used for the <revhistory> element. -->
   <_msgstr>Revision History</_msgstr>
 </msg>
 <msg>
+  <msgid>See</msgid>
   <!-- Used for the <see> element.
        FIXME: this should be a format string.
   -->
-  <msgid>See</msgid>
   <_msgstr>See</_msgstr>
 </msg>
 <msg>
+  <msgid>See Also</msgid>
   <!-- Used for the <seealso> element.
        FIXME: this should be a format string.
   -->
-  <msgid>See Also</msgid>
   <_msgstr>See Also</_msgstr>
 </msg>
 <msg>
-  <!-- Used for the <setindex> element. -->
   <msgid>Set Index</msgid>
+  <!-- Used for the <setindex> element. -->
   <_msgstr>Set Index</_msgstr>
 </msg>
 <msg>
-  <!-- Used for a link to a table of contents. -->
   <msgid>Table of Contents</msgid>
+  <!-- Used for a link to a table of contents. -->
   <_msgstr>Table of Contents</_msgstr>
 </msg>
 <msg>
-  <!-- Used for the <tip> element. -->
   <msgid>Tip</msgid>
+  <!-- Used for the <tip> element. -->
   <_msgstr>Tip</_msgstr>
 </msg>
 <msg>
-  <!-- Used as a header for title column in the revision history. -->
   <msgid>Title</msgid>
+  <!-- Used as a header for title column in the revision history. -->
   <_msgstr>Title</_msgstr>
 </msg>
 <msg>
-  <!-- Used for the <warning> element. -->
   <msgid>Warning</msgid>
+  <!-- Used for the <warning> element. -->
   <_msgstr>Warning</_msgstr>
 </msg>
 

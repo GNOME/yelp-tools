@@ -1,6 +1,11 @@
 2004-11-08  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/gettext/l10n.xml.in:
+	- Make the comments recognizable by intltool
+
+2004-11-08  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/gettext/l10n.xml.in:
 	- The plural of Publisher is Publishers
 
 2004-11-08  Shaun McCance  <shaunm@gnome.org>
