@@ -457,14 +457,16 @@ def tryToUpdate(allargs, lang):
     # Remove "-u" and "--update-translation"
     command = allargs[0]
     args = allargs[1:]
-    opts, args = getopt.getopt(args, 'avhm:t:o:p:u:',
-                               ['automatic-tags','version', 'help', 'merge', 'translation=',
+    opts, args = getopt.getopt(args, 'avhmke:t:o:p:u:',
+                               ['automatic-tags','version', 'help', 'keep-entities', 'extract-all-entities', 'merge', 'translation=',
                                 'output=', 'po-file=', 'update-translation=' ])
     for opt, arg in opts:
         if opt in ('-a', '--automatic-tags'):
             command += " -a"
         elif opt in ('-k', '--keep-entities'):
             command += " -k"
+        elif opt in ('-e', '--extract-all-entities'):
+            command += " -e"
         elif opt in ('-m', '--mode'):
             command += " -m %s" % arg
         elif opt in ('-o', '--output'):
@@ -534,14 +536,15 @@ filenames = [ ]
 mode = 'pot' # 'pot' or 'merge'
 automatic = 0
 expand_entities = 1
+expand_all_entities = 0
 
 output  = '-' # this means to stdout
 
 import getopt, fileinput
 
 args = sys.argv[1:]
-opts, args = getopt.getopt(args, 'avhkm:t:o:p:u:r:',
-                           ['automatic-tags','version', 'help', 'keep-entities', 'mode=', 'translation=',
+opts, args = getopt.getopt(args, 'avhkem:t:o:p:u:r:',
+                           ['automatic-tags','version', 'help', 'keep-entities', 'expand-all-entities', 'mode=', 'translation=',
                             'output=', 'po-file=', 'update-translation=', 'reuse=' ])
 for opt, arg in opts:
     if opt in ('-m', '--mode'):
@@ -550,6 +553,8 @@ for opt, arg in opts:
         automatic = 1
     elif opt in ('-k', '--keep-entities'):
         expand_entities = 0
+    elif opt in ('-e', '--expand-all-entities'):
+        expand_all_entities = 1
     elif opt in ('-t', '--translation'):
         mofile = arg
         mode = 'merge'
@@ -576,6 +581,7 @@ OPTIONS may be some of:
     -a    --automatic-tags     Automatically decides if tags are to be considered
                                  "final" or not (overrides -f and -i options)
     -k    --keep-entities      Don't expand entities
+    -e    --expand-all-entities  Expand ALL entities (including SYSTEM ones)
     -m    --mode=TYPE          Treat tags as type TYPE (default: docbook)
     -o    --output=FILE        Print resulting text (XML or POT) to FILE
     -p    --po-file=FILE       Specify PO file containing translation, and merge
@@ -637,6 +643,8 @@ for filename in filenames:
             msg.translationsFollow()
         ctxt = libxml2.createFileParserCtxt(filename)
         ctxt.lineNumbers(1)
+        if expand_all_entities:
+            ctxt.replaceEntities(1)
         ctxt.parseDocument()
         doc = ctxt.doc()
         if doc.name != filename:

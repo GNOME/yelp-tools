@@ -1,3 +1,7 @@
+2004-09-25  Danilo Šegan  <dsegan@gmx.net>
+
+	* xml2po.py: Add "-e" option to do .replaceEntities(1).
+
 2004-09-16  Danilo Šegan  <dsegan@gmx.net>
 
 	* modes/docbook.py (docbookXmlMode.getSpacePreserveTags): Add
