@@ -269,7 +269,7 @@
     <refsection>
       <title>Description</title>
       <xsl:if test="not(doc:description/node())">
-        <para/>
+        <para>This mode has no description</para>
       </xsl:if>
       <xsl:apply-templates mode="xsldoc.docbook.mode"
                            select="doc:description/node()"/>
@@ -287,16 +287,18 @@
     </indexterm>
     <refnamediv>
       <refname>
-        <xsl:value-of select="doc:name"/>
+        <xsl:apply-templates mode="xsldoc.docbook.mode"
+                             select="doc:name/node()"/>
       </refname>
       <refpurpose>
-        <xsl:apply-templates select="doc:purpose"/>
+        <xsl:apply-templates mode="xsldoc.docbook.mode"
+                             select="doc:purpose/node()"/>
       </refpurpose>
     </refnamediv>
     <refsection>
       <title>Description</title>
       <xsl:if test="not(doc:description/node())">
-        <para/>
+        <para>This parameter has no description</para>
       </xsl:if>
       <xsl:apply-templates mode="xsldoc.docbook.mode"
                            select="doc:description/node()"/>
@@ -314,20 +316,51 @@
     </indexterm>
     <refnamediv>
       <refname>
-        <xsl:value-of select="doc:name"/>
+        <xsl:apply-templates mode="xsldoc.docbook.mode"
+                             select="doc:name/node()"/>
       </refname>
       <refpurpose>
-        <xsl:apply-templates select="doc:purpose"/>
+        <xsl:apply-templates mode="xsldoc.docbook.mode"
+                             select="doc:purpose/node()"/>
       </refpurpose>
     </refnamediv>
     <refsection>
-      <title>Description</title>
-      <xsl:if test="not(doc:description/node())">
-        <para/>
-      </xsl:if>
-      <xsl:apply-templates mode="xsldoc.docbook.mode"
-                           select="doc:description/node()"/>
+      <title>Parameters</title>
+      <xsl:choose>
+        <xsl:when test="doc:parameter">
+          <variablelist>
+            <xsl:for-each select="doc:parameter">
+              <varlistentry>
+                <term>
+                  <parameter>
+                    <xsl:apply-templates mode="xsldoc.docbook.mode"
+                                         select="doc:name"/>
+                  </parameter>
+                </term>
+                <listitem>
+                  <para>
+                    <xsl:apply-templates mode="xsldoc.docbook.mode"
+                                         select="doc:purpose/node()"/>
+                  </para>
+                  <xsl:apply-templates mode="xsldoc.docbook.mode"
+                                       select="doc:description/node()"/>
+                </listitem>
+              </varlistentry>
+            </xsl:for-each>
+          </variablelist>
+        </xsl:when>
+        <xsl:otherwise>
+          <para>This template has no parameters.</para>
+        </xsl:otherwise>
+      </xsl:choose>
     </refsection>
+    <xsl:if test="doc:description">
+      <refsection>
+        <title>Description</title>
+        <xsl:apply-templates mode="xsldoc.docbook.mode"
+                             select="doc:description/node()"/>
+      </refsection>
+    </xsl:if>
   </refentry>
 </xsl:template>
 
@@ -344,13 +377,15 @@
     <term>
       <link linkend="{doc:name}">
         <function role="mode">
-          <xsl:value-of select="doc:name"/>
+          <xsl:apply-templates mode="xsldoc.docbook.mode"
+                               select="doc:name/node()"/>
         </function>
       </link>
     </term>
     <listitem>
       <para>
-        <xsl:apply-templates select="doc:purpose"/>
+        <xsl:apply-templates mode="xsldoc.docbook.mode"
+                             select="doc:purpose"/>
       </para>
     </listitem>
   </varlistentry>
@@ -559,7 +594,8 @@
       <xsl:value-of select="concat($toplevel_element, '-', $xsldoc.id)"/>
     </xsl:attribute>
     <title>
-      <xsl:apply-templates select="doc:title[1]/node()"/>
+      <xsl:apply-templates mode="xsldoc.docbook.mode"
+                           select="doc:title[1]/node()"/>
     </title>
     <xsl:call-template name="xsldoc.checks"/>
     <xsl:call-template name="xsldoc.summary"/>

@@ -71,7 +71,6 @@
         </xsl:call-template>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:message><xsl:text>foo</xsl:text></xsl:message>
         <xsl:call-template name="db2html.title.header">
           <xsl:with-param name="node" select="refnamediv/refname[1]"/>
           <xsl:with-param name="referent" select="."/>

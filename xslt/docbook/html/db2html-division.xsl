@@ -89,61 +89,15 @@
         <xsl:with-param name="depth_in_chunk" select="0"/>
         <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
       </xsl:apply-templates>
-      <!-- FIXME: formatting -->
-      <div class="navbar">
-        <xsl:if test="$depth_of_chunk = 0 or $prev_node">
-          <xsl:text>Prev: </xsl:text>
-          <a class="navbar">
-            <xsl:attribute name="href">
-              <xsl:value-of select="concat($prev_id, $db.chunk.extension)"/>
-            </xsl:attribute>
-            <xsl:choose>
-              <xsl:when test="$depth_of_chunk = 0">
-                <xsl:variable name="label">
-                  <xsl:call-template name="db.label">
-                    <xsl:with-param name="node" select="$info"/>
-                  </xsl:call-template>
-                </xsl:variable>
-                <xsl:attribute name="title">
-                  <xsl:value-of select="normalize-space($label)"/>
-                </xsl:attribute>
-                <xsl:value-of select="$label"/>
-              </xsl:when>
-              <xsl:otherwise>
-                <xsl:attribute name="title">
-                  <xsl:call-template name="db.xref.tooltip">
-                    <xsl:with-param name="linkend" select="$prev_id"/>
-                    <xsl:with-param name="target"  select="$prev_node"/>
-                  </xsl:call-template>
-                </xsl:attribute>
-                <xsl:call-template name="db.label">
-                  <xsl:with-param name="node" select="$prev_node"/>
-                  <xsl:with-param name="role" select="'title'"/>
-                </xsl:call-template>
-              </xsl:otherwise>
-            </xsl:choose>
-          </a>
-        </xsl:if>
-        <br/>
-        <xsl:if test="$next_node">
-          <xsl:text>Next: </xsl:text>
-          <a class="navbar">
-            <xsl:attribute name="href">
-              <xsl:value-of select="concat($next_id, $db.chunk.extension)"/>
-            </xsl:attribute>
-            <xsl:attribute name="title">
-              <xsl:call-template name="db.xref.tooltip">
-                <xsl:with-param name="linkend" select="$next_id"/>
-                <xsl:with-param name="target"  select="$next_node"/>
-              </xsl:call-template>
-            </xsl:attribute>
-            <xsl:call-template name="db.label">
-              <xsl:with-param name="node" select="$next_node"/>
-              <xsl:with-param name="role" select="'title'"/>
-            </xsl:call-template>
-          </a>
-        </xsl:if>
-      </div>
+      <xsl:call-template name="db2html.division.navbar">
+        <xsl:with-param name="node" select="$node"/>
+        <xsl:with-param name="info" select="$info"/>
+        <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+        <xsl:with-param name="prev_id" select="$prev_id"/>
+        <xsl:with-param name="next_id" select="$next_id"/>
+        <xsl:with-param name="prev_node" select="$prev_node"/>
+        <xsl:with-param name="next_node" select="$next_node"/>
+      </xsl:call-template>
     </body>
   </html>
 </xsl:template>
@@ -291,6 +245,100 @@
         <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
         <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
       </xsl:apply-templates>
+    </xsl:if>
+  </div>
+</xsl:template>
+
+
+<!-- == db2html.division.navbar ============================================ -->
+
+<xsl:template name="db2html.division.navbar">
+  <xsl:param name="node"/>
+  <xsl:param name="info"/>
+  <xsl:param name="depth_of_chunk">
+    <xsl:call-template name="db.chunk.depth-of-chunk">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:call-template>
+  </xsl:param>
+  <xsl:param name="prev_id">
+    <xsl:choose>
+      <xsl:when test="$depth_of_chunk = 0 and $info">
+        <xsl:if test="$info">
+          <xsl:value-of select="$db.chunk.info_basename"/>
+        </xsl:if>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:call-template name="db.chunk.chunk-id.axis">
+          <xsl:with-param name="node" select="$node"/>
+          <xsl:with-param name="axis" select="'previous'"/>
+          <xsl:with-param name="depth_in_chunk" select="0"/>
+          <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+        </xsl:call-template>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:param>
+  <xsl:param name="next_id">
+    <xsl:call-template name="db.chunk.chunk-id.axis">
+      <xsl:with-param name="node" select="$node"/>
+      <xsl:with-param name="axis" select="'next'"/>
+      <xsl:with-param name="depth_in_chunk" select="0"/>
+      <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+    </xsl:call-template>
+  </xsl:param>
+  <xsl:param name="prev_node" select="key('idkey', $prev_id)"/>
+  <xsl:param name="next_node" select="key('idkey', $next_id)"/>
+  <div class="navbar">
+    <xsl:if test="$depth_of_chunk = 0 or $prev_node">
+      <xsl:text>Prev: </xsl:text>
+      <a class="navbar">
+        <xsl:attribute name="href">
+          <xsl:value-of select="concat($prev_id, $db.chunk.extension)"/>
+        </xsl:attribute>
+        <xsl:choose>
+          <xsl:when test="$depth_of_chunk = 0">
+            <xsl:variable name="label">
+              <xsl:call-template name="db.label">
+                <xsl:with-param name="node" select="$info"/>
+              </xsl:call-template>
+            </xsl:variable>
+            <xsl:attribute name="title">
+              <xsl:value-of select="normalize-space($label)"/>
+            </xsl:attribute>
+            <xsl:value-of select="$label"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:attribute name="title">
+              <xsl:call-template name="db.xref.tooltip">
+                <xsl:with-param name="linkend" select="$prev_id"/>
+                <xsl:with-param name="target"  select="$prev_node"/>
+              </xsl:call-template>
+            </xsl:attribute>
+            <xsl:call-template name="db.label">
+              <xsl:with-param name="node" select="$prev_node"/>
+              <xsl:with-param name="role" select="'title'"/>
+            </xsl:call-template>
+          </xsl:otherwise>
+        </xsl:choose>
+      </a>
+    </xsl:if>
+    <br/>
+    <xsl:if test="$next_node">
+      <xsl:text>Next: </xsl:text>
+      <a class="navbar">
+        <xsl:attribute name="href">
+          <xsl:value-of select="concat($next_id, $db.chunk.extension)"/>
+        </xsl:attribute>
+        <xsl:attribute name="title">
+          <xsl:call-template name="db.xref.tooltip">
+            <xsl:with-param name="linkend" select="$next_id"/>
+            <xsl:with-param name="target"  select="$next_node"/>
+          </xsl:call-template>
+        </xsl:attribute>
+        <xsl:call-template name="db.label">
+          <xsl:with-param name="node" select="$next_node"/>
+          <xsl:with-param name="role" select="'title'"/>
+        </xsl:call-template>
+      </a>
     </xsl:if>
   </div>
 </xsl:template>

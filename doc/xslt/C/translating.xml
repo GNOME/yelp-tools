@@ -159,10 +159,10 @@ msgstr ""
     This is a placeholder for the format strings provided by translators.
     The default value is <literal>“%t{node}”</literal>.  This contains the
     format argument <literal>%t{node}</literal> which applies XSLT templates
-    to the parameter <parameter>node</parameter>.  What this means is that
-    the contents of the <sgmltag>quote</sgmltag> element will be rendered
-    however they would normally be rendered, but they will be wrapped in
-    quotation marks.</para>
+    to the parameter named <parameter>node</parameter>.  This means that the
+    contents of the <sgmltag>quote</sgmltag> element will be rendered as they
+    would normally be rendered, but they will be wrapped inside quotation
+    marks.</para>
 
     <para>Each template format string has a set number of named arguments
     availabe, which should be documented along with the template.  Note that

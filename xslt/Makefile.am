@@ -1,2 +1,2 @@
-SUBDIRS = gettext docbook rngdoc xsldoc # gettext needs to be first
+SUBDIRS = gettext docbook xsldoc # gettext needs to be first
 
