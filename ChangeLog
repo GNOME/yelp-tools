@@ -1,5 +1,10 @@
 2004-07-08  Shaun McCance  <shaunm@gnome.org>
 
+	* doc/gnome-doc-make/gnome-doc-make.omf.in:
+	- Adding to CVS
+
+2004-07-08  Shaun McCance  <shaunm@gnome.org>
+
 	* gnome-doc-utils.m4:
 	- Use --with-helpformat so it will actually work
 
