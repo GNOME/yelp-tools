@@ -1,5 +1,13 @@
 2004-03-16  Shaun McCance  <shaunm@gnome.org>
 
+	* configure.in:
+	* xslt/Makefile.am:
+	* xslt/docbook/Makefile.am:
+	* xslt/rngdoc/Makefile.am:
+	- Adding some build files.
+
+2004-03-16  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/rngdoc/rngdoc.xsl:
 	- Adding initial work on RNG documentation builder.
 
