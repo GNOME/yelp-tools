@@ -106,13 +106,16 @@ def normalizeString(text, ignorewhitespace = 1):
         # Lets add document DTD so entities are resolved
         dtd = doc.intSubset()
         tmp = dtd.serialize() + '<norm>%s</norm>' % text
-        tree = libxml2.parseMemory(tmp,len(tmp))
-        newnode = tree.children.next
     except:
         tmp = '<norm>%s</norm>' % text
+
+    try:
         tree = libxml2.parseMemory(tmp,len(tmp))
-        newnode = tree.children
-        
+        newnode = tree.getRootElement()
+    except:
+        print >> sys.stderr, """Error while normalizing string as XML:\n"%s"\n""" % (text)
+        return text
+
     normalizeNode(newnode)
 
     result = ''
@@ -246,9 +249,14 @@ def getCommentForNode(node):
 
 def replaceNodeContentsWithText(node,text):
     """Replaces all subnodes of a node with contents of text treated as XML."""
+    #print >> sys.stderr, text
     if node.children:
         tmp = '<%s>%s</%s>' % (startTagForNode(node), text, node.name)
-        newnode = libxml2.parseMemory(tmp,len(tmp))
+        try:
+            newnode = libxml2.parseMemory(tmp,len(tmp))
+        except:
+            print >> sys.stderr, """Error while parsing translation as XML:\n"%s"\n""" % (text)
+            return
         free = node.children
         while free:
             next = free.next
@@ -471,6 +479,12 @@ def load_mode(modename):
         return getattr(module, modeModule)
     except:
         return None
+
+def xml_error_handler(arg, ctxt):
+    pass
+
+libxml2.registerErrorHandler(xml_error_handler, None)
+
 
 # Main program start
 
