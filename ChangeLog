@@ -1,3 +1,8 @@
+2004-06-13  Shaun McCance  <shaunm@gnome.org>
+
+	* README:
+	- Put stuff in the README.  Sri is my bitch.
+
 2004-06-09  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/common/Makefile.am:
