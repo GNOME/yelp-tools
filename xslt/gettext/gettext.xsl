@@ -461,6 +461,13 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
         </xsl:otherwise>
       </xsl:choose>
     </xsl:when>
+    <!-- == hu ja ko th tr vi zh == -->
+    <xsl:when test="($lang_language = 'hu') or ($lang_language = 'ja') or 
+                    ($lang_language = 'ko') or ($lang_language = 'th') or 
+                    ($lang_language = 'tr') or ($lang_language = 'vi') or
+                    ($lang_language = 'zh')">
+      <xsl:text>0</xsl:text>
+    </xsl:when>
     <!-- == C == -->
     <xsl:otherwise>
       <xsl:choose>
