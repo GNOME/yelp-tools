@@ -1,0 +1,312 @@
+# Czech translation for gnome-doc-utils.
+# Copyright (C) 2004 gnome-doc-utils' COPYRIGHT HOLDER
+# Copyright (C) 2004 Miloslav Trmac <mitr@volny.cz>
+# This file is distributed under the same license as the gnome-doc-utils package.
+# Miloslav Trmac <mitr@volny.cz>, 2004.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-doc-utils VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-07-25 03:58+0200\n"
+"PO-Revision-Date: 2004-07-25 15:14+0200\n"
+"Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
+"Language-Team: Czech <cs@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: xslt/docbook/common/db-format.xml.in.h:2
+#, no-c-format
+msgid "%t{name} %t{number}"
+msgstr "%t{name} %t{number}"
+
+#: xslt/docbook/common/db-format.xml.in.h:4
+#, no-c-format
+msgid "‘%t{node}’"
+msgstr "‘%t{node}’"
+
+#: xslt/docbook/common/db-format.xml.in.h:6
+#, no-c-format
+msgid "“%t{node}”"
+msgstr "“%t{node}”"
+
+#: xslt/gettext/l10n.xml.in.h:1
+msgid "&#8216;"
+msgstr "&#8216;"
+
+#: xslt/gettext/l10n.xml.in.h:2
+msgid "&#8217;"
+msgstr "&#8217;"
+
+#: xslt/gettext/l10n.xml.in.h:3
+msgid "&#8220;"
+msgstr "&#8220;"
+
+#: xslt/gettext/l10n.xml.in.h:4
+msgid "&#8221;"
+msgstr "&#8221;"
+
+#: xslt/gettext/l10n.xml.in.h:5
+msgid "About This Article"
+msgstr "O tomto článku"
+
+#: xslt/gettext/l10n.xml.in.h:6
+msgid "About This Bibliography"
+msgstr "O této bibliografii"
+
+#: xslt/gettext/l10n.xml.in.h:7
+msgid "About This Book"
+msgstr "O této knize"
+
+#: xslt/gettext/l10n.xml.in.h:8
+msgid "About This Chapter"
+msgstr "O této kapitole"
+
+#: xslt/gettext/l10n.xml.in.h:9
+msgid "About This Entry"
+msgstr "O této položce"
+
+#: xslt/gettext/l10n.xml.in.h:10
+msgid "About This Glossary"
+msgstr "O tomto glosáři"
+
+#: xslt/gettext/l10n.xml.in.h:11
+msgid "About This Index"
+msgstr "O tomto rejstříku"
+
+#: xslt/gettext/l10n.xml.in.h:12
+msgid "About This Part"
+msgstr "O této části"
+
+#: xslt/gettext/l10n.xml.in.h:13
+msgid "About This Preface"
+msgstr "O této předmluvě"
+
+#: xslt/gettext/l10n.xml.in.h:14
+msgid "About This Reference"
+msgstr "O tomto odkazu"
+
+#: xslt/gettext/l10n.xml.in.h:15
+msgid "About This Section"
+msgstr "O tomto oddílu"
+
+#: xslt/gettext/l10n.xml.in.h:16
+msgid "About This Set"
+msgstr "O této sadě"
+
+#: xslt/gettext/l10n.xml.in.h:17
+msgid "Affiliation"
+msgstr "Přidružení"
+
+#: xslt/gettext/l10n.xml.in.h:18
+msgid "Appendix"
+msgstr "Příloha"
+
+#: xslt/gettext/l10n.xml.in.h:19
+msgid "Article"
+msgstr "Článek"
+
+#: xslt/gettext/l10n.xml.in.h:20
+msgid "Audience"
+msgstr "Čtenáři"
+
+#: xslt/gettext/l10n.xml.in.h:21
+msgid "Author"
+msgstr "Autor"
+
+#: xslt/gettext/l10n.xml.in.h:22
+msgid "Authors"
+msgstr "Autoři"
+
+#: xslt/gettext/l10n.xml.in.h:23
+msgid "Bibliography"
+msgstr "Bibliografie"
+
+#: xslt/gettext/l10n.xml.in.h:24
+msgid "Book"
+msgstr "Kniha"
+
+#: xslt/gettext/l10n.xml.in.h:25
+msgid "Caution"
+msgstr "Upozornění"
+
+#: xslt/gettext/l10n.xml.in.h:26
+msgid "Chapter"
+msgstr "Kapitola"
+
+#: xslt/gettext/l10n.xml.in.h:27
+msgid "Collaborator"
+msgstr "Spolupracovník"
+
+#: xslt/gettext/l10n.xml.in.h:28
+msgid "Collaborators"
+msgstr "Spolupracovníci"
+
+#: xslt/gettext/l10n.xml.in.h:29
+msgid "Colophon"
+msgstr "Tiráž"
+
+#: xslt/gettext/l10n.xml.in.h:30
+msgid "Contents"
+msgstr "Obsah"
+
+#: xslt/gettext/l10n.xml.in.h:31
+msgid "Copyright"
+msgstr "Copyright"
+
+#: xslt/gettext/l10n.xml.in.h:32
+msgid "Copyrights"
+msgstr "Copyrights"
+
+#: xslt/gettext/l10n.xml.in.h:33
+msgid "Date"
+msgstr "Datum"
+
+#: xslt/gettext/l10n.xml.in.h:34
+msgid "Dedication"
+msgstr "Věnování"
+
+#: xslt/gettext/l10n.xml.in.h:35
+msgid "Editor"
+msgstr "Redaktor"
+
+#: xslt/gettext/l10n.xml.in.h:36
+msgid "Editors"
+msgstr "Redaktoři"
+
+#: xslt/gettext/l10n.xml.in.h:37
+msgid "Email"
+msgstr "E-mail"
+
+#: xslt/gettext/l10n.xml.in.h:38
+msgid "Example"
+msgstr "Příklad"
+
+#: xslt/gettext/l10n.xml.in.h:39
+msgid "Figure"
+msgstr "Obrázek"
+
+#: xslt/gettext/l10n.xml.in.h:40
+msgid "Glossary"
+msgstr "Glosář"
+
+#: xslt/gettext/l10n.xml.in.h:41
+msgid "Important"
+msgstr "Důležité"
+
+#: xslt/gettext/l10n.xml.in.h:42
+msgid "Index"
+msgstr "Rejstřík"
+
+#: xslt/gettext/l10n.xml.in.h:43
+msgid "Legal Notice"
+msgstr "Právní upozornění"
+
+#: xslt/gettext/l10n.xml.in.h:44
+msgid "Level"
+msgstr "Úroveň"
+
+#: xslt/gettext/l10n.xml.in.h:45
+msgid "Message Audience"
+msgstr "Čtenáři zprávy"
+
+#: xslt/gettext/l10n.xml.in.h:46
+msgid "Message Level"
+msgstr "Úroveň zprávy"
+
+#: xslt/gettext/l10n.xml.in.h:47
+msgid "Message Origin"
+msgstr "Původ zprávy"
+
+#: xslt/gettext/l10n.xml.in.h:48
+msgid "Note"
+msgstr "Upozornění"
+
+#: xslt/gettext/l10n.xml.in.h:49
+msgid "Origin"
+msgstr "Původ"
+
+#: xslt/gettext/l10n.xml.in.h:50
+msgid "Other Contributor"
+msgstr "Další přispěvatel"
+
+#: xslt/gettext/l10n.xml.in.h:51
+msgid "Other Contributors"
+msgstr "Další přispěvatelé"
+
+#: xslt/gettext/l10n.xml.in.h:52
+msgid "Part"
+msgstr "Část"
+
+#: xslt/gettext/l10n.xml.in.h:53
+msgid "Preface"
+msgstr "Předmluva"
+
+#: xslt/gettext/l10n.xml.in.h:54
+msgid "Publisher"
+msgstr "Vydavatel"
+
+#: xslt/gettext/l10n.xml.in.h:55
+msgid "Publishers"
+msgstr "Vydavatelé"
+
+#: xslt/gettext/l10n.xml.in.h:56
+msgid "Reference"
+msgstr "Odkaz"
+
+#: xslt/gettext/l10n.xml.in.h:57
+msgid "Reference Entry"
+msgstr "Položka odkazu"
+
+#: xslt/gettext/l10n.xml.in.h:58
+msgid "Reference Section"
+msgstr "Oddíl odkazů"
+
+#: xslt/gettext/l10n.xml.in.h:59
+msgid "Release Information"
+msgstr "Informace o vydání"
+
+#: xslt/gettext/l10n.xml.in.h:60
+msgid "Revision History"
+msgstr "Historie revizí"
+
+#: xslt/gettext/l10n.xml.in.h:61
+msgid "Section"
+msgstr "Oddíl"
+
+#: xslt/gettext/l10n.xml.in.h:62
+msgid "See"
+msgstr "Viz"
+
+#: xslt/gettext/l10n.xml.in.h:63
+msgid "See Also"
+msgstr "Viz také"
+
+#: xslt/gettext/l10n.xml.in.h:64
+msgid "Set Index"
+msgstr "Rejstřík sady"
+
+#: xslt/gettext/l10n.xml.in.h:65
+msgid "Table"
+msgstr "Tabulka"
+
+#: xslt/gettext/l10n.xml.in.h:66
+msgid "Table of Contents"
+msgstr "Obsah"
+
+#: xslt/gettext/l10n.xml.in.h:67
+msgid "Tip"
+msgstr "Tip"
+
+#: xslt/gettext/l10n.xml.in.h:68
+msgid "Title"
+msgstr "Název"
+
+#: xslt/gettext/l10n.xml.in.h:69
+msgid "Unknown"
+msgstr "Neznámé"
+
+#: xslt/gettext/l10n.xml.in.h:70
+msgid "Warning"
+msgstr "Varování"
