@@ -11,7 +11,7 @@ DOC_H_DOCS ?=
 
 $(DOC_H_FILE): $(DOC_H_DOCS);
 	@rm -f $@; touch $@;
-	echo 'const gchar** documentation_credits = {' >> $@
+	echo 'const gchar* documentation_credits[] = {' >> $@
 	for doc in $(DOC_H_DOCS); do \
 	  xsltproc $(_credits) $$doc; \
 	done | sort | uniq \
@@ -91,13 +91,13 @@ XSLDOC_DIRS ?=
 
 _xml2po ?= `which xml2po`
 
-_db2html ?= `pkg-config --variable db2html gnome-doc-utils`
-_db2omf  ?= `pkg-config --variable db2omf gnome-doc-utils`
-_rngdoc  ?= `pkg-config --variable rngdoc gnome-doc-utils`
-_xsldoc  ?= `pkg-config --variable xsldoc gnome-doc-utils`
-_chunks  ?= `pkg-congif --variable xmldir gnome-doc-utils`/xml/gnome/xslt/docbook/utils/chunks.xsl
-_credits ?= `pkg-congif --variable xmldir gnome-doc-utils`/xml/gnome/xslt/docbook/utils/credits.xsl
-_ids ?= `pkg-congif --variable xmldir gnome-doc-utils`/xml/gnome/xslt/docbook/utils/ids.xsl
+_db2html ?= `$(PKG_CONFIG) --variable db2html gnome-doc-utils`
+_db2omf  ?= `$(PKG_CONFIG) --variable db2omf gnome-doc-utils`
+_rngdoc  ?= `$(PKG_CONFIG) --variable rngdoc gnome-doc-utils`
+_xsldoc  ?= `$(PKG_CONFIG) --variable xsldoc gnome-doc-utils`
+_chunks  ?= `$(PKG_CONFIG) --variable xmldir gnome-doc-utils`/gnome/xslt/docbook/utils/chunks.xsl
+_credits ?= `$(PKG_CONFIG) --variable xmldir gnome-doc-utils`/gnome/xslt/docbook/utils/credits.xsl
+_ids ?= `$(PKG_CONFIG) --variable xmldir gnome-doc-utils`/gnome/xslt/docbook/utils/ids.xsl
 
 _sklocalstatedir ?= `scrollkeeper-config --pkglocalstatedir`
 

@@ -1,3 +1,7 @@
+2005-03-25  Sven Herzberg  <herzi@gnome-de.org>
+
+	* gnome-doc-utils.make: fix DOC_H_FILE build system (fixes bug 170680)
+
 2005-03-21  Rajesh Ranjan  <rranjan@redhat.com>
 
 	* configure.in: Added "hi" to ALL_LINGUAS.
