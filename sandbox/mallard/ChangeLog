@@ -1,3 +1,17 @@
+2004-04-05  Shaun McCance  <shaunm@gnome.org>
+
+	* Makefile.am:
+	- Added gnome-doc-utils.make to EXTRA_DIST
+
+	* configure.in:
+	* doc/Makefile.am:
+	* doc/mallard/Makefile.am:
+	* doc/mallard/mallard.desktop.in:
+	* doc/mallard/mallard.omf.in:
+	* doc/mallard/C/legal.xml:
+	* doc/mallard/C/mallard.xml:
+	- Added documentation stuff
+
 2004-03-18  Shaun McCance  <shaunm@gnome.org>
 
 	* rng/db-section.rng:

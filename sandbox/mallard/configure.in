@@ -8,5 +8,6 @@ ALL_LINGUAS=""
 AC_OUTPUT([
 Makefile
 doc/Makefile
+doc/mallard/Makefile
 rng/Makefile
 ])
