@@ -8,4 +8,5 @@ ALL_LINGUAS=""
 AC_OUTPUT([
 Makefile
 po/Makefile.in
+xslt/Makefile
 ])

@@ -1,0 +1,8 @@
+2004-03-04  Shaun McCance  <shaunm@gnome.org>
+
+	* autogen.sh:
+	- Stole autogen from nautilus.
+
+	* configure.in:
+	- Added po/ChangeLog
+	- Added xslt/Makefile
