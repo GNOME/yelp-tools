@@ -63,6 +63,9 @@
 <xsl:include href="db2html-qanda.xsl"
              doc:summary="true"
              doc:include="true"/>
+<xsl:include href="db2html-refentry.xsl"
+             doc:summary="true"
+             doc:include="true"/>
 <xsl:include href="db2html-suppressed.xsl"
              doc:summary="true"
              doc:include="true"/>

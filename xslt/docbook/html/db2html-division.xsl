@@ -141,6 +141,7 @@
     </xsl:call-template>
   </xsl:if>
   <div class="{local-name(.)}">
+    <xsl:call-template name="db2html.anchor"/>
     <xsl:variable name="titles" select="title | subtitle"/>
     <xsl:choose>
       <xsl:when test="$titles">

@@ -181,6 +181,12 @@
   <_msgstr>Message Origin</_msgstr>
 </msg>
 <msg>
+  <msgid>Name</msgid>
+  <!-- Used as the title for <refnamediv> elements
+       inside <refentry> elements -->
+  <_msgstr>Name</_msgstr>
+</msg>
+<msg>
   <msgid>Note</msgid>
   <!-- Used for the <note> element. -->
   <_msgstr>Note</_msgstr>
@@ -245,6 +251,12 @@
   <msgid>Set Index</msgid>
   <!-- Used for the <setindex> element. -->
   <_msgstr>Set Index</_msgstr>
+</msg>
+<msg>
+  <msgid>Synopsis</msgid>
+  <!-- Used as the title for <refsynopsisdiv> elements
+       inside <refentry> elements -->
+  <_msgstr>Synopsis</_msgstr>
 </msg>
 <msg>
   <msgid>Table of Contents</msgid>

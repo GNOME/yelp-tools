@@ -232,7 +232,7 @@
     <xsl:attribute name="class">
       <xsl:value-of select="local-name($referent)"/>
     </xsl:attribute>
-    <span class="{local-name($node)}">
+    <span class="title">
       <xsl:call-template name="db2html.anchor">
         <xsl:with-param name="node" select="$node"/>
       </xsl:call-template>
@@ -324,7 +324,7 @@
     <xsl:attribute name="class">
       <xsl:value-of select="local-name($referent)"/>
     </xsl:attribute>
-    <span class="{local-name($node)}">
+    <span class="subtitle">
       <xsl:call-template name="db2html.anchor">
         <xsl:with-param name="node" select="$node"/>
       </xsl:call-template>
@@ -470,11 +470,6 @@
 
 <!-- = procedure/title = -->
 <xsl:template match="procedure/title">
-  <xsl:call-template name="db2html.title.simple"/>
-</xsl:template>
-
-<!-- = refsynopsisdiv/title = -->
-<xsl:template match="refsynopsisdiv/title">
   <xsl:call-template name="db2html.title.simple"/>
 </xsl:template>
 

@@ -72,6 +72,22 @@
 <xsl:param name="db2html.group.rep" select="'norepeat'"/>
 
 
+<!-- == db2html.cmdsynopsis.css ============================================ -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.cmdsynopsis.css</name>
+  <purpose>
+    Create CSS for the command synopsis elements
+  </purpose>
+</template>
+
+<xsl:template name="db2html.cmdsynopsis.css">
+  <xsl:text>
+    div[class~="cmdsynopsis"] { font-family: monospace; }
+  </xsl:text>
+</xsl:template>
+
+
 <!-- = Matched Templates =================================================== -->
 
 <!-- = arg = -->
@@ -152,10 +168,10 @@
   <div class="cmdsynopsis">
     <xsl:call-template name="db2html.anchor"/>
     <xsl:for-each select="command | arg | group | sbr">
-      <xsl:if test="position != 1">
+      <xsl:if test="position() != 1">
         <xsl:value-of select="$sepchar"/>
       </xsl:if>
-      <xsl:apply-templates>
+      <xsl:apply-templates select=".">
         <xsl:with-param name="sepchar" select="$sepchar"/>
       </xsl:apply-templates>
     </xsl:for-each>

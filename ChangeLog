@@ -1,5 +1,26 @@
 2004-11-18  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/html/Makefile.am:
+	* xslt/docbook/html/db2html.xsl:
+	* xslt/docbook/html/db2html-refentry.xsl:
+	* xslt/gettext/l10n.xml.in:
+	- Initial refentry work
+
+	* xslt/docbook/html/db2html-cmdsynopsis.xsl:
+	* xslt/docbook/html/db2html-css.xsl:
+	- Fixed some cmdsynopsis bugs, added CSS
+
+	* xslt/docbook/html/db2html-division.xsl:
+	- Added db2html.anchor to db2html.division.content
+
+	* xslt/docbook/html/db2html-suppressed.xsl:
+	- Added partinfo, prefaceinfo, refsynopsisdivinfo
+
+	* xslt/docbook/html/db2html-title.xsl:
+	- Hard-coded title/subtitle class on spans
+
+2004-11-18  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/docbook/common/db-chunk.xsl:
 	- Stringify result of db.chunk.chunk-id
 
