@@ -15,11 +15,16 @@ modes because of the DocBook content model.
 <xsl:template match="author"/>
 <xsl:template match="authorblurb"/>
 <xsl:template match="authorgroup"/>
+<xsl:template match="collab"/>
+<xsl:template match="collabname"/>
+<xsl:template match="copyright"/>
 <xsl:template match="editor"/>
+<xsl:template match="holder"/>
 <xsl:template match="othercredit"/>
 <xsl:template match="personblurb"/>
 <xsl:template match="publisher"/>
 <xsl:template match="publishername"/>
+<xsl:template match="year"/>
 
 <!-- Only occur in db2html.cmdsynopsis.mode -->
 <xsl:template match="arg"/>

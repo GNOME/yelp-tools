@@ -1,5 +1,17 @@
 2004-04-07  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/html/db2html-info.xsl:
+	* xslt/docbook/html/db2html-suppressed.xsl:
+	- Implemented copyright, holder, year, collab, and collabname
+
+	* xslt/docbook/html/db2html-inline.xsl:
+	- Using hex char references
+
+	* xslt/docbook/html/report.xslt:
+	- Some useful numbers at the top
+
+2004-04-07  Shaun McCance  <shaunm@gnome.org>
+
 	* doc/xslt/C/.cvsignore:
 	- Added new files
 

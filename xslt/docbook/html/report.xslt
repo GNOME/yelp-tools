@@ -17,11 +17,23 @@
     </head>
     <body>
       <p>
-	<xsl:value-of select="
-		      count(element) -
-		      count(element[@name =
-		        /report/file/template[not(@mode)]/@match])"/>
+	<xsl:variable name="total" select="count(element)"/>
+	<xsl:variable name="matched"
+		      select="count(element[@name =
+		      /report/file/template[not(@mode)]/@match])"/>
+	<xsl:variable name="unmatched" select="$total - $matched"/>
+
+	<xsl:value-of select="$unmatched"/>
 	<xsl:text> unmatched elements</xsl:text>
+	<br/>
+	<xsl:value-of select="$matched"/>
+	<xsl:text> matched elements</xsl:text>
+	<br/>
+	<xsl:value-of select="$total"/>
+	<xsl:text> total elements</xsl:text>
+	<br/>
+	<xsl:number value="($matched div $total) * 100"/>
+	<xsl:text>% of elements matched</xsl:text>
       </p>
       <table>
 	<tr>

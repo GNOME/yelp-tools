@@ -65,6 +65,10 @@
       <xsl:with-param name="node" select="$node"/>
       <xsl:with-param name="info" select="$info"/>
     </xsl:call-template>
+    <xsl:call-template name="db2html.info.copyrights">
+      <xsl:with-param name="node" select="$node"/>
+      <xsl:with-param name="info" select="$info"/>
+    </xsl:call-template>
   </div>
 </xsl:template>
 
@@ -282,7 +286,7 @@
   <xsl:variable name="othercredits" select="
 		$info/conbrib                                       |
 		$info/othercredit[@role != 'translator']            |
-		$info/authorgroup/othercredi[@role != 'translator'] "/>
+		$info/authorgroup/othercredit[@role != 'translator'] "/>
   <xsl:if test="$othercredits">
     <div>
       <h2 class="othercredit">
@@ -292,6 +296,34 @@
       </h2>
       <dl>
 	<xsl:apply-templates mode="db2html.info.mode" select="$othercredits"/>
+      </dl>
+    </div>
+  </xsl:if>
+</xsl:template>
+
+
+<!-- == db2html.info.copyrights == -->
+
+<ref:refname>db2html.info.copyrights</ref:refname>
+<ref:refpurpose>
+  Render the copyrights in a titlepage
+</ref:refpurpose>
+
+<xsl:template name="db2html.info.copyrights">
+  <xsl:param name="node" select="."/>
+  <xsl:param name="info" select="'FIXME'"/>
+  <xsl:variable name="copyrights" select="$info/copyrights"/>
+  <xsl:if test="$copyrights">
+    <div>
+      <h2 class="copyright">
+	<xsl:call-template name="ngettext">
+	  <xsl:with-param name="msgid" select="'Copyright'"/>
+	  <xsl:with-param name="msgid_plural" select="'Copyrights'"/>
+	  <xsl:with-param name="num" select="count($copyrights)"/>
+	</xsl:call-template>
+      </h2>
+      <dl>
+	<xsl:apply-templates mode="db2html.info.mode" select="$copyrigths"/>
       </dl>
     </div>
   </xsl:if>
@@ -348,11 +380,50 @@
   </dd>
 </xsl:template>
 
+<!-- = db2html.info.mode == collab = -->
+<xsl:template mode="db2html.info.mode" match="collab">
+  <dt class="collab">
+    <xsl:apply-templates mode="db2html.info.mode" select="collabname"/>
+  </dt>
+  <xsl:apply-templates mode="db2html.info.mode"
+		       select="affiliation[orgname]"/>
+</xsl:template>
+
+<!-- = db2html.info.mode == collabname = -->
+<xsl:template mode="db2html.info.mode" match="collabname">
+  <span class="collabname">
+    <xsl:apply-templates/>
+  </span>
+</xsl:template>
+
 <!-- = db2html.info.mode == corpauthor = -->
 <xsl:template mode="db2html.info.mode" match="corpauthor">
   <dt class="corpauthor">
     <!-- Can occur outside db2html.info.mode, so apply those templates -->
     <xsl:apply-templates select="."/>
+  </dt>
+</xsl:template>
+
+<!-- = db2html.info.mode == copyright = -->
+<xsl:template mode="db2html.info.mode" match="copyright">
+  <dt class="copyright">
+    <xsl:call-template name="gettext">
+      <xsl:with-param name="msgid" select="'Copyright'"/>
+    </xsl:call-template>
+    <xsl:text>&#x00A0;©&#x00A0;</xsl:text>
+    <xsl:for-each select="year">
+      <xsl:if test="position() != 1">
+	<xsl:text>, </xsl:text>
+      </xsl:if>
+      <xsl:apply-templates mode="db2html.info.mode" select="."/>
+    </xsl:for-each>
+    <xsl:text>&#x00A0;&#x00A0;</xsl:text>
+    <xsl:for-each select="holder">
+      <xsl:if test="position() != 1">
+	<xsl:text>, </xsl:text>
+      </xsl:if>
+      <xsl:apply-templates mode="db2html.info.mode" select="."/>
+    </xsl:for-each>
   </dt>
 </xsl:template>
 
@@ -383,9 +454,17 @@
   </dd>
 </xsl:template>
 
+<!-- = db2html.info.mode == holder = -->
+<xsl:template mode="db2html.info.orgname" match="holder">
+  <span class="holder">
+    <xsl:apply-templates/>
+  </span>
+</xsl:template>
+
 <!-- = db2html.info.mode == orgname = -->
 <xsl:template mode="db2html.info.orgname" match="orgname">
-  <!-- FIXME -->
+  <!-- Can occur outside db2html.info.mode, so apply those templates -->
+  <xsl:apply-templates select="."/>
 </xsl:template>
 
 <!-- = db2html.info.mode == othercredit = -->
@@ -428,6 +507,13 @@
 <!-- = db2html.info.mode == publishername = -->
 <xsl:template mode="db2html.info.mode" match="publishername">
   <span class="publishername">
+    <xsl:apply-templates/>
+  </span>
+</xsl:template>
+
+<!-- = db2html.info.mode == year = -->
+<xsl:template mode="db2html.info.orgname" match="year">
+  <span class="year">
     <xsl:apply-templates/>
   </span>
 </xsl:template>

@@ -387,7 +387,7 @@
   <span class="menuchoice">
     <xsl:for-each select="*[local-name(.) != 'shortcut']">
       <xsl:if test="position() != 1">
-	<xsl:text>&#160;→ </xsl:text>
+	<xsl:text>&#x00A0;→ </xsl:text>
       </xsl:if>
       <xsl:apply-templates select="."/>
     </xsl:for-each>
