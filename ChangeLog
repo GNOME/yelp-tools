@@ -1,3 +1,7 @@
+2004-12-15  Kostas Papadimas <pkst@gnome.org>
+
+	* configure.in (ALL_LINGUAS): Added el (Greek).
+
 2004-12-14  Tommi Vainikainen  <thv@iki.fi>
 
 	* configure.in (ALL_LINGUAS): Added fi (Finnish).
