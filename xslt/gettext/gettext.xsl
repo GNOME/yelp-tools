@@ -58,7 +58,7 @@
   <xsl:param name="msgid"/>
   <xsl:param name="msgid_plural"/>
   <xsl:param name="num" select="1"/>
-  <xsl:param name="lang" select="$lang"/>
+  <xsl:param name="lang" select="ancestor-or-self::*[@lang][1]/@lang"/>
 
   <xsl:call-template name="gettext">
     <xsl:with-param name="msgid">

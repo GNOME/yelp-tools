@@ -90,4 +90,14 @@
   </xsl:call-template>
 </xsl:template>
 
+<!-- = example = -->
+<xsl:template match="example">
+  <xsl:call-template name="db2html.block"/>
+</xsl:template>
+
+<!-- = example/title = -->
+<xsl:template match="example/title">
+  <xsl:call-template name="db2html.title.block"/>
+</xsl:template>
+
 </xsl:stylesheet>

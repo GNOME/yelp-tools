@@ -1,3 +1,45 @@
+2004-05-10  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/common/Makefile.am:
+	* xslt/docbook/common/db-common.am:
+	- Added these files
+
+	* doc/xslt/C/gnome-doc-xslt.xml:
+	- Added new files
+
+	* xslt/docbook/common/db-chunk.xsl:
+	- Changed db.chunk.chunk to db.chunk
+	- Passing info parameter through for info template
+
+	* xslt/docbook/html/Makefile.am:
+	* xslt/docbook/html/report.sh:
+	* xslt/docbook/html/report.xslt:
+	- Better report generation for | matches
+
+	* xslt/docbook/html/TODO:
+	- Un-TODO'd stuff that's been TODONE
+
+	* xslt/docbook/html/db2html-block.xsl:
+	- Added match for example
+
+	* xslt/docbook/html/db2html-division.xsl:
+	- Added some matches and made the info template get called
+
+	* xslt/docbook/html/db2html-info.xsl:
+	- Indentation, ugh.
+
+	* xslt/docbook/html/db2html-inline.xsl:
+	- Added matches for personname and friends
+
+	* xslt/docbook/html/db2html-suppressed.xsl:
+	- Suppressing info elements
+
+	* xslt/docbook/html/db2html.xsl:
+	- Implemented the stub for the info template needed by db-chunk
+
+	* xslt/gettext/gettext.xsl:
+	- Fixed lang on ngettext
+
 2004-05-08  Shaun McCance  <shaunm@gnome.org>
 
 	* test/testdocs/Makefile.am:

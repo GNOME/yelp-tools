@@ -8,6 +8,7 @@
   <xsl:include href="../../gettext/gettext.xsl"/>
 
   <xsl:include href="../common/db-chunk.xsl"/>
+  <xsl:include href="../common/db-common.xsl"/>
 
   <xsl:include href="db2html-admon.xsl"/>
   <xsl:include href="db2html-block.xsl"/>
@@ -23,9 +24,23 @@
   <xsl:include href="db2html-xref.xsl"/>
 
   <xsl:template match="/">
-    <xsl:call-template name="db.chunk.chunk">
+    <xsl:call-template name="db.chunk">
       <xsl:with-param name="node" select="*"/>
       <xsl:with-param name="depth_of_chunk" select="0"/>
+    </xsl:call-template>
+  </xsl:template>
+
+  <!-- Implement the stub templates from db-chunk -->
+  <xsl:template name="info">
+    <xsl:param name="node"/>
+    <xsl:param name="info"/>
+    <xsl:param name="depth_in_chunk"/>
+    <xsl:param name="depth_of_chunk"/>
+    <xsl:call-template name="db2html.info">
+      <xsl:with-param name="node" select="$node"/>
+      <xsl:with-param name="info" select="$info"/>
+      <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
+      <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
     </xsl:call-template>
   </xsl:template>
 

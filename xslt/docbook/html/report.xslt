@@ -86,4 +86,105 @@
   </html>
 </xsl:template>
 
+<xsl:template match="/_report">
+  <report>
+    <xsl:apply-templates/>
+  </report>
+</xsl:template>
+
+<xsl:template match="_element">
+  <element name="{@name}"/>
+</xsl:template>
+
+<xsl:template match="_file">
+  <file href="{@href}">
+    <xsl:apply-templates/>
+  </file>
+</xsl:template>
+
+<xsl:template match="_template">
+  <xsl:call-template name="tokenize.template">
+    <xsl:with-param name="string" select="normalize-space(@match)"/>
+    <xsl:with-param name="mode" select="@mode"/>
+  </xsl:call-template>
+</xsl:template>
+
+<xsl:template name="tokenize.template">
+  <xsl:param name="mode" select="false()"/>
+  <xsl:param name="depth" select="0"/>
+  <xsl:param name="before" select="''"/>
+  <xsl:param name="string"/>
+  <xsl:variable name="firstchar">
+    <xsl:choose>
+      <xsl:when test="contains($string, '[') and
+                      not(contains(substring-before($string, '['), '|')) and
+                      not(contains(substring-before($string, '['), ']')) ">
+        <xsl:text>[</xsl:text>
+      </xsl:when>
+      <xsl:when test="contains($string, ']') and
+                      not(contains(substring-before($string, ']'), '|')) and
+                      not(contains(substring-before($string, ']'), '[')) ">
+        <xsl:text>]</xsl:text>
+      </xsl:when>
+      <xsl:when test="contains($string, '|') and
+                      not(contains(substring-before($string, '|'), '[')) and
+                      not(contains(substring-before($string, '|'), ']')) ">
+        <xsl:text>|</xsl:text>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:text></xsl:text>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+  <xsl:choose>
+    <xsl:when test="not(contains($string, '|'))">
+      <template match="{normalize-space(concat($before, $string))}">
+	<xsl:if test="$mode">
+	  <xsl:attribute name="mode">
+	    <xsl:value-of select="$mode"/>
+	  </xsl:attribute>
+	</xsl:if>
+      </template>
+    </xsl:when>
+    <xsl:when test="$firstchar = '['">
+      <xsl:call-template name="tokenize.template">
+	<xsl:with-param name="mode" select="$mode"/>
+        <xsl:with-param name="depth" select="$depth + 1"/>
+        <xsl:with-param name="before"
+                        select="concat($before,
+                                       substring-before($string, '['),
+                                       '[')"/>
+        <xsl:with-param name="string" select="substring-after($string, '[')"/>
+      </xsl:call-template>
+    </xsl:when>
+    <xsl:when test="$depth != 0">
+      <xsl:call-template name="tokenize.template">
+	<xsl:with-param name="mode" select="$mode"/>
+        <xsl:with-param name="depth" select="$depth - 1"/>
+        <xsl:with-param name="before"
+                        select="concat($before,
+                                       substring-before($string, ']'),
+                                       ']')"/>
+        <xsl:with-param name="string" select="substring-after($string, ']')"/>
+      </xsl:call-template>
+    </xsl:when>
+    <xsl:otherwise>
+      <template match="{normalize-space(
+		          concat($before, substring-before($string, '|')))}">
+	<xsl:if test="$mode">
+	  <xsl:attribute name="mode">
+	    <xsl:value-of select="$mode"/>
+	  </xsl:attribute>
+	</xsl:if>
+      </template>
+      <xsl:call-template name="tokenize.template">
+	<xsl:with-param name="mode" select="$mode"/>
+        <xsl:with-param name="depth" select="0"/>
+        <xsl:with-param name="before" select="''"/>
+        <xsl:with-param name="string" select="substring-after($string, '|')"/>
+      </xsl:call-template>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
 </xsl:stylesheet>

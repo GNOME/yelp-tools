@@ -1,7 +1,6 @@
 Use db2html.title.block:
 ========================
 equation/title
-example/title
 figure/title
 msg/title
 msgrel/title
@@ -24,37 +23,6 @@ segmentedlist/title
 sidebar/title
 step/title
 variablelist/title
-
-Use db2html.title.header:
-=========================
-appendix/title
-article/title
-bibliodiv/title
-bibliography/title
-book/title
-chapter/title
-colophon/title
-glossary/title
-glossdiv/title
-index/title
-indexdiv/title
-part/title
-partintro/title
-preface/title
-reference/title
-refsect1/title
-refsect2/title
-refsect3/title
-refsection/title
-sect1/title
-sect2/title
-sect3/title
-sect4/title
-sect5/title
-section/title
-set/title
-setindex/title
-simplesect/title
 
 Do something:
 =============

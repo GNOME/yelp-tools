@@ -47,10 +47,10 @@
 <xsl:param name="db.chunk.extension"/>
 
 
-<!-- == db.chunk.chunk ===================================================== -->
+<!-- == db.chunk =========================================================== -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db.chunk.chunk</name>
+  <name>db.chunk</name>
   <description>
     Create a new output document
   </description>
@@ -58,6 +58,12 @@
     <name>node</name>
     <description>
       The source element for the output document
+    </description>
+  </parameter>
+  <parameter>
+    <name>info</name>
+    <description>
+      The info child element
     </description>
   </parameter>
   <parameter>
@@ -79,7 +85,7 @@
     </description>
   </parameter>
   <para>
-    The <template>db.chunk.chunk</template> template creates a new output
+    The <template>db.chunk</template> template creates a new output
     document using the <xmltag>exsl:document</xmltag> extension element.
     This template calls <template>db.chunk.content</template> to create
     the content of the document, passing through all parameters.  This
@@ -88,8 +94,9 @@
   </para>
 </template>
 
-<xsl:template name="db.chunk.chunk">
+<xsl:template name="db.chunk">
   <xsl:param name="node" select="."/>
+  <xsl:param name="info"/>
   <xsl:param name="template"/>
   <xsl:param name="href" select="concat($node/@id, $db.chunk.extension)"/>
   <xsl:param name="depth_of_chunk">
@@ -100,6 +107,7 @@
   <exsl:document href="{$href}">
     <xsl:call-template name="db.chunk.content">
       <xsl:with-param name="node" select="$node"/>
+      <xsl:with-param name="info" select="$info"/>
       <xsl:with-param name="template" select="$template"/>
       <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
     </xsl:call-template>
@@ -121,6 +129,12 @@
     </description>
   </parameter>
   <parameter>
+    <name>info</name>
+    <description>
+      The info child element
+    </description>
+  </parameter>
+  <parameter>
     <name>template</name>
     <description>
       The named template to call to create the content
@@ -135,7 +149,7 @@
   <para>
     The <template>db.chunk.content</template> creates the actual content
     of a new output document.  It should generally only be called by
-    <template>db.chunk.chunk</template>.
+    <template>db.chunk</template>.
   </para>
   <para>
     The content can be generated either by calling a named template or by
@@ -176,6 +190,7 @@
     <xsl:when test="$template = 'info'">
       <xsl:call-template name="info">
         <xsl:with-param name="node" select="$node"/>
+        <xsl:with-param name="info" select="$info"/>
         <xsl:with-param name="depth_in_chunk" select="0"/>
         <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
       </xsl:call-template>

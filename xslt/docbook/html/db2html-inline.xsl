@@ -261,6 +261,11 @@
   </xsl:call-template>
 </xsl:template>
 
+<!-- = firstname = -->
+<xsl:template match="firstname">
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
 <!-- = firstterm = -->
 <xsl:template match="firstterm">
   <xsl:call-template name="db2html.inline">
@@ -327,6 +332,11 @@
   <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
+<!-- = honorific = -->
+<xsl:template match="honorific">
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
 <!-- = interface = -->
 <xsl:template match="interface">
   <xsl:call-template name="db2html.inline"/>
@@ -381,6 +391,11 @@
 
 <!-- = keysym = -->
 <xsl:template match="keysym">
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
+<!-- = lineage = -->
+<xsl:template match="lineage">
   <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
@@ -469,12 +484,24 @@
   <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
+<!-- = othername = -->
+<xsl:template match="othername">
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
 <!-- = parameter = -->
 <xsl:template match="parameter">
   <xsl:call-template name="db2html.inline">
     <xsl:with-param name="italic" select="true()"/>
     <xsl:with-param name="mono" select="true()"/>
   </xsl:call-template>
+</xsl:template>
+
+<!-- = personname = -->
+<xsl:template match="personname">
+  <div class="personname">
+    <xsl:call-template name="db.personname"/>
+  </div>
 </xsl:template>
 
 <!-- = phone = -->
@@ -683,6 +710,11 @@
     <xsl:call-template name="anchor"/>
     <xsl:apply-templates/>
   </sup>
+</xsl:template>
+
+<!-- = surname = -->
+<xsl:template match="surname">
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = symbol = -->

@@ -10,6 +10,18 @@ supported, while other elements are expected only to be processed in certain
 modes because of the DocBook content model.
 -->
 
+<!-- Not matched, but used by db2html.info -->
+<xsl:template match="appendixinfo"/>
+<xsl:template match="articleinfo"/>
+<xsl:template match="bookinfo"/>
+<xsl:template match="chapterinfo"/>
+<xsl:template match="sect1info"/>
+<xsl:template match="sect2info"/>
+<xsl:template match="sect3info"/>
+<xsl:template match="sect4info"/>
+<xsl:template match="sect5info"/>
+<xsl:template match="sectioninfo"/>
+
 <!-- Only occur in db2html.info.mode -->
 <xsl:template match="affiliation"/>
 <xsl:template match="author"/>

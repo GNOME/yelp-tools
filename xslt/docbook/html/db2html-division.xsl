@@ -53,6 +53,12 @@
     </description>
   </parameter>
   <parameter>
+    <name>info</name>
+    <description>
+      The info child element
+    </description>
+  </parameter>
+  <parameter>
     <name>depth_in_chunk</name>
     <description>
       The depth of the element in the containing chunk
@@ -68,34 +74,44 @@
 
 <xsl:template name="db2html.division.content">
   <xsl:param name="divisions"/>
+  <xsl:param name="info"/>
   <xsl:param name="depth_in_chunk">
     <xsl:call-template name="db.chunk.depth-in-chunk"/>
   </xsl:param>
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
   </xsl:param>
-  <xsl:choose>
-    <xsl:when test="$depth_in_chunk = 0 and
-                    $depth_of_chunk &lt; $db.chunk.max_depth">
-      <xsl:for-each select="*">
-        <xsl:if test="not(. = $divisions)">
-          <xsl:apply-templates select=".">
-            <xsl:with-param name="depth_in_chunk" select="1"/>
-          </xsl:apply-templates>
-        </xsl:if>
-      </xsl:for-each>
-      <xsl:for-each select="$divisions">
-        <xsl:call-template name="db.chunk.chunk">
-          <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk + 1"/>
-        </xsl:call-template>
-      </xsl:for-each>
-    </xsl:when>
-    <xsl:otherwise>
-      <xsl:apply-templates>
-        <xsl:with-param name="depth_in_chunk" select="1"/>
-      </xsl:apply-templates>
-    </xsl:otherwise>
-  </xsl:choose>
+  <xsl:if test="$depth_of_chunk = 0 and $depth_in_chunk = 0 and $info">
+    <xsl:call-template name="db.chunk">
+      <xsl:with-param name="node" select="."/>
+      <xsl:with-param name="info" select="$info"/>
+      <xsl:with-param name="template" select="'info'"/>
+    </xsl:call-template>
+  </xsl:if>
+  <div class="{local-name(.)}">
+    <xsl:choose>
+      <xsl:when test="$depth_in_chunk = 0 and
+                $depth_of_chunk &lt; $db.chunk.max_depth">
+        <xsl:for-each select="*">
+          <xsl:if test="not(. = $divisions)">
+            <xsl:apply-templates select=".">
+              <xsl:with-param name="depth_in_chunk" select="1"/>
+            </xsl:apply-templates>
+          </xsl:if>
+        </xsl:for-each>
+        <xsl:for-each select="$divisions">
+          <xsl:call-template name="db.chunk">
+            <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk + 1"/>
+          </xsl:call-template>
+        </xsl:for-each>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:apply-templates>
+          <xsl:with-param name="depth_in_chunk" select="1"/>
+        </xsl:apply-templates>
+      </xsl:otherwise>
+    </xsl:choose>
+  </div>
 </xsl:template>
 
 
@@ -113,6 +129,42 @@
 
 <!-- == Matched Templates ================================================== -->
 
+<!-- = appendix = -->
+<xsl:template match="appendix">
+  <xsl:param name="depth_in_chunk">
+    <xsl:call-template name="db.chunk.depth-in-chunk"/>
+  </xsl:param>
+  <xsl:param name="depth_of_chunk">
+    <xsl:call-template name="db.chunk.depth-of-chunk"/>
+  </xsl:param>
+  <xsl:call-template name="db2html.division.content">
+    <xsl:with-param name="divisions" select="
+                    bibliography | glossary | index      | lot | refentry |
+                    sect1        | section  | simplesect | toc "/>
+    <xsl:with-param name="info" select="appendixinfo"/>
+    <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
+    <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+  </xsl:call-template>
+</xsl:template>
+
+<!-- = article = -->
+<xsl:template match="article">
+  <xsl:param name="depth_in_chunk">
+    <xsl:call-template name="db.chunk.depth-in-chunk"/>
+  </xsl:param>
+  <xsl:param name="depth_of_chunk">
+    <xsl:call-template name="db.chunk.depth-of-chunk"/>
+  </xsl:param>
+  <xsl:call-template name="db2html.division.content">
+    <xsl:with-param name="divisions" select="
+                    bibliography | glossary | index      | lot | refentry |
+                    sect1        | section  | simplesect | toc "/>
+    <xsl:with-param name="info" select="articleinfo"/>
+    <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
+    <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+  </xsl:call-template>
+</xsl:template>
+
 <!-- = book = -->
 <xsl:template match="book">
   <xsl:param name="depth_in_chunk">
@@ -127,6 +179,7 @@
                     colophon | dedication | glossary     | index     |
                     lot      | part       | preface      | reference |
                     setindex | toc        "/>
+    <xsl:with-param name="info" select="bookinfo"/>
     <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
     <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
   </xsl:call-template>
@@ -144,6 +197,7 @@
     <xsl:with-param name="divisions" select="
                     bibliography | glossary | index      | lot | refentry |
                     sect1        | section  | simplesect | toc "/>
+    <xsl:with-param name="info" select="chapterinfo"/>
     <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
     <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
   </xsl:call-template>
@@ -162,6 +216,7 @@
                     appendix | article   | bibliography | chapter |
                     glossary | index     | lot          | preface |
                     refentry | reference | toc          "/>
+    <xsl:with-param name="info" select="partinfo"/>
     <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
     <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
   </xsl:call-template>
@@ -179,6 +234,7 @@
     <xsl:with-param name="divisions" select="
                     bibliography | glossary | index      | lot |
                     refentry     | sect2    | simplesect | toc "/>
+    <xsl:with-param name="info" select="sect1info"/>
     <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
     <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
   </xsl:call-template>
@@ -196,6 +252,7 @@
     <xsl:with-param name="divisions" select="
                     bibliography | glossary | index      | lot |
                     refentry     | sect3    | simplesect | toc "/>
+    <xsl:with-param name="info" select="sect2info"/>
     <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
     <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
   </xsl:call-template>
@@ -213,6 +270,7 @@
     <xsl:with-param name="divisions" select="
                     bibliography | glossary | index      | lot |
                     refentry     | sect4    | simplesect | toc "/>
+    <xsl:with-param name="info" select="sect3info"/>
     <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
     <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
   </xsl:call-template>
@@ -230,6 +288,7 @@
     <xsl:with-param name="divisions" select="
                     bibliography | glossary | index      | lot |
                     refentry     | sect5    | simplesect | toc "/>
+    <xsl:with-param name="info" select="sect4info"/>
     <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
     <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
   </xsl:call-template>
@@ -247,6 +306,7 @@
     <xsl:with-param name="divisions" select="
                     bibliography | glossary   | index | lot |
                     refentry     | simplesect | toc   "/>
+    <xsl:with-param name="info" select="sect5info"/>
     <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
     <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
   </xsl:call-template>
@@ -264,6 +324,7 @@
     <xsl:with-param name="divisions" select="
                     bibliography | glossary | index      | lot |
                     refentry     | section  | simplesect | toc "/>
+    <xsl:with-param name="info" select="sectioninfo"/>
     <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
     <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
   </xsl:call-template>
