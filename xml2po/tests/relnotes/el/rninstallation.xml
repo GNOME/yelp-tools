@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version "2.10">
+<!ENTITY urlfiguresbase "figures/">
+]>
+<sect1 id="rninstallation">
+    <title>Εγκατάσταση του GNOME 2.10</title>
+
+   <para>Για την προβολή του GNOME 2.10 έχουμε ετοιμάσει ένα LiveCD, που είναι διαθέσιμο από το www.gnome.org. Το LiveCD σας επιτρέπει να δοκιμάσετε την πλήρη επιφάνεια εργασίας του GNOME σε Linux, χωρίς να χρειαστεί να εγκαταστήσετε κάτι στον σκληρό σας δίσκο. Αυτός ο τρόπος είναι ο καλύτερος να δείτε τι καινούργιο υπάρχει.</para>
+  
+   <para>Για πραγματική χρήση, προτείνουμε να εγκαταστήσετε τα επίσημα πακέτα, όπως εκείνα για τη διανομή σας. Οι εταιρίες διανομών ελεύθερου λογισμικού πακετάρουν το GNOME 2.10 σχετικά γρήγορα, και εκδίδουν νέες εκδόσεις άμεσα ώστε να περιλάβουν το GNOME 2.10.</para>
+
+   <para>Αρκετοί προχωρημένοι χρήστες θέλουν να εγκαθιστούν το GNOME από τον πηγαίο κώδικα, ώστε να δοκιμάζουν τις τελευταίες εκδόσεις και να παρέχουν ανάδραση και βελτιώσεις. Για αυτούς συστήνουμε το εργαλείο <ulink url="http://cipherfunk.org/garnome/">GARNOME</ulink>, για εγκατάσταση από τα εκδοθέντα tarballs, και το <ulink url="http://www.freedesktop.org/Software/jhbuild">jhbuild</ulink>, για εγκατάσταση από το CVS.</para>
+
+  </sect1>

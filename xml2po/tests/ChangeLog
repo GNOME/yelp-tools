@@ -1,0 +1,11 @@
+2005-03-27  Danilo Šegan  <dsegan@gmx.net>
+
+	* relnotes/*: Added complete Greek release notes translation as a
+	test case.
+
+	* *.xml, *.pot, *.po, *.xml.out: Simple tests.
+
+	* test.py: Testing script.
+
+	* README: Added description.
+

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE sect2 PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version "2.10">
+]>
+<sect2 id="rnapplets">
+  <title>Ставке панела</title>
+  <sect3 id="rnapplets-modemlights">
+  <title>Интегрисано управљање модемом</title>
+  <para>Гном 2.10 уводи ново програмче за управљање вашим модемом, интегрисано са Системским алатима Гнома.</para>
+
+   <figure id="rnscreenshot-applet-modem">
+    <title>Ново управљачко програмче модема</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject><imagedata fileref="figure-applet-modem.png" format="PNG"/>
+          </imageobject>
+        <textobject><phrase>Ново управљачко програмче модема</phrase></textobject>
+      </mediaobject>
+    </screenshot>
+  </figure>
+   
+  </sect3>
+
+  <sect3 id="rnapplets-trash">
+  <title>Смеће на панелу</title>
+
+  <para>Гном 2.10 доноси необавезну канту за смеће на ваш панел. Као и смеће на радној површи, можете превући и пустити датотеке и друге ставке у смеће без умањивања ваших отворених прозора.</para>
+
+  <figure id="rnscreenshot-applet-trash">
+    <title>Канта за смеће на вашем панелу</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject><imagedata fileref="figure-applet-trash.png" format="PNG"/>
+          </imageobject>
+        <textobject><phrase>Одвуците смеће на ваш панел</phrase></textobject>
+      </mediaobject>
+    </screenshot>
+  </figure>
+  </sect3>
+</sect2>

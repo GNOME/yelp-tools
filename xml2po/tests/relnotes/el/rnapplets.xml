@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE sect2 PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY urlfiguresbase "figures/">
+<!ENTITY version "2.10">
+]>
+<sect2 id="rnapplets">
+  <title>Αντικείμενα Ταμπλώ</title>
+
+  <para>To GNOME 2.10 περιλαμβάνει σημαντικές βελτιώσεις στα αντικείμενα του ταμπλώ ( γνωστά και ως εφαρμογίδια), τα οποία παρέχουν νέες λειτουργίες και καλύτερη ενσωμάτωση με την υπόλοιπη επιφάνεια εργασίας.</para>
+  <para>Η πιο ορατή αλλαγή είναι η απομάκρυνση του μενού Ενέργειες από το Ταμπλώ και η προσθήκη των μενού Τοποθεσίες και Επιφάνεια Εργασίας. Αυτά παρέχουν γρήγορη πρόσβαση σε αντικείμενα που χρησιμοποιείτε συχνά, χωρίς να χρειάζεται να περιηγείστε σε υπομενού. Για παράδειγμα το μενού Τοποθεσίες περιέχει τον αρχικό σας κατάλογο, τον υπολογιστή σας, τους εξυπηρετητές δικτύου και την λειτουργία αναζήτησης. Στο μενού Επιφάνειας Εργασίας θα βρείτε τις Προτιμήσεις σας, τον πίνακα ελέγχου Διαχείρισης, την Αποσύνδεση Χρήστη, και τη Βοήθεια.</para>
+
+  <para>Τώρα όλα τα μενού του ταμπλώ καθορίζονται από τους κανόνες του Freedesktop.org, έτσι ώστε το λογισμικό τρίτων να μπορεί να προστίθεται στο μενού εφαρμογών του GNOME, ακόμα και αν δεν γνωρίζει τίποτα για το GNOME.</para>
+ 
+  <para>Ακόμα,τα περισσότερα εφαρμογίδια τώρα μπορούν να είναι μερικώς διαφανή, όταν το ταμπλώ είναι διαφανές.</para>
+ 
+  <sect3 id="rnapplets-modemlights">
+  <title>Ενσωματωμένος Έλεγχος Μόντεμ</title>
+  <para>Το GNOME 2.10 εισάγει ένα νέο εφαρμογίδιο για τον έλεγχο του Μόντεμ σας,το οποίο είναι ενσωματωμένο στα Εργαλεία Συστήματος του GNOME.</para>
+
+   <figure id="rnscreenshot-applet-modem">
+    <title>Το νέο εφαρμογίδιο ελέγχου μόντεμ</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject><imagedata fileref="&urlfiguresbase;figure-applet-modem.png" format="PNG"/>
+          </imageobject>
+        <textobject><phrase>Το νέο εφαρμογίδιο ελέγχου μόντεμ</phrase></textobject>
+      </mediaobject>
+    </screenshot>
+  </figure>
+   
+  </sect3>
+
+  <sect3 id="rnapplets-trash">
+  <title>Ο Κάδος Απορριμμάτων του Ταμπλώ</title>
+
+  <para>Το GNOME 2.10 περιλαμβάνει ένα προαιρετικό κάδο απορριμμάτων για το Ταμπλώ σας. Όπως και στον κάδο απορριμμάτων που βρίσκεται στην επιφάνεια εργασίας, μπορείτε να σύρετε και να αφήσετε αρχεία και άλλα αντικείμενα στον κάδο του ταμπλώ δίχως να χρειαστεί η ελαχιστοποίηση των ανοικτών παραθύρων σας.</para>
+
+  <figure id="rnscreenshot-applet-trash">
+    <title>ένας Κάδος Απορριμμάτων για το Ταμπλώ σας</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject><imagedata fileref="&urlfiguresbase;figure-applet-trash.png" format="PNG"/>
+          </imageobject>
+        <textobject><phrase>Σύρτε απορρίμματα στο ταμπλώ σας</phrase></textobject>
+      </mediaobject>
+    </screenshot>
+  </figure>
+
+  </sect3>
+
+  <sect3 id="rnapplets-drivemount">
+  <title>Έλεγχος Προσαρτημένων Τόμων</title>
+
+  <para>Το GNOME 2.8 σάς επέτρεπε να κάνετε εύκολη προσάρτηση ψηφιακών μέσων, όπως CD, DVD  και μνήμες USB. Τώρα το εφαρμογίδιο προσάρτησης τόμων σας βοηθάει να χρησιμοποιήσετε εύκολα αυτούς τους τόμους χωρίς να χρειάζεται να ψάχνετε τα εικονίδια τους στην επιφάνεια εργασίας σας, πίσω από ανοικτά παράθυρα. Το εφαρμογίδιο εμφανίζει τους τρέχοντες προσαρτημένους (ή μη προσαρτήσιμους) τόμους, και σας επιτρέπει να τους προσαρτήσετε, να τους εξάγετε, ή να τους ανοίξετε στο διαχειριστή αρχείων σας.</para>
+   
+   <figure id="rnscreenshot-applet-drivemount">
+    <title>Προσάρτηση Δίσκων</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject><imagedata fileref="&urlfiguresbase;figure-applet-drivemount.png" format="PNG"/>
+          </imageobject>
+        <textobject><phrase>Το εφαρμογίδιο προσάρτησης δίσκων.</phrase></textobject>
+      </mediaobject>
+    </screenshot>
+  </figure>
+  
+  </sect3>
+
+  <sect3 id="rnapplets-gweather">
+  <title>Λήψη περισσότερων προγνώσεων καιρού</title>
+  <para>Η παρακολούθηση καιρού μπορεί τώρα να προβάλλει ακόμα περισσότερες τοποθεσίες και ονόματα, οι οποίες έχουν μεταφραστεί στις τοπικές γλώσσες, όπου ήταν εφικτό. Επιπρόσθετα, η πρόγνωση τώρα περιέχει υπολογισμούς ανατολής και δύσης του ηλίου για τις περισσότερες τοποθεσίες.</para>
+
+   <figure id="rnscreenshot-applet-weather">
+    <title>Καιρικές Συνθήκες</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject><imagedata fileref="&urlfiguresbase;figure-applet-weather.png" format="PNG"/>
+          </imageobject>
+        <textobject><phrase>Το εφαρμογίδιο αναφοράς καιρού.</phrase></textobject>
+      </mediaobject>
+    </screenshot>
+  </figure>
+   
+  </sect3>
+
+  <sect3 id="rnapplets-mixer">
+  <title>Έλεγχος ήχου</title>
+  <para>Ένας νέος μίκτης για το ταμπλώ σας (συνδυαζόμενος με μια νέα εμφάνιση) εξυπηρετεί πλήρως την κάρτα ήχου σας. Με την χρήση της υποδομής πολυμέσων GStreamer, ο μίκτης είναι τώρα πιο εύχρηστος και σταθερός από ποτέ. Η ίδια υποδομή πολυμέσων είναι παρούσα στο Totem, το Sound Juicer, το πρόγραμμα αναπαραγωγής CD του GNOME και μια πλειάδα εφαρμογών τρίτων, έτσι ώστε η αλλαγή της έντασης του ήχου μέσω του ταμπλώ θα αλλάξει και την ένταση σε όλες αυτές τις εφαρμογές.</para>
+   <figure id="rnscreenshot-applet-mixer">
+    <title>ολοκαίνουριος μίκτης για το ταμπλώ</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject><imagedata fileref="&urlfiguresbase;figure-applet-mixer.png" format="PNG"/>
+          </imageobject>
+        <textobject><phrase>Ολοκαίνουριος μίκτης για το ταμπλώ</phrase></textobject>
+      </mediaobject>
+    </screenshot>
+  </figure>
+  </sect3>
+
+  <sect3 id="rnapplets-stickynotes">
+  <title>Λήψη σημειώσεων</title>
+  <para>Το δημοφιλές εφαρμογίδιο των Sticky Notes έχει πιο απλή εμφάνιση και πολλά διορθωμένα σφάλματα. Έτσι, τώρα είναι ακόμα ευκολότερο να προσθέτετε σημειώσεις του στυλ PostIt στην επιφάνεια εργασίας σας. Για παράδειγμα, τα sticky notes παραμένουν στο ίδιο σημείο ακόμα και σε διαφορετική οθόνη.</para>
+  <para>Και τα sticky notes τώρα παραμένουν πάνω από τα άλλα παράθυρα, έτσι ώστε να μην τα χάνετε. Για να αποκρύψετε αυτές τις σημειώσεις, χρησιμοποιήστε το μενού μέσω δεξιού κλικ στο εφαρμογίδιο.</para>
+  </sect3>
+   <figure id="rnscreenshot-applet-stickies">
+    <title>Sticky Notes</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject><imagedata fileref="&urlfiguresbase;figure-applet-stickies.png" format="PNG"/>
+          </imageobject>
+        <textobject><phrase>Sticky Notes</phrase></textobject>
+      </mediaobject>
+    </screenshot>
+  </figure>
+
+  <sect3 id="rnapplet-cpufreq">
+  <title>Ειδικά για φορητούς υπολογιστές</title>
+  <para>Το GNOME τώρα περιλαμβάνει ένα εφαρμογίδιο παρακολούθησης της ταχύτητας του επεξεργαστή του φορητού σας υπολογιστή. Η παρακολούθηση συχνότητας επικοινωνεί με τους επεξεργαστές μεταβλητής ταχύτητας (όπως αυτοί με Intel Speedstep ή AMD PowerNow) για να προβάλλει την τρέχουσα κατάσταση τους. Ακόμα σας επιτρέπει να επιλέξτε μια διαφορετική ταχύτητα αν δεν έχετε ενεργοποιημένη την αυτόματη κλιμάκωση συχνότητας.</para>
+
+   <figure id="rnscreenshot-applet-cpufreq">
+    <title>Παρακολούθηση Κλιμάκωσης Συχνότητας ΚΜΕ (Κεντρική Μονάδα Επεξεργασίας/CPU)</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject><imagedata fileref="&urlfiguresbase;figure-applet-cpufreq.png" format="PNG"/>
+          </imageobject>
+        <textobject><phrase>Παρακολούθηση Κλιμάκωσης Συχνότητας ΚΜΕ (Κεντρική Μονάδα Επεξεργασίας/CPU)</phrase></textobject>
+      </mediaobject>
+    </screenshot>
+  </figure>
+
+  </sect3>
+
+  <sect3 id="rnapplet-removed">
+  <title>Εφαρμογίδια που έχουν Απομακρυνθεί</title>
+  <para>Τρία εφαρμογίδια έχουν απομακρυνθεί από το GNOME 2.10, και έχουν αντικατασταθεί από καλύτερα ενναλακτικά στις περισσότερες περιπτώσεις.</para>
+  <para>Το εφαρμογίδιο ταμπλώ αναπαραγωγής CD δεν λειτουργούσε σωστά με την εφαρμογή Αναπαραγωγής CD του GNOME. Τώρα η εισαγωγή ενός CD ήχου θα εκκινήσει αυτόματα το GNOME CD Player, και ο έλεγχος του γίνεται μέσω της ίδιας της εφαρμογής ή μέσω ενός εικονιδίου ειδοποίησης που εμφανίζεται στο ταμπλώ σας.</para>
+  <para>Το αποκλειστικό εφαρμογίδιο Ασύρματων Ευρυζωνικών Δικτύων έχει αφαιρεθεί διότι το εφαρμογίδιο Παρακολούθησης Δικτύου, που συμπεριλήφθηκε από το GNOME 2.8, διαθέτει υποστήριξη και για Ασύρματα Ευρυζωνικά Δίκτυα.</para>
+  <para>Η Παρακολούθηση Αλληλογραφίας απομακρύνθηκε επειδή δεν ήταν πια ασφαλής. Ελπίζουμε ότι θα υπάρχει μια λύση στο μέλλον που θα ενσωματώνεται στο πρόγραμμα ηλεκτρονικής αλληλογραφίας Evolution. Αν δεν χρησιμοποιείτε το Evolution για την αλληλογραφία σας, μπορείτε να επιλέξετε μια τρίτη εφαρμογή όπως το <ulink url="http://www.nongnu.org/mailnotify/">mailnotify</ulink>.</para>
+  </sect3>
+
+</sect2>

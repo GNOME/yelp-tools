@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE sect2 PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY urlfiguresbase "figures/">
+<!ENTITY version "2.10">
+]>
+<sect2 id="rnutilities">
+  <title>Βοηθήματα</title>
+
+  <para>Τα βοηθήματα του GNOME έχουν μερικές βελτιώσεις, όπως:</para>
+
+  <sect3>
+    <title>Επεξεργαστής Κειμένου</title>
+
+    <para>Ο επεξεργαστής κειμένου του GNOME μπορεί τώρα να επισημαίνει την τρέχουσα γραμμή και, όταν γίνεται επεξεργασία πηγαίου κώδικα ενός προγράμματος να επισημαίνει τις αγκύλες που ταιριάζουν.</para>
+
+   <para>Πολλοί χρήστες θα δουν με χαρά ότι δεν προτείνει πια να αποθηκεύσει τις αλλαγές αν όλες οι αλλαγές έχει ήδη αναιρεθεί. Επιπρόσθετα, ξεκινά ακόμα ταχύτερα από προηγούμενες εκδόσεις.</para>
+
+    <figure id="rnscreenshot-gedit">
+    <title>Επεξεργαστής Κειμένου</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject><imagedata fileref="&urlfiguresbase;figure-gedit.png" format="PNG"/></imageobject>
+          <textobject><phrase>Ο επεξεργαστής κειμένου, καθώς επισημαίνει την τρέχουσα γραμμή.</phrase></textobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+
+  </sect3>
+
+  <sect3>
+    <title>Διαχειριστής Συμπιεσμένων Αρχείων</title>
+
+    <para>Ο διαχειριστής συμπιεσμένων αρχείων του GNOME τώρα μπορεί να ανοίξει περισσότερους τύπους αρχείων συμπεριλαμβανομένων αρχείων AR, Debian, και 7-zip, όπως και αρχεία RAR προστατευμένα με κωδικό. Ακόμα αν χρησιμοποιείτε την προτίμηση του μονού-κλικ στον διαχειριστή αρχείων, τότε ο διαχειριστής συμπιεσμένων αρχείων θα χρησιμοποιεί επίσης μονά κλικ.</para>
+
+    <figure id="rnscreenshot-fileroller">
+    <title>Διαχειριστής Συμπιεσμένων Αρχείων</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject><imagedata fileref="&urlfiguresbase;figure-file-roller.png" format="PNG"/></imageobject>
+          <textobject><phrase>Ο διαχειριστής αρχείων, ζητώντας τον κωδικό για ένα προστατευμένο αρχείο RAR.</phrase></textobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+
+  </sect3>
+
+
+ <sect3>
+    <title>Λεξικό</title>
+
+    <para>Το Λεξικό του GNOME μπορεί τώρα να προτείνει λέξεις για τις οποίες δεν είστε σίγουροι πως να τις γράψετε. Οι ορισμοί περιέχουν συνδέσμους σε σελίδες λεξικών στο Διαδίκτυο, και οι ορισμοί του μπορούν να εκτυπωθούν.</para>
+
+    <figure id="rnscreenshot-dictionary">
+    <title>Λεξικό</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject><imagedata fileref="&urlfiguresbase;figure-dictionary.png" format="PNG"/></imageobject>
+          <textobject><phrase>Το λεξικό, καθώς προτείνει πιθανές εκδοχές για την ορθογραφία και έναν oρισμό.</phrase></textobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+
+  </sect3>
+
+  <sect3>
+    <title>Μορφοποιητής Δισκέτας</title>
+
+    <para>Η εφαρμογή Μορφοποίησης Δισκέτας του GNOME τώρα υποστηρίζει αφαιρούμενους δίκους, όπως δίσκους USB, με την χρήση το συστήματος HAL από το freedesktop.</para>
+
+    <figure id="rnscreenshot-floppy">
+    <title>Μορφοποιητής Δισκέτας</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject><imagedata fileref="&urlfiguresbase;figure-floppy-formatter.png" format="PNG"/></imageobject>
+          <textobject><phrase>Μορφοποίηση δισκέτας.</phrase></textobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+
+  </sect3>
+
+
+</sect2>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version "2.10">
+]>
+<sect1 id="rnstandards">
+    <title>Συμμόρφωση στα Πρότυπα</title>
+
+    <para>Το GNOME εργάζεται στενά μαζί με ομάδες όπως το <ulink url="http://www.freedesktop.org/wiki/Standards/">freedesktop.org</ulink>. Η υποστήριξη προτύπων είναι ένα πολύ σημαντικό πλεονέκτημα για τους χρήστες του GNOME. Η υποστήριξη Διαλειτουργικότητας βελτιώνει την εμπειρία του χρήστη, μιας και επιτρέπει στα GNOME, KDE, και τις άλλες εφαρμογές να λειτουργούν μαζί πιο εύκολα, ενώ η συμόρφωση με ανοικτά πρότυπα βοηθάει στην απελευθέρωση του χρήστη από τους περιορισμούς των κλειστών προτύπων.</para>
+   
+    <para>Οι συντελεστές του GNOME δουλεύουν σκληρά με τα άλλα μέλη της κοινότητας ανοικτού λογισμικού μέσω του Freedesktop.org για την ανάπτυξη των κανόνων εκείνων που επιτρέπουν την διαλειτουργικότητα. Αυτοί οι κανόνες περιλαμβάνουν: προδιαγραφές για <ulink url="http://www.freedesktop.org/Standards/shared-mime-info-spec">διαμοιραζόμενη βάση δεδομένων MIME</ulink>, <ulink url="http://www.freedesktop.org/Standards/icon-theme-spec">θέματα εικονιδίων</ulink>, <ulink url="http://www.freedesktop.org/Standards/recent-file-spec">πρόσφατα αρχεία</ulink>, <ulink url="http://www.freedesktop.org/wiki/Standards_2fmenu_2dspec">μενού</ulink>, <ulink url="http://www.freedesktop.org/wiki/Standards_2fdesktop_2dentry_2dspec">καταχωρήσεις επιφάνειας εργασίας</ulink>, <ulink url="http://triq.net/~jens/thumbnail-spec/index.html">διαχείριση μικρογραφιών</ulink> και προδιαγραφές <ulink url="http://www.freedesktop.org/Standards/systemtray-spec">ταμπλώ συστήματος</ulink>. Επιπρόσθετα, το GNOME υποστηρίζει τα πρότυπα <ulink url="http://www.omg.org/">CORBA</ulink>, <ulink url="http://www.w3.org/XML/">XML</ulink>, <ulink url="http://www.freedesktop.org/Standards/XDND">Xdnd</ulink>, <ulink url="http://www.freedesktop.org/Standards/wm-spec">EWMH</ulink>, <ulink url="http://www.freedesktop.org/Standards/xembed-spec">XEMBED</ulink>, <ulink url="http://www.freedesktop.org/Standards/xsettings-spec">XSETTINGS</ulink> και <ulink url="http://www.xfree86.org/current/xsmp.html">XSMP</ulink>.</para>
+</sect1>

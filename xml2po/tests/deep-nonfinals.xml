@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE sect2 PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+                  "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version "2.10">
+]>
+<sect2 id="rnapplets">
+  <title>Panel Items</title>
+  <sect3 id="rnapplets-modemlights">
+  <title>Integrated Modem Control</title>
+  <para>
+   GNOME &version; introduces a new applet for controlling your Modem, integrated with GNOME System Tools.
+  </para>
+
+   <figure id="rnscreenshot-applet-modem">
+    <title>The new modem control applet</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject><imagedata fileref="figure-applet-modem.png" format="PNG"/>
+          </imageobject>
+        <textobject><phrase>The new modem control applet</phrase></textobject>
+      </mediaobject>
+    </screenshot>
+  </figure>
+   
+  </sect3>
+
+  <sect3 id="rnapplets-trash">
+  <title>Panel Trashcan</title>
+
+  <para>
+   GNOME &version; features an optional trashcan for your Panel.
+   Just like the trashcan on your desktop, you can now drag and drop files and other items into the trash
+   without minimizing your open windows.
+  </para>
+
+  <figure id="rnscreenshot-applet-trash">
+    <title>A trashcan on your Panel</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject><imagedata fileref="figure-applet-trash.png" format="PNG"/>
+          </imageobject>
+        <textobject><phrase>Drag trash to your panel</phrase></textobject>
+      </mediaobject>
+    </screenshot>
+  </figure>
+  </sect3>
+</sect2>

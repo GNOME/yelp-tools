@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version "2.10">
+<!ENTITY oldversion "2.8">
+<!ENTITY urlfiguresbase "figures/">
+]>
+<sect1 id="rndocs">
+
+  <title>Οδηγοί Χρήστη, Διαχειριστή Συστήματος και Προσβασιμότητας</title>
+
+  <para>Χάρη στις προσπάθειες του <ulink url="http://developer.gnome.org/projects/gdp/">Έργου Τεκμηρίωσης του GNOME</ulink>, το GNOME 2.10 έρχεται με μια κατανοητή και επαγγελματική τεκμηρίωση. Ιδιαίτερη προσοχή δόθηκε στη χρήση του πιο ολοκληρωμένου <ulink url="http://developer.gnome.org/documents/style-guide/">στυλ οδηγού τεκμηρίωσης</ulink>.Όπως και στο GNOME 2.8, η κάθε εφαρμογή που βρίσκεται στο GNOME 2.10 περιέχει πλήρη τεκμηρίωση χρήσης.</para>
+  <para>Μάθετε για την χρήση του GNOME με τον οδηγό χρήστη. Ο οδηγός χρήστη και άλλα έγγραφα τεκμηρίωσης, που περιλαμβάνουν οδηγούς για την διαχείριση του συστήματος και τις λειτουργίες προσβασιμότητας του GNOME, βρίσκονται στην <ulink url="http://www.gnome.org/learn/">Σελίδα εκμάθησης του GNOME</ulink>.</para>
+   
+</sect1>

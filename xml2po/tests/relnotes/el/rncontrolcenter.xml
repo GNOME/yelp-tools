@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE sect2 PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY urlfiguresbase "figures/">
+<!ENTITY version "2.10">
+]>
+<sect2 id="rncontrolcenter">
+  <title>Κέντρο Ελέγχου</title>
+
+  <sect3 id="rn-controlcenter-keyboard">
+  <title>Διατάξεις Πληκτρολογίου</title>
+
+    <para>Η επιλογή διάταξης πληκτρολογίου είναι τώρα ακόμα πιό απλή με τον πίνακα ελέγχου Πληκτρολογίου. Απλά πατήστε Προσθήκη για να επιλέξτε από μια λίστα διεθνών διατάξεων πληκτρολογίου. Πριν να κάνετε την επιλογή σας μπορείτε να δείτε το αποτέλεσμα των πλήκτρων στην προεπισκόπηση διάταξης. Οι επιλογές διάταξης έχουν αναδιοργανωθεί σε μια απλούστερη λίστα επιλογών.</para>
+
+    <figure id="rnscreenshot-controlpanel-keyboardlayouts">
+      <title>Προτιμήσεις Πληκτρολογίου - Διατάξεις</title>
+        <screenshot>
+          <mediaobject>
+            <imageobject><imagedata fileref="&urlfiguresbase;figure-keyboard-properties+layout.png" format="PNG"/>
+            </imageobject>
+          <textobject><phrase>Η στήλη Διατάξεις, στο κέντρο ελέγχου των Προτιμήσεων Πληκτρολογίου, καθώς προστίθεται μια νέα διάταξη.</phrase></textobject>
+        </mediaobject>
+      </screenshot>
+    </figure>
+
+  </sect3>
+
+</sect2>

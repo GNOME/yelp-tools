@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test>
+<p>Ово је само <a href="http://example.com/?blah=1&amp;blah=2" xml:lang="sr">проба</a>.</p>
+</test>

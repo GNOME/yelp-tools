@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE sect2 PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY urlfiguresbase "figures/">
+<!ENTITY version "2.4">
+]>
+<sect2 id="rngames">
+  <title>Παιχνίδια</title>
+  <para>Το GNOME σας βοηθάει να πετύχετε τους στόχους σας, αλλά μερικές φορές θέλετε να ξεφύγετε από αυτούς. Για αυτό τον λόγο υπάρχουν τα διασκεδαστικά παιχνίδια του GNOME.</para>
+
+  <sect3 id="rngames-samegnome">
+  <title>Same GNOME</title>
+
+  <para>Το παιχνίδι Same GNOME βρίσκεται σε νέα έκδοση, με καλύτερα γραφικά, επιπρόσθετα ταμπλώ, και λειτουργία αναίρεσης σε περίπτωση που μετανιώσατε για μια κίνηση.</para>
+    
+    <figure id="rnscreenshot-game-samegnome">
+    <title>Same GNOME</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject><imagedata fileref="&urlfiguresbase;figure-game-same-gnome.png" format="PNG"/>
+          </imageobject>
+        <textobject><phrase>Το παιχνίδι Same GNOME.</phrase></textobject>
+      </mediaobject>
+    </screenshot>
+  </figure>
+
+  </sect3>
+
+
+  <sect3 id="rngames-nibbles">
+  <title>Nibbles</title>
+
+  <para>Η φιλοσοφία του "Απλά Δουλεύει" είναι ορατή ακόμα και στο παιχνίδι Nibbles. Τώρα μπορείτε να περιηγηθείτε στο τοπικό σας δίκτυο για να βρείτε αντιπάλους, μέσω της τεχνικής μηδαμινή-ρύθμιση που χρησιμοποιείται από το Gnome Meeting.</para>
+    
+    <figure id="rnscreenshot-game-nibbles">
+    <title>συμμετοχή σε δικτυακό παιχνίδι</title>
+      <screenshot>
+        <mediaobject>
+          <imageobject><imagedata fileref="&urlfiguresbase;figure-game-nibbles.png" format="PNG"/>
+          </imageobject>
+        <textobject><phrase>Συμμετοχή σε δικτυακό παιχνίδι</phrase></textobject>
+      </mediaobject>
+    </screenshot>
+  </figure>
+
+  </sect3>
+
+</sect2>
