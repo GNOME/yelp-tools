@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils cvs\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-07 13:32+0100\n"
-"PO-Revision-Date: 2004-12-07 13:34+0100\n"
+"POT-Creation-Date: 2004-12-10 14:45+0100\n"
+"PO-Revision-Date: 2004-12-10 14:45+0100\n"
 "Last-Translator: Hendrik Brandt <heb@gnome-de.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -95,6 +95,11 @@ msgstr "format.table.number"
 #: xslt/docbook/common/db-format.xml.in.h:31
 msgid "format.table.number.flat"
 msgstr "format.table.number.flat"
+
+#. Read the definition for ‘%s{node}’.
+#: xslt/docbook/common/db-format.xml.in.h:33
+msgid "format.tooltip.glossentry"
+msgstr "format.tooltip.glossentry"
 
 #. Used as a header before a list of authors.
 #: xslt/gettext/l10n.xml.in.h:2
