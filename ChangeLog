@@ -1,5 +1,12 @@
 2004-10-04  Shaun McCance  <shaunm@gnome.org>
 
+	* configure.in:
+	* xslt/docbook/common/Makefile.am:
+	* xslt/gettext/Makefile.am:
+	- Prevent the need to rebuild translated docs in the tarball
+
+2004-10-04  Shaun McCance  <shaunm@gnome.org>
+
 	* Makefile.am:
 	* bootstrap.make:
 	* configure.in:
