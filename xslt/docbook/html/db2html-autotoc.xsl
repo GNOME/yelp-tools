@@ -34,7 +34,7 @@
 <xsl:template mode="db2html.autotoc.label.mode" match="*">
   <!-- FIXME -->
   <span class="label">
-    <xsl:call-template name="db2html.label"/>
+    <xsl:call-template name="db.label"/>
     <xsl:text> </xsl:text>
   </span>
 </xsl:template>
@@ -90,11 +90,13 @@
     </xsl:call-template>
   </xsl:param>
   <!-- FIXME: fix up, do stuff with $info, etc. -->
-  <ul>
-    <xsl:apply-templates mode="db2html.autotoc.mode" select="$divisions">
-      <xsl:with-param name="toc_depth" select="$toc_depth - 1"/>
-    </xsl:apply-templates>
-  </ul>
+  <div class="autotoc">
+    <ul>
+      <xsl:apply-templates mode="db2html.autotoc.mode" select="$divisions">
+        <xsl:with-param name="toc_depth" select="$toc_depth - 1"/>
+      </xsl:apply-templates>
+    </ul>
+  </div>
 </xsl:template>
 
 

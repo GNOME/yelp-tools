@@ -37,7 +37,7 @@
 
 <xsl:template mode="db2html.title.label.mode" match="*">
   <span class="label">
-    <xsl:call-template name="db2html.label"/>
+    <xsl:call-template name="db.label"/>
     <xsl:text> </xsl:text>
   </span>
 </xsl:template>
@@ -46,7 +46,7 @@
               sect1  | sect2  | sect3   |
               sect4  | sect5  | section ">
   <span class="label">
-    <xsl:call-template name="db2html.label.number"/>
+    <xsl:call-template name="db.label.number"/>
     <xsl:text> </xsl:text>
   </span>
 </xsl:template>

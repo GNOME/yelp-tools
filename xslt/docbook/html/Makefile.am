@@ -12,7 +12,6 @@ xsl_DATA =				\
 	db2html-funcsynopsis.xsl	\
 	db2html-info.xsl		\
 	db2html-inline.xsl		\
-	db2html-label.xsl		\
 	db2html-media.xsl		\
 	db2html-list.xsl		\
 	db2html-qanda.xsl		\

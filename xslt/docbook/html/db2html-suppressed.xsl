@@ -51,7 +51,7 @@ modes because of the DocBook content model.
 <xsl:template match="revremark"/>
 <xsl:template match="year"/>
 
-<!-- Handled seperately in db2html.label.mode -->
+<!-- Handled seperately in db.label.mode -->
 <xsl:template match="label"/>
 
 </xsl:stylesheet>

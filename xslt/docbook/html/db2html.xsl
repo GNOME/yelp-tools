@@ -14,6 +14,8 @@
 
 <xsl:include href="../common/db-chunk.xsl"   doc:summary="true"/>
 <xsl:include href="../common/db-common.xsl"  doc:summary="true"/>
+<xsl:include href="../common/db-label.xsl"   doc:summary="true"/>
+<xsl:include href="../common/db-xref.xsl"    doc:summary="true"/>
 
 <xsl:include href="db2html-admon.xsl"
              doc:summary="true"
@@ -46,9 +48,6 @@
              doc:summary="true"
              doc:include="true"/>
 <xsl:include href="db2html-inline.xsl"
-             doc:summary="true"
-             doc:include="true"/>
-<xsl:include href="db2html-label.xsl"
              doc:summary="true"
              doc:include="true"/>
 <xsl:include href="db2html-media.xsl"

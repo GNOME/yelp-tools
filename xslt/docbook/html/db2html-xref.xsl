@@ -74,37 +74,41 @@
 </xsl:choose>
 </a>
 </xsl:template>
+-->
 
-
+<!-- = xref = -->
 <xsl:template name="xref" match="xref">
-<xsl:param name="linkend" select="@linkend"/>
-<xsl:param name="target" select="id($linkend)"/>
-<xsl:param name="content" select="false()"/>
-<a>
-<xsl:attribute name="href">
-<xsl:call-template name="xref.target">
-<xsl:with-param name="linkend" select="$linkend"/>
-<xsl:with-param name="target" select="$target"/>
-</xsl:call-template>
-</xsl:attribute>
-<xsl:choose>
-<xsl:when test="$content">
-<xsl:copy-of select="$content"/>
-</xsl:when>
-<xsl:when test="@endterm">
-<xsl:apply-templates select="id(@endterm)"/>
-</xsl:when>
-<xsl:otherwise>
-<xsl:call-template name="xref.content">
-<xsl:with-param name="linkend" select="$linkend"/>
-<xsl:with-param name="target" select="$target"/>
-</xsl:call-template>
-</xsl:otherwise>
-</xsl:choose>
-</a>
+  <xsl:param name="linkend"   select="@linkend"/>
+  <xsl:param name="target"    select="key('idkey', $linkend)"/>
+  <xsl:param name="endterm"   select="@endterm"/>
+  <xsl:param name="xrefstyle" select="@xrefstyle"/>
+  <xsl:param name="content"   select="false()"/>
+  <a>
+    <xsl:attribute name="href">
+      <xsl:call-template name="db.xref.target">
+        <xsl:with-param name="linkend" select="$linkend"/>
+        <xsl:with-param name="target" select="$target"/>
+      </xsl:call-template>
+    </xsl:attribute>
+    <xsl:choose>
+      <xsl:when test="$content">
+        <xsl:copy-of select="$content"/>
+      </xsl:when>
+      <xsl:when test="$endterm">
+        <xsl:apply-templates select="key('idkey', $endterm)"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:call-template name="db.xref.content">
+          <xsl:with-param name="linkend" select="$linkend"/>
+          <xsl:with-param name="target" select="$target"/>
+          <xsl:with-param name="xrefstyle" select="$xrefstyle"/>
+        </xsl:call-template>
+      </xsl:otherwise>
+    </xsl:choose>
+  </a>
 </xsl:template>
 
-
+<!--
 <xsl:template name="xref.content">
 <xsl:param name="linkend" select="@linkend"/>
 <xsl:param name="target" select="id($linkend)"/>

@@ -256,7 +256,7 @@
   </xsl:param>
   <div class="synopfragment">
     <xsl:call-template name="db2html.anchor"/>
-    <i><xsl:call-template name="db2html.label"/></i>
+    <i><xsl:call-template name="db.label"/></i>
     <xsl:apply-templates>
       <xsl:with-param name="sepchar" select="$sepchar"/>
     </xsl:apply-templates>

@@ -1,3 +1,25 @@
+2004-06-09  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/common/Makefile.am:
+	* xslt/docbook/common/db-label.xsl:
+	* xslt/docbook/common/db-xref.xsl:
+	* xslt/docbook/html/Makefile.am:
+	* xslt/docbook/html/db2html-autotoc.xsl:
+	* xslt/docbook/html/db2html-cmdsynopsis.xsl:
+	* xslt/docbook/html/db2html-qanda.xsl:
+	* xslt/docbook/html/db2html-suppressed.xsl:
+	* xslt/docbook/html/db2html-title.xsl:
+	* xslt/docbook/html/db2html-xref.xsl:
+	* xslt/docbook/html/db2html.xsl:
+	- Moved html/db2html-label.xsl to common/db-label.xsl
+	- Added common/db-xref.xsl to handle the common parts of xrefs
+
+	* xslt/docbook/common/db-common.xsl:
+	- Added the 'idkey' here
+
+	* xslt/docbook/html/db2html-css.xsl:
+	- Nothing important
+
 2004-06-07  Shaun McCance  <shaunm@gnome.org>
 
 	* doc/xslt/C/.cvsignore:

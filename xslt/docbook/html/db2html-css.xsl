@@ -30,7 +30,10 @@
   <name>db2html.css.block</name>
 </template>
 
-<xsl:template name="db2html.css.block"/>
+<xsl:template name="db2html.css.block">
+  <xsl:text>
+  </xsl:text>
+</xsl:template>
 
 
 <!-- == db2html.css.division =============================================== -->
@@ -39,7 +42,11 @@
   <name>db2html.css.division</name>
 </template>
 
-<xsl:template name="db2html.css.division"/>
+<xsl:template name="db2html.css.division">
+  <xsl:text>
+    h1 { text-align: right; }
+  </xsl:text>
+</xsl:template>
 
 
 <!-- == db2html.css.inline ================================================= -->

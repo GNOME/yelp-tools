@@ -60,7 +60,7 @@
 
 <xsl:template match="question">
   <dt class="question">
-    <xsl:call-template name="db2html.label"/>
+    <xsl:call-template name="db.label"/>
     <xsl:apply-templates/>
   </dt>
 </xsl:template>

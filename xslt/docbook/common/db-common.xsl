@@ -7,6 +7,8 @@
 
 <doc:title>Common DocBook Templates</doc:title>
 
+<xsl:key name="idkey" match="*" use="@id"/>
+
 
 <!-- == db.dingbat ========================================================= -->
 
