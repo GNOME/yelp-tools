@@ -70,7 +70,7 @@ class docbookXmlMode:
         return """Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2."""
 
     def _find_articleinfo(self, node):
-        if node.name == 'articleinfo':
+        if node.name == 'articleinfo' or node.name == 'bookinfo':
             return node
         child = node.children
         while child:
@@ -138,9 +138,9 @@ class docbookXmlMode:
 
         root = doc.getRootElement()
         # DocBook documents can be something other than article, handle that as well in the future
-        while root and root.name != 'article':
+        while root and root.name != 'article' and root.name != 'book':
             root = root.next
-        if root and root.name == 'article':
+        if root and (root.name == 'article' or root.name == 'book'):
             root.setProp('lang', language)
         else:
             return
