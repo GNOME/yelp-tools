@@ -82,6 +82,51 @@
         </xsl:variable>
         <xsl:value-of select="normalize-space($title)"/>
       </title>
+      <xsl:if test="string($prev_id) != ''">
+        <link rel="previous">
+          <xsl:attribute name="href">
+            <xsl:call-template name="db.xref.target">
+              <xsl:with-param name="linkend" select="$prev_id"/>
+              <xsl:with-param name="target" select="$prev_node"/>
+            </xsl:call-template>
+          </xsl:attribute>
+          <xsl:attribute name="title">
+            <xsl:call-template name="db.title">
+              <xsl:with-param name="node" select="$prev_node"/>
+            </xsl:call-template>
+          </xsl:attribute>
+        </link>
+      </xsl:if>
+      <xsl:if test="string($next_id) != ''">
+        <link rel="next">
+          <xsl:attribute name="href">
+            <xsl:call-template name="db.xref.target">
+              <xsl:with-param name="linkend" select="$next_id"/>
+              <xsl:with-param name="target" select="$next_node"/>
+            </xsl:call-template>
+          </xsl:attribute>
+          <xsl:attribute name="title">
+            <xsl:call-template name="db.title">
+              <xsl:with-param name="node" select="$next_node"/>
+            </xsl:call-template>
+          </xsl:attribute>
+        </link>
+      </xsl:if>
+      <xsl:if test="/*[1] != $node">
+        <link rel="top">
+          <xsl:attribute name="href">
+            <xsl:call-template name="db.xref.target">
+              <xsl:with-param name="linkend" select="/*[1]/@id"/>
+              <xsl:with-param name="target" select="/*[1]"/>
+            </xsl:call-template>
+          </xsl:attribute>
+          <xsl:attribute name="title">
+            <xsl:call-template name="db.title">
+              <xsl:with-param name="node" select="/*[1]"/>
+            </xsl:call-template>
+          </xsl:attribute>
+        </link>
+      </xsl:if>
       <xsl:call-template name="db2html.css"/>
     </head>
     <body>

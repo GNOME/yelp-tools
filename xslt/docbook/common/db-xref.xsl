@@ -102,23 +102,30 @@
 <xsl:template name="db.xref.target">
   <xsl:param name="linkend" select="@linkend"/>
   <xsl:param name="target" select="key('idkey', $linkend)"/>
-  <xsl:variable name="target_chunk_id">
-    <xsl:call-template name="db.chunk.chunk-id">
-      <xsl:with-param name="node" select="$target"/>
-    </xsl:call-template>
-  </xsl:variable>
   <xsl:choose>
-    <xsl:when test="not($db.chunk.chunk_top) and
-                    string($target_chunk_id) = string(/*/@id)">
-      <xsl:value-of select="concat($db.chunk.basename, $db.chunk.extension)"/>
+    <xsl:when test="$linkend = $db.chunk.info_basename">
+      <xsl:value-of select="concat($db.chunk.info_basename, $db.chunk.extension)"/>
     </xsl:when>
     <xsl:otherwise>
-      <xsl:value-of select="concat($target_chunk_id, $db.chunk.extension)"/>
+      <xsl:variable name="target_chunk_id">
+        <xsl:call-template name="db.chunk.chunk-id">
+          <xsl:with-param name="node" select="$target"/>
+        </xsl:call-template>
+      </xsl:variable>
+      <xsl:choose>
+        <xsl:when test="not($db.chunk.chunk_top) and
+                        string($target_chunk_id) = string(/*/@id)">
+          <xsl:value-of select="concat($db.chunk.basename, $db.chunk.extension)"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="concat($target_chunk_id, $db.chunk.extension)"/>
+        </xsl:otherwise>
+      </xsl:choose>
+      <xsl:if test="string($target_chunk_id) != string($linkend)">
+        <xsl:value-of select="concat('#', $linkend)"/>
+      </xsl:if>
     </xsl:otherwise>
   </xsl:choose>
-  <xsl:if test="string($target_chunk_id) != string($linkend)">
-    <xsl:value-of select="concat('#', $linkend)"/>
-  </xsl:if>
 </xsl:template>
 
 
