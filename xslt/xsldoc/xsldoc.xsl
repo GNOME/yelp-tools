@@ -12,33 +12,34 @@
 
 <!-- == xsldoc.id ========================================================== -->
 
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>xsldoc.id</name>
-  <description>
+<doc:parameter>
+  <doc:name>xsldoc.id</doc:name>
+  <doc:description>
     The id of the top-level element in the output
-  </description>
-</parameter>
+  </doc:description>
+</doc:parameter>
 
 <xsl:param name="xsldoc.id"/>
 
 
 <!-- == xsldoc.toplevel_element ============================================ -->
 
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>xsldoc.toplevel_element</name>
-  <description>
+<doc:parameter>
+  <doc:name>xsldoc.toplevel_element</doc:name>
+  <doc:description>
     The top-level element in the generated DocBook
-  </description>
-  <para>
-    The <parameter>xsldoc.toplevel_element</parameter> parameter defines the
-    top-level element used in the generated DocBook.  Allowed values are
-    <literal>'article'</literal>, <literal>'appendix'</literal>,
-    <literal>'chapter'</literal>, and <literal>'section'</literal>.
-    The default is <literal>'section'</literal>.  This may also be set by
-    the <xmltag role="xmlpi">xsldoc.toplevel_element</xmltag> processing
-    instruction in the source RELAX-NG file.
-  </para>
-</parameter>
+  </doc:description>
+  <doc:para>
+    The <doc:parameter>xsldoc.toplevel_element</doc:parameter> parameter defines
+    the top-level element used in the generated DocBook.  Allowed values are
+    <doc:literal>'article'</doc:literal>, <doc:literal>'appendix'</doc:literal>,
+    <doc:literal>'chapter'</doc:literal>, and
+    <doc:literal>'section'</doc:literal>.  The default is
+    <doc:literal>'section'</doc:literal>.  This may also be set by the
+    <doc:xmltag role="xmlpi">xsldoc.toplevel_element</doc:xmltag>
+    processing instruction in the source RELAX-NG file.
+  </doc:para>
+</doc:parameter>
 
 <xsl:param name="xsldoc.toplevel_element">
   <xsl:choose>
@@ -54,12 +55,12 @@
 
 <!-- == xsldoc.checks ====================================================== -->
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>xsldoc.checks</name>
-  <description>
+<doc:template>
+  <doc:name>xsldoc.checks</doc:name>
+  <doc:description>
     Perform some checks on the source file
-  </description>
-</template>
+  </doc:description>
+</doc:template>
 
 <xsl:template name="xsldoc.checks">
   <!-- Check for orphaned doc:parameter -->
@@ -127,12 +128,12 @@
 
 <!-- == xsldoc.synopsis ==================================================== -->
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>xsldoc.synopsis</name>
-  <description>
+<doc:template>
+  <doc:name>xsldoc.synopsis</doc:name>
+  <doc:description>
     Generate the Synopsis section
-  </description>
-</template>
+  </doc:description>
+</doc:template>
 
 <xsl:template name="xsldoc.synopsis">
   <xsl:variable name="params" select="doc:parameter"/>
@@ -146,12 +147,12 @@
 
 <!-- == xsldoc.params ====================================================== -->
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>xsldoc.params</name>
-  <description>
+<doc:template>
+  <doc:name>xsldoc.params</doc:name>
+  <doc:description>
     Generate the Parameters section
-  </description>
-</template>
+  </doc:description>
+</doc:template>
 
 <xsl:template name="xsldoc.params">
   <xsl:variable name="params"
@@ -183,16 +184,18 @@
 
 <!-- == xsldoc.named ======================================================= -->
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>xsldoc.named</name>
-  <description>
+<doc:template>
+  <doc:name>xsldoc.named</doc:name>
+  <doc:description>
     Generate the Named Templates section
-  </description>
-</template>
+  </doc:description>
+</doc:template>
 
 <xsl:template name="xsldoc.named">
   <xsl:variable name="named"
-                select="ref:refname[following-sibling::xsl:*[1]/self::xsl:template[@name]]"/>
+                select="ref:refname
+                          [following-sibling::xsl:*[1]
+                            /self::xsl:template[@name]]"/>
   <xsl:if test="$named">
     <section>
       <xsl:attribute name="id">
@@ -228,7 +231,6 @@
                 $xsldoc.toplevel_element = 'article'   or
                 $xsldoc.toplevel_element = 'appendix'  or
                 $xsldoc.toplevel_element = 'chapter'   or
-                $xsldoc.toplevel_element = 'reference' or
                 $xsldoc.toplevel_element = 'section'   ">
         <xsl:value-of select="$xsldoc.toplevel_element"/>
       </xsl:when>
@@ -241,7 +243,10 @@
     </xsl:choose>
   </xsl:variable>
 
+<!--
   <xsl:element name="{$toplevel_element}">
+-->
+<xsl:element name="section">
     <xsl:attribute name="id">
       <xsl:value-of select="$xsldoc.id"/>
     </xsl:attribute>

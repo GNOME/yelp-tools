@@ -14,6 +14,8 @@ gnome-doc-utils.pc
 doc/Makefile
 doc/xslt/Makefile
 po/Makefile.in
+test/Makefile
+test/testdocs/Makefile
 xslt/Makefile
 xslt/docbook/Makefile
 xslt/docbook/html/Makefile

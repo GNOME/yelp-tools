@@ -9,7 +9,8 @@ xsl_DATA =				\
 	db2html-inline.xsl		\
 	db2html-label.xsl		\
 	db2html-suppressed.xsl		\
-	db2html-title.xsl
+	db2html-title.xsl		\
+	db2html.xsl
 
 EXTRA_DIST=$(xsl_DATA)
 

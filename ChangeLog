@@ -1,3 +1,21 @@
+2004-05-05  Shaun McCance  <shaunm@gnome.org>
+
+	* configure.in:
+	* tests/Makefile.am:
+	* tests/testdocs/*:
+	- Added docbook-testdocs
+
+	* xslt/docbook/html/Makefile.am:
+	- Added db2html.xsl
+
+	* xslt/docbook/html/db2html-cmdsynopsis.xsl:
+	* xslt/docbook/html/db2html-info.xsl:
+	* xslt/rngdoc/rngdoc.xsl:
+	- Minor fixes and tab removal
+
+	* xslt/xsldoc/xsldoc.xsl:
+	- Avoiding use of default namespace, for #141532
+
 2004-04-27  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/common/db-chunk.xsl:

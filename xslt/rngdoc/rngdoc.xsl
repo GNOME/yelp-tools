@@ -1,41 +1,45 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='utf-8'?><!-- -*- indent-tabs-mode: nil -*- -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-		xmlns:rng="http://relaxng.org/ns/structure/1.0"
-		xmlns:ref="http://www.gnome.org/~shaunm/mallard/reference"
-		exclude-result-prefixes="rng ref"
-		version="1.0">
+                xmlns:rng="http://relaxng.org/ns/structure/1.0"
+                xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
+                exclude-result-prefixes="doc"
+                version="1.0">
 
 <xsl:output method="xml" encoding="utf-8" indent="yes"/>
 
-<ref:title>Documenting RELAX NG Schemes</ref:title>
+<doc:title>Documenting RELAX NG Schemes</doc:title>
 
 
-<!-- == rngdoc.id == -->
+<!-- == rngdoc.id ========================================================== -->
 
-<ref:refname>rngdoc.id</ref:refname>
-<ref:refpurpose>The id of the top-level element in the output</ref:refpurpose>
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>rngdoc.id</name>
+  <description>
+    The id of the top-level element in the output
+  </description>
+</parameter>
 
-<xsl:param name="id"/>
+<xsl:param name="rngdoc.id"/>
 
 
-<!-- == rngdoc.toplevel_element == -->
+<!-- == rngdoc.toplevel_element ============================================ -->
 
-<ref:refname>rngdoc.toplevel_element</ref:refname>
-<ref:refpurpose>The top-level element in the generated DocBook</ref:refpurpose>
-<ref:para>
-  The <ref:parameter>rngdoc.toplevel_element</ref:parameter> parameter
-  defines the top-level element used in the generated DocBook.  Allowed
-  values are
-  <ref:literal>'article'</ref:literal>,
-  <ref:literal>'appendix'</ref:literal>,
-  <ref:literal>'chapter'</ref:literal>,
-  <ref:literal>'reference'</ref:literal>, and
-  <ref:literal>'section'</ref:literal>.
-  The default is <ref:literal>'section'</ref:literal>.  This may also be
-  set by the <ref:xmltag role="xmlpi">rngdoc.toplevel_element</ref:xmltag>
-  processing instruction in the source RELAX-NG file.
-</ref:para>
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>rngdoc.toplevel_element</name>
+  <description>
+    The top-level element in the generated DocBook
+  </description>
+  <para>
+    The <parameter>rngdoc.toplevel_element</parameter> parameter defines the
+    top-level element used in the generated DocBook.  Allowed values are
+    <literal>'article'</literal>, <literal>'appendix'</literal>,
+    <literal>'chapter'</literal>, and <literal>'section'</literal>.
+    The default is <literal>'section'</literal>.  This may also be set by
+    the <xmltag role="xmlpi">rngdoc.toplevel_element</xmltag> processing
+    instruction in the source RELAX-NG file.
+  </para>
+</parameter>
 
 <xsl:param name="rngdoc.toplevel_element">
   <xsl:choose>
