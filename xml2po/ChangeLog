@@ -8,7 +8,7 @@
 
 2004-12-07  Danilo Šegan  <dsegan@gmx.net>
 
-	Fix for #160354 by Satoru Saho <ss@gnome.gr.jp>.
+	Fix for #160354 by Satoru Satoh <ss@gnome.gr.jp>.
 	
 	* xml2po.py (usage): Separate usage message.
 	(args): catch getopt exceptions.
