@@ -266,14 +266,11 @@
         <xsl:apply-templates select="doc:purpose"/>
       </refpurpose>
     </refnamediv>
-    <xsl:if test="doc:description">
-      <refsection>
-        <title>Description</title>
-        <xsl:for-each select="doc:description/node()">
-          <xsl:apply-templates mode="xsldoc.docbook.mode" select="."/>
-        </xsl:for-each>
-      </refsection>
-    </xsl:if>
+    <refsection>
+      <title>Description</title>
+      <xsl:apply-templates mode="xsldoc.docbook.mode"
+                           select="doc:description/node()"/>
+    </refsection>
   </refentry>
 </xsl:template>
 
@@ -295,9 +292,8 @@
     </refnamediv>
     <refsection>
       <title>Description</title>
-      <xsl:for-each select="doc:description/node()">
-        <xsl:apply-templates mode="xsldoc.docbook.mode" select="."/>
-      </xsl:for-each>
+      <xsl:apply-templates mode="xsldoc.docbook.mode"
+                           select="doc:description/node()"/>
     </refsection>
   </refentry>
 </xsl:template>
@@ -318,14 +314,11 @@
         <xsl:apply-templates select="doc:purpose"/>
       </refpurpose>
     </refnamediv>
-    <xsl:if test="doc:description">
-      <refsection>
-        <title>Description</title>
-        <xsl:for-each select="doc:description/node()">
-          <xsl:apply-templates mode="xsldoc.docbook.mode" select="."/>
-        </xsl:for-each>
-      </refsection>
-    </xsl:if>
+    <refsection>
+      <title>Description</title>
+      <xsl:apply-templates mode="xsldoc.docbook.mode"
+                           select="doc:description/node()"/>
+    </refsection>
   </refentry>
 </xsl:template>
 

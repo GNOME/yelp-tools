@@ -1,5 +1,10 @@
 2005-01-02  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/xsldoc/xsldoc.xsl:
+	- Get the refsections right
+
+2005-01-02  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/docbook/common/db-title.xsl:
 	- Adding to cvs, because I forgot
 
