@@ -1,3 +1,13 @@
+2004-09-21  Shaun McCance  <shaunm@gnome.org>
+
+	* Makefile.am:
+	* gnome-doc-utils.m4:
+	* gnome-doc-utils.make:
+	* doc/gnome-doc-make/Makefile.am:
+	* doc/xslt/Makefile.am:
+	- Require Makefile.am to do 'dist-hook: doc-dist-hook'
+	- Removed GNOME_DOC_RULE, wasn't really very useful
+
 2004-09-20  Shaun McCance  <shaunm@gnome.org>
 
 	* gnome-doc-utils.make:

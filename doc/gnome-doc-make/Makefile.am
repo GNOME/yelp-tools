@@ -1,6 +1,6 @@
-@GNOME_DOC_RULE@
-
+include $(top_srcdir)/gnome-doc-utils.make
 include $(top_srcdir)/bootstrap.make
+dist-hook: doc-dist-hook
 
 DOC_MODULE = gnome-doc-make
 DOC_INCLUDES = legal.xml make-ref.xml

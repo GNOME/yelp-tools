@@ -20,9 +20,6 @@ AC_ARG_WITH([help-formats],
 DOC_USER_FORMATS="$with_help_formats"
 AC_SUBST(DOC_USER_FORMATS)
 
-GNOME_DOC_RULE='include $(top_srcdir)/gnome-doc-utils.make'
-AC_SUBST([GNOME_DOC_RULE])
-
 AC_OUTPUT_COMMANDS([
 gdumk=`pkg-config --variable prefix gnome-doc-utils`/share/gnome-doc-utils/gnome-doc-utils.make
 if ! test -f gnome-doc-utils.m4; then

@@ -1,5 +1,3 @@
-EXTRA_DIST =
-
 ################################################################################
 ## @@ Generating .h files
 
@@ -33,7 +31,10 @@ $(DOC_H_FILE): $(DOC_H_DOCS);
 	  echo >> $@; \
 	done;
 
-EXTRA_DIST += $(DOC_H_FILE)
+dist-header:
+	$(INSTALL_DATA) $(DOC_H_FILE) $(distdir)/$(DOC_H_FILE)
+
+doc-dist-hook: $(if $(DOC_H_FILE),dist-header)
 
 .PHONY: chean-doc-header
 _clean_doc_header = $(if $(DOC_H_FILE),clean-doc-header)
@@ -383,10 +384,7 @@ dist-omf:
 dist-dsk:
 	echo dist-dsk
 
-echo-hook:
-	echo $(_dist_docs)
-
-dist-hook: 					\
+doc-dist-hook: 					\
 	$(if $(DOC_MODULE),dist-docs)		\
 	$(if $(_DOC_OMF_IN),dist-omf)		\
 	$(if $(_DOC_DSK_IN),dist-dsk)

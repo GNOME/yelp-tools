@@ -1,5 +1,6 @@
 include $(top_srcdir)/gnome-doc-utils.make
 include $(top_srcdir)/bootstrap.make
+dist-hook: doc-dist-hook
 
 SUBDIRS = doc po xslt
 
@@ -17,7 +18,7 @@ pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = gnome-doc-utils.pc
 endif
 
-EXTRA_DIST += 						\
+EXTRA_DIST = 						\
 	$(aclocal_DATA)					\
 	$(share_DATA)					\
 	$(pkgconfig_DATA)				\
