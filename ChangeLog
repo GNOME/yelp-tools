@@ -1,3 +1,9 @@
+2004-05-26  Shaun McCance  <shaunm@gnome.org>
+
+	* gnome-doc-utils.make:
+	* doc/gnome-doc-make/gnome-doc-make.awk:
+	- Getting some documentation on the variable in gnome-doc-utils.make
+
 2004-05-25  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/html/db2html-classsynopsis.xsl:
