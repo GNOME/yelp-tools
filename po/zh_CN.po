@@ -1,0 +1,312 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Funda Wang <fundawang@linux.net.cn>, 2004.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-doc-utils\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-11-29 11:33+0100\n"
+"PO-Revision-Date: 2004-11-29 20:10+0800\n"
+"Last-Translator: Funda Wang <fundawang@linux.net.cn>\n"
+"Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Appendix %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:2
+msgid "format.appendix.label"
+msgstr "format.appendix label"
+
+#. Chapter %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:4
+msgid "format.chapter.label"
+msgstr "format.chapter label"
+
+#: xslt/docbook/common/db-format.xml.in.h:5
+msgid "format.citetitle"
+msgstr "format.citetitle"
+
+#. FIXME
+#: xslt/docbook/common/db-format.xml.in.h:7
+msgid "format.date"
+msgstr "format.date"
+
+#. Figure %t{example}
+#: xslt/docbook/common/db-format.xml.in.h:9
+msgid "format.example.label"
+msgstr "format.example label"
+
+#. %t{parent}-%1{number}
+#: xslt/docbook/common/db-format.xml.in.h:11
+msgid "format.example.number"
+msgstr "format.example.number"
+
+#. %1{number}
+#: xslt/docbook/common/db-format.xml.in.h:13
+msgid "format.example.number.flat"
+msgstr "format.example.number.flat"
+
+#. Figure %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:15
+msgid "format.figure.label"
+msgstr "format.figure label"
+
+#. %t{parent}-%1{number}
+#: xslt/docbook/common/db-format.xml.in.h:17
+msgid "format.figure.number"
+msgstr "format.figure.number"
+
+#. %1{number}
+#: xslt/docbook/common/db-format.xml.in.h:19
+msgid "format.figure.number.flat"
+msgstr "format.figure.number.flat"
+
+#. ‘%t{node}’
+#: xslt/docbook/common/db-format.xml.in.h:21
+msgid "format.quote.inner"
+msgstr "format.quote.inner"
+
+#. “%t{node}”
+#: xslt/docbook/common/db-format.xml.in.h:23
+msgid "format.quote.outer"
+msgstr "format.quote.outer"
+
+#. Section %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:25
+msgid "format.section.label"
+msgstr "format.section label"
+
+#. Table %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:27
+msgid "format.table.label"
+msgstr "format.table label"
+
+#. %t{parent}-%1{number}
+#: xslt/docbook/common/db-format.xml.in.h:29
+msgid "format.table.number"
+msgstr "format.table.number"
+
+#. %1{number}
+#: xslt/docbook/common/db-format.xml.in.h:31
+msgid "format.table.number.flat"
+msgstr "format.table.number.flat"
+
+#. Used as a header before a list of authors.
+#: xslt/gettext/l10n.xml.in.h:2
+msgid "<msgstr form=\"0\">Author</msgstr> <msgstr form=\"1\">Authors</msgstr>"
+msgstr "<msgstr form=\"0\">作者</msgstr> <msgstr form=\"1\">作者</msgstr>"
+
+#. Used as a header before a list of collaborators.
+#: xslt/gettext/l10n.xml.in.h:4
+msgid ""
+"<msgstr form=\"0\">Collaborator</msgstr> <msgstr form=\"1\">Collaborators</"
+"msgstr>"
+msgstr ""
+
+#. Used as a header before a list of copyrights.
+#: xslt/gettext/l10n.xml.in.h:6
+msgid ""
+"<msgstr form=\"0\">Copyright</msgstr> <msgstr form=\"1\">Copyrights</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">版权</msgstr> <msgstr form=\"1\">版权</msgstr>"
+
+#. Used as a header before a list of editors.
+#: xslt/gettext/l10n.xml.in.h:8
+msgid "<msgstr form=\"0\">Editor</msgstr> <msgstr form=\"1\">Editors</msgstr>"
+msgstr "<msgstr form=\"0\">编辑</msgstr> <msgstr form=\"1\">编辑</msgstr>"
+
+#. Used as a header before a list of contributors.
+#: xslt/gettext/l10n.xml.in.h:10
+msgid ""
+"<msgstr form=\"0\">Other Contributor</msgstr> <msgstr form=\"1\">Other "
+"Contributors</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">其他贡献者</msgstr> <msgstr form=\"1\">其他贡献者</msgstr>"
+
+#. Used as a header before a list of publishers.
+#: xslt/gettext/l10n.xml.in.h:12
+msgid ""
+"<msgstr form=\"0\">Publisher</msgstr> <msgstr form=\"1\">Publishers</msgstr>"
+msgstr "<msgstr form=\"0\">出版者</msgstr> <msgstr form=\"1\">出版者</msgstr>"
+
+#: xslt/gettext/l10n.xml.in.h:13
+msgid "About This Article"
+msgstr "关于本文"
+
+#: xslt/gettext/l10n.xml.in.h:14
+msgid "About This Bibliography"
+msgstr ""
+
+#: xslt/gettext/l10n.xml.in.h:15
+msgid "About This Book"
+msgstr "关于本书"
+
+#: xslt/gettext/l10n.xml.in.h:16
+msgid "About This Chapter"
+msgstr "关于本章"
+
+#: xslt/gettext/l10n.xml.in.h:17
+msgid "About This Entry"
+msgstr ""
+
+#: xslt/gettext/l10n.xml.in.h:18
+msgid "About This Glossary"
+msgstr "关于本术语表"
+
+#: xslt/gettext/l10n.xml.in.h:19
+msgid "About This Index"
+msgstr "关于本索引"
+
+#: xslt/gettext/l10n.xml.in.h:20
+msgid "About This Part"
+msgstr "关于本部分"
+
+#: xslt/gettext/l10n.xml.in.h:21
+msgid "About This Preface"
+msgstr "关于本序言"
+
+#: xslt/gettext/l10n.xml.in.h:22
+msgid "About This Reference"
+msgstr "关于本参考资料"
+
+#: xslt/gettext/l10n.xml.in.h:23
+msgid "About This Section"
+msgstr "关于本节"
+
+#: xslt/gettext/l10n.xml.in.h:24
+msgid "About This Set"
+msgstr ""
+
+#: xslt/gettext/l10n.xml.in.h:25
+msgid "Affiliation"
+msgstr ""
+
+#. This is an abbreviated form of 'Message Audience'.
+#. Feel free to use the same word/phrase for both.
+#: xslt/gettext/l10n.xml.in.h:28
+msgid "Audience"
+msgstr "受众"
+
+#: xslt/gettext/l10n.xml.in.h:29
+msgid "Caution"
+msgstr "小心"
+
+#: xslt/gettext/l10n.xml.in.h:30
+msgid "Colophon"
+msgstr ""
+
+#. This is an abbreviated form of 'Table of Contents'.
+#. Feel free to use the same word/phrase for both.
+#: xslt/gettext/l10n.xml.in.h:33
+msgid "Contents"
+msgstr "目录"
+
+#. Used as a header for date column in the revision history.
+#: xslt/gettext/l10n.xml.in.h:35
+msgid "Date"
+msgstr "日期"
+
+#: xslt/gettext/l10n.xml.in.h:36
+msgid "Dedication"
+msgstr ""
+
+#: xslt/gettext/l10n.xml.in.h:37
+msgid "Email"
+msgstr "电子邮件"
+
+#: xslt/gettext/l10n.xml.in.h:38
+msgid "Important"
+msgstr "重要"
+
+#: xslt/gettext/l10n.xml.in.h:39
+msgid "Index"
+msgstr "索引"
+
+#: xslt/gettext/l10n.xml.in.h:40
+msgid "Legal Notice"
+msgstr "版权通告"
+
+#. This is an abbreviated form of 'Message Level'.
+#. Feel free to use the same word/phrase for both.
+#: xslt/gettext/l10n.xml.in.h:43
+msgid "Level"
+msgstr "级别"
+
+#: xslt/gettext/l10n.xml.in.h:44
+msgid "Message Audience"
+msgstr "受众"
+
+#: xslt/gettext/l10n.xml.in.h:45
+msgid "Message Level"
+msgstr "消息级别"
+
+#: xslt/gettext/l10n.xml.in.h:46
+msgid "Message Origin"
+msgstr "消息来源"
+
+#: xslt/gettext/l10n.xml.in.h:47
+msgid "Name"
+msgstr "名称"
+
+#: xslt/gettext/l10n.xml.in.h:48
+msgid "Note"
+msgstr "备注"
+
+#. This is an abbreviated form of 'Message Origin'.
+#. Feel free to use the same word/phrase for both.
+#: xslt/gettext/l10n.xml.in.h:51
+msgid "Origin"
+msgstr "来源"
+
+#: xslt/gettext/l10n.xml.in.h:52
+msgid "Preface"
+msgstr "封面"
+
+#: xslt/gettext/l10n.xml.in.h:53
+msgid "Reference"
+msgstr "参考资料"
+
+#: xslt/gettext/l10n.xml.in.h:54
+msgid "Release Information"
+msgstr "发行信息"
+
+#: xslt/gettext/l10n.xml.in.h:55
+msgid "Revision History"
+msgstr "版本历史"
+
+#: xslt/gettext/l10n.xml.in.h:56
+msgid "See"
+msgstr "见"
+
+#: xslt/gettext/l10n.xml.in.h:57
+msgid "See Also"
+msgstr "参见"
+
+#: xslt/gettext/l10n.xml.in.h:58
+msgid "Set Index"
+msgstr ""
+
+#: xslt/gettext/l10n.xml.in.h:59
+msgid "Synopsis"
+msgstr ""
+
+#. Used for a link to a table of contents.
+#: xslt/gettext/l10n.xml.in.h:61
+msgid "Table of Contents"
+msgstr "目录"
+
+#: xslt/gettext/l10n.xml.in.h:62
+msgid "Tip"
+msgstr "提示"
+
+#. Used as a header for title column in the revision history.
+#: xslt/gettext/l10n.xml.in.h:64
+msgid "Title"
+msgstr "标题"
+
+#: xslt/gettext/l10n.xml.in.h:65
+msgid "Warning"
+msgstr "警告"
