@@ -221,9 +221,8 @@
     <!-- Appendix %t{number} -->
     <_msg:msgstr>format.appendix.label</_msg:msgstr>
     <msg:msgstr xml:lang="C">
-      <msg:msgstr role="header">%t{number}&#x2003;</msg:msgstr>
+      <msg:msgstr role="header">%t{number}.&#x2003;</msg:msgstr>
       <msg:msgstr role="li">%t{number}.&#x2002;</msg:msgstr>
-      <msg:msgstr role="title">%t{title}</msg:msgstr>
       <msg:msgstr role="xref">Appendix %t{number} ― %t{title}</msg:msgstr>
       <msg:msgstr>Appendix %t{number}</msg:msgstr>
     </msg:msgstr>
@@ -234,14 +233,9 @@
     </xsl:call-template>
   </msg:arg>
   <msg:arg name="title">
-    <xsl:choose>
-      <xsl:when test="$node/titleabbrev">
-        <xsl:apply-templates select="$node/titleabbrev/node()"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:apply-templates select="$node/title/node()"/>
-      </xsl:otherwise>
-    </xsl:choose>
+    <xsl:call-template name="db.title">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:call-template>
   </msg:arg>
 </xsl:template>
 
@@ -274,9 +268,8 @@
     <!-- Chapter %t{number} -->
     <_msg:msgstr>format.chapter.label</_msg:msgstr>
     <msg:msgstr xml:lang="C">
-      <msg:msgstr role="header">%t{number}&#x2003;</msg:msgstr>
+      <msg:msgstr role="header">%t{number}.&#x2003;</msg:msgstr>
       <msg:msgstr role="li">%t{number}.&#x2002;</msg:msgstr>
-      <msg:msgstr role="title">%t{title}</msg:msgstr>
       <msg:msgstr role="xref">Chapter %t{number} ― %t{title}</msg:msgstr>
       <msg:msgstr>Chapter %t{number}</msg:msgstr>
     </msg:msgstr>
@@ -287,14 +280,9 @@
     </xsl:call-template>
   </msg:arg>
   <msg:arg name="title">
-    <xsl:choose>
-      <xsl:when test="$node/titleabbrev">
-        <xsl:apply-templates select="$node/titleabbrev/node()"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:apply-templates select="$node/title/node()"/>
-      </xsl:otherwise>
-    </xsl:choose>
+    <xsl:call-template name="db.title">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:call-template>
   </msg:arg>
 </xsl:template>
 
@@ -328,7 +316,6 @@
     <_msg:msgstr>format.example.label</_msg:msgstr>
     <msg:msgstr xml:lang="C">
       <msg:msgstr role="header"><i>Example %t{number}</i>&#x2003;</msg:msgstr>
-      <msg:msgstr role="title">%t{title}</msg:msgstr>
       <msg:msgstr>Example %t{number}</msg:msgstr>
     </msg:msgstr>
   </msg:msg>
@@ -338,14 +325,9 @@
     </xsl:call-template>
   </msg:arg>
   <msg:arg name="title">
-    <xsl:choose>
-      <xsl:when test="$node/titleabbrev">
-        <xsl:apply-templates select="$node/titleabbrev/node()"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:apply-templates select="$node/title/node()"/>
-      </xsl:otherwise>
-    </xsl:choose>
+    <xsl:call-template name="db.title">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:call-template>
   </msg:arg>
 </xsl:template>
 
@@ -379,7 +361,6 @@
     <_msg:msgstr>format.figure.label</_msg:msgstr>
     <msg:msgstr xml:lang="C">
       <msg:msgstr role="header"><i>Figure %t{number}</i>&#x2003;</msg:msgstr>
-      <msg:msgstr role="title">%t{title}</msg:msgstr>
       <msg:msgstr>Figure %t{number}</msg:msgstr>
     </msg:msgstr>
   </msg:msg>
@@ -389,14 +370,9 @@
     </xsl:call-template>
   </msg:arg>
   <msg:arg name="title">
-    <xsl:choose>
-      <xsl:when test="$node/titleabbrev">
-        <xsl:apply-templates select="$node/titleabbrev/node()"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:apply-templates select="$node/title/node()"/>
-      </xsl:otherwise>
-    </xsl:choose>
+    <xsl:call-template name="db.title">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:call-template>
   </msg:arg>
 </xsl:template>
 
@@ -457,9 +433,8 @@
     <!-- Part %t{number} -->
     <_msg:msgstr>format.part.label</_msg:msgstr>
     <msg:msgstr xml:lang="C">
-      <msg:msgstr role="header">%t{number}&#x2003;</msg:msgstr>
-      <msg:msgstr role="li">%t{number}&#x2002;</msg:msgstr>
-      <msg:msgstr role="title">%t{title}</msg:msgstr>
+      <msg:msgstr role="header">%t{number}.&#x2003;</msg:msgstr>
+      <msg:msgstr role="li">%t{number}.&#x2002;</msg:msgstr>
       <msg:msgstr role="xref">Part %t{number} ― %t{title}</msg:msgstr>
       <msg:msgstr>Part %t{number}</msg:msgstr>
     </msg:msgstr>
@@ -470,14 +445,9 @@
     </xsl:call-template>
   </msg:arg>
   <msg:arg name="title">
-    <xsl:choose>
-      <xsl:when test="$node/titleabbrev">
-        <xsl:apply-templates select="$node/titleabbrev/node()"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:apply-templates select="$node/title/node()"/>
-      </xsl:otherwise>
-    </xsl:choose>
+    <xsl:call-template name="db.title">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:call-template>
   </msg:arg>
 </xsl:template>
 
@@ -510,28 +480,14 @@
     <!-- %t{title} -->
     <_msg:msgstr>format.refentry.label</_msg:msgstr>
     <msg:msgstr xml:lang="C">
-      <msg:msgstr role="title">%t{title}</msg:msgstr>
       <msg:msgstr role="xref">%t{title}</msg:msgstr>
       <msg:msgstr>%t{title}</msg:msgstr>
     </msg:msgstr>
   </msg:msg>
   <msg:arg name="title">
-    <xsl:choose>
-      <xsl:when test="refmeta/refentrytitle">
-        <xsl:apply-templates select="refmeta/refentrytitle/node()"/>
-        <xsl:if test="refmeta/manvolnum">
-          <xsl:call-template name="format.manvolnum">
-            <xsl:with-param name="node" select="refmeta/manvolnum[1]"/>
-          </xsl:call-template>
-        </xsl:if>
-      </xsl:when>
-      <xsl:when test="refentryinfo/title">
-        <xsl:apply-templates select="refentryinfo/title/node()"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:apply-templates select="refnamediv/refname[1]/node()"/>
-      </xsl:otherwise>
-    </xsl:choose>
+    <xsl:call-template name="db.title">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:call-template>
   </msg:arg>
 </xsl:template>
 
@@ -564,9 +520,8 @@
     <!-- Section %t{number} -->
     <_msg:msgstr>format.section.label</_msg:msgstr>
     <msg:msgstr xml:lang="C">
-      <msg:msgstr role="header">%t{number}&#x2003;</msg:msgstr>
+      <msg:msgstr role="header">%t{number}.&#x2003;</msg:msgstr>
       <msg:msgstr role="li">%t{number}.&#x2002;</msg:msgstr>
-      <msg:msgstr role="title">%t{title}</msg:msgstr>
       <msg:msgstr role="xref">Section %t{number} ― %t{title}</msg:msgstr>
       <msg:msgstr>Section %t{number}</msg:msgstr>
     </msg:msgstr>
@@ -577,14 +532,9 @@
     </xsl:call-template>
   </msg:arg>
   <msg:arg name="title">
-    <xsl:choose>
-      <xsl:when test="$node/titleabbrev">
-        <xsl:apply-templates select="$node/titleabbrev/node()"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:apply-templates select="$node/title/node()"/>
-      </xsl:otherwise>
-    </xsl:choose>
+    <xsl:call-template name="db.title">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:call-template>
   </msg:arg>
 </xsl:template>
 
@@ -618,7 +568,6 @@
     <_msg:msgstr>format.table.label</_msg:msgstr>
     <msg:msgstr xml:lang="C">
       <msg:msgstr role="header"><i>Table %t{number}</i>&#x2003;</msg:msgstr>
-      <msg:msgstr role="title">%t{title}</msg:msgstr>
       <msg:msgstr>Table %t{number}</msg:msgstr>
     </msg:msgstr>
   </msg:msg>
@@ -628,14 +577,9 @@
     </xsl:call-template>
   </msg:arg>
   <msg:arg name="title">
-    <xsl:choose>
-      <xsl:when test="$node/titleabbrev">
-        <xsl:apply-templates select="$node/titleabbrev/node()"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:apply-templates select="$node/title/node()"/>
-      </xsl:otherwise>
-    </xsl:choose>
+    <xsl:call-template name="db.title">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:call-template>
   </msg:arg>
 </xsl:template>
 

@@ -12,6 +12,7 @@ xsl_DATA =			\
 	db-common.xsl		\
 	db-format.xsl		\
 	db-label.xsl		\
+	db-title.xsl		\
 	db-xref.xsl
 
 EXTRA_DIST=$(xsl_DATA) db-format.xml.in db-format.xml

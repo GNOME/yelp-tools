@@ -1,3 +1,18 @@
+2005-01-02  Shaun McCance  <shaunm@gnome.org>
+
+	* doc/xslt/C/gnome-doc-xslt.xml:
+	* xslt/docbook/common/Makefile.am:
+	* xslt/docbook/common/db-format.xml.in:
+	* xslt/docbook/common/db-xref.xsl:
+	* xslt/docbook/html/db2html-division.xsl:
+	* xslt/docbook/html/db2html.xsl:
+	* xslt/gettext/format2xsl.xsl:
+	- Added db-title.xsl to ease title getting
+	- Automatically output title, titleabbrev, and subtitle roles
+
+	* doc/xslt/C/translating.xml:
+	- Fixed typo
+
 2005-01-01  Shaun McCance  <shaunm@gnome.org>
 
 	* bootstrap.make:

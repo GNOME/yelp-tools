@@ -133,6 +133,27 @@
             </xsl:apply-templates>
           </xslt:when>
         </xsl:for-each>
+        <xsl:if test="not(msg:msgstr[@role = 'title'])">
+          <xslt:when test="$role = 'title'">
+            <xslt:call-template name="db.title">
+              <xslt:with-param name="node" select="$node"/>
+            </xslt:call-template>
+          </xslt:when>
+        </xsl:if>
+        <xsl:if test="not(msg:msgstr[@role = 'titleabbrev'])">
+          <xslt:when test="$role = 'titleabbrev'">
+            <xslt:call-template name="db.titleabbrev">
+              <xslt:with-param name="node" select="$node"/>
+            </xslt:call-template>
+          </xslt:when>
+        </xsl:if>
+        <xsl:if test="not(msg:msgstr[@role = 'subtitle'])">
+          <xslt:when test="$role = 'subtitle'">
+            <xslt:call-template name="db.subtitle">
+              <xslt:with-param name="node" select="$node"/>
+            </xslt:call-template>
+          </xslt:when>
+        </xsl:if>
         <xsl:choose>
           <xsl:when test="msg:msgstr[not(@role)]">
             <xslt:otherwise>
@@ -144,12 +165,14 @@
             </xslt:otherwise>
           </xsl:when>
           <xsl:otherwise>
-            <xslt:message>
-              <xslt:text>No translation for </xslt:text>
-              <xslt:text><xsl:value-of select="$template/@name"/></xslt:text>
-              <xslt:text> with role </xslt:text>
-              <xslt:value-of select="$role"/>
-            </xslt:message>
+            <xslt:otherwise>
+              <xslt:message>
+                <xslt:text>No translation for </xslt:text>
+                <xslt:text><xsl:value-of select="$template/@name"/></xslt:text>
+                <xslt:text> with role </xslt:text>
+                <xslt:value-of select="$role"/>
+              </xslt:message>
+            </xslt:otherwise>
           </xsl:otherwise>
         </xsl:choose>
       </xslt:choose>

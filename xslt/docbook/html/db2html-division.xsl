@@ -74,6 +74,14 @@
   <!-- FIXME -->
   <html>
     <head>
+      <title>
+        <xsl:variable name="title">
+          <xsl:call-template name="db.title">
+            <xsl:with-param name="node" select="$node"/>
+          </xsl:call-template>
+        </xsl:variable>
+        <xsl:value-of select="normalize-space($title)"/>
+      </title>
       <xsl:call-template name="db2html.css"/>
     </head>
     <body>

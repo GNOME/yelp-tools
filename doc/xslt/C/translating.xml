@@ -209,7 +209,7 @@ msgstr ""
       conditions, such as the grammatical role.  For these cases, the
       &format2xsl; template can select localized format strings from a
       list of alternatives, each marked with a
-      <sgmltag role="attribute">attribute</sgmltag> attribute.  The list
+      <sgmltag role="attribute">role</sgmltag> attribute.  The list
       of valid roles will depend on the template; however, there are a
       number of common cases, particularly for automatically generated
       labels.</para>
