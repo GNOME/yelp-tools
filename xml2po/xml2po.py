@@ -368,9 +368,11 @@ def worthOutputting(node):
     """
     worth = 1
     parent = node.parent
-    final = isFinalNode(node)
+    final = isFinalNode(node) and node.name not in ignored_tags
     while not final and parent:
-        if isFinalNode(parent) and worthOutputting(parent):
+        if isFinalNode(parent):
+            final = 1 # reset if we've got to one final tag
+        if final and (parent.name not in ignored_tags) and worthOutputting(parent):
             worth = 0
             break
         parent = parent.parent
@@ -392,7 +394,7 @@ def processElementTag(node, replacements, restart = 0):
 
         child = node.children
         while child:
-            if isFinalNode(child) or (len(myrepl)==0 and child.type == 'element' and worthOutputting(child)):
+            if (isFinalNode(child)) or (child.type == 'element' and worthOutputting(child)):
                 myrepl.append(processElementTag(child, myrepl, 1))
                 outtxt += '<placeholder-%d/>' % (len(myrepl))
             else:

@@ -47,18 +47,18 @@ class docbookXmlMode:
     def __init__(self):
         self.lists = ['itemizedlist', 'orderedlist', 'variablelist',
                       'segmentedlist', 'simplelist', 'calloutlist', 'varlistentry' ]
+        self.objects = [ 'figure', 'textobject', 'imageobject', 'mediaobject',
+                         'screenshot' ]
         
     def getIgnoredTags(self):
         "Returns array of tags to be ignored."
-        return self.lists
+        return  self.objects + self.lists
 
     def getFinalTags(self):
         "Returns array of tags to be considered 'final'."
         return ['para', 'formalpara', 'simpara',
                 'releaseinfo', 'revnumber', 'title',
-                'date', 'term', 'programlisting',
-                'figure', 'textobject', 'imageobject',
-                'mediaobject', 'screenshot'] + self.lists
+                'date', 'term', 'programlisting'] + self.objects + self.lists
 
     def getSpacePreserveTags(self):
         "Returns array of tags in which spaces are to be preserved."

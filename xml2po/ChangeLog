@@ -1,5 +1,14 @@
 2005-03-27  Danilo Šegan  <dsegan@gmx.net>
 
+	* xml2po.py (worthOutputting): Correct final tags semantics.
+	(processElementTag): Use better check for final tags.
+
+	* modes/docbook.py (docbookXmlMode.__init__): Separate objects tags.
+	(docbookXmlMode.getIgnoredTags): Ignore them.
+	(docbookXmlMode.getFinalTags): Use self.objects.
+
+2005-03-27  Danilo Šegan  <dsegan@gmx.net>
+
 	Fix #162089.
 	
 	* xml2po.py (replaceNodeContentsWithText): Don't use
