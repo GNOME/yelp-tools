@@ -1,3 +1,8 @@
+2004-04-17  Danilo Šegan  <dsegan@gmx.net>
+
+	* xml2po.py (replaceNodeContentsWithText): Handle whitespace-only
+	fields.
+
 2004-04-12  Danilo Šegan  <dsegan@gmx.net>
 
 	* xml2po.py (xml_error_handler): Use empty error handler.

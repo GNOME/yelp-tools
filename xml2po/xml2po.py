@@ -257,12 +257,16 @@ def replaceNodeContentsWithText(node,text):
         except:
             print >> sys.stderr, """Error while parsing translation as XML:\n"%s"\n""" % (text)
             return
-        free = node.children
-        while free:
-            next = free.next
-            free.unlinkNode()
-            free = next
-        node.addChildList(newnode.children.children)
+        if newnode.children and newnode.children.children:
+            free = node.children
+            while free:
+                next = free.next
+                free.unlinkNode()
+                free = next
+            node.addChildList(newnode.children.children)
+        else:
+            # In practice, this happens with tags such as "<para>    </para>" (only whitespace in between)
+            pass
     else:
         node.setContent(text)
 
