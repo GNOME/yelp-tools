@@ -12,6 +12,7 @@
   <xsl:include href="db2html-admon.xsl"/>
   <xsl:include href="db2html-block.xsl"/>
   <xsl:include href="db2html-cmdsynopsis.xsl"/>
+  <xsl:include href="db2html-division.xsl"/>
   <xsl:include href="db2html-ebnf.xsl"/>
   <xsl:include href="db2html-funcsynopsis.xsl"/>
   <xsl:include href="db2html-info.xsl"/>
@@ -20,5 +21,12 @@
   <xsl:include href="db2html-suppressed.xsl"/>
   <xsl:include href="db2html-title.xsl"/>
   <xsl:include href="db2html-xref.xsl"/>
+
+  <xsl:template match="/">
+    <xsl:call-template name="db.chunk.chunk">
+      <xsl:with-param name="node" select="*"/>
+      <xsl:with-param name="depth_of_chunk" select="0"/>
+    </xsl:call-template>
+  </xsl:template>
 
 </xsl:stylesheet>

@@ -257,35 +257,35 @@
 <!-- = filename = -->
 <xsl:template match="filename">
   <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="mono" select="$true"/>
+    <xsl:with-param name="mono" select="true()"/>
   </xsl:call-template>
 </xsl:template>
 
 <!-- = firstterm = -->
 <xsl:template match="firstterm">
   <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="italic" select="$true"/>
+    <xsl:with-param name="italic" select="true()"/>
   </xsl:call-template>
 </xsl:template>
 
 <!-- = foreignphrase = -->
 <xsl:template match="foreignphrase">
   <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="italic" select="$true"/>
+    <xsl:with-param name="italic" select="true()"/>
   </xsl:call-template>
 </xsl:template>
 
 <!-- = function = -->
 <xsl:template match="function">
   <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="mono" select="$true"/>
+    <xsl:with-param name="mono" select="true()"/>
   </xsl:call-template>
 </xsl:template>
 
 <!-- = guibutton = -->
 <xsl:template match="guibutton">
   <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="bold" select="$true"/>
+    <xsl:with-param name="bold" select="true()"/>
   </xsl:call-template>
 </xsl:template>
 
@@ -297,28 +297,28 @@
 <!-- = guilabel = -->
 <xsl:template match="guilabel">
   <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="bold" select="$true"/>
+    <xsl:with-param name="bold" select="true()"/>
   </xsl:call-template>
 </xsl:template>
 
 <!-- = guimenu = -->
 <xsl:template match="guimenu">
   <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="bold" select="$true"/>
+    <xsl:with-param name="bold" select="true()"/>
   </xsl:call-template>
 </xsl:template>
 
 <!-- = guimenuitem = -->
 <xsl:template match="guimenuitem">
   <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="bold" select="$true"/>
+    <xsl:with-param name="bold" select="true()"/>
   </xsl:call-template>
 </xsl:template>
 
 <!-- = guisubmenu = -->
 <xsl:template match="guisubmenu">
   <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="bold" select="$true"/>
+    <xsl:with-param name="bold" select="true()"/>
   </xsl:call-template>
 </xsl:template>
 
@@ -335,7 +335,7 @@
 <!-- = interfacename = -->
 <xsl:template match="interfacename">
   <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="mono" select="$true"/>
+    <xsl:with-param name="mono" select="true()"/>
   </xsl:call-template>
 </xsl:template>
 
@@ -347,7 +347,7 @@
 <!-- = keycap = -->
 <xsl:template match="keycap">
   <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="bold" select="$true"/>
+    <xsl:with-param name="bold" select="true()"/>
   </xsl:call-template>
 </xsl:template>
 

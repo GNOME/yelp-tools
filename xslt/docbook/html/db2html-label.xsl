@@ -447,13 +447,13 @@
 </xsl:template>
 
 <xsl:template mode="db2html.label.number.mode" match="article">
-  <xsl:number format="I" value="$num
+  <xsl:number format="I" value="
               count(preceding-sibling::article) + 1 +
               count(parent::part/preceding-sibling::part/article)"/>
 </xsl:template>
 
 <xsl:template mode="db2html.label.number.mode" match="chapter">
-  <xsl:number value="$num
+  <xsl:number value="
               count(preceding-sibling::chapter) + 1 +
               count(parent::part/preceding-sibling::part/chapter)"/>
 </xsl:template>

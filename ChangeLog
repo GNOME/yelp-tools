@@ -1,3 +1,20 @@
+2004-05-07  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/common/db-chunk.xsl:
+	* xslt/docbook/html/Makefile.am:
+	* xslt/docbook/html/db2html-division.xsl:
+	* xslt/docbook/html/db2html.xsl:
+	- Added db2html-division and got basic chunking going
+
+	* xslt/docbook/html/db2html-inline.xsl:
+	- Changed $true to true()
+
+	* xslt/docbook/html/db2html-label.xsl:
+	- Fixed invalid XPath
+
+	* xslt/docbook/html/elements:
+	- Numbered *sect* elements weren't listed for some reason
+
 2004-05-06  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/html/Makefile.am:
