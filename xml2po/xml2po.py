@@ -37,10 +37,18 @@ import os
 import re
 
 class MessageOutput:
-    def __init__(self):
+    def __init__(self, with_translations = 0):
         self.messages = []
         self.comments = {}
         self.linenos = {}
+        if with_translations:
+            self.translations = []
+        self.do_translations = with_translations
+        self.output_msgstr = 0 # this is msgid mode for outputMessage; 1 is for msgstr mode
+
+    def translationsFollow(self):
+        """Indicate that what follows are translations."""
+        self.output_msgstr = 1
 
     def setFilename(self, filename):
         self.filename = filename
@@ -49,13 +57,17 @@ class MessageOutput:
         """Adds a string to the list of messages."""
         if (text.strip() != ''):
             t = escapePoString(normalizeString(text, not spacepreserve))
-            if not t in self.messages:
+            if self.output_msgstr:
+                self.translations.append(t)
+                return
+            
+            if self.do_translations or (not t in self.messages):
                 self.messages.append(t)
                 if t in self.linenos.keys():
                     self.linenos[t].append((self.filename, lineno))
                 else:
                     self.linenos[t] = [ (self.filename, lineno) ]
-                if comment and not t in self.comments:
+                if (not self.do_translations) and comment and not t in self.comments:
                     self.comments[t] = comment
             else:
                 if t in self.linenos.keys():
@@ -74,8 +86,11 @@ class MessageOutput:
                 references += "%s:%d " % (reference[0], reference[1])
             out.write("#: %s\n" % (references))
             out.write("msgid \"%s\"\n" % (k))
-            out.write("msgstr \"\"\n\n")
-
+            translation = ""
+            if self.do_translations:
+                if len(self.translations)>0:
+                    translation = self.translations.pop(0)
+            out.write("msgstr \"%s\"\n\n" % (translation))
 
 
 def normalizeNode(node):
@@ -428,7 +443,7 @@ def read_ignoredtags(filelist):
         return defaults
 
 def tryToUpdate(allargs, lang):
-    # Remove "-u" and "--unicode-options"
+    # Remove "-u" and "--update-translation"
     command = allargs[0]
     args = allargs[1:]
     opts, args = getopt.getopt(args, 'avhm:t:o:p:u:',
@@ -497,6 +512,7 @@ submodes_path = "/home/danilo/cvs/i18n/xml2po/modes"
 default_mode = 'docbook'
 
 filename = ''
+origxml = ''
 mofile = ''
 ultimate = [ ]
 ignored = [ ]
@@ -510,9 +526,9 @@ output  = '-' # this means to stdout
 import getopt, fileinput
 
 args = sys.argv[1:]
-opts, args = getopt.getopt(args, 'avhm:t:o:p:u:',
+opts, args = getopt.getopt(args, 'avhm:t:o:p:u:r:',
                            ['automatic-tags','version', 'help', 'mode=', 'translation=',
-                            'output=', 'po-file=', 'update-translation=' ])
+                            'output=', 'po-file=', 'update-translation=', 'reuse=' ])
 for opt, arg in opts:
     if opt in ('-m', '--mode'):
         default_mode = arg
@@ -522,6 +538,8 @@ for opt, arg in opts:
         mofile = arg
         mode = 'merge'
         translationlanguage = os.path.splitext(mofile)[0]
+    elif opt in ('-r', '--reuse'):
+        origxml = arg
     elif opt in ('-u', '--update-translation'):
         tryToUpdate(sys.argv, arg)
     elif opt in ('-p', '--po-file'):
@@ -545,8 +563,9 @@ OPTIONS may be some of:
     -o    --output=FILE        Print resulting text (XML or POT) to FILE
     -p    --po-file=FILE       Specify PO file containing translation, and merge
                                  Overwrites temporary file .xml2po.mo.
+    -r    --reuse=FILE         Specify translated XML file with the same structure
     -t    --translation=FILE   Specify MO file containing translation, and merge
-    -u    --update-translation=LANG   Updates a PO file using msgmerge program
+    -u    --update-translation=LANG.po   Updates a PO file using msgmerge program
     -v    --version            Output version of the xml2po program
 
     -h    --help               Output this message
@@ -589,10 +608,16 @@ ignored_tags = read_ignoredtags(ignored)
 # but I don't want to bother too much with it right now
 semitrans = {}
 PlaceHolder = 0
-msg = MessageOutput()
+if origxml == '':
+    msg = MessageOutput()
+else:
+    filenames.append(origxml)
+    msg = MessageOutput(1)
 
 for filename in filenames:
     try:
+        if filename == origxml:
+            msg.translationsFollow()
         ctxt = libxml2.createFileParserCtxt(filename)
         ctxt.lineNumbers(1)
         ctxt.parseDocument()
@@ -605,7 +630,7 @@ for filename in filenames:
         sys.exit(1)
 
     msg.setFilename(filename)
-    if CurrentXmlMode:
+    if CurrentXmlMode and origxml=='':
         CurrentXmlMode.preProcessXml(doc,msg)
     doSerialize(doc)
 

@@ -3,13 +3,12 @@ means release 1, i.e. version 1.1).
 
 TODO:
 
- o support images and other objects which might need updating             [R1]
-   basically, just extract a message of the form:
-    @@imageobject: figure/gui.png; md5=...@@
-
  o check for compatible msgfmt and msgmerge                               [R1]
    (I'm just lazy, and these are not necessary if you don't use 
    options -p and -u)
+
+ o add option "--dtd" to use doctype additions from another XML file	  [R1]
+   (for Gnome Users Guide)
 
  o write extensive test suite                                             [R1]
    this is a must before release, so we've got invariant to compare to
@@ -87,3 +86,9 @@ DONE:
    tags, ignored tags, attributes to be translated, etc. install them
    in $prefix/share/xml2po/ (this will deprecate options -i and -f).
 
+ o support images and other objects which might need updating
+   basically, just extract a message of the form:  (1.0.9)
+    @@imageobject: figure/gui.png; md5=...@@
+
+ o allow reusing existing translations in XML files (we need to have 
+   both translated XML and original XML file with same structure) (1.0.10)

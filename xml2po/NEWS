@@ -1,3 +1,29 @@
+xml2po 1.0.10 — unreleased
+...............................
+
+Improvements:
+ o Basic support for reusing translations.
+
+Changes:
+ o New semantics of "-u" option.
+
+xml2po 1.0.9 — unreleased
+.........................
+
+Improvements:
+ o Better error handling.
+ o Support for more DocBook documents.
+
+xml2po 1.0.8 — unreleased
+.........................
+
+xml2po is moved to Gnome CVS.
+
+Improvements:
+ o Comment-handling fixes.
+ o Support for image-handling.
+ o Simple code restructuring.
+
 xml2po 1.0.7 — March 18th, 2004
 ...............................
 

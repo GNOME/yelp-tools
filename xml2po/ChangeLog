@@ -1,3 +1,18 @@
+2004-06-19  Danilo Šegan  <dsegan@gmx.net>
+
+	* NEWS: Documented changes in 1.0.8, 1.0.9 and 1.0.10.
+
+	* configure.ac: Move version up to 1.0.10.
+
+	* README.in (Updating a translation): Changed recommendations for
+	"-u" option.
+	* xml2po.py: Suggest full filename for "-u" option.
+
+	* xml2po.py (MessageOutput): Add support for translations.
+	Add "-r" parameter for reusing translations.
+
+	* TODO (TODO, DONE): Updated with new goals and achievements.
+
 2004-04-17  Danilo Šegan  <dsegan@gmx.net>
 
 	* xml2po.py (replaceNodeContentsWithText): Handle whitespace-only

@@ -70,11 +70,13 @@ translation with the new POT file:
 
 Alternatively, xml2po provides option "-u" which does exactly these
 two steps for you:
- ./xml2po.py -u xx newfile.xml
+ ./xml2po.py -u xx.po newfile.xml
 
-(Note that you should not use "xx.po" in the -u option, this is to
-emulate intltool-update behaviour; string ".po" will be appended
-automatically to the file name.)
+(Note that there has been a change in suggested behaviour between
+xml2po versions 1.0.9 and 1.0.10 — previously, you used only "xx",
+without ".po", what emulated intltool-update behaviour; users [Ismael
+Olea actually :] found that confusing, so I'm suggesting a full
+filename now.)
 
 Special handling of document types
 ..................................

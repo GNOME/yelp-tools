@@ -1,7 +1,7 @@
 AC_INIT(xml2po.py)
 
 dnl 
-AM_INIT_AUTOMAKE(xml2po, 1.0.9)
+AM_INIT_AUTOMAKE(xml2po, 1.0.10)
 
 dnl Default to same installation prefix as intltool
 AC_PREFIX_PROGRAM(intltool-update)
