@@ -5,43 +5,38 @@ EXTRA_DIST =
 ## @@ Generating .h files
 
 ## @ DOC_H_FILE
-## The name of the .h file to generate
+## The name of the header file to generate
 DOC_H_FILE ?=
 
-## @ DOC_DIRECTORIES
-## The top-level documentation directories used to generate the .h file
-DOC_DIRECTORIES ?=
+## @ DOC_H_DOCS
+## The input DocBook files for generating the header file
+DOC_H_DOCS ?=
 
-## @ _DOC_H_DOCFILES
-## The input DocBook files
-_DOC_H_DOCFILES = $(if $(DOC_H_FILE),					\
-	$(foreach dir,$(DOC_DIRECTORIES),				\
-		$(dir)/$(shell make -s -C $(dir) echo-MODULE) ) )
+$(DOC_H_FILE): $(DOC_H_DOCS);
+	@rm -f $@; touch $@;
+	echo 'const gchar** documentation_credits = {' >> $@
+	for doc in $(DOC_H_DOCS); do \
+	  xsltproc $(_credits) $$doc; \
+	done | sort | uniq \
+	  | sed -e 's/\\/\\\\/' -e 's/"/\\"/' -e 's/\(.*\)/\t"\1",/' >> $@
+	echo '	NULL' >> $@
+	echo '};' >> $@
+	echo >> $@
+	for doc in $(DOC_H_DOCS); do \
+	  docid=`echo $$doc  | sed -e 's/.*\/\([^/]*\)\.xml/\1/' \
+	    | sed -e 's/[^a-zA-Z_]/_/g' | tr 'a-z' 'A-Z'`; \
+	  ids=`xsltproc --xinclude $(_ids) $$doc`; \
+	  for id in $$ids; do \
+	    echo '#define HELP_'`echo $$docid`'_'`echo $$id \
+	      | sed -e 's/[^a-zA-Z_]/_/g' | tr 'a-z' 'A-Z'`' "'$$id'"' >> $@; \
+	  done; \
+	  echo >> $@; \
+	done;
 
-#$(DOC_H_FILE): $(_DOC_H_DOCFILES)
-#	@rm -f $@; touch $@;
-#	echo 'const gchar** documentation_credits = {' >> $@
-#	for doc in $(_DOC_H_DOCFILES); do \
-#	  xsltproc $(_credits) $$doc; \
-#	done | sort | uniq \
-#	  | sed -e 's/\\/\\\\/' -e 's/"/\\"/' -e 's/\(.*\)/\t"\1",/' >> $@
-#	echo '	NULL' >> $@
-#	echo '};' >> $@
-#	echo >> $@
-#	for doc in $(_DOC_H_DOCFILES); do \
-#	  docid=`echo $$doc  | sed -e 's/.*\/\([^/]*\)\.xml/\1/' \
-#	    | sed -e 's/[^a-zA-Z_]/_/g' | tr 'a-z' 'A-Z'`; \
-#	  ids=`xsltproc --xinclude $(_ids) $$doc`; \
-#	  for id in $$ids; do \
-#	    echo '#define HELP_'`echo $$docid`'_'`echo $$id \
-#	      | sed -e 's/[^a-zA-Z_]/_/g' | tr 'a-z' 'A-Z'`' "'$$id'"' >> $@; \
-#	  done; \
-#	  echo >> $@; \
-#	done;
+EXTRA_DIST += $(DOC_H_FILE)
+CLEANFILES += $(DOC_H_FILE)
+all: $(DOC_H_FILE)
 
-#EXTRA_DIST += $(DOC_H_FILE)
-#CLEANFILES += $(DOC_H_FILE)
-#all: $(DOC_H_FILE)
 
 ################################################################################
 ## @@ Public variables
@@ -227,10 +222,6 @@ dsk: $(_DOC_DSK_ALL)
 ## @ _DOC_C_MODULE
 ## The top-level documentation file in the C locale
 _DOC_C_MODULE = $(if $(DOC_MODULE),C/$(DOC_MODULE).xml)
-
-.PHONY: echo-MODULE
-echo-MODULE: $(_DOC_C_MODULE)
-	@echo $(_DOC_C_MODULE)
 
 ## @ _DOC_C_ENTITIES
 ## Files included with a SYSTEM entity in the C locale

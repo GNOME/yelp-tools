@@ -1,5 +1,12 @@
 2004-09-19  Shaun McCance  <shaunm@gnome.org>
 
+	* Makefile.am:
+	* gnome-doc-utils.make:
+	- Require the doc files, instead of the directories.
+	  I just couldn't make that bit of magic work.
+
+2004-09-19  Shaun McCance  <shaunm@gnome.org>
+
 	* gnome-doc-utils.make:
 	- Put in some definition checks
 	- Disabled the header file rule until I can make it work

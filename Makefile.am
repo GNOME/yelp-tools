@@ -2,7 +2,7 @@ include $(top_srcdir)/gnome-doc-utils.make
 include $(top_srcdir)/bootstrap.make
 
 DOC_H_FILE = gnome-doc-utils.h
-DOC_DIRECTORIES = doc/xslt doc/gnome-doc-make
+DOC_H_DOCS = doc/xslt/C/gnome-doc-xslt.xml doc/gnome-doc-make/C/gnome-doc-make.xml
 
 SUBDIRS = doc po xslt
 
