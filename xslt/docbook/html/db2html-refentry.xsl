@@ -8,6 +8,7 @@
 <doc:title>Reference Pages</doc:title>
 
 
+<!-- = refentry = -->
 <xsl:template match="refentry">
   <xsl:param name="depth_in_chunk">
     <xsl:call-template name="db.chunk.depth-in-chunk"/>
@@ -24,6 +25,7 @@
       <xsl:with-param name="referent" select="refnamediv"/>
       <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 2"/>
       <xsl:with-param name="referent_depth_in_chunk" select="$depth_in_chunk + 1"/>
+      <xsl:with-param name="generate_label" select="false()"/>
       <xsl:with-param name="title_content">
         <xsl:call-template name="gettext">
           <xsl:with-param name="msgid" select="'Name'"/>
@@ -38,6 +40,12 @@
   </xsl:apply-templates>
 </xsl:template>
 
+<!-- = refname = -->
+<xsl:template match="refname">
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
+<!-- = refnamediv = -->
 <xsl:template match="refnamediv">
   <div class="refnamediv">
     <xsl:call-template name="db2html.anchor"/>
@@ -52,6 +60,80 @@
   </div>
 </xsl:template>
 
+<!-- = refpurpose = -->
+<xsl:template match="refpurpose">
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
+<!-- = refsect1 = -->
+<xsl:template match="refsect1">
+  <xsl:param name="depth_in_chunk">
+    <xsl:call-template name="db.chunk.depth-in-chunk"/>
+  </xsl:param>
+  <xsl:param name="depth_of_chunk">
+    <xsl:call-template name="db.chunk.depth-of-chunk"/>
+  </xsl:param>
+  <xsl:call-template name="db2html.division.content">
+    <xsl:with-param name="divisions" select="refsect2"/>
+    <xsl:with-param name="info" select="refsect1info"/>
+    <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
+    <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+    <xsl:with-param name="chunk_divisions" select="false()"/>
+  </xsl:call-template>
+</xsl:template>
+
+<!-- = refsect2 = -->
+<xsl:template match="refsect2">
+  <xsl:param name="depth_in_chunk">
+    <xsl:call-template name="db.chunk.depth-in-chunk"/>
+  </xsl:param>
+  <xsl:param name="depth_of_chunk">
+    <xsl:call-template name="db.chunk.depth-of-chunk"/>
+  </xsl:param>
+  <xsl:call-template name="db2html.division.content">
+    <xsl:with-param name="divisions" select="refsect3"/>
+    <xsl:with-param name="info" select="refsect2info"/>
+    <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
+    <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+    <xsl:with-param name="chunk_divisions" select="false()"/>
+  </xsl:call-template>
+</xsl:template>
+
+<!-- = refsect3 = -->
+<xsl:template match="refsect3">
+  <xsl:param name="depth_in_chunk">
+    <xsl:call-template name="db.chunk.depth-in-chunk"/>
+  </xsl:param>
+  <xsl:param name="depth_of_chunk">
+    <xsl:call-template name="db.chunk.depth-of-chunk"/>
+  </xsl:param>
+  <xsl:call-template name="db2html.division.content">
+    <xsl:with-param name="divisions" select="/false"/>
+    <xsl:with-param name="info" select="refsect3info"/>
+    <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
+    <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+    <xsl:with-param name="chunk_divisions" select="false()"/>
+  </xsl:call-template>
+</xsl:template>
+
+<!-- = refsection = -->
+<xsl:template match="refsection">
+  <xsl:param name="depth_in_chunk">
+    <xsl:call-template name="db.chunk.depth-in-chunk"/>
+  </xsl:param>
+  <xsl:param name="depth_of_chunk">
+    <xsl:call-template name="db.chunk.depth-of-chunk"/>
+  </xsl:param>
+  <xsl:call-template name="db2html.division.content">
+    <xsl:with-param name="divisions" select="refsection"/>
+    <xsl:with-param name="info" select="refsectioninfo"/>
+    <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
+    <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+    <xsl:with-param name="chunk_divisions" select="false()"/>
+  </xsl:call-template>
+</xsl:template>
+
+<!-- = refsynopsisdiv = -->
 <xsl:template match="refsynopsisdiv">
   <xsl:param name="depth_in_chunk">
     <xsl:call-template name="db.chunk.depth-in-chunk"/>
@@ -67,6 +149,7 @@
         <xsl:with-param name="referent" select="."/>
         <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
         <xsl:with-param name="referent_depth_in_chunk" select="$depth_in_chunk"/>
+        <xsl:with-param name="generate_label" select="false()"/>
         <xsl:with-param name="title_content">
           <xsl:call-template name="gettext">
             <xsl:with-param name="msgid" select="'Synopsis'"/>
@@ -78,6 +161,40 @@
       <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
     </xsl:apply-templates>
   </div>
+</xsl:template>
+
+<!-- = title = -->
+<xsl:template match="refsect1/title | refsect2/title   |
+                     refsect3/title | refsection/title ">
+  <xsl:param name="referent" select=".."/>
+  <xsl:param name="depth_in_chunk">
+    <xsl:call-template name="db.chunk.depth-in-chunk"/>
+  </xsl:param>
+  <xsl:param name="referent_depth_in_chunk">
+    <xsl:choose>
+      <xsl:when test="$referent = .">
+        <xsl:value-of select="$depth_in_chunk"/>
+      </xsl:when>
+      <xsl:when test="ancestor::* = $referent">
+        <xsl:value-of select="$depth_in_chunk -
+                      (count(ancestor::*) - count($referent/ancestor::*)) "/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:call-template name="db.chunk.depth-in-chunk">
+          <xsl:with-param name="node" select="$referent"/>
+        </xsl:call-template>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:param>
+  <xsl:param name="depth_of_chunk">
+    <xsl:call-template name="db.chunk.depth-of-chunk"/>
+  </xsl:param>
+  <xsl:call-template name="db2html.title.header">
+    <xsl:with-param name="referent" select="$referent"/>
+    <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
+    <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+    <xsl:with-param name="generate_label" select="false()"/>
+  </xsl:call-template>
 </xsl:template>
 
 </xsl:stylesheet>

@@ -44,6 +44,10 @@ modes because of the DocBook content model.
 <xsl:template match="glossaryinfo"/>
 <xsl:template match="partinfo"/>
 <xsl:template match="prefaceinfo"/>
+<xsl:template match="refsect1divinfo"/>
+<xsl:template match="refsect2divinfo"/>
+<xsl:template match="refsect3divinfo"/>
+<xsl:template match="refsectiondivinfo"/>
 <xsl:template match="refsynopsisdivinfo"/>
 <xsl:template match="sect1info"/>
 <xsl:template match="sect2info"/>

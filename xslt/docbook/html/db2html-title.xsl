@@ -190,6 +190,12 @@
     </purpose>
   </parameter>
   <parameter>
+    <name>generate_label</name>
+    <purpose>
+      Whether to generate a label in the title
+    </purpose>
+  </parameter>
+  <parameter>
     <name>title_content</name>
     <purpose>
       The title, for divisions lacking a <sgmltag>title</sgmltag> element
@@ -226,6 +232,7 @@
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
   </xsl:param>
+  <xsl:param name="generate_label" select="true()"/>
   <xsl:param name="title_content"/>
 
   <xsl:element name="{concat('h', $depth_in_chunk)}">
@@ -236,7 +243,7 @@
       <xsl:call-template name="db2html.anchor">
         <xsl:with-param name="node" select="$node"/>
       </xsl:call-template>
-      <xsl:if test="$depth_of_chunk != 0">
+      <xsl:if test="$generate_label">
         <xsl:call-template name="db2html.title.label">
           <xsl:with-param name="node" select="$referent"/>
           <xsl:with-param name="depth_in_chunk" select="$referent_depth_in_chunk"/>
@@ -372,6 +379,7 @@
     <xsl:with-param name="referent" select="$referent"/>
     <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
     <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+    <xsl:with-param name="generate_label" select="$referent != /*"/>
   </xsl:call-template>
 </xsl:template>
 

@@ -1,3 +1,10 @@
+2004-11-19  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/html/db2html-refentry.xsl:
+	* xslt/docbook/html/db2html-suppressed.xsl:
+	* xslt/docbook/html/db2html-title.xsl:
+	- Lots more refentry work
+
 2004-11-18  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/html/Makefile.am:
