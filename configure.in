@@ -2,11 +2,13 @@ AC_INIT
 AM_INIT_AUTOMAKE(gnome-doc-utils, 0.1)
 
 AC_PROG_INTLTOOL
+AM_GLIB_GNU_GETTEXT
 
 ALL_LINGUAS=""
 
 AC_OUTPUT([
 Makefile
+gnome-doc-utils.pc
 po/Makefile.in
 xslt/Makefile
 ])

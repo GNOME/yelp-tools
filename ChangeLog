@@ -1,5 +1,11 @@
 2004-03-04  Shaun McCance  <shaunm@gnome.org>
 
+	* configure.in:
+	- Added AM_GLIB_GNU_GETTEXT.
+	- Added cong-doc-utils.pc to AC_OUTPUT.
+
+2004-03-04  Shaun McCance  <shaunm@gnome.org>
+
 	* autogen.sh:
 	- Stole autogen from nautilus.
 
