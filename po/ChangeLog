@@ -1,5 +1,9 @@
 2004-07-24  Christian Rose  <menthos@menthos.com>
 
+	* sv.po: Added Swedish translation.
+
+2004-07-24  Christian Rose  <menthos@menthos.com>
+
 	* .cvsignore: More entries.
 	* POTFILES.in: Added more files and comment.
 
