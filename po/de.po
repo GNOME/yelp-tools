@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-02-18 10:42+0100\n"
-"PO-Revision-Date: 2005-02-18 10:36+0100\n"
+"POT-Creation-Date: 2005-02-25 09:05+0100\n"
+"PO-Revision-Date: 2005-02-25 09:05+0100\n"
 "Last-Translator: Frank Arnold <frank@scirocco-5v-turbo.de>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -308,7 +308,7 @@ msgstr "Anmerkung"
 #. Feel free to use the same word/phrase for both.
 #: ../xslt/gettext/l10n.xml.in.h:41
 msgid "Origin"
-msgstr "Herkunft"
+msgstr "Ursprung"
 
 #: ../xslt/gettext/l10n.xml.in.h:42
 msgid "Preface"
