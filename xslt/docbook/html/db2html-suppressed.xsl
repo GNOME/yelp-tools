@@ -12,6 +12,7 @@ modes because of the DocBook content model.
 
 <!-- Not supported -->
 <xsl:template match="beginpage"/>
+<xsl:template match="bridgehead"/>
 
 <!-- Not matched, but used by db2html.info -->
 <xsl:template match="appendixinfo"/>
@@ -35,20 +36,11 @@ modes because of the DocBook content model.
 <xsl:template match="copyright"/>
 <xsl:template match="editor"/>
 <xsl:template match="holder"/>
+<xsl:template match="legalnotice"/>
 <xsl:template match="othercredit"/>
 <xsl:template match="personblurb"/>
 <xsl:template match="publisher"/>
 <xsl:template match="publishername"/>
 <xsl:template match="year"/>
-
-<!-- Only occur in db2html.cmdsynopsis.mode -->
-<xsl:template match="arg"/>
-<xsl:template match="group"/>
-<xsl:template match="sbr"/>
-<xsl:template match="synopfragment"/>
-<xsl:template match="synopfragmentref"/>
-
-<!-- Only occur in db2html.funcsynopsis.mode -->
-<xsl:template match="funcsynopsisinfo"/>
 
 </xsl:stylesheet>

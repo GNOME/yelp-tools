@@ -3,3 +3,6 @@ to a newer version of docbook-testdocs, change this file to reflect
 the change.  If you make a change to one of these files, note that
 change in this file so that change can be preserved when upgrading
 to newer versions of docbook-testdocs.
+
+These files are not found in docbook-testdocs:
+funcsynopsis.x001.xml

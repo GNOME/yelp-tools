@@ -48,8 +48,28 @@
 </xsl:template>
 
 
-<!-- == db2html.para ======================================================= -->
+<!-- == db2html.blockquote ================================================= -->
 
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.blockquote</name>
+  <description>
+    Render a blockquote for an element
+  </description>
+</template>
+
+<xsl:template name="db2html.blockquote">
+  <div class="{local-name(.)}">
+    <xsl:apply-templates select="title"/>
+    <blockquote>
+      <xsl:apply-templates
+       select="*[name(.) != 'title' and name(.) != 'attribution']"/>
+    </blockquote>
+    <xsl:apply-templates select="attribution"/>
+  </div>
+</xsl:template>
+
+
+<!-- == db2html.para ======================================================= -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.para</name>
@@ -63,6 +83,23 @@
     <xsl:call-template name="db2html.anchor"/>
     <xsl:apply-templates/>
   </p>
+</xsl:template>
+
+
+<!-- == db2html.pre ======================================================== -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.pre</name>
+  <description>
+    Format an element in a <xmltag>pre</xmltag> tag
+  </description>
+</template>
+
+<xsl:template name="db2html.pre">
+  <pre class="{local-name(.)}">
+    <xsl:call-template name="db2html.anchor"/>
+    <xsl:apply-templates/>
+  </pre>
 </xsl:template>
 
 
@@ -88,6 +125,21 @@
   <xsl:call-template name="db2html.block">
     <xsl:with-param name="verbatim" select="true()"/>
   </xsl:call-template>
+</xsl:template>
+
+<!-- = blockquote = -->
+<xsl:template match="blockquote">
+  <xsl:call-template name="db2html.blockquote"/>
+</xsl:template>
+
+<!-- = caption = -->
+<xsl:template match="caption">
+  <xsl:call-template name="db2html.block"/>
+</xsl:template>
+
+<!-- = epigraph = -->
+<xsl:template match="epigraph">
+  <xsl:call-template name="db2html.blockquote"/>
 </xsl:template>
 
 <!-- = example = -->

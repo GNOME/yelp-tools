@@ -25,30 +25,34 @@
   </xsl:if>
 </xsl:template>
 
+
+<!-- == Matched Templates ================================================== -->
+
+<!-- = anchor = -->
 <xsl:template match="anchor">
   <xsl:call-template name="db2html.anchor"/>
 </xsl:template>
 
-
-<!--
+<!-- = link = -->
 <xsl:template match="link">
-<a>
-<xsl:attribute name="href">
-<xsl:call-template name="xref.target">
-<xsl:with-param name="linkend" select="@linkend"/>
-</xsl:call-template>
-</xsl:attribute>
-<xsl:choose>
-<xsl:when test="@endterm">
-<xsl:apply-templates select="id(@endterm)/node()"/>
-</xsl:when>
-<xsl:otherwise>
-<xsl:apply-templates/>
-</xsl:otherwise>
-</xsl:choose>
-</a>
+  <a>
+    <xsl:attribute name="href">
+      <xsl:call-template name="db.xref.target">
+        <xsl:with-param name="linkend" select="@linkend"/>
+      </xsl:call-template>
+    </xsl:attribute>
+    <xsl:choose>
+      <xsl:when test="normalize-space(.) != ''">
+        <xsl:apply-templates/>
+      </xsl:when>
+      <xsl:when test="@endterm">
+        <xsl:apply-templates select="id(@endterm)/node()"/>
+      </xsl:when>
+    </xsl:choose>
+  </a>
 </xsl:template>
 
+<!-- 
 <xsl:template match="olink">
 <xsl:call-template name="FIXME"/>
 </xsl:template>
@@ -98,27 +102,6 @@
 </xsl:otherwise>
 </xsl:choose>
 </a>
-</xsl:template>
-
-<xsl:template name="xref.target">
-<xsl:param name="linkend" select="@linkend"/>
-<xsl:param name="target" select="id($linkend)"/>
-<xsl:choose>
-<xsl:when test="$resolve_xref_chunk">
-<xsl:variable name="chunk_id">
-<xsl:apply-templates select="$target" mode="chunk.id.mode"/>
-</xsl:variable>
-<xsl:value-of select="concat($chunk_id, $html_extension)"/>
-<xsl:if test="$linkend and string($chunk_id) != $linkend">
-<xsl:text>#</xsl:text>
-<xsl:value-of select="$linkend"/>
-</xsl:if>
-</xsl:when>
-<xsl:otherwise>
-<xsl:text>#</xsl:text>
-<xsl:value-of select="$linkend"/>
-</xsl:otherwise>
-</xsl:choose>
 </xsl:template>
 
 

@@ -123,26 +123,6 @@
            select="concat($db.chunk.basename, '-toc', $db.chunk.extension)"/>
 
 
-<!-- ======================================================================= -->
-
-<xsl:template match="/">
-  <xsl:choose>
-    <xsl:when test="$db.chunk.chunk_top">
-      <xsl:call-template name="db.chunk">
-        <xsl:with-param name="node" select="*"/>
-        <xsl:with-param name="depth_of_chunk" select="0"/>
-      </xsl:call-template>
-    </xsl:when>
-    <xsl:otherwise>
-      <xsl:apply-templates mode="db.chunk.mode" select="*">
-        <xsl:with-param name="depth_in_chunk" select="0"/>
-        <xsl:with-param name="depth_of_chunk" select="0"/>
-      </xsl:apply-templates>
-    </xsl:otherwise>
-  </xsl:choose>
-</xsl:template>
-
-
 <!-- == db.chunk =========================================================== -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
@@ -371,10 +351,48 @@
 
 <xsl:template name="db.chunk.depth-of-chunk">
   <xsl:param name="node" select="."/>
-<!--
-  <xsl:message><xsl:value-of select="local-name($node)"/></xsl:message>
--->
   <!-- FIXME -->
+</xsl:template>
+
+
+<!-- == db.chunk.chunk_id ================================================== -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db.chunk.chunk_id</name>
+  <description>
+    Determine the id of the containing chunk of an element
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The element for which to find the containing chunk id
+    </description>
+  </parameter>
+</template>
+
+<xsl:template name="db.chunk.chunk-id">
+  <xsl:param name="node" select="."/>
+  <!-- FIXME -->
+</xsl:template>
+
+
+<!-- == Matched Templates ================================================== -->
+
+<xsl:template match="/">
+  <xsl:choose>
+    <xsl:when test="$db.chunk.chunk_top">
+      <xsl:call-template name="db.chunk">
+        <xsl:with-param name="node" select="*"/>
+        <xsl:with-param name="depth_of_chunk" select="0"/>
+      </xsl:call-template>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:apply-templates mode="db.chunk.mode" select="*">
+        <xsl:with-param name="depth_in_chunk" select="0"/>
+        <xsl:with-param name="depth_of_chunk" select="0"/>
+      </xsl:apply-templates>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
 </xsl:stylesheet>

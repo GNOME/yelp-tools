@@ -78,6 +78,7 @@
       <xsl:with-param name="node" select="$node"/>
       <xsl:with-param name="info" select="$info"/>
     </xsl:call-template>
+    <xsl:apply-templates mode="db2html.info.mode" select="legalnotice"/>
   </div>
 </xsl:template>
 
@@ -476,6 +477,13 @@
   <xsl:call-template name="db2html.title.simple"/>
 </xsl:template>
 
+<!-- = legalnotice/title = -->
+<xsl:template match="legalnotice/title">
+  <h2>
+    <xsl:apply-templates/>
+  </h2>
+</xsl:template>
+
 <!-- = personblurb/title = -->
 <xsl:template match="personblurb/title">
   <xsl:call-template name="db2html.title.simple"/>
@@ -622,6 +630,21 @@
   <span class="holder">
     <xsl:apply-templates/>
   </span>
+</xsl:template>
+
+<!-- = db2html.info.mode == legalnotice = -->
+<xsl:template mode="db2html.info.mode" match="legalnotice">
+  <div class="legalnotice">
+    <xsl:call-template name="db2html.anchor"/>
+    <xsl:if test="not(title)">
+      <h2>
+        <xsl:call-template name="gettext">
+          <xsl:with-param name="msgid" select="'Legal Notice'"/>
+        </xsl:call-template>
+      </h2>
+    </xsl:if>
+    <xsl:apply-templates/>
+  </div>
 </xsl:template>
 
 <!-- = db2html.info.mode == orgname = -->

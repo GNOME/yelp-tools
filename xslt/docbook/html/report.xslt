@@ -1,4 +1,4 @@
-<?xml version='1.0'?>
+<?xml version='1.0' encoding='utf-8'?><!-- -*- indent-tabs-mode: nil -*- -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 version="1.0">
@@ -13,6 +13,8 @@
 	tr[class="odd"] { background-color: #EEEEEE; }
 	span[class="file"] { color: #102070; }
 	span[class="mode"] { color: #702010; }
+        a { color: #945904; text-decoration: none; }
+        a:hover { text-decoration: underline; }
       </style>
     </head>
     <body>
@@ -50,7 +52,10 @@
 	    </xsl:if>
 	    <td>
 	      <span class="element">
-		<xsl:value-of select="@name"/>
+		<a href="{concat('http://www.docbook.org/tdg/en/html/',
+                                 @name, '.html')}">
+                  <xsl:value-of select="@name"/>
+                </a>
 	      </span>
 	    </td>
 	    <td>

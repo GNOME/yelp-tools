@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+                  "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<article>
+<articleinfo>
+<title>Unit Test: funcsynopsis.x001.xml</title>
+<releaseinfo role="CVS">$Id$</releaseinfo>
+<author><firstname>Shaun</firstname><surname>McCance</surname>
+        <affiliation><address><email>shaunm@gnome.org</email></address></affiliation>
+</author>
+</articleinfo>
+
+<funcsynopsis>
+  <?db2html.funcsynopsis.style ANSI?>
+  <funcprototype>
+    <funcdef>void <function>crash</function></funcdef>
+    <void/>
+  </funcprototype>
+</funcsynopsis>
+
+<funcsynopsis>
+  <?db2html.funcsynopsis.style KR?>
+  <funcprototype>
+    <funcdef>void <function>crash</function></funcdef>
+    <void/>
+  </funcprototype>
+</funcsynopsis>
+
+<funcsynopsis>
+  <?db2html.funcsynopsis.style ANSI?>
+  <funcprototype>
+    <funcdef>int <function>frobnicate</function></funcdef>
+    <paramdef>int  *<parameter>intptr</parameter></paramdef>
+    <paramdef>void *<parameter>voidptr</parameter></paramdef>
+    <paramdef>int (*<parameter>intfunc</parameter>) <funcparams>void *, void *</funcparams></paramdef>
+    <varargs/>
+  </funcprototype>
+</funcsynopsis>
+
+<funcsynopsis>
+  <?db2html.funcsynopsis.style KR?>
+  <funcprototype>
+    <funcdef>int <function>frobnicate</function></funcdef>
+    <paramdef>int  *<parameter>intptr</parameter></paramdef>
+    <paramdef>void *<parameter>voidptr</parameter></paramdef>
+    <paramdef>int (*<parameter>intfunc</parameter>) <funcparams>void *, void *</funcparams></paramdef>
+    <varargs/>
+  </funcprototype>
+</funcsynopsis>
+
+</article>

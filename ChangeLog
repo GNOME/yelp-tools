@@ -1,5 +1,44 @@
 2004-05-10  Shaun McCance  <shaunm@gnome.org>
 
+	* test/testdocs/README:
+	* test/testdocs/funcsynopsis.x001.xml:
+	- Added funcsynopsis.x001.xml
+
+	* xslt/docbook/common/db-chunk.xsl:
+	- Added db.chunk.chunk-id template stub
+
+	* xslt/docbook/common/db-common.xsl:
+	- Added db.xref.target template
+
+	* xslt/docbook/html/db2html-block.xsl:
+	- Added db2html.blockquote template, matches blockquote and epigraph
+	- Added db2html.pre template
+	- Matched caption
+
+	* xslt/docbook/html/db2html-cmdsynopsis.xsl:
+	- Removed all the mode stuff, because it's not needed
+
+	* xslt/docbook/html/db2html-funcsynopsis.xsl:
+	- Implemented most of the funcsynopsis stuff
+
+	* xslt/docbook/html/db2html-info.xsl:
+	- Added legalnotice support
+
+	* xslt/docbook/html/db2html-suppressed.xsl:
+	- Removed suppression of funcsynopsis and cmdsynopsis stuff
+	- Added bridgehead and legalnotice
+
+	* xslt/docbook/html/db2html-title.xsl:
+	- Removed xsl:element, because of #141532
+
+	* xslt/docbook/html/db2html-xref.xsl:
+	- Implemented link
+
+	* xslt/docbook/html/report.xslt:
+	- Linkified the element names to the DocBook documentation
+
+2004-05-10  Shaun McCance  <shaunm@gnome.org>
+
 	* test/testdocs/Makefile.am:
 	- Hooking up the testdocs right
 

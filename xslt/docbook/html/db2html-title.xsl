@@ -121,29 +121,86 @@
     </xsl:call-template>
   </xsl:param>
 
-  <xsl:variable name="element">
-    <xsl:choose>
-      <xsl:when test="$depth_in_chunk &lt;= 7">
-	<xsl:value-of select="concat('h', $depth_in_chunk)"/>
-      </xsl:when>
-      <xsl:otherwise>
-	<xsl:value-of select="'h7'"/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:variable>
-
-  <xsl:element name="{$element}">
-    <xsl:attribute name="class">
-      <xsl:value-of select="local-name($node/..)"/>
-    </xsl:attribute>
-    <xsl:call-template name="db2html.anchor">
-      <xsl:with-param name="node" select="$node"/>
-    </xsl:call-template>
-    <xsl:call-template name="db2html.title.label">
-      <xsl:with-param name="node" select="$node"/>
-    </xsl:call-template>
-    <xsl:apply-templates select="$node/node()"/>
-  </xsl:element>
+  <!-- Avoid xsl:element because of #141532 -->
+  <xsl:choose>
+    <xsl:when test="$depth_in_chunk = 1">
+      <h1 class="{local-name($node/..)}">
+        <xsl:call-template name="db2html.anchor">
+          <xsl:with-param name="node" select="$node"/>
+        </xsl:call-template>
+        <xsl:call-template name="db2html.title.label">
+          <xsl:with-param name="node" select="$node"/>
+        </xsl:call-template>
+        <xsl:apply-templates select="$node/node()"/>
+      </h1>
+    </xsl:when>
+    <xsl:when test="$depth_in_chunk = 2">
+      <h2 class="{local-name($node/..)}">
+        <xsl:call-template name="db2html.anchor">
+          <xsl:with-param name="node" select="$node"/>
+        </xsl:call-template>
+        <xsl:call-template name="db2html.title.label">
+          <xsl:with-param name="node" select="$node"/>
+        </xsl:call-template>
+        <xsl:apply-templates select="$node/node()"/>
+      </h2>
+    </xsl:when>
+    <xsl:when test="$depth_in_chunk = 3">
+      <h3 class="{local-name($node/..)}">
+        <xsl:call-template name="db2html.anchor">
+          <xsl:with-param name="node" select="$node"/>
+        </xsl:call-template>
+        <xsl:call-template name="db2html.title.label">
+          <xsl:with-param name="node" select="$node"/>
+        </xsl:call-template>
+        <xsl:apply-templates select="$node/node()"/>
+      </h3>
+    </xsl:when>
+    <xsl:when test="$depth_in_chunk = 4">
+      <h4 class="{local-name($node/..)}">
+        <xsl:call-template name="db2html.anchor">
+          <xsl:with-param name="node" select="$node"/>
+        </xsl:call-template>
+        <xsl:call-template name="db2html.title.label">
+          <xsl:with-param name="node" select="$node"/>
+        </xsl:call-template>
+        <xsl:apply-templates select="$node/node()"/>
+      </h4>
+    </xsl:when>
+    <xsl:when test="$depth_in_chunk = 5">
+      <h5 class="{local-name($node/..)}">
+        <xsl:call-template name="db2html.anchor">
+          <xsl:with-param name="node" select="$node"/>
+        </xsl:call-template>
+        <xsl:call-template name="db2html.title.label">
+          <xsl:with-param name="node" select="$node"/>
+        </xsl:call-template>
+        <xsl:apply-templates select="$node/node()"/>
+      </h5>
+    </xsl:when>
+    <xsl:when test="$depth_in_chunk = 6">
+      <h6 class="{local-name($node/..)}">
+        <xsl:call-template name="db2html.anchor">
+          <xsl:with-param name="node" select="$node"/>
+        </xsl:call-template>
+        <xsl:call-template name="db2html.title.label">
+          <xsl:with-param name="node" select="$node"/>
+        </xsl:call-template>
+        <xsl:apply-templates select="$node/node()"/>
+      </h6>
+    </xsl:when>
+    <xsl:otherwise>
+      <h7 class="{local-name($node/..)}">
+        <xsl:call-template name="db2html.anchor">
+          <xsl:with-param name="node" select="$node"/>
+        </xsl:call-template>
+        <xsl:call-template name="db2html.title.label">
+          <xsl:with-param name="node" select="$node"/>
+        </xsl:call-template>
+        <xsl:apply-templates select="$node/node()"/>
+      </h7>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
 <xsl:template match="title">
