@@ -711,7 +711,7 @@
 <!-- = subscript = -->
 <xsl:template match="subscript">
   <sub>
-    <xsl:call-template name="anchor"/>
+    <xsl:call-template name="db2html.anchor"/>
     <xsl:apply-templates/>
   </sub>
 </xsl:template>
@@ -719,7 +719,7 @@
 <!-- = superscript = -->
 <xsl:template match="superscript">
   <sup>
-    <xsl:call-template name="anchor"/>
+    <xsl:call-template name="db2html.anchor"/>
     <xsl:apply-templates/>
   </sup>
 </xsl:template>

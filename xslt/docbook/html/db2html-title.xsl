@@ -41,6 +41,14 @@
   </span>
 </xsl:template>
 
+<xsl:template mode="db2html.title.label.mode" match="
+              sect1  | sect2  | sect3   |
+              sect4  | sect5  | section ">
+  <span class="label">
+    <xsl:call-template name="db2html.label.number"/>
+  </span>
+</xsl:template>
+
 
 <!-- == db2html.title.block ================================================ -->
 

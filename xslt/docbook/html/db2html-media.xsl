@@ -110,7 +110,7 @@
 <!--
 <xsl:template match="graphicco">
 	<xsl:param name="textobject" select="false()"/>
-	<xsl:call-template name="anchor"/>
+	<xsl:call-template name="db2html.anchor"/>
 	<xsl:apply-templates select="graphic">
 		<xsl:with-param name="textobject" select="$textobject"/>
 	</xsl:apply-templates>
@@ -137,7 +137,7 @@
 <!--
 <xsl:template match="imageobjectco">
 	<xsl:param name="textobject" select="false()"/>
-	<xsl:call-template name="anchor"/>
+	<xsl:call-template name="db2html.anchor"/>
 	<xsl:apply-templates select="imageobject">
 		<xsl:with-param name="textobject" select="$textobject"/>
 	</xsl:apply-templates>
@@ -173,7 +173,7 @@
 <!--
 <xsl:template match="mediaobjectco">
 	<div class="{name(.)}">
-		<xsl:call-template name="anchor"/>
+		<xsl:call-template name="db2html.anchor"/>
 		<xsl:call-template name="mediaobject"/>
 	</div>
 </xsl:template>

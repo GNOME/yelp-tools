@@ -1,3 +1,22 @@
+2004-06-01  Shaun McCance  <shaunm@gnome.org>
+
+	* gnome-doc-utils.m4:
+	* gnome-doc-utils.make
+	- Some format stuff that doesn't work
+
+	* test/testdocs/Makefile:
+	- Make test the default target
+
+	* xslt/docbook/common/db-chunk.xsl:
+	- s/filename/basename/
+
+	* xslt/docbook/html/db2html-inline.xsl:
+	* xslt/docbook/html/db2html-media.xsl:
+	- s/anchor/db2html.anchor/
+
+	* xslt/docbook/html/db2html-title.xsl:
+	- Just use db2html.label.number for sect* labels
+
 2004-05-27  Shaun McCance  <shaunm@gnome.org>
 
 	* configure.in:

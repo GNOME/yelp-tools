@@ -15,7 +15,7 @@ DOC_INCLUDES ?=
 
 ## @ DOC_FORMATS
 ## The default formats to be built and installed
-DOC_FORMATS ?= docbook
+#DOC_FORMATS ?= docbook
 
 ## @ DOC_LINGUAS
 ## The languages this document is translated into
@@ -32,6 +32,9 @@ RNGDOC_DIRS ?=
 ## @ XSLDOC_DIRS
 ## The directories containing XSLT files to be documented with xsldoc
 XSLDOC_DIRS ?=
+
+echo:
+	echo $(DOC_FORMATS)
 
 
 ################################################################################
@@ -246,20 +249,10 @@ clean-dsk: ; rm -f $(_DOC_DSK_DB) $(_DOC_DSK_HTML)
 
 clean-lc:  ; rm -f $(_DOC_LC_DOCS)
 
-clean:
-distclean:
-mostlyclean:
+clean: clean-rngdoc clean-xsldoc clean-omf clean-dsk clean-lc
+distclean: clean-omf clean-dsk
+mostlyclean: clean-rngdoc clean-xsldoc clean-omf clean-dsk clean-lc
 maintainer-clean: clean-rngdoc clean-xsldoc clean-omf clean-dsk clean-lc
-
-
-################################################################################
-## The distclean target
-
-################################################################################
-## The mostlyclean target
-
-################################################################################
-## The maintainer-clean target
 
 ################################################################################
 ## The dist target

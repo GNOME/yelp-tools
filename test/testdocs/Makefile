@@ -15,3 +15,6 @@ $(htmls) : html/% : %.xml
 	xsltproc $(call htmlargs,$@) $<
 
 test: $(htmls)
+
+clean:
+	rm -rf html/*
