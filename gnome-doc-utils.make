@@ -447,9 +447,9 @@ maintainer-clean:					\
 	$(_clean_omf)		$(_clean_dsk)		\
 	$(_clean_lc)
 
-.PHONY: dist-docs dist-omf dist-dsk
+.PHONY: dist-doc dist-omf dist-dsk
 
-dist-docs: $(_DOC_C_DOCS) $(_DOC_LC_DOCS) $(_DOC_POFILES)
+dist-doc: $(_DOC_C_DOCS) $(_DOC_LC_DOCS) $(_DOC_POFILES)
 	@for lc in C $(DOC_LINGUAS); do \
 	  echo " $(mkinstalldirs) $(distdir)/$$lc"; \
 	  $(mkinstalldirs) "$(distdir)/$$lc"; \
@@ -480,7 +480,7 @@ dist-dsk:
 	$(INSTALL_DATA) $(srcdir)/$(_DOC_DSK_IN) $(distdir)/$(_DOC_DSK_IN)
 
 doc-dist-hook: 					\
-	$(if $(DOC_MODULE),dist-docs)		\
+	$(if $(DOC_MODULE),dist-doc)		\
 	$(if $(_DOC_OMF_IN),dist-omf)		\
 	$(if $(_DOC_DSK_IN),dist-dsk)
 
@@ -521,6 +521,19 @@ install-doc:
 	  echo "$(INSTALL_DATA) $$d$$doc $(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$doc"; \
 	  $(INSTALL_DATA) $$d$$doc $(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$doc; \
 	done
+	@if test "x$(DOC_FIGURES)" != "x"; then \
+	  for lc in C $(DOC_LINGUAS); do \
+	    echo " $(mkinstalldirs) $(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$lc/figures"; \
+	    $(mkinstalldirs) "$(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$lc/figures"; \
+	  done; \
+	  for fig in $(_DOC_C_FIGURES) $(_DOC_LC_FIGURES); do \
+	    if test -f "$$fig"; then d=; else d="$(srcdir)/"; fi; \
+	    if test -f "$$dd$$fig"; then \
+	      echo "$(INSTALL_DATA) $$d$$fig $(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$fig"; \
+	      $(INSTALL_DATA) "$$d$$fig $(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$fig"; \
+	    fi; \
+	  done; \
+	fi
 install-html:
 	echo install-html
 install-omf:
@@ -544,10 +557,14 @@ uninstall-doc:
 	  echo " rm -f $(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$doc"; \
 	  rm -f "$(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$doc"; \
 	done
+	@for fig in $(_DOC_C_FIGURES) $(_DOC_LC_FIGURES); do \
+	  echo "rm -f $(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$fig"; \
+	  rm -f "$(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$fig"; \
+	done;
 uninstall-omf:
 	@for omf in $(_DOC_OMF_ALL); do \
-	  echo " scrollkeeper-uninstall -p $(_sklocalstatedir) -o $(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf"; \
-	  -scrollkeeper-uninstall -p "$(_sklocalstatedir)" -o "$(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf"; \
+	  echo " scrollkeeper-uninstall -p $(_sklocalstatedir) $(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf"; \
+	  scrollkeeper-uninstall -p "$(_sklocalstatedir)" "$(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf"; \
 	  echo "rm -f $(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf"; \
 	  rm -f "$(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf"; \
 	done
