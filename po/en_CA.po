@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-18 18:37-0500\n"
-"PO-Revision-Date: 2004-11-18 20:44-0400\n"
+"POT-Creation-Date: 2004-11-19 11:53-0500\n"
+"PO-Revision-Date: 2004-11-19 20:44-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@FreeBSD.org>\n"
 "MIME-Version: 1.0\n"
@@ -253,57 +253,65 @@ msgid "Message Origin"
 msgstr "Message Origin"
 
 #: xslt/gettext/l10n.xml.in.h:47
+msgid "Name"
+msgstr "Name"
+
+#: xslt/gettext/l10n.xml.in.h:48
 msgid "Note"
 msgstr "Note"
 
 #. This is an abbreviated form of 'Message Origin'.
 #. Feel free to use the same word/phrase for both.
-#: xslt/gettext/l10n.xml.in.h:50
+#: xslt/gettext/l10n.xml.in.h:51
 msgid "Origin"
 msgstr "Origin"
 
-#: xslt/gettext/l10n.xml.in.h:51
+#: xslt/gettext/l10n.xml.in.h:52
 msgid "Preface"
 msgstr "Preface"
 
-#: xslt/gettext/l10n.xml.in.h:52
+#: xslt/gettext/l10n.xml.in.h:53
 msgid "Reference"
 msgstr "Reference"
 
-#: xslt/gettext/l10n.xml.in.h:53
+#: xslt/gettext/l10n.xml.in.h:54
 msgid "Release Information"
 msgstr "Release Information"
 
-#: xslt/gettext/l10n.xml.in.h:54
+#: xslt/gettext/l10n.xml.in.h:55
 msgid "Revision History"
 msgstr "Revision History"
 
-#: xslt/gettext/l10n.xml.in.h:55
+#: xslt/gettext/l10n.xml.in.h:56
 msgid "See"
 msgstr "See"
 
-#: xslt/gettext/l10n.xml.in.h:56
+#: xslt/gettext/l10n.xml.in.h:57
 msgid "See Also"
 msgstr "See Also"
 
-#: xslt/gettext/l10n.xml.in.h:57
+#: xslt/gettext/l10n.xml.in.h:58
 msgid "Set Index"
 msgstr "Set Index"
 
-#. Used for a link to a table of contents.
 #: xslt/gettext/l10n.xml.in.h:59
+msgid "Synopsis"
+msgstr "Synopsis"
+
+#. Used for a link to a table of contents.
+#: xslt/gettext/l10n.xml.in.h:61
 msgid "Table of Contents"
 msgstr "Table of Contents"
 
-#: xslt/gettext/l10n.xml.in.h:60
+#: xslt/gettext/l10n.xml.in.h:62
 msgid "Tip"
 msgstr "Tip"
 
 #. Used as a header for title column in the revision history.
-#: xslt/gettext/l10n.xml.in.h:62
+#: xslt/gettext/l10n.xml.in.h:64
 msgid "Title"
 msgstr "Title"
 
-#: xslt/gettext/l10n.xml.in.h:63
+#: xslt/gettext/l10n.xml.in.h:65
 msgid "Warning"
 msgstr "Warning"
