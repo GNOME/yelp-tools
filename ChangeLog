@@ -1,3 +1,17 @@
+2004-04-26  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/common/db-chunk.xsl:
+	* xslt/docbook/html/db2html-admon.xsl:
+	* xslt/docbook/html/db2html-cmdsynopsis.xsl:
+	* xslt/docbook/html/db2html-ebnf.xsl:
+	* xslt/docbook/html/db2html-funcsynopsis.xsl:
+	* xslt/docbook/html/db2html-info.xsl:
+	* xslt/docbook/html/db2html-inline.xsl:
+	* xslt/docbook/html/db2html-label.xsl:
+	* xslt/docbook/html/db2html-title.xsl:
+	* xslt/gettext/gettext.xsl:
+	- Changes to the xsldoc
+
 2004-04-20  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/html/db2html-cmdsynopsis.xsl:

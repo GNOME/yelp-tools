@@ -1,18 +1,22 @@
 <?xml version='1.0'?>
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-		xmlns:ref="http://www.gnome.org/~shaunm/mallard/reference"
+		xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
+		exclude-result-prefixes="doc"
                 version="1.0">
 
 <xsl:variable name="l10n" select="document('l10n.xml')"/>
 <xsl:key name="msgid" match="msg" use="msgid"/>
 
-<ref:title>Gettext</ref:title>
+<doc:title>Gettext</doc:title>
 
 
-<!-- == gettext == -->
+<!-- == gettext ============================================================ -->
 
-<ref:refname>gettext</ref:refname>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>gettext</name>
+  <FIXME/>
+</template>
 
 <xsl:template name="gettext">
   <xsl:param name="msgid"/>
@@ -38,6 +42,14 @@
     </xsl:choose>
   </xsl:for-each>
 </xsl:template>
+
+
+<!-- == ngettext =========================================================== -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>ngettext</name>
+  <FIXME/>
+</template>
 
 <xsl:template name="ngettext">
   <xsl:param name="msgid"/>

@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-		xmlns:ref="http://www.gnome.org/~shaunm/mallard/reference"
-		exclude-result-prefixes="ref"
+		xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
+		exclude-result-prefixes="doc"
                 version="1.0">
 
-<ref:title>EBNF Elements</ref:title>
+<doc:title>EBNF Elements</doc:title>
 
 
 <!-- == Matched Templates == -->
