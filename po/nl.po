@@ -8,290 +8,351 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-10-21 11:25+0200\n"
-"PO-Revision-Date: 2004-10-29 22:11+0200\n"
+"POT-Creation-Date: 2004-11-24 11:07+0100\n"
+"PO-Revision-Date: 2004-11-24 23:07+0100\n"
 "Last-Translator: Taco Witte <tcwitte@cs.uu.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: 8bit"
+
+#. Appendix %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:2
+msgid "format.appendix.label"
+msgstr "format.appendix.label"
 
 #. Chapter %t{number}
-#: xslt/docbook/common/db-format.xml.in.h:2
+#: xslt/docbook/common/db-format.xml.in.h:4
 msgid "format.chapter.label"
 msgstr "format.chapter.label"
 
-#. FIXME
-#: xslt/docbook/common/db-format.xml.in.h:4
+#: xslt/docbook/common/db-format.xml.in.h:5
 msgid "format.citetitle"
 msgstr "format.citetitle"
 
 #. FIXME
-#: xslt/docbook/common/db-format.xml.in.h:6
+#: xslt/docbook/common/db-format.xml.in.h:7
 msgid "format.date"
 msgstr "format.date"
 
+#. Figure %t{example}
+#: xslt/docbook/common/db-format.xml.in.h:9
+msgid "format.example.label"
+msgstr "format.example.label"
+
 #. %t{parent}-%1{number}
-#: xslt/docbook/common/db-format.xml.in.h:8
+#: xslt/docbook/common/db-format.xml.in.h:11
 msgid "format.example.number"
 msgstr "format.example.number"
 
 #. %1{number}
-#: xslt/docbook/common/db-format.xml.in.h:10
+#: xslt/docbook/common/db-format.xml.in.h:13
 msgid "format.example.number.flat"
 msgstr "format.example.number.flat"
 
 #. Figure %t{number}
-#: xslt/docbook/common/db-format.xml.in.h:12
+#: xslt/docbook/common/db-format.xml.in.h:15
 msgid "format.figure.label"
 msgstr "format.figure.label"
 
 #. %t{parent}-%1{number}
-#: xslt/docbook/common/db-format.xml.in.h:14
+#: xslt/docbook/common/db-format.xml.in.h:17
 msgid "format.figure.number"
 msgstr "format.figure.number"
 
 #. %1{number}
-#: xslt/docbook/common/db-format.xml.in.h:16
+#: xslt/docbook/common/db-format.xml.in.h:19
 msgid "format.figure.number.flat"
 msgstr "format.figure.number.flat"
 
 #. ‘%t{node}’
-#: xslt/docbook/common/db-format.xml.in.h:18
+#: xslt/docbook/common/db-format.xml.in.h:21
+msgid "format.quote.inner"
+msgstr "format.quote.inner"
+
+#. “%t{node}”
+#: xslt/docbook/common/db-format.xml.in.h:23
 msgid "format.quote.outer"
 msgstr "format.quote.outer"
 
 #. Section %t{number}
-#: xslt/docbook/common/db-format.xml.in.h:20
+#: xslt/docbook/common/db-format.xml.in.h:25
 msgid "format.section.label"
 msgstr "format.section.label"
 
 #. Table %t{number}
-#: xslt/docbook/common/db-format.xml.in.h:22
+#: xslt/docbook/common/db-format.xml.in.h:27
 msgid "format.table.label"
 msgstr "format.table.label"
 
 #. %t{parent}-%1{number}
-#: xslt/docbook/common/db-format.xml.in.h:24
+#: xslt/docbook/common/db-format.xml.in.h:29
 msgid "format.table.number"
 msgstr "format.table.number"
 
 #. %1{number}
-#: xslt/docbook/common/db-format.xml.in.h:26
+#: xslt/docbook/common/db-format.xml.in.h:31
 msgid "format.table.number.flat"
 msgstr "format.table.number.flat"
 
-#: xslt/gettext/l10n.xml.in.h:1
+#. Used as a header before a list of authors.
+#: xslt/gettext/l10n.xml.in.h:2
+msgid "<msgstr form=\"0\">Author</msgstr> <msgstr form=\"1\">Authors</msgstr>"
+msgstr "<msgstr form=\"0\">Auteur</msgstr> <msgstr form=\"1\">Auteurs</msgstr>"
+
+#. Used as a header before a list of collaborators.
+#: xslt/gettext/l10n.xml.in.h:4
+msgid ""
+"<msgstr form=\"0\">Collaborator</msgstr> <msgstr form=\"1\">Collaborators</"
+"msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Medewerker</msgstr> <msgstr form=\"1\">Medewerkers</"
+"msgstr>"
+
+#. Used as a header before a list of copyrights.
+#: xslt/gettext/l10n.xml.in.h:6
+msgid ""
+"<msgstr form=\"0\">Copyright</msgstr> <msgstr form=\"1\">Copyrights</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Auteursrecht</msgstr> <msgstr form=\"1\">Auteursrechten</msgstr>"
+
+#. Used as a header before a list of editors.
+#: xslt/gettext/l10n.xml.in.h:8
+msgid "<msgstr form=\"0\">Editor</msgstr> <msgstr form=\"1\">Editors</msgstr>"
+msgstr "<msgstr form=\"0\">Redacteur</msgstr> <msgstr form=\"1\">Redacteuren</msgstr>"
+
+#. Used as a header before a list of contributors.
+#: xslt/gettext/l10n.xml.in.h:10
+msgid ""
+"<msgstr form=\"0\">Other Contributor</msgstr> <msgstr form=\"1\">Other "
+"Contributors</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Andere medewerker</msgstr> <msgstr form=\"1\">Andere medewerkers</msgstr>"
+
+#. Used as a header before a list of publishers.
+#: xslt/gettext/l10n.xml.in.h:12
+msgid ""
+"<msgstr form=\"0\">Publisher</msgstr> <msgstr form=\"1\">Publishers</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Uitgever</msgstr> <msgstr form=\"1\">Uitgevers</msgstr>"
+
+#: xslt/gettext/l10n.xml.in.h:13
 msgid "About This Article"
 msgstr "Over dit artikel"
 
-#: xslt/gettext/l10n.xml.in.h:2
+#: xslt/gettext/l10n.xml.in.h:14
 msgid "About This Bibliography"
 msgstr "Over deze bibliografie"
 
-#: xslt/gettext/l10n.xml.in.h:3
+#: xslt/gettext/l10n.xml.in.h:15
 msgid "About This Book"
 msgstr "Over dit boek"
 
-#: xslt/gettext/l10n.xml.in.h:4
+#: xslt/gettext/l10n.xml.in.h:16
 msgid "About This Chapter"
 msgstr "Over dit hoofdstuk"
 
-#: xslt/gettext/l10n.xml.in.h:5
+#: xslt/gettext/l10n.xml.in.h:17
 msgid "About This Entry"
 msgstr "Over deze ingang"
 
-#: xslt/gettext/l10n.xml.in.h:6
+#: xslt/gettext/l10n.xml.in.h:18
 msgid "About This Glossary"
 msgstr "Over deze verklarende woordenlijst"
 
-#: xslt/gettext/l10n.xml.in.h:7
+#: xslt/gettext/l10n.xml.in.h:19
 msgid "About This Index"
 msgstr "Over deze index"
 
-#: xslt/gettext/l10n.xml.in.h:8
+#: xslt/gettext/l10n.xml.in.h:20
 msgid "About This Part"
 msgstr "Over dit deel"
 
-#: xslt/gettext/l10n.xml.in.h:9
+#: xslt/gettext/l10n.xml.in.h:21
 msgid "About This Preface"
-msgstr "Over deze inleiding"
+msgstr "Over dit voorwoord"
 
-#: xslt/gettext/l10n.xml.in.h:10
+#: xslt/gettext/l10n.xml.in.h:22
 msgid "About This Reference"
-msgstr "Over deze referentie"
+msgstr "Over dit naslagwerk"
 
-#: xslt/gettext/l10n.xml.in.h:11
+#: xslt/gettext/l10n.xml.in.h:23
 msgid "About This Section"
 msgstr "Over deze paragraaf"
 
-#: xslt/gettext/l10n.xml.in.h:12
+#: xslt/gettext/l10n.xml.in.h:24
 msgid "About This Set"
 msgstr "Over deze verzameling"
 
-#: xslt/gettext/l10n.xml.in.h:13
+#: xslt/gettext/l10n.xml.in.h:25
 msgid "Affiliation"
-msgstr "Verwantschap"
+msgstr "Werkzaam bij"
 
-#: xslt/gettext/l10n.xml.in.h:14
+#. This is an abbreviated form of 'Message Audience'.
+#. Feel free to use the same word/phrase for both.
+#: xslt/gettext/l10n.xml.in.h:28
 msgid "Audience"
 msgstr "Doelgroep"
 
-#: xslt/gettext/l10n.xml.in.h:15
-msgid "Author"
-msgstr "Auteur"
-
-#: xslt/gettext/l10n.xml.in.h:16
-msgid "Authors"
-msgstr "Auteurs"
-
-#: xslt/gettext/l10n.xml.in.h:17
+#: xslt/gettext/l10n.xml.in.h:29
 msgid "Caution"
 msgstr "Let op"
 
-#: xslt/gettext/l10n.xml.in.h:18
-msgid "Collaborator"
-msgstr "Medewerker"
-
-#: xslt/gettext/l10n.xml.in.h:19
-msgid "Collaborators"
-msgstr "Medewerkers"
-
-#: xslt/gettext/l10n.xml.in.h:20
+#: xslt/gettext/l10n.xml.in.h:30
 msgid "Colophon"
 msgstr "Colofon"
 
-#: xslt/gettext/l10n.xml.in.h:21
+#. This is an abbreviated form of 'Table of Contents'.
+#. Feel free to use the same word/phrase for both.
+#: xslt/gettext/l10n.xml.in.h:33
 msgid "Contents"
 msgstr "Inhoud"
 
-#: xslt/gettext/l10n.xml.in.h:22
-msgid "Copyright"
-msgstr "Auteursrecht"
-
-#: xslt/gettext/l10n.xml.in.h:23
-msgid "Copyrights"
-msgstr "Auteursrechten"
-
-#: xslt/gettext/l10n.xml.in.h:24
+#. Used as a header for date column in the revision history.
+#: xslt/gettext/l10n.xml.in.h:35
 msgid "Date"
 msgstr "Datum"
 
-#: xslt/gettext/l10n.xml.in.h:25
+#: xslt/gettext/l10n.xml.in.h:36
 msgid "Dedication"
-msgstr "Toewijding"
+msgstr "Opgedragen aan"
 
-#: xslt/gettext/l10n.xml.in.h:26
-msgid "Editor"
-msgstr "Redacteur"
-
-#: xslt/gettext/l10n.xml.in.h:27
-msgid "Editors"
-msgstr "Redacteurs"
-
-#: xslt/gettext/l10n.xml.in.h:28
+#: xslt/gettext/l10n.xml.in.h:37
 msgid "Email"
 msgstr "E-mail"
 
-#: xslt/gettext/l10n.xml.in.h:29
+#: xslt/gettext/l10n.xml.in.h:38
 msgid "Important"
 msgstr "Belangrijk"
 
-#: xslt/gettext/l10n.xml.in.h:30
+#: xslt/gettext/l10n.xml.in.h:39
 msgid "Index"
 msgstr "Index"
 
-#: xslt/gettext/l10n.xml.in.h:31
+#: xslt/gettext/l10n.xml.in.h:40
 msgid "Legal Notice"
 msgstr "Juridische opmerking"
 
-#: xslt/gettext/l10n.xml.in.h:32
+#. This is an abbreviated form of 'Message Level'.
+#. Feel free to use the same word/phrase for both.
+#: xslt/gettext/l10n.xml.in.h:43
 msgid "Level"
 msgstr "Niveau"
 
-#: xslt/gettext/l10n.xml.in.h:33
+#: xslt/gettext/l10n.xml.in.h:44
 msgid "Message Audience"
 msgstr "Berichtsdoelgroep"
 
-#: xslt/gettext/l10n.xml.in.h:34
+#: xslt/gettext/l10n.xml.in.h:45
 msgid "Message Level"
 msgstr "Berichtsniveau"
 
-#: xslt/gettext/l10n.xml.in.h:35
+#: xslt/gettext/l10n.xml.in.h:46
 msgid "Message Origin"
 msgstr "Berichtsoorsprong"
 
-#: xslt/gettext/l10n.xml.in.h:36
+#: xslt/gettext/l10n.xml.in.h:47
+msgid "Name"
+msgstr "Naam"
+
+#: xslt/gettext/l10n.xml.in.h:48
 msgid "Note"
 msgstr "Opmerking"
 
-#: xslt/gettext/l10n.xml.in.h:37
+#. This is an abbreviated form of 'Message Origin'.
+#. Feel free to use the same word/phrase for both.
+#: xslt/gettext/l10n.xml.in.h:51
 msgid "Origin"
 msgstr "Oorsprong"
 
-#: xslt/gettext/l10n.xml.in.h:38
-msgid "Other Contributor"
-msgstr "Andere medewerker"
-
-#: xslt/gettext/l10n.xml.in.h:39
-msgid "Other Contributors"
-msgstr "Andere medewerkers"
-
-#: xslt/gettext/l10n.xml.in.h:40
+#: xslt/gettext/l10n.xml.in.h:52
 msgid "Preface"
-msgstr "Inleiding"
+msgstr "Voorwoord"
 
-#: xslt/gettext/l10n.xml.in.h:41
-msgid "Publisher"
-msgstr "Uitgever"
-
-#: xslt/gettext/l10n.xml.in.h:42
-msgid "Publishers"
-msgstr "Uitgevers"
-
-#: xslt/gettext/l10n.xml.in.h:43
+#: xslt/gettext/l10n.xml.in.h:53
 msgid "Reference"
-msgstr "Referentie"
+msgstr "Naslagwerk"
 
-#: xslt/gettext/l10n.xml.in.h:44
+#: xslt/gettext/l10n.xml.in.h:54
 msgid "Release Information"
 msgstr "Uitgave-informatie"
 
-#: xslt/gettext/l10n.xml.in.h:45
+#: xslt/gettext/l10n.xml.in.h:55
 msgid "Revision History"
 msgstr "Overzicht van herzieningen"
 
-#: xslt/gettext/l10n.xml.in.h:46
+#: xslt/gettext/l10n.xml.in.h:56
 msgid "See"
 msgstr "Zie"
 
-#: xslt/gettext/l10n.xml.in.h:47
+#: xslt/gettext/l10n.xml.in.h:57
 msgid "See Also"
 msgstr "Zie ook"
 
-#: xslt/gettext/l10n.xml.in.h:48
+#: xslt/gettext/l10n.xml.in.h:58
 msgid "Set Index"
 msgstr "Verzamelingsindex"
 
-#: xslt/gettext/l10n.xml.in.h:49
+#: xslt/gettext/l10n.xml.in.h:59
+msgid "Synopsis"
+msgstr "Samenvatting"
+
+#. Used for a link to a table of contents.
+#: xslt/gettext/l10n.xml.in.h:61
 msgid "Table of Contents"
 msgstr "Inhoudsopgave"
 
-#: xslt/gettext/l10n.xml.in.h:50
+#: xslt/gettext/l10n.xml.in.h:62
 msgid "Tip"
 msgstr "Tip"
 
-#: xslt/gettext/l10n.xml.in.h:51
+#. Used as a header for title column in the revision history.
+#: xslt/gettext/l10n.xml.in.h:64
 msgid "Title"
 msgstr "Titel"
 
-#: xslt/gettext/l10n.xml.in.h:52
-msgid "Unknown"
-msgstr "Onbekend"
-
-#: xslt/gettext/l10n.xml.in.h:53
+#: xslt/gettext/l10n.xml.in.h:65
 msgid "Warning"
 msgstr "Waarschuwing"
+
+#~ msgid "Author"
+#~ msgstr "Auteur"
+
+#~ msgid "Authors"
+#~ msgstr "Auteurs"
+
+#~ msgid "Collaborator"
+#~ msgstr "Medewerker"
+
+#~ msgid "Collaborators"
+#~ msgstr "Medewerkers"
+
+#~ msgid "Copyright"
+#~ msgstr "Auteursrecht"
+
+#~ msgid "Copyrights"
+#~ msgstr "Auteursrechten"
+
+#~ msgid "Editor"
+#~ msgstr "Redacteur"
+
+#~ msgid "Editors"
+#~ msgstr "Redacteurs"
+
+#~ msgid "Other Contributor"
+#~ msgstr "Andere medewerker"
+
+#~ msgid "Other Contributors"
+#~ msgstr "Andere medewerkers"
+
+#~ msgid "Publisher"
+#~ msgstr "Uitgever"
+
+#~ msgid "Publishers"
+#~ msgstr "Uitgevers"
+
+#~ msgid "Unknown"
+#~ msgstr "Onbekend"
 
 #~ msgid "format.section.label,subject"
 #~ msgstr "format.section.label,subject"
