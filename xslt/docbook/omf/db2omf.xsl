@@ -255,6 +255,7 @@
                         $info/corpauthor[@role='maintainer']    |
                         $info/editor[@role='maintainer']        |
                         $info/othercredit[@role='maintainer']   |
+                        $info/publisher[@role='maintainer']     |
                         $info/authorgroup/*[@role='maintainer'] "/>
   <xsl:if test="not($maintainers)">
     <xsl:message>
@@ -263,12 +264,21 @@
   </xsl:if>
   <xsl:for-each select="$maintainers">
     <maintainer>
-      <xsl:if test="email">
-        <xsl:value-of select="email"/>
-        <xsl:text> </xsl:text>
-      </xsl:if>
+      <xsl:choose>
+        <xsl:when test="email">
+          <xsl:value-of select="email"/>
+          <xsl:text> </xsl:text>
+        </xsl:when>
+        <xsl:when test="address/email">
+          <xsl:value-of select="addressemail"/>
+          <xsl:text> </xsl:text>
+        </xsl:when>
+      </xsl:choose>
       <xsl:text>(</xsl:text>
       <xsl:choose>
+        <xsl:when test="self::publisher">
+          <xsl:value-of select="publishername"/>
+        </xsl:when>
         <xsl:when test="self::corpauthor">
           <xsl:value-of select="."/>
         </xsl:when>

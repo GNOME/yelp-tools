@@ -334,7 +334,7 @@
                 <term>
                   <parameter>
                     <xsl:apply-templates mode="xsldoc.docbook.mode"
-                                         select="doc:name"/>
+                                         select="doc:name/node()"/>
                   </parameter>
                 </term>
                 <listitem>
@@ -433,6 +433,17 @@
 <mode xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>xsldoc.docbook.mode</name>
 </mode>
+
+<xsl:template mode="xsldoc.docbook.mode" match="doc:xmltag">
+  <xsl:element name="sgmltag">
+    <xsl:for-each select="attribute::*">
+      <xsl:copy/>
+    </xsl:for-each>
+    <xsl:for-each select="* | text()">
+      <xsl:apply-templates mode="xsldoc.docbook.mode" select="."/>
+    </xsl:for-each>
+  </xsl:element>
+</xsl:template>
 
 <xsl:template mode="xsldoc.docbook.mode" match="doc:*">
   <xsl:element name="{local-name(.)}">

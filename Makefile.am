@@ -40,4 +40,5 @@ DISTCLEANFILES =					\
 	intltool-update					\
 	gnome-doc-utils.make
 
-distuninstallcheck_listfiles = find . -type f -print | grep -v scrollkeeper
+distuninstallcheck_listfiles =  \
+find -regex '.*/var/scrollkeeper/.*' -prune -or -type f -print

@@ -453,6 +453,10 @@ clean:							\
 	$(_clean_rngdoc)	$(_clean_xsldoc)	\
 	$(_clean_omf)		$(_clean_dsk)		\
 	$(_clean_lc)
+distclean:						\
+	$(_clean_rngdoc)	$(_clean_xsldoc)	\
+	$(_clean_omf)		$(_clean_dsk)		\
+	$(_clean_lc)
 mostlyclean:						\
 	$(_clean_rngdoc)	$(_clean_xsldoc)	\
 	$(_clean_omf)		$(_clean_dsk)		\
