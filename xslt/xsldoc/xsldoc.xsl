@@ -19,7 +19,7 @@
   </description>
 </parameter>
 
-<xsl:param name="id"/>
+<xsl:param name="xsldoc.id"/>
 
 
 <!-- == xsldoc.toplevel_element ============================================ -->
@@ -64,23 +64,63 @@
 <xsl:template name="xsldoc.checks">
   <!-- Check for orphaned doc:parameter -->
   <xsl:for-each select="doc:parameter">
-    <xsl:if test="not(following-sibling::*[1]/self::xsl:param)">
+    <xsl:if test="not(following-sibling::*[1]/
+                        self::xsl:param[@name = current()/doc:name])">
       <xsl:message>
-        <xsl:text>Orphaned doc:parameter "</xsl:text>
+        <xsl:value-of select="$xsldoc.id"/>
+        <xsl:text>: Orphaned doc:parameter </xsl:text>
         <xsl:value-of select="doc:name"/>
-        <xsl:text>"</xsl:text>
       </xsl:message>
     </xsl:if>
   </xsl:for-each>
 
-  <!-- Check for orphaned xsl:param -->
-  <xsl:for-each select="xsl:param[
-                          not(preceding-sibling::*[1]/self::doc:parameter)]">
-    <xsl:message>
-      <xsl:text>Orphaned xsl:param "</xsl:text>
-      <xsl:value-of select="@name"/>
-      <xsl:text>"</xsl:text>
-    </xsl:message>
+  <!-- Check for undocumented xsl:param -->
+  <xsl:for-each select="xsl:param[not(@doc:private = 'true')]">
+    <xsl:if test="not(preceding-sibling::*[1]/
+                        self::doc:parameter[doc:name = current()/@name])">
+      <xsl:message>
+        <xsl:value-of select="$xsldoc.id"/>
+        <xsl:text>: Undocumented xsl:param </xsl:text>
+        <xsl:value-of select="@name"/>
+      </xsl:message>
+    </xsl:if>
+  </xsl:for-each>
+
+  <!-- Check for orphaned doc:template -->
+  <xsl:for-each select="doc:template">
+    <xsl:if test="not(following-sibling::*[1]/
+                        self::xsl:template[@name = current()/doc:name])">
+      <xsl:message>
+        <xsl:value-of select="$xsldoc.id"/>
+        <xsl:text>: Orphaned doc:template </xsl:text>
+        <xsl:value-of select="doc:name"/>
+      </xsl:message>
+    </xsl:if>
+  </xsl:for-each>
+
+  <!-- Check for undocumented xsl:template[@name] -->
+  <xsl:for-each select="xsl:template[@name][not(@doc:private = 'true')]">
+    <xsl:if test="not(preceding-sibling::*[1]/
+                        self::doc:template[doc:name = current()/@name])">
+      <xsl:message>
+        <xsl:value-of select="$xsldoc.id"/>
+        <xsl:text>: Undocumented xsl:template </xsl:text>
+        <xsl:value-of select="@name"/>
+      </xsl:message>
+    </xsl:if>
+  </xsl:for-each>
+
+  <!-- Check for undocumented xsl:template/@mode -->
+  <xsl:for-each select="xsl:template[@mode]">
+    <xsl:if test="not(preceding-sibling::xsl:template[@mode = current()/@mode])">
+      <xsl:if test="not(preceding-sibling::doc:mode[doc:name = current()/@mode])">
+        <xsl:message>
+          <xsl:value-of select="$xsldoc.id"/>
+          <xsl:text>: Undocumented xsl:template/@mode </xsl:text>
+          <xsl:value-of select="@mode"/>
+        </xsl:message>
+      </xsl:if>
+    </xsl:if>
   </xsl:for-each>
 </xsl:template>
 
@@ -95,11 +135,13 @@
 </template>
 
 <xsl:template name="xsldoc.synopsis">
-  <xsl:variable name="params"
-                select="doc:parameter[
-                          following-sibling::xsl:*[1]/self::xsl:param]"/>
+  <xsl:variable name="params" select="doc:parameter"/>
+  <xsl:variable name="templates" select="doc:template"/>
+  <xsl:variable name="modes" select="doc:mode"/>
+  <section id="{concat($xsldoc.id, '-synopsis')}">
+    <title>Synopsis</title>
+  </section>
 </xsl:template>
-
 
 
 <!-- == xsldoc.params ====================================================== -->

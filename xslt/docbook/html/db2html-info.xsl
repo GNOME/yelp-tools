@@ -601,14 +601,14 @@
 </xsl:template>
 
 <!-- = db2html.info.mode == holder = -->
-<xsl:template mode="db2html.info.orgname" match="holder">
+<xsl:template mode="db2html.info.mode" match="holder">
   <span class="holder">
     <xsl:apply-templates/>
   </span>
 </xsl:template>
 
 <!-- = db2html.info.mode == orgname = -->
-<xsl:template mode="db2html.info.orgname" match="orgname">
+<xsl:template mode="db2html.info.mode" match="orgname">
   <!-- Can occur outside db2html.info.mode, so apply those templates -->
   <xsl:apply-templates select="."/>
 </xsl:template>
@@ -658,7 +658,7 @@
 </xsl:template>
 
 <!-- = db2html.info.mode == year = -->
-<xsl:template mode="db2html.info.orgname" match="year">
+<xsl:template mode="db2html.info.mode" match="year">
   <span class="year">
     <xsl:apply-templates/>
   </span>

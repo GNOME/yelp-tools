@@ -97,8 +97,9 @@
   </parameter>
 </template>
 
-<xsl:template name="db2html.admon">
+<xsl:template name="db2html.admon.boxed">
   <xsl:param name="node" select="."/>
+  <!-- FIXME: We can probably do this without tables, with fancy CSS -->
   <div class="admonition">
     <div class="{name(.)}">
       <table style="border: none;">
@@ -138,7 +139,7 @@
   </parameter>
 </template>
 
-<xsl:template name="db2html.admon">
+<xsl:template name="db2html.admon.text">
   <xsl:param name="node" select="."/>
   <div class="admonition">
     <div class="{name(.)}">

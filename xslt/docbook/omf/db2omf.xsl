@@ -254,7 +254,7 @@
 <!-- == db2omf.version ===================================================== -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.verion</name>
+  <name>db2omf.version</name>
   <description>
     Generate the <xmltag>version</xmltag> element
   </description>
@@ -497,7 +497,7 @@
 
 <!-- == db2omf.rights ====================================================== -->
 
-<template xmlns="http://www.gnome.org/~shaunm/name">
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2omf.rights</name>
   <description>
     Generate the <xmltag>rights</xmltag> element

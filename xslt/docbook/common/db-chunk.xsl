@@ -10,7 +10,7 @@
 <!-- == db.chunk.max_depth ================================================= -->
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.chunk.max_depth</name>
+  <name>db.chunk.max_depth</name>
   <description>
     The maximum depth for chunking sections
   </description>

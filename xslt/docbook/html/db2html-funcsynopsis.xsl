@@ -33,7 +33,7 @@
 
 <!-- == db2html.funcsynopsis =============================================== -->
 
-<function xmlns="http://www.gnome.org/~shaunm/xsldoc">
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.funcsynopsis</name>
   <description>
     Process a <xmltag>funcsynopsis</xmltag> element
@@ -45,7 +45,7 @@
       <constant>'K&amp;R'</constant> or <constant>'ANSI'</constant>
     </description>
   </parameter>
-</function>
+</template>
 
 <xsl:template name="db2html.funcsynopsis">
   <xsl:param name="style">

@@ -74,7 +74,7 @@
 
 <!-- ======================================================================= -->
 
-<xsl:template name="dingbat">
+<xsl:template name="dingbat" doc:private="true">
   <xsl:param name="dingbat"/>
   <xsl:choose>
     <xsl:when test="$dingbat = 'copyright'">
@@ -94,17 +94,17 @@
 
 <!-- ======================================================================= -->
 
-<xsl:template name="format.header.prefix.named">
+<xsl:template name="format.header.prefix.named" doc:private="true">
   <xsl:param name="header"/>
   <xsl:value-of select="concat($header, '&#160;&#160;')"/>
 </xsl:template>
 
-<xsl:template name="format.header.prefix.unnamed">
+<xsl:template name="format.header.prefix.unnamed" doc:private="true">
   <xsl:param name="header"/>
   <xsl:value-of select="concat($header, '&#160;&#160;')"/>
 </xsl:template>
 
-<xsl:template name="format.header">
+<xsl:template name="format.header" doc:private="true">
   <xsl:param name="header"/>
   <xsl:param name="number"/>
   <xsl:choose>
@@ -120,7 +120,7 @@
 
 <!-- ======================================================================= -->
 
-<xsl:template name="plural">
+<xsl:template name="plural" doc:private="true">
   <xsl:param name="num" select="1"/>
   <xsl:param name="lang" select="$lang"/>
 
