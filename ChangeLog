@@ -1,3 +1,7 @@
+2004-07-26  Estêvão Samuel Procópio  <tevaum@cvs.gnome.org>
+
+	* configure.in: Added "pt_BR" to ALL_LINGUAS.
+
 2004-07-25  Francisco Javier F. Serrador  <serrador@cvs.gnome.org>
 
 	* configure.in: Added "es" to ALL_LINGUAS.

@@ -11,7 +11,7 @@ PKG_CHECK_MODULES(GNOME_DOC_UTILS,
 	libxslt >= 1.1.8
 ])
 
-ALL_LINGUAS="cs es sv"
+ALL_LINGUAS="cs es sv pt_BR"
 
 AC_OUTPUT([
 Makefile
