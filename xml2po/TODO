@@ -20,6 +20,9 @@ TODO:
    <placeholder1>blah</placeholder1>)
    [Francesco Levorato <flevour@flevour.net>]
 
+ o make "-p POFILE" and "-u POFILE" work directly on PO file, instead     [R1]
+   of depending on msgfmt/msgmerge
+
  o pipe the constructed .po file thru 'msgcat'; msgcat is meant as a .po
    file normalization tool. [Karl]
 
@@ -32,8 +35,6 @@ TODO:
  o Improve speed: with addition of many features, speed has gone 
    dramatically down; some of the things should be transferred to 
    libxml2 (like using node.isText()).
-
- o make "-p POFILE" read directly PO file, instead of depending on msgfmt [R2]
 
 BUGS:
 

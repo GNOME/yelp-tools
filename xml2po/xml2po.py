@@ -116,7 +116,6 @@ msgstr ""
 
 
 def normalizeNode(node):
-    #print node.content
     if not node:
         return
     elif isSpacePreserveNode(node):
@@ -127,7 +126,7 @@ def normalizeNode(node):
         else:
             node.setContent(re.sub('\s+',' ', node.content))
 
-    elif node.children:
+    elif node.children and node.type == 'element':
         child = node.children
         while child:
             normalizeNode(child)
@@ -142,16 +141,17 @@ def normalizeString(text, ignorewhitespace = 1):
     try:
         # Lets add document DTD so entities are resolved
         dtd = doc.intSubset()
-        tmp = ''
-        if expand_entities: # FIXME: we get a "Segmentation fault" in libxml2.parseMemory() when we include DTD otherwise
-            tmp = dtd.serialize()
+        tmp = dtd.serialize()
         tmp = tmp + '<norm>%s</norm>' % text
     except:
         tmp = '<norm>%s</norm>' % text
 
     try:
-        #libxml2.replaceEntities(0)
-        tree = libxml2.parseMemory(tmp,len(tmp))
+        ctxt = libxml2.createDocParserCtxt(tmp)
+        if expand_entities:
+            ctxt.replaceEntities(1)
+        ctxt.parseDocument()
+        tree = ctxt.doc()
         newnode = tree.getRootElement()
     except:
         print >> sys.stderr, """Error while normalizing string as XML:\n"%s"\n""" % (text)
