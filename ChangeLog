@@ -1,3 +1,21 @@
+2004-12-21  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/common/db-chunk.xsl:
+	* xslt/docbook/common/db-format.xml.in:
+	* xslt/docbook/common/db-label.xsl:
+	* xslt/docbook/common/db-xref.xsl:
+	* xslt/docbook/html/db2html-admon.xsl:
+	* xslt/docbook/html/db2html-autotoc.xsl:
+	* xslt/docbook/html/db2html-block.xsl:
+	* xslt/docbook/html/db2html-division.xsl:
+	* xslt/docbook/html/db2html-list.xsl:
+	* xslt/docbook/html/db2html-table.xsl:
+	* xslt/docbook/html/db2html-title.xsl:
+	- Basic navbar linking implemented
+	- Added base 'xref' role for label formatters
+	- Changed admonition formatting
+	- Fixed some other formatting
+
 2004-12-19  Alexander Shopov  <ash@contact.bg>
 
 	* configure.in (ALL_LINGUAS): Added "bg" (Bulgarian)

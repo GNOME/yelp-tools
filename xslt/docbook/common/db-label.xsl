@@ -130,7 +130,7 @@
 
 <xsl:template mode="db.label.mode" match="
               article  | book     | bibliography |
-              colophon | example  | glossary     | index     |
+              colophon | glossary     | index     |
               part     | qandadiv | qandaset | preface      | reference |
               refentry | set      | setindex ">
   <xsl:param name="role"/>

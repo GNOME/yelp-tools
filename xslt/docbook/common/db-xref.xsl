@@ -35,6 +35,7 @@
     <xsl:otherwise>
       <xsl:call-template name="db.label">
         <xsl:with-param name="node" select="$target"/>
+        <xsl:with-param name="role" select="'xref'"/>
       </xsl:call-template>
     </xsl:otherwise>
   </xsl:choose>
@@ -64,7 +65,7 @@
 
 <xsl:template name="db.xref.target">
   <xsl:param name="linkend" select="@linkend"/>
-  <xsl:param name="target" select="key('idkey', @linkend)"/>
+  <xsl:param name="target" select="key('idkey', $linkend)"/>
   <xsl:variable name="target_chunk_id">
     <xsl:call-template name="db.chunk.chunk-id">
       <xsl:with-param name="node" select="$target"/>

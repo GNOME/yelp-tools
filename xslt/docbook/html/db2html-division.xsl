@@ -46,6 +46,60 @@
         <xsl:with-param name="depth_in_chunk" select="0"/>
         <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
       </xsl:apply-templates>
+      <!-- FIXME: formatting -->
+      <div class="navbar">
+        <xsl:variable name="prev_id">
+          <xsl:call-template name="db.chunk.chunk-id.axis">
+            <xsl:with-param name="node" select="$node"/>
+            <xsl:with-param name="axis" select="'previous'"/>
+            <xsl:with-param name="depth_in_chunk" select="0"/>
+            <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+          </xsl:call-template>
+        </xsl:variable>
+        <xsl:variable name="next_id">
+          <xsl:call-template name="db.chunk.chunk-id.axis">
+            <xsl:with-param name="node" select="$node"/>
+            <xsl:with-param name="axis" select="'next'"/>
+            <xsl:with-param name="depth_in_chunk" select="0"/>
+            <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+          </xsl:call-template>
+        </xsl:variable>
+        <xsl:text>Prev: </xsl:text>
+        <a class="navbar">
+          <xsl:attribute name="href">
+            <xsl:call-template name="db.xref.target">
+              <xsl:with-param name="linkend" select="$prev_id"/>
+            </xsl:call-template>
+          </xsl:attribute>
+          <xsl:attribute name="title">
+            <xsl:call-template name="db.xref.tooltip">
+              <xsl:with-param name="linkend" select="$prev_id"/>
+            </xsl:call-template>
+          </xsl:attribute>
+          <xsl:call-template name="db.label">
+            <xsl:with-param name="node" select="key('idkey', $prev_id)"/>
+            <xsl:with-param name="role" select="'title'"/>
+          </xsl:call-template>
+        </a>
+        <br/>
+        <xsl:text>Next: </xsl:text>
+        <a class="navbar">
+          <xsl:attribute name="href">
+            <xsl:call-template name="db.xref.target">
+              <xsl:with-param name="linkend" select="$next_id"/>
+            </xsl:call-template>
+          </xsl:attribute>
+          <xsl:attribute name="title">
+            <xsl:call-template name="db.xref.tooltip">
+              <xsl:with-param name="linkend" select="$next_id"/>
+            </xsl:call-template>
+          </xsl:attribute>
+          <xsl:call-template name="db.label">
+            <xsl:with-param name="node" select="key('idkey', $next_id)"/>
+            <xsl:with-param name="role" select="'title'"/>
+          </xsl:call-template>
+        </a>
+      </div>
     </body>
   </html>
 </xsl:template>

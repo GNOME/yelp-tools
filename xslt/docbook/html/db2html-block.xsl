@@ -127,10 +127,6 @@
 <xsl:template name="db2html.block.css">
   <xsl:text>
     div[class~="figure"] { margin-left: 24px; margin-right: 12px; }
-    div[class~="figure"] div[class~="title"] span[class~="label"] {
-      margin-right: 0.8em;
-      font-style: italic;
-    }
     pre[class~="programlisting"] {
       margin-left: 24px;
       margin-right: 12px;

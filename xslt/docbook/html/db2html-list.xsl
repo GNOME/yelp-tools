@@ -31,7 +31,7 @@
 
 <xsl:template name="db2html.list.css">
   <xsl:text>
-    div[class~="list"] { margin-left: 24px; padding: 0px; }
+    div[class~="list"] { margin-left: 24px; padding: 0px; margin-bottom: 1em; }
     div[class~="list"] dl dt { margin-left: 0px; }
     div[class~="list"] dl dt + dd { margin-top: -8px; }
     div[class~="list"] dl dd {

@@ -8,6 +8,18 @@
 <doc:title>Admonitions</doc:title>
 
 
+<!-- == db2html.admon.border_color ========================================= -->
+
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.admon.border_color</name>
+  <purpose>
+    The color of the border around admonition elements
+  </purpose>
+</parameter>
+
+<xsl:param name="db2html.admon.border_color" select="'#D1940C'"/>
+
+
 <!-- == db2html.admon.graphics_path ======================================== -->
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
@@ -20,6 +32,18 @@
 <xsl:param name="db2html.admon.graphics_path"/>
 
 
+<!-- == db2html.admon.graphics_size ======================================== -->
+
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.admon.graphics_size</name>
+  <purpose>
+    The size of admonition graphics, in pixels
+  </purpose>
+</parameter>
+
+<xsl:param name="db2html.admon.graphics_size" select="48"/>
+
+
 <!-- == db2html.admon.graphics_extension =================================== -->
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
@@ -30,18 +54,6 @@
 </parameter>
 
 <xsl:param name="db2html.admon.graphics_extension" select="'.png'"/>
-
-
-<!-- == db2html.admon.text_only ============================================ -->
-
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.admon.text_only</name>
-  <purpose>
-    Whether to render admonitions text-only
-  </purpose>
-</parameter>
-
-<xsl:param name="db2html.admon.text_only" select="false()"/>
 
 
 <!-- == db2html.admon ====================================================== -->
@@ -57,113 +69,13 @@
       The element for which to render an admonition
     </purpose>
   </parameter>
-  <para>
-    This template renders the DocBook admonition elements.  The
-    template simply calls <template>db2html.admon.text</template>
-    or <template>db2html.admon.boxed</template>, depending on the
-    value of <parameter>$db2html.admon.text_only</parameter>.
-  </para>
 </template>
 
 <xsl:template name="db2html.admon">
   <xsl:param name="node" select="."/>
-  <xsl:choose>
-    <xsl:when test="$db2html.admon.text_only">
-      <xsl:call-template name="db2html.admon.text">
-        <xsl:with-param name="node" select="$node"/>
-      </xsl:call-template>
-    </xsl:when>
-    <xsl:otherwise>
-      <xsl:call-template name="db2html.admon.boxed">
-        <xsl:with-param name="node" select="$node"/>
-      </xsl:call-template>
-    </xsl:otherwise>
-  </xsl:choose>
-</xsl:template>
-
-
-<!-- == db2html.admon.boxed ================================================ -->
-
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.admon.boxed</name>
-  <purpose>
-    Render an admonition element as a stylized box with admonition graphics
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The element for which to render an admonition
-    </purpose>
-  </parameter>
-</template>
-
-<xsl:template name="db2html.admon.boxed">
-  <xsl:param name="node" select="."/>
-  <!-- FIXME: maybe sideline the admon boxes -->
-  <div class="admonition">
-    <div class="{local-name(.)}">
-      <xsl:call-template name="db2html.admon.image">
-        <xsl:with-param name="node" select="$node"/>
-      </xsl:call-template>
-      <xsl:apply-templates select="$node/title"/>
-      <xsl:apply-templates select="$node/*[local-name(.) != 'title']"/>
-    </div>
+  <div class="admonition {local-name(.)}">
+    <xsl:apply-templates select="$node/node()"/>
   </div>
-</xsl:template>
-
-
-<!-- == db2html.admon.text ================================================= -->
-
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.admon.text</name>
-  <purpose>
-    Render an admonition element as a simple text block
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The element for which to render an admonition
-    </purpose>
-  </parameter>
-</template>
-
-<xsl:template name="db2html.admon.text">
-  <xsl:param name="node" select="."/>
-  <div class="admonition">
-    <div class="{name(.)}">
-      <xsl:call-template name="db2html-xref.anchor">
-        <xsl:with-param name="node" select="$node"/>
-      </xsl:call-template>
-      <xsl:apply-templates select="$node/node()"/>
-    </div>
-  </div>
-</xsl:template>
-
-
-<!-- == db2html.admon.image ================================================ -->
-
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.admon.image</name>
-  <purpose>
-    Create the <xmltag>img</xmltag> for an admonition graphic
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The element for which to render an admonition image
-    </purpose>
-  </parameter>
-</template>
-
-<xsl:template name="db2html.admon.image">
-  <xsl:param name="node" select="."/>
-  <img class="admonition">
-    <xsl:attribute name="src">
-      <xsl:value-of select="$db2html.admon.graphics_path"/>
-      <xsl:value-of select="name($node)"/>
-      <xsl:value-of select="$db2html.admon.graphics_extension"/>
-    </xsl:attribute>
-  </img>
 </xsl:template>
 
 
@@ -178,12 +90,54 @@
 
 <xsl:template name="db2html.admon.css">
   <xsl:text>
+    div[class~="caution"] {
+      background-image: url("</xsl:text>
+      <xsl:value-of select="$db2html.admon.graphics_path"/>
+      <xsl:text>caution</xsl:text>
+      <xsl:value-of select="$db2html.admon.graphics_extension"/><xsl:text>");
+    }
+    div[class~="important"] {
+      background-image: url("</xsl:text>
+      <xsl:value-of select="$db2html.admon.graphics_path"/>
+      <xsl:text>important</xsl:text>
+      <xsl:value-of select="$db2html.admon.graphics_extension"/><xsl:text>");
+    }
+    div[class~="note"] {
+      background-image: url("</xsl:text>
+      <xsl:value-of select="$db2html.admon.graphics_path"/>
+      <xsl:text>note</xsl:text>
+      <xsl:value-of select="$db2html.admon.graphics_extension"/><xsl:text>");
+    }
+    div[class~="tip"] {
+      background-image: url("</xsl:text>
+      <xsl:value-of select="$db2html.admon.graphics_path"/>
+      <xsl:text>tip</xsl:text>
+      <xsl:value-of select="$db2html.admon.graphics_extension"/><xsl:text>");
+    }
+    div[class~="warning"] {
+      background-image: url("</xsl:text>
+      <xsl:value-of select="$db2html.admon.graphics_path"/>
+      <xsl:text>warning</xsl:text>
+      <xsl:value-of select="$db2html.admon.graphics_extension"/><xsl:text>");
+    }
     div[class~="admonition"] {
       margin-left: 24px;
       margin-right: 24px;
-      clear: left;
+      padding-top: 4px;
+      padding-left: </xsl:text>
+      <xsl:value-of select="$db2html.admon.graphics_size + 8"/><xsl:text>px;
+      padding-right: 8px;
+      min-height: </xsl:text>
+      <xsl:value-of select="$db2html.admon.graphics_size + 4"/><xsl:text>px;
+      border: dotted </xsl:text>
+      <xsl:value-of select="$db2html.admon.border_color"/><xsl:text> 1px;
+      background-position: 4px 4px;
+      background-repeat: no-repeat;
     }
-    img[class~="admonition"] { float: left; }
+    div[class~="admonition"] &gt; p:first-child {
+      padding-top: 0px;
+      margin-top: 0px;
+    }
   </xsl:text>
 </xsl:template>
 

@@ -40,8 +40,8 @@
 <xsl:template name="db2html.table.css">
   <xsl:text>
     div[class~="table"] { margin-left: 24px; }
-    div[class~="table"] div[class~="title"] { margin-bottom: 0.2em; }
-    div[class~="table"] div[class~="title"] span[class~="label"] {
+    div[class~="table"] &gt; div[class~="title"] { margin-bottom: 0.2em; }
+    div[class~="table"] &gt; div[class~="title"] &gt; span[class~="label"] {
       margin-right: 0.8em;
       font-style: italic;
     }
@@ -57,10 +57,20 @@
     <xsl:text> }</xsl:text>
   </xsl:if>
   <xsl:text>
-    td { padding-left: 0.8em; padding-right: 0.8em; }
+    td {
+      padding-left: 0.8em;
+      padding-right: 0.8em;
+      padding-top: 4px;
+      padding-bottom: 4px;
+    }
     th { padding-left: 0.8em; padding-right: 0.8em; }
-    thead tr th {
-      border-bottom: solid 1px;
+    thead {
+      border-top: solid 2px;
+      border-bottom: solid 2px;
+    }
+    tfoot {
+      border-top: solid 2px;
+      border-bottom: solid 2px;
     }
     td + td {
       border-left: solid 1px;

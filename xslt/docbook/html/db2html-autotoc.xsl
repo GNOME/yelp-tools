@@ -119,6 +119,13 @@
     <ul>
       <xsl:apply-templates mode="db2html.autotoc.mode" select="$divisions">
         <xsl:with-param name="toc_depth" select="$toc_depth - 1"/>
+        <xsl:with-param name="divisions" select="
+             appendix   | article    | bibliography | chapter    |
+             colophon   | dedication | glossary     | glossdiv   |
+             index      | lot        | part         | preface    |
+             refentry   | reference  | sect1        | sect2      |
+             sect3      | sect4      | sect5        | section    |
+             setindex   | simplesect | toc          "/>
       </xsl:apply-templates>
     </ul>
   </div>

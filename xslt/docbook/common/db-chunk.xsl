@@ -9,6 +9,23 @@
 
 <doc:title>Chunking</doc:title>
 
+<!-- == db.chunk.chunks ==================================================== -->
+
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db.chunk.chunks</name>
+  <purpose>
+    A space-seperated list of the names of elements that should be chunked
+  </purpose>
+</parameter>
+
+<xsl:param name="db.chunk.chunks" select="
+           'appendix    article     bibliography  book       chapter
+            colophon    dedication  glossary      glossdiv   index
+            lot         part        preface       refentry   reference
+            sect1       sect2       sect3         sect4      sect5
+            section     setindex    simplesect    toc'"/>
+<xsl:variable name="db.chunk.chunks_" select="concat(' ', $db.chunk.chunks, ' ')"/>
+
 
 <!-- == db.chunk.chunk_top ================================================= -->
 
@@ -331,20 +348,9 @@
 
 <xsl:template name="db.chunk.depth-in-chunk">
   <xsl:param name="node" select="."/>
-  <xsl:variable name="divs" select="count(
-      $node/ancestor-or-self::appendix     | $node/ancestor-or-self::article      |
-      $node/ancestor-or-self::book         | $node/ancestor-or-self::bibliography |
-      $node/ancestor-or-self::chapter      | $node/ancestor-or-self::colophon     |
-      $node/ancestor-or-self::glossary     | $node/ancestor-or-self::index        |
-      $node/ancestor-or-self::part         | $node/ancestor-or-self::preface      |
-      $node/ancestor-or-self::reference    | $node/ancestor-or-self::refentry     |
-      $node/ancestor-or-self::refsect1     | $node/ancestor-or-self::refsect2     |
-      $node/ancestor-or-self::refsect3     | $node/ancestor-or-self::refsection   |
-      $node/ancestor-or-self::sect1        | $node/ancestor-or-self::sect2        |
-      $node/ancestor-or-self::sect3        | $node/ancestor-or-self::sect4        |
-      $node/ancestor-or-self::sect5        | $node/ancestor-or-self::section      |
-      $node/ancestor-or-self::set          | $node/ancestor-or-self::setindex     |
-      $node/ancestor-or-self::simplesect   )"/>
+  <xsl:variable name="divs"
+                select="count($node/ancestor-or-self::*
+                               [contains($db.chunk.chunks_, local-name(.))] )"/>
   <xsl:choose>
     <xsl:when test="$divs &lt; ($db.chunk.max_depth + 1)">
       <xsl:value-of select="count($node/ancestor-or-self::*) - $divs"/>
@@ -373,20 +379,9 @@
 
 <xsl:template name="db.chunk.depth-of-chunk">
   <xsl:param name="node" select="."/>
-  <xsl:variable name="divs" select="count(
-      $node/ancestor::appendix     | $node/ancestor::article      |
-      $node/ancestor::book         | $node/ancestor::bibliography |
-      $node/ancestor::chapter      | $node/ancestor::colophon     |
-      $node/ancestor::glossary     | $node/ancestor::index        |
-      $node/ancestor::part         | $node/ancestor::preface      |
-      $node/ancestor::reference    | $node/ancestor::refentry     |
-      $node/ancestor::refsect1     | $node/ancestor::refsect2     |
-      $node/ancestor::refsect3     | $node/ancestor::refsection   |
-      $node/ancestor::sect1        | $node/ancestor::sect2        |
-      $node/ancestor::sect3        | $node/ancestor::sect4        |
-      $node/ancestor::sect5        | $node/ancestor::section      |
-      $node/ancestor::set          | $node/ancestor::setindex     |
-      $node/ancestor::simplesect   )"/>
+  <xsl:variable name="divs"
+                select="count($node/ancestor::*
+                               [contains($db.chunk.chunks_, local-name(.))] )"/>
   <xsl:choose>
     <xsl:when test="$divs &lt; $db.chunk.max_depth">
       <xsl:value-of select="$divs"/>
@@ -426,8 +421,156 @@
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
   </xsl:param>
-  <xsl:value-of
-   select="string($node/ancestor-or-self::*[$depth_in_chunk + 1]/@id)"/>
+  <xsl:value-of select="string($node/ancestor-or-self::*[$depth_in_chunk + 1]/@id)"/>
+</xsl:template>
+
+
+<!-- == db.chunk.chunk-id.axis ============================================= -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db.chunk.chunk-id.axis</name>
+  <purpose>
+    Determine the id of the first chunk along a specified axis
+  </purpose>
+  <parameter>
+    <name>node</name>
+    <purpose>
+      The base element
+    </purpose>
+  </parameter>
+  <parameter>
+    <name>axis</name>
+    <purpose>
+      The axis along which to find the first chunk
+    </purpose>
+  </parameter>
+  <parameter>
+    <name>depth_in_chunk</name>
+    <purpose>
+      The depth of <parameter>node</parameter> in the containing chunk
+    </purpose>
+  </parameter>
+  <parameter>
+    <name>depth_of_chunk</name>
+    <purpose>
+      The depth of the containing chunk in the document
+    </purpose>
+  </parameter>
+</template>
+
+<xsl:template name="db.chunk.chunk-id.axis">
+  <xsl:param name="node" select="."/>
+  <xsl:param name="axis"/>
+  <xsl:param name="depth_in_chunk">
+    <xsl:call-template name="db.chunk.depth-in-chunk">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:call-template>
+  </xsl:param>
+  <xsl:param name="depth_of_chunk">
+    <xsl:call-template name="db.chunk.depth-of-chunk">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:call-template>
+  </xsl:param>
+  <xsl:choose>
+    <xsl:when test="depth_in_chunk != 0">
+      <xsl:call-template name="db.chunk.chunk-id.axis">
+        <xsl:with-param name="node" select="$node/ancestor::*[$depth_in_chunk]"/>
+        <xsl:with-param name="axis" select="$axis"/>
+        <xsl:with-param name="depth_in_chunk" select="0"/>
+        <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+      </xsl:call-template>
+    </xsl:when>
+    <!-- following -->
+    <xsl:when test="$axis = 'following'">
+      <xsl:variable name="divs"
+                    select="$node/following-sibling::*
+                             [contains($db.chunk.chunks_, local-name(.))]"/>
+      <xsl:choose>
+        <xsl:when test="$divs">
+          <xsl:value-of select="string($divs[1]/@id)"/>
+        </xsl:when>
+        <xsl:when test="$node/..">
+          <xsl:call-template name="db.chunk.chunk-id.axis">
+            <xsl:with-param name="node" select="$node/.."/>
+            <xsl:with-param name="axis" select="'following'"/>
+            <xsl:with-param name="depth_in_chunk" select="0"/>
+            <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk - 1"/>
+          </xsl:call-template>
+        </xsl:when>
+      </xsl:choose>
+    </xsl:when>
+    <!-- last-descendant -->
+    <xsl:when test="$axis = 'last-descendant'">
+      <xsl:variable name="divs"
+                    select="$node/*[contains($db.chunk.chunks_, local-name(.))]"/>
+      <xsl:choose>
+        <xsl:when test="($depth_of_chunk &gt;= $db.chunk.max_depth)">
+          <xsl:value-of select="string($node/@id)"/>
+        </xsl:when>
+        <xsl:when test="($depth_of_chunk + 1 = $db.chunk.max_depth) and $divs">
+          <xsl:value-of select="string($divs[last()]/@id)"/>
+        </xsl:when>
+        <xsl:when test="$divs">
+          <xsl:call-template name="db.chunk.chunk-id.axis">
+            <xsl:with-param name="node" select="$divs[last()]"/>
+            <xsl:with-param name="axis" select="'last-descendant'"/>
+            <xsl:with-param name="depth_in_chunk" select="0"/>
+            <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk + 1"/>
+          </xsl:call-template>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="string($node/@id)"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:when>
+    <!-- next -->
+    <xsl:when test="$axis = 'next'">
+      <xsl:variable name="divs"
+                    select="$node/*[contains($db.chunk.chunks_, local-name(.))]"/>
+      <xsl:choose>
+        <xsl:when test="($depth_of_chunk &lt; $db.chunk.max_depth) and $divs">
+          <xsl:value-of select="string($divs[1]/@id)"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:call-template name="db.chunk.chunk-id.axis">
+            <xsl:with-param name="node" select="$node"/>
+            <xsl:with-param name="axis" select="'following'"/>
+            <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
+            <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+          </xsl:call-template>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:when>
+    <!-- previous -->
+    <xsl:when test="$axis = 'previous'">
+      <xsl:variable name="divs"
+                    select="$node/preceding-sibling::*
+                             [contains($db.chunk.chunks_, local-name(.))]"/>
+      <xsl:choose>
+        <xsl:when test="$divs and ($depth_of_chunk &lt; $db.chunk.max_depth)">
+          <xsl:call-template name="db.chunk.chunk-id.axis">
+            <xsl:with-param name="node" select="$divs[last()]"/>
+            <xsl:with-param name="axis" select="'last-descendant'"/>
+            <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
+            <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+          </xsl:call-template>
+        </xsl:when>
+        <xsl:when test="$divs">
+          <xsl:value-of select="string($divs[last()]/@id)"/>
+        </xsl:when>
+        <xsl:when test="$node/..">
+          <xsl:value-of select="string($node/../@id)"/>
+        </xsl:when>
+      </xsl:choose>
+    </xsl:when>
+    <!-- unsupported -->
+    <xsl:otherwise>
+      <xsl:message>
+        <xsl:text>Unsupported axis: </xsl:text>
+        <xsl:value-of select="$axis"/>
+      </xsl:message>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
 

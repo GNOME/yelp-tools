@@ -35,6 +35,10 @@
     h3 span[class~="label"] { padding-right: 0.8em; }
     h4 span[class~="label"] { padding-right: 0.8em; }
     h5 span[class~="label"] { padding-right: 0.8em; }
+    div[class~="title"] &gt;span[class~="title"] &gt; span[class~="label"] {
+      margin-right: 0.8em;
+      font-style: italic;
+    }
   </xsl:text>
 </xsl:template>
 

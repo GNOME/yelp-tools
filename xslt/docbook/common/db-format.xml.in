@@ -222,6 +222,9 @@
     <_msg:msgstr>format.appendix.label</_msg:msgstr>
     <msg:msgstr xml:lang="C">
       <msg:msgstr role="header">%t{number}</msg:msgstr>
+      <msg:msgstr role="li">%t{number}</msg:msgstr>
+      <msg:msgstr role="title">%t{title}</msg:msgstr>
+      <msg:msgstr role="xref">Appendix %t{number} ― %t{title}</msg:msgstr>
       <msg:msgstr>Appendix %t{number}</msg:msgstr>
     </msg:msgstr>
   </msg:msg>
@@ -265,6 +268,9 @@
     <_msg:msgstr>format.chapter.label</_msg:msgstr>
     <msg:msgstr xml:lang="C">
       <msg:msgstr role="header">%t{number}</msg:msgstr>
+      <msg:msgstr role="li">%t{number}</msg:msgstr>
+      <msg:msgstr role="title">%t{title}</msg:msgstr>
+      <msg:msgstr role="xref">Chapter %t{number} ― %t{title}</msg:msgstr>
       <msg:msgstr>Chapter %t{number}</msg:msgstr>
     </msg:msgstr>
   </msg:msg>
@@ -306,7 +312,10 @@
   <msg:msg id="format.example.label">
     <!-- Example %t{number} -->
     <_msg:msgstr>format.example.label</_msg:msgstr>
-    <msg:msgstr xml:lang="C">Example %t{number}</msg:msgstr>
+    <msg:msgstr xml:lang="C">
+      <msg:msgstr role="title">%t{title}</msg:msgstr>
+      <msg:msgstr>Example %t{number}</msg:msgstr>
+    </msg:msgstr>
   </msg:msg>
   <msg:arg name="number">
     <xsl:call-template name="db.label.number">
@@ -346,7 +355,10 @@
   <msg:msg id="format.figure.label">
     <!-- Figure %t{number} -->
     <_msg:msgstr>format.figure.label</_msg:msgstr>
-    <msg:msgstr xml:lang="C">Figure %t{number}</msg:msgstr>
+    <msg:msgstr xml:lang="C">
+      <msg:msgstr role="title">%t{title}</msg:msgstr>
+      <msg:msgstr>Figure %t{number}</msg:msgstr>
+    </msg:msgstr>
   </msg:msg>
   <msg:arg name="number">
     <xsl:call-template name="db.label.number">
@@ -388,6 +400,9 @@
     <_msg:msgstr>format.section.label</_msg:msgstr>
     <msg:msgstr xml:lang="C">
       <msg:msgstr role="header">%t{number}</msg:msgstr>
+      <msg:msgstr role="li">%t{number}</msg:msgstr>
+      <msg:msgstr role="title">%t{title}</msg:msgstr>
+      <msg:msgstr role="xref">Section %t{number} ― %t{title}</msg:msgstr>
       <msg:msgstr>Section %t{number}</msg:msgstr>
     </msg:msgstr>
   </msg:msg>
@@ -429,7 +444,10 @@
   <msg:msg id="format.table.label">
     <!-- Table %t{number} -->
     <_msg:msgstr>format.table.label</_msg:msgstr>
-    <msg:msgstr xml:lang="C">Table %t{number}</msg:msgstr>
+    <msg:msgstr xml:lang="C">
+      <msg:msgstr role="title">%t{title}</msg:msgstr>
+      <msg:msgstr>Table %t{number}</msg:msgstr>
+    </msg:msgstr>
   </msg:msg>
   <msg:arg name="number">
     <xsl:call-template name="db.label.number">
