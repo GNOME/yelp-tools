@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-10 00:57-0500\n"
-"PO-Revision-Date: 2004-12-10 20:44-0400\n"
+"POT-Creation-Date: 2004-12-23 10:39-0500\n"
+"PO-Revision-Date: 2004-12-23 20:44-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@FreeBSD.org>\n"
 "MIME-Version: 1.0\n"
@@ -65,40 +65,65 @@ msgstr "format.figure.number"
 msgid "format.figure.number.flat"
 msgstr "format.figure.number.flat"
 
-#. ‘%t{node}’
+#. (%t{node})
 #: xslt/docbook/common/db-format.xml.in.h:21
+msgid "format.manvolnum"
+msgstr "format.manvolnum"
+
+#. Part %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:23
+msgid "format.part.label"
+msgstr "format.part.label"
+
+#. %I{number}
+#: xslt/docbook/common/db-format.xml.in.h:25
+msgid "format.part.number"
+msgstr "format.part.number"
+
+#. ‘%t{node}’
+#: xslt/docbook/common/db-format.xml.in.h:27
 msgid "format.quote.inner"
 msgstr "format.quote.inner"
 
 #. “%t{node}”
-#: xslt/docbook/common/db-format.xml.in.h:23
+#: xslt/docbook/common/db-format.xml.in.h:29
 msgid "format.quote.outer"
 msgstr "format.quote.outer"
 
+#. Refentry %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:31
+msgid "format.refentry.label"
+msgstr "format.refentry.label"
+
 #. Section %t{number}
-#: xslt/docbook/common/db-format.xml.in.h:25
+#: xslt/docbook/common/db-format.xml.in.h:33
 msgid "format.section.label"
 msgstr "format.section.label"
 
 #. Table %t{number}
-#: xslt/docbook/common/db-format.xml.in.h:27
+#: xslt/docbook/common/db-format.xml.in.h:35
 msgid "format.table.label"
 msgstr "format.table.label"
 
 #. %t{parent}-%1{number}
-#: xslt/docbook/common/db-format.xml.in.h:29
+#: xslt/docbook/common/db-format.xml.in.h:37
 msgid "format.table.number"
 msgstr "format.table.number"
 
 #. %1{number}
-#: xslt/docbook/common/db-format.xml.in.h:31
+#: xslt/docbook/common/db-format.xml.in.h:39
 msgid "format.table.number.flat"
 msgstr "format.table.number.flat"
 
-#. Read the definition for ‘%s{node}’.
-#: xslt/docbook/common/db-format.xml.in.h:33
+#. Read the definition for ‘%s{node}’
+#: xslt/docbook/common/db-format.xml.in.h:41
 msgid "format.tooltip.glossentry"
 msgstr "format.tooltip.glossentry"
+
+#. Send email to ‘%s{address}’
+#: xslt/docbook/common/db-format.xml.in.h:43
+msgid "format.tooltip.mailto"
+msgstr "format.tooltip.mailto"
 
 #. Used as a header before a list of authors.
 #: xslt/gettext/l10n.xml.in.h:2
