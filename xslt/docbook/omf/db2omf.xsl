@@ -499,10 +499,10 @@
       <xsl:text>db2omf: Missing abstract element with role description</xsl:text>
     </xsl:message>
   </xsl:if>
-  <purpose>
+  <description>
     <!-- FIXME: a smarter textification would be good -->
     <xsl:value-of select="$description"/>
-  </purpose>
+  </description>
 </xsl:template>
 
 

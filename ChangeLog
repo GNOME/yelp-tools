@@ -1,3 +1,8 @@
+2004-11-21  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/omf/db2omf.xsl:
+	- OMF has description, not purpose.  Bad search and replace.
+
 2004-11-21  Danilo Šegan  <dsegan@gmx.net>
 
 	* gnome-doc-utils.make: Use "scrollkeeper-config" to find
