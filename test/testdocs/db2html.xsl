@@ -5,24 +5,8 @@
 
 <xsl:import href="../../xslt/docbook/html/db2html.xsl"/>
 
-<!--
-<xsl:template match="/*/*[1]/title | /*/title">
-  <xsl:param name="title_for" select=".."/>
-  <xsl:param name="depth_in_chunk">
-    <xsl:call-template name="db.chunk.depth-in-chunk"/>
-  </xsl:param>
-  <xsl:call-template name="db2html.title.header">
-    <xsl:with-param name="title_for" select="$title_for"/>
-    <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
-  </xsl:call-template>
-  <pre style="margin: 0.8em; padding: 0.8em; background-color: #9EB6D1;">
-    <xsl:apply-templates mode="source.mode" select="/"/>
-  </pre>
-</xsl:template>
--->
-
 <xsl:template match="/*/*[preceding-sibling::*][name(.) != 'title']">
-  <pre style="margin: 0.8em; padding: 0.8em; background-color: #9EB6D1;">
+  <pre style="margin: 16px; padding: 0.8em; background-color: #9EB6D1; -moz-border-radius: 8px;">
     <xsl:apply-templates mode="source.mode" select="."/>
   </pre>
   <xsl:apply-imports/>

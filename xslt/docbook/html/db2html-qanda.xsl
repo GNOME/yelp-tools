@@ -8,10 +8,39 @@
 <doc:title>Question and Answer Sets</doc:title>
 
 
+<!-- == db2html.qanda.css ================================================== -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.qanda.css</name>
+  <description>
+    Create CSS for the qanda elements
+  </description>
+</template>
+
+<xsl:template name="db2html.qanda.css">
+  <xsl:text>
+    dl[class~="qandaset"] dt + dd { margin-top: -8px; }
+    dt[class~="question"] { margin-left: 0px; }
+    dt[class~="question"] div[class~="label"] {
+      float: right;
+      margin-right: 1em;
+    }
+    dd[class~="answer"] { margin-left: 12px; }
+    dt[class~="answer"] div[class~="label"] {
+      float: right;
+      margin-right: 1em;
+    }
+  </xsl:text>
+</xsl:template>
+
+
 <!-- == Matched Templates ================================================== -->
 
 <xsl:template match="answer">
   <dd class="answer">
+    <div class="label">
+      <xsl:call-template name="db.label"/>
+    </div>
     <xsl:apply-templates/>
   </dd>
 </xsl:template>
@@ -60,7 +89,10 @@
 
 <xsl:template match="question">
   <dt class="question">
-    <xsl:call-template name="db.label"/>
+    <!-- FIXME -->
+    <div class="label">
+      <xsl:call-template name="db.label"/>
+    </div>
     <xsl:apply-templates/>
   </dt>
 </xsl:template>

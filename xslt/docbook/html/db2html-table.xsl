@@ -39,7 +39,7 @@
 
 <xsl:template name="db2html.table.css">
   <xsl:text>
-    div[class~="table"] { margin-left: 28px; }
+    div[class~="table"] { margin-left: 24px; }
     div[class~="table"] div[class~="title"] span[class~="title"] {
       padding-top: 2px;
       padding-left: 0.4em;

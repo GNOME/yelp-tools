@@ -88,6 +88,21 @@
   </xsl:call-template>
 </xsl:template>
 
+<xsl:template mode="db.label.mode" match="example">
+  <xsl:param name="role"/>
+  <xsl:param name="depth_in_chunk">
+    <xsl:call-template name="db.chunk.depth-in-chunk">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:call-template>
+  </xsl:param>
+  <xsl:call-template name="format.example.label">
+    <xsl:with-param name="node" select="."/>
+    <xsl:with-param name="role" select="$role"/>
+    <xsl:with-param name="lang" select="ancestor-or-self::*[@lang][1]/@lang"/>
+    <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
+  </xsl:call-template>
+</xsl:template>
+
 <xsl:template mode="db.label.mode" match="figure">
   <xsl:param name="role"/>
   <xsl:param name="depth_in_chunk">
@@ -136,6 +151,7 @@
   </xsl:call-template>
 </xsl:template>
 
+
 <xsl:template mode="db.label.mode" match="
               appendix | article  | book     | bibliography |
               colophon | example  | glossary     | index     |
@@ -150,7 +166,7 @@
 </xsl:template>
 
 <xsl:template mode="db.label.mode" match="answer | question">
-  <xsl:param name="role"/>
+  <xsl:param name="role" select="@role"/>
   <xsl:variable name="qandaset" select="ancestor::qandaset[1]"/>
   <!-- FIXME -->
   <xsl:choose>
@@ -159,9 +175,14 @@
     </xsl:when>
     <xsl:when test="$qandaset/@defaultlabel = 'none'"/>
     <xsl:when test="$qandaset/@defaultlabel = 'qanda'">
-      <xsl:call-template name="db.label.name"/>
+      <xsl:call-template name="gettext">
+        <xsl:with-param name="msgid" select="'Q:'"/>
+      </xsl:call-template>
     </xsl:when>
     <xsl:otherwise>
+      <xsl:call-template name="gettext">
+        <xsl:with-param name="msgid" select="'Q:'"/>
+      </xsl:call-template>
       <xsl:call-template name="db.label.number"/>
     </xsl:otherwise>
   </xsl:choose>

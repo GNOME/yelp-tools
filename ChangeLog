@@ -1,3 +1,20 @@
+2004-10-28  Shaun McCance  <shaunm@gnome.org>
+
+	* test/testdocs/db2html.xsl:
+	* xslt/docbook/common/db-format.xml.in:
+	* xslt/docbook/common/db-label.xsl:
+	* xslt/docbook/html/db2html-admon.xsl:
+	* xslt/docbook/html/db2html-block.xsl:
+	* xslt/docbook/html/db2html-css.xsl:
+	* xslt/docbook/html/db2html-qanda.xsl:
+	* xslt/docbook/html/db2html-table.xsl:
+	* xslt/docbook/html/db2html-title.xsl:
+	- Example label formatter
+	- Stylistic improvements
+
+	* xslt/gettext/gettext.xsl:
+	- Fixed typo
+
 2004-10-21  Shaun McCance  <shaunm@gnome.org>
 
 	* doc/xslt/Makefile.am:

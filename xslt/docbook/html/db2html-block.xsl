@@ -126,14 +126,26 @@
 
 <xsl:template name="db2html.block.css">
   <xsl:text>
-    div[class~="figure"] { margin-left: 28px; }
+    div[class~="figure"] { margin-left: 24px; margin-right: 12px; }
     div[class~="figure"] div[class~="title"] span[class~="label"] {
       margin-right: 0.8em;
       font-style: italic;
     }
-    pre[class~="programlisting"] { margin-left: 28px; overflow: auto; }
-    pre[class~="screen"]         { margin-left: 28px; overflow: auto; }
-    pre[class~="synopsis"]       { margin-left: 28px; overflow: auto; }
+    pre[class~="programlisting"] {
+      margin-left: 24px;
+      margin-right: 12px;
+      overflow: auto;
+    }
+    pre[class~="screen"] {
+      margin-left: 24px;
+      margin-right: 12px;
+      overflow: auto;
+    }
+    pre[class~="synopsis"] {
+      margin-left: 24px;
+      margin-right: 12px;
+      overflow: auto;
+    }
     pre[class~="linenumbering"] {
       <!-- This margin is important to get the line numbering
       to line up vertically with the content. -->
@@ -145,7 +157,7 @@
       padding-right: 0.4em;
       padding-left: 0.4em;
     }
-    blockquote[class~="blockquote"] { margin-left: 28px; }
+    blockquote[class~="blockquote"] { margin-left: 24px; margin-right: 12px; }
     dt[class~="glossterm"] { margin-left: 8px; }
     dt[class~="glossterm"] + dd { margin-top: -8px; }
     dd[class~="glossdef"]     { margin-left: 24px; margin-right: 12px; }

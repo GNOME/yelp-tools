@@ -22,13 +22,11 @@
     h1 {
       font-size: 1.6em;
       margin-top: 0em;
-      margin-left: -8px;
     }
     h2 {
       font-size: 1.4em;
       margin-top: 1.8em;
       border-bottom: solid 1px;
-      margin-left: -8px;
     }
     h2 span[class~="label"] {
       float: right;
@@ -38,9 +36,11 @@
       padding-bottom: 8px;
       border-left: solid 1px;
     }
-    h3 { font-size: 1.2em; margin-top: 1.8em; margin-left: -8px; }
-    h4 { font-size: 1.2em; margin-top: 1.2em; margin-left: -8px; }
-    h5 { font-size: 1.0em; margin-top: 1.2em; margin-left: -8px; }
+    h3 { font-size: 1.2em; margin-top: 1.8em; }
+    h3 span[class~="title"] { border-bottom: solid 1px; }
+    h4 { font-size: 1.2em; margin-top: 1.2em; }
+    h4 span[class~="title"] { border-bottom: solid 1px; }
+    h5 { font-size: 1.0em; margin-top: 1.2em; }
   </xsl:text>
 </xsl:template>
 

@@ -21,6 +21,7 @@
     <xsl:call-template name="db2html.block.css"/>
     <xsl:call-template name="db2html.callout.css"/>
     <xsl:call-template name="db2html.list.css"/>
+    <xsl:call-template name="db2html.qanda.css"/>
     <xsl:call-template name="db2html.table.css"/>
     <xsl:call-template name="db2html.title.css"/>
     body {

@@ -122,6 +122,7 @@
   </xsl:if>
 </xsl:param>
 
+
 <!-- == gettext ============================================================ -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
@@ -424,7 +425,7 @@
   </xsl:param>
 
   <xsl:choose>
-    <xsl:when test="$num = 1">
+    <xsl:when test="$number = 1">
       <xsl:text>singular</xsl:text>
     </xsl:when>
     <xsl:otherwise>
