@@ -521,6 +521,7 @@ libxml2.registerErrorHandler(xml_error_handler, None)
 
 
 # Main program start
+if __name__ != '__main__': raise NotImplementedError
 
 # Parameters
 submodes_path = "/home/danilo/cvs/i18n/xml2po/modes"

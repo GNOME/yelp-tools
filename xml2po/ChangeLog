@@ -1,5 +1,9 @@
 2004-12-07  Danilo Šegan  <dsegan@gmx.net>
 
+	* xml2po.py: Not usable as a module (if __name__!='__main__').
+
+2004-12-07  Danilo Šegan  <dsegan@gmx.net>
+
 	Fix for #160354 by Satoru Saho <ss@gnome.gr.jp>.
 	
 	* xml2po.py (usage): Separate usage message.
