@@ -154,15 +154,15 @@ db2omf_args =									\
 	--stringparam db2omf.format $(3)					\
 	--stringparam db2omf.dtd						\
 	$(shell grep -h PUBLIC $(2) | head -n 1 | sed -e 's/.*PUBLIC //')	\
-	--stringparam db2omf.lang $(dir $(2))					\
-	--stringparam db2omf.omf_dir $(OMF_DIR)					\
-	--stringparam db2omf.help_dir $(HELP_DIR)				\
-	--stringparam db2omf.omf_in $(srcdir)/$(_DOC_OMF_IN)			\
+	--stringparam db2omf.lang $(patsubst %/$(notdir $(2)),%,$(2))		\
+	--stringparam db2omf.omf_dir "$(OMF_DIR)"				\
+	--stringparam db2omf.help_dir "$(HELP_DIR)"				\
+	--stringparam db2omf.omf_in "`pwd`/$(_DOC_OMF_IN)"			\
 	$(_db2omf) $(2)
 
 ## @ _DOC_OMF_IN
 ## The OMF input file
-_DOC_OMF_IN = $(if $(DOC_MODULE),$(wildcard $(DOC_MODULE).omf.in))
+_DOC_OMF_IN = $(if $(DOC_MODULE),$(wildcard $(srcdir)/$(DOC_MODULE).omf.in))
 
 ## @ _DOC_OMF_DB
 ## The OMF files for DocBook output
@@ -198,7 +198,7 @@ omf: $(_DOC_OMF_ALL)
 
 ## @ _DOC_DSK_IN
 ## The desktop entry input file
-_DOC_DSK_IN = $(if $(DOC_MODULE),$(wildcard $(DOC_MODULE).desktop.in))
+_DOC_DSK_IN = $(if $(DOC_MODULE),$(wildcard $(srcdir)/$(DOC_MODULE).desktop.in))
 
 ## @ _DOC_DSK_DB
 ## The desktop entry files for DocBook output

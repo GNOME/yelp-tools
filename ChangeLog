@@ -1,3 +1,10 @@
+2004-11-07  Shaun McCance  <shaunm@gnome.org>
+
+	* gnome-doc-utils.make:
+	* xslt/docbook/omf/db2omf.xsl:
+	* xslt/gettext/Makefile.am:
+	- srcdir fixes
+
 2004-10-31  Shaun McCance  <shaunm@gnome.org>
 
 	* Makefile.am:

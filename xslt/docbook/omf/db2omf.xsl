@@ -24,6 +24,18 @@
 <xsl:param name="db2omf.basename"/>
 
 
+<!-- == db2omf.format ====================================================== -->
+
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2omf.format</name>
+  <description>
+    The format of the referenced document
+  </description>
+</parameter>
+
+<xsl:param name="db2omf.format"/>
+
+
 <!-- == db2omf.mime ======================================================== -->
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
@@ -119,46 +131,46 @@
 		       = 'info']"/>
   <omf>
     <resource>
-      <xsl:call-template name="db2omf.creator">
+      <xsl:call-template name="db2omf.omf.creator">
         <xsl:with-param name="info" select="$info"/>
       </xsl:call-template>
-      <xsl:call-template name="db2omf.maintainer">
+      <xsl:call-template name="db2omf.omf.maintainer">
         <xsl:with-param name="info" select="$info"/>
       </xsl:call-template>
-      <xsl:call-template name="db2omf.contributor">
+      <xsl:call-template name="db2omf.omf.contributor">
         <xsl:with-param name="info" select="$info"/>
       </xsl:call-template>
-      <xsl:call-template name="db2omf.title">
+      <xsl:call-template name="db2omf.omf.title">
         <xsl:with-param name="info" select="$info"/>
       </xsl:call-template>
-      <xsl:call-template name="db2omf.date">
+      <xsl:call-template name="db2omf.omf.date">
         <xsl:with-param name="info" select="$info"/>
       </xsl:call-template>
-      <xsl:call-template name="db2omf.version">
+      <xsl:call-template name="db2omf.omf.version">
         <xsl:with-param name="info" select="$info"/>
       </xsl:call-template>
-      <xsl:call-template name="db2omf.subject">
+      <xsl:call-template name="db2omf.omf.subject">
         <xsl:with-param name="info" select="$info"/>
       </xsl:call-template>
-      <xsl:call-template name="db2omf.description">
+      <xsl:call-template name="db2omf.omf.description">
         <xsl:with-param name="info" select="$info"/>
       </xsl:call-template>
-      <xsl:call-template name="db2omf.type">
+      <xsl:call-template name="db2omf.omf.type">
         <xsl:with-param name="info" select="$info"/>
       </xsl:call-template>
-      <xsl:call-template name="db2omf.format">
+      <xsl:call-template name="db2omf.omf.format">
         <xsl:with-param name="info" select="$info"/>
       </xsl:call-template>
-      <xsl:call-template name="db2omf.identifier">
+      <xsl:call-template name="db2omf.omf.identifier">
         <xsl:with-param name="info" select="$info"/>
       </xsl:call-template>
-      <xsl:call-template name="db2omf.language">
+      <xsl:call-template name="db2omf.omf.language">
         <xsl:with-param name="info" select="$info"/>
       </xsl:call-template>
-      <xsl:call-template name="db2omf.relation">
+      <xsl:call-template name="db2omf.omf.relation">
         <xsl:with-param name="info" select="$info"/>
       </xsl:call-template>
-      <xsl:call-template name="db2omf.rights">
+      <xsl:call-template name="db2omf.omf.rights">
         <xsl:with-param name="info" select="$info"/>
       </xsl:call-template>
     </resource>
@@ -166,10 +178,10 @@
 </xsl:template>
 
 
-<!-- == db2omf.creator ===================================================== -->
+<!-- == db2omf.omf.creator ================================================= -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.creator</name>
+  <name>db2omf.omf.creator</name>
   <description>
     Generate all <xmltag>creator</xmltag> elements
   </description>
@@ -181,7 +193,7 @@
   </parameter>
 </template>
 
-<xsl:template name="db2omf.creator">
+<xsl:template name="db2omf.omf.creator">
   <xsl:param name="info"
              select="*[substring(local-name(.), string-length(local-name(.)) - 3)
                        = 'info']"/>
@@ -219,10 +231,10 @@
 </xsl:template>
 
 
-<!-- == db2omf.maintainer ================================================== -->
+<!-- == db2omf.omf.maintainer ============================================== -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.maintainer</name>
+  <name>db2omf.omf.maintainer</name>
   <description>
     Generate all <xmltag>maintainer</xmltag> elements
   </description>
@@ -234,7 +246,7 @@
   </parameter>
 </template>
 
-<xsl:template name="db2omf.maintainer">
+<xsl:template name="db2omf.omf.maintainer">
   <xsl:param name="info"
              select="*[substring(local-name(.), string-length(local-name(.)) - 3)
                        = 'info']"/>
@@ -275,10 +287,10 @@
 </xsl:template>
 
 
-<!-- == db2omf.contributor ================================================= -->
+<!-- == db2omf.omf.contributor ============================================= -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.contributor</name>
+  <name>db2omf.omf.contributor</name>
   <description>
     Generate all <xmltag>contributor</xmltag> elements
   </description>
@@ -290,7 +302,7 @@
   </parameter>
 </template>
 
-<xsl:template name="db2omf.contributor">
+<xsl:template name="db2omf.omf.contributor">
   <xsl:param name="info"
              select="*[substring(local-name(.), string-length(local-name(.)) - 3)
                        = 'info']"/>
@@ -323,10 +335,10 @@
 </xsl:template>
 
 
-<!-- == db2omf.title ======================================================= -->
+<!-- == db2omf.omf.title =================================================== -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.title</name>
+  <name>db2omf.omf.title</name>
   <description>
     Generate the <xmltag>title</xmltag> element
   </description>
@@ -338,7 +350,7 @@
   </parameter>
 </template>
 
-<xsl:template name="db2omf.title">
+<xsl:template name="db2omf.omf.title">
   <xsl:param name="info"
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
 		       = 'info']"/>
@@ -354,10 +366,10 @@
 </xsl:template>
 
 
-<!-- == db2omf.date ======================================================== -->
+<!-- == db2omf.omf.date ==================================================== -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.date</name>
+  <name>db2omf.omf.date</name>
   <description>
     Generate the <xmltag>date</xmltag> element
   </description>
@@ -369,7 +381,7 @@
   </parameter>
 </template>
 
-<xsl:template name="db2omf.date">
+<xsl:template name="db2omf.omf.date">
   <xsl:param name="info"
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
 		       = 'info']"/>
@@ -385,10 +397,10 @@
 </xsl:template>
 
 
-<!-- == db2omf.version ===================================================== -->
+<!-- == db2omf.omf.version ================================================= -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.version</name>
+  <name>db2omf.omf.version</name>
   <description>
     Generate the <xmltag>version</xmltag> element
   </description>
@@ -400,7 +412,7 @@
   </parameter>
 </template>
 
-<xsl:template name="db2omf.version">
+<xsl:template name="db2omf.omf.version">
   <xsl:param name="info"
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
 		       = 'info']"/>
@@ -432,10 +444,10 @@
 </xsl:template>
 
 
-<!-- == db2omf.subject ===================================================== -->
+<!-- == db2omf.omf.subject ================================================= -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.subject</name>
+  <name>db2omf.omf.subject</name>
   <description>
     Generate the <xmltag>subject</xmltag> element
   </description>
@@ -447,7 +459,7 @@
   </parameter>
 </template>
 
-<xsl:template name="db2omf.subject">
+<xsl:template name="db2omf.omf.subject">
   <xsl:param name="info"
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
 		       = 'info']"/>
@@ -462,10 +474,10 @@
 </xsl:template>
 
 
-<!-- == db2omf.description ================================================= -->
+<!-- == db2omf.omf.description ============================================= -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.description</name>
+  <name>db2omf.omf.description</name>
   <description>
     Generate the <xmltag>description</xmltag> element
   </description>
@@ -477,7 +489,7 @@
   </parameter>
 </template>
 
-<xsl:template name="db2omf.description">
+<xsl:template name="db2omf.omf.description">
   <xsl:param name="info"
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
 		       = 'info']"/>
@@ -494,10 +506,10 @@
 </xsl:template>
 
 
-<!-- == db2omf.type ======================================================== -->
+<!-- == db2omf.omf.type ==================================================== -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.type</name>
+  <name>db2omf.omf.type</name>
   <description>
     Generate the <xmltag>type</xmltag> element
   </description>
@@ -509,7 +521,7 @@
   </parameter>
 </template>
 
-<xsl:template name="db2omf.type">
+<xsl:template name="db2omf.omf.type">
   <xsl:param name="info"
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
 		       = 'info']"/>
@@ -526,10 +538,10 @@
 </xsl:template>
 
 
-<!-- == db2omf.format ====================================================== -->
+<!-- == db2omf.omf.format ================================================== -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.format</name>
+  <name>db2omf.omf.format</name>
   <description>
     Generate the <xmltag>format</xmltag> element
   </description>
@@ -541,7 +553,7 @@
   </parameter>
 </template>
 
-<xsl:template name="db2omf.format">
+<xsl:template name="db2omf.omf.format">
   <xsl:param name="info"
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
 		       = 'info']"/>
@@ -555,7 +567,7 @@
           <xsl:value-of select="$db2omf.dtd"/>
         </xsl:attribute>
       </xsl:when>
-      <xsl:when test="$dbomf.mime = 'text/html'">
+      <xsl:when test="$db2omf.mime = 'text/html'">
         <xsl:attribute name="mime">
           <xsl:value-of select="text/html"/>
         </xsl:attribute>
@@ -574,10 +586,10 @@
 </xsl:template>
 
 
-<!-- == db2omf.identifier ================================================== -->
+<!-- == db2omf.omf.identifier ============================================== -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.identifier</name>
+  <name>db2omf.omf.identifier</name>
   <description>
     Generate the <xmltag>identifier</xmltag> element
   </description>
@@ -589,7 +601,7 @@
   </parameter>
 </template>
 
-<xsl:template name="db2omf.identifier">
+<xsl:template name="db2omf.omf.identifier">
   <xsl:param name="info"
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
 		       = 'info']"/>
@@ -612,7 +624,7 @@
         <xsl:when test="$db2omf.format = 'docbook'">
           <xsl:text>.xml</xsl:text>
         </xsl:when>
-        <xsl:when test="$dbomf.format = 'html'">
+        <xsl:when test="$db2omf.format = 'html'">
           <xsl:text>.html</xsl:text>
         </xsl:when>
         <xsl:otherwise>
@@ -627,10 +639,10 @@
 </xsl:template>
 
 
-<!-- == db2omf.language ==================================================== -->
+<!-- == db2omf.omf.language ================================================ -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.language</name>
+  <name>db2omf.omf.language</name>
   <description>
     Generate the <xmltag>language</xmltag> element
   </description>
@@ -642,7 +654,7 @@
   </parameter>
 </template>
 
-<xsl:template name="db2omf.language">
+<xsl:template name="db2omf.omf.language">
   <xsl:param name="info"
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
 		       = 'info']"/>
@@ -650,10 +662,10 @@
 </xsl:template>
 
 
-<!-- == db2omf.relation ==================================================== -->
+<!-- == db2omf.omf.relation ================================================ -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.relation</name>
+  <name>db2omf.omf.relation</name>
   <description>
     Generate the <xmltag>relation</xmltag> element
   </description>
@@ -665,7 +677,7 @@
   </parameter>
 </template>
 
-<xsl:template name="db2omf.relation">
+<xsl:template name="db2omf.omf.relation">
   <xsl:param name="info"
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
 		       = 'info']"/>
@@ -680,10 +692,10 @@
 </xsl:template>
 
 
-<!-- == db2omf.rights ====================================================== -->
+<!-- == db2omf.omf.rights ================================================== -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.rights</name>
+  <name>db2omf.omf.rights</name>
   <description>
     Generate the <xmltag>rights</xmltag> element
   </description>
@@ -695,7 +707,7 @@
   </parameter>
 </template>
 
-<xsl:template name="db2omf.rights">
+<xsl:template name="db2omf.omf.rights">
   <xsl:param name="info"
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
 		       = 'info']"/>
