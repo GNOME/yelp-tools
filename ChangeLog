@@ -1,6 +1,11 @@
 2004-11-24  Shaun McCance  <shaunm@gnome.org>
 
 	* gnome-doc-utils.make:
+	- Fixed my own stupidity
+
+2004-11-24  Shaun McCance  <shaunm@gnome.org>
+
+	* gnome-doc-utils.make:
 	- Adding a missing \
 
 	* xslt/docbook/html/db2html-css.xsl:
