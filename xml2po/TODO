@@ -13,9 +13,9 @@ TODO:
  o write extensive test suite                                             [R1]
    this is a must before release, so we've got invariant to compare to
 
- o support for redefining DTD or parts of it [Keld]
+ o support for redefining DTD or parts of it [Karl]
 
- o add "#. tag: title" for <title> tags [Keld]
+ o add "#. tag: title" for <title> tags [Karl]
 
  o add support for translating attributes (eg. imagine "title"            [??]
    attribute in IMG tag in XHTML) -- this should be easy enough

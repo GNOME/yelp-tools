@@ -1,3 +1,10 @@
+2004-09-15  Danilo Šegan  <dsegan@gmx.net>
+
+	* TODO (TODO): Uhm, it was Karl Eichwalder who proposed these, not
+	Keld (embarrasment never ends!).
+
+	* xml2po.py: Remove embarrasing debugging printouts.
+
 2004-09-14  Danilo Šegan  <dsegan@gmx.net>
 
 	* xml2po.py (normalizeString): Fix the crash below: this now
