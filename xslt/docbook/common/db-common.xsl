@@ -172,41 +172,4 @@
   </xsl:if>
 </xsl:template>
 
-
-<!-- == db.xref.target ===================================================== -->
-
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db.xref.target</name>
-  <description>
-    Create a URL for a target element
-  </description>
-  <parameter>
-    <name>linkend</name>
-    <description>
-      The id of the target element
-    </description>
-  </parameter>
-  <parameter>
-    <name>target</name>
-    <description>
-      The target element
-    </description>
-  </parameter>
-</template>
-
-<xsl:template name="db.xref.target">
-  <xsl:param name="linkend" select="@linkend"/>
-  <xsl:param name="target" select="id($linkend)"/>
-  <xsl:variable name="chunk_id">
-    <xsl:call-template name="db.chunk.chunk-id">
-      <xsl:with-param name="node" select="$target"/>
-    </xsl:call-template>
-  </xsl:variable>
-  <xsl:value-of select="concat($chunk_id, $db.chunk.extension)"/>
-  <xsl:if test="$linkend and (string($chunk_id) != $linkend)">
-    <xsl:text>#</xsl:text>
-    <xsl:value-of select="$linkend"/>
-  </xsl:if>
-</xsl:template>
-
 </xsl:stylesheet>

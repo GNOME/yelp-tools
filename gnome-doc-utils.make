@@ -31,7 +31,8 @@ $(DOC_H_FILE): $(DOC_H_DOCS);
 	  echo >> $@; \
 	done;
 
-dist-header:
+.PHONY: dist-header
+dist-header: $(DOC_H_FILE)
 	$(INSTALL_DATA) $(DOC_H_FILE) $(distdir)/$(DOC_H_FILE)
 
 doc-dist-hook: $(if $(DOC_H_FILE),dist-header)
@@ -316,7 +317,7 @@ echo-po:
 
 # FIXME: fix the dependancy
 # FIXME: hook xml2po up
-$(_DOC_LC_DOCS) : $(DOC_LINGUAS)
+$(_DOC_LC_DOCS) : $(_DOC_POFILES)
 $(_DOC_LC_DOCS) : $(_DOC_C_DOCS)
 	cp C/$(notdir $@) $@
 
@@ -328,13 +329,6 @@ $(_DOC_LC_DOCS) : $(_DOC_C_DOCS)
 ## All HTML documentation, only if it's built
 _DOC_HTML_ALL = $(if $(findstring html,$(_DOC_REAL_FORMATS)), \
 	$(_DOC_C_HTML) $(_DOC_LC_HTML))
-
-## @ _DOC_ALL
-## All files distributed, built, or installed
-_DOC_ALL =								\
-	$(_DOC_C_DOCS)		$(_DOC_LC_DOCS)				\
-	$(_DOC_OMF_ALL)		$(_DOC_DSK_ALL)				\
-	$(_DOC_HTML_ALL)	$(_DOC_POFILES)
 
 
 ################################################################################
@@ -368,28 +362,29 @@ maintainer-clean:					\
 
 .PHONY: dist-docs dist-omf dist-dsk
 
-dist-docs:
+dist-docs: $(_DOC_C_DOCS) $(_DOC_LC_DOCS) $(_DOC_POFILES)
 	for lc in C $(DOC_LINGUAS); do \
 	  $(mkinstalldirs) $(distdir)/$$lc; \
-	  touch $(distdir)/$$lc/foo; \
 	done
-	echo dist-docs
-	echo $(_DOC_C_DOCS)
-	echo $(_DOC_LC_DOCS)
-	echo $(_DOC_POFILES)
+	for doc in $(_DOC_C_DOCS) $(_DOC_LC_DOCS) $(_DOC_POFILES); do \
+	  $(INSTALL_DATA) $$doc $(distdir)/$$doc; \
+	done
 
 dist-omf:
-	echo dist-omf
+	$(INSTALL_DATA) $(_DOC_OMF_IN) $(distdir)/$(_DOC_OMF_IN)
 
 dist-dsk:
-	echo dist-dsk
+	$(INSTALL_DATA) $(_DOC_DSK_IN) $(distdir)/$(_DOC_DSK_IN)
 
 doc-dist-hook: 					\
 	$(if $(DOC_MODULE),dist-docs)		\
 	$(if $(_DOC_OMF_IN),dist-omf)		\
 	$(if $(_DOC_DSK_IN),dist-dsk)
 
-all: $(_DOC_ALL)
+all:							\
+	$(_DOC_C_DOCS)		$(_DOC_LC_DOCS)		\
+	$(_DOC_OMF_ALL)		$(_DOC_DSK_ALL)		\
+	$(_DOC_HTML_ALL)	$(_DOC_POFILES)
 
 .PHONY: check-doc check-omf
 check: check-doc check-omf

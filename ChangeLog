@@ -1,3 +1,11 @@
+2004-09-22  Shaun McCance  <shaunm@gnome.org>
+
+	* gnome-doc-utils.make:
+	- Dist targets are working now
+
+	* xslt/docbook/common/db-common.xsl:
+	- Removed db.xref.target; duplicate in db-xref.xsl
+
 2004-09-21  Shaun McCance  <shaunm@gnome.org>
 
 	* Makefile.am:
