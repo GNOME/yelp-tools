@@ -153,7 +153,19 @@
   <xsl:apply-templates select="."/>
 </xsl:template>
 
-<!-- = classsynopsis = -->
+<!-- = classsynopsis =
+element classsynopsis {
+  common.attrib, role.attrib,
+  attribute language { "cpp" }?,
+  attribute class { "class" }?,
+  ooclass+,
+  (classsynopsisinfo   |
+   constructorsynopsis |
+   destructorsynopsis  |
+   fieldsynopsis       |
+   methodsynopsis      )
+}
+-->
 <xsl:template mode="db2html.class.cpp.mode" match="classsynopsis">
   <xsl:if test="@class = 'class' or not(@class)">
     <span class="ooclass">
@@ -186,7 +198,15 @@
   </xsl:if>
 </xsl:template>
 
-<!-- = constructorsynopsis = -->
+<!-- = constructorsynopsis =
+element constructorsynopsis {
+  common.attrib, role.attrib,
+  attribute language { "cpp" }?,
+  modifier+,
+  methodname?,
+  (methodparam+ | void?)
+}
+-->
 <xsl:template mode="db2html.class.cpp.mode" match="constructorsynopsis">
   <xsl:call-template name="class.cpp.modifier"/>
   <xsl:value-of select="$cpp.tab"/>
@@ -219,7 +239,15 @@
   <xsl:text>);&#x000A;</xsl:text>
 </xsl:template>
 
-<!-- = destructorsynopsis = -->
+<!-- = destructorsynopsis =
+element destructorsynopsis {
+  common.attrib, role.attrib,
+  attribute language { "cpp" }?,
+  modifier+,
+  methodname?,
+  (methodparam+ | void?)
+}
+-->
 <xsl:template mode="db2html.class.cpp.mode" match="destructorsynopsis">
   <xsl:call-template name="class.cpp.modifier"/>
   <xsl:value-of select="$cpp.tab"/>
@@ -254,7 +282,16 @@
   <xsl:text>);&#x000A;</xsl:text>
 </xsl:template>
 
-<!-- = fieldsynopsis = -->
+<!-- = fieldsynopsis =
+element fieldsynopsis {
+  common.attrib, role.attrib,
+  attribute language { "cpp" }?,
+  modifier+,
+  type,
+  varname,
+  initializer?
+}
+-->
 <xsl:template mode="db2html.class.cpp.mode" match="fieldsynopsis">
   <xsl:call-template name="class.cpp.modifier"/>
   <xsl:value-of select="$cpp.tab"/>
@@ -293,7 +330,16 @@
   </span>
 </xsl:template>
 
-<!-- = methodsynopsis = -->
+<!-- = methodsynopsis =
+element methodsynopsis {
+  common.attrib, role.attrib,
+  attribute language { "cpp" }?,
+  modifier+,
+  (type | void),
+  methodname,
+  (methodparam+ | void?)
+}
+-->
 <xsl:template mode="db2html.class.cpp.mode" match="methodsynopsis">
   <xsl:call-template name="class.cpp.modifier"/>
   <xsl:value-of select="$cpp.tab"/>
@@ -501,211 +547,6 @@
     <xsl:apply-templates mode="db2html.class.python.mode" select="."/>
   </xsl:for-each>
   <xsl:text>);&#x000A;</xsl:text>
-</xsl:template>
--->
-
-
-<!-- == classsynopsis.idl ================================================== -->
-<!--
-<xsl:template mode="classsynopsis.idl" match="*">
-	<xsl:apply-templates select="."/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.idl" match="classsynopsis">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.idl" match="classsynopsisinfo">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.idl" match="classname">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.idl" match="constructorsynopsis">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.idl" match="destructorsynopsis">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.idl" match="exceptionname">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.idl" match="fieldsynopsis">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.idl" match="initializer">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.idl" match="interfacename">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.idl" match="methodname">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.idl" match="methodparam">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.idl" match="methodsynopsis">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.idl" match="modifier">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-
-<xsl:template mode="classsynopsis.idl" match="ooexception">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.idl" match="oointerface">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.idl" match="parameter">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.idl" match="type">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.idl" match="varname">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.idl" match="void">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
--->
-
-<!-- == classsynopsis.java ================================================= -->
-<!--
-<xsl:template mode="classsynopsis.java" match="*">
-	<xsl:apply-templates select="."/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.java" match="classsynopsis">
-	<div class="{name(.)}"><pre class="java">
-		<xsl:choose>
-			<xsl:when test="@class = 'interface'">
-				<xsl:call-template name="FIXME"/>
-			</xsl:when>
-			<xsl:otherwise>
-				<xsl:for-each select="ooclass[1]/modifier">
-					<xsl:apply-templates mode="classsynopsis.java" select="."/>
-					<xsl:text> </xsl:text>
-				</xsl:for-each>
-				<xsl:text>class </xsl:text>
-				<xsl:apply-templates mode="classsynopsis.java" select="ooclass[1]"/>
-				<xsl:if test="ooclass[position() &gt; 1]">
-					<xsl:text> extends</xsl:text>
-					<xsl:for-each select="ooclass[position() &gt; 1]">
-						<xsl:text> </xsl:text>
-						<xsl:apply-templates mode="classsynopsis.java" select="."/>
-						<xsl:if test="following-sibling::ooclass">
-							<xsl:text>,</xsl:text>
-						</xsl:if>
-					</xsl:for-each>
-					<xsl:if test="oointerface|ooexception">
-						<xsl:value-of select="concat($newline, $tab_java)"/>
-					</xsl:if>
-				</xsl:if>
-				<xsl:if test="oointerface">
-					<xsl:text>implements</xsl:text>
-					<xsl:for-each select="oointerface">
-						<xsl:text> </xsl:text>
-						<xsl:apply-templates mode="classsynopsis.java" select="."/>
-						<xsl:if test="following-sibling::oointerface">
-							<xsl:text>,</xsl:text>
-						</xsl:if>
-					</xsl:for-each>
-					<xsl:if test="ooexception">
-						<xsl:value-of select="concat($newline, $tab_java)"/>
-					</xsl:if>
-				</xsl:if>
-				<xsl:if test="ooexception">
-					<xsl:text>throws</xsl:text>
-					<xsl:for-each select="ooexception">
-						<xsl:text> </xsl:text>
-						<xsl:apply-templates mode="classsynopsis.java" select="."/>
-						<xsl:if test="following-sibling::ooexception">
-							<xsl:text>,</xsl:text>
-						</xsl:if>
-					</xsl:for-each>
-				</xsl:if>
-			</xsl:otherwise>
-		</xsl:choose>
-		<xsl:value-of select="$newline"/>
-		<xsl:text>{</xsl:text>
-		<xsl:value-of select="$newline"/>
-		<xsl:apply-templates mode="classsynopsis.java" select="
-			constructorsynopsis	| destructorsynopsis	| fieldsynopsis	|
-			methodsynopsis			| classsynopsis		"/>
-		<xsl:text>}</xsl:text>
-	</pre></div>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.java" match="classsynopsisinfo">
-	<xsl:apply-templates mode="classsynopsis.java"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.java" match="constructorsynopsis">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.java" match="destructorsynopsis">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.java" match="fieldsynopsis">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.java" match="initializer">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.java" match="methodparam">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.java" match="methodsynopsis">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.java" match="
-		classname		| exceptionname	| interfacename	| methodname	|
-		modifier			| parameter			| type				| varname		">
-	<span class="{name(.)}">
-		<xsl:apply-templates mode="classsynopsis.java"/>
-	</span>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.java" match="oointerface">
-	<span class="{name(.)}">
-		<xsl:apply-templates mode="classsynopsis.java" select="interfacename"/>
-	</span>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.java" match="ooexception">
-	<span class="{name(.)}">
-		<xsl:apply-templates mode="classsynopsis.java" select="exceptionname"/>
-	</span>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.java" match="void">
-	<span class="{name(.)}">void</span>
 </xsl:template>
 -->
 

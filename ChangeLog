@@ -1,5 +1,11 @@
 2004-05-25  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/html/db2html-classsynopsis.xsl:
+	- Added RNC in comments of what's actually supported
+	- Removed the commented IDL stuff
+
+2004-05-25  Shaun McCance  <shaunm@gnome.org>
+
 	* test/testdocs/db2html.xsl:
 	- Made the source view go block-by-block
 
