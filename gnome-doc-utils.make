@@ -159,8 +159,12 @@ db2omf_args =									\
 	--stringparam db2omf.basename $(DOC_MODULE)				\
 	--stringparam db2omf.format $(3)					\
 	--stringparam db2omf.dtd						\
+<<<<<<< gnome-doc-utils.make
+	$(shell xmllint --format $(2) | grep -h PUBLIC | head -n 1 | sed -e 's/.*PUBLIC \(\"[^\"]*\"\).*/\1/')	\
+=======
 	$(shell xmllint --format $(2) | grep -h PUBLIC | head -n 1 		\
 		| sed -e 's/.*PUBLIC \(\"[^\"]*\"\).*/\1/')			\
+>>>>>>> 1.42
 	--stringparam db2omf.lang $(patsubst %/$(notdir $(2)),%,$(2))		\
 	--stringparam db2omf.omf_dir "$(OMF_DIR)"				\
 	--stringparam db2omf.help_dir "$(HELP_DIR)"				\
@@ -516,7 +520,7 @@ check-omf: $(_DOC_OMF_ALL)
 install-data-local:					\
 	$(if $(DOC_MODULE),install-doc)			\
 	$(if $(_DOC_HTML_ALL),install-html)		\
-	$(if $(DOC_FIGURES),install-fig)
+	$(if $(DOC_FIGURES),install-fig)		\
 	$(if $(_DOC_OMF_IN),install-omf)
 #	$(if $(_DOC_DSK_IN),install-dsk)
 

@@ -27,6 +27,7 @@
     <xsl:call-template name="db2html.table.css"/>
     <xsl:call-template name="db2html.title.css"/>
     body {
+      padding-top: 8px;
       padding-left: 8px;
       padding-right: 12px;
     }

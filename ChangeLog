@@ -1,6 +1,14 @@
 2004-11-24  Shaun McCance  <shaunm@gnome.org>
 
 	* gnome-doc-utils.make:
+	- Adding a missing \
+
+	* xslt/docbook/html/db2html-css.xsl:
+	- Added padding-top
+
+2004-11-24  Shaun McCance  <shaunm@gnome.org>
+
+	* gnome-doc-utils.make:
 	- More robust DOCTYPE extractor
 	- Made -fig targets for dist, install, and uninstall, to avoid sh problems
 
