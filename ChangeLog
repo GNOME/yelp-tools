@@ -1,5 +1,26 @@
 2004-04-02  Shaun McCance  <shaunm@gnome.org>
 
+	* Makefile.am:
+	* bootstrap.make:
+	* doc/xslt/Makefile.am:
+	- Adding bookstrap.make to bootstrap the docs builds
+
+	* configure.in:
+	* xslt/Makefile.am:
+	* xslt/xsldoc/Makefile.am:
+	- Actually build xsldoc
+
+	* gnome-doc-utils.make:
+	- Put in some variables to help bootstrapping
+
+	* xslt/docbook/html/Makefile.am:
+	- Added new XSLT files to Makefile.am
+
+	* xslt/rngdoc/Makefile.am:
+	- Hum
+
+2004-04-02  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/xsldoc/Makefile.am:
 	* xslt/xsldoc/xsldoc.xsl:
 	- Adding xsldoc.xsl

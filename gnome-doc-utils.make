@@ -13,6 +13,13 @@ XSLDOC_DIRS ?=
 RNGDOC_DIRS ?=
 
 
+## For bootstrapping gnome-doc-utils only
+
+_db2omf ?= `pkg-config --variable db2omf gnome-doc-utils`
+_rngdoc ?= `pkg-config --variable rngdoc gnome-doc-utils`
+_xsldoc ?= `pkg-config --variable xsldoc gnome-doc-utils`
+
+
 ## Setting variables
 
 _RNGDOC_RNGS = $(foreach dir,$(RNGDOC_DIRS),		\
@@ -81,5 +88,13 @@ $(_ODC_OMF_OUTS) : $(_DOC_OMF_IN)
 $(_DOC_OMF_OUTS) : %/$(DOC_MODULE).omf : %/$(DOC_MODULE).xml
 	xsltproc -o $@ \
 	--stringparam db2omf.omf_in `pwd`/$(_DOC_OMF_IN) \
-	`pkg-config --variable db2omf gnome-doc-utils` $<
+	$(_db2omf) $<
+
+## Building rngdoc files
+$(_RNGDOC_C_DOCS) : C/% : $(filter $(basename %), $(_RNGDOC_RNGS))
+	xsltproc -o $@ $(_rngdoc) $<
+
+## Building xsldoc files
+$(_XSLDOC_C_DOCS) : C/% : $(filter $(basename %), $(_XSLDOC_XSLS))
+	xsltproc -o $@ $(_xsldoc) $<
 

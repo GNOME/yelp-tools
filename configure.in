@@ -20,4 +20,5 @@ xslt/docbook/html/Makefile
 xslt/docbook/omf/Makefile
 xslt/gettext/Makefile
 xslt/rngdoc/Makefile
+xslt/xsldoc/Makefile
 ])

@@ -13,6 +13,7 @@ EXTRA_DIST = 						\
 	$(aclocal_DATA)					\
 	$(share_DATA)					\
 	$(pkgconfig_DATA)				\
+	bootstrap.make					\
 	intltool-extract.in  				\
 	intltool-merge.in    				\
 	intltool-update.in

@@ -1,1 +1,2 @@
-SUBDIRS = docbook gettext rngdoc
+SUBDIRS = docbook gettext rngdoc xsldoc
+

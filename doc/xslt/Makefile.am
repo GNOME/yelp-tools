@@ -1,5 +1,7 @@
 @GNOME_DOC_RULE@
 
+include $(top_srcdir)/bootstrap.make
+
 DOC_MODULE = gnome-doc-xslt
 DOC_ENTITIES = legal.xml
 
