@@ -8,85 +8,90 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-09 17:37-0500\n"
-"PO-Revision-Date: 2004-11-09 20:44-0400\n"
+"POT-Creation-Date: 2004-11-18 18:37-0500\n"
+"PO-Revision-Date: 2004-11-18 20:44-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@FreeBSD.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#. Chapter %t{number}
+#. Appendix %t{number}
 #: xslt/docbook/common/db-format.xml.in.h:2
+msgid "format.appendix.label"
+msgstr "format.appendix.label"
+
+#. Chapter %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:4
 msgid "format.chapter.label"
 msgstr "format.chapter.label"
 
-#: xslt/docbook/common/db-format.xml.in.h:3
+#: xslt/docbook/common/db-format.xml.in.h:5
 msgid "format.citetitle"
 msgstr "format.citetitle"
 
 #. FIXME
-#: xslt/docbook/common/db-format.xml.in.h:5
+#: xslt/docbook/common/db-format.xml.in.h:7
 msgid "format.date"
 msgstr "format.date"
 
 #. Figure %t{example}
-#: xslt/docbook/common/db-format.xml.in.h:7
+#: xslt/docbook/common/db-format.xml.in.h:9
 msgid "format.example.label"
 msgstr "format.example.label"
 
 #. %t{parent}-%1{number}
-#: xslt/docbook/common/db-format.xml.in.h:9
+#: xslt/docbook/common/db-format.xml.in.h:11
 msgid "format.example.number"
 msgstr "format.example.number"
 
 #. %1{number}
-#: xslt/docbook/common/db-format.xml.in.h:11
+#: xslt/docbook/common/db-format.xml.in.h:13
 msgid "format.example.number.flat"
 msgstr "format.example.number.flat"
 
 #. Figure %t{number}
-#: xslt/docbook/common/db-format.xml.in.h:13
+#: xslt/docbook/common/db-format.xml.in.h:15
 msgid "format.figure.label"
 msgstr "format.figure.label"
 
 #. %t{parent}-%1{number}
-#: xslt/docbook/common/db-format.xml.in.h:15
+#: xslt/docbook/common/db-format.xml.in.h:17
 msgid "format.figure.number"
 msgstr "format.figure.number"
 
 #. %1{number}
-#: xslt/docbook/common/db-format.xml.in.h:17
+#: xslt/docbook/common/db-format.xml.in.h:19
 msgid "format.figure.number.flat"
 msgstr "format.figure.number.flat"
 
 #. ‘%t{node}’
-#: xslt/docbook/common/db-format.xml.in.h:19
+#: xslt/docbook/common/db-format.xml.in.h:21
 msgid "format.quote.inner"
 msgstr "format.quote.inner"
 
 #. “%t{node}”
-#: xslt/docbook/common/db-format.xml.in.h:21
+#: xslt/docbook/common/db-format.xml.in.h:23
 msgid "format.quote.outer"
 msgstr "format.quote.outer"
 
 #. Section %t{number}
-#: xslt/docbook/common/db-format.xml.in.h:23
+#: xslt/docbook/common/db-format.xml.in.h:25
 msgid "format.section.label"
 msgstr "format.section.label"
 
 #. Table %t{number}
-#: xslt/docbook/common/db-format.xml.in.h:25
+#: xslt/docbook/common/db-format.xml.in.h:27
 msgid "format.table.label"
 msgstr "format.table.label"
 
 #. %t{parent}-%1{number}
-#: xslt/docbook/common/db-format.xml.in.h:27
+#: xslt/docbook/common/db-format.xml.in.h:29
 msgid "format.table.number"
 msgstr "format.table.number"
 
 #. %1{number}
-#: xslt/docbook/common/db-format.xml.in.h:29
+#: xslt/docbook/common/db-format.xml.in.h:31
 msgid "format.table.number.flat"
 msgstr "format.table.number.flat"
 
