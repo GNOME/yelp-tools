@@ -1,317 +1,300 @@
 # Përkthimi i mesazheve të gnome-doc-utils në shqip
-# Copyright (C) 2004 Free Software Foundation, Inc.
+# Copyright (C) 2004, 2005 Free Software Foundation, Inc.
 # This file is distributed under the same license as the  gnome-doc-utils package.
-# Laurent Dhima <laurenti@alblinux.net>, 2004.
+# Laurent Dhima <laurenti@alblinux.net>, 2004, 2005.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-09-02 11:43+0200\n"
-"PO-Revision-Date: 2004-09-03 18:55+0200\n"
+"POT-Creation-Date: 2005-02-01 05:32+0100\n"
+"PO-Revision-Date: 2005-02-01 09:54+0100\n"
 "Last-Translator: Laurent Dhima <laurenti@alblinux.net>\n"
 "Language-Team: Albanian <gnome-albanian-perkthyesit@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#. Section %t{number}
+#. Appendix %t{number}
 #: xslt/docbook/common/db-format.xml.in.h:2
-msgid "format.section.label,header"
-msgstr "format.section.label,header"
+msgid "format.appendix.label"
+msgstr "format.appendix.label"
+
+#. Chapter %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:4
+msgid "format.chapter.label"
+msgstr "format.chapter.label"
+
+#: xslt/docbook/common/db-format.xml.in.h:5
+msgid "format.citetitle"
+msgstr "format.citetitle"
+
+#. FIXME
+#: xslt/docbook/common/db-format.xml.in.h:7
+msgid "format.date"
+msgstr "format.date"
+
+#. Example %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:9
+msgid "format.example.label"
+msgstr "format.example.label"
+
+#. %t{parent}-%1{number}
+#: xslt/docbook/common/db-format.xml.in.h:11
+msgid "format.example.number"
+msgstr "format.example.number"
+
+#. %1{number}
+#: xslt/docbook/common/db-format.xml.in.h:13
+msgid "format.example.number.flat"
+msgstr "format.example.number.flat"
+
+#. Figure %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:15
+msgid "format.figure.label"
+msgstr "format.figure.label"
+
+#. %t{parent}-%1{number}
+#: xslt/docbook/common/db-format.xml.in.h:17
+msgid "format.figure.number"
+msgstr "format.figure.number"
+
+#. %1{number}
+#: xslt/docbook/common/db-format.xml.in.h:19
+msgid "format.figure.number.flat"
+msgstr "format.figure.number.flat"
+
+#. (%t{node})
+#: xslt/docbook/common/db-format.xml.in.h:21
+msgid "format.manvolnum"
+msgstr "format.manvolnum"
+
+#. Part %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:23
+msgid "format.part.label"
+msgstr "format.part.label"
+
+#. %I{number}
+#: xslt/docbook/common/db-format.xml.in.h:25
+msgid "format.part.number"
+msgstr "format.part.number"
+
+#. ‘%t{node}’
+#: xslt/docbook/common/db-format.xml.in.h:27
+msgid "format.quote.inner"
+msgstr "format.quote.inner"
+
+#. “%t{node}”
+#: xslt/docbook/common/db-format.xml.in.h:29
+msgid "format.quote.outer"
+msgstr "format.quote.outer"
+
+#. %t{title}
+#: xslt/docbook/common/db-format.xml.in.h:31
+msgid "format.refentry.label"
+msgstr "format.refentry.label"
 
 #. Section %t{number}
-#: xslt/docbook/common/db-format.xml.in.h:4
-msgid "format.section.label,subject"
-msgstr "format.section.label,subjekti"
+#: xslt/docbook/common/db-format.xml.in.h:33
+msgid "format.section.label"
+msgstr "format.section.label"
 
-#: xslt/docbook/common/db-format.xml.in.h:6
-#, no-c-format
-msgid "‘%t{node}’"
-msgstr "‘%t{node}’"
+#. Table %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:35
+msgid "format.table.label"
+msgstr "format.table.label"
 
-#: xslt/docbook/common/db-format.xml.in.h:8
-#, no-c-format
-msgid "“%t{node}”"
-msgstr "“%t{node}”"
+#. %t{parent}-%1{number}
+#: xslt/docbook/common/db-format.xml.in.h:37
+msgid "format.table.number"
+msgstr "format.table.number"
 
-#: xslt/gettext/l10n.xml.in.h:1
-msgid "&#8216;"
-msgstr "&#8216;"
+#. %1{number}
+#: xslt/docbook/common/db-format.xml.in.h:39
+msgid "format.table.number.flat"
+msgstr "format.table.number.flat"
 
+#. Read the definition for ‘%s{node}’
+#: xslt/docbook/common/db-format.xml.in.h:41
+msgid "format.tooltip.glossentry"
+msgstr "format.tooltip.glossentry"
+
+#. Send email to ‘%s{address}’
+#: xslt/docbook/common/db-format.xml.in.h:43
+msgid "format.tooltip.mailto"
+msgstr "format.tooltip.mailto"
+
+#. Used as a header before a list of authors.
 #: xslt/gettext/l10n.xml.in.h:2
-msgid "&#8217;"
-msgstr "&#8217;"
+msgid "<msgstr form=\"0\">Author</msgstr> <msgstr form=\"1\">Authors</msgstr>"
+msgstr "<msgstr form=\"0\">Autori</msgstr> <msgstr form=\"1\">Autorët</msgstr>"
 
-#: xslt/gettext/l10n.xml.in.h:3
-msgid "&#8220;"
-msgstr "&#8220;"
-
+#. Used as a header before a list of collaborators.
 #: xslt/gettext/l10n.xml.in.h:4
-msgid "&#8221;"
-msgstr "&#8221;"
+msgid ""
+"<msgstr form=\"0\">Collaborator</msgstr> <msgstr form=\"1\">Collaborators</"
+"msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Bashkpunues</msgstr> <msgstr form=\"1\">Bashkpunues</"
+"msgstr>"
 
-#: xslt/gettext/l10n.xml.in.h:5
-msgid "About This Article"
-msgstr "Informacione mbi këtë artikull"
-
+#. Used as a header before a list of copyrights.
 #: xslt/gettext/l10n.xml.in.h:6
-msgid "About This Bibliography"
-msgstr "Informacione në lidhje me këtë Bibliografi"
+msgid "<msgstr form=\"0\">Copyright</msgstr> <msgstr form=\"1\">Copyrights</msgstr>"
+msgstr "<msgstr form=\"0\">Copyright</msgstr> <msgstr form=\"1\">Copyrights</msgstr>"
 
-#: xslt/gettext/l10n.xml.in.h:7
-msgid "About This Book"
-msgstr "Informacione në lidhje me këtë libër"
-
+#. Used as a header before a list of editors.
 #: xslt/gettext/l10n.xml.in.h:8
-msgid "About This Chapter"
-msgstr "Informacione në lidhje me këtë kapitull"
+msgid "<msgstr form=\"0\">Editor</msgstr> <msgstr form=\"1\">Editors</msgstr>"
+msgstr "<msgstr form=\"0\">Editor</msgstr> <msgstr form=\"1\">Editorë</msgstr>"
 
-#: xslt/gettext/l10n.xml.in.h:9
-msgid "About This Entry"
-msgstr "Informacione në lidhje me këtë zë"
-
+#. Used as a header before a list of contributors.
 #: xslt/gettext/l10n.xml.in.h:10
-msgid "About This Glossary"
-msgstr "Informacione në lidhje me këtë përmbledhje"
+msgid ""
+"<msgstr form=\"0\">Other Contributor</msgstr> <msgstr form=\"1\">Other "
+"Contributors</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Bashkpunues tjetër</msgstr> <msgstr form=\"1\">Bashkpunues "
+"të tjerë</msgstr>"
 
-#: xslt/gettext/l10n.xml.in.h:11
-msgid "About This Index"
-msgstr "Informacione në lidhje me këtë tregues"
-
+#. Used as a header before a list of publishers.
 #: xslt/gettext/l10n.xml.in.h:12
-msgid "About This Part"
-msgstr "Informacione në lidhje me këtë pjesë"
+msgid "<msgstr form=\"0\">Publisher</msgstr> <msgstr form=\"1\">Publishers</msgstr>"
+msgstr "<msgstr form=\"0\">Publikuesi</msgstr> <msgstr form=\"1\">Publikues</msgstr>"
 
-#: xslt/gettext/l10n.xml.in.h:13
-msgid "About This Preface"
-msgstr "Informacione në lidhje me këtë hyrje"
-
+#. Link to the titlepage
 #: xslt/gettext/l10n.xml.in.h:14
-msgid "About This Reference"
-msgstr "Informacione në lidhje me këtë referim"
+msgid "About This Document"
+msgstr "Informacione në lidhje me këtë dokument"
 
 #: xslt/gettext/l10n.xml.in.h:15
-msgid "About This Section"
-msgstr "Informacione në lidhje me këtë seksion"
-
-#: xslt/gettext/l10n.xml.in.h:16
-msgid "About This Set"
-msgstr "Informacione në lidhje me këtë sqarim"
-
-#: xslt/gettext/l10n.xml.in.h:17
 msgid "Affiliation"
 msgstr "Afilim"
 
+#. This is an abbreviated form of 'Message Audience'.
+#. Feel free to use the same word/phrase for both.
 #: xslt/gettext/l10n.xml.in.h:18
-msgid "Appendix"
-msgstr "Shtesë"
-
-#: xslt/gettext/l10n.xml.in.h:19
-msgid "Article"
-msgstr "Artikull"
-
-#: xslt/gettext/l10n.xml.in.h:20
 msgid "Audience"
 msgstr "Dëgjim"
 
-#: xslt/gettext/l10n.xml.in.h:21
-msgid "Author"
-msgstr "Autori"
-
-#: xslt/gettext/l10n.xml.in.h:22
-msgid "Authors"
-msgstr "Autorët"
-
-#: xslt/gettext/l10n.xml.in.h:23
-msgid "Bibliography"
-msgstr "Bibliografia"
-
-#: xslt/gettext/l10n.xml.in.h:24
-msgid "Book"
-msgstr "Libri"
-
-#: xslt/gettext/l10n.xml.in.h:25
+#: xslt/gettext/l10n.xml.in.h:19
 msgid "Caution"
 msgstr "Kujdes"
 
-#: xslt/gettext/l10n.xml.in.h:26
-msgid "Chapter"
-msgstr "Kapitulli"
-
-#: xslt/gettext/l10n.xml.in.h:27
-msgid "Collaborator"
-msgstr "Bashkpunëtori"
-
-#: xslt/gettext/l10n.xml.in.h:28
-msgid "Collaborators"
-msgstr "Bashkpunues"
-
-#: xslt/gettext/l10n.xml.in.h:29
+#: xslt/gettext/l10n.xml.in.h:20
 msgid "Colophon"
 msgstr "Colophon"
 
-#: xslt/gettext/l10n.xml.in.h:30
+#. This is an abbreviated form of 'Table of Contents'.
+#. Feel free to use the same word/phrase for both.
+#: xslt/gettext/l10n.xml.in.h:23
 msgid "Contents"
 msgstr "Përmbajtja"
 
-#: xslt/gettext/l10n.xml.in.h:31
-msgid "Copyright"
-msgstr "Copyright"
-
-#: xslt/gettext/l10n.xml.in.h:32
-msgid "Copyrights"
-msgstr "Copyrights"
-
-#: xslt/gettext/l10n.xml.in.h:33
+#. Used as a header for date column in the revision history.
+#: xslt/gettext/l10n.xml.in.h:25
 msgid "Date"
 msgstr "Data"
 
-#: xslt/gettext/l10n.xml.in.h:34
+#: xslt/gettext/l10n.xml.in.h:26
 msgid "Dedication"
 msgstr "Dedikimi"
 
-#: xslt/gettext/l10n.xml.in.h:35
-msgid "Editor"
-msgstr "Editori"
-
-#: xslt/gettext/l10n.xml.in.h:36
-msgid "Editors"
-msgstr "Botuesit"
-
-#: xslt/gettext/l10n.xml.in.h:37
+#: xslt/gettext/l10n.xml.in.h:27
 msgid "Email"
 msgstr "Email"
 
-#: xslt/gettext/l10n.xml.in.h:38
-msgid "Example"
-msgstr "Shembull"
-
-#: xslt/gettext/l10n.xml.in.h:39
-msgid "Figure"
-msgstr "Figura"
-
-#: xslt/gettext/l10n.xml.in.h:40
-msgid "Glossary"
-msgstr "Termet"
-
-#: xslt/gettext/l10n.xml.in.h:41
+#: xslt/gettext/l10n.xml.in.h:28
 msgid "Important"
 msgstr "I rëndësishëm"
 
-#: xslt/gettext/l10n.xml.in.h:42
+#: xslt/gettext/l10n.xml.in.h:29
 msgid "Index"
 msgstr "Treguesi"
 
-#: xslt/gettext/l10n.xml.in.h:43
+#: xslt/gettext/l10n.xml.in.h:30
 msgid "Legal Notice"
 msgstr "Njoftimi ligjor"
 
-#: xslt/gettext/l10n.xml.in.h:44
+#. This is an abbreviated form of 'Message Level'.
+#. Feel free to use the same word/phrase for both.
+#: xslt/gettext/l10n.xml.in.h:33
 msgid "Level"
 msgstr "Etiketa"
 
-#: xslt/gettext/l10n.xml.in.h:45
+#: xslt/gettext/l10n.xml.in.h:34
 msgid "Message Audience"
 msgstr "Dëgjim mesazhi"
 
-#: xslt/gettext/l10n.xml.in.h:46
+#: xslt/gettext/l10n.xml.in.h:35
 msgid "Message Level"
 msgstr "Etiketa e mesazhit"
 
-#: xslt/gettext/l10n.xml.in.h:47
+#: xslt/gettext/l10n.xml.in.h:36
 msgid "Message Origin"
 msgstr "Origjina e mesazhit"
 
-#: xslt/gettext/l10n.xml.in.h:48
+#: xslt/gettext/l10n.xml.in.h:37
+msgid "Name"
+msgstr "Emri"
+
+#: xslt/gettext/l10n.xml.in.h:38
 msgid "Note"
 msgstr "Shënim"
 
-#: xslt/gettext/l10n.xml.in.h:49
+#. This is an abbreviated form of 'Message Origin'.
+#. Feel free to use the same word/phrase for both.
+#: xslt/gettext/l10n.xml.in.h:41
 msgid "Origin"
 msgstr "Origjina"
 
-#: xslt/gettext/l10n.xml.in.h:50
-msgid "Other Contributor"
-msgstr "Kontribues të tjerë"
-
-#: xslt/gettext/l10n.xml.in.h:51
-msgid "Other Contributors"
-msgstr "Kontribues të tjerë"
-
-#: xslt/gettext/l10n.xml.in.h:52
-msgid "Part"
-msgstr "Pjesa"
-
-#: xslt/gettext/l10n.xml.in.h:53
+#: xslt/gettext/l10n.xml.in.h:42
 msgid "Preface"
 msgstr "Hyrja"
 
-#: xslt/gettext/l10n.xml.in.h:54
-msgid "Publisher"
-msgstr "Publikues"
-
-#: xslt/gettext/l10n.xml.in.h:55
-msgid "Publishers"
-msgstr "Publikues"
-
-#: xslt/gettext/l10n.xml.in.h:56
+#: xslt/gettext/l10n.xml.in.h:43
 msgid "Reference"
 msgstr "Referime"
 
-#: xslt/gettext/l10n.xml.in.h:57
-msgid "Reference Entry"
-msgstr "Element referues"
-
-#: xslt/gettext/l10n.xml.in.h:58
-msgid "Reference Section"
-msgstr "Seksioni i referimeve"
-
-#: xslt/gettext/l10n.xml.in.h:59
+#: xslt/gettext/l10n.xml.in.h:44
 msgid "Release Information"
 msgstr "Informacione mbi versionin"
 
-#: xslt/gettext/l10n.xml.in.h:60
+#: xslt/gettext/l10n.xml.in.h:45
 msgid "Revision History"
 msgstr "Historiku revizionit"
 
-#: xslt/gettext/l10n.xml.in.h:61
-msgid "Section"
-msgstr "Seksioni"
-
-#: xslt/gettext/l10n.xml.in.h:62
+#: xslt/gettext/l10n.xml.in.h:46
 msgid "See"
 msgstr "Shiko"
 
-#: xslt/gettext/l10n.xml.in.h:63
+#: xslt/gettext/l10n.xml.in.h:47
 msgid "See Also"
 msgstr "Shiko gjithashtu"
 
-#: xslt/gettext/l10n.xml.in.h:64
+#: xslt/gettext/l10n.xml.in.h:48
 msgid "Set Index"
 msgstr "Përcakto treguesin"
 
-#: xslt/gettext/l10n.xml.in.h:65
-msgid "Table"
-msgstr "Tabela"
+#: xslt/gettext/l10n.xml.in.h:49
+msgid "Synopsis"
+msgstr "Përmbledhja"
 
-#: xslt/gettext/l10n.xml.in.h:66
+#. Used for a link to a table of contents.
+#: xslt/gettext/l10n.xml.in.h:51
 msgid "Table of Contents"
 msgstr "Tabela e përmbajtjes"
 
-#: xslt/gettext/l10n.xml.in.h:67
+#: xslt/gettext/l10n.xml.in.h:52
 msgid "Tip"
 msgstr "Tip"
 
-#: xslt/gettext/l10n.xml.in.h:68
+#. Used as a header for title column in the revision history.
+#: xslt/gettext/l10n.xml.in.h:54
 msgid "Title"
 msgstr "Titulli"
 
-#: xslt/gettext/l10n.xml.in.h:69
-msgid "Unknown"
-msgstr "Nuk njihet"
-
-#: xslt/gettext/l10n.xml.in.h:70
+#: xslt/gettext/l10n.xml.in.h:55
 msgid "Warning"
 msgstr "Kujdes"
 
