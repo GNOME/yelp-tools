@@ -308,12 +308,10 @@ _DOC_LC_DOCS =								\
 $(_DOC_POFILES): $(_DOC_C_DOCS)
 	if ! test -d $(dir $@); then mkdir $@; fi
 	if ! test -f $@; then \
-	  $(xml2po) $(_DOC_C_DOCS) > $@; \
+	  (cd $(dir $@) && $(xml2po) $(_DOC_C_DOCS:%=../%) > $(notdir $@)); \
 	else \
-	  $(xml2po) -u $@ $(_DOC_C_DOCS); \
+	  (cd $(dir $@) && $(xml2po) -u $(basename $(notdir $@)) $(_DOC_C_DOCS:%=../%)); \
 	fi
-echo-po:
-	echo $(_DOC_POFILES)
 
 # FIXME: fix the dependancy
 # FIXME: hook xml2po up
