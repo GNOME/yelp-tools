@@ -10,11 +10,11 @@ htmlargs =							\
 	--stringparam db.chunk.basename $(patsubst html/%,%,$1)	\
 	$(db2html)
 
+test: $(htmls)
+
 $(htmls) : html/% : %.xml
 	@mkdir -p $@
 	xsltproc $(call htmlargs,$@) $<
-
-test: $(htmls)
 
 clean:
 	rm -rf html/*

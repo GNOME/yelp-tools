@@ -46,6 +46,51 @@
 </xsl:template>
 
 
+<!-- == db.linenumbering =================================================== -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db.linenumbering</name>
+  <description>
+    Number each line in a verbatim environment
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The verbatim element for which create line numbering
+    </description>
+  </parameter>
+  <parameter>
+    <name>number</name>
+    <description>
+    </description>
+  </parameter>
+</template>
+
+<xsl:template name="db.linenumbering">
+  <xsl:param name="node" select="."/>
+  <xsl:param name="number" select="1"/>
+  <xsl:variable name="substr" select="string($node)"/>
+  <xsl:number value="$number"/>
+  <xsl:call-template name="db.linenumbering.substr">
+    <xsl:with-param name="substr" select="$substr"/>
+    <xsl:with-param name="number" select="$number + 1"/>
+  </xsl:call-template>
+</xsl:template>
+
+<xsl:template name="db.linenumbering.substr" doc:private="true">
+  <xsl:param name="substr"/>
+  <xsl:param name="number"/>
+  <xsl:if test="contains($substr, '&#x000A;')">
+    <xsl:text>&#x000A;</xsl:text>
+    <xsl:number value="$number"/>
+    <xsl:call-template name="db.linenumbering.substr">
+      <xsl:with-param name="substr"
+                      select="substring-after($substr, '&#x000A;')"/>
+      <xsl:with-param name="number" select="$number + 1"/>
+    </xsl:call-template>
+  </xsl:if>
+</xsl:template>
+
 <!-- == db.personname ====================================================== -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">

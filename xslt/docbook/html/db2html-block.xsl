@@ -96,10 +96,25 @@
 </template>
 
 <xsl:template name="db2html.pre">
-  <pre class="{local-name(.)}">
+  <!-- FIXME:
+  @width
+  @language
+  @continuation
+  @format
+  @startinglinenumber
+  -->
+  <div class="{local-name(.)}">
     <xsl:call-template name="db2html.anchor"/>
-    <xsl:apply-templates/>
-  </pre>
+    <xsl:if test="@linenumbering = 'numbered'">
+      <pre class="linenumbering" style="float: left; text-align: right;">
+        <xsl:call-template name="db.linenumbering"/>
+      </pre>
+    </xsl:if>
+    <pre class="{local-name(.)}" style="float: left;">
+      <xsl:apply-templates/>
+    </pre>
+    <div style="clear: both;"/>
+  </div>
 </xsl:template>
 
 
@@ -142,14 +157,39 @@
   <xsl:call-template name="db2html.blockquote"/>
 </xsl:template>
 
+<!-- = equation = -->
+<xsl:template match="equation">
+  <xsl:call-template name="db2html.block"/>
+</xsl:template>
+
 <!-- = example = -->
 <xsl:template match="example">
+  <xsl:call-template name="db2html.block"/>
+</xsl:template>
+
+<!-- = informalequation = -->
+<xsl:template match="informalequation">
   <xsl:call-template name="db2html.block"/>
 </xsl:template>
 
 <!-- = para = -->
 <xsl:template match="para">
   <xsl:call-template name="db2html.para"/>
+</xsl:template>
+
+<!-- = programlisting = -->
+<xsl:template match="programlisting">
+  <xsl:call-template name="db2html.pre"/>
+</xsl:template>
+
+<!-- = screen = -->
+<xsl:template match="screen">
+  <xsl:call-template name="db2html.pre"/>
+</xsl:template>
+
+<!-- = synopsis = -->
+<xsl:template match="synopsis">
+  <xsl:call-template name="db2html.pre"/>
 </xsl:template>
 
 </xsl:stylesheet>

@@ -65,7 +65,7 @@
       <xsl:apply-templates select="funcdef/following-sibling::modifier"/>
       <xsl:text>;</xsl:text>
       <xsl:for-each select="paramdef">
-	<xsl:text>&#x000D;    </xsl:text>
+	<xsl:text>&#x000A;    </xsl:text>
 	<xsl:apply-templates select="."/>
 	<xsl:text>;</xsl:text>
       </xsl:for-each>
@@ -78,7 +78,7 @@
 		                  funcdef/preceding-sibling::modifier)"/>
       <xsl:for-each select="void | varargs | paramdef">
 	<xsl:if test="position() != 1">
-	  <xsl:text>,&#x000D;</xsl:text>
+	  <xsl:text>,&#x000A;</xsl:text>
 	  <xsl:value-of select="str:padding($indent)"/>
 	</xsl:if>
 	<xsl:apply-templates select="."/>

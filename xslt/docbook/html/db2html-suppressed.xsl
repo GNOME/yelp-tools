@@ -11,6 +11,7 @@ modes because of the DocBook content model.
 -->
 
 <!-- Not supported -->
+<xsl:template match="alt"/>
 <xsl:template match="beginpage"/>
 <xsl:template match="bibliocoverage"/>
 <xsl:template match="bridgehead"/>

@@ -1,3 +1,20 @@
+2004-06-02  Shaun McCance  <shaunm@gnome.org>
+
+	* test/testdocs/Makefile:
+	- Made test the default target
+
+	* xslt/docbook/common/db-common.xsl:
+	* xslt/docbook/html/db2html-block.xsl:
+	* xslt/docbook/html/db2html-inline.xsl:
+	- Implemented some of linenumbering
+	- Added preliminary equation support
+
+	* xslt/docbook/html/db2html-funcsynopsis.xsl:
+	- Changed newline character
+
+	* xslt/docbook/html/db2html-suppressed.xsl:
+	- Added alt
+
 2004-06-01  Shaun McCance  <shaunm@gnome.org>
 
 	* gnome-doc-utils.m4:

@@ -350,6 +350,11 @@
   <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
+<!-- = inlineequation = -->
+<xsl:template match="inlineequation">
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
 <!-- = interface = -->
 <xsl:template match="interface">
   <xsl:call-template name="db2html.inline"/>
