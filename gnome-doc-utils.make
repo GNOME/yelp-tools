@@ -419,20 +419,22 @@ _DOC_LC_FIGURES = $(foreach lc,$(DOC_LINGUAS),					\
 
 $(_DOC_POFILES): $(_DOC_C_DOCS)
 	if ! test -d $(dir $@); then mkdir $(dir $@); fi
+	if test -f "$(_DOC_C_MODULE)"; then d="../"; else d="../$(srcdir)/"; fi; \
 	if ! test -f $@; then \
 	  (cd $(dir $@) && \
-	    $(_xml2po) -e $(_DOC_C_DOCS_NOENT:%=../%) > $(notdir $@)); \
+	    $(_xml2po) -e $(_DOC_C_DOCS_NOENT:%=$${d}%) > $(notdir $@)); \
 	else \
 	  (cd $(dir $@) && \
-	    $(_xml2po) -e -u $(basename $(notdir $@)) $(_DOC_C_DOCS_NOENT:%=../%)); \
+	    $(_xml2po) -e -u $(basename $(notdir $@)) $(_DOC_C_DOCS_NOENT:%=$${d}%)); \
 	fi
 
 # FIXME: fix the dependancy
 # FIXME: hook xml2po up
 $(_DOC_LC_DOCS) : $(_DOC_POFILES)
 $(_DOC_LC_DOCS) : $(_DOC_C_DOCS)
+	if test -f "$(_DOC_C_MODULE)"; then d="../C/"; else d="../$(srcdir)/C/"; fi; \
 	(cd $(dir $@) && \
-	  $(_xml2po) -p $(patsubst %/$(notdir $@),%,$@).po ../C/$(notdir $@) > $(notdir $@))
+	  $(_xml2po) -p $(patsubst %/$(notdir $@),%,$@).po $${d}$(notdir $@) > $(notdir $@))
 
 
 ################################################################################
