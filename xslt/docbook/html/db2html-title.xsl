@@ -7,6 +7,7 @@
 
 <ref:title>Titles and Subtitles</ref:title>
 
+
 <!-- == db2html-title.label == -->
 
 <ref:refname>db2html-title.label</ref:refname>
@@ -40,7 +41,6 @@
 	<xsl:with-param name="node" select="$node"/>
       </xsl:call-template>
     </i>
-    <xsl:text> </xsl:text>
     <xsl:apply-templates select="$node/node()"/>
   </div>
 </xsl:template>
@@ -100,7 +100,6 @@
     <xsl:call-template name="db2html-title.label">
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
-    <xsl:text> </xsl:text>
     <xsl:apply-templates select="$node/node()"/>
   </xsl:element>
 </xsl:template>
@@ -145,7 +144,6 @@
     <xsl:call-template name="db2html-title.label">
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
-    <xsl:text> </xsl:text>
     <xsl:apply-templates select="$node/node()"/>
   </xsl:element>
 </xsl:template>

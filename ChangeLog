@@ -1,3 +1,25 @@
+2004-03-19  Shaun McCance  <shaunm@gnome.org>
+
+	* Makefile.am
+	* configure.in:
+	* gnome-doc-utils.m4:
+	* doc/Makefile.am:
+	* doc/xslt/Makefile.am:
+	- Adding new files
+
+	* gnome-doc-utils.m4:
+	- Minor stuff
+
+	* gnome-doc-utils.pc.in:
+	- Added variables sgmldir and xsldoc
+
+	* test/testdoc1/autogen.sh:
+	* test/testdoc1/help/testdoc1/Makefile.am:
+	- Testing gnome-doc-utils.make without going through autoconf
+
+	* xslt/docbook/html/db2html-title.xsl:
+	- Removed some xsl:text
+
 2004-03-17  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/html/Makefile.am:

@@ -1,3 +1,3 @@
-docbook_DOCS = testdoc1
+@GNOME_DOC_RULE@
 
-include $(top_srcdir)/gnome-doc-docbook-rule.make
+GNOME_DOC_MODULE = testdoc1

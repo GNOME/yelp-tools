@@ -11,6 +11,8 @@ ALL_LINGUAS=""
 AC_OUTPUT([
 Makefile
 gnome-doc-utils.pc
+doc/Makefile
+doc/xslt/Makefile
 po/Makefile.in
 xslt/Makefile
 xslt/docbook/Makefile
