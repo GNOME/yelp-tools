@@ -1,5 +1,10 @@
 2004-11-21  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/gettext/gettext.xsl:
+	- Added plural form for sr
+
+2004-11-21  Shaun McCance  <shaunm@gnome.org>
+
 	* doc/xslt/C/translating.xml:
 	- Blurb on fallbacks for plural form translations
 

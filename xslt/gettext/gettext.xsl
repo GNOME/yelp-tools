@@ -430,8 +430,8 @@
   </xsl:param>
 
   <xsl:choose>
-    <!-- == cs == -->
-    <xsl:when test="$lang_language = 'cs'">
+    <!-- == cs sr == -->
+    <xsl:when test="($lang_language = 'cs') or ($lang_language = 'sr')">
       <xsl:choose>
         <xsl:when test="($number mod 10 = 1) and ($number mod 100 != 11)">
           <xsl:text>0</xsl:text>
