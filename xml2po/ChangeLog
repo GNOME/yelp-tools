@@ -1,3 +1,7 @@
+2004-04-12  Danilo Šegan  <dsegan@gmx.net>
+
+	* modes/docbook.py: Add "coding: utf-8" comment for Python 2.3's sake.
+
 2004-04-07  Danilo Šegan  <dsegan@gmx.net>
 
 	* configure.ac: Push version number to 1.0.9.

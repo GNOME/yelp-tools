@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 # Copyright (c) 2004 Danilo Segan <danilo@kvota.net>.
 #
 # This file is part of xml2po.
