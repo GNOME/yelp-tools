@@ -16,32 +16,17 @@
 
 <xsl:template name="db2html.css">
   <style>
+    <xsl:call-template name="db2html.block.css"/>
     <xsl:call-template name="db2html.callout.css"/>
     <xsl:call-template name="db2html.list.css"/>
+    <xsl:call-template name="db2html.table.css"/>
     <xsl:call-template name="db2html.title.css"/>
+    body {
+      padding-left: 8px;
+      padding-right: 12px;
+    }
     p {
       text-align: justify;
-    }
-    tr[class="odd"] { background-color: #F0F0F0; }
-    div[class="table"] {
-      margin-left: 16px;
-    }
-    table {
-      border-collapse: collapse;
-      border: solid 1px black;
-      -moz-border-radius: 5px;
-    }
-    td { padding-left: 0.8em; padding-right: 8px; }
-    th { padding-left: 0.8em; padding-right: 8px; }
-    thead tr th {
-      border-bottom: solid 1px black;
-    }
-    td + td {
-      border-left: solid 1px black;
-    }
-    tbody {
-      border: solid 1px black;
-      -moz-border-radius: 5px;
     }
   </style>
 </xsl:template>

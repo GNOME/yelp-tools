@@ -32,23 +32,16 @@
 <xsl:template name="db2html.list.css">
   <xsl:text>
     div[class="list"] {
-      border: solid 1px </xsl:text>
-      <xsl:value-of select="$db2html.list.border_color"/><xsl:text>;
-      -moz-border-radius: 8px;
       margin-left: 16px;
-    }
-    div[class="list"] div[class="list"] {
-      border: none;
-      padding: 0px;
     }
     table div[class="list"] {
       border: none;
       padding: 0px;
     }
-    div[class="list"] dl dt {
-      margin-left: 8px;
-    }
+    div[class="list"] dl dt { margin-left: 8px; }
+    div[class="list"] dl dt + dd { margin-top: -8px; }
     div[class="list"] dl dd {
+      margin-left: 24px; 
       margin-right: 12px;
     }
     div[class="list"] ul li {
@@ -69,9 +62,16 @@
 
 <!--
 Not doing this for varlistentry/listitem because it adds a non-negligable
-amount of processing time for non-trivial documents.
+amount of processing time for non-trivial documents.  The default CSS for
+dd elements has a negative top margin.
 -->
-<xsl:template match="listitem/para[
+<xsl:template match="itemizedlist/listitem/para[
+              not(preceding-sibling::* or following-sibling::*)  and
+              not(../preceding-sibling::listitem[count(*) != 1]) and
+              not(../following-sibling::listitem[count(*) != 1]) ]">
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+<xsl:template match="orderedlist/listitem/para[
               not(preceding-sibling::* or following-sibling::*)  and
               not(../preceding-sibling::listitem[count(*) != 1]) and
               not(../following-sibling::listitem[count(*) != 1]) ]">

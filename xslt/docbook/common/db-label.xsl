@@ -73,9 +73,40 @@
 <FIXME/>
 </mode>
 
+<xsl:template mode="db.label.mode" match="chapter">
+  <xsl:param name="role"/>
+  <xsl:param name="depth_in_chunk">
+    <xsl:call-template name="db.chunk.depth-in-chunk">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:call-template>
+  </xsl:param>
+  <xsl:call-template name="format.chapter.label">
+    <xsl:with-param name="node" select="."/>
+    <xsl:with-param name="role" select="$role"/>
+    <xsl:with-param name="lang" select="ancestor-or-self::*[@lang][1]/@lang"/>
+    <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
+  </xsl:call-template>
+</xsl:template>
+
+<xsl:template mode="db.label.mode" match="figure">
+  <xsl:param name="role"/>
+  <xsl:param name="depth_in_chunk">
+    <xsl:call-template name="db.chunk.depth-in-chunk">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:call-template>
+  </xsl:param>
+  <xsl:call-template name="format.figure.label">
+    <xsl:with-param name="node" select="."/>
+    <xsl:with-param name="role" select="$role"/>
+    <xsl:with-param name="lang" select="ancestor-or-self::*[@lang][1]/@lang"/>
+    <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
+  </xsl:call-template>
+</xsl:template>
+
 <xsl:template mode="db.label.mode" match="
               refsect1 | refsect2 | refsect3 | refsection | section |
-              sect1    | sect2    | sect3    | sect4      | sect5   ">
+              sect1    | sect2    | sect3    | sect4      | sect5   |
+              simplesect ">
   <xsl:param name="role"/>
   <xsl:param name="depth_in_chunk">
     <xsl:call-template name="db.chunk.depth-in-chunk">
@@ -90,11 +121,26 @@
   </xsl:call-template>
 </xsl:template>
 
+<xsl:template mode="db.label.mode" match="table">
+  <xsl:param name="role"/>
+  <xsl:param name="depth_in_chunk">
+    <xsl:call-template name="db.chunk.depth-in-chunk">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:call-template>
+  </xsl:param>
+  <xsl:call-template name="format.table.label">
+    <xsl:with-param name="node" select="."/>
+    <xsl:with-param name="role" select="$role"/>
+    <xsl:with-param name="lang" select="ancestor-or-self::*[@lang][1]/@lang"/>
+    <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
+  </xsl:call-template>
+</xsl:template>
+
 <xsl:template mode="db.label.mode" match="
-              appendix | article  | book     | bibliography | chapter   |
-              colophon | example  | figure   | glossary     | index     |
+              appendix | article  | book     | bibliography |
+              colophon | example  | glossary     | index     |
               part     | qandadiv | qandaset | preface      | reference |
-              refentry | set      | setindex | simplesect   | table     ">
+              refentry | set      | setindex ">
   <xsl:param name="role"/>
 <!-- FIXME 
   <xsl:call-template name="db.label.name"/>

@@ -1,3 +1,26 @@
+2004-10-15  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/common/db-format.xml.in:
+	* xslt/docbook/common/db-label.xsl:
+	* xslt/gettext/format2xsl.xsl:
+	- More flexible role system in format2xsl
+	- Added some more labels
+
+	* xslt/docbook/html/db2html-block.xsl:
+	* xslt/docbook/html/db2html-css.xsl:
+	* xslt/docbook/html/db2html-division.xsl:
+	* xslt/docbook/html/db2html-inline.xsl:
+	- Added figure and glossary & friends
+
+	* xslt/docbook/html/db2html-list.xsl:
+	- Fixed up variablelist a bit
+
+	* xslt/docbook/html/db2html-table.xsl:
+	- Added some table CSS
+
+	* xslt/docbook/html/db2html-title.xsl:
+	- Some title work
+
 2004-10-07  Hendrik Brandt  <hebra@cvs.gnome.org>
 
 	* configure.in: Added "de" (German) to ALL_LINGUAS.

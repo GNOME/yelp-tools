@@ -118,6 +118,31 @@
 </xsl:template>
 
 
+<!-- == db2html.block.css ================================================== -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.block.css</name>
+  <description>
+    Create CSS for the block elements
+  </description>
+</template>
+
+<xsl:template name="db2html.block.css">
+  <xsl:text>
+    div[class="figure"] { margin-left: 28px; }
+    div[class="figure"] div[class="title"] span[class="label"] {
+      margin-right: 0.8em;
+      font-style: italic;
+    }
+    dt[class="glossterm"] { margin-left: 8px; }
+    dt[class="glossterm"] + dd { margin-top: -8px; }
+    dd[class="glossdef"]     { margin-left: 24px; margin-right: 12px; }
+    dd[class="glosssee"]     { margin-left: 24px; margin-right: 12px; }
+    dd[class="glossseealso"] { margin-left: 24px; margin-right: 12px; }
+  </xsl:text>
+</xsl:template>
+
+
 <!-- Matched Templates ===================================================== -->
 
 <!-- = abstract = -->
@@ -164,6 +189,32 @@
 
 <!-- = example = -->
 <xsl:template match="example">
+  <xsl:call-template name="db2html.block"/>
+</xsl:template>
+
+<!-- = figure = -->
+<xsl:template match="figure">
+  <xsl:call-template name="db2html.block"/>
+</xsl:template>
+
+<!-- = glossdef = -->
+<xsl:template match="glossdef">
+  <dd class="glossdef">
+    <xsl:apply-templates select="*[local-name(.) != 'glossseealso']"/>
+  </dd>
+  <xsl:apply-templates select="glossseealso"/>
+</xsl:template>
+
+<!-- = glossentry = -->
+<xsl:template match="glossentry">
+  <dt class="glossterm">
+    <xsl:apply-templates select="glossterm"/>
+  </dt>
+  <xsl:apply-templates select="glossdef | glosssee"/>
+</xsl:template>
+
+<!-- = highlights = -->
+<xsl:template match="highlights">
   <xsl:call-template name="db2html.block"/>
 </xsl:template>
 

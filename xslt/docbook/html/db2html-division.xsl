@@ -274,6 +274,39 @@
   </xsl:call-template>
 </xsl:template>
 
+<!-- = glossary = -->
+<xsl:template match="glossary">
+  <xsl:param name="depth_in_chunk">
+    <xsl:call-template name="db.chunk.depth-in-chunk"/>
+  </xsl:param>
+  <xsl:param name="depth_of_chunk">
+    <xsl:call-template name="db.chunk.depth-of-chunk"/>
+  </xsl:param>
+  <xsl:call-template name="db2html.division.content">
+    <xsl:with-param name="entries" select="glossentry"/>
+    <xsl:with-param name="divisions" select="glossdiv | bibliography"/>
+    <xsl:with-param name="info" select="glossaryinfo"/>
+    <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
+    <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+  </xsl:call-template>
+</xsl:template>
+
+<!-- = glossdiv = -->
+<xsl:template match="glossdiv">
+  <xsl:param name="depth_in_chunk">
+    <xsl:call-template name="db.chunk.depth-in-chunk"/>
+  </xsl:param>
+  <xsl:param name="depth_of_chunk">
+    <xsl:call-template name="db.chunk.depth-of-chunk"/>
+  </xsl:param>
+  <xsl:call-template name="db2html.division.content">
+    <xsl:with-param name="entries" select="glossentry"/>
+    <xsl:with-param name="divisions" select="bibliography"/>
+    <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
+    <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+  </xsl:call-template>
+</xsl:template>
+
 <!-- = part = -->
 <xsl:template match="part">
   <xsl:param name="depth_in_chunk">

@@ -12,8 +12,8 @@
 <xsl:output method="xml" encoding="UTF-8"/>
 
 <!-- == format2xsl == -->
-<xsl:template name="format2xsl">
-  <xsl:param name="msgstr"/>
+<xsl:template name="format2xsl" mode="format2xsl.mode" match="text()">
+  <xsl:param name="msgstr" select="."/>
   <xsl:param name="msgstr_cur" select="$msgstr"/>
   <xsl:param name="template"/>
   <xsl:param name="lang"/>
@@ -96,15 +96,72 @@
   </xsl:choose>
 </xsl:template>
 
+<xsl:template mode="format2xsl.mode" match="msg:msgstr">
+  <xsl:param name="template"/>
+  <xsl:param name="lang"/>
+  <xsl:choose>
+    <xsl:when test="msg:msgstr[@role]">
+      <xslt:choose>
+        <xsl:for-each select="msg:msgstr[@role]">
+          <xsl:apply-templates mode="format2xsl.mode" select=".">
+            <xsl:with-param name="template" select="$template"/>
+            <xsl:with-param name="lang" select="$lang"/>
+          </xsl:apply-templates>
+        </xsl:for-each>
+        <xsl:choose>
+          <xsl:when test="msg:msgstr[not(@role)]">
+            <xslt:otherwise>
+              <xsl:apply-templates mode="format2xsl.mode"
+                                   select="msg:msgstr[not(@role)][1]">
+                <xsl:with-param name="template" select="$template"/>
+                <xsl:with-param name="lang" select="$lang"/>
+              </xsl:apply-templates>
+            </xslt:otherwise>
+          </xsl:when>
+          <xsl:otherwise>
+            <xslt:message>
+              <xslt:text>No translation for </xslt:text>
+              <xslt:text><xsl:value-of select="$template/@name"/></xslt:text>
+              <xslt:text> with role </xslt:text>
+              <xslt:value-of select="$role"/>
+            </xslt:message>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xslt:choose>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:for-each select="node()">
+        <xsl:apply-templates mode="format2xsl.mode" select=".">
+          <xsl:with-param name="template" select="$template"/>
+          <xsl:with-param name="lang" select="$lang"/>
+        </xsl:apply-templates>
+      </xsl:for-each>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+<xsl:template mode="format2xsl.mode" match="*">
+  <xsl:param name="template"/>
+  <xsl:param name="lang"/>
+  <xsl:copy>
+    <xsl:for-each select="node()">
+      <xsl:apply-templates mode="format2xsl.mode" select=".">
+        <xsl:with-param name="template" select="$template"/>
+        <xsl:with-param name="lang" select="$lang"/>
+      </xsl:apply-templates>
+    </xsl:for-each>
+  </xsl:copy>
+</xsl:template>
+
 <!-- == msg:msg == -->
 <xsl:template match="msg:msg">
   <xsl:choose>
-    <xsl:when test="(count(msg:msgstr) != 1)     and
-                    not(count(msg:msgstr) = 2       and
+    <xsl:when test="(count(msg:msgstr[string(.) != current()/@id]) != 1)  and
+                    not(count(msg:msgstr[string(.) != current()/@id]) = 2 and
                         msg:msgstr[not(@xml:lang)]  and
                         msg:msgstr[@xml:lang = 'C'] )">
       <xslt:choose>
-        <xsl:for-each select="msg:msgstr">
+        <xsl:for-each select="msg:msgstr[string(.) != current()/@id]">
           <xsl:sort select="contains(@xml:lang, '@') and contains(@xml:lang, '.')"
                     order="descending"/>
           <xsl:sort select="contains(@xml:lang, '.')" order="descending"/>
@@ -224,33 +281,64 @@
                   </xsl:if>
                 </xsl:attribute>
               </xsl:if>
-              <xsl:call-template name="format2xsl">
-                <xsl:with-param name="msgstr" select="."/>
+              <xsl:apply-templates mode="format2xsl.mode" select=".">
                 <xsl:with-param name="template" select="../.."/>
                 <xsl:with-param name="lang" select="@xml:lang"/>
-              </xsl:call-template>
+              </xsl:apply-templates>
             </xsl:element>
           </xsl:if>
         </xsl:for-each>
       </xslt:choose>
     </xsl:when>
     <xsl:otherwise>
-      <xsl:call-template name="format2xsl">
-        <xsl:with-param name="msgstr">
-          <xsl:choose>
-            <xsl:when test="msg:msgstr[@xml:lang = 'C']">
-              <xsl:value-of select="msg:msgstr[@xml:lang = 'C']"/>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:value-of select="msg:msgstr[1]"/>
-            </xsl:otherwise>
-          </xsl:choose>
-        </xsl:with-param>
-        <xsl:with-param name="template" select=".."/>
-        <xsl:with-param name="lang" select="'C'"/>
-      </xsl:call-template>
+      <xsl:choose>
+        <xsl:when test="msg:msgstr[@xml:lang = 'C']">
+          <xsl:for-each select="msg:msgstr[@xml:lang = 'C'][1]">
+            <xsl:apply-templates mode="format2xsl.mode">
+              <xsl:with-param name="template" select="../.."/>
+              <xsl:with-param name="lang" select="'C'"/>
+            </xsl:apply-templates>
+          </xsl:for-each>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:for-each select="msg:msgstr[1]">
+            <xsl:apply-templates mode="format2xsl.mode">
+              <xsl:with-param name="template" select="../.."/>
+              <xsl:with-param name="lang" select="'C'"/>
+            </xsl:apply-templates>
+          </xsl:for-each>
+        </xsl:otherwise>
+      </xsl:choose>
     </xsl:otherwise>
   </xsl:choose>
+</xsl:template>
+
+<!-- == -->
+<xsl:template match="*">
+  <xsl:copy>
+    <xsl:apply-templates/>
+  </xsl:copy>
+</xsl:template>
+
+<!-- == doc:template == -->
+<xsl:template match="doc:template">
+  <xsl:variable name="doc_template" select="."/>
+  <xsl:variable name="xsl_template" select="following-sibling::xsl:template[1]"/>
+  <xsl:copy>
+    <xsl:for-each select="node()">
+      <xsl:apply-templates select="."/>
+      <xsl:if test="self::doc:description">
+        <xsl:if test="not($doc_template/doc:parameter[doc:name='lang'])">
+          <doc:parameter>
+            <doc:name>lang</doc:name>
+            <doc:description>
+              The language language to use for formatting
+            </doc:description>
+          </doc:parameter>
+        </xsl:if>
+      </xsl:if>
+    </xsl:for-each>
+  </xsl:copy>
 </xsl:template>
 
 <!-- == xsl:apply-templates == -->
@@ -373,20 +461,7 @@
         <xslt:value-of select="substring-after($lang_sans_variant, '.')"/>
       </xslt:if>
     </xslt:variable>
-    <xsl:choose>
-      <xsl:when test="count(msg:msg) != 1">
-        <xslt:choose>
-          <xsl:for-each select="msg:msg">
-            <xslt:when test="$role = '{@role}'">
-              <xsl:apply-templates select="."/>
-            </xslt:when>
-          </xsl:for-each>
-        </xslt:choose>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:apply-templates select="msg:msg"/>
-      </xsl:otherwise>
-    </xsl:choose>
+    <xsl:apply-templates select="msg:msg"/>
   </xslt:template>
 </xsl:template>
 

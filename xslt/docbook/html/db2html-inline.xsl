@@ -300,6 +300,11 @@
   </xsl:call-template>
 </xsl:template>
 
+<!-- = glossterm = -->
+<xsl:template match="glossterm">
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
 <!-- = guibutton = -->
 <xsl:template match="guibutton">
   <xsl:call-template name="db2html.inline">

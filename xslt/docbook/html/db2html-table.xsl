@@ -8,11 +8,77 @@
 <doc:title>Tables</doc:title>
 
 
+<!-- == db2html.table.rule_color =========================================== -->
+
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.table.rule_color</name>
+  <description>
+    The color used for alternating-color rules on table rows
+  </description>
+</parameter>
+
+<xsl:param name="db2html.table.rule_color" select="'#F0F0F0'"/>
+
+
 <!-- == Quick Matchers ===================================================== -->
 
 <xsl:template match="entry/para[
               not(preceding-sibling::* or following-sibling::*)]">
   <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
+
+<!-- == db2html.table.css ================================================== -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.table.css</name>
+  <description>
+    Create CSS for the table elements
+  </description>
+</template>
+
+<xsl:template name="db2html.table.css">
+  <xsl:text>
+    div[class="table"] { margin-left: 28px; }
+    div[class="table"] div[class="title"] span[class="title"] {
+      padding-top: 2px;
+      padding-left: 0.4em;
+      padding-right: 0.6em;
+      border-left: solid 1px;
+      border-right: solid 1px;
+      border-top: solid 1px;
+      -moz-border-radius-topleft: 8px;
+      -moz-border-radius-topright: 8px;
+    }
+    div[class="table"] div[class="title"] span[class="label"] {
+      margin-right: 0.8em;
+      font-style: italic;
+    }
+    table {
+      border-collapse: collapse;
+      border: solid 1px;
+      -moz-border-radius: 5px;
+    }
+  </xsl:text>
+  <xsl:if test="$db2html.table.rule_color">
+    <xsl:text>tr[class="odd"] { background-color: </xsl:text>
+    <xsl:value-of select="$db2html.table.rule_color"/>
+    <xsl:text> }</xsl:text>
+  </xsl:if>
+  <xsl:text>
+    td { padding-left: 0.8em; padding-right: 0.8em; }
+    th { padding-left: 0.8em; padding-right: 0.8em; }
+    thead tr th {
+      border-bottom: solid 1px;
+    }
+    td + td {
+      border-left: solid 1px;
+    }
+    tbody {
+      border: solid 1px;
+      -moz-border-radius: 5px;
+    }
+  </xsl:text>
 </xsl:template>
 
 
