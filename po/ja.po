@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils 0.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-23 16:57+0900\n"
-"PO-Revision-Date: 2004-11-24 06:59+0900\n"
+"POT-Creation-Date: 2005-01-12 02:58+0900\n"
+"PO-Revision-Date: 2005-01-12 02:59+0900\n"
 "Last-Translator: Satoru SATOH <ss@gnome.gr.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "MIME-Version: 1.0\n"
@@ -34,7 +34,7 @@ msgstr ""
 msgid "format.date"
 msgstr ""
 
-#. Figure %t{example}
+#. Example %t{number}
 #: xslt/docbook/common/db-format.xml.in.h:9
 msgid "format.example.label"
 msgstr ""
@@ -64,34 +64,64 @@ msgstr ""
 msgid "format.figure.number.flat"
 msgstr ""
 
-#. ‘%t{node}’
+#. (%t{node})
 #: xslt/docbook/common/db-format.xml.in.h:21
+msgid "format.manvolnum"
+msgstr ""
+
+#. Part %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:23
+msgid "format.part.label"
+msgstr ""
+
+#. %I{number}
+#: xslt/docbook/common/db-format.xml.in.h:25
+msgid "format.part.number"
+msgstr ""
+
+#. ‘%t{node}’
+#: xslt/docbook/common/db-format.xml.in.h:27
 msgid "format.quote.inner"
 msgstr ""
 
 #. “%t{node}”
-#: xslt/docbook/common/db-format.xml.in.h:23
+#: xslt/docbook/common/db-format.xml.in.h:29
 msgid "format.quote.outer"
 msgstr ""
 
+#. %t{title}
+#: xslt/docbook/common/db-format.xml.in.h:31
+msgid "format.refentry.label"
+msgstr ""
+
 #. Section %t{number}
-#: xslt/docbook/common/db-format.xml.in.h:25
+#: xslt/docbook/common/db-format.xml.in.h:33
 msgid "format.section.label"
 msgstr ""
 
 #. Table %t{number}
-#: xslt/docbook/common/db-format.xml.in.h:27
+#: xslt/docbook/common/db-format.xml.in.h:35
 msgid "format.table.label"
 msgstr ""
 
 #. %t{parent}-%1{number}
-#: xslt/docbook/common/db-format.xml.in.h:29
+#: xslt/docbook/common/db-format.xml.in.h:37
 msgid "format.table.number"
 msgstr ""
 
 #. %1{number}
-#: xslt/docbook/common/db-format.xml.in.h:31
+#: xslt/docbook/common/db-format.xml.in.h:39
 msgid "format.table.number.flat"
+msgstr ""
+
+#. Read the definition for ‘%s{node}’
+#: xslt/docbook/common/db-format.xml.in.h:41
+msgid "format.tooltip.glossentry"
+msgstr ""
+
+#. Send email to ‘%s{address}’
+#: xslt/docbook/common/db-format.xml.in.h:43
+msgid "format.tooltip.mailto"
 msgstr ""
 
 #. Used as a header before a list of authors.
@@ -130,181 +160,171 @@ msgid ""
 "<msgstr form=\"0\">Publisher</msgstr> <msgstr form=\"1\">Publishers</msgstr>"
 msgstr "発行者"
 
-#: xslt/gettext/l10n.xml.in.h:13
-msgid "About This Article"
-msgstr "この記事について"
-
+#. Link to the titlepage
 #: xslt/gettext/l10n.xml.in.h:14
-msgid "About This Bibliography"
-msgstr "この目録について"
+msgid "About This Document"
+msgstr "この文書について"
 
 #: xslt/gettext/l10n.xml.in.h:15
-msgid "About This Book"
-msgstr "このブックについて"
-
-#: xslt/gettext/l10n.xml.in.h:16
-msgid "About This Chapter"
-msgstr "この章について"
-
-#: xslt/gettext/l10n.xml.in.h:17
-msgid "About This Entry"
-msgstr "このエントリについて"
-
-#: xslt/gettext/l10n.xml.in.h:18
-msgid "About This Glossary"
-msgstr "この用語集について"
-
-#: xslt/gettext/l10n.xml.in.h:19
-msgid "About This Index"
-msgstr "この目次について"
-
-#: xslt/gettext/l10n.xml.in.h:20
-msgid "About This Part"
-msgstr "このパートについて"
-
-#: xslt/gettext/l10n.xml.in.h:21
-msgid "About This Preface"
-msgstr "この序文について"
-
-#: xslt/gettext/l10n.xml.in.h:22
-msgid "About This Reference"
-msgstr "このリファレンスについて"
-
-#: xslt/gettext/l10n.xml.in.h:23
-msgid "About This Section"
-msgstr "このセクションについて"
-
-#: xslt/gettext/l10n.xml.in.h:24
-msgid "About This Set"
-msgstr "このセットについて"
-
-#: xslt/gettext/l10n.xml.in.h:25
 msgid "Affiliation"
 msgstr "関連項目"
 
 #. This is an abbreviated form of 'Message Audience'.
 #. Feel free to use the same word/phrase for both.
-#: xslt/gettext/l10n.xml.in.h:28
+#: xslt/gettext/l10n.xml.in.h:18
 msgid "Audience"
 msgstr "読者"
 
-#: xslt/gettext/l10n.xml.in.h:29
+#: xslt/gettext/l10n.xml.in.h:19
 msgid "Caution"
 msgstr "注意"
 
-#: xslt/gettext/l10n.xml.in.h:30
+#: xslt/gettext/l10n.xml.in.h:20
 msgid "Colophon"
 msgstr "出版社のマーク"
 
 #. This is an abbreviated form of 'Table of Contents'.
 #. Feel free to use the same word/phrase for both.
-#: xslt/gettext/l10n.xml.in.h:33
+#: xslt/gettext/l10n.xml.in.h:23
 msgid "Contents"
 msgstr "目次"
 
 #. Used as a header for date column in the revision history.
-#: xslt/gettext/l10n.xml.in.h:35
+#: xslt/gettext/l10n.xml.in.h:25
 msgid "Date"
 msgstr "発行日"
 
-#: xslt/gettext/l10n.xml.in.h:36
+#: xslt/gettext/l10n.xml.in.h:26
 msgid "Dedication"
 msgstr "献辞"
 
-#: xslt/gettext/l10n.xml.in.h:37
+#: xslt/gettext/l10n.xml.in.h:27
 msgid "Email"
 msgstr "E-メール"
 
-#: xslt/gettext/l10n.xml.in.h:38
+#: xslt/gettext/l10n.xml.in.h:28
 msgid "Important"
 msgstr "重要"
 
-#: xslt/gettext/l10n.xml.in.h:39
+#: xslt/gettext/l10n.xml.in.h:29
 msgid "Index"
 msgstr "目次"
 
-#: xslt/gettext/l10n.xml.in.h:40
+#: xslt/gettext/l10n.xml.in.h:30
 msgid "Legal Notice"
 msgstr "商標"
 
 #. This is an abbreviated form of 'Message Level'.
 #. Feel free to use the same word/phrase for both.
-#: xslt/gettext/l10n.xml.in.h:43
+#: xslt/gettext/l10n.xml.in.h:33
 msgid "Level"
 msgstr "レベル"
 
-#: xslt/gettext/l10n.xml.in.h:44
+#: xslt/gettext/l10n.xml.in.h:34
 msgid "Message Audience"
 msgstr "メッセージの読者"
 
-#: xslt/gettext/l10n.xml.in.h:45
+#: xslt/gettext/l10n.xml.in.h:35
 msgid "Message Level"
 msgstr "メッセージのレベル"
 
-#: xslt/gettext/l10n.xml.in.h:46
+#: xslt/gettext/l10n.xml.in.h:36
 msgid "Message Origin"
 msgstr "メッセージ元"
 
-#: xslt/gettext/l10n.xml.in.h:47
+#: xslt/gettext/l10n.xml.in.h:37
 msgid "Name"
 msgstr "名前"
 
-#: xslt/gettext/l10n.xml.in.h:48
+#: xslt/gettext/l10n.xml.in.h:38
 msgid "Note"
 msgstr "注記"
 
 #. This is an abbreviated form of 'Message Origin'.
 #. Feel free to use the same word/phrase for both.
-#: xslt/gettext/l10n.xml.in.h:51
+#: xslt/gettext/l10n.xml.in.h:41
 msgid "Origin"
 msgstr "元"
 
-#: xslt/gettext/l10n.xml.in.h:52
+#: xslt/gettext/l10n.xml.in.h:42
 msgid "Preface"
 msgstr "はじめに"
 
-#: xslt/gettext/l10n.xml.in.h:53
+#: xslt/gettext/l10n.xml.in.h:43
 msgid "Reference"
 msgstr "リファレンス"
 
-#: xslt/gettext/l10n.xml.in.h:54
+#: xslt/gettext/l10n.xml.in.h:44
 msgid "Release Information"
 msgstr "リリース情報"
 
-#: xslt/gettext/l10n.xml.in.h:55
+#: xslt/gettext/l10n.xml.in.h:45
 msgid "Revision History"
 msgstr "改版履歴"
 
-#: xslt/gettext/l10n.xml.in.h:56
+#: xslt/gettext/l10n.xml.in.h:46
 msgid "See"
 msgstr "参照"
 
-#: xslt/gettext/l10n.xml.in.h:57
+#: xslt/gettext/l10n.xml.in.h:47
 msgid "See Also"
 msgstr "関連項目"
 
-#: xslt/gettext/l10n.xml.in.h:58
+#: xslt/gettext/l10n.xml.in.h:48
 msgid "Set Index"
 msgstr "インデックスのセット"
 
-#: xslt/gettext/l10n.xml.in.h:59
+#: xslt/gettext/l10n.xml.in.h:49
 msgid "Synopsis"
 msgstr "概要"
 
 #. Used for a link to a table of contents.
-#: xslt/gettext/l10n.xml.in.h:61
+#: xslt/gettext/l10n.xml.in.h:51
 msgid "Table of Contents"
 msgstr "目次"
 
-#: xslt/gettext/l10n.xml.in.h:62
+#: xslt/gettext/l10n.xml.in.h:52
 msgid "Tip"
 msgstr "チップス"
 
 #. Used as a header for title column in the revision history.
-#: xslt/gettext/l10n.xml.in.h:64
+#: xslt/gettext/l10n.xml.in.h:54
 msgid "Title"
 msgstr "タイトル"
 
-#: xslt/gettext/l10n.xml.in.h:65
+#: xslt/gettext/l10n.xml.in.h:55
 msgid "Warning"
 msgstr "警告"
+
+#~ msgid "About This Article"
+#~ msgstr "この記事について"
+
+#~ msgid "About This Bibliography"
+#~ msgstr "この目録について"
+
+#~ msgid "About This Book"
+#~ msgstr "このブックについて"
+
+#~ msgid "About This Chapter"
+#~ msgstr "この章について"
+
+#~ msgid "About This Entry"
+#~ msgstr "このエントリについて"
+
+#~ msgid "About This Glossary"
+#~ msgstr "この用語集について"
+
+#~ msgid "About This Index"
+#~ msgstr "この目次について"
+
+#~ msgid "About This Part"
+#~ msgstr "このパートについて"
+
+#~ msgid "About This Preface"
+#~ msgstr "この序文について"
+
+#~ msgid "About This Reference"
+#~ msgstr "このリファレンスについて"
+
+#~ msgid "About This Section"
+#~ msgstr "このセクションについて"
