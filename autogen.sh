@@ -18,4 +18,9 @@ which gnome-autogen.sh || {
     echo "You need to install gnome-common from the GNOME CVS"
     exit 1
 }
+
+# Bootstrap off the local gnome-doc-utils.m4
+ACLOCAL_FLAGS="-I . $ACLOCAL_FLAGS"
+export ACLOCAL_FLAGS
+
 USE_GNOME2_MACROS=1 . gnome-autogen.sh
