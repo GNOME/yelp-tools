@@ -1,6 +1,11 @@
 2004-09-25  Shaun McCance  <shaunm@gnome.org>
 
 	* gnome-doc-utils.make:
+	- Honor DESTDIR (#153728) and call scrollkeeper-update in install-omf
+
+2004-09-25  Shaun McCance  <shaunm@gnome.org>
+
+	* gnome-doc-utils.make:
 	- Added -f to clean-doc-header's rm
 
 	* doc/gnome-doc-make/C/gnome-doc-make.xml:

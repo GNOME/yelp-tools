@@ -398,21 +398,21 @@ check-omf:
 	done
 
 .PHONY: install-doc install-html install-omf install-dsk
-_install_doc  = $(if $(DOC_MODULE),install-doc)
-_install_html = $(if $(_DOC_HTML_ALL),install-html)
-_install_omf  = $(if $(_DOC_OMF_IN),install-omf)
-_install_dsk  = $(if $(_DOC_DSK_IN),install-dsk)
 install-data-local:					\
-	$(_install_doc)		$(_install_html)	\
-	$(_install_omf)		$(_install_dsk)
+	$(if $(DOC_MODULE),install-doc)			\
+	$(if $(_DOC_HTML_ALL),install-html)		\
+	$(if $(_DOC_OMF_IN),install-omf)		\
+	$(if $(_DOC_DSK_IN),install-dsk)
 install-doc:
 	echo install-doc
 install-html:
 	echo install-html
 install-omf:
-	echo $(_DOC_OMF_ALL)
-	$(mkinstalldirs) $(OMF_DIR)/$(DOC_MODULE)
-	cp $(_DOC_OMF_ALL) $(OMF_DIR)/$(DOC_MODULE)/
+	$(mkinstalldirs) $(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)
+	for omf in $(_DOC_OMF_ALL); do \
+	  $(INSTALL_DATA) $$omf $(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf; \
+	done
+	-scrollkeeper-update -p $(localstate_dir)/scrollkeeper -o $(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)
 install-dsk:
 	echo install-dsk
 
