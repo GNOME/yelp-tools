@@ -1,0 +1,93 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+	 xmlns:ref="http://www.gnome.org/~shaunm/mallard/reference">
+
+<ref:title>Command Synopses</ref:title>
+
+
+<!-- === Dependancies === -->
+
+<div>
+  <ref:title>Dependancicies</ref:title>
+
+  <!-- == db-title.rng == -->
+  <include href="db-title.rng">
+    <define name="db-title.stub.attr-common">
+      <ref name="db-section.stub.attr-common"/>
+    </define>
+    <define name="db-title.stub.inline">
+      <ref name="db-section.stub.inline"/>
+    </define>
+  </include>
+</div>
+
+
+<!-- === Stub Content Models === -->
+
+<div>
+  <ref:title>Stub Content Models</ref:title>
+
+  <!-- == db-section.stub.attr-common == -->
+  <define name="db-section.stub.attr-common">
+    <ref:refname>db-section.stub.attr-common</ref:refname>
+    <ref:refpurpose>
+      A stub model for common attributes
+    </ref:refpurpose>
+    <notAllowed/>
+  </define>
+
+  <!-- == db-section.stub.block == -->
+  <define name="db-section.stub.block">
+    <ref:refname>db-section.stub.block</ref:refname>
+    <ref:refpurpose>
+      A stub model for block-level content
+    </ref:refpurpose>
+    <notAllowed/>
+  </define>
+
+  <!-- == db-section.stub.inline == -->
+  <define name="db-section.stub.inline">
+    <ref:refname>db-section.stub.inline</ref:refname>
+    <ref:refpurpose>
+      A stub model for inline content
+    </ref:refpurpose>
+    <notAllowed/>
+  </define>
+</div>
+
+
+<!-- === Element Definitions === -->
+
+<div>
+  <ref:title>Element Definitions</ref:title>
+
+  <!-- == section == -->
+  <define name="db-section.element.section">
+    <element name="section">
+      <ref:refname>section</ref:refname>
+      <ref:refpurpose>
+	A section of a document
+      </ref:refpurpose>
+
+      <ref name="db-section.stub.attr-common"/>
+      <ref name="db-section.stub.info"/>
+      <ref name="db-title.model.subtitle"/>
+      <choice>
+	<group>
+	  <ref name="db-section.stub.block"/>
+	  <zeroOrMore>
+	    <ref name="db-section.element.section"/>
+	  </zeroOrMore>
+	</group>
+	<group>
+	  <oneOrMore>
+	    <ref name="db-section.element.section"/>
+	  </oneOrMore>
+	</group>
+      </choice>
+    </element>
+  </define>
+</div>
+
+</grammar>
