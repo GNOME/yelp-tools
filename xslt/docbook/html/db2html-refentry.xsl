@@ -8,6 +8,28 @@
 <doc:title>Reference Pages</doc:title>
 
 
+<!-- == db2html.refentry.css =============================================== -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.refentry.css</name>
+  <purpose>
+    Create CSS for the refentry elements
+  </purpose>
+</template>
+
+<xsl:template name="db2html.refentry.css">
+  <xsl:text>
+    div[class~="refentry"] h2[class~="refentry"] {
+      border: none;
+      margin-top: 1em;
+    }
+    div[class~="refentry"] + div[class~="refentry"] {
+      border-top: dashed black 1px;
+    }
+  </xsl:text>
+</xsl:template>
+
+
 <!-- = refentry = -->
 <xsl:template match="refentry">
   <xsl:param name="depth_in_chunk">
@@ -17,27 +39,37 @@
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
   </xsl:param>
 
-  <!-- FIXME: title -->
-
-  <div class="refnamedivs">
+  <div class="refentry">
+    <!-- FIXME: manvolnum? -->
     <xsl:call-template name="db2html.title.header">
-      <xsl:with-param name="node" select="refnamediv"/>
-      <xsl:with-param name="referent" select="refnamediv"/>
-      <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 2"/>
-      <xsl:with-param name="referent_depth_in_chunk" select="$depth_in_chunk + 1"/>
+      <xsl:with-param name="node"
+                      select="refmeta/refentrytitle | refmeta/manvolnum"/>
+      <xsl:with-param name="referent" select="."/>
+      <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
+      <xsl:with-param name="referent_depth_in_chunk" select="$depth_in_chunk"/>
       <xsl:with-param name="generate_label" select="false()"/>
-      <xsl:with-param name="title_content">
-        <xsl:call-template name="gettext">
-          <xsl:with-param name="msgid" select="'Name'"/>
-        </xsl:call-template>
-      </xsl:with-param>
     </xsl:call-template>
-    <xsl:apply-templates select="refnamediv"/>
+
+    <div class="refnamedivs">
+      <xsl:call-template name="db2html.title.header">
+        <xsl:with-param name="node" select="refnamediv"/>
+        <xsl:with-param name="referent" select="refnamediv"/>
+        <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 2"/>
+        <xsl:with-param name="referent_depth_in_chunk" select="$depth_in_chunk + 1"/>
+        <xsl:with-param name="generate_label" select="false()"/>
+        <xsl:with-param name="title_content">
+          <xsl:call-template name="gettext">
+            <xsl:with-param name="msgid" select="'Name'"/>
+          </xsl:call-template>
+        </xsl:with-param>
+      </xsl:call-template>
+      <xsl:apply-templates select="refnamediv"/>
+    </div>
+    <xsl:apply-templates select="refsynopsisdiv | refsect1 | refsection">
+      <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
+      <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+    </xsl:apply-templates>
   </div>
-  <xsl:apply-templates select="refsynopsisdiv | refsect1 | refsection">
-    <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
-    <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
-  </xsl:apply-templates>
 </xsl:template>
 
 <!-- = refname = -->

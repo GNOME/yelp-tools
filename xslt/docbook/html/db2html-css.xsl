@@ -24,6 +24,7 @@
     <xsl:call-template name="db2html.cmdsynopsis.css"/>
     <xsl:call-template name="db2html.list.css"/>
     <xsl:call-template name="db2html.qanda.css"/>
+    <xsl:call-template name="db2html.refentry.css"/>
     <xsl:call-template name="db2html.table.css"/>
     <xsl:call-template name="db2html.title.css"/>
     body {

@@ -304,7 +304,7 @@
   <xsl:param name="node" select="."/>
   <xsl:param name="role"/>
   <msg:msg id="format.example.label">
-    <!-- Figure %t{example} -->
+    <!-- Example %t{number} -->
     <_msg:msgstr>format.example.label</_msg:msgstr>
     <msg:msgstr xml:lang="C">Example %t{number}</msg:msgstr>
   </msg:msg>

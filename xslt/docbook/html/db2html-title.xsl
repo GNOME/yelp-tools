@@ -20,8 +20,8 @@
 <xsl:template name="db2html.title.css">
   <xsl:text>
     h1 { font-size: 1.6em; margin-top: 0em; }
-    h2 {
-      font-size: 1.4em;
+    h2 { font-size: 1.4em; }
+    h2[class~="title"] {
       margin-top: 1.8em;
       border-bottom: solid 1px;
     }
@@ -238,6 +238,7 @@
   <xsl:element name="{concat('h', $depth_in_chunk)}">
     <xsl:attribute name="class">
       <xsl:value-of select="local-name($referent)"/>
+      <xsl:text> title</xsl:text>
     </xsl:attribute>
     <span class="title">
       <xsl:call-template name="db2html.anchor">
@@ -250,12 +251,12 @@
         </xsl:call-template>
       </xsl:if>
       <xsl:choose>
-        <xsl:when test="$node/self::title">
-          <xsl:apply-templates select="$node/node()"/>
-        </xsl:when>
         <xsl:when test="$title_content">
           <xsl:value-of select="$title_content"/>
         </xsl:when>
+        <xsl:otherwise>
+          <xsl:apply-templates select="$node/node()"/>
+        </xsl:otherwise>
       </xsl:choose>
     </span>
   </xsl:element>
@@ -336,12 +337,12 @@
         <xsl:with-param name="node" select="$node"/>
       </xsl:call-template>
       <xsl:choose>
-        <xsl:when test="$node/self::subtitle">
-          <xsl:apply-templates select="$node/node()"/>
-        </xsl:when>
         <xsl:when test="$subtitle_content">
           <xsl:value-of select="$subtitle_content"/>
         </xsl:when>
+        <xsl:otherwise>
+          <xsl:apply-templates select="$node/node()"/>
+        </xsl:otherwise>
       </xsl:choose>
     </span>
   </xsl:element>

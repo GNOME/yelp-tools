@@ -1,3 +1,16 @@
+2004-12-01  Shaun McCance  <shaunm@gnome.org>
+
+	* po/cs.po:
+	- Removed the broken format.example.label translation
+
+	* xslt/docbook/common/db-format.xml.in:
+	- Fixed my broken comment to translators
+
+	* xslt/docbook/html/db2html-css.xsl:
+	* xslt/docbook/html/db2html-refentry.xsl:
+	* xslt/docbook/html/db2html-title.xsl:
+	- Some refentry work
+
 2004-11-24  Shaun McCance  <shaunm@gnome.org>
 
 	* gnome-doc-utils.make:
