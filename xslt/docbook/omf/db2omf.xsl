@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='utf-8'?><!-- -*- indent-tabs-mode: nil -*- -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 		xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
@@ -6,6 +6,8 @@
                 version="1.0">
 
 <xsl:output method="xml" encoding="utf-8" indent="yes"/>
+
+<xsl:include href="../common/db-common.xsl"/>
 
 <doc:title>DocBook to ScrollKeeper OMF</doc:title>
 
@@ -144,32 +146,37 @@
 
 <xsl:template name="db2omf.creator">
   <xsl:param name="info"
-	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
-		       = 'info']"/>
-  <xsl:for-each select="$info/author | $info/authorgroup/author">
-    <!-- FIXME: We should put a personname formatter in docbook/common -->
+             select="*[substring(local-name(.), string-length(local-name(.)) - 3)
+                       = 'info']"/>
+  <xsl:variable name="creators"
+                select="$info/author     | $info/authorgroup/author    |
+                        $info/corpauthor | $info/authorgroup/corpauthor"/>
+  <xsl:if test="not($creators)">
+    <xsl:message>
+      <xsl:text>db2omf: Missing author element</xsl:text>
+    </xsl:message>
+  </xsl:if>
+  <xsl:for-each select="$creators">
     <creator>
-      <xsl:for-each select="personname/honorific | honorific">
-	<xsl:value-of select="."/>
-	<xsl:text> </xsl:text>
-      </xsl:for-each>
-      <xsl:value-of select="personname/firstname | firstname"/>
-      <xsl:text> </xsl:text>
-      <xsl:for-each select="personname/othername | othername">
-	<xsl:value-of select="."/>
-	<xsl:text> </xsl:text>
-      </xsl:for-each>
-      <xsl:value-of select="personname/surname | surname"/>
-      <xsl:text> </xsl:text>
-      <xsl:for-each select="personname/lineage | lineage">
-	<xsl:value-of select="."/>
-	<xsl:text> </xsl:text>
-      </xsl:for-each>
-    </creator>
-  </xsl:for-each>
-  <xsl:for-each select="$info/corpauthor | $info/authorgroup/corpauthor">
-    <creator>
-      <xsl:value-of select="."/>
+      <xsl:if test="email">
+        <xsl:value-of select="email"/>
+        <xsl:text> </xsl:text>
+      </xsl:if>
+      <xsl:text>(</xsl:text>
+      <xsl:choose>
+        <xsl:when test="self::corpauthor">
+          <xsl:value-of select="."/>
+        </xsl:when>
+        <xsl:when test="personname">
+          <xsl:call-template name="db.personname">
+            <xsl:with-param name="node" select="personname"/>
+          </xsl:call-template>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:call-template name="db.personname"/>
+        </xsl:otherwise>
+      </xsl:choose>
+      <xsl:text>)</xsl:text>
     </creator>
   </xsl:for-each>
 </xsl:template>
@@ -192,9 +199,42 @@
 
 <xsl:template name="db2omf.maintainer">
   <xsl:param name="info"
-	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
-		       = 'info']"/>
-  <!-- FIXME -->
+             select="*[substring(local-name(.), string-length(local-name(.)) - 3)
+                       = 'info']"/>
+  <xsl:variable name="maintainers"
+                select="$info/author[@role='maintainer']        |
+                        $info/corpauthor[@role='maintainer']    |
+                        $info/editor[@role='maintainer']        |
+                        $info/othercredit[@role='maintainer']   |
+                        $info/authorgroup/*[@role='maintainer'] "/>
+  <xsl:if test="not($maintainers)">
+    <xsl:message>
+      <xsl:text>db2omf: Missing element with role maintainer</xsl:text>
+    </xsl:message>
+  </xsl:if>
+  <xsl:for-each select="$maintainers">
+    <maintainer>
+      <xsl:if test="email">
+        <xsl:value-of select="email"/>
+        <xsl:text> </xsl:text>
+      </xsl:if>
+      <xsl:text>(</xsl:text>
+      <xsl:choose>
+        <xsl:when test="self::corpauthor">
+          <xsl:value-of select="."/>
+        </xsl:when>
+        <xsl:when test="personname">
+          <xsl:call-template name="db.personname">
+            <xsl:with-param name="node" select="personname"/>
+          </xsl:call-template>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:call-template name="db.personname"/>
+        </xsl:otherwise>
+      </xsl:choose>
+      <xsl:text>)</xsl:text>
+    </maintainer>
+  </xsl:for-each>
 </xsl:template>
 
 
@@ -215,9 +255,34 @@
 
 <xsl:template name="db2omf.contributor">
   <xsl:param name="info"
-	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
-		       = 'info']"/>
-  <!-- FIXME -->
+             select="*[substring(local-name(.), string-length(local-name(.)) - 3)
+                       = 'info']"/>
+  <xsl:variable name="contributors"
+                select="$info/editor      | $info/authorgroup/editor      |
+                        $info/othercredit | $info/authorgroup/othercredit "/>
+  <xsl:for-each select="$contributors">
+    <contributor>
+      <xsl:if test="email">
+        <xsl:value-of select="email"/>
+        <xsl:text> </xsl:text>
+      </xsl:if>
+      <xsl:text>(</xsl:text>
+      <xsl:choose>
+        <xsl:when test="self::corpauthor">
+          <xsl:value-of select="."/>
+        </xsl:when>
+        <xsl:when test="personname">
+          <xsl:call-template name="db.personname">
+            <xsl:with-param name="node" select="personname"/>
+          </xsl:call-template>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:call-template name="db.personname"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </contributor>
+    <xsl:text>)</xsl:text>
+  </xsl:for-each>
 </xsl:template>
 
 
@@ -243,7 +308,7 @@
   <xsl:variable name="title" select="($info/title | title)[1]"/>
   <xsl:if test="not($title)">
     <xsl:message>
-      <xsl:text>Missing title element</xsl:text>
+      <xsl:text>db2omf: Missing title element</xsl:text>
     </xsl:message>
   </xsl:if>
   <title>
@@ -300,12 +365,12 @@
 		select="$info/revhistory/revision[1]/date"/>
   <xsl:if test="not($identifier)">
     <xsl:message>
-      <xsl:text>Missing revnumber element in revhistory</xsl:text>
+      <xsl:text>db2omf: Missing revnumber element in revhistory</xsl:text>
     </xsl:message>
   </xsl:if>
   <xsl:if test="not($date)">
     <xsl:message>
-      <xsl:text>Missing date element in revhistory</xsl:text>
+      <xsl:text>db2omf: Missing date element in revhistory</xsl:text>
     </xsl:message>
   </xsl:if>
   <version>
@@ -343,7 +408,8 @@
   <xsl:variable name="subject" select="$omf_in/omf/resource/subject"/>
   <xsl:if test="not($subject)">
     <xsl:message>
-      <xsl:text>Missing subject in .omf.in file</xsl:text>
+      <xsl:text>db2omf: Missing subject in </xsl:text>
+      <xsl:value-of select="$db2omf.omf_in"/>
     </xsl:message>
   </xsl:if>
   <subject>
@@ -376,7 +442,7 @@
   <xsl:variable name="description" select="$info/abstract[@role = 'description']"/>
   <xsl:if test="not($description)">
     <xsl:message>
-      <xsl:text>Missing abstract element with role description</xsl:text>
+      <xsl:text>db2omf: Missing abstract element with role description</xsl:text>
     </xsl:message>
   </xsl:if>
   <description>
@@ -408,7 +474,8 @@
   <xsl:variable name="type" select="$omf_in/omf/resource/type"/>
   <xsl:if test="not($type)">
     <xsl:message>
-      <xsl:text>Missing type in .omf.in file</xsl:text>
+      <xsl:text>db2omf: Missing type in </xsl:text>
+      <xsl:value-of select="$db2omf.omf_in"/>
     </xsl:message>
   </xsl:if>
   <type>
@@ -508,7 +575,8 @@
   <xsl:variable name="relation" select="$omf_in/omf/resource/relation"/>
   <xsl:if test="not($relation)">
     <xsl:message>
-      <xsl:text>Missing relation in .omf.in file</xsl:text>
+      <xsl:text>db2omf: Missing relation in </xsl:text>
+      <xsl:value-of select="$db2omf.omf_in"/>
     </xsl:message>
   </xsl:if>
   <relation>

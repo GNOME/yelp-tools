@@ -1,10 +1,9 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='utf-8'?><!-- -*- indent-tabs-mode: nil -*- -->
 <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
 "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
 ]>
 
-<article id="index" lang="en"
-	 xmlns:xi="http://www.w3.org/2001/XInclude">
+<article id="index" lang="en">
   <articleinfo>
     <title>GNOME Documentation Build Utilities</title>
     <copyright>
@@ -14,7 +13,7 @@
     <publisher>
       <publishername>GNOME Documentation Project</publishername>
     </publisher>
-    <xi:include href="legal.xml"/>
+    <include href="legal.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
     <authorgroup>
       <author>
         <firstname>Shaun</firstname>
@@ -39,6 +38,6 @@
     <para>Foo</para>
   </section>
 
-  <xi:include href="make-ref.xml"/>
+  <include href="make-ref.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
 
 </article>

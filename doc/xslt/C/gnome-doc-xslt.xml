@@ -1,10 +1,9 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='utf-8'?><!-- -*- indent-tabs-mode: nil -*- -->
 <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
 "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
 ]>
 
-<article id="index" lang="en"
-	 xmlns:xi="http://www.w3.org/2001/XInclude">
+<article id="index" lang="en">
   <articleinfo>
     <title>GNOME XSLT Manual</title>
     <copyright>
@@ -14,9 +13,9 @@
     <publisher>
       <publishername>GNOME Documentation Project</publishername>
     </publisher>
-    <xi:include href="legal.xml"/>
+    <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
     <authorgroup>
-      <author>
+      <author role="maintainer">
         <firstname>Shaun</firstname>
         <surname>McCance</surname>
 	<affiliation>
@@ -39,12 +38,12 @@
     <para>Foo</para>
   </section>
 
-  <xi:include href="db2html.xml"/>
-  <xi:include href="db-chunk.xml"/>
-  <xi:include href="db-common.xml"/>
-  <xi:include href="db2omf.xml"/>
-  <xi:include href="rngdoc.xml"/>
-  <xi:include href="xsldoc.xml"/>
-  <xi:include href="gettext.xml"/>
+  <include href="db2html.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+  <include href="db-chunk.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+  <include href="db-common.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+  <include href="db2omf.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+  <include href="rngdoc.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+  <include href="xsldoc.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+  <include href="gettext.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 
 </article>

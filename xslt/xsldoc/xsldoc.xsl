@@ -2,16 +2,12 @@
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
-                xmlns:xi="http://www.gnome.org/~shaunm/xsldoc/xinclude"
-                xmlns:xinclude="http://www.w3.org/2001/XInclude"
                 exclude-result-prefixes="doc"
                 version="1.0">
 
 <xsl:output method="xml" encoding="utf-8" indent="yes"/>
 
 <doc:title>Documenting XSLT Stylesheets</doc:title>
-
-<xsl:namespace-alias stylesheet-prefix="xi" result-prefix="xinclude"/>
 
 
 <!-- == xsldoc.id ========================================================== -->
@@ -391,11 +387,11 @@
 
 <xsl:template name="xsldoc.includes">
   <xsl:for-each select="xsl:include[@doc:include='true']">
-    <xi:include>
+    <include xmlns="http://www.w3.org/2001/XInclude">
       <xsl:attribute name="href">
         <xsl:call-template name="_hrefify"/>
       </xsl:attribute>
-    </xi:include>
+    </include>
   </xsl:for-each>
 </xsl:template>
 

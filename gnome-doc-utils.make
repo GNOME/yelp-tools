@@ -243,9 +243,15 @@ _DOC_C_INCLUDES = $(foreach inc,$(DOC_INCLUDES),C/$(inc))
 ## @ _DOC_C_DOCS
 ## All documentation files in the C locale
 _DOC_C_DOCS =								\
-	$(_DOC_C_ENTITIES) $(_DOC_C_INCLUDES)				\
-	$(_RNGDOC_C_DOCS)  $(_XSLDOC_C_DOCS)				\
+	$(_DOC_C_ENTITIES)	$(_DOC_C_INCLUDES)			\
+	$(_RNGDOC_C_DOCS)	$(_XSLDOC_C_DOCS)			\
 	$(_DOC_C_MODULE)
+
+## @ _DOC_C_DOCS_NOENT
+## All documentation files in the C locale
+_DOC_C_DOCS_NOENT =							\
+	$(_DOC_C_MODULE)	$(_DOC_C_INCLUDES)			\
+	$(_RNGDOC_C_DOCS)	$(_XSLDOC_C_DOCS)
 
 ## @ _DOC_C_HTML
 ## All HTML documentation in the C locale
@@ -261,16 +267,13 @@ _DOC_C_HTML = $(patsubst %.xml,%.html,$(_DOC_C_MODULE))
 _DOC_POFILES = $(if $(DOC_MODULE),					\
 	$(foreach lc,$(DOC_LINGUAS),$(lc)/$(DOC_MODULE).po))
 
-## @ _DOC_LC_MODULE
-## The top-level documentation file in all other locales
-_DOC_LC_MODULE = $(if $(DOC_MODULE),					\
-	$(foreach lc,$(DOC_LINGUAS),$(lc)/$(DOC_MODULE).xml))
+.PHONY: po
+po: $(_DOC_POFILES)
 
-## @ _DOC_LC_ENTITIES
-## Files included with a SYSTEM entity in all other locales
-_DOC_LC_ENTITIES = $(if $(DOC_MODULE),					\
-	$(foreach lc,$(DOC_LINGUAS),$(foreach ent,$(_DOC_C_ENTITIES),	\
-		$(lc)/$(notdir $(ent)) )) )
+## @ _DOC_LC_MODULES
+## The top-level documentation file in all other locales
+_DOC_LC_MODULES = $(if $(DOC_MODULE),					\
+	$(foreach lc,$(DOC_LINGUAS),$(lc)/$(DOC_MODULE).xml))
 
 ## @ _DOC_LC_XINCLUDES
 ## Files included with XInclude entity in all other locales
@@ -300,17 +303,16 @@ _DOC_LC_HTML =								\
 ## @ _DOC_LC_DOCS
 ## All documentation files in all other locales
 _DOC_LC_DOCS =								\
-	$(_DOC_LC_MODULE)						\
-	$(_DOC_LC_ENTITIES) $(_DOC_LC_INCLUDES)				\
-	$(_RNGDOC_LC_DOCS)  $(_XSLDOC_LC_DOCS)				\
+	$(_DOC_LC_MODULES)	$(_DOC_LC_INCLUDES)			\
+	$(_RNGDOC_LC_DOCS)	$(_XSLDOC_LC_DOCS)			\
 	$(if $(findstring html,$(_DOC_REAL_FORMATS)),$(_DOC_LC_HTML))
 
 $(_DOC_POFILES): $(_DOC_C_DOCS)
 	if ! test -d $(dir $@); then mkdir $@; fi
 	if ! test -f $@; then \
-	  (cd $(dir $@) && $(xml2po) $(_DOC_C_DOCS:%=../%) > $(notdir $@)); \
+	  (cd $(dir $@) && $(xml2po) -e $(_DOC_C_DOCS_NOENT:%=../%) > $(notdir $@)); \
 	else \
-	  (cd $(dir $@) && $(xml2po) -u $(basename $(notdir $@)) $(_DOC_C_DOCS:%=../%)); \
+	  (cd $(dir $@) && $(xml2po) -e -u $(basename $(notdir $@)) $(_DOC_C_DOCS_NOENT:%=../%)); \
 	fi
 
 # FIXME: fix the dependancy
@@ -385,14 +387,17 @@ all:							\
 	$(_DOC_HTML_ALL)	$(_DOC_POFILES)
 
 .PHONY: check-doc check-omf
-check: check-doc check-omf
-check-doc:
+check:							\
+	$(if $(DOC_MODULE),check-doc)			\
+	$(if $(_DOC_OMF_IN),check-omf)
+check-doc: $(_DOC_C_DOCS) $(_DOC_LC_DOCS)
 	for lc in C $(DOC_LINGUAS); do \
+	  xmllint --xinclude $$lc/$(DOC_MODULE).xml | less; \
 	  xmllint --noout --xinclude --postvalid $$lc/$(DOC_MODULE).xml; \
 	done
-check-omf:
+check-omf: $(_DOC_OMF_ALL)
 	for omf in $(_DOC_OMF_ALL); do \
-	  xmllint --noout $$omf; \
+	  xmllint --noout --dtdvalid 'http://scrollkeeper.sourceforge.net/dtds/scrollkeeper-omf-1.0/scrollkeeper-omf.dtd' $$omf; \
 	done
 
 .PHONY: install-doc install-html install-omf install-dsk
