@@ -1,3 +1,21 @@
+2004-09-14  Danilo Šegan  <dsegan@gmx.net>
+
+	* xml2po.py (normalizeString): Fix the crash below: this now
+	reports some errors when messages contain entities, and they're
+	not correctly normalized, but at least it doesn't crash (only
+	when used with -k option).
+
+2004-09-14  Danilo Šegan  <dsegan@gmx.net>
+
+	* TODO (TODO): Add some items suggested by Keld.
+
+	* configure.ac: Version up to 1.0.11.
+
+	* xml2po.py (stringForEntity): Use expand_entities variable.
+	Add expand_entities variable and "-k", "--keep-entities" options
+	(this currently crashes with the "Segmentation fault" — need to
+	look into it).
+
 2004-06-19  Danilo Šegan  <dsegan@gmx.net>
 
 	* NEWS: Documented changes in 1.0.8, 1.0.9 and 1.0.10.

@@ -120,11 +120,15 @@ def normalizeString(text, ignorewhitespace = 1):
     try:
         # Lets add document DTD so entities are resolved
         dtd = doc.intSubset()
-        tmp = dtd.serialize() + '<norm>%s</norm>' % text
+        tmp = ''
+        if expand_entities: # FIXME: we get a "Segmentation fault" in libxml2.parseMemory() when we include DTD otherwise
+            tmp = dtd.serialize()
+        tmp = tmp + '<norm>%s</norm>' % text
     except:
         tmp = '<norm>%s</norm>' % text
 
     try:
+        #libxml2.replaceEntities(0)
         tree = libxml2.parseMemory(tmp,len(tmp))
         newnode = tree.getRootElement()
     except:
@@ -157,7 +161,8 @@ def stringForEntity(node):
         next = 0
 
     ctxt = libxml2.createDocParserCtxt(tmp)
-    ctxt.replaceEntities(1)
+    if expand_entities:
+        ctxt.replaceEntities(1)
     ctxt.parseDocument()
     tree = ctxt.doc()
     if next:
@@ -205,7 +210,7 @@ def startTagForNode(node):
     if node.properties:
         for p in node.properties:
             if p.type == 'attribute':
-                # This part sucks
+                # FIXME: This part sucks
                 try:
                     params += ' %s:%s="%s"' % (p.ns().name, p.name, p.content)
                 except:
@@ -401,6 +406,7 @@ def doSerialize(node):
     node is the node to serialize, first indicates whether surrounding
     tags should be emitted as well.
     """
+
     if ignoreNode(node):
         return ''
     elif not node.children:
@@ -411,9 +417,9 @@ def doSerialize(node):
         else:
             return stringForEntity(node) #content #content #serialize("utf-8")
     elif node.type == 'entity_decl':
-        return node.serialize() #'<%s>%s</%s>' % (startTagForNode(node), node.content, node.name)
+        return node.serialize('utf-8') #'<%s>%s</%s>' % (startTagForNode(node), node.content, node.name)
     elif node.type == 'text':
-        return node.serialize()
+        return node.serialize('utf-8')
     elif node.type == 'element':
         return processElementTag(node)
     else:
@@ -520,20 +526,23 @@ filenames = [ ]
 
 mode = 'pot' # 'pot' or 'merge'
 automatic = 0
+expand_entities = 1
 
 output  = '-' # this means to stdout
 
 import getopt, fileinput
 
 args = sys.argv[1:]
-opts, args = getopt.getopt(args, 'avhm:t:o:p:u:r:',
-                           ['automatic-tags','version', 'help', 'mode=', 'translation=',
+opts, args = getopt.getopt(args, 'avhkm:t:o:p:u:r:',
+                           ['automatic-tags','version', 'help', 'keep-entities', 'mode=', 'translation=',
                             'output=', 'po-file=', 'update-translation=', 'reuse=' ])
 for opt, arg in opts:
     if opt in ('-m', '--mode'):
         default_mode = arg
     if opt in ('-a', '--automatic-tags'):
         automatic = 1
+    elif opt in ('-k', '--keep-entities'):
+        expand_entities = 0
     elif opt in ('-t', '--translation'):
         mofile = arg
         mode = 'merge'
@@ -559,6 +568,7 @@ for opt, arg in opts:
 OPTIONS may be some of:
     -a    --automatic-tags     Automatically decides if tags are to be considered
                                  "final" or not (overrides -f and -i options)
+    -k    --keep-entities      Don't expand entities
     -m    --mode=TYPE          Treat tags as type TYPE (default: docbook)
     -o    --output=FILE        Print resulting text (XML or POT) to FILE
     -p    --po-file=FILE       Specify PO file containing translation, and merge
@@ -632,7 +642,9 @@ for filename in filenames:
     msg.setFilename(filename)
     if CurrentXmlMode and origxml=='':
         CurrentXmlMode.preProcessXml(doc,msg)
+    print "ovde"
     doSerialize(doc)
+    print "posle"
 
 if output == '-':
     out = sys.stdout
