@@ -1,3 +1,9 @@
+2004-11-24  Shaun McCance  <shaunm@gnome.org>
+
+	* gnome-doc-utils.make:
+	- More robust DOCTYPE extractor
+	- Made -fig targets for dist, install, and uninstall, to avoid sh problems
+
 2004-11-24   Amanpreet Singh Alam <amanlinux@netscape.net>
 
 	* cconfigure.in: Add Punjabi (pa) to ALL_LINGUAS
