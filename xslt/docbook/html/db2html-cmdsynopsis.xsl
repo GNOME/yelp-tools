@@ -149,7 +149,7 @@
     </xsl:choose>
   </xsl:param>
 
-  <span class="arg">
+  <span class="arg-punc">
     <xsl:choose>
       <xsl:when test="$choice = 'plain'"/>
       <xsl:when test="$choice = 'req'">
@@ -159,9 +159,11 @@
 	<xsl:text>[</xsl:text>
       </xsl:otherwise>
     </xsl:choose>
-    <xsl:apply-templates mode="db2html.cmdsynopsis.mode">
-      <xsl:with-param name="sepchar" select="$sepchar"/>
-    </xsl:apply-templates>
+    <span class="arg">
+      <xsl:apply-templates mode="db2html.cmdsynopsis.mode">
+	<xsl:with-param name="sepchar" select="$sepchar"/>
+      </xsl:apply-templates>
+    </span>
     <xsl:if test="$rep = 'repeat'">
       <xsl:text>...</xsl:text>
     </xsl:if>
@@ -210,7 +212,7 @@
     </xsl:choose>
   </xsl:param>
 
-  <span class="group">
+  <span class="group-punc">
     <xsl:choose>
       <xsl:when test="$choice = 'plain'">
 	<xsl:text>(</xsl:text>
@@ -222,14 +224,16 @@
 	<xsl:text>[</xsl:text>
       </xsl:otherwise>
     </xsl:choose>
-    <xsl:for-each select="*">
-      <xsl:if test="local-name(.) = 'arg' and position() != 1">
-	<xsl:value-of select="concat($sepchar, '|', $sepchar"/>
-      </xsl:if>
-      <xsl:apply-templates mode="db2html.cmdsynopsis.mode" select=".">
-	<xsl:with-param name="sepchar" select="$sepchar"/>
-      </xsl:apply-templates>
-    </xsl:for-each>
+    <span class="group">
+      <xsl:for-each select="*">
+	<xsl:if test="local-name(.) = 'arg' and position() != 1">
+	  <xsl:value-of select="concat($sepchar, '|', $sepchar"/>
+	</xsl:if>
+	<xsl:apply-templates mode="db2html.cmdsynopsis.mode" select=".">
+	  <xsl:with-param name="sepchar" select="$sepchar"/>
+	</xsl:apply-templates>
+      </xsl:for-each>
+    </span>
     <xsl:choose>
       <xsl:when test="$choice = 'plain'">
 	<xsl:text>)</xsl:text>

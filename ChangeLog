@@ -1,5 +1,13 @@
 2004-04-01  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/html/db2html-inline.xsl:
+	- Added db2html-inline.xsl
+
+	* xslt/docbook/html/db2html-cmdsynopsis.xsl:
+	- Added -punc spans around things with automatic punctuation
+
+2004-04-01  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/docbook/html/db2html-cmdsynopsis.xsl:
 	- Adding db2html-cmdsynopsis.xsl
 
