@@ -10,6 +10,12 @@ supported, while other elements are expected only to be processed in certain
 modes because of the DocBook content model.
 -->
 
+<!-- Not rendered directly -->
+<xsl:template match="titleabbrev"/>
+
+<!-- Not yet supported -->
+<xsl:template match="remark"/>
+
 <!-- Suppressed by processing expectations -->
 <xsl:template match="screeninfo"/>
 

@@ -339,8 +339,8 @@
           <xsl:call-template name="db.personname"/>
         </xsl:otherwise>
       </xsl:choose>
+      <xsl:text>)</xsl:text>
     </contributor>
-    <xsl:text>)</xsl:text>
   </xsl:for-each>
 </xsl:template>
 
