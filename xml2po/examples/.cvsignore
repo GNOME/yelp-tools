@@ -1,0 +1,4 @@
+*.mo
+*.pot
+Makefile
+Makefile.in

@@ -1,3 +1,9 @@
+2004-03-25  Danilo Šegan  <dsegan@gmx.net>
+
+	* xml2po/*: Imported entire xml2po tree (will need cleaning up
+	before it is integrated with gnome-doc-utils, since it duplicates
+	a lot of stuff like COPYING, auto* stuff, etc).
+
 2004-03-23  Shaun McCance  <shaunm@gnome.org>
 
 	* Makefile.am:

@@ -1,0 +1,16 @@
+*.tar.gz
+INSTALL
+Makefile
+Makefile.in
+install-sh
+missing
+configure
+config.status
+config.log
+config.sub
+xml2po
+xml2po.pc
+README
+aclocal.m4
+*.cache
+*.pyc
