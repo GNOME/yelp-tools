@@ -1,3 +1,8 @@
+2005-04-02  Danilo Šegan  <dsegan@gmx.net>
+
+	* test.py (SIMPLETESTS): Add utf8-original.xml.
+	* utf8-original.*: Added.
+
 2005-03-27  Danilo Šegan  <dsegan@gmx.net>
 
 	* relnotes/*: Added complete Greek release notes translation as a

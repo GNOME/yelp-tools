@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test>
+<p>A translated message (for a msgid with utf-8).</p>
+<p>A translated message (for a msgid with NO utf-8).</p>
+<p>A translated message (for a msgid with utf-8).</p>
+<p>A translated message (for a msgid with NO utf-8).</p>
+</test>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<test>
+<p>This is an untranslated message, with UTF-8 characters: åäö ÅÄÖ.</p>
+<p>This is an untranslated message, with no UTF-8 characters.</p>
+<p>This is an untranslated message, with UTF-8 characters: åäö ÅÄÖ.</p>
+<p>This is an untranslated message, with no UTF-8 characters.</p>
+<</test>

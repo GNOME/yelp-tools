@@ -1,3 +1,9 @@
+2005-04-02  Danilo Šegan  <dsegan@gmx.net>
+
+	* xml2po.py (getTranslation): Use ugettext() instead of gettext().
+	s/.serialize()/.serialize('utf-8')/g
+	(replaceNodeContentsWithText): Use utf-8.
+
 2005-04-01  Danilo Šegan  <dsegan@gmx.net>
 
 	* xml2po.py (getTranslation): decode lookup string from utf-8.
