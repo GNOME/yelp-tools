@@ -607,6 +607,7 @@
 		       = 'info']"/>
   <identifier>
     <xsl:attribute name="url">
+      <xsl:text>file://</xsl:text>
       <xsl:value-of select="$db2omf.help_dir"/>
       <xsl:if test="not(substring($db2omf.help_dir,
                                   string-length($db2omf.help_dir)) = '/')">
