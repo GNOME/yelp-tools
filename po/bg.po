@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gnome-doc-utils-HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-02-16 19:01+0200\n"
-"PO-Revision-Date: 2005-02-16 19:02+0200\n"
+"PO-Revision-Date: 2005-02-27 15:22-0600\n"
 "Last-Translator: Alexander Shopov <ash@contact.bg>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
@@ -100,7 +100,7 @@ msgstr "%1{number}"
 #. (%t{node})
 #: xslt/docbook/common/db-format.xml.in.h:21
 msgid "format.manvolnum"
-msgstr "%t{parent}-%1{number}"
+msgstr ""
 
 #. Part %t{number}
 #: xslt/docbook/common/db-format.xml.in.h:23
@@ -110,7 +110,7 @@ msgstr "Глава %t{number}"
 #. %I{number}
 #: xslt/docbook/common/db-format.xml.in.h:25
 msgid "format.part.number"
-msgstr "%t{parent}-%1{number}"
+msgstr ""
 
 #. ‘%t{node}’
 #: xslt/docbook/common/db-format.xml.in.h:27
@@ -125,7 +125,7 @@ msgstr "„%t{node}“"
 #. %t{title}
 #: xslt/docbook/common/db-format.xml.in.h:31
 msgid "format.refentry.label"
-msgstr "Фигура %t{number}"
+msgstr ""
 
 #. Section %t{number}
 #: xslt/docbook/common/db-format.xml.in.h:33
@@ -155,7 +155,7 @@ msgstr "Виж дефиницията на „%s{node}“"
 #. Send email to ‘%s{address}’
 #: xslt/docbook/common/db-format.xml.in.h:43
 msgid "format.tooltip.mailto"
-msgstr "Виж дефиницията на „%s{node}“"
+msgstr "Виж дефиницията на „%s{address}“"
 
 #. Used as a header before a list of authors.
 #: xslt/gettext/l10n.xml.in.h:2

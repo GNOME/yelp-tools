@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gnome-doc-utils.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-02-13 20:34+0200\n"
-"PO-Revision-Date: 2005-02-10 16:55+0200\n"
+"PO-Revision-Date: 2005-02-27 14:33-0600\n"
 "Last-Translator: Emre Kadıoğlu <emrek@gawab.com>\n"
 "Language-Team: Turkish <gnome-turk@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -129,46 +129,38 @@ msgstr "format.ipucu.postaalıcısı"
 #. Used as a header before a list of authors.
 #: xslt/gettext/l10n.xml.in.h:2
 msgid "<msgstr form=\"0\">Author</msgstr> <msgstr form=\"1\">Authors</msgstr>"
-msgstr "<msgstr·form=\"0\">Yazar</msgstr>·<msgstr·form=\"1\">Yazarlar</msgstr>"
+msgstr "<msgstr form=\"0\">Yazar</msgstr> <msgstr form=\"1\">Yazarlar</msgstr>"
 
 #. Used as a header before a list of collaborators.
 #: xslt/gettext/l10n.xml.in.h:4
 msgid ""
 "<msgstr form=\"0\">Collaborator</msgstr> <msgstr form=\"1\">Collaborators</"
 "msgstr>"
-msgstr ""
-"<msgstr·form=\"0\">İş Arkadaşı</msgstr>·<msgstr·form=\"1\">İş Arkadaşları</"
-"msgstr>"
+msgstr "<msgstr form=\"0\">İş Arkadaşı</msgstr> <msgstr form=\"1\">İş Arkadaşları</msgstr>"
 
 #. Used as a header before a list of copyrights.
 #: xslt/gettext/l10n.xml.in.h:6
 msgid ""
 "<msgstr form=\"0\">Copyright</msgstr> <msgstr form=\"1\">Copyrights</msgstr>"
-msgstr ""
-"<msgstr·form=\"0\">Telif Hakkı</msgstr>·<msgstr·form=\"1\">Telif Hakkı</"
-"msgstr>"
+msgstr "<msgstr form=\"0\">Telif Hakkı</msgstr> <msgstr form=\"1\">Telif Hakkı</msgstr>"
 
 #. Used as a header before a list of editors.
 #: xslt/gettext/l10n.xml.in.h:8
 msgid "<msgstr form=\"0\">Editor</msgstr> <msgstr form=\"1\">Editors</msgstr>"
-msgstr ""
-"<msgstr·form=\"0\">Editör</msgstr>·<msgstr·form=\"1\">Editörler</msgstr>"
+msgstr "<msgstr form=\"0\">Editör</msgstr> <msgstr form=\"1\">Editörler</msgstr>"
 
 #. Used as a header before a list of contributors.
 #: xslt/gettext/l10n.xml.in.h:10
 msgid ""
 "<msgstr form=\"0\">Other Contributor</msgstr> <msgstr form=\"1\">Other "
 "Contributors</msgstr>"
-msgstr ""
-"<msgstr·form=\"0\">Katkıda Bulunanlar</msgstr>·<msgstr·form=\"1\">Katkıda "
-"Bulunanlar</msgstr>"
+msgstr "<msgstr form=\"0\">Katkıda Bulunanlar</msgstr> <msgstr form=\"1\">Katkıda Bulunanlar</msgstr>"
 
 #. Used as a header before a list of publishers.
 #: xslt/gettext/l10n.xml.in.h:12
 msgid ""
 "<msgstr form=\"0\">Publisher</msgstr> <msgstr form=\"1\">Publishers</msgstr>"
-msgstr ""
-"<msgstr·form=\"0\">Yayıncı</msgstr>·<msgstr·form=\"1\">Yayıncı</msgstr>"
+msgstr "<msgstr form=\"0\">Yayıncı</msgstr> <msgstr form=\"1\">Yayıncı</msgstr>"
 
 #. Link to the titlepage
 #: xslt/gettext/l10n.xml.in.h:14

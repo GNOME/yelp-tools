@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gnome-doc-utils 0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-02-10 13:35+0100\n"
-"PO-Revision-Date: 2005-02-10 13:41+0100\n"
+"PO-Revision-Date: 2005-02-27 15:18-0600\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmal <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -135,7 +135,7 @@ msgstr ""
 msgid ""
 "<msgstr form=\"0\">Collaborator</msgstr> <msgstr form=\"1\">Collaborators</"
 "msgstr>"
-msgstr "<msgstr form\"0\">Medhjelper</msgstr> <msgstr form\"1\">Medhjelpere</msgstr>"
+msgstr "<msgstr form=\"0\">Medhjelper</msgstr> <msgstr form=\"1\">Medhjelpere</msgstr>"
 
 #. Used as a header before a list of copyrights.
 #: ../xslt/gettext/l10n.xml.in.h:6

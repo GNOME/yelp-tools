@@ -654,6 +654,9 @@
         <xsl:apply-templates/>
         <xsl:text>;</xsl:text>
       </xsl:when>
+      <xsl:when test="$class = 'namespace'">
+        <xsl:apply-templates/>
+      </xsl:when>
       <xsl:when test="$class = 'numcharref'">
         <xsl:text>&amp;#</xsl:text>
         <xsl:apply-templates/>
@@ -684,6 +687,9 @@
         <xsl:apply-templates/>
         <xsl:text>?&gt;</xsl:text>
       </xsl:when>
+      <xsl:otherwise>
+        <xsl:apply-templates/>
+      </xsl:otherwise>
     </xsl:choose>
   </tt>
 </xsl:template>

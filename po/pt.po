@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: 2.10\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-02-18 01:26+0000\n"
-"PO-Revision-Date: 2005-02-18 01:30+0000\n"
+"PO-Revision-Date: 2005-02-27 15:22-0600\n"
 "Last-Translator: Duarte Loreto <happyguy_pt@hotmail.com>\n"
 "Language-Team: Portuguese <gnome_pt@yahoogroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -124,7 +124,7 @@ msgstr "Ler a definição de ‘%s{node}’"
 #. Send email to ‘%s{address}’
 #: xslt/docbook/common/db-format.xml.in.h:43
 msgid "format.tooltip.mailto"
-msgstr "Enviar um email para ‘%s{node}’"
+msgstr "Enviar um email para ‘%s{address}’"
 
 #. Used as a header before a list of authors.
 #: xslt/gettext/l10n.xml.in.h:2

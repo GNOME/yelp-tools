@@ -1,3 +1,32 @@
+2005-02-27  Shaun McCance  <shaunm@gnome.org>
+
+	* doc/xslt/C/translating.xml:
+	- Added documentation on using roles
+
+	* po/bg.po:
+	- Bad argument reference, clobbered translations for:
+	  format.manvolnum, format.part.number, format.refentry.label
+	- Fixed bad argument reference for format.tooltip.mailto
+
+	* po/es.po:
+	- Fixed small wrongnesses in format.date
+
+	* po/nb.po:
+	* po/no.po:
+	- Fixed missing = between attribute and value
+
+	* po/pt.po:
+	- Fixed argument reference in format.tooltip.mailto
+
+	* po/tr.po:
+	- Changed weird · characters to spaces in markup
+
+	* xslt/docbook/html/db2html-inline.xsl:
+	- Added support for sgmltag/@namespace, and a fallback
+
+	* xslt/gettext/format2xsl.xsl:
+	- Fixed a nasty bug with automatic role insertion
+
 2005-02-23  Ankit Patel <ankit644@yahoo.com>
 
 	* configure.in: Added Gujarati locale "gu" to ALL_LINGUAS.

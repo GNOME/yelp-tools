@@ -123,12 +123,12 @@
     <xsl:when test="xsl:template">
       <xsl:apply-templates select="xsl:template/node()"/>
     </xsl:when>
-    <xsl:when test="msg:msgstr[@role]                  or
-              ($template/xsl:param[@name = 'role']  and (
-                $template/msg:arg[@name = 'title']       or
-                $template/msg:arg[@name = 'titleabbrev'] or
-                $template/msg:arg[@name = 'subtitle']    or
-                $template/msg:arg[@name = 'number']      ))">
+    <xsl:when test="../self::msg:msg and (msg:msgstr[@role] or
+              ($template/xsl:param[@name = 'role']    and (
+                $template/msg:arg[@name = 'title']        or
+                $template/msg:arg[@name = 'titleabbrev']  or
+                $template/msg:arg[@name = 'subtitle']     or
+                $template/msg:arg[@name = 'number']       )))">
       <xslt:choose>
         <xsl:for-each select="msg:msgstr[@role]">
           <xslt:when test="$role = '{@role}'">
@@ -138,7 +138,8 @@
             </xsl:apply-templates>
           </xslt:when>
         </xsl:for-each>
-        <xsl:if test="$template/xsl:param[@name = 'role']">
+        <xsl:if test="../self::msg:msg and
+                      $template/xsl:param[@name = 'role']">
           <xsl:if test="not(msg:msgstr[@role = 'title'])   and
                         $template/msg:arg[@name = 'title'] ">
             <xslt:when test="$role = 'title'">

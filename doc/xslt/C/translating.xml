@@ -214,7 +214,123 @@ msgstr ""
       number of common cases, particularly for automatically generated
       labels.</para>
 
+      <para>The available roles for a template, as well as how the role
+      is extracted, varies from template to template.  The documentation
+      for each template should clearly state how the role is determined
+      and which roles are available.</para>
 
+      <para>Translating using roles is similar to translating using plural
+      forms.  A translation consists of any number of <sgmltag>msgstr</sgmltag>
+      elements, each with a <sgmltag class="attribute">role</sgmltag> attribute.
+      A <sgmltag>msgstr</sgmltag> element without an attribute can be provided
+      as a default if none of the roles match.</para>
+
+      <para>For example, the <sgmltag>citetitle</sgmltag> element in DocBook
+      is used to cite the title of a publication.  The type of the publication
+      is specified in the <sgmltag class="attribute">class</sgmltag> attribute.
+      In many English publications, article titles are place in quotes, while
+      book titles are italicized.  The following fragment will quote article
+      titles, but italicize all other cited titles.</para>
+
+      <programlisting><![CDATA[
+<msg:msgstr role="article">“%t{node}”</msg:msgstr>
+<msg:msgstr><i>%t{node}</i></msg:msgstr>
+]]></programlisting>
+
+      <para>The Czech translation team has chosen to follow the same
+      convention of quoting article titles and italicizing all others.
+      The entry in <filename>cs.po</filename> follows.</para>
+
+      <programlisting><![CDATA[
+#: xslt/docbook/common/db-format.xml.in.h:5
+msgid "format.citetitle"
+msgstr ""
+"<msg:msgstr role=\"article\">„%t{node}”</msg:msgstr>"
+"<msg:msgstr><i>%t{node}</i></msg:msgstr>"
+]]></programlisting>
+
+      <important><para>Unlike using plural forms with &gettext;, each
+      <sgmltag>msgstr</sgmltag> element must use the namespace prefix
+      <sgmltag class="namespace">msg:</sgmltag>.  Future versions of
+      the stylesheets should remove this requirement.</para></important>
+
+      <para>In this example, text is italicized using inline markup.
+      Although the HTML <sgmltag>i</sgmltag> tag is being used, the
+      templates are not used exclusively for HTML transformations.
+      A limited set of inline markup is permitted, and each stylesheet
+      using the translated templates provides a template to transform
+      the inline markup into its target format.  Translators should
+      restrict the use of inline markup to <sgmltag>i</sgmltag>
+      (italics), <sgmltag>b</sgmltag> (bold), and <sgmltag>tt</sgmltag>
+      (monospace).</para>
+    </section>
+
+    <section id="translating-labels">
+      <title>Translating Labels</title>
+
+      <para>The most common use of roles is to translate the formatting
+      of labels for section and other block elements in DocBook.  For
+      example, the second section of an article might be referred to
+      as Section 2.  The label for the section is used in many different
+      places throughout the document, and its formatting varies.  The
+      following roles are common in many label formatters.</para>
+
+      <variablelist>
+	<varlistentry>
+	  <term><literal>header</literal></term>
+	  <listitem><para>The label that appears before the title in the
+	  heading of the actual element in the content.  The label of this
+	  section using this role is
+	  <xref xrefstyle="role:header" linkend="translating-labels"/>.
+	  </para></listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><literal>li</literal></term>
+	  <listitem><para>The label that appears before the entry in the
+	  table of contents.  The label of this section using this role is
+	  <xref xrefstyle="role:li" linkend="translating-labels"/>.
+	  </para></listitem>
+	</varlistentry>
+	<varlistentry>
+	  <term><literal>xref</literal></term>
+	  <listitem><para>The label used for cross references placed inline
+	  in text.  The label of this section using this role is
+	  <xref xrefstyle="role:xref" linkend="translating-labels"/>.
+	  </para></listitem>
+	</varlistentry>
+      </variablelist>
+
+      <para>Additionally, there are four roles that are often used by the
+      stylesheets, but do not need to be defined by translators.  These
+      roles are <literal>title</literal>, <literal>titleabbrev</literal>,
+      <literal>subtitle</literal>, and <literal>number</literal>.  Unless
+      defined otherwise, these roles will automatically just call the
+      respective argument.</para>
+
+      <para>Translators can add support for additional roles for documents
+      written in their language.  This is useful for properly rendering
+      cross references used in different parts of speech.  For instance,
+      <quote>Section 14.2 contains more information</quote> and <quote>See
+      Section 14.2 for more information</quote> use the cross reference
+      label differently.  The first uses it as a subject, the second as
+      a direct object.  In many languages they will need to be rendered
+      differently.</para>
+
+      <para>When the stylesheets resolve a cross reference, they look first
+      at the <sgmltag class="attribute">xrefstyle</sgmltag> attribute of the
+      <sgmltag>xref</sgmltag> element.  If the attribute value is of the form
+      <literal>role:<replaceable>somerole</replaceable></literal>, then the
+      value <literal><replaceable>somerole</replaceable></literal> will be
+      used as the role.  Otherwise, the fallback role <literal>xref</literal>
+      will be used.</para>
+
+      <para>Translators may add additional roles, such as
+      <literal>xref-subject</literal> and <literal>xref-object</literal>.
+      Once added to the stylesheets, any document in that language can make
+      use of those roles to influence the rendering of cross references.
+      To avoid naming collisions, translators are recommended to prefix
+      roles with <literal>xref-</literal> when creating new roles for use
+      with cross references.</para>
     </section>
   </section>
 </section>
