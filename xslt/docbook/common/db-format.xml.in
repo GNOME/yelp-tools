@@ -33,7 +33,19 @@
   <xsl:param name="node" select="."/>
   <xsl:param name="role"/>
   <msg:msg id="format.citetitle">
-    <!-- FIXME -->
+    <!-- This is used for formatting the <citetitle> element in DocBook.
+         This element has a pubwork attribute that can be set to one of
+         the following values: article, bbs, book, cdrom, chapter, dvd,
+         emailmessage, gopher, journal, manuscript, newsposting, part,
+         refentry, section, series, set, webpage, wiki.  The value of
+         pubwork is passed as the role.  Translators can use this to
+         customize the appearance of a cited title based on the type
+         of document being cited.  The default is
+           <msg:msgstr role="article">“%t{node}”</msg:msgstr>
+           <msg:msgstr><i>%t{node}</i></msg:msgstr>
+         This puts the title in quotes if it's the title of an article.
+         For all other types of works, the title is italicized.
+    -->
     <_msg:msgstr>format.citetitle</_msg:msgstr>
     <msg:msgstr xml:lang="C">
       <msg:msgstr role="article">“%t{node}”</msg:msgstr>

@@ -1,5 +1,10 @@
 2004-11-08  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/common/db-format.xml.in:
+	- Big ol' comment for format.citetitle
+
+2004-11-08  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/gettext/l10n.xml.in:
 	- Make the comments recognizable by intltool
 
