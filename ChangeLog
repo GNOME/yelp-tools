@@ -1,5 +1,12 @@
 2004-04-20  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/html/db2html-cmdsynopsis.xsl:
+	* xslt/docbook/html/db2html-info.xsl:
+	* xslt/docbook/html/db2html-inline.xsl:
+	- Switching xsldoc comments to something more pleasant
+
+2004-04-20  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/docbook/html/db2html-funcsynopsis.xsl:
 	* xslt/docbook/html/db2html-title.xsl:
 	- Switching xsldoc comments to something more pleasant

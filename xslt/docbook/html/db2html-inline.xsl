@@ -1,19 +1,51 @@
 <?xml version='1.0' encoding='utf-8'?>
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-		xmlns:ref="http://www.gnome.org/~shaunm/mallard/reference"
+		xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
 		exclude-result-prefixes="ref"
                 version="1.0">
 
-<ref:title>Inline Elements</ref:title>
+<doc:title>Inline Elements</doc:title>
 
 
 <!-- == db2html.inline == -->
 
-<ref:refname>db2html.inline</ref:refname>
-<ref:refpurpose>
-  Process inline elements
-</ref:refpurpose>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.inline</name>
+  <description>
+    Process an inline element
+  </description>
+  <parameter>
+    <name>bold</name>
+    <description>
+      Whether to render the element bold
+    </description>
+  </parameter>
+  <parameter>
+    <name>italic</name>
+    <description>
+      Whether to render the element in italics
+    </description>
+  </parameter>
+  <parameter>
+    <name>underline</name>
+    <description>
+      Whether to underline the element
+    </description>
+  </parameter>
+  <parameter>
+    <name>mono</name>
+    <description>
+      Whether to render the element in monospace
+    </description>
+  </parameter>
+  <parameter>
+    <name>sans</name>
+    <description>
+      Whether to render the element in sans-serif
+    </description>
+  </parameter>
+</template>
 
 <xsl:template name="db2html.inline">
   <xsl:param name="bold" select="false()"/>

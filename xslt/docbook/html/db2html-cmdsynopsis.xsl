@@ -1,85 +1,102 @@
 <?xml version='1.0'?>
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-		xmlns:ref="http://www.gnome.org/~shaunm/mallard/reference"
+		xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
 		exclude-result-prefixes="ref"
                 version="1.0">
 
-<ref:title>Command Synopses</ref:title>
+<doc:title>Command Synopses</doc:title>
 
-<!-- == db2html.cmdsynopsis.sepchar == -->
+<!-- == db2html.cmdsynopsis.sepchar ======================================== -->
 
-<ref:refname>db2html.cmdsynopsis.sepchar</ref:refname>
-<ref:refpurpose>
-  The default value for the <ref:parameter>sepchar</ref:parameter> paramter
-</ref:refpurpose>
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.cmdsynopsis.sepchar</name>
+  <description>
+    The default value for the <parameter>sepchar</parameter> paramter
+  </description>
+</parameter>
 
 <xsl:param name="db2html.cmdsynopsis.sepchar" select="' '"/>
 
 
-<!-- == db2html.arg.choice == -->
+<!-- == db2html.arg.choice ================================================= -->
 
-<ref:refname>db2html.arg.choice</ref:refname>
-<ref:refpurpose>
-  The default value of the <ref:parameter>choice</ref:parameter> paramter
-  for <ref:xmltag>arg</ref:xmltag> elements
-</ref:refpurpose>
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.arg.choice</name>
+  <description>
+    The default value of the <parameter>choice</parameter> paramter
+    for <xmltag>arg</xmltag> elements
+  </description>
+</parameter>
 
 <xsl:param name="db2html.arg.choice" select="'opt'"/>
 
 
-<!-- == db2html.arg.rep == -->
+<!-- == db2html.arg.rep ==================================================== -->
 
-<ref:refname>db2html.arg.rep</ref:refname>
-<ref:refpurpose>
-  The default value of the <ref:parameter>rep</ref:parameter> paramter
-  for <ref:xmltag>arg</ref:xmltag> elements
-</ref:refpurpose>
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.arg.rep</name>
+  <description>
+    The default value of the <parameter>rep</parameter> paramter
+    for <xmltag>arg</xmltag> elements
+  </description>
+</parameter>
 
 <xsl:param name="db2html.arg.rep" select="'norepeat'"/>
 
 
-<!-- == db2html.group.choice == -->
+<!-- == db2html.group.choice =============================================== -->
 
-<ref:refname>db2html.group.choice</ref:refname>
-<ref:refpurpose>
-  The default value of the <ref:parameter>choice</ref:parameter> paramter
-  for <ref:xmltag>group</ref:xmltag> elements
-</ref:refpurpose>
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.group.choice</name>
+  <description>
+    The default value of the <parameter>choice</parameter> paramter
+    for <xmltag>group</xmltag> elements
+  </description>
+</parameter>
 
 <xsl:param name="db2html.group.choice" select="'opt'"/>
 
 
-<!-- == db2html.group.rep == -->
+<!-- == db2html.group.rep ================================================== -->
 
-<ref:refname>db2html.group.rep</ref:refname>
-<ref:refpurpose>
-  The default value of the <ref:parameter>rep</ref:parameter> paramter
-  for <ref:xmltag>group</ref:xmltag> elements
-</ref:refpurpose>
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.group.rep</name>
+  <description>
+    The default value of the <parameter>rep</parameter> paramter
+    for <xmltag>group</xmltag> elements
+  </description>
+</parameter>
 
 <xsl:param name="db2html.group.rep" select="'norepeat'"/>
 
 
-<!-- == db2html.cmdsynopsis == -->
+<!-- == db2html.cmdsynopsis ================================================ -->
 
-<ref:refname>db2html.cmdsynopsis</ref:refname>
-<ref:refpurpose>
-  Process <ref:xmltag>cmdsynopsis</ref:xmltag> elements
-</ref:refpurpose>
-<ref:para>
-  This template is called for all <ref:xmltag>cmdsynopsis</ref:xmltag>
-  elements.  Child elements are processed with the mode
-  <ref:function>db2html.cmdsynopsis.mode</ref:function>.
-  You may override templates in this mode to customize the behavior
-  of elements inside <ref:xmltag>cmdsynopsis</ref:xmltag>.
-</ref:para>
-<ref:para>
-  The <ref:parameter>sepchar</ref:parameter> is passed to the templates
-  in <ref:function>db2html.cmdsynopsis.mode</ref:function>.  If you
-  override a template in this mode, you should pass this parameter
-  through as well.
-</ref:para>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.cmdsynopsis</name>
+  <description>
+    Process a <xmltag>cmdsynopsis</xmltag> element
+  </description>
+  <parameter>
+    <name>sepchar</name>
+    <description>
+      The character that separates commands and arguments
+    </description>
+  </parameter>
+  <para>
+    This template is called for all <xmltag>cmdsynopsis</xmltag>
+    elements.  Child elements are processed with the mode
+    <mode>db2html.cmdsynopsis.mode</mode>.  You may override
+    templates in this mode to customize the behavior of
+    elements inside <xmltag>cmdsynopsis</xmltag>.
+  </para>
+  <para>
+    The <parameter>sepchar</parameter> parameter is passed to the templates
+    in <mode>db2html.cmdsynopsis.mode</mode>.  If you override a template
+    in this mode, you should pass this parameter through as well.
+  </para>
+</template>
 
 <xsl:template name="db2html.cmdsynopsis">
   <xsl:param name="sepchar">
@@ -114,7 +131,12 @@
 </xsl:template>
 
 
-<!-- == Matched Templates == -->
+<!-- == db2html.cmdsynopsis.mode =========================================== -->
+
+<mode xmlns="http://www.gnome.org/~shaunm/xsldoc">>
+  <name>db2html.cmdsynopsis.mode</name>
+  <FIXME/>
+</mode>
 
 <!-- = arg = -->
 <xsl:template mode="db2html.cmdsynopsis.mode" match="arg">

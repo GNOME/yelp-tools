@@ -1,19 +1,39 @@
 <?xml version='1.0' encoding='utf-8'?>
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-		xmlns:ref="http://www.gnome.org/~shaunm/mallard/reference"
+		xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
 		exclude-result-prefixes="ref"
                 version="1.0">
 
-<ref:title>Titlepages</ref:title>
+<doc:title>Titlepages</doc:title>
 
 
-<!-- == db2html.info == -->
+<!-- == db2html.info ======================================================= -->
 
-<ref:refname>db2html.info</ref:refname>
-<ref:refpurpose>
-  Render the titlepage of a block-level element
-</ref:refpurpose>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.info</name>
+  <description>
+    Render the titlepage of a block-level element
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The element for which to generate a titlepage
+    </description>
+  </parameter>
+  <parameter>
+    <name>info</name>
+    <description>
+      The info element containing metadata
+    </description>
+  </parameter>
+  <parameter>
+    <name>depth_in_chunk</name>
+    <description>
+      The depth of <parameter>node</parameter> in the containing chunk
+    </description>
+  </parameter>
+</template>
 
 <xsl:template name="db2html.info">
   <xsl:param name="node" select="."/>
@@ -73,12 +93,26 @@
 </xsl:template>
 
 
-<!-- == db2html.info.title == -->
+<!-- == db2html.info.title ================================================= -->
 
-<ref:refname>db2html.info.title</ref:refname>
-<ref:refpurpose>
-  Render the title of a titlepage
-</ref:refpurpose>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.info.title</name>
+  <description>
+    Render the title of a titlepage
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The element for which a titlepage is being generated
+    </description>
+  </parameter>
+  <parameter>
+    <name>info</name>
+    <description>
+      The info element containing metadata
+    </description>
+  </parameter>
+</template>
 
 <xsl:template name="db2html.info.title">
   <xsl:param name="node" select="."/>
@@ -100,12 +134,26 @@
 </xsl:template>
 
 
-<!-- == db2html.info.subtitle == -->
+<!-- == db2html.info.subtitle ============================================== -->
 
-<ref:refname>db2html.info.subtitle</ref:refname>
-<ref:refpurpose>
-  Render the subtitle of a titlepage
-</ref:refpurpose>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.info.subtitle</name>
+  <description>
+    Render the subtitle of a titlepage
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The element for which a titlepage is being generated
+    </description>
+  </parameter>
+  <parameter>
+    <name>info</name>
+    <description>
+      The info element containing metadata
+    </description>
+  </parameter>
+</template>
 
 <xsl:template name="db2html.info.subtitle">
   <xsl:param name="node" select="."/>
@@ -127,12 +175,26 @@
 </xsl:template>
 
 
-<!-- == db2html.info.authors == -->
+<!-- == db2html.info.authors =============================================== -->
 
-<ref:refname>db2html.info.authors</ref:refname>
-<ref:refpurpose>
-  Render the author credits in a titlepage
-</ref:refpurpose>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.info.authors</name>
+  <description>
+    Render the author credits in a titlepage
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The element for which a titlepage is being generated
+    </description>
+  </parameter>
+  <parameter>
+    <name>info</name>
+    <description>
+      The info element containing metadata
+    </description>
+  </parameter>
+</template>
 
 <xsl:template name="db2html.info.authors">
   <xsl:param name="node" select="."/>
@@ -157,12 +219,26 @@
 </xsl:template>
 
 
-<!-- == db2html.info.editors == -->
+<!-- == db2html.info.editors =============================================== -->
 
-<ref:refname>db2html.info.editors</ref:refname>
-<ref:refpurpose>
-  Render the editor credits in a titlepage
-</ref:refpurpose>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.info.editors</name>
+  <description>
+    Render the editor credits in a titlepage
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The element for which a titlepage is being generated
+    </description>
+  </parameter>
+  <parameter>
+    <name>info</name>
+    <description>
+      The info element containing metadata
+    </description>
+  </parameter>
+</template>
 
 <xsl:template name="db2html.info.editors">
   <xsl:param name="node" select="."/>
@@ -186,12 +262,26 @@
 </xsl:template>
 
 
-<!-- == db2html.info.collabs == -->
+<!-- == db2html.info.collabs =============================================== -->
 
-<ref:refname>db2html.info.collabs</ref:refname>
-<ref:refpurpose>
-  Render the collaborator credits in a titlepage
-</ref:refpurpose>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.info.collabs</name>
+  <description>
+    Render the collaborator credits in a titlepage
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The element for which a titlepage is being generated
+    </description>
+  </parameter>
+  <parameter>
+    <name>info</name>
+    <description>
+      The info element containing metadata
+    </description>
+  </parameter>
+</template>
 
 <xsl:template name="db2html.info.collabs">
   <xsl:param name="node" select="."/>
@@ -215,12 +305,26 @@
 </xsl:template>
 
 
-<!-- == db2html.info.translators == -->
+<!-- == db2html.info.translators =========================================== -->
 
-<ref:refname>db2html.info.translators</ref:refname>
-<ref:refpurpose>
-  Render the translator credits in a titlepage
-</ref:refpurpose>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.info.translators</name>
+  <description>
+    Render the translator credits in a titlepage
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The element for which a titlepage is being generated
+    </description>
+  </parameter>
+  <parameter>
+    <name>info</name>
+    <description>
+      The info element containing metadata
+    </description>
+  </parameter>
+</template>
 
 <xsl:template name="db2html.info.translators">
   <xsl:param name="node" select="."/>
@@ -245,12 +349,26 @@
 </xsl:template>
 
 
-<!-- == db2html.info.publishers == -->
+<!-- == db2html.info.publishers ============================================ -->
 
-<ref:refname>db2html.info.publishers</ref:refname>
-<ref:refpurpose>
-  Render the publisher credits in a titlepage
-</ref:refpurpose>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.info.publishers</name>
+  <description>
+    Render the publisher credits in a titlepage
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The element for which a titlepage is being generated
+    </description>
+  </parameter>
+  <parameter>
+    <name>info</name>
+    <description>
+      The info element containing metadata
+    </description>
+  </parameter>
+</template>
 
 <xsl:template name="db2html.info.publishers">
   <xsl:param name="node" select="."/>
@@ -273,12 +391,26 @@
 </xsl:template>
 
 
-<!-- == db2html.info.othercredits == -->
+<!-- == db2html.info.othercredits ========================================== -->
 
-<ref:refname>db2html.info.othercredits</ref:refname>
-<ref:refpurpose>
-  Render all other credits in a titlepage
-</ref:refpurpose>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.info.othercredits</name>
+  <description>
+    Render all other credits in a titlepage
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The element for which a titlepage is being generated
+    </description>
+  </parameter>
+  <parameter>
+    <name>info</name>
+    <description>
+      The info element containing metadata
+    </description>
+  </parameter>
+</template>
 
 <xsl:template name="db2html.info.othercredits">
   <xsl:param name="node" select="."/>
@@ -302,12 +434,26 @@
 </xsl:template>
 
 
-<!-- == db2html.info.copyrights == -->
+<!-- == db2html.info.copyrights ============================================ -->
 
-<ref:refname>db2html.info.copyrights</ref:refname>
-<ref:refpurpose>
-  Render the copyrights in a titlepage
-</ref:refpurpose>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.info.copyrights</name>
+  <description>
+    Render the copyrights in a titlepage
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The element for which a titlepage is being generated
+    </description>
+  </parameter>
+  <parameter>
+    <name>info</name>
+    <description>
+      The info element containing metadata
+    </description>
+  </parameter>
+</template>
 
 <xsl:template name="db2html.info.copyrights">
   <xsl:param name="node" select="."/>
