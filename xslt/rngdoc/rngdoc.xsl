@@ -45,7 +45,7 @@
 <ref:title>Processing Divisions and Grammars</ref:title>
 
 <xsl:template match="/rng:grammar">
-  <xsl:variable name="toplevel-element">
+  <xsl:variable name="toplevel_element">
     <xsl:choose>
       <xsl:when test="
 		$rngdoc.toplevel_element = 'article'   or
@@ -101,7 +101,7 @@
 	  <xsl:apply-templates select="ref:refpurpose"/>
 	</refnamediv>
 	<xsl:apply-templates select="
-	    ref:*[local-name(.) != 'refname' and local-name(.) != 'refpurpose'"/>
+	    ref:*[local-name(.) != 'refname' and local-name(.) != 'refpurpose']"/>
       </refentry>
     </xsl:when>
     <xsl:otherwise>
@@ -132,6 +132,17 @@
   </title>
 </xsl:template>
 
+<xsl:template match="ref:refentry">
+  <refentry>
+    <xsl:apply-templates/>
+  </refentry>
+</xsl:template>
+
+<xsl:template match="ref:refpurpose">
+  <refentry>
+    <xsl:apply-templates/>
+  </refentry>
+</xsl:template>
 
 <!-- === Outlining RELAX-NG Models === -->
 <ref:sect1/>

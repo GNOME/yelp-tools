@@ -1,5 +1,13 @@
 2004-03-16  Shaun McCance  <shaunm@gnome.org>
 
+	* gnome-doc-utils.pc.in:
+	- Added rngdoc variable.
+
+	* xslt/rngdoc/rngdoc.xsl:
+	- Fixed incorrect XPath expression.
+
+2004-03-16  Shaun McCance  <shaunm@gnome.org>
+
 	* configure.in:
 	* xslt/Makefile.am:
 	* xslt/docbook/Makefile.am:
