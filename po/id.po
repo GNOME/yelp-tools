@@ -1,0 +1,306 @@
+# Indonesian translation of gnome-doc-utils.
+# Copyright (C) 2005 THE gnome-doc-utils'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-doc-utils package.
+# ahmad riza h nst <ari@160c.afraid.org>, 2005.
+# 
+# 
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-doc-utils HEAD\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-02-25 07:06+0100\n"
+"PO-Revision-Date: 2005-02-27 22:13+0700\n"
+"Last-Translator: ahmad riza h nst <ari@160c.afraid.org>\n"
+"Language-Team: Indonesian <sukarelawan@gnome.linux.or.id>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit"
+
+#. Appendix %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:2
+msgid "format.appendix.label"
+msgstr "bentuk.tambahan.nama"
+
+#. Chapter %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:4
+msgid "format.chapter.label"
+msgstr "bentuk.bab.nama"
+
+#: xslt/docbook/common/db-format.xml.in.h:5
+msgid "format.citetitle"
+msgstr "bentuk.citetitle"
+
+#. FIXME
+#: xslt/docbook/common/db-format.xml.in.h:7
+msgid "format.date"
+msgstr "bentuk.tanggal"
+
+#. Example %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:9
+msgid "format.example.label"
+msgstr "bentuk.contoh.nama"
+
+#. %t{parent}-%1{number}
+#: xslt/docbook/common/db-format.xml.in.h:11
+msgid "format.example.number"
+msgstr "bentuk.contoh.nomor"
+
+#. %1{number}
+#: xslt/docbook/common/db-format.xml.in.h:13
+msgid "format.example.number.flat"
+msgstr "bentuk.contoh.nomor.rata"
+
+#. Figure %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:15
+msgid "format.figure.label"
+msgstr "bentuk.gambar.nama"
+
+#. %t{parent}-%1{number}
+#: xslt/docbook/common/db-format.xml.in.h:17
+msgid "format.figure.number"
+msgstr "bentuk.gambar.nomor"
+
+#. %1{number}
+#: xslt/docbook/common/db-format.xml.in.h:19
+msgid "format.figure.number.flat"
+msgstr "bentuk.gambar.nomor.rata"
+
+#. (%t{node})
+#: xslt/docbook/common/db-format.xml.in.h:21
+msgid "format.manvolnum"
+msgstr "bentuk.manvolnum"
+
+#. Part %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:23
+msgid "format.part.label"
+msgstr "bentuk.bagian.nama"
+
+#. %I{number}
+#: xslt/docbook/common/db-format.xml.in.h:25
+msgid "format.part.number"
+msgstr "bentuk.bagian.nomor"
+
+#. ‘%t{node}’
+#: xslt/docbook/common/db-format.xml.in.h:27
+msgid "format.quote.inner"
+msgstr "bentuk.kutip.dalam"
+
+#. “%t{node}”
+#: xslt/docbook/common/db-format.xml.in.h:29
+msgid "format.quote.outer"
+msgstr "bentuk.kutip.luar"
+
+#. %t{title}
+#: xslt/docbook/common/db-format.xml.in.h:31
+msgid "format.refentry.label"
+msgstr "bentuk.refentry.nama"
+
+#. Section %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:33
+msgid "format.section.label"
+msgstr "bentuk.bagian.nama"
+
+#. Table %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:35
+msgid "format.table.label"
+msgstr "bentuk.tabel.nama"
+
+#. %t{parent}-%1{number}
+#: xslt/docbook/common/db-format.xml.in.h:37
+msgid "format.table.number"
+msgstr "bentuk.tabel.nomor"
+
+#. %1{number}
+#: xslt/docbook/common/db-format.xml.in.h:39
+msgid "format.table.number.flat"
+msgstr "bentuk.tabel.nomor.rata"
+
+#. Read the definition for ‘%s{node}’
+#: xslt/docbook/common/db-format.xml.in.h:41
+msgid "format.tooltip.glossentry"
+msgstr "bentuk.tooltip.glossentry"
+
+#. Send email to ‘%s{address}’
+#: xslt/docbook/common/db-format.xml.in.h:43
+msgid "format.tooltip.mailto"
+msgstr "bentuk.tooltip.suratke"
+
+#. Used as a header before a list of authors.
+#: xslt/gettext/l10n.xml.in.h:2
+msgid "<msgstr form=\"0\">Author</msgstr> <msgstr form=\"1\">Authors</msgstr>"
+msgstr "<msgstr form=\"0\">Penulis</msgstr> <msgstr form=\"1\">Penulis</msgstr>"
+
+#. Used as a header before a list of collaborators.
+#: xslt/gettext/l10n.xml.in.h:4
+msgid ""
+"<msgstr form=\"0\">Collaborator</msgstr> <msgstr form=\"1\">Collaborators</"
+"msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Kolaborator</msgstr> <msgstr form=\"1\">Kolaborator</"
+"msgstr>"
+
+#. Used as a header before a list of copyrights.
+#: xslt/gettext/l10n.xml.in.h:6
+msgid ""
+"<msgstr form=\"0\">Copyright</msgstr> <msgstr form=\"1\">Copyrights</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Hakcipta</msgstr> <msgstr form=\"1\">Hakcipta</msgstr>"
+
+#. Used as a header before a list of editors.
+#: xslt/gettext/l10n.xml.in.h:8
+msgid "<msgstr form=\"0\">Editor</msgstr> <msgstr form=\"1\">Editors</msgstr>"
+msgstr "<msgstr form=\"0\">Penyunting</msgstr> <msgstr form=\"1\">Penyunting</msgstr>"
+
+#. Used as a header before a list of contributors.
+#: xslt/gettext/l10n.xml.in.h:10
+msgid ""
+"<msgstr form=\"0\">Other Contributor</msgstr> <msgstr form=\"1\">Other "
+"Contributors</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Penyumbang Lain</msgstr> <msgstr form=\"1\">Penyumbang "
+"Lain</msgstr>"
+
+#. Used as a header before a list of publishers.
+#: xslt/gettext/l10n.xml.in.h:12
+msgid ""
+"<msgstr form=\"0\">Publisher</msgstr> <msgstr form=\"1\">Publishers</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Penerbit</msgstr> <msgstr form=\"1\">Penerbit</msgstr>"
+
+#. Link to the titlepage
+#: xslt/gettext/l10n.xml.in.h:14
+msgid "About This Document"
+msgstr "Tentang Dokumen Ini"
+
+#: xslt/gettext/l10n.xml.in.h:15
+msgid "Affiliation"
+msgstr "Hubungan"
+
+#. This is an abbreviated form of 'Message Audience'.
+#. Feel free to use the same word/phrase for both.
+#: xslt/gettext/l10n.xml.in.h:18
+msgid "Audience"
+msgstr "Pendengar"
+
+#: xslt/gettext/l10n.xml.in.h:19
+msgid "Caution"
+msgstr "Perhatian"
+
+#: xslt/gettext/l10n.xml.in.h:20
+msgid "Colophon"
+msgstr "Tanda Penerbit"
+
+#. This is an abbreviated form of 'Table of Contents'.
+#. Feel free to use the same word/phrase for both.
+#: xslt/gettext/l10n.xml.in.h:23
+msgid "Contents"
+msgstr "Isi"
+
+#. Used as a header for date column in the revision history.
+#: xslt/gettext/l10n.xml.in.h:25
+msgid "Date"
+msgstr "Tanggal"
+
+#: xslt/gettext/l10n.xml.in.h:26
+msgid "Dedication"
+msgstr "Persembahan"
+
+#: xslt/gettext/l10n.xml.in.h:27
+msgid "Email"
+msgstr "Email"
+
+#: xslt/gettext/l10n.xml.in.h:28
+msgid "Important"
+msgstr "Penting"
+
+#: xslt/gettext/l10n.xml.in.h:29
+msgid "Index"
+msgstr "Indeks"
+
+#: xslt/gettext/l10n.xml.in.h:30
+msgid "Legal Notice"
+msgstr "Pemberitahuan Resmi"
+
+#. This is an abbreviated form of 'Message Level'.
+#. Feel free to use the same word/phrase for both.
+#: xslt/gettext/l10n.xml.in.h:33
+msgid "Level"
+msgstr "Tingkat"
+
+#: xslt/gettext/l10n.xml.in.h:34
+msgid "Message Audience"
+msgstr "Pendengar Pesan"
+
+#: xslt/gettext/l10n.xml.in.h:35
+msgid "Message Level"
+msgstr "Tingkat Pesan"
+
+#: xslt/gettext/l10n.xml.in.h:36
+msgid "Message Origin"
+msgstr "Asal Pesan"
+
+#: xslt/gettext/l10n.xml.in.h:37
+msgid "Name"
+msgstr "Nama"
+
+#: xslt/gettext/l10n.xml.in.h:38
+msgid "Note"
+msgstr "Catatan"
+
+#. This is an abbreviated form of 'Message Origin'.
+#. Feel free to use the same word/phrase for both.
+#: xslt/gettext/l10n.xml.in.h:41
+msgid "Origin"
+msgstr "Asal"
+
+#: xslt/gettext/l10n.xml.in.h:42
+msgid "Preface"
+msgstr "Kata Pengantar"
+
+#: xslt/gettext/l10n.xml.in.h:43
+msgid "Reference"
+msgstr "Referensi"
+
+#: xslt/gettext/l10n.xml.in.h:44
+msgid "Release Information"
+msgstr "Informasi Penerbitan"
+
+#: xslt/gettext/l10n.xml.in.h:45
+msgid "Revision History"
+msgstr "Sejarah Perbaikan"
+
+#: xslt/gettext/l10n.xml.in.h:46
+msgid "See"
+msgstr "Lihat"
+
+#: xslt/gettext/l10n.xml.in.h:47
+msgid "See Also"
+msgstr "Lihat Juga"
+
+#: xslt/gettext/l10n.xml.in.h:48
+msgid "Set Index"
+msgstr "Indeks Set"
+
+#: xslt/gettext/l10n.xml.in.h:49
+msgid "Synopsis"
+msgstr "Ringkasan"
+
+#. Used for a link to a table of contents.
+#: xslt/gettext/l10n.xml.in.h:51
+msgid "Table of Contents"
+msgstr "Daftar Isi"
+
+#: xslt/gettext/l10n.xml.in.h:52
+msgid "Tip"
+msgstr "Tip"
+
+#. Used as a header for title column in the revision history.
+#: xslt/gettext/l10n.xml.in.h:54
+msgid "Title"
+msgstr "Judul"
+
+#: xslt/gettext/l10n.xml.in.h:55
+msgid "Warning"
+msgstr "Peringatan"
+
