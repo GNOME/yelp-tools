@@ -1,3 +1,8 @@
+2004-11-11  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/common/db-chunk.xsl:
+	- Some big speed improvements
+
 2004-11-10  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/html/db2html-division.xsl:

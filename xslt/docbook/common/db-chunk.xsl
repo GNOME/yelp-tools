@@ -331,8 +331,7 @@
 
 <xsl:template name="db.chunk.depth-in-chunk">
   <xsl:param name="node" select="."/>
-  <xsl:variable name="chunk" select="
-    (
+  <xsl:variable name="divs" select="count(
       $node/ancestor-or-self::appendix     | $node/ancestor-or-self::article      |
       $node/ancestor-or-self::book         | $node/ancestor-or-self::bibliography |
       $node/ancestor-or-self::chapter      | $node/ancestor-or-self::colophon     |
@@ -345,10 +344,15 @@
       $node/ancestor-or-self::sect3        | $node/ancestor-or-self::sect4        |
       $node/ancestor-or-self::sect5        | $node/ancestor-or-self::section      |
       $node/ancestor-or-self::set          | $node/ancestor-or-self::setindex     |
-      $node/ancestor-or-self::simplesect
-    )
-    [count(ancestor::*) &lt;= $db.chunk.max_depth][last()]"/>
-  <xsl:value-of select="count(ancestor-or-self::*[ancestor::* = $chunk])"/>
+      $node/ancestor-or-self::simplesect   )"/>
+  <xsl:choose>
+    <xsl:when test="$divs &lt; $db.chunk.max_depth">
+      <xsl:value-of select="count($node/ancestor-or-self::*) - $divs"/>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:value-of select="count($node/ancestor-or-self::*) - $db.chunk.max_depth"/>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
 
@@ -369,25 +373,28 @@
 
 <xsl:template name="db.chunk.depth-of-chunk">
   <xsl:param name="node" select="."/>
-  <xsl:value-of select="
-    count(
-      (
-        $node/ancestor::appendix     | $node/ancestor::article      |
-        $node/ancestor::book         | $node/ancestor::bibliography |
-        $node/ancestor::chapter      | $node/ancestor::colophon     |
-        $node/ancestor::glossary     | $node/ancestor::index        |
-        $node/ancestor::part         | $node/ancestor::preface      |
-        $node/ancestor::reference    | $node/ancestor::refentry     |
-        $node/ancestor::refsect1     | $node/ancestor::refsect2     |
-        $node/ancestor::refsect3     | $node/ancestor::refsection   |
-        $node/ancestor::sect1        | $node/ancestor::sect2        |
-        $node/ancestor::sect3        | $node/ancestor::sect4        |
-        $node/ancestor::sect5        | $node/ancestor::section      |
-        $node/ancestor::set          | $node/ancestor::setindex     |
-        $node/ancestor::simplesect
-      )
-      [count(ancestor::*) &lt; $db.chunk.max_depth]
-    )"/>
+  <xsl:variable name="divs" select="count(
+      $node/ancestor::appendix     | $node/ancestor::article      |
+      $node/ancestor::book         | $node/ancestor::bibliography |
+      $node/ancestor::chapter      | $node/ancestor::colophon     |
+      $node/ancestor::glossary     | $node/ancestor::index        |
+      $node/ancestor::part         | $node/ancestor::preface      |
+      $node/ancestor::reference    | $node/ancestor::refentry     |
+      $node/ancestor::refsect1     | $node/ancestor::refsect2     |
+      $node/ancestor::refsect3     | $node/ancestor::refsection   |
+      $node/ancestor::sect1        | $node/ancestor::sect2        |
+      $node/ancestor::sect3        | $node/ancestor::sect4        |
+      $node/ancestor::sect5        | $node/ancestor::section      |
+      $node/ancestor::set          | $node/ancestor::setindex     |
+      $node/ancestor::simplesect   )"/>
+  <xsl:choose>
+    <xsl:when test="$divs &lt; $db.chunk.max_depth">
+      <xsl:value-of select="$divs"/>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:value-of select="$db.chunk.max_depth"/>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
 
