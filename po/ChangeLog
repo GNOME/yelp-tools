@@ -1,3 +1,7 @@
+2005-02-22  Arafat Medini  <kinryu@silverpen.de>
+
+	* ar.po: Added Arabic translation.
+
 2005-02-18  Frank Arnold  <farnold@cvs.gnome.org>
 
 	* de.po: German translation bugfix.
@@ -32,6 +36,7 @@
 
 	* tr.po: Added Turkish Translation by Emre Kadioglu
 
+>>>>>>> 1.93
 2005-02-10  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* nb.po: Update

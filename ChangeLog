@@ -1,3 +1,7 @@
+2005-02-22  Arafat Medini  <kinryu@silverpen.de>
+
+	* configure.in: Added Arabic locale "ar" to ALL_LINGUAS.
+
 2005-02-15  Christophe Merlet  <redfox@redfoxcenter.org>
 
 	* configure.in: Added "fr" to ALL_LINGUAS.
@@ -14,6 +18,7 @@
 
 	* configure.in: Added tr to ALL_LINGUAS
 
+>>>>>>> 1.193
 2005-01-27  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/html/db2html-suppressed.xsl:
