@@ -1,3 +1,9 @@
+2005-03-07  Danilo Šegan  <dsegan@gmx.net>
+
+	Fix #169438.
+	
+	* xml2po.py (MessageOutput.outputHeader): Output POT Creation date.
+
 2005-03-06  Danilo Šegan  <dsegan@gmx.net>
 
 	* xml2po.py (worthOutputting): Also check if worthOutputting(parent).
