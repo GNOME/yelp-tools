@@ -1,0 +1,326 @@
+# Lithuanian translation of gnome-doc-utils.
+# Copyright (C) 2004 Free Software Foundation, Inc.
+# This file is distributed under the same license as the gnome-doc-utils package.
+# Žygimantas Beručka <uid0@akl.lt>, 2004.
+# 
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-doc-utils HEAD\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-12-31 18:16+0200\n"
+"PO-Revision-Date: 2004-12-31 18:51+0200\n"
+"Last-Translator: Žygimantas Beručka <uid0@akl.lt>\n"
+"Language-Team: Lithuanian <komp_lt@konferencijos.lt>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Appendix %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:2
+msgid "format.appendix.label"
+msgstr "Priedas %t{number}"
+
+#. Chapter %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:4
+msgid "format.chapter.label"
+msgstr "Skyrius %t{number}"
+
+#: xslt/docbook/common/db-format.xml.in.h:5
+msgid "format.citetitle"
+msgstr "<msg:msgstr><i>%t{node}</i></msg:msgstr>"
+
+#. FIXME
+#: xslt/docbook/common/db-format.xml.in.h:7
+msgid "format.date"
+msgstr ""
+"<msg:msgstr> <xsl:template>\n"
+" <xsl:value-of select=\"$day\"/><xsl:text>. </xsl:text>\n"
+" <xsl:choose>\n"
+"  <xsl:when test=\"$month =  1\"><xsl:text>sausis </xsl:text></xsl:when>\n"
+"  <xsl:when test=\"$month =  2\"><xsl:text>vasaris </xsl:text></xsl:when>\n"
+"  <xsl:when test=\"$month =  3\"><xsl:text>kovas </xsl:text></xsl:when>\n"
+"  <xsl:when test=\"$month =  4\"><xsl:text>balandis </xsl:text></xsl:when>\n"
+"  <xsl:when test=\"$month =  5\"><xsl:text>gegužė </xsl:text></xsl:when>\n"
+"  <xsl:when test=\"$month =  6\"><xsl:text>birželis </xsl:text></xsl:when>\n"
+"  <xsl:when test=\"$month =  7\"><xsl:text>liepa </xsl:text></xsl:when>\n"
+"  <xsl:when test=\"$month =  8\"><xsl:text>rugpjūtis </xsl:text></xsl:when>\n"
+"  <xsl:when test=\"$month =  9\"><xsl:text>rugsėjis </xsl:text></xsl:when>\n"
+"  <xsl:when test=\"$month = 10\"><xsl:text>spalis </xsl:text></xsl:when>\n"
+"  <xsl:when test=\"$month = 11\"><xsl:text>lapkritis </xsl:text></xsl:when>\n"
+"  <xsl:when test=\"$month = 12\"><xsl:text>gruodis </xsl:text></xsl:when>\n"
+" </xsl:choose>\n"
+" <xsl:value-of select=\"$year\"/>\n"
+"</xsl:template></msg:msgstr>"
+
+#. Example %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:9
+msgid "format.example.label"
+msgstr "Pavyzdys %t{number}"
+
+#. %t{parent}-%1{number}
+#: xslt/docbook/common/db-format.xml.in.h:11
+msgid "format.example.number"
+msgstr "%t{parent}-%1{number}"
+
+#. %1{number}
+#: xslt/docbook/common/db-format.xml.in.h:13
+msgid "format.example.number.flat"
+msgstr "%1{number}"
+
+#. Figure %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:15
+msgid "format.figure.label"
+msgstr "Paveikslėlis %t{number}"
+
+#. %t{parent}-%1{number}
+#: xslt/docbook/common/db-format.xml.in.h:17
+msgid "format.figure.number"
+msgstr "%t{parent}-%1{number}"
+
+#. %1{number}
+#: xslt/docbook/common/db-format.xml.in.h:19
+msgid "format.figure.number.flat"
+msgstr "%1{number}"
+
+#. (%t{node})
+#: xslt/docbook/common/db-format.xml.in.h:21
+msgid "format.manvolnum"
+msgstr "(%t{node})"
+
+#. Part %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:23
+msgid "format.part.label"
+msgstr "Dalis %t{number}"
+
+#. %I{number}
+#: xslt/docbook/common/db-format.xml.in.h:25
+msgid "format.part.number"
+msgstr "%I{number}"
+
+#. ‘%t{node}’
+#: xslt/docbook/common/db-format.xml.in.h:27
+msgid "format.quote.inner"
+msgstr "«%t{node}»"
+
+#. “%t{node}”
+#: xslt/docbook/common/db-format.xml.in.h:29
+msgid "format.quote.outer"
+msgstr "„%t{node}“"
+
+#. %t{title}
+#: xslt/docbook/common/db-format.xml.in.h:31
+msgid "format.refentry.label"
+msgstr "%t{title}"
+
+#. Section %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:33
+msgid "format.section.label"
+msgstr "Skyrius %t{number}"
+
+#. Table %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:35
+msgid "format.table.label"
+msgstr "Lentelė %t{number}"
+
+#. %t{parent}-%1{number}
+#: xslt/docbook/common/db-format.xml.in.h:37
+msgid "format.table.number"
+msgstr "%t{parent}-%1{number}"
+
+#. %1{number}
+#: xslt/docbook/common/db-format.xml.in.h:39
+msgid "format.table.number.flat"
+msgstr "%1{number}"
+
+#. Read the definition for ‘%s{node}’
+#: xslt/docbook/common/db-format.xml.in.h:41
+msgid "format.tooltip.glossentry"
+msgstr "Skaitykit „%s{node}“ aprašymą"
+
+#. Send email to ‘%s{address}’
+#: xslt/docbook/common/db-format.xml.in.h:43
+msgid "format.tooltip.mailto"
+msgstr "Siųsti „%s{address}“ el.laišką"
+
+#. Used as a header before a list of authors.
+#: xslt/gettext/l10n.xml.in.h:2
+msgid "<msgstr form=\"0\">Author</msgstr> <msgstr form=\"1\">Authors</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Autorius</msgstr> <msgstr form=\"1\">Authoriai</msgstr>"
+
+#. Used as a header before a list of collaborators.
+#: xslt/gettext/l10n.xml.in.h:4
+msgid ""
+"<msgstr form=\"0\">Collaborator</msgstr> <msgstr form=\"1\">Collaborators</"
+"msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Bendradarbis</msgstr> <msgstr form=\"1\">Bendradarbiai</"
+"msgstr>"
+
+#. Used as a header before a list of copyrights.
+#: xslt/gettext/l10n.xml.in.h:6
+msgid ""
+"<msgstr form=\"0\">Copyright</msgstr> <msgstr form=\"1\">Copyrights</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Autoriinės teisės</msgstr> <msgstr form=\"1\">Autorinės "
+"teisės</msgstr>"
+
+#. Used as a header before a list of editors.
+#: xslt/gettext/l10n.xml.in.h:8
+msgid "<msgstr form=\"0\">Editor</msgstr> <msgstr form=\"1\">Editors</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Redaktorius</msgstr> <msgstr form=\"1\">Redaktoriai</"
+"msgstr>"
+
+#. Used as a header before a list of contributors.
+#: xslt/gettext/l10n.xml.in.h:10
+msgid ""
+"<msgstr form=\"0\">Other Contributor</msgstr> <msgstr form=\"1\">Other "
+"Contributors</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Kitas pagalbininkas</msgstr> <msgstr form=\"1\">Kiti "
+"pagalbininkai</msgstr>"
+
+#. Used as a header before a list of publishers.
+#: xslt/gettext/l10n.xml.in.h:12
+msgid ""
+"<msgstr form=\"0\">Publisher</msgstr> <msgstr form=\"1\">Publishers</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Leidėjas</msgstr> <msgstr form=\"1\">Leidėjai</msgstr>"
+
+#. Link to the titlepage
+#: xslt/gettext/l10n.xml.in.h:14
+msgid "About This Document"
+msgstr "Apie šį dokumentą"
+
+#: xslt/gettext/l10n.xml.in.h:15
+msgid "Affiliation"
+msgstr "Ryšiai"
+
+#. This is an abbreviated form of 'Message Audience'.
+#. Feel free to use the same word/phrase for both.
+#: xslt/gettext/l10n.xml.in.h:18
+msgid "Audience"
+msgstr "Publika"
+
+#: xslt/gettext/l10n.xml.in.h:19
+msgid "Caution"
+msgstr "Įspėjimas"
+
+#: xslt/gettext/l10n.xml.in.h:20
+msgid "Colophon"
+msgstr "Įspėjimas"
+
+#. This is an abbreviated form of 'Table of Contents'.
+#. Feel free to use the same word/phrase for both.
+#: xslt/gettext/l10n.xml.in.h:23
+msgid "Contents"
+msgstr "Turinys"
+
+#. Used as a header for date column in the revision history.
+#: xslt/gettext/l10n.xml.in.h:25
+msgid "Date"
+msgstr "Data"
+
+#: xslt/gettext/l10n.xml.in.h:26
+msgid "Dedication"
+msgstr "Dedikuota"
+
+#: xslt/gettext/l10n.xml.in.h:27
+msgid "Email"
+msgstr "El. paštas"
+
+#: xslt/gettext/l10n.xml.in.h:28
+msgid "Important"
+msgstr "Svarbu"
+
+#: xslt/gettext/l10n.xml.in.h:29
+msgid "Index"
+msgstr "Rodyklė"
+
+#: xslt/gettext/l10n.xml.in.h:30
+msgid "Legal Notice"
+msgstr "Teisinės pastabos"
+
+#. This is an abbreviated form of 'Message Level'.
+#. Feel free to use the same word/phrase for both.
+#: xslt/gettext/l10n.xml.in.h:33
+msgid "Level"
+msgstr "Lygis"
+
+#: xslt/gettext/l10n.xml.in.h:34
+msgid "Message Audience"
+msgstr "Žinutės publika"
+
+#: xslt/gettext/l10n.xml.in.h:35
+msgid "Message Level"
+msgstr "Žinutės lygis"
+
+#: xslt/gettext/l10n.xml.in.h:36
+msgid "Message Origin"
+msgstr "Žinutės šaltinis"
+
+#: xslt/gettext/l10n.xml.in.h:37
+msgid "Name"
+msgstr "Vardas"
+
+#: xslt/gettext/l10n.xml.in.h:38
+msgid "Note"
+msgstr "Pastaba"
+
+#. This is an abbreviated form of 'Message Origin'.
+#. Feel free to use the same word/phrase for both.
+#: xslt/gettext/l10n.xml.in.h:41
+msgid "Origin"
+msgstr "Šaltinis"
+
+#: xslt/gettext/l10n.xml.in.h:42
+msgid "Preface"
+msgstr "Įžanga"
+
+#: xslt/gettext/l10n.xml.in.h:43
+msgid "Reference"
+msgstr "Pasiremta informacija"
+
+#: xslt/gettext/l10n.xml.in.h:44
+msgid "Release Information"
+msgstr "Leidimo informacija"
+
+#: xslt/gettext/l10n.xml.in.h:45
+msgid "Revision History"
+msgstr "Peržiūros istorija"
+
+#: xslt/gettext/l10n.xml.in.h:46
+msgid "See"
+msgstr "Žr."
+
+#: xslt/gettext/l10n.xml.in.h:47
+msgid "See Also"
+msgstr "Taip pat žr."
+
+#: xslt/gettext/l10n.xml.in.h:48
+msgid "Set Index"
+msgstr "Rinkinio rodyklė"
+
+#: xslt/gettext/l10n.xml.in.h:49
+msgid "Synopsis"
+msgstr "Santrauka"
+
+#. Used for a link to a table of contents.
+#: xslt/gettext/l10n.xml.in.h:51
+msgid "Table of Contents"
+msgstr "Turinys"
+
+#: xslt/gettext/l10n.xml.in.h:52
+msgid "Tip"
+msgstr "Paaiškinimas"
+
+#. Used as a header for title column in the revision history.
+#: xslt/gettext/l10n.xml.in.h:54
+msgid "Title"
+msgstr "Pavadinimas"
+
+#: xslt/gettext/l10n.xml.in.h:55
+msgid "Warning"
+msgstr "Įspėjimas"
