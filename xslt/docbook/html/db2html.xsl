@@ -2,6 +2,7 @@
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 		xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
+                xmlns="http://www.w3.org/1999/xhtml"
 		exclude-result-prefixes="doc"
                 version="1.0">
 
@@ -79,7 +80,6 @@
              doc:summary="true"
              doc:include="true"/>
 
-<!-- Just for now, to see the crap -->
 <xsl:template match="*">
   <xsl:message>
     <xsl:text>Unmatched element: </xsl:text>
@@ -100,6 +100,18 @@
     <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
     <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
   </xsl:call-template>
+</xsl:template>
+
+<!-- Implement the format2xsl stub templates -->
+<xsl:template name="format2xsl.element.name">
+  <xsl:param name="name"/>
+  <xsl:param name="namespace"/>
+  <xsl:value-of select="$name"/>
+</xsl:template>
+<xsl:template name="format2xsl.element.namespace">
+  <xsl:param name="name"/>
+  <xsl:param name="namespace"/>
+  <xsl:value-of select="'http://www.w3.org/1999/xhtml'"/>
 </xsl:template>
 
 </xsl:stylesheet>

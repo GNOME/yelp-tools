@@ -2,46 +2,59 @@
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
+                xmlns="http://www.w3.org/1999/xhtml"
                 exclude-result-prefixes="doc"
                 version="1.0">
 
 <doc:title>Block-Level Elements</doc:title>
 
 
-<!-- == db2html.programlisting.bgcolor ===================================== -->
+<!-- == db2html.programlisting.background_color ============================ -->
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.programlisting.bgcolor</name>
+  <name>db2html.programlisting.background_color</name>
   <purpose>
     The background color for <sgmltag>programlisting</sgmltag> elements
   </purpose>
 </parameter>
 
-<xsl:param name="db2html.programlisting.bgcolor" select="'#EED680'"/>
+<xsl:param name="db2html.programlisting.background_color" select="'#EEEEEE'"/>
 
 
-<!-- == db2html.screen.bgcolor ============================================= -->
+<!-- == db2html.programlisting.border_color ================================ -->
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.screen.bgcolor</name>
+  <name>db2html.programlisting.border_color</name>
+  <purpose>
+    The border color for <sgmltag>programlisting</sgmltag> elements
+  </purpose>
+</parameter>
+
+<xsl:param name="db2html.programlisting.border_color" select="'#DDDDDD'"/>
+
+
+<!-- == db2html.screen.background_color ==================================== -->
+
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.screen.background_color</name>
   <purpose>
     The background color for <sgmltag>screen</sgmltag> elements
   </purpose>
 </parameter>
 
-<xsl:param name="db2html.screen.bgcolor" select="'#EED680'"/>
+<xsl:param name="db2html.screen.background_color" select="'#EEEEEE'"/>
 
 
-<!-- == db2html.synopsis.bgcolor =========================================== -->
+<!-- == db2html.screen.border_color ======================================== -->
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.synopsis.bgcolor</name>
+  <name>db2html.screen.border_color</name>
   <purpose>
-    The background color for <sgmltag>synopsis</sgmltag> elements
+    The border color for <sgmltag>screen</sgmltag> elements
   </purpose>
 </parameter>
 
-<xsl:param name="db2html.synopsis.bgcolor" select="''"/>
+<xsl:param name="db2html.screen.border_color" select="'#DDDDDD'"/>
 
 
 <!-- == db2html.block ====================================================== -->
@@ -166,29 +179,41 @@
     pre[class~="programlisting"] {
       margin-left: 2em;
       margin-right: 1em;
+      padding: 6px;
+      -moz-border-radius: 8px;
       overflow: auto;</xsl:text>
-      <xsl:if test="string($db2html.programlisting.bgcolor) != ''">
+      <xsl:if test="string($db2html.programlisting.background_color) != ''">
         <xsl:text>background-color: </xsl:text>
-        <xsl:value-of select="$db2html.programlisting.bgcolor"/>
-      </xsl:if><xsl:text>
+        <xsl:value-of select="$db2html.programlisting.background_color"/>
+      </xsl:if>
+      <xsl:text>;</xsl:text>
+      <xsl:if test="string($db2html.programlisting.border_color) != ''">
+        <xsl:text>border: solid 1px </xsl:text>
+        <xsl:value-of select="$db2html.programlisting.border_color"/>
+      </xsl:if>
+      <xsl:text>
     }
     pre[class~="screen"] {
       margin-left: 2em;
       margin-right: 1em;
+      padding: 6px;
+      -moz-border-radius: 8px;
       overflow: auto;</xsl:text>
-      <xsl:if test="string($db2html.screen.bgcolor) != ''">
+      <xsl:if test="string($db2html.screen.background_color) != ''">
         <xsl:text>background-color: </xsl:text>
-        <xsl:value-of select="$db2html.screen.bgcolor"/>
-      </xsl:if><xsl:text>
+        <xsl:value-of select="$db2html.screen.background_color"/>
+      </xsl:if>
+      <xsl:text>;</xsl:text>
+      <xsl:if test="string($db2html.screen.border_color) != ''">
+        <xsl:text>border: solid 1px </xsl:text>
+        <xsl:value-of select="$db2html.screen.border_color"/>
+      </xsl:if>
+      <xsl:text>
     }
     pre[class~="synopsis"] {
       margin-left: 2em;
       margin-right: 1em;
-      overflow: auto;</xsl:text>
-      <xsl:if test="string($db2html.synopsis.bgcolor) != ''">
-        <xsl:text>background-color: </xsl:text>
-        <xsl:value-of select="$db2html.synopsis.bgcolor"/>
-      </xsl:if><xsl:text>
+      overflow: auto;
     }
     pre[class~="linenumbering"] {
       <!-- This margin is important to get the line numbering

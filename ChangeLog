@@ -1,3 +1,44 @@
+2004-12-27  Shaun McCance  <shaunm@gnome.org>
+
+	* Makefile.am:
+	- Added scrollkeeper stuff to distuninstallcheck_listfiles
+
+	* doc/xslt/C/translating.xml:
+	- Type fixes
+
+	* po/cs.po:
+	- Fixed incorrect format string, caused by a bad comment from me
+
+	* xslt/docbook/common/db-format.xml.in:
+	- Changed semantics of 'header' role
+
+	* xslt/gettext/format2xsl.xsl:
+	- Added support for transforming tags in msgstrs
+
+	* xslt/docbook/html/db2html-admon.xsl:
+	* xslt/docbook/html/db2html-autotoc.xsl:
+	* xslt/docbook/html/db2html-block.xsl:
+	* xslt/docbook/html/db2html-callout.xsl:
+	* xslt/docbook/html/db2html-classsynopsis.xsl:
+	* xslt/docbook/html/db2html-cmdsynopsis.xsl:
+	* xslt/docbook/html/db2html-css.xsl:
+	* xslt/docbook/html/db2html-division.xsl:
+	* xslt/docbook/html/db2html-ebnf.xsl:
+	* xslt/docbook/html/db2html-funcsynopsis.xsl:
+	* xslt/docbook/html/db2html-info.xsl:
+	* xslt/docbook/html/db2html-inline.xsl:
+	* xslt/docbook/html/db2html-list.xsl:
+	* xslt/docbook/html/db2html-media.xsl:
+	* xslt/docbook/html/db2html-qanda.xsl:
+	* xslt/docbook/html/db2html-refentry.xsl:
+	* xslt/docbook/html/db2html-table.xsl:
+	* xslt/docbook/html/db2html-title.xsl:
+	* xslt/docbook/html/db2html-xref.xsl:
+	* xslt/docbook/html/db2html.xsl:
+	- Switched to XHTML
+	- Worked on the refentry title
+	- Various visual enhancements
+
 2004-12-22  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/common/db-format.xml.in:

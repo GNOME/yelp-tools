@@ -2,6 +2,7 @@
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 		xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
+                xmlns="http://www.w3.org/1999/xhtml"
 		exclude-result-prefixes="doc"
 		version="1.0">
 
@@ -124,6 +125,7 @@
       margin-left: 2em;
       margin-right: 2em;
       padding-top: 4px;
+      padding-bottom: 4px;
       padding-left: </xsl:text>
       <xsl:value-of select="$db2html.admon.graphics_size + 8"/><xsl:text>px;
       padding-right: 8px;

@@ -2,6 +2,7 @@
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
+                xmlns="http://www.w3.org/1999/xhtml"
                 exclude-result-prefixes="doc"
                 version="1.0">
 
@@ -206,7 +207,7 @@
           </xsl:when>
         </xsl:choose>
       </xsl:variable>
-      <xsl:element name="{$element}">
+      <xsl:element name="{$element}" namespace="http://www.w3.org/1999/xhtml">
         <xsl:if test="$style != ''">
           <xsl:attribute name="style">
             <xsl:value-of select="$style"/>
@@ -377,7 +378,7 @@
   <xsl:param name="spanspecs"/>
   <xsl:param name="colsep" select="false()"/>
   <xsl:param name="rowsep" select="false()"/>
-  <xsl:element name="{local-name(.)}">
+  <xsl:element name="{local-name(.)}" namespace="http://www.w3.org/1999/xhtml">
     <xsl:if test="@valign">
       <xsl:attribute name="valign">
         <xsl:value-of select="@valign"/>

@@ -2,6 +2,7 @@
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
+                xmlns="http://www.w3.org/1999/xhtml"
                 exclude-result-prefixes="doc"
                 version="1.0">
 
@@ -16,7 +17,6 @@
 
 <xsl:template name="db2html.css">
   <style>
-    <xsl:call-template name="db2html.css.custom"/>
     <xsl:call-template name="db2html.admon.css"/>
     <xsl:call-template name="db2html.autotoc.css"/>
     <xsl:call-template name="db2html.block.css"/>
@@ -45,6 +45,7 @@
     p   + div { margin-top: 1em; }
     p   + p    { margin-top: 1em; }
     p { text-align: justify; }
+    <xsl:call-template name="db2html.css.custom"/>
   </style>
 </xsl:template>
 

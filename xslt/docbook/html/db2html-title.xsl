@@ -2,6 +2,7 @@
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 		xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
+                xmlns="http://www.w3.org/1999/xhtml"
 		exclude-result-prefixes="doc"
 		version="1.0">
 
@@ -35,20 +36,8 @@
     h6 { font-size: 1em; margin-top: 1em; }
     h7 { font-size: 1em; margin-top: 1em; }
 
-    h1 span[class~="label"] { padding-right: 0.8em; }
-    h2 span[class~="label"] { padding-right: 0.8em; }
-    h3 span[class~="label"] { padding-right: 0.8em; }
-    h4 span[class~="label"] { padding-right: 0.8em; }
-    h5 span[class~="label"] { padding-right: 0.8em; }
-    h6 span[class~="label"] { padding-right: 0.8em; }
-    h7 span[class~="label"] { padding-right: 0.8em; }
-
     div[class~="title"] { margin-bottom: 0em; }
     div[class~="title"] + * { margin-top: 0em; }
-    div[class~="title"] &gt;span[class~="title"] &gt; span[class~="label"] {
-      margin-right: 0.8em;
-      font-style: italic;
-    }
   </xsl:text>
 </xsl:template>
 
@@ -249,7 +238,8 @@
   <xsl:param name="generate_label" select="true()"/>
   <xsl:param name="title_content"/>
 
-  <xsl:element name="{concat('h', $depth_in_chunk)}">
+  <xsl:element name="{concat('h', $depth_in_chunk)}"
+               namespace="http://www.w3.org/1999/xhtml">
     <xsl:attribute name="class">
       <xsl:value-of select="local-name($referent)"/>
       <xsl:text> title</xsl:text>
@@ -342,7 +332,8 @@
   </xsl:param>
   <xsl:param name="subtitle_content"/>
 
-  <xsl:element name="{concat('h', $depth_in_chunk + 1)}">
+  <xsl:element name="{concat('h', $depth_in_chunk + 1)}"
+               namespace="http://www.w3.org/1999/xhtml">
     <xsl:attribute name="class">
       <xsl:value-of select="local-name($referent)"/>
     </xsl:attribute>

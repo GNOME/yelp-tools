@@ -167,14 +167,32 @@
 <xsl:template mode="format2xsl.mode" match="*">
   <xsl:param name="template"/>
   <xsl:param name="lang"/>
-  <xsl:copy>
-    <xsl:for-each select="node()">
+  <xslt:variable name="name">
+    <xslt:call-template name="format2xsl.element.name">
+      <xslt:with-param name="name" select="'{local-name(.)}'"/>
+      <xslt:with-param name="namespace" select="'{namespace-uri(.)}'"/>
+    </xslt:call-template>
+  </xslt:variable>
+  <xslt:variable name="namespace">
+    <xslt:call-template name="format2xsl.element.namespace">
+      <xslt:with-param name="name" select="'{local-name(.)}'"/>
+      <xslt:with-param name="namespace" select="'{namespace-uri(.)}'"/>
+    </xslt:call-template>
+  </xslt:variable>
+  <xslt:element>
+    <xsl:attribute name="name">
+      <xsl:text>{$name}</xsl:text>
+    </xsl:attribute>
+    <xsl:attribute name="namespace">
+      <xsl:text>{$namespace}</xsl:text>
+    </xsl:attribute>
+    <xsl:for-each select="* | text()">
       <xsl:apply-templates mode="format2xsl.mode" select=".">
         <xsl:with-param name="template" select="$template"/>
         <xsl:with-param name="lang" select="$lang"/>
       </xsl:apply-templates>
     </xsl:for-each>
-  </xsl:copy>
+  </xslt:element>
 </xsl:template>
 
 <!-- == msg:msg == -->

@@ -53,13 +53,10 @@
   <msgstr xml:lang="ca">Compte</msgstr>
   <msgstr xml:lang="cs">Upozornění</msgstr>
   <msgstr xml:lang="de">Warnung</msgstr>
-  <msgstr xml:lang="en_CA">Caution</msgstr>
-  <msgstr xml:lang="en_GB">Caution</msgstr>
   <msgstr xml:lang="es">Precaución</msgstr>
   <msgstr xml:lang="hu">Figyelem</msgstr>
   <msgstr xml:lang="nl">Let op</msgstr>
   <msgstr xml:lang="pt">Cuidado</msgstr>
-  <msgstr xml:lang="pt_BR">Cuidado</msgstr>
   <msgstr xml:lang="sq">Kujdes</msgstr>
   <msgstr xml:lang="sv">Varning</msgstr>
   <msgstr xml:lang="uk">Застереження</msgstr>
@@ -123,11 +120,11 @@ msgstr ""
 "<msgstr form=\"1\">Autoři</msgstr>"
 "<msgstr form=\"2\">Autoři</msgstr>"]]></programlisting>
 
-    <para>Since that <command>intltool</command> often alters whitespace, the
+    <para>Since <command>intltool</command> often alters whitespace, the
     entry in the PO file might not look as nice as this.  When creating the
     translated message strings, translators may add or remove whitespace
     between <sgmltag>msgstr</sgmltag> elements if they choose.  This extra
-    text content is ignored by &gettext;</para>
+    text content is ignored by &gettext;.</para>
 
     <para>Note that translators may add a <sgmltag>msgstr</sgmltag> element
     without <sgmltag class="attribute">form</sgmltag> attribute as a fallback

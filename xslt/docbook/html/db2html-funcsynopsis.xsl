@@ -3,6 +3,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 		xmlns:str="http://exslt.org/strings"
 		xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
+                xmlns="http://www.w3.org/1999/xhtml"
 		extension-element-prefixes="str"
 		exclude-result-prefixes="doc"
                 version="1.0">

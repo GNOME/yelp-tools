@@ -2,6 +2,7 @@
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
+                xmlns="http://www.w3.org/1999/xhtml"
                 exclude-result-prefixes="doc"
                 version="1.0">
 
@@ -48,15 +49,38 @@
   </xsl:param>
 
   <div class="refentry">
-    <!-- FIXME: refmeta not required -->
-    <xsl:call-template name="db2html.title.header">
-      <xsl:with-param name="node"
-                      select="refmeta/refentrytitle | refmeta/manvolnum"/>
-      <xsl:with-param name="referent" select="."/>
-      <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
-      <xsl:with-param name="referent_depth_in_chunk" select="$depth_in_chunk"/>
-      <xsl:with-param name="generate_label" select="false()"/>
-    </xsl:call-template>
+    <xsl:choose>
+      <xsl:when test="refmeta/refentrytitle">
+        <xsl:call-template name="db2html.title.header">
+          <!-- FIXME: this won't work -->
+          <xsl:with-param name="node"
+                          select="refmeta/refentrytitle | refmeta/manvolnum"/>
+          <xsl:with-param name="referent" select="."/>
+          <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
+          <xsl:with-param name="referent_depth_in_chunk" select="$depth_in_chunk"/>
+          <xsl:with-param name="generate_label" select="false()"/>
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:when test="refentryinfo/title">
+        <xsl:call-template name="db2html.title.header">
+          <xsl:with-param name="node" select="refentryinfo/title"/>
+          <xsl:with-param name="referent" select="."/>
+          <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
+          <xsl:with-param name="referent_depth_in_chunk" select="$depth_in_chunk"/>
+          <xsl:with-param name="generate_label" select="false()"/>
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:message><xsl:text>foo</xsl:text></xsl:message>
+        <xsl:call-template name="db2html.title.header">
+          <xsl:with-param name="node" select="refnamediv/refname[1]"/>
+          <xsl:with-param name="referent" select="."/>
+          <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
+          <xsl:with-param name="referent_depth_in_chunk" select="$depth_in_chunk"/>
+          <xsl:with-param name="generate_label" select="false()"/>
+        </xsl:call-template>
+      </xsl:otherwise>
+    </xsl:choose>
 
     <div class="refnamedivs">
       <xsl:call-template name="db2html.title.header">

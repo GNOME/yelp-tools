@@ -39,3 +39,5 @@ DISTCLEANFILES =					\
 	intltool-merge    				\
 	intltool-update					\
 	gnome-doc-utils.make
+
+distuninstallcheck_listfiles = find . -type f -print | grep -v scrollkeeper

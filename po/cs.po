@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gnome-doc-utils VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-12-24 20:18+0100\n"
-"PO-Revision-Date: 2004-12-25 15:45+0100\n"
+"PO-Revision-Date: 2004-12-27 00:38-0600\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -95,7 +95,7 @@ msgstr "„%t{node}”"
 #. Refentry %t{number}
 #: xslt/docbook/common/db-format.xml.in.h:31
 msgid "format.refentry.label"
-msgstr "Odkaz %t{number}"
+msgstr ""
 
 #. Section %t{number}
 #: xslt/docbook/common/db-format.xml.in.h:33
