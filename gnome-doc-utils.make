@@ -15,7 +15,8 @@ DOC_INCLUDES ?=
 
 ## @ DOC_FORMATS
 ## The default formats to be built and installed
-#DOC_FORMATS ?= docbook
+DOC_FORMATS ?= docbook
+_DOC_REAL_FORMATS = $(if $(DOC_USER_FORMATS),$(DOC_USER_FORMATS),$(DOC_FORMATS))
 
 ## @ DOC_LINGUAS
 ## The languages this document is translated into
@@ -32,9 +33,6 @@ RNGDOC_DIRS ?=
 ## @ XSLDOC_DIRS
 ## The directories containing XSLT files to be documented with xsldoc
 XSLDOC_DIRS ?=
-
-echo:
-	echo $(DOC_FORMATS)
 
 
 ################################################################################
@@ -101,6 +99,8 @@ xsldoc: $(_XSLDOC_C_DOCS)
 ## @@ OMF Files
 
 db2omf_args =									\
+	--stringparam db2omf.omf_dir $(OMF_DIR)					\
+	--stringparam db2omf.help_dir $(HELP_DIR)				\
 	--stringparam db2omf.omf_in `pwd`/$(_DOC_OMF_IN)			\
 	$(_db2omf) $(2)
 
@@ -130,8 +130,8 @@ $(_DOC_OMF_HTML) : $(DOC_MODULE)-html-%.omf : %/$(DOC_MODULE).xml
 ## All OMF output files to be built
 # FIXME
 _DOC_OMF_ALL =									\
-	$(if $(findstring docbook,$(FORMATS)),$(_DOC_OMF_DB))			\
-	$(if $(findstring html,$(FORMATS)),$(_DOC_OMF_HTML))
+	$(if $(findstring docbook,$(_DOC_REAL_FORMATS)),$(_DOC_OMF_DB))		\
+	$(if $(findstring html,$(_DOC_REAL_FORMATS)),$(_DOC_OMF_HTML))
 
 .PHONY: omf
 omf: $(_DOC_OMF_ALL)
@@ -167,8 +167,8 @@ $(_DOC_DSK_HTML) : $(DOC_MODULE).html.%.desktop : %/$(DOC_MODULE).xml
 ## All desktop entry output files to be built
 # FIXME
 _DOC_DSK_ALL =									\
-	$(if $(findstring docbook,$(FORMATS)),$(_DOC_DSK_DB))			\
-	$(if $(findstring html,$(FORMATS)),$(_DOC_DSK_HTML))
+	$(if $(findstring docbook,$(_DOC_REAL_FORMATS)),$(_DOC_DSK_DB))		\
+	$(if $(findstring html,$(_DOC_REAL_FORMATS)),$(_DOC_DSK_HTML))
 
 .PHONY: dsk
 dsk: $(_DOC_DSK_ALL)
@@ -246,7 +246,7 @@ _DOC_LC_DOCS =								\
 	$(_DOC_LC_MODULE)						\
 	$(_DOC_LC_ENTITIES) $(_DOC_LC_INCLUDES)				\
 	$(_RNGDOC_LC_DOCS)  $(_XSLDOC_LC_DOCS)				\
-	$(if $(findstring html,$(FORMATS)),$(_DOC_LC_HTML))
+	$(if $(findstring html,$(_DOC_REAL_FORMATS)),$(_DOC_LC_HTML))
 
 # FIXME: fix the dependancy
 # FIXME: hook xml2po up
@@ -267,7 +267,7 @@ _DOC_ALL =							\
 	$(_DOC_C_DOCS)						\
 	$(_DOC_LC_DOCS)						\
 	$(_DOC_OMF_ALL)						\
-	$(if $(findstring html,$(FORMATS)),$(_DOC_HTML_ALL))
+	$(if $(findstring html,$(_DOC_REAL_FORMATS)),$(_DOC_HTML_ALL))
 # $(_DOC_DSK_ALL)
 
 
@@ -293,6 +293,7 @@ EXTRA_DIST = $(_DOC_ALL) $(_DOC_OMF_IN) $(_DOC_DSK_IN)
 
 all: $(_DOC_ALL)
 
+.PHONY: check-doc check-omf
 check: check-doc check-omf
 check-doc:
 	for lc in C $(DOC_LINGUAS); do \
@@ -303,8 +304,21 @@ check-omf:
 	  xmllint --noout $$omf; \
 	done
 
+.PHONY: install-doc install-html install-omf
+installs =								\
+	$(if $(findstring docbook,$(_DOC_REAL_FORMATS)),install-doc)	\
+	$(if $(findstring html,$(_DOC_REAL_FORMATS)),install-html)	\
+	install-omf
+install-data-local: $(installs)
+install-doc:
+	echo install-doc
+install-html:
+	echo install-html
+install-omf:
+	$(mkinstalldirs) $(OMF_DIR)/$(DOC_MODULE)
+	cp $(_DOC_OMF_ALL) $(OMF_DIR)/$(DOC_MODULE)/
+
 # install
 # uninstall
-# dist
 # installcheck
 # installdirs

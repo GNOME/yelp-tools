@@ -22,6 +22,30 @@
 <xsl:param name="db2omf.lang" select="/*/@lang | /*/@xml:lang"/>
 
 
+<!-- == db2omf.omf_dir ===================================================== -->
+
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2omf.omf_dir</name>
+  <description>
+    The top-level ScrollKeeper OMF directory
+  </description>
+</parameter>
+
+<xsl:param name="db2omf.omf_dir"/>
+
+
+<!-- == db2omf.help_dir ==================================================== -->
+
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2omf.help_dir</name>
+  <description>
+    The top-level directory where documentation is installed
+  </description>
+</parameter>
+
+<xsl:param name="db2omf.help_dir"/>
+
+
 <!-- == db2omf.omf_in ====================================================== -->
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">

@@ -14,11 +14,11 @@ AC_ARG_WITH([omfdir],
 OMF_DIR="$with_omfdir"
 AC_SUBST(OMF_DIR)
 
-AC_ARG_WITH([help-formats],
-  AC_HELP_STRING([--with-help-formats=FORMATS], [list of formats]),,
-  [with_help_formats='docbook'])
-FORMATS="$with_help_formats"
-AC_SUBST(FORMATS)
+AC_ARG_WITH([helpformats],
+  AC_HELP_STRING([--with-helpformats=FORMATS], [list of formats]),,
+  [with_helpformats=''])
+DOC_USER_FORMATS="$with_helpformats"
+AC_SUBST(DOC_USER_FORMATS)
 
 GNOME_DOC_RULE='include $(top_srcdir)/gnome-doc-utils.make'
 AC_SUBST([GNOME_DOC_RULE])

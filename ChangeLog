@@ -1,5 +1,14 @@
 2004-07-08  Shaun McCance  <shaunm@gnome.org>
 
+	* gnome-doc-utils.m4:
+	- Use --with-helpformat so it will actually work
+
+	* gnome-doc-utils.make:
+	* xslt/docbook/omf/db2omf.xsl:
+	- Hook formats up, some more OMF handling
+
+2004-07-08  Shaun McCance  <shaunm@gnome.org>
+
 	* configure.in:
 	* doc/Makefile.am:
 	* doc/gnome-doc-make/Makefile.am:
