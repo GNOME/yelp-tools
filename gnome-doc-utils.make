@@ -44,7 +44,7 @@ distclean: $(_clean_doc_header)
 mostlyclean: $(_clean_doc_header)
 maintainer-clean: $(_clean_doc_header)
 clean-doc-header:
-	rm $(DOC_H_FILE)
+	rm -f $(DOC_H_FILE)
 
 all: $(DOC_H_FILE)
 
