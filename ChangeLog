@@ -1,3 +1,8 @@
+2005-01-18  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/gettext/format2xsl.xsl:
+	- Don't auto-generate role-based templates when there's no @role
+
 2005-01-17  Shaun McCance  <shaunm@gnome.org>
 
 	* gnome-doc-utils.pc.in:

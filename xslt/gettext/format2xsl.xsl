@@ -124,10 +124,11 @@
       <xsl:apply-templates select="xsl:template/node()"/>
     </xsl:when>
     <xsl:when test="msg:msgstr[@role]                  or
-              $template/msg:arg[@name = 'title']       or
-              $template/msg:arg[@name = 'titleabbrev'] or
-              $template/msg:arg[@name = 'subtitle']    or
-              $template/msg:arg[@name = 'number']      ">
+              ($template/xsl:param[@name = 'role']  and (
+                $template/msg:arg[@name = 'title']       or
+                $template/msg:arg[@name = 'titleabbrev'] or
+                $template/msg:arg[@name = 'subtitle']    or
+                $template/msg:arg[@name = 'number']      ))">
       <xslt:choose>
         <xsl:for-each select="msg:msgstr[@role]">
           <xslt:when test="$role = '{@role}'">
@@ -137,33 +138,35 @@
             </xsl:apply-templates>
           </xslt:when>
         </xsl:for-each>
-        <xsl:if test="not(msg:msgstr[@role = 'title'])   and
-                      $template/msg:arg[@name = 'title'] ">
-          <xslt:when test="$role = 'title'">
-            <xsl:apply-templates
-             select="$template/msg:arg[@name = 'title']/node()"/>
-          </xslt:when>
-        </xsl:if>
-        <xsl:if test="not(msg:msgstr[@role = 'titleabbrev'])   and
-                      $template/msg:arg[@name = 'titleabbrev'] ">
-          <xslt:when test="$role = 'titleabbrev'">
-            <xsl:apply-templates
-             select="$template/msg:arg[@name = 'titleabbrev']/node()"/>
-          </xslt:when>
-        </xsl:if>
-        <xsl:if test="not(msg:msgstr[@role = 'subtitle'])   and
-                      $template/msg:arg[@name = 'subtitle'] ">
-          <xslt:when test="$role = 'subtitle'">
-            <xsl:apply-templates
-             select="$template/msg:arg[@name = 'subtitle']/node()"/>
-          </xslt:when>
-        </xsl:if>
-        <xsl:if test="not(msg:msgstr[@role = 'number'])   and
-                      $template/msg:arg[@name = 'number'] ">
-          <xslt:when test="$role = 'number'">
-            <xsl:apply-templates
-             select="$template/msg:arg[@name = 'number']/node()"/>
-          </xslt:when>
+        <xsl:if test="$template/xsl:param[@name = 'role']">
+          <xsl:if test="not(msg:msgstr[@role = 'title'])   and
+                        $template/msg:arg[@name = 'title'] ">
+            <xslt:when test="$role = 'title'">
+              <xsl:apply-templates
+               select="$template/msg:arg[@name = 'title']/node()"/>
+            </xslt:when>
+          </xsl:if>
+          <xsl:if test="not(msg:msgstr[@role = 'titleabbrev'])   and
+                        $template/msg:arg[@name = 'titleabbrev'] ">
+            <xslt:when test="$role = 'titleabbrev'">
+              <xsl:apply-templates
+               select="$template/msg:arg[@name = 'titleabbrev']/node()"/>
+            </xslt:when>
+          </xsl:if>
+          <xsl:if test="not(msg:msgstr[@role = 'subtitle'])   and
+                        $template/msg:arg[@name = 'subtitle'] ">
+            <xslt:when test="$role = 'subtitle'">
+              <xsl:apply-templates
+               select="$template/msg:arg[@name = 'subtitle']/node()"/>
+            </xslt:when>
+          </xsl:if>
+          <xsl:if test="not(msg:msgstr[@role = 'number'])   and
+                        $template/msg:arg[@name = 'number'] ">
+            <xslt:when test="$role = 'number'">
+              <xsl:apply-templates
+               select="$template/msg:arg[@name = 'number']/node()"/>
+            </xslt:when>
+          </xsl:if>
         </xsl:if>
         <xsl:choose>
           <xsl:when test="msg:msgstr[not(@role)]">
