@@ -542,10 +542,46 @@ output  = '-' # this means to stdout
 
 import getopt, fileinput
 
+def usage (with_help = False):
+        print >> sys.stderr, "Usage:  %s [OPTIONS] [XMLFILE]..." % (sys.argv[0])
+	if (with_help):
+        	print >> sys.stderr, """
+OPTIONS may be some of:
+    -a    --automatic-tags     Automatically decides if tags are to be considered
+                                 "final" or not (overrides -f and -i options)
+    -k    --keep-entities      Don't expand entities
+    -e    --expand-all-entities  Expand ALL entities (including SYSTEM ones)
+    -m    --mode=TYPE          Treat tags as type TYPE (default: docbook)
+    -o    --output=FILE        Print resulting text (XML or POT) to FILE
+    -p    --po-file=FILE       Specify PO file containing translation, and merge
+                                 Overwrites temporary file .xml2po.mo.
+    -r    --reuse=FILE         Specify translated XML file with the same structure
+    -t    --translation=FILE   Specify MO file containing translation, and merge
+    -u    --update-translation=LANG.po   Updates a PO file using msgmerge program
+    -v    --version            Output version of the xml2po program
+
+    -h    --help               Output this message
+
+EXAMPLES:
+    To create a POTemplate book.pot from input files chapter1.xml and
+    chapter2.xml, run the following:
+        %s -o book.pot chapter1.xml chapter2.xml
+
+    After translating book.pot into de.po, merge the translations back,
+    using -p option for each XML file:
+        %s -p de.po chapter1.xml > chapter1.de.xml
+        %s -p de.po chapter2.xml > chapter2.de.xml
+""" % (sys.argv[0], sys.argv[0], sys.argv[0])
+        sys.exit(0)
+
+if len(sys.argv) < 2: usage()
+
 args = sys.argv[1:]
-opts, args = getopt.getopt(args, 'avhkem:t:o:p:u:r:',
+try: opts, args = getopt.getopt(args, 'avhkem:t:o:p:u:r:',
                            ['automatic-tags','version', 'help', 'keep-entities', 'expand-all-entities', 'mode=', 'translation=',
                             'output=', 'po-file=', 'update-translation=', 'reuse=' ])
+except getopt.GetoptError: usage(True)
+
 for opt, arg in opts:
     if opt in ('-m', '--mode'):
         default_mode = arg
@@ -575,35 +611,7 @@ for opt, arg in opts:
         print VERSION
         sys.exit(0)
     elif opt in ('-h', '--help'):
-        print >> sys.stderr, "Usage:  %s [OPTIONS] [XMLFILE]..." % (sys.argv[0])
-        print >> sys.stderr, """
-OPTIONS may be some of:
-    -a    --automatic-tags     Automatically decides if tags are to be considered
-                                 "final" or not (overrides -f and -i options)
-    -k    --keep-entities      Don't expand entities
-    -e    --expand-all-entities  Expand ALL entities (including SYSTEM ones)
-    -m    --mode=TYPE          Treat tags as type TYPE (default: docbook)
-    -o    --output=FILE        Print resulting text (XML or POT) to FILE
-    -p    --po-file=FILE       Specify PO file containing translation, and merge
-                                 Overwrites temporary file .xml2po.mo.
-    -r    --reuse=FILE         Specify translated XML file with the same structure
-    -t    --translation=FILE   Specify MO file containing translation, and merge
-    -u    --update-translation=LANG.po   Updates a PO file using msgmerge program
-    -v    --version            Output version of the xml2po program
-
-    -h    --help               Output this message
-
-EXAMPLES:
-    To create a POTemplate book.pot from input files chapter1.xml and
-    chapter2.xml, run the following:
-        %s -o book.pot chapter1.xml chapter2.xml
-
-    After translating book.pot into de.po, merge the translations back,
-    using -p option for each XML file:
-        %s -p de.po chapter1.xml > chapter1.de.xml
-        %s -p de.po chapter2.xml > chapter2.de.xml
-""" % (sys.argv[0], sys.argv[0], sys.argv[0])
-        sys.exit(0)
+    	usage(True)
 
 # Treat remaining arguments as XML files
 while args:
