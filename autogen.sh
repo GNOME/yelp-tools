@@ -23,4 +23,7 @@ which gnome-autogen.sh || {
 ACLOCAL_FLAGS="-I . $ACLOCAL_FLAGS"
 export ACLOCAL_FLAGS
 
+REQUIRED_AUTOMAKE_VERSION=1.5
+export REQUIRED_AUTOMAKE_VERSION
+
 USE_GNOME2_MACROS=1 . gnome-autogen.sh

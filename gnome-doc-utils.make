@@ -7,7 +7,7 @@ DOC_INCLUDES ?=
 DOC_FORMATS ?=
 
 DOC_LINGUAS ?=
-DOC_PODIR ?=
+DOC_PODIR ?= $(DOC_MODULE).po
 
 XSLDOC_DIRS ?=
 RNGDOC_DIRS ?=
@@ -63,6 +63,12 @@ _DOC_DESKTOP_OUTS =							\
 	$(foreach lc,C $(DOC_LINGUAS),$(lc)/$(DOC_MODULE).desktop)
 
 
+## Targets
+
+# Uncomment when xml2po is hooked up
+#all: $(_DOC_C_DOCS) $(_DOC_LC_DOCS) $(_DOC_OMF_OUTS) $(_DOC_DESKTOP_OUTS)
+all: $(_DOC_C_DOCS) C/$(DOC_MODULE).omf C/$(DOC_MODULE).desktop
+
 ## Building .desktop files
 
 $(_DOC_DESKTOP_OUTS) : $(_DOC_DESKTOP_IN)
@@ -73,5 +79,7 @@ $(_DOC_DESKTOP_OUTS) : %/$(DOC_MODULE).desktop : %/$(DOC_MODULE).xml
 
 $(_ODC_OMF_OUTS) : $(_DOC_OMF_IN)
 $(_DOC_OMF_OUTS) : %/$(DOC_MODULE).omf : %/$(DOC_MODULE).xml
-	xsltproc -o $@ --stringparam db2omf.omf_in $(_DOC_OMF_IN) $< \
-		`pkg-config --variable db2omf gnome-doc-utils`
+	xsltproc -o $@ \
+	--stringparam db2omf.omf_in `pwd`/$(_DOC_OMF_IN) \
+	`pkg-config --variable db2omf gnome-doc-utils` $<
+

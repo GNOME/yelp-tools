@@ -5,6 +5,10 @@
 		exclude-result-prefixes="ref"
                 version="1.0">
 
+<xsl:output method="xml"
+	    encoding="utf-8"
+	    indent="yes"/>
+
 <ref:title>DocBook to ScrollKeeper OMF</ref:title>
 
 
@@ -37,8 +41,9 @@
   Generate the top-level <ref:xmltag>omf</ref:xmltag> and all its children
 </ref:refpurpose>
 
-<xsl:template name="db2omf.omf" match="/">
-  <xsl:param name="info" select="*[substring(local-name(.), -4, 4) = 'info']"/>
+<xsl:template name="db2omf.omf" match="/*">
+  <xsl:param name="info" select="*[substring(local-name(.),
+                                   string-length(local-name(.)) - 3)]"/>
   <omf>
     <xsl:call-template name="db2omf.creator">
       <xsl:with-param name="info" select="$info"/>
@@ -94,7 +99,8 @@
 </ref:refpurpose>
 
 <xsl:template name="db2omf.creator">
-  <xsl:param name="info" select="*[substring(local-name(.), -4, 4) = 'info']"/>
+  <xsl:param name="info" select="*[substring(local-name(.),
+                                   string-length(local-name(.)) - 3)]"/>
   <xsl:for-each select="$info/author | $info/authorgroup/author">
     <!-- FIXME: We should put a personname formatter in docbook/common -->
     <creator>
@@ -132,7 +138,8 @@
 </ref:refpurpose>
 
 <xsl:template name="db2omf.maintainer">
-  <xsl:param name="info" select="*[substring(local-name(.), -4, 4) = 'info']"/>
+  <xsl:param name="info" select="*[substring(local-name(.),
+                                   string-length(local-name(.)) - 3)]"/>
   <!-- FIXME -->
 </xsl:template>
 
@@ -145,7 +152,8 @@
 </ref:refpurpose>
 
 <xsl:template name="db2omf.contributor">
-  <xsl:param name="info" select="*[substring(local-name(.), -4, 4) = 'info']"/>
+  <xsl:param name="info" select="*[substring(local-name(.),
+                                   string-length(local-name(.)) - 3)]"/>
   <!-- FIXME -->
 </xsl:template>
 
@@ -158,16 +166,16 @@
 </ref:refpurpose>
 
 <xsl:template name="db2omf.title">
-  <xsl:param name="info" select="*[substring(local-name(.), -4, 4) = 'info']"/>
+  <xsl:param name="info" select="*[substring(local-name(.),
+                                   string-length(local-name(.)) - 3)]"/>
+  <xsl:variable name="title" select="($info/title | title)[1]"/>
+  <xsl:if test="not($title)">
+    <xsl:message>
+      <xsl:text>Missing title element</xsl:text>
+    </xsl:message>
+  </xsl:if>
   <title>
-    <xsl:choose>
-      <xsl:when test="$info/title">
-	<xsl:value-of select="$info/title"/>
-      </xsl:when>
-      <xsl:otherwise>
-	<xsl:value-of select="title"/>
-      </xsl:otherwise>
-    </xsl:choose>
+    <xsl:value-of select="$title"/>
   </title>
 </xsl:template>
 
@@ -180,7 +188,8 @@
 </ref:refpurpose>
 
 <xsl:template name="db2omf.date">
-  <xsl:param name="info" select="*[substring(local-name(.), -4, 4) = 'info']"/>
+  <xsl:param name="info" select="*[substring(local-name(.),
+                                   string-length(local-name(.)) - 3)]"/>
   <!-- FIXME -->
 </xsl:template>
 
@@ -193,11 +202,12 @@
 </ref:refpurpose>
 
 <xsl:template name="db2omf.version">
-  <xsl:param name="info" select="*[substring(local-name(.), -4, 4) = 'info']"/>
-
-  <xsl:variable name="identifier" select="$info/revhistory/revision[1]/revnumber"/>
-  <xsl:variable name="date" select="$info/revhistory/revision[1]/date"/>
-
+  <xsl:param name="info" select="*[substring(local-name(.),
+                                   string-length(local-name(.)) - 3)]"/>
+  <xsl:variable name="identifier"
+		select="$info/revhistory/revision[1]/revnumber"/>
+  <xsl:variable name="date"
+		select="$info/revhistory/revision[1]/date"/>
   <xsl:if test="not($identifier)">
     <xsl:message>
       <xsl:text>Missing revnumber element in revhistory</xsl:text>
@@ -208,7 +218,6 @@
       <xsl:text>Missing date element in revhistory</xsl:text>
     </xsl:message>
   </xsl:if>
-
   <version>
     <xsl:attribute name="identifier">
       <xsl:value-of select="$identifier"/>
@@ -230,7 +239,8 @@
 </ref:refpurpose>
 
 <xsl:template name="db2omf.subject">
-  <xsl:param name="info" select="*[substring(local-name(.), -4, 4) = 'info']"/>
+  <xsl:param name="info" select="*[substring(local-name(.),
+                                   string-length(local-name(.)) - 3)]"/>
   <xsl:variable name="subject" select="$omf_in/omf/resource/subject"/>
   <xsl:if test="not($subject)">
     <xsl:message>
@@ -238,7 +248,9 @@
     </xsl:message>
   </xsl:if>
   <subject>
-    <xsl:value-of select="$subject"/>
+    <xsl:attribute name="category">
+      <xsl:value-of select="$subject/@category"/>
+    </xsl:attribute>
   </subject>
 </xsl:template>
 
@@ -251,16 +263,14 @@
 </ref:refpurpose>
 
 <xsl:template name="db2omf.description">
-  <xsl:param name="info" select="*[substring(local-name(.), -4, 4) = 'info']"/>
-
+  <xsl:param name="info" select="*[substring(local-name(.),
+                                   string-length(local-name(.)) - 3)]"/>
   <xsl:variable name="description" select="$info/abstract[@role = 'description']"/>
-
   <xsl:if test="not($description)">
     <xsl:message>
-      <xsl:text>Missing abstract with role description</xsl:text>
+      <xsl:text>Missing abstract element with role description</xsl:text>
     </xsl:message>
   </xsl:if>
-
   <description>
     <!-- FIXME: a smarter textification would be good -->
     <xsl:value-of select="$description"/>
@@ -276,7 +286,8 @@
 </ref:refpurpose>
 
 <xsl:template name="db2omf.type">
-  <xsl:param name="info" select="*[substring(local-name(.), -4, 4) = 'info']"/>
+  <xsl:param name="info" select="*[substring(local-name(.),
+                                   string-length(local-name(.)) - 3)]"/>
   <xsl:variable name="type" select="$omf_in/omf/resource/type"/>
   <xsl:if test="not($type)">
     <xsl:message>
@@ -297,7 +308,8 @@
 </ref:refpurpose>
 
 <xsl:template name="db2omf.format">
-  <xsl:param name="info" select="*[substring(local-name(.), -4, 4) = 'info']"/>
+  <xsl:param name="info" select="*[substring(local-name(.),
+                                   string-length(local-name(.)) - 3)]"/>
   <!-- FIXME -->
 </xsl:template>
 
@@ -310,7 +322,8 @@
 </ref:refpurpose>
 
 <xsl:template name="db2omf.identifier">
-  <xsl:param name="info" select="*[substring(local-name(.), -4, 4) = 'info']"/>
+  <xsl:param name="info" select="*[substring(local-name(.),
+                                   string-length(local-name(.)) - 3)]"/>
   <!-- FIXME -->
 </xsl:template>
 
@@ -323,7 +336,8 @@
 </ref:refpurpose>
 
 <xsl:template name="db2omf.language">
-  <xsl:param name="info" select="*[substring(local-name(.), -4, 4) = 'info']"/>
+  <xsl:param name="info" select="*[substring(local-name(.),
+                                   string-length(local-name(.)) - 3)]"/>
   <!-- FIXME -->
 </xsl:template>
 
@@ -336,8 +350,9 @@
 </ref:refpurpose>
 
 <xsl:template name="db2omf.relation">
-  <xsl:param name="info" select="*[substring(local-name(.), -4, 4) = 'info']"/>
-  <xsl:variable name="seriesid" select="$omf_in/omf/resource/relation"/>
+  <xsl:param name="info" select="*[substring(local-name(.),
+                                   string-length(local-name(.)) - 3)]"/>
+  <xsl:variable name="relation" select="$omf_in/omf/resource/relation"/>
   <xsl:if test="not($relation)">
     <xsl:message>
       <xsl:text>Missing relation in .omf.in file</xsl:text>
@@ -359,7 +374,8 @@
 </ref:refpurpose>
 
 <xsl:template name="db2omf.rights">
-  <xsl:param name="info" select="*[substring(local-name(.), -4, 4) = 'info']"/>
+  <xsl:param name="info" select="*[substring(local-name(.),
+                                   string-length(local-name(.)) - 3)]"/>
   <!-- FIXME -->
 </xsl:template>
 

@@ -1,6 +1,7 @@
 @GNOME_DOC_RULE@
 
 DOC_MODULE = gnome-doc-xslt
+DOC_ENTITIES = legal.xml
 
 DOC_LINGUAS = sr
 

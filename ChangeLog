@@ -1,3 +1,22 @@
+2004-03-31  Shaun McCance  <shaunm@gnome.org>
+
+	* autogen.sh:
+	- Requiring automake 1.5 for xml2po
+
+	* gnome-doc-utils.make:
+	- Building OMF files
+
+	* doc/xslt/Makefile.am:
+	* doc/xslt/C/gnome-doc-xslt.xml:
+	* doc/xslt/C/legal.xml:
+	- Added content files
+
+	* xslt/docbook/omf/Makefile.am:
+	- s/db2html/db2omf/
+
+	* xslt/docbook/omf/db2omf.xsl:
+	- Fixed XPath selections and implemented more keys
+
 2004-03-30  Shaun McCance  <shaunm@gnome.org>
 
 	* gnome-doc-utils.pc.in:

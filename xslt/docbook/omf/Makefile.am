@@ -1,5 +1,5 @@
 xsldir=$(datadir)/sgml/gnome/docbook/omf
 
-xsl_DATA = db2html.xsl
+xsl_DATA = db2omf.xsl
 
 EXTRA_DIST=$(xsl_DATA)
