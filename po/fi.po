@@ -1,0 +1,351 @@
+# Finnish translations for gnome-doc-utils package.
+# Copyright (C) 2004 Free Software Foundation, Inc.
+# This file is distributed under the same license as the gnome-doc-utils package.
+# Tommi Vainikainen <Tommi.Vainikainen@iki.fi>, 2004.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-doc-utils\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-12-14 01:16+0200\n"
+"PO-Revision-Date: 2004-12-12 01:38+0200\n"
+"Last-Translator: Tommi Vainikainen <Tommi.Vainikainen@iki.fi>\n"
+"Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. Appendix %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:2
+msgid "format.appendix.label"
+msgstr "Liite %t{number}"
+
+#. Chapter %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:4
+msgid "format.chapter.label"
+msgstr "Kappale %t{number}"
+
+#: xslt/docbook/common/db-format.xml.in.h:5
+msgid "format.citetitle"
+msgstr "<msgstr><i>%t{node}</i></msgstr>"
+
+#. FIXME
+#: xslt/docbook/common/db-format.xml.in.h:7
+msgid "format.date"
+msgstr ""
+"<msgstr> <xsl:template>\n"
+" <xsl:value-of select=\"$day\"/><xsl:text>. </xsl:text>\n"
+" <xsl:choose>\n"
+"  <xsl:when test=\"$month =  1\"><xsl:text>tammikuuta </xsl:text></xsl:"
+"when>\n"
+"  <xsl:when test=\"$month =  2\"><xsl:text>helmikuuta </xsl:text></xsl:"
+"when>\n"
+"  <xsl:when test=\"$month =  3\"><xsl:text>maaliskuuta </xsl:text></xsl:"
+"when>\n"
+"  <xsl:when test=\"$month =  4\"><xsl:text>huhtikuuta </xsl:text></xsl:"
+"when>\n"
+"  <xsl:when test=\"$month =  5\"><xsl:text>toukokuuta </xsl:text></xsl:"
+"when>\n"
+"  <xsl:when test=\"$month =  6\"><xsl:text>kesäkuuta </xsl:text></xsl:when>\n"
+"  <xsl:when test=\"$month =  7\"><xsl:text>heinäkuuta </xsl:text></xsl:"
+"when>\n"
+"  <xsl:when test=\"$month =  8\"><xsl:text>elokuuta </xsl:text></xsl:when>\n"
+"  <xsl:when test=\"$month =  9\"><xsl:text>syyskuuta </xsl:text></xsl:when>\n"
+"  <xsl:when test=\"$month = 10\"><xsl:text>lokakuuta </xsl:text></xsl:when>\n"
+"  <xsl:when test=\"$month = 11\"><xsl:text>marraskuuta </xsl:text></xsl:"
+"when>\n"
+"  <xsl:when test=\"$month = 12\"><xsl:text>joulukuuta </xsl:text></xsl:"
+"when>\n"
+" </xsl:choose>\n"
+" <xsl:value-of select=\"$year\"/>\n"
+"</xsl:template> </msg:msgstr>"
+
+#. Example %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:9
+msgid "format.example.label"
+msgstr "Esimerkki %t{number}"
+
+#. %t{parent}-%1{number}
+#: xslt/docbook/common/db-format.xml.in.h:11
+msgid "format.example.number"
+msgstr "%t{parent}-%1{number}"
+
+#. %1{number}
+#: xslt/docbook/common/db-format.xml.in.h:13
+msgid "format.example.number.flat"
+msgstr "%1{number}"
+
+#. Figure %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:15
+msgid "format.figure.label"
+msgstr "Kuva %t{number}"
+
+#. %t{parent}-%1{number}
+#: xslt/docbook/common/db-format.xml.in.h:17
+msgid "format.figure.number"
+msgstr "%t{parent}-%1{number}"
+
+#. %1{number}
+#: xslt/docbook/common/db-format.xml.in.h:19
+msgid "format.figure.number.flat"
+msgstr "%1{number}"
+
+#. ‘%t{node}’
+#: xslt/docbook/common/db-format.xml.in.h:21
+msgid "format.quote.inner"
+msgstr "'%t{node}'"
+
+#. “%t{node}”
+#: xslt/docbook/common/db-format.xml.in.h:23
+msgid "format.quote.outer"
+msgstr "\"%t{node}\""
+
+#. Section %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:25
+msgid "format.section.label"
+msgstr "Luku %t{number}"
+
+#. Table %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:27
+msgid "format.table.label"
+msgstr "Taulukko %t{number}"
+
+#. %t{parent}-%1{number}
+#: xslt/docbook/common/db-format.xml.in.h:29
+msgid "format.table.number"
+msgstr "%t{parent}-%1{number}"
+
+#. %1{number}
+#: xslt/docbook/common/db-format.xml.in.h:31
+msgid "format.table.number.flat"
+msgstr "%1{number}"
+
+#. Read the definition for ‘%s{node}’.
+#: xslt/docbook/common/db-format.xml.in.h:33
+msgid "format.tooltip.glossentry"
+msgstr "Lue sanan \"%s{node}\" määritelmä."
+
+#. Used as a header before a list of authors.
+#: xslt/gettext/l10n.xml.in.h:2
+msgid "<msgstr form=\"0\">Author</msgstr> <msgstr form=\"1\">Authors</msgstr>"
+msgstr "<msgstr form=\"0\">Tekijä</msgstr> <msgstr form=\"1\">Tekijät</msgstr>"
+
+#. Used as a header before a list of collaborators.
+#: xslt/gettext/l10n.xml.in.h:4
+msgid ""
+"<msgstr form=\"0\">Collaborator</msgstr> <msgstr form=\"1\">Collaborators</"
+"msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Työtoveri</msgstr> <msgstr form=\"1\">Työtoverit</msgstr>"
+
+#. Used as a header before a list of copyrights.
+#: xslt/gettext/l10n.xml.in.h:6
+msgid ""
+"<msgstr form=\"0\">Copyright</msgstr> <msgstr form=\"1\">Copyrights</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Tekijänoikeus</msgstr> <msgstr form=\"1"
+"\">Tekijänoikeudet</msgstr>"
+
+#. Used as a header before a list of editors.
+#: xslt/gettext/l10n.xml.in.h:8
+msgid "<msgstr form=\"0\">Editor</msgstr> <msgstr form=\"1\">Editors</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Toimittaja</msgstr> <msgstr form=\"1\">Toimittajat</"
+"msgstr>"
+
+#. Used as a header before a list of contributors.
+#: xslt/gettext/l10n.xml.in.h:10
+msgid ""
+"<msgstr form=\"0\">Other Contributor</msgstr> <msgstr form=\"1\">Other "
+"Contributors</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Muu avustaja</msgstr> <msgstr form=\"1\">Muut avustajat</"
+"msgstr>"
+
+#. Used as a header before a list of publishers.
+#: xslt/gettext/l10n.xml.in.h:12
+msgid ""
+"<msgstr form=\"0\">Publisher</msgstr> <msgstr form=\"1\">Publishers</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Julkaisija</msgstr> <msgstr form=\"1\">Julkaisijat</"
+"msgstr>"
+
+#: xslt/gettext/l10n.xml.in.h:13
+msgid "About This Article"
+msgstr "Tietoja tästä artikkelista"
+
+#: xslt/gettext/l10n.xml.in.h:14
+msgid "About This Bibliography"
+msgstr "Tietoja tästä lähdeluettelosta"
+
+#: xslt/gettext/l10n.xml.in.h:15
+msgid "About This Book"
+msgstr "Tietoja tästä kirjasta"
+
+#: xslt/gettext/l10n.xml.in.h:16
+msgid "About This Chapter"
+msgstr "Tietoja tästä luvusta"
+
+#: xslt/gettext/l10n.xml.in.h:17
+msgid "About This Entry"
+msgstr "Tietoja tästä merkinnästä"
+
+#: xslt/gettext/l10n.xml.in.h:18
+msgid "About This Glossary"
+msgstr "Tietoja tästä sanastosta"
+
+#: xslt/gettext/l10n.xml.in.h:19
+msgid "About This Index"
+msgstr "Tietoja tästä hakemistosta"
+
+#: xslt/gettext/l10n.xml.in.h:20
+msgid "About This Part"
+msgstr "Tietoja tästä osasta"
+
+#: xslt/gettext/l10n.xml.in.h:21
+msgid "About This Preface"
+msgstr "Tietoja tästä johdannosta"
+
+#: xslt/gettext/l10n.xml.in.h:22
+msgid "About This Reference"
+msgstr "Tietoja tästä viitteestä"
+
+#: xslt/gettext/l10n.xml.in.h:23
+msgid "About This Section"
+msgstr "Tietoja tästä luvusta"
+
+#: xslt/gettext/l10n.xml.in.h:24
+msgid "About This Set"
+msgstr "Tietoja tästä sarjasta"
+
+#: xslt/gettext/l10n.xml.in.h:25
+msgid "Affiliation"
+msgstr "Yhteys"
+
+#. This is an abbreviated form of 'Message Audience'.
+#. Feel free to use the same word/phrase for both.
+#: xslt/gettext/l10n.xml.in.h:28
+msgid "Audience"
+msgstr "Lukijakunta"
+
+#: xslt/gettext/l10n.xml.in.h:29
+msgid "Caution"
+msgstr "Varoitus"
+
+#: xslt/gettext/l10n.xml.in.h:30
+msgid "Colophon"
+msgstr "Loppukirjoitus"
+
+#. This is an abbreviated form of 'Table of Contents'.
+#. Feel free to use the same word/phrase for both.
+#: xslt/gettext/l10n.xml.in.h:33
+msgid "Contents"
+msgstr "Sisältö"
+
+#. Used as a header for date column in the revision history.
+#: xslt/gettext/l10n.xml.in.h:35
+msgid "Date"
+msgstr "Päiväys"
+
+#: xslt/gettext/l10n.xml.in.h:36
+msgid "Dedication"
+msgstr "Omistuskirjoitus"
+
+#: xslt/gettext/l10n.xml.in.h:37
+msgid "Email"
+msgstr "Sähköposti"
+
+#: xslt/gettext/l10n.xml.in.h:38
+msgid "Important"
+msgstr "Tärkeä"
+
+#: xslt/gettext/l10n.xml.in.h:39
+msgid "Index"
+msgstr "Hakemisto"
+
+#: xslt/gettext/l10n.xml.in.h:40
+msgid "Legal Notice"
+msgstr "Ehtoilmoitus"
+
+#. This is an abbreviated form of 'Message Level'.
+#. Feel free to use the same word/phrase for both.
+#: xslt/gettext/l10n.xml.in.h:43
+msgid "Level"
+msgstr "Taso"
+
+#: xslt/gettext/l10n.xml.in.h:44
+msgid "Message Audience"
+msgstr "Viestin lukijakunta"
+
+#: xslt/gettext/l10n.xml.in.h:45
+msgid "Message Level"
+msgstr "Viestin taso"
+
+#: xslt/gettext/l10n.xml.in.h:46
+msgid "Message Origin"
+msgstr "Viestin alkuperä"
+
+#: xslt/gettext/l10n.xml.in.h:47
+msgid "Name"
+msgstr "Nimi"
+
+#: xslt/gettext/l10n.xml.in.h:48
+msgid "Note"
+msgstr "Huomautus"
+
+#. This is an abbreviated form of 'Message Origin'.
+#. Feel free to use the same word/phrase for both.
+#: xslt/gettext/l10n.xml.in.h:51
+msgid "Origin"
+msgstr "Alkuperä"
+
+#: xslt/gettext/l10n.xml.in.h:52
+msgid "Preface"
+msgstr "Johdanto"
+
+#: xslt/gettext/l10n.xml.in.h:53
+msgid "Reference"
+msgstr "Viittaus"
+
+#: xslt/gettext/l10n.xml.in.h:54
+msgid "Release Information"
+msgstr "Julkaisutiedot"
+
+#: xslt/gettext/l10n.xml.in.h:55
+msgid "Revision History"
+msgstr "Muutoshistoria"
+
+#: xslt/gettext/l10n.xml.in.h:56
+msgid "See"
+msgstr "Katso"
+
+#: xslt/gettext/l10n.xml.in.h:57
+msgid "See Also"
+msgstr "Katso myös"
+
+#: xslt/gettext/l10n.xml.in.h:58
+msgid "Set Index"
+msgstr "Aseta hakemisto"
+
+#: xslt/gettext/l10n.xml.in.h:59
+msgid "Synopsis"
+msgstr "Tiivistelmä"
+
+#. Used for a link to a table of contents.
+#: xslt/gettext/l10n.xml.in.h:61
+msgid "Table of Contents"
+msgstr "Sisällysluettelo"
+
+#: xslt/gettext/l10n.xml.in.h:62
+msgid "Tip"
+msgstr "Vinkki"
+
+#. Used as a header for title column in the revision history.
+#: xslt/gettext/l10n.xml.in.h:64
+msgid "Title"
+msgstr "Otsikko"
+
+#: xslt/gettext/l10n.xml.in.h:65
+msgid "Warning"
+msgstr "Varoitus"

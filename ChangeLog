@@ -1,3 +1,7 @@
+2004-12-14  Tommi Vainikainen  <thv@iki.fi>
+
+	* configure.in (ALL_LINGUAS): Added fi (Finnish).
+
 2004-12-09  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/common/db-format.xml.in:
