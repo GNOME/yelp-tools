@@ -5,4 +5,4 @@ autom4te.cache
 config.log
 config.status
 configure
-gnome-doc-docbook-rule.make
+gnome-doc-utils.make

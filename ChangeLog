@@ -1,3 +1,13 @@
+2004-04-06  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/html/Makefile.am:
+	* xslt/docbook/html/db2html-funcsynopsis.xsl:
+	* xslt/docbook/html/db2html-suppressed.xsl:
+	- Adding new XSLT files
+
+	* */.cvsignore:
+	- Some .cvsignore updates
+
 2004-04-05  Shaun McCance  <shaunm@gnome.org>
 
 	* doc/xslt/gnome-doc-xslt.desktop.in

@@ -6,3 +6,4 @@ changes
 config.log
 config.status
 configure
+gnome-doc-utils.make
