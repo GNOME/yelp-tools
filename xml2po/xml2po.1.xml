@@ -82,8 +82,7 @@
 				<listitem>
 					<para>
 						Automatically decides if tags are to be considered
-						"final" or not (overrides the <option>-f</option>
-						and <option>-i</option> options).
+						"final" or not.
 					</para>
 				</listitem>
 			</varlistentry>

@@ -1,3 +1,7 @@
+2005-03-03  Danilo Šegan  <dsegan@gmx.net>
+
+	* xml2po.1.xml: Remove -f, -i references here as well.
+
 2005-03-02  Danilo Šegan  <dsegan@gmx.net>
 
 	* xml2po.py (usage): Remove -f,-i references from -a help message.
