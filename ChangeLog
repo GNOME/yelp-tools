@@ -1,5 +1,10 @@
 2004-09-19  Shaun McCance  <shaunm@gnome.org>
 
+	* gnome-doc-utils.make:
+	- Robustified changes to clean and install
+
+2004-09-19  Shaun McCance  <shaunm@gnome.org>
+
 	* Makefile.am:
 	* gnome-doc-utils.make:
 	- Require the doc files, instead of the directories.

@@ -1,4 +1,3 @@
-CLEANFILES =
 EXTRA_DIST =
 
 ################################################################################
@@ -34,7 +33,16 @@ $(DOC_H_FILE): $(DOC_H_DOCS);
 	done;
 
 EXTRA_DIST += $(DOC_H_FILE)
-CLEANFILES += $(DOC_H_FILE)
+
+.PHONY: chean-doc-header
+_clean_doc_header = $(if $(DOC_H_FILE),clean-doc-header)
+clean: $(_clean_doc_header)
+distclean: $(_clean_doc_header)
+mostlyclean: $(_clean_doc_header)
+maintainer-clean: $(_clean_doc_header)
+clean-doc-header:
+	rm $(DOC_H_FILE)
+
 all: $(DOC_H_FILE)
 
 
@@ -194,7 +202,7 @@ _DOC_DSK_DB = $(if $(_DOC_DSK_IN),						\
 # FIXME
 $(_DOC_DSK_DB) : $(_DOC_DSK_IN)
 $(_DOC_DSK_DB) : $(DOC_MODULE).db.%.desktop : %/$(DOC_MODULE).xml
-	echo $@
+	cp $(_DOC_DSK_IN) $@
 
 ## @ _DOC_DSK_HTML
 ## The desktop entry files for HTML output
@@ -203,7 +211,7 @@ _DOC_DSK_HTML = $(if $(_DOC_DSK_IN),						\
 
 $(_DOC_DSK_HTML) : $(_DOC_DSK_IN)
 $(_DOC_DSK_HTML) : $(DOC_MODULE).html.%.desktop : %/$(DOC_MODULE).xml
-	echo $@
+	cp $(_DOC_DSK_IN) $@
 
 ## @ _DOC_DSK_ALL
 ## All desktop entry output files to be built
@@ -295,7 +303,7 @@ _DOC_LC_DOCS =								\
 # FIXME: hook xml2po up
 $(_DOC_LC_DOCS) : $(DOC_LINGUAS)
 $(_DOC_LC_DOCS) : $(_DOC_C_DOCS)
-	cp C/$(shell echo $@ | sed -e 's/^.*\///') $@
+	cp C/$(notdir $@) $@
 
 $(DOC_LINGUAS):
 	if ! test -d $@; then mkdir $@; fi
@@ -318,12 +326,34 @@ _DOC_ALL =								\
 
 ################################################################################
 
-CLEANFILES +=						\
-	$(_RNGDOC_C_DOCS)	$(_RNGDOC_LC_DOCS)	\
-	$(_XSLDOC_C_DOCS)	$(_XSLDOC_LC_DOCS)	\
-	$(_DOC_OMF_DB)		$(_DOC_OMF_HTML)	\
-	$(_DOC_DSK_DB)		$(_DOC_DSK_HTML)	\
-	$(_DOC_LC_DOCS)
+.PHONY: clean-rngdoc clean-xsldoc clean-omf clean-dsk clean-lc
+
+clean-rngdoc: ; rm -f $(_RNGDOC_C_DOCS) $(_RNGDOC_LC_DOCS)
+clean-xsldoc: ; rm -f $(_XSLDOC_C_DOCS) $(_XSLDOC_LC_DOCS)
+clean-omf: ; rm -f $(_DOC_OMF_DB) $(_DOC_OMF_HTML)
+clean-dsk: ; rm -f $(_DOC_DSK_DB) $(_DOC_DSK_HTML)
+clean-lc:  ; rm -f $(_DOC_LC_DOCS)
+
+_clean_rngdoc = $(if $(RNGDOC_DIRS),clean-rngdoc)
+_clean_xsldoc = $(if $(XSLDOC_DIRS),clean-xsldoc)
+_clean_omf = $(if $(DOC_MODULE),clean-omf)
+_clean_dsk = $(if $(DOC_MODULE),clean-dsk)
+_clean_lc  = $(if $(DOC_LINGUAS),clean-lc)
+
+clean:							\
+	$(_clean_rngdoc)	$(_clean_xsldoc)	\
+	$(_clean_omf)		$(_clean_dsk)		\
+	$(_clean_lc)
+distclean:						\
+	$(_clean_omf)		$(_clean_dsk)
+mostlyclean:						\
+	$(_clean_rngdoc)	$(_clean_xsldoc)	\
+	$(_clean_omf)		$(_clean_dsk)		\
+	$(_clean_lc)
+maintainer-clean:					\
+	$(_clean_rngdoc)	$(_clean_xsldoc)	\
+	$(_clean_omf)		$(_clean_dsk)		\
+	$(_clean_lc)
 
 # FIXME: need to handle figures, etc.
 EXTRA_DIST += $(_DOC_ALL) $(_DOC_OMF_IN) $(_DOC_DSK_IN)
@@ -341,21 +371,25 @@ check-omf:
 	  xmllint --noout $$omf; \
 	done
 
-.PHONY: install-doc install-html install-omf
-installs =								\
-	$(if $(findstring docbook,$(_DOC_REAL_FORMATS)),install-doc)	\
-	$(if $(findstring html,$(_DOC_REAL_FORMATS)),install-html)	\
-	install-omf
-install-data-local: $(installs)
+.PHONY: install-doc install-html install-omf install-dsk
+_install_doc  = $(if $(DOC_MODULE),install-doc)
+_install_html = $(if $(_DOC_HTML_ALL),install-html)
+_install_omf  = $(if $(_DOC_OMF_IN),install-omf)
+_install_dsk  = $(if $(_DOC_DSK_IN),install-dsk)
+install-data-local:					\
+	$(_install_doc)		$(_install_html)	\
+	$(_install_omf)		$(_install_dsk)
 install-doc:
 	echo install-doc
 install-html:
 	echo install-html
 install-omf:
+	echo $(_DOC_OMF_ALL)
 	$(mkinstalldirs) $(OMF_DIR)/$(DOC_MODULE)
 	cp $(_DOC_OMF_ALL) $(OMF_DIR)/$(DOC_MODULE)/
+install-dsk:
+	echo install-dsk
 
-# install
 # uninstall
 # installcheck
 # installdirs
