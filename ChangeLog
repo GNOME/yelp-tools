@@ -1,3 +1,12 @@
+2004-10-04  Shaun McCance  <shaunm@gnome.org>
+
+	* Makefile.am:
+	* bootstrap.make:
+	* configure.in:
+	* gnome-doc-utils.make:
+	* xml2po/Makefile.am:
+	- Build xml2po with gnome-doc-utils
+
 2004-09-27  Shaun McCance  <shaunm@gnome.org>
 
 	* gnome-doc-utils.make:

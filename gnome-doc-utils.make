@@ -85,7 +85,7 @@ XSLDOC_DIRS ?=
 ################################################################################
 ## For bootstrapping gnome-doc-utils only
 
-xml2po ?= xml2po
+_xml2po ?= `which xml2po`
 
 _db2omf ?= `pkg-config --variable db2omf gnome-doc-utils`
 _rngdoc ?= `pkg-config --variable rngdoc gnome-doc-utils`
@@ -310,9 +310,9 @@ _DOC_LC_DOCS =								\
 $(_DOC_POFILES): $(_DOC_C_DOCS)
 	if ! test -d $(dir $@); then mkdir $(dir $@); fi
 	if ! test -f $@; then \
-	  (cd $(dir $@) && $(xml2po) -e $(_DOC_C_DOCS_NOENT:%=../%) > $(notdir $@)); \
+	  (cd $(dir $@) && $(_xml2po) -e $(_DOC_C_DOCS_NOENT:%=../%) > $(notdir $@)); \
 	else \
-	  (cd $(dir $@) && $(xml2po) -e -u $(basename $(notdir $@)) $(_DOC_C_DOCS_NOENT:%=../%)); \
+	  (cd $(dir $@) && $(_xml2po) -e -u $(basename $(notdir $@)) $(_DOC_C_DOCS_NOENT:%=../%)); \
 	fi
 
 # FIXME: fix the dependancy

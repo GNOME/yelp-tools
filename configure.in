@@ -12,15 +12,14 @@ AC_ARG_ENABLE([build-utils],
 	enable_build_utils=yes)
 AM_CONDITIONAL(ENABLE_BUILD_UTILS, test x$enable_build_utils = xyes)
 
-BUILD_REQS=
 if test x$enable_build_utils = xyes; then
-   BUILD_REQS="xml2po >= 1.0.7";
+AM_PATH_PYTHON([2.0])
 fi
 
 PKG_CHECK_MODULES(GNOME_DOC_UTILS,
 [
-	libxslt >= 1.1.8
-	$BUILD_REQS
+	libxml-2.0 >= 2.6.0
+	libxslt    >= 1.1.8
 ])
 
 ALL_LINGUAS="ca cs en_CA en_GB es hu nl pt pt_BR sq sv uk wa"
@@ -33,6 +32,10 @@ doc/gnome-doc-make/Makefile
 doc/xslt/Makefile
 po/Makefile.in
 xslt/Makefile
+xml2po/Makefile
+xml2po/xml2po.pc
+xml2po/modes/Makefile
+xml2po/examples/Makefile
 xslt/docbook/Makefile
 xslt/docbook/common/Makefile
 xslt/docbook/html/Makefile

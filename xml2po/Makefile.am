@@ -12,7 +12,7 @@ xml2po: xml2po.py configure.ac
 	sed -e "s/^VERSION =.*/VERSION = \"@VERSION@\"/" \
 	    -e "s+^submodes_path =.*+submodes_path = \"$(commondir)\"+" \
 	    -e "s+^#!.*python.*+#!$(PYTHON)+" \
-	  < $(top_srcdir)/xml2po.py >xml2po
+	  < xml2po.py >xml2po
 	chmod +x xml2po
 
 README: README.in
