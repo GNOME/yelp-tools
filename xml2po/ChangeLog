@@ -1,3 +1,14 @@
+2004-09-16  Danilo Šegan  <dsegan@gmx.net>
+
+	* modes/docbook.py (docbookXmlMode.getSpacePreserveTags): Add
+	'screen' and 'literallayout'.
+
+	* xml2po.py (MessageOutput.outputAll): Output "no-wrap" if needed.
+	(MessageOutput.__init__): Add nowrap hash.
+	(MessageOutput.outputMessage): Set nowrap for space-preserving messages.
+
+	* TODO (TODO): More suggestions from Karl.
+
 2004-09-15  Danilo Šegan  <dsegan@gmx.net>
 
 	* xml2po.py (normalizeString): No, never ends: remove more

@@ -41,6 +41,7 @@ class MessageOutput:
         self.messages = []
         self.comments = {}
         self.linenos = {}
+        self.nowrap = {}
         if with_translations:
             self.translations = []
         self.do_translations = with_translations
@@ -63,6 +64,8 @@ class MessageOutput:
             
             if self.do_translations or (not t in self.messages):
                 self.messages.append(t)
+                if spacepreserve:
+                    self.nowrap[t] = 1
                 if t in self.linenos.keys():
                     self.linenos[t].append((self.filename, lineno))
                 else:
@@ -85,6 +88,8 @@ class MessageOutput:
             for reference in self.linenos[k]:
                 references += "%s:%d " % (reference[0], reference[1])
             out.write("#: %s\n" % (references))
+            if k in self.nowrap and self.nowrap[k]:
+                out.write("#, no-wrap\n")
             out.write("msgid \"%s\"\n" % (k))
             translation = ""
             if self.do_translations:

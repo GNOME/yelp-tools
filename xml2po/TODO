@@ -17,6 +17,9 @@ TODO:
 
  o add "#. tag: title" for <title> tags [Karl]
 
+ o pipe the constructed .po file thru 'msgcat'; msgcat is meant as a .po
+   file normalization tool. [Karl]
+
  o add support for translating attributes (eg. imagine "title"            [??]
    attribute in IMG tag in XHTML) -- this should be easy enough
 
