@@ -1,5 +1,10 @@
 2004-11-08  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/gettext/l10n.xml.in:
+	- The plural of Publisher is Publishers
+
+2004-11-08  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/gettext/gettext.xsl:
 	* xslt/gettext/l10n.xml.in:
 	- Just using numbers for forms
