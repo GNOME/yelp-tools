@@ -1,14 +1,14 @@
 # Brazilian Portuguese translation of gnome-doc-utils.
-# Copyright (C) 2004 Free Software Foundation, Inc.
+# Copyright (C) 2004-2005 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-doc-utils package.
-# Raphael Higino <raphaelh@uai.com.br>, 2004.
+# Raphael Higino <raphaelh@uai.com.br>, 2004-2005.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-25 12:20+0100\n"
-"PO-Revision-Date: 2004-12-31 18:11-0200\n"
+"POT-Creation-Date: 2005-01-15 20:15+0100\n"
+"PO-Revision-Date: 2005-01-15 18:11-0200\n"
 "Last-Translator: Raphael Higino <raphaelh@uai.com.br>\n"
 "Language-Team: Brazilian Portuguese <gnome-l10n-br@listas.cipsga.org.br>\n"
 "MIME-Version: 1.0\n"
@@ -89,7 +89,7 @@ msgstr "formato.aspas.internas"
 msgid "format.quote.outer"
 msgstr "formato.aspas.externas"
 
-#. Refentry %t{number}
+#. %t{title}
 #: xslt/docbook/common/db-format.xml.in.h:31
 msgid "format.refentry.label"
 msgstr "formato.entradadereferencia.rótulo"
@@ -134,210 +134,207 @@ msgstr "<msgstr form=\"0\">Autor</msgstr> <msgstr form=\"1\">Autores</msgstr>"
 msgid ""
 "<msgstr form=\"0\">Collaborator</msgstr> <msgstr form=\"1\">Collaborators</"
 "msgstr>"
-msgstr "<msgstr form=\"0\">Colaborador</msgstr> <msgstr form=\"1\">Colaboradores</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Colaborador</msgstr> <msgstr form=\"1\">Colaboradores</"
+"msgstr>"
 
 #. Used as a header before a list of copyrights.
 #: xslt/gettext/l10n.xml.in.h:6
 msgid ""
 "<msgstr form=\"0\">Copyright</msgstr> <msgstr form=\"1\">Copyrights</msgstr>"
-msgstr "<msgstr form=\"0\">Copyright</msgstr> <msgstr form=\"1\">Copyrights</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Copyright</msgstr> <msgstr form=\"1\">Copyrights</msgstr>"
 
 #. Used as a header before a list of editors.
 #: xslt/gettext/l10n.xml.in.h:8
 msgid "<msgstr form=\"0\">Editor</msgstr> <msgstr form=\"1\">Editors</msgstr>"
-msgstr "<msgstr form=\"0\">Editor</msgstr> <msgstr form=\"1\">Editores</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Editor</msgstr> <msgstr form=\"1\">Editores</msgstr>"
 
 #. Used as a header before a list of contributors.
 #: xslt/gettext/l10n.xml.in.h:10
 msgid ""
 "<msgstr form=\"0\">Other Contributor</msgstr> <msgstr form=\"1\">Other "
 "Contributors</msgstr>"
-msgstr "<msgstr form=\"0\">Outro Contribuinte</msgstr> <msgstr form=\"1\">Outros Contribuinte</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Outro Contribuinte</msgstr> <msgstr form=\"1\">Outros "
+"Contribuinte</msgstr>"
 
 #. Used as a header before a list of publishers.
 #: xslt/gettext/l10n.xml.in.h:12
 msgid ""
 "<msgstr form=\"0\">Publisher</msgstr> <msgstr form=\"1\">Publishers</msgstr>"
-msgstr "<msgstr form=\"0\">Editora</msgstr> <msgstr form=\"1\">Editoras</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Editora</msgstr> <msgstr form=\"1\">Editoras</msgstr>"
 
-#: xslt/gettext/l10n.xml.in.h:13
-msgid "About This Article"
-msgstr "Sobre esse artigo"
-
+#. Link to the titlepage
 #: xslt/gettext/l10n.xml.in.h:14
-msgid "About This Bibliography"
-msgstr "Sobre essa bibliografia"
+msgid "About This Document"
+msgstr "Sobre esse documento"
 
 #: xslt/gettext/l10n.xml.in.h:15
-msgid "About This Book"
-msgstr "Sobre esse livro"
-
-#: xslt/gettext/l10n.xml.in.h:16
-msgid "About This Chapter"
-msgstr "Sobre esse capítulo"
-
-#: xslt/gettext/l10n.xml.in.h:17
-msgid "About This Entry"
-msgstr "Sobre essa entrada"
-
-#: xslt/gettext/l10n.xml.in.h:18
-msgid "About This Glossary"
-msgstr "Sobre esse glossário"
-
-#: xslt/gettext/l10n.xml.in.h:19
-msgid "About This Index"
-msgstr "Sobre esse índice"
-
-#: xslt/gettext/l10n.xml.in.h:20
-msgid "About This Part"
-msgstr "Sobre essa parte"
-
-#: xslt/gettext/l10n.xml.in.h:21
-msgid "About This Preface"
-msgstr "Sobre esse prefácio"
-
-#: xslt/gettext/l10n.xml.in.h:22
-msgid "About This Reference"
-msgstr "Sobre essa referência"
-
-#: xslt/gettext/l10n.xml.in.h:23
-msgid "About This Section"
-msgstr "Sobre essa seção"
-
-#: xslt/gettext/l10n.xml.in.h:24
-msgid "About This Set"
-msgstr "Sobre essa coleção"
-
-#: xslt/gettext/l10n.xml.in.h:25
 msgid "Affiliation"
 msgstr "Associação"
 
 #. This is an abbreviated form of 'Message Audience'.
 #. Feel free to use the same word/phrase for both.
-#: xslt/gettext/l10n.xml.in.h:28
+#: xslt/gettext/l10n.xml.in.h:18
 msgid "Audience"
 msgstr "Audiência"
 
-#: xslt/gettext/l10n.xml.in.h:29
+#: xslt/gettext/l10n.xml.in.h:19
 msgid "Caution"
 msgstr "Cuidado"
 
-#: xslt/gettext/l10n.xml.in.h:30
+#: xslt/gettext/l10n.xml.in.h:20
 msgid "Colophon"
 msgstr "Colofão"
 
 #. This is an abbreviated form of 'Table of Contents'.
 #. Feel free to use the same word/phrase for both.
-#: xslt/gettext/l10n.xml.in.h:33
+#: xslt/gettext/l10n.xml.in.h:23
 msgid "Contents"
 msgstr "Conteúdo"
 
 #. Used as a header for date column in the revision history.
-#: xslt/gettext/l10n.xml.in.h:35
+#: xslt/gettext/l10n.xml.in.h:25
 msgid "Date"
 msgstr "Data"
 
-#: xslt/gettext/l10n.xml.in.h:36
+#: xslt/gettext/l10n.xml.in.h:26
 msgid "Dedication"
 msgstr "Dedicatória"
 
-#: xslt/gettext/l10n.xml.in.h:37
+#: xslt/gettext/l10n.xml.in.h:27
 msgid "Email"
 msgstr "E-mail"
 
-#: xslt/gettext/l10n.xml.in.h:38
+#: xslt/gettext/l10n.xml.in.h:28
 msgid "Important"
 msgstr "Importante"
 
-#: xslt/gettext/l10n.xml.in.h:39
+#: xslt/gettext/l10n.xml.in.h:29
 msgid "Index"
 msgstr "Índice"
 
-#: xslt/gettext/l10n.xml.in.h:40
+#: xslt/gettext/l10n.xml.in.h:30
 msgid "Legal Notice"
 msgstr "Aviso Legal"
 
 #. This is an abbreviated form of 'Message Level'.
 #. Feel free to use the same word/phrase for both.
-#: xslt/gettext/l10n.xml.in.h:43
+#: xslt/gettext/l10n.xml.in.h:33
 msgid "Level"
 msgstr "Nível"
 
-#: xslt/gettext/l10n.xml.in.h:44
+#: xslt/gettext/l10n.xml.in.h:34
 msgid "Message Audience"
 msgstr "Audiência da Mensagem"
 
-#: xslt/gettext/l10n.xml.in.h:45
+#: xslt/gettext/l10n.xml.in.h:35
 msgid "Message Level"
 msgstr "Nível da Mensagem"
 
-#: xslt/gettext/l10n.xml.in.h:46
+#: xslt/gettext/l10n.xml.in.h:36
 msgid "Message Origin"
 msgstr "Origem da Mensagem"
 
-#: xslt/gettext/l10n.xml.in.h:47
+#: xslt/gettext/l10n.xml.in.h:37
 msgid "Name"
 msgstr "Nome"
 
-#: xslt/gettext/l10n.xml.in.h:48
+#: xslt/gettext/l10n.xml.in.h:38
 msgid "Note"
 msgstr "Nota"
 
 #. This is an abbreviated form of 'Message Origin'.
 #. Feel free to use the same word/phrase for both.
-#: xslt/gettext/l10n.xml.in.h:51
+#: xslt/gettext/l10n.xml.in.h:41
 msgid "Origin"
 msgstr "Origem"
 
-#: xslt/gettext/l10n.xml.in.h:52
+#: xslt/gettext/l10n.xml.in.h:42
 msgid "Preface"
 msgstr "Prefácio"
 
-#: xslt/gettext/l10n.xml.in.h:53
+#: xslt/gettext/l10n.xml.in.h:43
 msgid "Reference"
 msgstr "Referência"
 
-#: xslt/gettext/l10n.xml.in.h:54
+#: xslt/gettext/l10n.xml.in.h:44
 msgid "Release Information"
 msgstr "Informações do Lançamento"
 
-#: xslt/gettext/l10n.xml.in.h:55
+#: xslt/gettext/l10n.xml.in.h:45
 msgid "Revision History"
 msgstr "Histórico de Revisão"
 
-#: xslt/gettext/l10n.xml.in.h:56
+#: xslt/gettext/l10n.xml.in.h:46
 msgid "See"
 msgstr "Veja"
 
-#: xslt/gettext/l10n.xml.in.h:57
+#: xslt/gettext/l10n.xml.in.h:47
 msgid "See Also"
 msgstr "Veja Também"
 
-#: xslt/gettext/l10n.xml.in.h:58
+#: xslt/gettext/l10n.xml.in.h:48
 msgid "Set Index"
 msgstr "Índice da Coleção"
 
-#: xslt/gettext/l10n.xml.in.h:59
+#: xslt/gettext/l10n.xml.in.h:49
 msgid "Synopsis"
 msgstr "Sinopse"
 
 #. Used for a link to a table of contents.
-#: xslt/gettext/l10n.xml.in.h:61
+#: xslt/gettext/l10n.xml.in.h:51
 msgid "Table of Contents"
 msgstr "Tabela de Conteúdo"
 
-#: xslt/gettext/l10n.xml.in.h:62
+#: xslt/gettext/l10n.xml.in.h:52
 msgid "Tip"
 msgstr "Dica"
 
 #. Used as a header for title column in the revision history.
-#: xslt/gettext/l10n.xml.in.h:64
+#: xslt/gettext/l10n.xml.in.h:54
 msgid "Title"
 msgstr "Título"
 
-#: xslt/gettext/l10n.xml.in.h:65
+#: xslt/gettext/l10n.xml.in.h:55
 msgid "Warning"
 msgstr "Aviso"
+
+#~ msgid "About This Article"
+#~ msgstr "Sobre esse artigo"
+
+#~ msgid "About This Bibliography"
+#~ msgstr "Sobre essa bibliografia"
+
+#~ msgid "About This Book"
+#~ msgstr "Sobre esse livro"
+
+#~ msgid "About This Chapter"
+#~ msgstr "Sobre esse capítulo"
+
+#~ msgid "About This Entry"
+#~ msgstr "Sobre essa entrada"
+
+#~ msgid "About This Glossary"
+#~ msgstr "Sobre esse glossário"
+
+#~ msgid "About This Index"
+#~ msgstr "Sobre esse índice"
+
+#~ msgid "About This Part"
+#~ msgstr "Sobre essa parte"
+
+#~ msgid "About This Preface"
+#~ msgstr "Sobre esse prefácio"
+
+#~ msgid "About This Reference"
+#~ msgstr "Sobre essa referência"
+
+#~ msgid "About This Section"
+#~ msgstr "Sobre essa seção"
 
 #~ msgid "%t{name} %t{number}"
 #~ msgstr "%t{name} %t{number}"
