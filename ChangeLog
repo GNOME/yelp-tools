@@ -1,5 +1,14 @@
 2004-09-19  Shaun McCance  <shaunm@gnome.org>
 
+	* .cvsignore:
+	- Added gnome-doc-utils.h
+
+	* gnome-doc-utils.make:
+	- Gorgeous bit of awk from jpetersen to remove sans-email credit entries
+	  for which a with-email credit entry exists with the same name
+
+2004-09-19  Shaun McCance  <shaunm@gnome.org>
+
 	* gnome-doc-utils.make:
 	- Robustified changes to clean and install
 

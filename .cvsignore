@@ -6,6 +6,7 @@ changes
 config.log
 config.status
 configure
+gnome-doc-utils.h
 gnome-doc-utils.pc
 intltool-extract
 intltool-extract.in

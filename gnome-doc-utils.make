@@ -17,6 +17,7 @@ $(DOC_H_FILE): $(DOC_H_DOCS);
 	for doc in $(DOC_H_DOCS); do \
 	  xsltproc $(_credits) $$doc; \
 	done | sort | uniq \
+	  | awk 'BEGIN{s=""}{n=split($$0,w,"<");if(s!=""&&s!=substr(w[1],1,length(w[1])-1)){print s};if(n>1){print $$0;s=""}else{s=$$0}};END{if(s!=""){print s}}' \
 	  | sed -e 's/\\/\\\\/' -e 's/"/\\"/' -e 's/\(.*\)/\t"\1",/' >> $@
 	echo '	NULL' >> $@
 	echo '};' >> $@
