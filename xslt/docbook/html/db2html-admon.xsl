@@ -1,47 +1,69 @@
 <?xml version='1.0'?>
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-		xmlns:ref="http://www.gnome.org/~shaunm/mallard/reference"
+		xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
 		exclude-result-prefixes="ref"
                 version="1.0">
 
-<ref:title>Admonitions</ref:title>
+<doc:title>Admonitions</doc:title>
 
 
-<!-- == db2html.admon.graphics_path == -->
+<!-- == db2html.admon.graphics_path ======================================== -->
 
-<ref:refname>db2html.admon.graphics_path</ref:refname>
-<ref:refpurpose>The path to admonition graphics</ref:refpurpose>
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.admon.graphics_path</name>
+  <description>
+    The path to admonition graphics
+  </description>
+</parameter>
 
 <xsl:param name="db2html.admon.graphics_path"/>
 
 
-<!-- == db2html.admon.graphics_extension == -->
+<!-- == db2html.admon.graphics_extension =================================== -->
 
-<ref:refname>db2html.admon.graphics_extension</ref:refname>
-<ref:refpurpose>The file extension for admonition graphics</ref:refpurpose>
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.admon.graphics_extension</name>
+  <description>
+    The file extension for admonition graphics
+  </description>
+</parameter>
 
 <xsl:param name="db2html.admon.graphics_extension" select="'png'"/>
 
 
-<!-- == db2html.admon.text_only == -->
+<!-- == db2html.admon.text_only ============================================ -->
 
-<ref:refname>db2html.admon.text_only</ref:refname>
-<ref:refpurpose>Whether to render admonitions text-only</ref:refpurpose>
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.admon.text_only</name>
+  <description>
+    Whether to render admonitions text-only
+  </description>
+</parameter>
 
 <xsl:param name="db2html.admon.text_only" select="false()"/>
 
 
-<!-- == db2html.admon -->
+<!-- == db2html.admon ====================================================== -->
 
-<ref:refname>db2html.admon</ref:refname>
-<ref:refpurpose>Render admonition elements</ref:refpurpose>
-<ref:para>
-  This template renders the DocBook admonition elements.  The template
-  simply calls <ref:function>db2html.admon.text</ref:function> or
-  <ref:function>db2html.admon.boxed</ref:function>, depending on
-  the value of <ref:parameter>$db2html.admon.text_only</ref:parameter>.
-</ref:para>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.admon</name>
+  <description>
+    Render admonition elements
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The element for which to render an admonition
+    </description>
+  </parameter>
+  <para>
+    This template renders the DocBook admonition elements.  The
+    template simply calls <template>db2html.admon.text</template>
+    or <template>db2html.admon.boxed</template>, depending on the
+    value of <parameter>$db2html.admon.text_only</parameter>.
+  </para>
+</template>
 
 <xsl:template name="db2html.admon">
   <xsl:param name="node" select="."/>
@@ -60,12 +82,20 @@
 </xsl:template>
 
 
-<!-- == db2html.admon.boxed -->
+<!-- == db2html.admon.boxed ================================================ -->
 
-<ref:refname>db2html.admon.boxed</ref:refname>
-<ref:refpurpose>
-  Render admonition elements as stylized boxes with admonition graphics
-</ref:refpurpose>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.admon.boxed</name>
+  <description>
+    Render an admonition element as a stylized box with admonition graphics
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The element for which to render an admonition
+    </description>
+  </parameter>
+</template>
 
 <xsl:template name="db2html.admon">
   <xsl:param name="node" select="."/>
@@ -93,12 +123,20 @@
 </xsl:template>
 
 
-<!-- == db2html.admon.text -->
+<!-- == db2html.admon.text ================================================= -->
 
-<ref:refname>db2html.admon.text</ref:refname>
-<ref:refpurpose>
-  Render admonition elements as simple text blocks
-</ref:refpurpose>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.admon.text</name>
+  <description>
+    Render an admonition element as a simple text block
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The element for which to render an admonition
+    </description>
+  </parameter>
+</template>
 
 <xsl:template name="db2html.admon">
   <xsl:param name="node" select="."/>
@@ -113,12 +151,20 @@
 </xsl:template>
 
 
-<!-- == db2html.admon.image -->
+<!-- == db2html.admon.image ================================================ -->
 
-<ref:refname>db2html.admon.image</ref:refname>
-<ref:refpurpose>
-  Create the <ref:xmltag>img</ref:xmltag> for an admonition graphic
-</ref:refpurpose>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.admon.image</name>
+  <description>
+    Create the <xmltag>img</xmltag> for an admonition graphic
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The element for which to render an admonition image
+    </description>
+  </parameter>
+</template>
 
 <xsl:template name="db2html.admon.image">
   <xsl:param name="node" select="."/>

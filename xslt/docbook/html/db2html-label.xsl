@@ -1,38 +1,47 @@
 <?xml version='1.0' encoding='utf-8'?>
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-		xmlns:ref="http://www.gnome.org/~shaunm/mallard/reference"
+		xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
 		exclude-result-prefixes="ref"
                 version="1.0">
 
-<ref:title>Automatic Labels</ref:title>
+<doc:title>Automatic Labels</doc:title>
 
-<!-- == db2html.label == -->
 
-<ref:refname>db2html.label</ref:refname>
-<ref:refpurpose>Generate the label for an element</ref:refpurpose>
-<ref:para>
-  This template generates the label used for some sectioning and
-  block-level elements.  For instance, this would generate strings
-  such as Section 14.3 or Table 5-2.  The template simply applies
-  the mode <ref:function>db2html.label.mode</ref:function> to the
-  element.  To change the behavior of a particular type of element,
-  you should always override the mode template for that type of
-  element.
-</ref:para>
-<ref:para>
-  Overriding the <ref:function>db2html.label</ref:function> template should
-  only be done if you wish to change the labelling mechanism completely,
-  or you wish to wrap the labelling mechanism (for instance, with a cacheing
-  extension).  Do not override this template to suppress label prefixes in
-  titles.
-</ref:para>
-<ref:para>
-  Most labels contain a name portion and a number portion.  Templates
-  should generally call <ref:function>db2html.label.name</ref:function>
-  and <ref:function>db2html.label.number</ref:function> to generate
-  these portions.
-</ref:para>
+<!-- == db2html.label ====================================================== -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.label</name>
+  <description>
+    Generate the label for an element
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The element for which to generate a label
+    </description>
+  </parameter>
+  <para>
+    This template generates the label used for some sectioning and
+    block-level elements.  For instance, this would generate strings
+    such as Section 14.3 or Table 5-2.  The template simply applies
+    the mode <mode>db2html.label.mode</mode> to the element.  To
+    change the behavior of a particular type of element, you should
+    always override the mode template for that type of element.
+  </para>
+  <para>
+    Overriding the <template>db2html.label</template> template should only
+    be done if you wish to change the labelling mechanism completely, or
+    you wish to wrap the labelling mechanism (for instance, with a caching
+    extension).  Do not override this template to suppress label prefixes
+    in titles.
+  </para>
+  <para>
+    Most labels contain a name portion and a number portion.  Templates
+    should generally call <template>db2html.label.name</template> and
+    <template>db2html.label.number</template> to generate these portions.
+  </para>
+</template>
 
 <xsl:template name="db2html.label">
   <xsl:param name="node" select="."/>
@@ -45,6 +54,14 @@
     </xsl:otherwise>
   </xsl:choose>
 </xsl:template>
+
+
+<!-- == db2html.label.mode ================================================= -->
+
+<mode xmlns="http://www.gnome.org/~shaunm/xsldoc">>
+  <name>db2html.label.mode</name>
+  <FIXME/>
+</mode>
 
 <xsl:template mode="db2html.label.mode" match="
 	      appendix  | article    | book      | bibliography | chapter    |
@@ -83,28 +100,46 @@
 <xsl:template mode="db2html.label.mode" match="*"/>
 
 
-<!-- == db2html.label.name == -->
+<!-- == db2html.label.name ================================================= -->
 
-<ref:refname>db2html.label.name</ref:refname>
-<ref:refpurpose>Generate the name portion of a label</ref:refpurpose>
-<ref:para>
-  This template generates the name portion of the label used for some
-  sectioning and block-level elements.  The template simply applies the
-  mode <ref:function>db2html.label.name.mode</ref:function> to the element.
-  To change the behavior of a particular type of element, you should always
-  override the mode template for that type of element.
-</ref:para>
-<ref:para>
-  Overriding the <ref:function>db2html.label.name</ref:function> template
-  should only be done if you wish to change the naming mechanism completely,
-  or you wish to wrap the naming mechanism (for instance, with a cacheing
-  extension).
-</ref:para>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.label.name</name>
+  <description>
+    Generate the name portion of a label
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The element for which to generate a name
+    </description>
+  </parameter>
+  <para>
+    This template generates the name portion of the label used for some
+    sectioning and block-level elements.  The template simply applies the
+    mode <mode>db2html.label.name.mode</mode> to the element.  To change
+    the behavior of a particular type of element, you should always override
+    the mode template for that type of element.
+  </para>
+  <para>
+    Overriding the <template>db2html.label.name</template> template should
+    only be done if you wish to change the naming mechanism completely, or
+    you wish to wrap the naming mechanism (for instance, with a caching
+    extension).
+  </para>
+</template>
 
 <xsl:template name="db2html.label.name">
   <xsl:param name="node" select="."/>
   <xsl:apply-templates mode="db2html.label.name.mode" select="$node"/>
 </xsl:template>
+
+
+<!-- == db2html.label.name.mode ============================================ -->
+
+<mode xmlns="http://www.gnome.org/~shaunm/xsldoc">>
+  <name>db2html.label.name.mode</name>
+  <FIXME/>
+</mode>
 
 <xsl:template mode="db2html.label.name.mode" match="appendixinfo">
   <xsl:call-template name="gettext">
@@ -364,28 +399,46 @@
 </xsl:template>
 
 
-<!-- == db2html.label.number == -->
+<!-- == db2html.label.number =============================================== -->
 
-<ref:refname>db2html.label.number</ref:refname>
-<ref:refpurpose>Generate the number portion of a label</ref:refpurpose>
-<ref:para>
-  This template generates the number portion of the label used for some
-  sectioning and block-level elements.  The template simply applies the
-  mode <ref:function>db2html.label.number.mode</ref:function> to the element.
-  To change the behavior of a particular type of element, then, you should
-  always override the mode template for that type of element.
-</ref:para>
-<ref:para>
-  Overriding the <ref:function>db2html.label.number</ref:function> template
-  should only be done if you wish to change the numbering mechanism completely,
-  or you wish to wrap the numbering mechanism (for instance, with a cacheing
-  extension).
-</ref:para>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.label.number</name>
+  <description>
+    Generate the number portion of a label
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The element for which to generate a number
+    </description>
+  </parameter>
+  <para>
+    This template generates the number portion of the label used for some
+    sectioning and block-level elements.  The template simply applies the
+    mode <mode>db2html.label.number.mode</mode> to the element.  To change
+    the behavior of a particular type of element, then, you should always
+    override the mode template for that type of element.
+  </para>
+  <para>
+    Overriding the <template>db2html.label.number</template> template should
+    only be done if you wish to change the numbering mechanism completely,
+    or you wish to wrap the numbering mechanism (for instance, with a caching
+    extension).
+  </para>
+</template>
 
 <xsl:template name="db2html.label.number">
   <xsl:param name="node" select="."/>
   <xsl:apply-templates mode="db2html.label.number.mode" select="$node"/>
 </xsl:template>
+
+
+<!-- == db2html.label.number.mode ============================================ -->
+
+<mode xmlns="http://www.gnome.org/~shaunm/xsldoc">>
+  <name>db2html.label.number.mode</name>
+  <FIXME/>
+</mode>
 
 <xsl:template mode="db2html.label.number.mode" match="appendix">
   <xsl:number format="A" value="
