@@ -6,6 +6,8 @@
 <!ENTITY l10n_xml "<filename>l10n.xml</filename>">
 <!ENTITY gettext
   "<function role='xsl-template' moreinfo='refentry'>gettext</function>">
+<!ENTITY gettext_plural_form
+  "<function role='xsl-template' moreinfo='refentry'>gettext.plural_form</function>">
 <!ENTITY format2xsl
   "<function role='xsl-template' moreinfo='refentry'>format2xsl</function>">
 ]>
@@ -43,6 +45,7 @@
     stylesheets would call &gettext; to extract the translated value of this
     string for the document's language.  The &l10n_xml; file would have an
     entry similar to this:</para>
+
     <programlisting><![CDATA[
 <msg xmlns=""http://www.gnome.org/~shaunm/gnome-doc-utils/xsl-format">
   <msgid>Caution</msgid>
@@ -61,17 +64,73 @@
   <msgstr xml:lang="sv">Varning</msgstr>
   <msgstr xml:lang="uk">Застереження</msgstr>
   <msgstr xml:lang="wa">Adviertance</msgstr>
-</msg>
-    ]]></programlisting>
+</msg>]]></programlisting>
+
     <para>A translator, however, will work only with the PO files.  Using
     PO files for these strings is no different than any other simple string
-    translation.  The PO entry in the <literal>de</literal> locale for the
+    translation.  The PO entry in the <literal>cs</literal> locale for the
     above string would look like this:</para>
-    <programlisting>
-#: xslt/gettext/l10n.xml.in.h:25
-msgid "Caution"
-msgstr "Warnung"
-    </programlisting>
+
+    <programlisting><![CDATA[
+#: xslt/gettext/l10n.xml.in.h:63
+msgid "Warning"
+msgstr "Varování"]]></programlisting>
+
+    <para>The &gettext; template also allows pluralized translations.  However,
+    the standard multiple message strings used in PO files are not used for the
+    pluralized translations, because <command>intltool</command> can't merge
+    these into an XML file.  Instead, the translated message string is an XML
+    fragment.  This is copied into the localization XML file, and &gettext;
+    extracts the value for the appropriate plural form.</para>
+    <para>After merging values from the PO files, the localization file will
+    have entries similar to this:</para>
+
+    <programlisting><![CDATA[
+<msg xmlns=""http://www.gnome.org/~shaunm/gnome-doc-utils/xsl-format">
+  <msgid>Author</msgid>
+  <msgstr>
+    <msgstr form="0">Author</msgstr>
+    <msgstr form="1">Authors</msgstr>
+  </msgstr>
+  <msgstr xml:lang="cs">
+    <msgstr form="0">Autor</msgstr>
+    <msgstr form="1">Autoři</msgstr>
+    <msgstr form="2">Autoři</msgstr>
+  </msgstr>
+</msg>]]></programlisting>
+
+    <para>As with the simple case, each locale has a <sgmltag>msgstr</sgmltag>
+    element with an <sgmltag class="attribute">xml:lang</sgmltag> attribute.
+    For pluralized translations, however, the translation is a sequence of
+    nested <sgmltag>msgstr</sgmltag> elements, each with a
+    <sgmltag class="attribute">form</sgmltag> attribute.  The &gettext; tamplate
+    extracts the correct string based on the plural form, which is computed from
+    the number of referenced objects.</para>
+    <para>Translators simply write the correct XML fragment in the translated
+    message string.  For example, here is the PO file entry in the
+    <literal>cs</literal> locale for the above:</para>
+
+    <programlisting><![CDATA[
+#. Used as a header before a list of authors.
+#: xslt/gettext/l10n.xml.in.h:2
+msgid ""
+"<msgstr form=\"0\">Author</msgstr>"
+"<msgstr form=\"1\">Authors</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Autor</msgstr>"
+"<msgstr form=\"1\">Autoři</msgstr>"
+"<msgstr form=\"2\">Autoři</msgstr>"]]></programlisting>
+
+    <para>Since that <command>intltool</command> often alters whitespace, the
+    entry in the PO file might not look as nice as this.  When creating the
+    translated message strings, translators may add or remove whitespace
+    between <sgmltag>msgstr</sgmltag> elements if they choose.  This extra
+    text content is ignored by &gettext;</para>
+    <para>The plural form is determined by calling the &gettext_plural_form;
+    template.  This template has the plural forms for locales hard-coded;
+    they are not extracted automatically from PO files.  When translators
+    begin translating the stylesheets, they should contact the maintainers
+    to have an appropriate plural form added to the stylesheets.</para>
   </section>
 
   <section id="translating-format2xsl">
