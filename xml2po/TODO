@@ -17,6 +17,11 @@ TODO:
 
  o add "#. tag: title" for <title> tags [Karl]
 
+ o allow tags in messages to be replaced with placeholders                [R1]
+   (such as <a href="...">blah</a> being replaced with 
+   <placeholder1>blah</placeholder1>)
+   [Francesco Levorato <flevour@flevour.net>]
+
  o pipe the constructed .po file thru 'msgcat'; msgcat is meant as a .po
    file normalization tool. [Karl]
 

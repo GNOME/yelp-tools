@@ -1,3 +1,7 @@
+2004-12-23  Danilo Šegan  <dsegan@gmx.net>
+
+	* TODO: Added tag-simplifying request by Francesco.
+
 2004-12-07  Danilo Šegan  <dsegan@gmx.net>
 
 	* xml2po.py: Not usable as a module (if __name__!='__main__').
