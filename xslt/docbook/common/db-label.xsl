@@ -270,7 +270,7 @@
 
 <xsl:template mode="db.label.name.mode" match="bibliography">
   <xsl:call-template name="gettext">
-    <xsl:with-param name="msgid" select="'Bigliography'"/>
+    <xsl:with-param name="msgid" select="'Bibliography'"/>
   </xsl:call-template>
 </xsl:template>
 

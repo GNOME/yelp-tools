@@ -1,3 +1,8 @@
+2004-07-09  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/common/db-label.xsl:
+	- s/Bigliography/Bibliography/
+
 2004-07-08  Shaun McCance  <shaunm@gnome.org>
 
 	* Makefile.am:
