@@ -107,6 +107,15 @@
   <xsl:apply-templates select="glossterm/node()"/>
 </xsl:template>
 
+<xsl:template mode="db.label.mode" match="part">
+  <xsl:param name="role"/>
+  <xsl:call-template name="format.part.label">
+    <xsl:with-param name="node" select="."/>
+    <xsl:with-param name="role" select="$role"/>
+    <xsl:with-param name="lang" select="ancestor-or-self::*[@lang][1]/@lang"/>
+  </xsl:call-template>
+</xsl:template>
+
 <xsl:template mode="db.label.mode" match="
               section | sect1 | sect2 | sect3 | sect4 | sect5 | simplesect">
   <xsl:param name="role"/>
@@ -131,7 +140,7 @@
 <xsl:template mode="db.label.mode" match="
               article  | book     | bibliography |
               colophon | glossary     | index     |
-              part     | qandadiv | qandaset | preface      | reference |
+              qandadiv | qandaset | preface      | reference |
               refentry | set      | setindex ">
   <xsl:param name="role"/>
 <!-- FIXME 
@@ -235,6 +244,8 @@
 <FIXME/>
 </mode>
 
+<!-- need to use formatters -->
+
 <xsl:template mode="db.label.number.mode" match="answer">
   <!-- FIXME -->
 </xsl:template>
@@ -255,10 +266,6 @@
   <xsl:number value="
               count(preceding-sibling::chapter) + 1 +
               count(parent::part/preceding-sibling::part/chapter)"/>
-</xsl:template>
-
-<xsl:template mode="db.label.number.mode" match="part">
-  <xsl:number format="I" value="count(preceding-sibling::part) + 1"/>
 </xsl:template>
 
 <xsl:template mode="db.label.number.mode" match="question">
@@ -309,6 +316,8 @@
   </xsl:call-template>
 </xsl:template>
 
+<!-- OK below -->
+
 <!-- = example = -->
 <xsl:template mode="db.label.number.mode" match="example">
   <xsl:choose>
@@ -335,6 +344,13 @@
       <xsl:call-template name="format.figure.number.flat"/>
     </xsl:otherwise>
   </xsl:choose>
+</xsl:template>
+
+<!-- = part = -->
+<xsl:template mode="db.label.number.mode" match="part">
+  <xsl:call-template name="format.part.number">
+    <xsl:with-param name="node" select="."/>
+  </xsl:call-template>
 </xsl:template>
 
 <!-- = table = -->

@@ -59,6 +59,7 @@
                   <xsl:value-of select="concat(
                                 'format2xsl: Error in template ', $template/@name,
                                 ', format string for argument ', $name,
+                                ' in locale ', $lang,
                                 ' is type ', $type,
                                 ' but template calls ', local-name($arg/*[1])
                                 )"/>

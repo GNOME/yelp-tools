@@ -371,6 +371,52 @@
 </xsl:template>
 
 
+<!-- == format.part.label ================================================== -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>format.part.label</name>
+  <purpose>
+    Format the label for a <xmltag>part</xmltag> element
+  </purpose>
+  <parameter>
+    <name>node</name>
+    <purpose>
+      The <xmltag>part</xmltag> element to format
+    </purpose>
+  </parameter>
+  <parameter>
+    <name>role</name>
+    <purpose>
+      The role of the label
+    </purpose>
+  </parameter>
+</template>
+
+<xsl:template name="format.part.label">
+  <xsl:param name="node" select="."/>
+  <xsl:param name="role"/>
+  <msg:msg id="format.chapter.label">
+    <!-- Part %t{number} -->
+    <_msg:msgstr>format.part.label</_msg:msgstr>
+    <msg:msgstr xml:lang="C">
+      <msg:msgstr role="header">%t{number}</msg:msgstr>
+      <msg:msgstr role="li">%t{number}</msg:msgstr>
+      <msg:msgstr role="title">%t{title}</msg:msgstr>
+      <msg:msgstr role="xref">Part %t{number} ― %t{title}</msg:msgstr>
+      <msg:msgstr>Part %t{number}</msg:msgstr>
+    </msg:msgstr>
+  </msg:msg>
+  <msg:arg name="number">
+    <xsl:call-template name="db.label.number">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:call-template>
+  </msg:arg>
+  <msg:arg name="title">
+    <xsl:apply-templates select="$node/title/node()"/>
+  </msg:arg>
+</xsl:template>
+
+
 <!-- == format.section.label =============================================== -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
@@ -582,6 +628,34 @@
   </msg:msg>
   <msg:arg name="number">
     <xsl:number level="any" count="figure" from="chapter | appendix"/>
+  </msg:arg>
+</xsl:template>
+
+
+<!-- == format.part.number ================================================= -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>format.part.number</name>
+  <purpose>
+    Format the number for a <xmltag>part</xmltag> element
+  </purpose>
+  <parameter>
+    <name>node</name>
+    <purpose>
+      The element for which to generate a number
+    </purpose>
+  </parameter>
+</template>
+
+<xsl:template name="format.part.number">
+  <xsl:param name="node" select="."/>
+  <msg:msg id="format.figure.number.flat">
+    <!-- %I{number} -->
+    <_msg:msgstr>format.part.number</_msg:msgstr>
+    <msg:msgstr xml:lang="C">%I{number}</msg:msgstr>
+  </msg:msg>
+  <msg:arg name="number">
+    <xsl:number value="count($node/preceding-sibling::part) + 1"/>
   </msg:arg>
 </xsl:template>
 

@@ -39,12 +39,7 @@
 
 <xsl:template name="db2html.table.css">
   <xsl:text>
-    div[class~="table"] { margin-left: 24px; }
-    div[class~="table"] &gt; div[class~="title"] { margin-bottom: 0.2em; }
-    div[class~="table"] &gt; div[class~="title"] &gt; span[class~="label"] {
-      margin-right: 0.8em;
-      font-style: italic;
-    }
+    div[class~="table"] { margin-left: 2em; }
     table {
       border-collapse: collapse;
       border: solid 1px;

@@ -21,20 +21,30 @@
   <xsl:text>
     h1 { font-size: 1.6em; margin-top: 0em; }
     h2 { font-size: 1.4em; }
-    h2[class~="title"] {
-      margin-top: 1.8em;
-      border-bottom: solid 1px;
-    }
-    h3 { font-size: 1.2em; margin-top: 1.8em; }
+    h2[class~="title"] { margin-top: 3em; border-bottom: solid 1px; }
+
+    h3                      { font-size: 1.2em; }
+    h3[class~="title"]      { margin-top: 2em; }
     h3 span[class~="title"] { border-bottom: solid 1px; }
-    h4 { font-size: 1.0em; margin-top: 1.8em; }
+
+    h4                      { font-size: 1.0em; }
+    h4[class~="title"]      { margin-top: 1.5em; }
     h4 span[class~="title"] { border-bottom: solid 1px; }
-    h5 { font-size: 1.0em; margin-top: 1.2em; }
+
+    h5 { font-size: 1em; margin-top: 1em; }
+    h6 { font-size: 1em; margin-top: 1em; }
+    h7 { font-size: 1em; margin-top: 1em; }
+
     h1 span[class~="label"] { padding-right: 0.8em; }
     h2 span[class~="label"] { padding-right: 0.8em; }
     h3 span[class~="label"] { padding-right: 0.8em; }
     h4 span[class~="label"] { padding-right: 0.8em; }
     h5 span[class~="label"] { padding-right: 0.8em; }
+    h6 span[class~="label"] { padding-right: 0.8em; }
+    h7 span[class~="label"] { padding-right: 0.8em; }
+
+    div[class~="title"] { margin-bottom: 0em; }
+    div[class~="title"] + * { margin-top: 0em; }
     div[class~="title"] &gt;span[class~="title"] &gt; span[class~="label"] {
       margin-right: 0.8em;
       font-style: italic;

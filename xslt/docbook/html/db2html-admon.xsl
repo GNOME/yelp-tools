@@ -121,8 +121,8 @@
       <xsl:value-of select="$db2html.admon.graphics_extension"/><xsl:text>");
     }
     div[class~="admonition"] {
-      margin-left: 24px;
-      margin-right: 24px;
+      margin-left: 2em;
+      margin-right: 2em;
       padding-top: 4px;
       padding-left: </xsl:text>
       <xsl:value-of select="$db2html.admon.graphics_size + 8"/><xsl:text>px;
@@ -133,10 +133,6 @@
       <xsl:value-of select="$db2html.admon.border_color"/><xsl:text> 1px;
       background-position: 4px 4px;
       background-repeat: no-repeat;
-    }
-    div[class~="admonition"] &gt; p:first-child {
-      padding-top: 0px;
-      margin-top: 0px;
     }
   </xsl:text>
 </xsl:template>

@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gnome-doc-utils-HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-12-19 19:13+0200\n"
-"PO-Revision-Date: 2004-12-19 19:13+0200\n"
+"PO-Revision-Date: 2004-12-22 16:34-0600\n"
 "Last-Translator: Alexander Shopov <ash@contact.bg>\n"
 "Language-Team: Bulgarian <dict@linux.zonebg.com>\n"
 "MIME-Version: 1.0\n"
@@ -130,7 +130,7 @@ msgstr "%1{number}"
 #. Read the definition for ‘%s{node}’.
 #: xslt/docbook/common/db-format.xml.in.h:33
 msgid "format.tooltip.glossentry"
-msgstr "Виж дефиницията на „%t{node}“"
+msgstr "Виж дефиницията на „%s{node}“"
 
 #. Used as a header before a list of authors.
 #: xslt/gettext/l10n.xml.in.h:2

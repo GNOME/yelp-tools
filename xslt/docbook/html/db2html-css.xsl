@@ -32,10 +32,19 @@
       padding-left: 8px;
       padding-right: 12px;
     }
-    div + div { margin-top: 1em; }
-    p {
-      text-align: justify;
+    div {
+      margin-top: 0em;  margin-bottom: 0em;
+      padding-top: 0em; padding-bottom: 0em;
     }
+    p {
+      margin-top: 0em;  margin-bottom: 0em;
+      padding-top: 0em; padding-bottom: 0em;
+    }
+    div + div { margin-top: 1em; }
+    div + p   { margin-top: 1em; }
+    p   + div { margin-top: 1em; }
+    p   + p    { margin-top: 1em; }
+    p { text-align: justify; }
   </style>
 </xsl:template>
 

@@ -1,3 +1,23 @@
+2004-12-22  Shaun McCance  <shaunm@gnome.org>
+
+	* po/bg.po:
+	- Fixed broken format string
+
+	* xslt/docbook/common/db-format.xml.in:
+	* xslt/docbook/common/db-label.xsl
+	- Added formatters for part labels
+
+	* xslt/docbook/html/db2html-admon.xsl:
+	* xslt/docbook/html/db2html-block.xsl:
+	* xslt/docbook/html/db2html-css.xsl:
+	* xslt/docbook/html/db2html-list.xsl:
+	* xslt/docbook/html/db2html-table.xsl:
+	* xslt/docbook/html/db2html-title.xsl:
+	- Formatting improvements, using proportional units
+
+	* xslt/gettext/format2xsl.xsl:
+	- Print the language for errors
+
 2004-12-21  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/common/db-chunk.xsl:

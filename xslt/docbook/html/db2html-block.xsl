@@ -8,6 +8,42 @@
 <doc:title>Block-Level Elements</doc:title>
 
 
+<!-- == db2html.programlisting.bgcolor ===================================== -->
+
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.programlisting.bgcolor</name>
+  <purpose>
+    The background color for <sgmltag>programlisting</sgmltag> elements
+  </purpose>
+</parameter>
+
+<xsl:param name="db2html.programlisting.bgcolor" select="'#EED680'"/>
+
+
+<!-- == db2html.screen.bgcolor ============================================= -->
+
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.screen.bgcolor</name>
+  <purpose>
+    The background color for <sgmltag>screen</sgmltag> elements
+  </purpose>
+</parameter>
+
+<xsl:param name="db2html.screen.bgcolor" select="'#EED680'"/>
+
+
+<!-- == db2html.synopsis.bgcolor =========================================== -->
+
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.synopsis.bgcolor</name>
+  <purpose>
+    The background color for <sgmltag>synopsis</sgmltag> elements
+  </purpose>
+</parameter>
+
+<xsl:param name="db2html.synopsis.bgcolor" select="'#EED680'"/>
+
+
 <!-- == db2html.block ====================================================== -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
@@ -126,40 +162,51 @@
 
 <xsl:template name="db2html.block.css">
   <xsl:text>
-    div[class~="figure"] { margin-left: 24px; margin-right: 12px; }
+    div[class~="figure"] { margin-left: 2em; margin-right: 1em; }
     pre[class~="programlisting"] {
-      margin-left: 24px;
-      margin-right: 12px;
-      overflow: auto;
+      margin-left: 2em;
+      margin-right: 1em;
+      overflow: auto;</xsl:text>
+      <xsl:if test="string($db2html.programlisting.bgcolor) != ''">
+        <xsl:text>background-color: </xsl:text>
+        <xsl:value-of select="$db2html.programlisting.bgcolor"/>
+      </xsl:if><xsl:text>
     }
     pre[class~="screen"] {
-      margin-left: 24px;
-      margin-right: 12px;
-      overflow: auto;
+      margin-left: 2em;
+      margin-right: 1em;
+      overflow: auto;</xsl:text>
+      <xsl:if test="string($db2html.screen.bgcolor) != ''">
+        <xsl:text>background-color: </xsl:text>
+        <xsl:value-of select="$db2html.screen.bgcolor"/>
+      </xsl:if><xsl:text>
     }
     pre[class~="synopsis"] {
-      margin-left: 24px;
-      margin-right: 12px;
-      overflow: auto;
+      margin-left: 2em;
+      margin-right: 1em;
+      overflow: auto;</xsl:text>
+      <xsl:if test="string($db2html.synopsis.bgcolor) != ''">
+        <xsl:text>background-color: </xsl:text>
+        <xsl:value-of select="$db2html.synopsis.bgcolor"/>
+      </xsl:if><xsl:text>
     }
     pre[class~="linenumbering"] {
       <!-- This margin is important to get the line numbering
       to line up vertically with the content. -->
       margin-top: 0px;
-      margin-left: 18px;
+      margin-left: 0.8em;
       background-color: black;
       color: white;
       -moz-opacity: .3;
       padding-right: 0.4em;
       padding-left: 0.4em;
     }
-    blockquote[class~="blockquote"] { margin-left: 24px; margin-right: 12px; }
-    dt[class~="glossterm"] { margin-left: 8px; }
-    dt[class~="glossterm"] + dd { margin-top: 0.4em; margin-bottom: 0.4em; }
-    dt[class~="glossterm"] + dd &gt; p:first-child { margin-top: 0px; }
-    dd[class~="glossdef"]     { margin-left: 24px; margin-right: 12px; }
-    dd[class~="glosssee"]     { margin-left: 24px; margin-right: 12px; }
-    dd[class~="glossseealso"] { margin-left: 24px; margin-right: 12px; }
+    blockquote[class~="blockquote"] { margin-left: 2em; margin-right: 1em; }
+    dt[class~="glossterm"] { margin-left: 0em; }
+    dd + dt[class~="glossterm"] { margin-top: 1em; }
+    dd[class~="glossdef"]     { margin-top: 0.5em; margin-left: 2em; margin-right: 1em; }
+    dd[class~="glosssee"]     { margin-top: 0.5em; margin-left: 2em; margin-right: 1em; }
+    dd[class~="glossseealso"] { margin-top: 0.5em; margin-left: 2em; margin-right: 1em; }
   </xsl:text>
 </xsl:template>
 
