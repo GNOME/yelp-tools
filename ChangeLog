@@ -1,3 +1,17 @@
+2004-05-25  Shaun McCance  <shaunm@gnome.org>
+
+	* test/testdocs/db2html.xsl:
+	- Made the source view go block-by-block
+
+	* xslt/docbook/html/db2html-classsynopsis.xsl:
+	- Fixed possible problem with trailing modifier in methodsynopsis for C++
+	- Put stubs in for Python mode
+
+	* xslt/docbook/html/db2html-classsynopsis.xsl:
+	* xslt/docbook/html/db2html-funcsynopsis.xsl
+	* xslt/docbook/html/db2html-inline.xsl:
+	- Context-sensitive parameter rendering
+
 2004-05-24  Shaun McCance  <shaunm@gnome.org>
 
 	* test/testdocs/Makefile:

@@ -3,8 +3,9 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 version="1.0">
 
-<xsl:include href="../../xslt/docbook/html/db2html.xsl"/>
+<xsl:import href="../../xslt/docbook/html/db2html.xsl"/>
 
+<!--
 <xsl:template match="/*/*[1]/title | /*/title">
   <xsl:param name="title_for" select=".."/>
   <xsl:param name="depth_in_chunk">
@@ -17,6 +18,14 @@
   <pre style="margin: 0.8em; padding: 0.8em; background-color: #9EB6D1;">
     <xsl:apply-templates mode="source.mode" select="/"/>
   </pre>
+</xsl:template>
+-->
+
+<xsl:template match="/*/*[preceding-sibling::*][name(.) != 'title']">
+  <pre style="margin: 0.8em; padding: 0.8em; background-color: #9EB6D1;">
+    <xsl:apply-templates mode="source.mode" select="."/>
+  </pre>
+  <xsl:apply-imports/>
 </xsl:template>
 
 <xsl:template mode="source.mode" match="*">

@@ -12,6 +12,7 @@
 <!-- == (possible candidates for params) == -->
 
 <xsl:variable name="cpp.tab" select="'&#160;&#160;&#160;&#160;'"/>
+<xsl:variable name="python.tab" select="'&#160;&#160;&#160;&#160;'"/>
 
 
 <!-- == db2html.classsynopsis.language ===================================== -->
@@ -58,6 +59,9 @@
     <pre class="$language">
       <xsl:choose>
         <xsl:when test="$language = 'cpp'">
+          <xsl:apply-templates mode="db2html.class.cpp.mode" select="."/>
+        </xsl:when>
+        <xsl:when test="$language = 'python'">
           <xsl:apply-templates mode="db2html.class.cpp.mode" select="."/>
         </xsl:when>
         <xsl:otherwise>
@@ -111,6 +115,14 @@
       <xsl:apply-templates select="."/>
     </xsl:for-each>
   </span>
+</xsl:template>
+
+<!-- = methodparam/parameter = -->
+<xsl:template match="methodparam/parameter">
+  <xsl:call-template name="db2html.inline">
+    <xsl:with-param name="mono" select="true()"/>
+    <xsl:with-param name="italic" select="true()"/>
+  </xsl:call-template>
 </xsl:template>
 
 
@@ -285,13 +297,14 @@
 <xsl:template mode="db2html.class.cpp.mode" match="methodsynopsis">
   <xsl:call-template name="class.cpp.modifier"/>
   <xsl:value-of select="$cpp.tab"/>
-  <xsl:for-each select="modifier[position() != 1]">
+  <!-- Parens for document order -->
+  <xsl:for-each select="(methodname/preceding-sibling::modifier)[position() != 1]">
     <xsl:if test="position() != 1">
       <xsl:text> </xsl:text>
     </xsl:if>
     <xsl:apply-templates mode="db2html.class.cpp.mode" select="."/>
   </xsl:for-each>
-  <xsl:if test="modifier[2]">
+  <xsl:if test="methodname/preceding-sibling::modifier[2]">
     <xsl:text> </xsl:text>
   </xsl:if>
   <xsl:apply-templates mode="db2html.class.cpp.mode" select="type | void"/>
@@ -306,6 +319,190 @@
   </xsl:for-each>
   <xsl:text>);&#x000A;</xsl:text>
 </xsl:template>
+
+
+<!-- == db2html.class.python.mode ========================================== -->
+
+<xsl:template mode="db2html.class.python.mode" match="*">
+  <xsl:apply-templates select="."/>
+</xsl:template>
+
+<!-- = classsynopsis = -->
+<!--
+<xsl:template mode="db2html.class.python.mode" match="classsynopsis">
+  <xsl:if test="@class = 'class' or not(@class)">
+    <span class="ooclass">
+      <xsl:for-each select="ooclass[1]/modifier">
+        <xsl:if test="position() != 1">
+          <xsl:text> </xsl:text>
+        </xsl:if>
+        <xsl:apply-templates mode="db2html.class.python.mode" select="."/>
+      </xsl:for-each>
+      <xsl:text> class </xsl:text>
+      <xsl:apply-templates mode="db2html.class.python.mode"
+                           select="ooclass[1]/classname"/>
+    </span>
+    <xsl:if test="ooclass[2]">
+      <xsl:text> : </xsl:text>
+      <xsl:for-each select="ooclass[position() != 1]">
+        <xsl:if test="position() != 1">
+          <xsl:text>, </xsl:text>
+        </xsl:if>
+        <xsl:apply-templates mode="db2html.class.python.mode" select="."/>
+      </xsl:for-each>
+    </xsl:if>
+    <xsl:text>&#x000A;{&#x000A;</xsl:text>
+    <xsl:apply-templates mode="db2html.class.python.mode"
+                         select="
+                           classsynopsisinfo   |
+                           constructorsynopsis | destructorsynopsis |
+                           fieldsynopsis       | methodsynopsis     "/>
+    <xsl:text>}&#x000A;</xsl:text>
+  </xsl:if>
+</xsl:template>
+-->
+
+<!-- = constructorsynopsis = -->
+<!--
+<xsl:template mode="db2html.class.python.mode" match="constructorsynopsis">
+  <xsl:call-template name="class.python.modifier"/>
+  <xsl:value-of select="$cpp.tab"/>
+  <xsl:for-each select="modifier[position() != 1]">
+    <xsl:if test="position() != 1">
+      <xsl:text> </xsl:text>
+    </xsl:if>
+    <xsl:apply-templates mode="db2html.class.python.mode" select="."/>
+  </xsl:for-each>
+  <xsl:if test="modifier[2]">
+    <xsl:text> </xsl:text>
+  </xsl:if>
+  <xsl:choose>
+    <xsl:when test="methodname">
+      <xsl:apply-templates mode="db2html.class.python.mode" select="methodname"/>
+    </xsl:when>
+    <xsl:when test="../self::classsynopsis[ooclass]">
+      <span class="methodname">
+        <xsl:value-of select="../ooclass/classname"/>
+      </span>
+    </xsl:when>
+  </xsl:choose>
+  <xsl:text>(</xsl:text>
+  <xsl:for-each select="methodparam">
+    <xsl:if test="position() != 1">
+      <xsl:text>, </xsl:text>
+    </xsl:if>
+    <xsl:apply-templates mode="db2html.class.python.mode" select="."/>
+  </xsl:for-each>
+  <xsl:text>);&#x000A;</xsl:text>
+</xsl:template>
+-->
+
+<!-- = destructorsynopsis = -->
+<!--
+<xsl:template mode="db2html.class.python.mode" match="destructorsynopsis">
+  <xsl:call-template name="class.python.modifier"/>
+  <xsl:value-of select="$cpp.tab"/>
+  <xsl:for-each select="modifier[position() != 1]">
+    <xsl:if test="position() != 1">
+      <xsl:text> </xsl:text>
+    </xsl:if>
+    <xsl:apply-templates mode="db2html.class.python.mode" select="."/>
+  </xsl:for-each>
+  <xsl:if test="modifier[2]">
+    <xsl:text> </xsl:text>
+  </xsl:if>
+  <xsl:choose>
+    <xsl:when test="methodname">
+      <xsl:apply-templates mode="db2html.class.python.mode" select="methodname"/>
+    </xsl:when>
+    <xsl:when test="../self::classsynopsis[ooclass]">
+      <span class="methodname">
+        <xsl:text>~</xsl:text>
+        <xsl:value-of select="../ooclass/classname"/>
+      </span>
+    </xsl:when>
+  </xsl:choose>
+  <xsl:text>(</xsl:text>
+  <xsl:for-each select="methodparam">
+    <xsl:if test="position() != 1">
+      <xsl:text>, </xsl:text>
+    </xsl:if>
+    <xsl:apply-templates mode="db2html.class.python.mode" select="."/>
+  </xsl:for-each>
+  <xsl:text>);&#x000A;</xsl:text>
+</xsl:template>
+-->
+
+<!-- = fieldsynopsis = -->
+<!--
+<xsl:template mode="db2html.class.python.mode" match="fieldsynopsis">
+  <xsl:call-template name="class.python.modifier"/>
+  <xsl:value-of select="$cpp.tab"/>
+  <xsl:for-each select="modifier[position() != 1]">
+    <xsl:if test="position() != 1">
+      <xsl:text> </xsl:text>
+    </xsl:if>
+    <xsl:apply-templates mode="db2html.class.python.mode" select="."/>
+  </xsl:for-each>
+  <xsl:if test="modifier[2]">
+    <xsl:text> </xsl:text>
+  </xsl:if>
+  <xsl:if test="type">
+    <xsl:apply-templates mode="db2html.class.python.mode" select="type"/>
+  </xsl:if>
+  <xsl:if test="modifier[2] or type">
+    <xsl:text> </xsl:text>
+  </xsl:if>
+  <xsl:apply-templates mode="db2html.class.python.mode" select="varname"/>
+  <xsl:if test="initializer">
+    <xsl:text> = </xsl:text>
+    <xsl:apply-templates mode="db2html.class.python.mode" select="initializer"/>
+  </xsl:if>
+  <xsl:text>;&#x000A;</xsl:text>
+</xsl:template>
+-->
+
+<!-- = methodparam = -->
+<!--
+<xsl:template mode="db2html.class.python.mode" match="methodparam">
+  <span class="methodparam">
+    <xsl:for-each select="*">
+      <xsl:if test="position() != 1">
+        <xsl:text> </xsl:text>
+      </xsl:if>
+      <xsl:apply-templates mode="db2html.class.python.mode" select="."/>
+    </xsl:for-each>
+  </span>
+</xsl:template>
+-->
+
+<!-- = methodsynopsis = -->
+<!--
+<xsl:template mode="db2html.class.python.mode" match="methodsynopsis">
+  <xsl:call-template name="class.python.modifier"/>
+  <xsl:value-of select="$cpp.tab"/>
+  <xsl:for-each select="modifier[position() != 1]">
+    <xsl:if test="position() != 1">
+      <xsl:text> </xsl:text>
+    </xsl:if>
+    <xsl:apply-templates mode="db2html.class.python.mode" select="."/>
+  </xsl:for-each>
+  <xsl:if test="modifier[2]">
+    <xsl:text> </xsl:text>
+  </xsl:if>
+  <xsl:apply-templates mode="db2html.class.python.mode" select="type | void"/>
+  <xsl:text> </xsl:text>
+  <xsl:apply-templates mode="db2html.class.python.mode" select="methodname"/>
+  <xsl:text>(</xsl:text>
+  <xsl:for-each select="methodparam">
+    <xsl:if test="position() != 1">
+      <xsl:text>, </xsl:text>
+    </xsl:if>
+    <xsl:apply-templates mode="db2html.class.python.mode" select="."/>
+  </xsl:for-each>
+  <xsl:text>);&#x000A;</xsl:text>
+</xsl:template>
+-->
 
 
 <!-- == classsynopsis.idl ================================================== -->
@@ -509,89 +706,6 @@
 
 <xsl:template mode="classsynopsis.java" match="void">
 	<span class="{name(.)}">void</span>
-</xsl:template>
--->
-
-<!-- == classsynopsis.python ================================================= -->
-<!--
-<xsl:template mode="classsynopsis.python" match="*">
-	<xsl:apply-templates select="."/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.python" match="classsynopsis">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.python" match="classsynopsisinfo">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.python" match="classname">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.python" match="constructorsynopsis">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.python" match="destructorsynopsis">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.python" match="exceptionname">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.python" match="fieldsynopsis">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.python" match="initializer">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.python" match="interfacename">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.python" match="methodname">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.python" match="methodparam">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.python" match="methodsynopsis">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.python" match="modifier">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.python" match="ooexception">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.python" match="oointerface">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.python" match="parameter">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.python" match="type">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.python" match="varname">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.python" match="void">
-	<xsl:call-template name="FIXME"/>
 </xsl:template>
 -->
 

@@ -134,7 +134,10 @@
 
 <!-- = paramdef/parameter = -->
 <xsl:template match="paramdef/parameter">
-  <xsl:call-template name="db2html.inline"/>
+  <xsl:call-template name="db2html.inline">
+    <xsl:with-param name="mono" select="true()"/>
+    <xsl:with-param name="italic" select="true()"/>
+  </xsl:call-template>
 </xsl:template>
 
 <!-- = varargs = -->
