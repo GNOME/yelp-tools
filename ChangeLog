@@ -1,3 +1,10 @@
+2004-03-23  Shaun McCance  <shaunm@gnome.org>
+
+	* Makefile.am:
+	* gnome-doc-utils.m4:
+	* test/testdoc1/Makefile.am:
+	- Somewhat more intelligent use of gnome-doc-utils.make
+
 2004-03-19  Shaun McCance  <shaunm@gnome.org>
 
 	* Makefile.am

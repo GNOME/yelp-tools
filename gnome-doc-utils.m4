@@ -17,10 +17,15 @@ AC_SUBST(OMF_DIR)
 GNOME_DOC_RULE=''
 AC_SUBST(GNOME_DOC_RULE)
 
-#AC_OUTPUT_COMMANDS([
-#mkdir -p gnome-doc.cache
-#if ! cmp -s gnome-doc.cache/gnome-doc-utils.make ${ac_aux_dir}/gnome-doc-utils.make; then
-#  cp ${ac_aux_dir}/gnome-doc-utils.make .
-#fi
-#])
+AC_OUTPUT_COMMANDS([
+gdumk=`pkg-config --variable prefix gnome-doc-utils`/share/gnome-doc-utils/gnome-doc-utils.make
+if ! test -f gnome-doc-utils.m4; then
+  if ! cmp -s $gdumk gnome-doc-utils.make; then
+    cp $gdumk .
+  fi
+fi
+if ! grep -q 'gnome-doc-utils\.make' Makefile.am; then
+  echo gnome-doc-utils.make should be added to EXTRA_DIST in Makefile.am
+fi
+])
 ])
