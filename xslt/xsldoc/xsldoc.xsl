@@ -248,7 +248,6 @@
 
 <doc:mode>
   <doc:name>xsldoc.refentry.mode</doc:name>
-  <FIXME/>
 </doc:mode>
 
 <!-- = doc:mode = -->
@@ -272,6 +271,14 @@
       <para>
         <xsl:apply-templates select="doc:description"/>
       </para>
+    </refsection>
+    <refsection>
+      <title>Description</title>
+      <xsl:for-each select="doc:name/following-sibling::doc:*">
+        <xsl:if test="not(self::doc:description) and not(self::doc:parameter)">
+          <xsl:apply-templates mode="xsldoc.docbook.mode" select="."/>
+        </xsl:if>
+      </xsl:for-each>
     </refsection>
   </refentry>
 </xsl:template>
@@ -298,6 +305,14 @@
         <xsl:apply-templates select="doc:description"/>
       </para>
     </refsection>
+    <refsection>
+      <title>Description</title>
+      <xsl:for-each select="doc:name/following-sibling::doc:*">
+        <xsl:if test="not(self::doc:description) and not(self::doc:parameter)">
+          <xsl:apply-templates mode="xsldoc.docbook.mode" select="."/>
+        </xsl:if>
+      </xsl:for-each>
+    </refsection>
   </refentry>
 </xsl:template>
 
@@ -323,6 +338,14 @@
         <xsl:apply-templates select="doc:description"/>
       </para>
     </refsection>
+    <refsection>
+      <title>Description</title>
+      <xsl:for-each select="doc:name/following-sibling::doc:*">
+        <xsl:if test="not(self::doc:description) and not(self::doc:parameter)">
+          <xsl:apply-templates mode="xsldoc.docbook.mode" select="."/>
+        </xsl:if>
+      </xsl:for-each>
+    </refsection>
   </refentry>
 </xsl:template>
 
@@ -331,7 +354,6 @@
 
 <doc:mode>
   <doc:name>xsldoc.summary.mode</doc:name>
-  <FIXME/>
 </doc:mode>
 
 <!-- = doc:mode = -->
@@ -386,6 +408,32 @@
       </para>
     </listitem>
   </varlistentry>
+</xsl:template>
+
+
+<!-- == xsldoc.docbook.mode ================================================ -->
+
+<doc:mode>
+  <doc:name>xsldoc.docbook.mode</doc:name>
+</doc:mode>
+
+<xsl:template mode="xsldoc.docbook.mode" match="doc:*">
+  <xsl:element name="{local-name(.)}">
+    <xsl:for-each select="attribute::*">
+      <xsl:copy/>
+    </xsl:for-each>
+    <xsl:for-each select="* | text()">
+      <xsl:apply-templates mode="xsldoc.docbook.mode" select="."/>
+    </xsl:for-each>
+  </xsl:element>
+</xsl:template>
+
+<xsl:template mode="xsldoc.docbook.mode" match="*">
+  <xsl:copy>
+    <xsl:for-each select="node()">
+      <xsl:apply-templates mode="xsldoc.docbook.mode" select="."/>
+    </xsl:for-each>
+  </xsl:copy>
 </xsl:template>
 
 

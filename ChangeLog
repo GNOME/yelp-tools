@@ -1,5 +1,13 @@
 2004-11-08  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/Makefile.am:
+	* xslt/docbook/common/db-format.xml.in:
+	* xslt/xsldoc/xsldoc.xsl:
+	- Getting some xsldoc stuff into db-format
+	- Watching intltool screw my XML
+
+2004-11-08  Shaun McCance  <shaunm@gnome.org>
+
 	* doc/xslt/C/translating.xml:
 	- Finished the documentation for translating with gettext
 
