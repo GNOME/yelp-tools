@@ -1,3 +1,17 @@
+2004-04-05  Shaun McCance  <shaunm@gnome.org>
+
+	* gnome-doc-utils.make:
+	- Fix for silly problem with rngdoc building
+
+	* xslt/docbook/html/Makefile.am:
+	* xslt/docbook/html/elements:
+	* xslt/docbook/html/report.sh:
+	* xslt/docbook/html/report.xslt:
+	- Added quick-and-dirty status reporting thing
+
+	* xslt/docbook/html/db2html-admon.xsl:
+	- Some changes to work better with xsldoc and the report
+
 2004-04-03  Shaun McCance  <shaunm@gnome.org>
 
 	* gnome-doc-utils.make:

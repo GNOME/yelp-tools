@@ -59,19 +59,6 @@
   </xsl:choose>
 </xsl:template>
 
-<xsl:template match="caution | important | note | tip | warning">
-  <xsl:call-template name="db2html.admon"/>
-</xsl:template>
-
-<xsl:template match="
-	      caution/title   |
-	      important/title |
-	      note/title      |
-	      tip/title       |
-	      warning/title   ">
-  <xsl:call-template name="db2html-title.title.simple"/>
-</xsl:template>
-
 
 <!-- == db2html.admon.boxed -->
 
@@ -142,6 +129,59 @@
       <xsl:value-of select="$db2html.admon.graphics_extension"/>
     </xsl:attribute>
   </img>
+</xsl:template>
+
+
+<!-- == Matched Templates == -->
+
+<!-- = caution = -->
+<xsl:template match="caution">
+  <xsl:call-template name="db2html.admon"/>
+</xsl:template>
+
+<!-- = caution/title = -->
+<xsl:template match="caution/title">
+  <xsl:call-template name="db2html-title.title.simple"/>
+</xsl:template>
+
+<!-- = important = -->
+<xsl:template match="important">
+  <xsl:call-template name="db2html.admon"/>
+</xsl:template>
+
+<!-- = important/title = -->
+<xsl:template match="important/title">
+  <xsl:call-template name="db2html-title.title.simple"/>
+</xsl:template>
+
+<!-- = note = -->
+<xsl:template match="note">
+  <xsl:call-template name="db2html.admon"/>
+</xsl:template>
+
+<!-- = note/title = -->
+<xsl:template match="note/title">
+  <xsl:call-template name="db2html-title.title.simple"/>
+</xsl:template>
+
+<!-- = tip = -->
+<xsl:template match="tip">
+  <xsl:call-template name="db2html.admon"/>
+</xsl:template>
+
+<!-- = tip/title = -->
+<xsl:template match="tip/title">
+  <xsl:call-template name="db2html-title.title.simple"/>
+</xsl:template>
+
+<!-- = warning = -->
+<xsl:template match="warning">
+  <xsl:call-template name="db2html.admon"/>
+</xsl:template>
+
+<!-- = warning/title = -->
+<xsl:template match="warning/title">
+  <xsl:call-template name="db2html-title.title.simple"/>
 </xsl:template>
 
 </xsl:stylesheet>

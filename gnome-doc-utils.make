@@ -140,7 +140,7 @@ $(_DOC_OMF_OUTS) : %/$(DOC_MODULE).omf : %/$(DOC_MODULE).xml
 
 # Fix the dependancies on these!
 
-xsldoc_args =									\
+rngdoc_args =									\
 	$(_RNGDOC_PARAMS) --stringparam rngdoc.id				\
 	$(shell echo $(basename $(notdir $(1))) | sed -e 's/[^A-Za-z0-9_-]/_/g')\
 	$(_rngdoc) $(filter %/$(basename $(notdir $(1))).rng,$(_RNGDOC_RNGS))
