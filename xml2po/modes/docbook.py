@@ -60,7 +60,16 @@ class docbookXmlMode:
 
     def getSpacePreserveTags(self):
         "Returns array of tags in which spaces are to be preserved."
-        return ['programlisting', 'computeroutput', 'userinput', 'screen', 'literallayout']
+        return [
+            'classsynopsisinfo',
+            'computeroutput',
+            'funcsynopsisinfo',
+            'literallayout',
+            'programlisting',
+            'screen',
+            'synopsis',
+            'userinput'
+            ]
 
     def getStringForTranslators(self):
         """Returns string which will be used to credit translators."""
