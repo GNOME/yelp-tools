@@ -38,25 +38,7 @@
     <para>Foo</para>
   </section>
 
-  <section id="db2html">
-    <title>DocBook to HTML</title>
-
-    <xi:include href="db2html-admon.xml"/>
-    <xi:include href="db2html-autotoc.xml"/>
-    <xi:include href="db2html-block.xml"/>
-    <xi:include href="db2html-cmdsynopsis.xml"/>
-    <xi:include href="db2html-division.xml"/>
-    <xi:include href="db2html-ebnf.xml"/>
-    <xi:include href="db2html-funcsynopsis.xml"/>
-    <xi:include href="db2html-info.xml"/>
-    <xi:include href="db2html-inline.xml"/>
-    <xi:include href="db2html-label.xml"/>
-    <xi:include href="db2html-list.xml"/>
-    <xi:include href="db2html-qanda.xml"/>
-    <xi:include href="db2html-title.xml"/>
-    <xi:include href="db2html-xref.xml"/>
-  </section>
-
+  <xi:include href="db2html.xml"/>
   <xi:include href="db-chunk.xml"/>
   <xi:include href="db-common.xml"/>
   <xi:include href="db2omf.xml"/>

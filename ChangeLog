@@ -1,5 +1,13 @@
 2004-05-14  Shaun McCance  <shaunm@gnome.org>
 
+	* doc/xslt/C/gnome-doc-xslt.xml:
+	* xslt/docbook/html/db2html.xsl:
+	* xslt/xsldoc/xsldoc.xsl:
+	- Implement doc:include and doc:summary
+	- Do more synopsis stuff
+
+2004-05-14  Shaun McCance  <shaunm@gnome.org>
+
 	* doc/xslt/C/gnome-doc-xslt.xml
 	* xslt/docbook/html/Makefile.am
 	* xslt/docbook/html/db2html-list.xml:

@@ -2,12 +2,16 @@
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
+                xmlns:xi="http://www.gnome.org/~shaunm/xsldoc/xinclude"
+                xmlns:xinclude="http://www.w3.org/2001/XInclude"
                 exclude-result-prefixes="doc"
                 version="1.0">
 
 <xsl:output method="xml" encoding="utf-8" indent="yes"/>
 
 <doc:title>Documenting XSLT Stylesheets</doc:title>
+
+<xsl:namespace-alias stylesheet-prefix="xi" result-prefix="xinclude"/>
 
 
 <!-- == xsldoc.id ========================================================== -->
@@ -153,22 +157,150 @@
 </xsl:template>
 
 
-<!-- == xsldoc.synopsis ==================================================== -->
+<!-- == xsldoc.summary ===================================================== -->
 
 <doc:template>
-  <doc:name>xsldoc.synopsis</doc:name>
+  <doc:name>xsldoc.summary</doc:name>
   <doc:description>
     Generate the Synopsis section
   </doc:description>
 </doc:template>
 
-<xsl:template name="xsldoc.synopsis">
-  <xsl:variable name="params" select="doc:parameter"/>
-  <xsl:variable name="templates" select="doc:template"/>
-  <xsl:variable name="modes" select="doc:mode"/>
-  <section id="{concat($xsldoc.id, '-synopsis')}">
-    <title>Synopsis</title>
-  </section>
+<xsl:template name="xsldoc.summary">
+  <xsl:variable name="parameterQ">
+    <xsl:choose>
+      <xsl:when test="doc:parameter">
+        <xsl:text>1</xsl:text>
+      </xsl:when>
+      <xsl:when test="xsl:include[@doc:summary = 'true']">
+        <xsl:for-each select="xsl:include[@doc:summary = 'true']">
+          <xsl:if test="document(@href)/xsl:stylesheet/doc:parameter">
+            <xsl:text>1</xsl:text>
+          </xsl:if>
+        </xsl:for-each>
+      </xsl:when>
+    </xsl:choose>
+  </xsl:variable>
+  <xsl:variable name="templateQ">
+    <xsl:choose>
+      <xsl:when test="doc:template">
+        <xsl:text>1</xsl:text>
+      </xsl:when>
+      <xsl:when test="xsl:include[@doc:summary = 'true']">
+        <xsl:for-each select="xsl:include[@doc:summary = 'true']">
+          <xsl:if test="document(@href)/xsl:stylesheet/doc:template">
+            <xsl:text>1</xsl:text>
+          </xsl:if>
+        </xsl:for-each>
+      </xsl:when>
+    </xsl:choose>
+  </xsl:variable>
+  <xsl:variable name="modeQ">
+    <xsl:choose>
+      <xsl:when test="doc:mode">
+        <xsl:text>1</xsl:text>
+      </xsl:when>
+      <xsl:when test="xsl:include[@doc:summary = 'true']">
+        <xsl:for-each select="xsl:include[@doc:summary = 'true']">
+          <xsl:if test="document(@href)/xsl:stylesheet/doc:mode">
+            <xsl:text>1</xsl:text>
+          </xsl:if>
+        </xsl:for-each>
+      </xsl:when>
+    </xsl:choose>
+  </xsl:variable>
+  <xsl:if test="$parameterQ != ''">
+    <variablelist>
+      <title>Parameters</title>
+      <xsl:apply-templates mode="xsldoc.summary.mode" select="doc:parameter"/>
+      <xsl:for-each select="xsl:include[@doc:summary = 'true']">
+        <xsl:apply-templates mode="xsldoc.summary.mode"
+                             select="document(@href)/xsl:stylesheet/doc:parameter"/>
+      </xsl:for-each>
+    </variablelist>
+  </xsl:if>
+  <xsl:if test="$templateQ != ''">
+    <variablelist>
+      <title>Templates</title>
+      <xsl:apply-templates mode="xsldoc.summary.mode" select="doc:template"/>
+      <xsl:for-each select="xsl:include[@doc:summary = 'true']">
+        <xsl:apply-templates mode="xsldoc.summary.mode"
+                             select="document(@href)/xsl:stylesheet/doc:template"/>
+      </xsl:for-each>
+    </variablelist>
+  </xsl:if>
+  <xsl:if test="$modeQ != ''">
+    <variablelist>
+      <title>Modes</title>
+      <xsl:apply-templates mode="xsldoc.summary.mode" select="doc:mode"/>
+      <xsl:for-each select="xsl:include[@doc:summary = 'true']">
+        <xsl:apply-templates mode="xsldoc.summary.mode"
+                             select="document(@href)/xsl:stylesheet/doc:mode"/>
+      </xsl:for-each>
+    </variablelist>
+  </xsl:if>
+</xsl:template>
+
+
+<!-- == xsldoc.summary.mode ================================================ -->
+
+<doc:mode>
+  <doc:name>xsldoc.summary.mode</doc:name>
+  <FIXME/>
+</doc:mode>
+
+<!-- = doc:mode = -->
+<xsl:template mode="xsldoc.summary.mode" match="doc:mode">
+  <varlistentry>
+    <term>
+      <link linkend="{doc:name}">
+        <function role="mode">
+          <xsl:value-of select="doc:name"/>
+        </function>
+      </link>
+    </term>
+    <listitem>
+      <para>
+        <xsl:apply-templates select="doc:description"/>
+      </para>
+    </listitem>
+  </varlistentry>
+</xsl:template>
+
+<!-- = doc:parameter = -->
+<xsl:template mode="xsldoc.summary.mode" match="doc:parameter">
+  <varlistentry>
+    <term>
+      <link linkend="{doc:name}">
+        <parameter>
+          <xsl:value-of select="doc:name"/>
+        </parameter>
+      </link>
+    </term>
+    <listitem>
+      <para>
+        <xsl:apply-templates select="doc:description"/>
+      </para>
+    </listitem>
+  </varlistentry>
+</xsl:template>
+
+<!-- = doc:template = -->
+<xsl:template mode="xsldoc.summary.mode" match="doc:template">
+  <varlistentry>
+    <term>
+      <link linkend="{doc:name}">
+        <function role="template">
+          <xsl:value-of select="doc:name"/>
+        </function>
+      </link>
+    </term>
+    <listitem>
+      <para>
+        <xsl:apply-templates select="doc:description"/>
+      </para>
+    </listitem>
+  </varlistentry>
 </xsl:template>
 
 
@@ -248,6 +380,44 @@
 </xsl:template>
 
 
+<!-- == xsldoc.includes ==================================================== -->
+
+<doc:template>
+  <doc:name>xsldoc.includes</doc:name>
+  <doc:description>
+    Include external files
+  </doc:description>
+</doc:template>
+
+<xsl:template name="xsldoc.includes">
+  <xsl:for-each select="xsl:include[@doc:include='true']">
+    <xi:include>
+      <xsl:attribute name="href">
+        <xsl:call-template name="_hrefify"/>
+      </xsl:attribute>
+    </xi:include>
+  </xsl:for-each>
+</xsl:template>
+
+<xsl:template name="_hrefify" doc:private="true">
+  <xsl:param name="href" select="@href"/>
+  <xsl:choose>
+    <xsl:when test="contains($href, '/')">
+      <xsl:call-template name="_hrefify">
+        <xsl:with-param name="href" select="substring-after($href, '/')"/>
+      </xsl:call-template>
+    </xsl:when>
+    <xsl:when test="substring($href, string-length($href) - 3, 4) = '.xsl'">
+      <xsl:value-of select="concat(substring($href, 1, string-length($href) - 3),
+                                   'xml')"/>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:value-of select="$href"/>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+
 <!-- == Matched Templates ================================================== -->
 
 <!-- = /xsl:stylesheet = -->
@@ -269,11 +439,7 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
-
-<!--
   <xsl:element name="{$toplevel_element}">
--->
-<xsl:element name="section">
     <xsl:attribute name="id">
       <xsl:value-of select="$xsldoc.id"/>
     </xsl:attribute>
@@ -281,7 +447,8 @@
       <xsl:apply-templates select="doc:title[1]/node()"/>
     </title>
     <xsl:call-template name="xsldoc.checks"/>
-    <xsl:call-template name="xsldoc.synopsis"/>
+    <xsl:call-template name="xsldoc.summary"/>
+    <xsl:call-template name="xsldoc.includes"/>
     <!--
       <xsl:call-template name="xsldoc.params"/>
       <xsl:call-template name="xsldoc.named"/>
