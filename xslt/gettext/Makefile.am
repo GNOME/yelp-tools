@@ -3,6 +3,7 @@
 xsldir=$(datadir)/sgml/gnome/gettext
 
 xsl_DATA =		\
+	format2xsl.xsl	\
 	gettext.xsl	\
 	l10n.xml
 

@@ -16,4 +16,5 @@ EXTRA_DIST = 						\
 	bootstrap.make					\
 	intltool-extract.in  				\
 	intltool-merge.in    				\
-	intltool-update.in
+	intltool-update.in				\
+	gnome-doc-utils.make

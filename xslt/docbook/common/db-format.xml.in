@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?><!-- -*- indent-tabs-mode: nil -*- -->
+
+<stylesheet>
+
+<template name="format.quote.outer">
+  <msg>
+    <_msgstr>“%t{node}”</_msgstr>
+  </msg>
+  <params>
+    <param name="node">
+      <apply-templates select="$node"/>
+    </param>
+  </params>
+</template>
+
+<template name="format.quote.outer">
+  <msg>
+    <_msgstr>‘%t{node}’</_msgstr>
+  </msg>
+  <params>
+    <param name="node">
+      <apply-templates select="$node"/>
+    </param>
+  </params>
+</template>
+
+<template name="format.section.label">
+  <msg>
+    <_msgstr>%t{name} %t{number}</_msgstr>
+  </msg>
+  <params>
+    <param name="node"/>
+    <param name="name">
+      <call-template name="db.label.name">
+        <with-param name="node" select="$node"/>
+      </call-template>
+    </param>
+    <param name="number">
+      <call-template name="db.label.number">
+        <with-param name="node" select="$node"/>
+      </call-template>
+    </param>
+  </params>
+</template>
+
+</stylesheet>

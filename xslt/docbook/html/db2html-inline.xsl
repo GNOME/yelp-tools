@@ -575,22 +575,10 @@
   <span class="quote-punc">
     <xsl:choose>
       <xsl:when test="(count(ancestor::quote) mod 2) = 0">
-        <xsl:call-template name="gettext">
-          <xsl:with-param name="msgid" select="'“'"/>
-        </xsl:call-template>
-        <xsl:call-template name="db2html.inline"/>
-        <xsl:call-template name="gettext">
-          <xsl:with-param name="msgid" select="'”'"/>
-        </xsl:call-template>
+        <xsl:call-template name="format.quote.outer"/>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:call-template name="gettext">
-          <xsl:with-param name="msgid" select="'‘'"/>
-        </xsl:call-template>
-        <xsl:call-template name="db2html.inline"/>
-        <xsl:call-template name="gettext">
-          <xsl:with-param name="msgid" select="'’'"/>
-        </xsl:call-template>
+        <xsl:call-template name="format.quote.inner"/>
       </xsl:otherwise>
     </xsl:choose>
   </span>

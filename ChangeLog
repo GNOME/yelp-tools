@@ -1,5 +1,25 @@
 2004-07-08  Shaun McCance  <shaunm@gnome.org>
 
+	* Makefile.am:
+	- Added gnome-doc-utils.make to EXTRA_DIST
+
+	* gnome-doc-utils.m4:
+	- Made ${datadir}/gnome/help the default helpdir for now
+
+	* xslt/docbook/common/Makefile.am:
+	* xslt/docbook/common/db-format.xml.in:
+	* xslt/gettext/Makefile.am:
+	* xslt/gettext/format2xsl.xsl:
+	- Added format2xsl and db-format
+
+	* xslt/docbook/html/db2html-inline.xsl:
+	- Using db-format routines for quote
+
+	* xslt/gettext/gettext.xsl:
+	- Added a big ol' FIXME comment
+
+2004-07-08  Shaun McCance  <shaunm@gnome.org>
+
 	* doc/gnome-doc-make/gnome-doc-make.omf.in:
 	- Adding to CVS
 

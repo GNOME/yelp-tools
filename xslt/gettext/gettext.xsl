@@ -24,6 +24,13 @@
 
   <xsl:for-each select="$l10n">
     <xsl:variable name="msg" select="key('msgid', $msgid)"/>
+      <!--
+        FIXME!
+        Language codes: en_US@Latn.UTF8
+        We can ignore the encoding thing, so we have language, dialect, and charset.
+        Sort by the following order, and fallback as needed:
+        en_US@Latn en@Latn en_US en
+      -->
     <xsl:choose>
       <xsl:when test="$msg/msgstr[@xml:lang = $lang]">
 	<xsl:value-of select="$msg/msgstr[@xml:lang = $lang]"/>
