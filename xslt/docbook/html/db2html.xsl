@@ -25,10 +25,23 @@
 <xsl:include href="db2html-info.xsl"/>
 <xsl:include href="db2html-inline.xsl"/>
 <xsl:include href="db2html-label.xsl"/>
+<xsl:include href="db2html-list.xsl"/>
 <xsl:include href="db2html-qanda.xsl"/>
 <xsl:include href="db2html-suppressed.xsl"/>
 <xsl:include href="db2html-title.xsl"/>
 <xsl:include href="db2html-xref.xsl"/>
+
+<!-- Just for now, to see the crap -->
+<xsl:template match="*">
+  <div>
+    <span style="color: #CC3333;">
+      <xsl:text>FIXME: </xsl:text>
+      <xsl:value-of select="local-name(.)"/>
+      <xsl:text> </xsl:text>
+    </span>
+    <xsl:apply-templates/>
+  </div>
+</xsl:template>
 
 <!-- Implement the stub templates from db-chunk -->
 <xsl:template name="info">

@@ -29,6 +29,11 @@
   </xsl:param>
   <!-- FIXME -->
   <html>
+    <head>
+      <style>
+        .odd { background-color: #F0F0F0; }
+      </style>
+    </head>
     <body>
       <xsl:apply-templates select=".">
         <xsl:with-param name="depth_in_chunk" select="0"/>

@@ -1,3 +1,16 @@
+2004-05-14  Shaun McCance  <shaunm@gnome.org>
+
+	* doc/xslt/C/gnome-doc-xslt.xml
+	* xslt/docbook/html/Makefile.am
+	* xslt/docbook/html/db2html-list.xml:
+	- Added db2html-list, only segmentedlist and itemizedlist enabled right now
+
+	* xslt/docbook/html/db2html-division.xsl:
+	- Quick CSS rule for alternating-color rules
+
+	* xslt/docbook/html/db2html.xsl:
+	- Added a FIXME template matching *
+
 2004-05-13  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/common/db-chunk.xsl:
