@@ -3,7 +3,7 @@ SUBDIRS = modes examples
 nodist_bin_SCRIPTS = xml2po
 CLEANFILES = xml2po
 
-commondir = @datadir@/xml2po
+commondir = $(datadir)/xml2po
 
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = xml2po.pc
