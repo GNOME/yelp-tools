@@ -1,3 +1,41 @@
+2004-09-17  Shaun McCance  <shaunm@gnome.org>
+
+	* Makefile.am:
+	* bootstrap.make:
+	* configure.in:
+	* gnome-doc-utils.make:
+	* xslt/docbook/Makefile.am:
+	* xslt/docbook/utils/Makefile.am:
+	* xslt/docbook/utils/credits.xsl
+	* xslt/docbook/utils/ids.xsl:
+	- Implemented the documentation header file thing
+
+	* autogen.sh:
+	- Requiring automake 1.6
+
+	* gnome-doc-utils.pc.in:
+	- Somewhat nicer variables
+
+	* doc/gnome-doc-make/Makefile.am:
+	- Added gnome-dco-make.awk to EXTRA_DIST
+
+	* doc/xslt/gnome-doc-xslt.desktop.in:
+	- Changed the ID
+
+	* test/testdoc1/Makefile.am:
+	- Newline
+
+	* xslt/docbook/common/Makefile.am:
+	* xslt/docbook/html/Makefile.am:
+	* xslt/docbook/omf/Makefile.am:
+	* xslt/gettext/Makefile.am:
+	* xslt/rngdoc/Makefile.am:
+	* xslt/xsldoc/Makefile.am:
+	- Changed the installation directory
+
+	* xslt/gettext/format2xsl.xsl:
+	- Quick fixes to how sans-@xml:lang stuff is handled
+
 2004-09-15  Jordi Mallach  <jordi@sindominio.net>
 
 	* configure.in (ALL_LINGUAS): Added "ca" (Catalan).

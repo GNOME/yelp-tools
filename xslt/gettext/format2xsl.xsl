@@ -192,7 +192,7 @@
           </xsl:variable>
           <xsl:variable name="element">
             <xsl:choose>
-              <xsl:when test="@xml:lang != '' and @xml:lang != 'C'">
+              <xsl:when test="@xml:lang and @xml:lang != 'C'">
                 <xsl:text>xslt:when</xsl:text>
               </xsl:when>
               <xsl:otherwise>
@@ -200,7 +200,7 @@
               </xsl:otherwise>
             </xsl:choose>
           </xsl:variable>
-          <xsl:if test="not(@xml:lang = '' and ../msg:msg[@xml:lang = 'C'])">
+          <xsl:if test="@xml:lang or not(../msg:msgstr[@xml:lang = 'C'])">
             <xsl:element name="{$element}">
               <xsl:if test="$element = 'xslt:when'">
                 <xsl:attribute name="test">

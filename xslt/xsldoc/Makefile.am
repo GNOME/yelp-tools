@@ -1,4 +1,4 @@
-xsldir=$(datadir)/sgml/gnome/xsldoc
+xsldir=$(datadir)/xml/gnome/xslt/xsldoc
 
 xsl_DATA = xsldoc.xsl
 

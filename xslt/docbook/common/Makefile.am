@@ -1,6 +1,6 @@
 @INTLTOOL_XML_RULE@
 
-xsldir=$(datadir)/sgml/gnome/docbook/common
+xsldir=$(datadir)/xml/gnome/xslt/docbook/common
 
 xsl_DATA =			\
 	db-chunk.xsl		\

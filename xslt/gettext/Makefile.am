@@ -1,6 +1,6 @@
 @INTLTOOL_XML_RULE@
 
-xsldir=$(datadir)/sgml/gnome/gettext
+xsldir=$(datadir)/xml/gnome/xslt/gettext
 
 xsl_DATA =		\
 	format2xsl.xsl	\

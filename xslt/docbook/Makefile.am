@@ -1,1 +1,1 @@
-SUBDIRS = common html omf
+SUBDIRS = common html omf utils

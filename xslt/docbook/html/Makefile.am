@@ -1,4 +1,4 @@
-xsldir=$(datadir)/sgml/gnome/docbook/html
+xsldir=$(datadir)/xml/gnome/xslt/docbook/html
 
 xsl_DATA =				\
 	db2html-admon.xsl		\

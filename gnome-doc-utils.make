@@ -1,3 +1,45 @@
+EXTRA_DIST =
+
+################################################################################
+## @@ Generating .h files
+
+## @ DOC_H_FILE
+## The name of the .h file to generate
+DOC_H_FILE ?=
+
+## @ GNOME_DOC_DIRECTORIES
+## The top-level documentation directories used to generate the .h file
+DOC_DIRECTORIES ?=
+
+## @ _DOC_H_DOCFILES
+## The input DocBook files
+_DOC_H_DOCFILES = $(foreach dir,$(DOC_DIRECTORIES),		\
+	$(dir)/$(shell make -s -C $(dir) echo-MODULE))
+
+$(DOC_H_FILE): $(_DOC_H_DOCFILES)
+	@rm -f $@; touch $@;
+	echo 'const gchar** documentation_credits = {' >> $@
+	for doc in $(_DOC_H_DOCFILES); do \
+	  xsltproc $(_credits) $$doc; \
+	done | sort | uniq \
+	  | sed -e 's/\\/\\\\/' -e 's/"/\\"/' -e 's/\(.*\)/\t"\1",/' >> $@
+	echo '	NULL' >> $@
+	echo '};' >> $@
+	echo >> $@
+	for doc in $(_DOC_H_DOCFILES); do \
+	  docid=`echo $$doc  | sed -e 's/.*\/\([^/]*\)\.xml/\1/' \
+	    | sed -e 's/[^a-zA-Z_]/_/g' | tr 'a-z' 'A-Z'`; \
+	  ids=`xsltproc --xinclude $(_ids) $$doc`; \
+	  for id in $$ids; do \
+	    echo '#define HELP_'`echo $$docid`'_'`echo $$id \
+	      | sed -e 's/[^a-zA-Z_]/_/g' | tr 'a-z' 'A-Z'`' "'$$id'"' >> $@; \
+	  done; \
+	  echo >> $@; \
+	done;
+
+EXTRA_DIST += $(DOC_H_FILE)
+
+
 ################################################################################
 ## @@ Public variables
 
@@ -24,7 +66,7 @@ DOC_LINGUAS ?=
 
 ## @ DOC_PODIR
 ## The directory containing the po files for translation
-DOC_PODIR ?= $(DOC_MODULE).po
+DOC_PODIR ?= $(if $(DOC_MODULE),$(DOC_MODULE).po)
 
 ## @ RNGDOC_DIRS
 ## The directories containing RNG files to be documented with rngdoc
@@ -41,6 +83,8 @@ XSLDOC_DIRS ?=
 _db2omf ?= `pkg-config --variable db2omf gnome-doc-utils`
 _rngdoc ?= `pkg-config --variable rngdoc gnome-doc-utils`
 _xsldoc ?= `pkg-config --variable xsldoc gnome-doc-utils`
+_credits ?= `pkg-congif --variable xmldir gnome-doc-utils`/xml/gnome/xslt/docbook/utils/credits.xsl
+_ids ?= `pkg-congif --variable xmldir gnome-doc-utils`/xml/gnome/xslt/docbook/utils/ids.xsl
 
 
 ################################################################################
@@ -106,12 +150,12 @@ db2omf_args =									\
 
 ## @ _DOC_OMF_IN
 ## The OMF input file
-_DOC_OMF_IN = $(DOC_MODULE).omf.in
+_DOC_OMF_IN = $(if $(DOC_MODULE),$(DOC_MODULE).omf.in)
 
 ## @ _DOC_OMF_DB
 ## The OMF files for DocBook output
-_DOC_OMF_DB =									\
-	$(foreach lc,C $(DOC_LINGUAS),$(DOC_MODULE)-$(lc).omf)
+_DOC_OMF_DB = $(if $(DOC_MODULE),						\
+	$(foreach lc,C $(DOC_LINGUAS),$(DOC_MODULE)-$(lc).omf))
 
 $(_DOC_OMF_DB) : $(_DOC_OMF_IN)
 $(_DOC_OMF_DB) : $(DOC_MODULE)-%.omf : %/$(DOC_MODULE).xml
@@ -119,8 +163,8 @@ $(_DOC_OMF_DB) : $(DOC_MODULE)-%.omf : %/$(DOC_MODULE).xml
 
 ## @ _DOC_OMF_HTML
 ## The OMF files for HTML output
-_DOC_OMF_HTML =									\
-	$(foreach lc,C $(DOC_LINGUAS),$(DOC_MODULE)-html-$(lc).omf)
+_DOC_OMF_HTML = $(if $(DOC_MODULE),						\
+	$(foreach lc,C $(DOC_LINGUAS),$(DOC_MODULE)-html-$(lc).omf))
 
 $(_DOC_OMF_HTML) : $(_DOC_OMF_IN)
 $(_DOC_OMF_HTML) : $(DOC_MODULE)-html-%.omf : %/$(DOC_MODULE).xml
@@ -142,12 +186,12 @@ omf: $(_DOC_OMF_ALL)
 
 ## @ _DOC_DSK_IN
 ## The desktop entry input file
-_DOC_DSK_IN = $(DOC_MODULE).desktop.in
+_DOC_DSK_IN = $(if $(DOC_MODULE),$(DOC_MODULE).desktop.in)
 
 ## @ _DOC_DSK_DB
 ## The desktop entry files for DocBook output
-_DOC_DSK_DB =									\
-	$(foreach lc,C $(DOC_LINGUAS),$(DOC_MODULE).db.$(lc).desktop)
+_DOC_DSK_DB = $(if $(DOC_MODULE),						\
+	$(foreach lc,C $(DOC_LINGUAS),$(DOC_MODULE).db.$(lc).desktop))
 
 # FIXME
 $(_DOC_DSK_DB) : $(_DOC_DSK_IN)
@@ -179,7 +223,11 @@ dsk: $(_DOC_DSK_ALL)
 
 ## @ _DOC_C_MODULE
 ## The top-level documentation file in the C locale
-_DOC_C_MODULE = C/$(DOC_MODULE).xml
+_DOC_C_MODULE = $(if $(DOC_MODULE),C/$(DOC_MODULE).xml)
+
+.PHONY: echo-MODULE
+echo-MODULE: $(_DOC_C_MODULE)
+	@echo $(_DOC_C_MODULE)
 
 ## @ _DOC_C_ENTITIES
 ## Files included with a SYSTEM entity in the C locale
@@ -207,13 +255,14 @@ _DOC_C_HTML = $(patsubst %.xml,%.html,$(_DOC_C_MODULE))
 
 ## @ _DOC_LC_MODULE
 ## The top-level documentation file in all other locales
-_DOC_LC_MODULE = $(foreach lc,$(DOC_LINGUAS),$(lc)/$(DOC_MODULE).xml)
+_DOC_LC_MODULE = $(if $(DOC_MODULE),					\
+	$(foreach lc,$(DOC_LINGUAS),$(lc)/$(DOC_MODULE).xml))
 
 ## @ _DOC_LC_ENTITIES
 ## Files included with a SYSTEM entity in all other locales
-_DOC_LC_ENTITIES =							\
+_DOC_LC_ENTITIES = $(if $(DOC_MODULE),					\
 	$(foreach lc,$(DOC_LINGUAS),$(foreach ent,$(_DOC_C_ENTITIES),	\
-		$(lc)/$(notdir $(ent)) ))
+		$(lc)/$(notdir $(ent)) )) )
 
 ## @ _DOC_LC_XINCLUDES
 ## Files included with XInclude entity in all other locales
@@ -276,23 +325,41 @@ _DOC_ALL =							\
 
 ################################################################################
 
-.PHONY: clean-rngdoc clean-xsldoc clean-omf clean-dsk clean-lc
+.PHONY: clean-rngdoc clean-xsldoc clean-omf clean-dsk clean-lc clean-h
 
 clean-rngdoc: ; rm -f $(_RNGDOC_C_DOCS) $(_RNGDOC_LC_DOCS)
 clean-xsldoc: ; rm -f $(_XSLDOC_C_DOCS) $(_XSLDOC_LC_DOCS)
 clean-omf: ; rm -f $(_DOC_OMF_DB) $(_DOC_OMF_HTML)
 clean-dsk: ; rm -f $(_DOC_DSK_DB) $(_DOC_DSK_HTML)
 clean-lc:  ; rm -f $(_DOC_LC_DOCS)
+clean-h: ; rm -f $(DOC_H_FILE)
 
-clean: clean-rngdoc clean-xsldoc clean-omf clean-dsk clean-lc
-distclean: clean-omf clean-dsk
-mostlyclean: clean-rngdoc clean-xsldoc clean-omf clean-dsk clean-lc
-maintainer-clean: clean-rngdoc clean-xsldoc clean-omf clean-dsk clean-lc
+_clean_rngdoc = $(if $(RNGDOC_DIRS),clean-rngdoc)
+_clean_xsldoc = $(if $(XSLDOC_DIRS),clean-xsldoc)
+_clean_omf = $(if $(DOC_MODULE),clean-omf)
+_clean_dsk = $(if $(DOC_MODULE),clean-dsk)
+_clean_lc  = $(if $(DOC_LINGUAS),clean-lc)
+_clean_h   = $(if $(DOC_H_FILE),clean-h)
+
+clean:							\
+	$(_clean_rngdoc)	$(_clean_xsldoc)	\
+	$(_clean_omf)		$(_clean_dsk)		\
+	$(_clean_lc)		$(_clean_h)
+distclean:						\
+	$(_clean_omf)		$(_clean_dsk)
+mostlyclean:						\
+	$(_clean_rngdoc)	$(_clean_xsldoc)	\
+	$(_clean_omf)		$(_clean_dsk)		\
+	$(_clean_lc)		$(_clean_h)
+maintainer-clean:					\
+	$(_clean_rngdoc)	$(_clean_xsldoc)	\
+	$(_clean_omf)		$(_clean_dsk)		\
+	$(_clean_lc)		$(_clean_h)
 
 .PHONY: gnome-doc-dist-hook
 
 # FIXME: need to handle figures, etc.
-EXTRA_DIST = $(_DOC_ALL) $(_DOC_OMF_IN) $(_DOC_DSK_IN)
+EXTRA_DIST += $(_DOC_ALL) $(_DOC_OMF_IN) $(_DOC_DSK_IN)
 
 all: $(_DOC_ALL)
 
