@@ -5,6 +5,9 @@
                 xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/xsl-format"
                 xmlns:_msg="http://www.gnome.org/~shaunm/gnome-doc-utils/xsl-format">
 
+<title xmlns="http://www.gnome.org/~shaunm/xsldoc">Format Templates</title>
+
+
 <!-- == format.citetitle =================================================== -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">

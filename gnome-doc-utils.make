@@ -194,6 +194,43 @@ omf: $(_DOC_OMF_ALL)
 
 
 ################################################################################
+## @@ Rules for Desktop Entry Files
+
+## @ _DOC_DSK_IN
+## The desktop entry input file
+_DOC_DSK_IN = $(if $(DOC_MODULE),$(wildcard $(DOC_MODULE).desktop.in))
+
+## @ _DOC_DSK_DB
+## The desktop entry files for DocBook output
+_DOC_DSK_DB = $(if $(_DOC_DSK_IN),						\
+	$(foreach lc,C $(DOC_LINGUAS),$(DOC_MODULE).db.$(lc).desktop))
+
+# FIXME
+$(_DOC_DSK_DB) : $(_DOC_DSK_IN)
+$(_DOC_DSK_DB) : $(DOC_MODULE).db.%.desktop : %/$(DOC_MODULE).xml
+	cp $(_DOC_DSK_IN) $@
+
+## @ _DOC_DSK_HTML
+## The desktop entry files for HTML output
+_DOC_DSK_HTML = $(if $(_DOC_DSK_IN),						\
+	$(foreach lc,C $(DOC_LINGUAS),$(DOC_MODULE).html.$(lc).desktop))
+
+$(_DOC_DSK_HTML) : $(_DOC_DSK_IN)
+$(_DOC_DSK_HTML) : $(DOC_MODULE).html.%.desktop : %/$(DOC_MODULE).xml
+	cp $(_DOC_DSK_IN) $@
+
+## @ _DOC_DSK_ALL
+## All desktop entry output files to be built
+# FIXME
+_DOC_DSK_ALL =									\
+	$(if $(findstring docbook,$(_DOC_REAL_FORMATS)),$(_DOC_DSK_DB))		\
+	$(if $(findstring html,$(_DOC_REAL_FORMATS)),$(_DOC_DSK_HTML))
+
+.PHONY: dsk
+dsk: $(_DOC_DSK_ALL)
+
+
+################################################################################
 ## @@ Rules for .cvsignore Files
 
 ## @ _CVSIGNORE_TOP
@@ -253,43 +290,6 @@ cvsignore: $(_CVSIGNORE_TOP) $(_CVSIGNROE_C) $(_CVSIGNORE_LC)
 
 
 ################################################################################
-## @@ Rules for Desktop Entry Files
-
-## @ _DOC_DSK_IN
-## The desktop entry input file
-_DOC_DSK_IN = $(if $(DOC_MODULE),$(wildcard $(DOC_MODULE).desktop.in))
-
-## @ _DOC_DSK_DB
-## The desktop entry files for DocBook output
-_DOC_DSK_DB = $(if $(_DOC_DSK_IN),						\
-	$(foreach lc,C $(DOC_LINGUAS),$(DOC_MODULE).db.$(lc).desktop))
-
-# FIXME
-$(_DOC_DSK_DB) : $(_DOC_DSK_IN)
-$(_DOC_DSK_DB) : $(DOC_MODULE).db.%.desktop : %/$(DOC_MODULE).xml
-	cp $(_DOC_DSK_IN) $@
-
-## @ _DOC_DSK_HTML
-## The desktop entry files for HTML output
-_DOC_DSK_HTML = $(if $(_DOC_DSK_IN),						\
-	$(foreach lc,C $(DOC_LINGUAS),$(DOC_MODULE).html.$(lc).desktop))
-
-$(_DOC_DSK_HTML) : $(_DOC_DSK_IN)
-$(_DOC_DSK_HTML) : $(DOC_MODULE).html.%.desktop : %/$(DOC_MODULE).xml
-	cp $(_DOC_DSK_IN) $@
-
-## @ _DOC_DSK_ALL
-## All desktop entry output files to be built
-# FIXME
-_DOC_DSK_ALL =									\
-	$(if $(findstring docbook,$(_DOC_REAL_FORMATS)),$(_DOC_DSK_DB))		\
-	$(if $(findstring html,$(_DOC_REAL_FORMATS)),$(_DOC_DSK_HTML))
-
-.PHONY: dsk
-dsk: $(_DOC_DSK_ALL)
-
-
-################################################################################
 ## @@ C Locale Documents
 
 ## @ _DOC_C_MODULE
@@ -301,7 +301,7 @@ _DOC_C_MODULE = $(if $(DOC_MODULE),C/$(DOC_MODULE).xml)
 _DOC_C_ENTITIES = $(foreach ent,$(DOC_ENTITIES),C/$(ent))
 
 ## @ _DOC_C_XINCLUDES
-## Files included with XInclude entity in the C locale
+## Files included with XInclude in the C locale
 _DOC_C_INCLUDES = $(foreach inc,$(DOC_INCLUDES),C/$(inc))
 
 ## @ _DOC_C_DOCS
@@ -335,12 +335,12 @@ _DOC_POFILES = $(if $(DOC_MODULE),					\
 po: $(_DOC_POFILES)
 
 ## @ _DOC_LC_MODULES
-## The top-level documentation file in all other locales
+## The top-level documentation files in all other locales
 _DOC_LC_MODULES = $(if $(DOC_MODULE),					\
 	$(foreach lc,$(DOC_LINGUAS),$(lc)/$(DOC_MODULE).xml))
 
 ## @ _DOC_LC_XINCLUDES
-## Files included with XInclude entity in all other locales
+## Files included with XInclude in all other locales
 _DOC_LC_INCLUDES =							\
 	$(foreach lc,$(DOC_LINGUAS),$(foreach inc,$(_DOC_C_INCLUDES),	\
 		$(lc)/$(notdir $(inc)) ))
@@ -359,7 +359,7 @@ _XSLDOC_LC_DOCS =							\
 
 ## @ _DOC_LC_HTML
 ## All HTML documentation in all other locales
-# FIXME: same as above
+# FIXME: probably have to shell escape to determine the file names
 _DOC_LC_HTML =								\
 	$(foreach lc,$(DOC_LINGUAS),$(foreach doc,$(_DOC_C_HTML),	\
 		$(lc)/$(notdir $(doc)) ))
@@ -374,16 +374,19 @@ _DOC_LC_DOCS =								\
 $(_DOC_POFILES): $(_DOC_C_DOCS)
 	if ! test -d $(dir $@); then mkdir $(dir $@); fi
 	if ! test -f $@; then \
-	  (cd $(dir $@) && $(_xml2po) -e $(_DOC_C_DOCS_NOENT:%=../%) > $(notdir $@)); \
+	  (cd $(dir $@) && \
+	    $(_xml2po) -e $(_DOC_C_DOCS_NOENT:%=../%) > $(notdir $@)); \
 	else \
-	  (cd $(dir $@) && $(_xml2po) -e -u $(basename $(notdir $@)) $(_DOC_C_DOCS_NOENT:%=../%)); \
+	  (cd $(dir $@) && \
+	    $(_xml2po) -e -u $(basename $(notdir $@)) $(_DOC_C_DOCS_NOENT:%=../%)); \
 	fi
 
 # FIXME: fix the dependancy
 # FIXME: hook xml2po up
 $(_DOC_LC_DOCS) : $(_DOC_POFILES)
 $(_DOC_LC_DOCS) : $(_DOC_C_DOCS)
-	cp C/$(notdir $@) $@
+	(cd $(dir $@) && \
+	  $(_xml2po) -p $(patsubst %/$(notdir $@),%,$@).po ../C/$(notdir $@) > $(notdir $@))
 
 
 ################################################################################
@@ -467,10 +470,15 @@ check-omf: $(_DOC_OMF_ALL)
 install-data-local:					\
 	$(if $(DOC_MODULE),install-doc)			\
 	$(if $(_DOC_HTML_ALL),install-html)		\
-	$(if $(_DOC_OMF_IN),install-omf)		\
-	$(if $(_DOC_DSK_IN),install-dsk)
+	$(if $(_DOC_OMF_IN),install-omf)
+#	$(if $(_DOC_DSK_IN),install-dsk)
 install-doc:
-	echo install-doc
+	for lc in C $(DOC_LINGUAS); do \
+	  $(mkinstalldirs) $(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$lc; \
+	done
+	for doc in $(_DOC_C_DOCS) $(_DOC_LC_DOCS); do \
+	  $(INSTALL_DATA) $$doc $(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$doc; \
+	done
 install-html:
 	echo install-html
 install-omf:
@@ -478,7 +486,7 @@ install-omf:
 	for omf in $(_DOC_OMF_ALL); do \
 	  $(INSTALL_DATA) $$omf $(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf; \
 	done
-	-scrollkeeper-update -p $(localstate_dir)/scrollkeeper -o $(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)
+	-scrollkeeper-update -p $(localstatedir)/scrollkeeper -o $(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)
 install-dsk:
 	echo install-dsk
 

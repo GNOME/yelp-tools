@@ -157,7 +157,7 @@
 
 <xsl:template name="db2html.admon.image">
   <xsl:param name="node" select="."/>
-  <img style="float: left;">
+  <img class="admonition">
     <xsl:attribute name="src">
       <xsl:value-of select="$db2html.admon.graphics_path"/>
       <xsl:value-of select="name($node)"/>
@@ -181,7 +181,9 @@
     div[class~="admonition"] {
       margin-left: 24px;
       margin-right: 24px;
+      clear: left;
     }
+    img[class~="admonition"] { float: left; }
   </xsl:text>
 </xsl:template>
 

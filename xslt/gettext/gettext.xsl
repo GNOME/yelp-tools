@@ -358,7 +358,7 @@
 <!-- == gettext.plural_form ================================================ -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>gettext</name>
+  <name>gettext.plural_form</name>
   <description>
     Extract the plural form string for a cardinality
   </description>

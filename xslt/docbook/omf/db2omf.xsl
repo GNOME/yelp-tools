@@ -600,6 +600,8 @@
                                   string-length($db2omf.help_dir)) = '/')">
         <xsl:text>/</xsl:text>
       </xsl:if>
+      <xsl:value-of select="$db2omf.basename"/>
+      <xsl:text>/</xsl:text>
       <xsl:value-of select="$db2omf.lang"/>
       <xsl:if test="not(substring($db2omf.lang,
                                   string-length($db2omf.lang)) = '/')">

@@ -1,4 +1,4 @@
-BEGIN { print "<section>" }
+BEGIN { print "<section id='reference'>" }
 BEGIN { print "<title>Variable Reference</title>" }
 
 /^[^\#]/ {

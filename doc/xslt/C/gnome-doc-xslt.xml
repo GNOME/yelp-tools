@@ -47,6 +47,7 @@
   <include href="rngdoc.xml" xmlns="http://www.w3.org/2001/XInclude"/>
   <include href="xsldoc.xml" xmlns="http://www.w3.org/2001/XInclude"/>
   <include href="gettext.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+  <include href="db-format.xml" xmlns="http://www.w3.org/2001/XInclude"/>
   <include href="translating.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 
 </article>

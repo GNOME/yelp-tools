@@ -1,3 +1,32 @@
+2004-10-30  Shaun McCance  <shaunm@gnome.org>
+
+	* gnome-doc-utils.make:
+	* doc/xslt/Makefile.am:
+	- Hooked more xml2po up, though it doesn't work
+	- Rearranged some stuff for nicer documentation
+
+	* doc/gnome-doc-make/Makefile.am:
+	* xml2po/Makefile.am:
+	- Build root fixes
+
+	* doc/gnome-doc-make/gnome-doc-make.awk:
+	- Put an id on the section
+
+	* doc/xslt/C/gnome-doc-xslt.xml:
+	- Include db-format.xml
+
+	* xslt/docbook/common/db-format.xml.in:
+	- Put a title in the section
+
+	* xslt/docbook/html/db2html-admon.xsl:
+	- Float fixes on admonition graphics
+
+	* xslt/docbook/omf/db2omf.xsl:
+	- Get the identifier right
+
+	* xslt/gettext/gettext.xsl:
+	- Documentation fix
+
 2004-10-28  Shaun McCance  <shaunm@gnome.org>
 
 	* test/testdocs/db2html.xsl:
