@@ -1,5 +1,11 @@
 2005-01-13  Shaun McCance  <shaunm@gnome.org>
 
+	* NEWS:
+	* configure.in:
+	- Version 1.1.2
+
+2005-01-13  Shaun McCance  <shaunm@gnome.org>
+
 	* configure.in:
 	- Require libxml2 2.6.12, because we do
 

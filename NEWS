@@ -1,3 +1,16 @@
+Changes in 0.1.2:
+-----------------
+* Robustified gdu.make, distcheck passes with flying colors
+* Allow publishers to be maintainers for OMF files
+* Output from xsldoc is better, and nicely valid
+* Formatting improvements for DocBook->HTML conversions
+* Updated translations:
+  da     (Martin Willemoes Hansen)
+  en_CA  (Adam Weinberger)
+  fi     (Tommi Vainikainen)
+  sv     (Christian Rose)
+  uk     (Maxim Dziumanenko)
+
 Changes in 0.1.1:
 -----------------
 * Added gnome-doc-prepare, renamed from danilo's shaunize
