@@ -1,5 +1,17 @@
 2004-03-30  Shaun McCance  <shaunm@gnome.org>
 
+	* gnome-doc-utils.pc.in:
+	- Added db2omf and gettext variables.
+	- Changes docbook2html to db2html.
+
+	* doc/xslt/gnome-doc-xslt.omf.in:
+	- Added .omf.in file for gnome-doc-xslt.
+
+	* xslt/docbook/omf/db2omf.xsl:
+	- Partial implementation.
+
+2004-03-30  Shaun McCance  <shaunm@gnome.org>
+
 	* configure.in:
 	* gnome-doc-utils.make:
 	* xslt/docbook/Makefile.am:

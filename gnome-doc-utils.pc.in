@@ -1,6 +1,8 @@
 prefix=@prefix@
 sgmldir=@prefix@/share/sgml
-docbook2html=@prefix@/share/sgml/gnome/docbook/html/db2html.xsl
+gettext=@prefix@/share/sgml/gnome/common/gettext.xsl
+db2html=@prefix@/share/sgml/gnome/docbook/html/db2html.xsl
+db2omf=@prefix@/share/sgml/gnome/docbook/omf/db2omf.xsl
 rngdoc=@prefix@/share/sgml/gnome/rngdoc/rngdoc.xsl
 xsldoc=@prefix@/share/sgml/gnome/xsldoc/xsldoc.xsl
 
