@@ -1,6 +1,6 @@
 @INTLTOOL_XML_RULE@
 
-xsldir=$(datadir)/sgml/gnome/docbook/gettext
+xsldir=$(datadir)/sgml/gnome/gettext
 
 xsl_DATA =		\
 	gettext.xsl	\

@@ -1,3 +1,21 @@
+2004-03-14  Shaun McCance  <shaunm@gnome.org>
+
+	* gnome-doc-utils.m4:
+	* test/testdoc1/Makefile.am:
+	* test/testdoc1/autogen.sh:
+	* test/testdoc1/help/testdoc1/Makefile.am:
+	- Trying stuff out, rather unsuccessfully.
+
+	* xslt/docbook/html/Makefile.am:
+	* xslt/docbook/html/db2html-label.xsl:
+	- Added db2html-label.xsl, equivalent to Yelp's db2html-header.xsl.
+
+	* xslt/gettext/Makefile.am:
+	- Change the install directory.
+
+	* xslt/gettext/gettext.xsl:
+	- Removed stuff, getting ready to annotate.
+
 2004-03-09  Shaun McCance  <shaunm@gnome.org>
 
 	* gnome-doc-utils.m4:

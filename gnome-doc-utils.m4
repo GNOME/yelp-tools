@@ -13,7 +13,4 @@ AC_ARG_WITH(omfdir,
   [with_omfdir='${datadir}/omf'])
 OMF_DIR="$with_omfdir"
 AC_SUBST(OMF_DIR)
-
-GNOME_DOC_RULE=''
-AC_SUBST(GNOME_DOC_RULE)
 ])

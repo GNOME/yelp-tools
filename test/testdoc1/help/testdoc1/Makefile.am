@@ -1,5 +1,3 @@
-SUBDIRS = C
+docbook_DOCS = testdoc1
 
-@GNOME_DOC_RULE@
-
-GNOME_DOC_MODULE = testdoc1
+include $(top_srcdir)/gnome-doc-docbook-rule.make

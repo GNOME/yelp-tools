@@ -19,4 +19,9 @@ which gnome-autogen.sh || {
     exit 1
 }
 
+# Don't do this in an actual package.  This is just so I can test changes
+# to gnome-doc-utils.m4 without doing a make install.
+ACLOCAL_FLAGS="-I . $ACLOCAL_FLAGS"
+export ACLOCAL_FLAGS
+
 USE_GNOME2_MACROS=1 . gnome-autogen.sh
