@@ -1,0 +1,314 @@
+# Ukrainian translation of gnome-doc-utils.
+# Copyright (C) Free Software Foundation Inc., 2004
+# This file is distributed under the same license as the gnome-doc-utils package.
+# Maxim Dziumanenko <mvd@mylinux.com.ua>, 2004.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-doc-utils\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-09-10 17:13+0300\n"
+"PO-Revision-Date: 2004-09-10 17:23+0300\n"
+"Last-Translator: Maxim Dziumanenko <mvd@mylinux.com.ua>\n"
+"Language-Team: Ukrainian <uk@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: xslt/docbook/common/db-format.xml.in.h:1
+msgid "format.section.label,header"
+msgstr "format.section.label,header"
+
+#: xslt/docbook/common/db-format.xml.in.h:2
+msgid "format.section.label,subject"
+msgstr "format.section.label,subject"
+
+#: xslt/docbook/common/db-format.xml.in.h:4
+#, no-c-format
+msgid "‘%t{node}’"
+msgstr "‘%t{node}’"
+
+#: xslt/docbook/common/db-format.xml.in.h:6
+#, no-c-format
+msgid "“%t{node}”"
+msgstr "“%t{node}”"
+
+#: xslt/gettext/l10n.xml.in.h:1
+msgid "&#8216;"
+msgstr "&#8216;"
+
+#: xslt/gettext/l10n.xml.in.h:2
+msgid "&#8217;"
+msgstr "&#8217;"
+
+#: xslt/gettext/l10n.xml.in.h:3
+msgid "&#8220;"
+msgstr "&#8220;"
+
+#: xslt/gettext/l10n.xml.in.h:4
+msgid "&#8221;"
+msgstr "&#8221;"
+
+#: xslt/gettext/l10n.xml.in.h:5
+msgid "About This Article"
+msgstr "Про цю статтю"
+
+#: xslt/gettext/l10n.xml.in.h:6
+msgid "About This Bibliography"
+msgstr "Про цю бібліографію"
+
+#: xslt/gettext/l10n.xml.in.h:7
+msgid "About This Book"
+msgstr "Про цю книгу"
+
+#: xslt/gettext/l10n.xml.in.h:8
+msgid "About This Chapter"
+msgstr "Про цю главу"
+
+#: xslt/gettext/l10n.xml.in.h:9
+msgid "About This Entry"
+msgstr "Про цей запис"
+
+#: xslt/gettext/l10n.xml.in.h:10
+msgid "About This Glossary"
+msgstr "Про цей глосарій"
+
+#: xslt/gettext/l10n.xml.in.h:11
+msgid "About This Index"
+msgstr "Про цей індекс"
+
+#: xslt/gettext/l10n.xml.in.h:12
+msgid "About This Part"
+msgstr "Про цю частину"
+
+#: xslt/gettext/l10n.xml.in.h:13
+msgid "About This Preface"
+msgstr "Про цю передмову"
+
+#: xslt/gettext/l10n.xml.in.h:14
+msgid "About This Reference"
+msgstr "Про цю виноску"
+
+#: xslt/gettext/l10n.xml.in.h:15
+msgid "About This Section"
+msgstr "Про цей параграф"
+
+#: xslt/gettext/l10n.xml.in.h:16
+msgid "About This Set"
+msgstr "Про цей набір"
+
+#: xslt/gettext/l10n.xml.in.h:17
+msgid "Affiliation"
+msgstr "Приналежність"
+
+#: xslt/gettext/l10n.xml.in.h:18
+msgid "Appendix"
+msgstr "Додаток"
+
+#: xslt/gettext/l10n.xml.in.h:19
+msgid "Article"
+msgstr "Стаття"
+
+#: xslt/gettext/l10n.xml.in.h:20
+msgid "Audience"
+msgstr "Читачі"
+
+#: xslt/gettext/l10n.xml.in.h:21
+msgid "Author"
+msgstr "Автор"
+
+#: xslt/gettext/l10n.xml.in.h:22
+msgid "Authors"
+msgstr "Автори"
+
+#: xslt/gettext/l10n.xml.in.h:23
+msgid "Bibliography"
+msgstr "Бібліографія"
+
+#: xslt/gettext/l10n.xml.in.h:24
+msgid "Book"
+msgstr "Книга"
+
+#: xslt/gettext/l10n.xml.in.h:25
+msgid "Caution"
+msgstr "Застереження"
+
+#: xslt/gettext/l10n.xml.in.h:26
+msgid "Chapter"
+msgstr "Глава"
+
+#: xslt/gettext/l10n.xml.in.h:27
+msgid "Collaborator"
+msgstr "Співпрацівник"
+
+#: xslt/gettext/l10n.xml.in.h:28
+msgid "Collaborators"
+msgstr "Співпрацівники"
+
+#: xslt/gettext/l10n.xml.in.h:29
+msgid "Colophon"
+msgstr "Кінцівка"
+
+#: xslt/gettext/l10n.xml.in.h:30
+msgid "Contents"
+msgstr "Вміст"
+
+#: xslt/gettext/l10n.xml.in.h:31
+msgid "Copyright"
+msgstr "Авторське право"
+
+#: xslt/gettext/l10n.xml.in.h:32
+msgid "Copyrights"
+msgstr "Авторські права"
+
+#: xslt/gettext/l10n.xml.in.h:33
+msgid "Date"
+msgstr "Дата"
+
+#: xslt/gettext/l10n.xml.in.h:34
+msgid "Dedication"
+msgstr "Присвячення"
+
+#: xslt/gettext/l10n.xml.in.h:35
+msgid "Editor"
+msgstr "Редактор"
+
+#: xslt/gettext/l10n.xml.in.h:36
+msgid "Editors"
+msgstr "Редактори"
+
+#: xslt/gettext/l10n.xml.in.h:37
+msgid "Email"
+msgstr "Ел.пошта"
+
+#: xslt/gettext/l10n.xml.in.h:38
+msgid "Example"
+msgstr "Приклад"
+
+#: xslt/gettext/l10n.xml.in.h:39
+msgid "Figure"
+msgstr "Малюнок"
+
+#: xslt/gettext/l10n.xml.in.h:40
+msgid "Glossary"
+msgstr "Глосарій"
+
+#: xslt/gettext/l10n.xml.in.h:41
+msgid "Important"
+msgstr "Важливе"
+
+#: xslt/gettext/l10n.xml.in.h:42
+msgid "Index"
+msgstr "Покажчик"
+
+#: xslt/gettext/l10n.xml.in.h:43
+msgid "Legal Notice"
+msgstr "Юридична примітка "
+
+#: xslt/gettext/l10n.xml.in.h:44
+msgid "Level"
+msgstr "Рівень"
+
+#: xslt/gettext/l10n.xml.in.h:45
+msgid "Message Audience"
+msgstr "Читачі повідомленні"
+
+#: xslt/gettext/l10n.xml.in.h:46
+msgid "Message Level"
+msgstr "Рівень повідомлення"
+
+#: xslt/gettext/l10n.xml.in.h:47
+msgid "Message Origin"
+msgstr "Джерело повідомлення"
+
+#: xslt/gettext/l10n.xml.in.h:48
+msgid "Note"
+msgstr "Примітка"
+
+#: xslt/gettext/l10n.xml.in.h:49
+msgid "Origin"
+msgstr "Джерело"
+
+#: xslt/gettext/l10n.xml.in.h:50
+msgid "Other Contributor"
+msgstr "Інший помічник"
+
+#: xslt/gettext/l10n.xml.in.h:51
+msgid "Other Contributors"
+msgstr "Інші помічники"
+
+#: xslt/gettext/l10n.xml.in.h:52
+msgid "Part"
+msgstr "Частина"
+
+#: xslt/gettext/l10n.xml.in.h:53
+msgid "Preface"
+msgstr "Передмова"
+
+#: xslt/gettext/l10n.xml.in.h:54
+msgid "Publisher"
+msgstr "Видавець"
+
+#: xslt/gettext/l10n.xml.in.h:55
+msgid "Publishers"
+msgstr "Видавці"
+
+#: xslt/gettext/l10n.xml.in.h:56
+msgid "Reference"
+msgstr "Виноска"
+
+#: xslt/gettext/l10n.xml.in.h:57
+msgid "Reference Entry"
+msgstr "Елемент виноски"
+
+#: xslt/gettext/l10n.xml.in.h:58
+msgid "Reference Section"
+msgstr "Параграф виноски"
+
+#: xslt/gettext/l10n.xml.in.h:59
+msgid "Release Information"
+msgstr "Інформація про випуск"
+
+#: xslt/gettext/l10n.xml.in.h:60
+msgid "Revision History"
+msgstr "Історія переробок"
+
+#: xslt/gettext/l10n.xml.in.h:61
+msgid "Section"
+msgstr "Параграф"
+
+#: xslt/gettext/l10n.xml.in.h:62
+msgid "See"
+msgstr "Дивіться"
+
+#: xslt/gettext/l10n.xml.in.h:63
+msgid "See Also"
+msgstr "Дивіться також"
+
+#: xslt/gettext/l10n.xml.in.h:64
+msgid "Set Index"
+msgstr "Встановити індекс"
+
+#: xslt/gettext/l10n.xml.in.h:65
+msgid "Table"
+msgstr "Таблиця"
+
+#: xslt/gettext/l10n.xml.in.h:66
+msgid "Table of Contents"
+msgstr "Зміст"
+
+#: xslt/gettext/l10n.xml.in.h:67
+msgid "Tip"
+msgstr "Підказка"
+
+#: xslt/gettext/l10n.xml.in.h:68
+msgid "Title"
+msgstr "Заголовок"
+
+#: xslt/gettext/l10n.xml.in.h:69
+msgid "Unknown"
+msgstr "Невідомо"
+
+#: xslt/gettext/l10n.xml.in.h:70
+msgid "Warning"
+msgstr "Попередження"
