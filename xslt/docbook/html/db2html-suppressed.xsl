@@ -12,6 +12,7 @@ modes because of the DocBook content model.
 
 <!-- Not supported -->
 <xsl:template match="beginpage"/>
+<xsl:template match="bibliocoverage"/>
 <xsl:template match="bridgehead"/>
 
 <!-- Unmatched info elements, supported indirectly -->

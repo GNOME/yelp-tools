@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+                  "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
+<article>
+<articleinfo>
+<title>Unit Test: simplelist.x001.xml</title>
+<releaseinfo role="CVS">$Id$</releaseinfo>
+<!-- Change this: -->
+<author><firstname>Shaun</firstname><surname>McCance</surname>
+        <affiliation><address><email>shaunm@gnome.org</email></address></affiliation>
+</author>
+</articleinfo>
+
+<para>
+  Rendered inline:
+
+  <simplelist type="inline">
+    <member>A</member>
+    <member>B</member>
+    <member>C</member>
+    <member>D</member>
+    <member>E</member>
+    <member>F</member>
+    <member>G</member>
+    <member>H</member>
+  </simplelist>
+</para>
+
+<para>
+  Rendered horizontally:
+</para>
+
+<simplelist type="horiz" columns="3">
+  <member>A</member>
+  <member>B</member>
+  <member>C</member>
+  <member>D</member>
+  <member>E</member>
+  <member>F</member>
+  <member>G</member>
+  <member>H</member>
+</simplelist>
+
+<para>
+  Rendered vertically:
+</para>
+
+<simplelist type="vert" columns="3">
+  <member>A</member>
+  <member>B</member>
+  <member>C</member>
+  <member>D</member>
+  <member>E</member>
+  <member>F</member>
+  <member>G</member>
+  <member>H</member>
+</simplelist>
+
+</article>

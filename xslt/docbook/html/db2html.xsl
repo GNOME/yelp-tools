@@ -15,22 +15,57 @@
 <xsl:include href="../common/db-chunk.xsl"   doc:summary="true"/>
 <xsl:include href="../common/db-common.xsl"  doc:summary="true"/>
 
-<xsl:include href="db2html-admon.xsl"        doc:summary="true" doc:include="true"/>
-<xsl:include href="db2html-autotoc.xsl"      doc:summary="true" doc:include="true"/>
-<xsl:include href="db2html-block.xsl"        doc:summary="true" doc:include="true"/>
-<xsl:include href="db2html-cmdsynopsis.xsl"  doc:summary="true" doc:include="true"/>
-<xsl:include href="db2html-division.xsl"     doc:summary="true" doc:include="true"/>
-<xsl:include href="db2html-ebnf.xsl"         doc:summary="true" doc:include="true"/>
-<xsl:include href="db2html-funcsynopsis.xsl" doc:summary="true" doc:include="true"/>
-<xsl:include href="db2html-info.xsl"         doc:summary="true" doc:include="true"/>
-<xsl:include href="db2html-inline.xsl"       doc:summary="true" doc:include="true"/>
-<xsl:include href="db2html-label.xsl"        doc:summary="true" doc:include="true"/>
-<xsl:include href="db2html-media.xsl"        doc:summary="true" doc:include="true"/>
-<xsl:include href="db2html-list.xsl"         doc:summary="true" doc:include="true"/>
-<xsl:include href="db2html-qanda.xsl"        doc:summary="true" doc:include="true"/>
-<xsl:include href="db2html-suppressed.xsl"   doc:summary="true" doc:include="true"/>
-<xsl:include href="db2html-title.xsl"        doc:summary="true" doc:include="true"/>
-<xsl:include href="db2html-xref.xsl"         doc:summary="true" doc:include="true"/>
+<xsl:include href="db2html-admon.xsl"
+             doc:summary="true"
+             doc:include="true"/>
+<xsl:include href="db2html-autotoc.xsl"
+             doc:summary="true"
+             doc:include="true"/>
+<xsl:include href="db2html-block.xsl"
+             doc:summary="true"
+             doc:include="true"/>
+<xsl:include href="db2html-classsynopsis.xsl"
+             doc:summary="true"
+             doc:include="true"/>
+<xsl:include href="db2html-cmdsynopsis.xsl"
+             doc:summary="true"
+             doc:include="true"/>
+<xsl:include href="db2html-division.xsl"
+             doc:summary="true"
+             doc:include="true"/>
+<xsl:include href="db2html-ebnf.xsl"
+             doc:summary="true"
+             doc:include="true"/>
+<xsl:include href="db2html-funcsynopsis.xsl"
+             doc:summary="true"
+             doc:include="true"/>
+<xsl:include href="db2html-info.xsl"
+             doc:summary="true"
+             doc:include="true"/>
+<xsl:include href="db2html-inline.xsl"
+             doc:summary="true"
+             doc:include="true"/>
+<xsl:include href="db2html-label.xsl"
+             doc:summary="true"
+             doc:include="true"/>
+<xsl:include href="db2html-media.xsl"
+             doc:summary="true"
+             doc:include="true"/>
+<xsl:include href="db2html-list.xsl"
+             doc:summary="true"
+             doc:include="true"/>
+<xsl:include href="db2html-qanda.xsl"
+             doc:summary="true"
+             doc:include="true"/>
+<xsl:include href="db2html-suppressed.xsl"
+             doc:summary="true"
+             doc:include="true"/>
+<xsl:include href="db2html-title.xsl"
+             doc:summary="true"
+             doc:include="true"/>
+<xsl:include href="db2html-xref.xsl"
+             doc:summary="true"
+             doc:include="true"/>
 
 <!-- Just for now, to see the crap -->
 <xsl:template match="*">

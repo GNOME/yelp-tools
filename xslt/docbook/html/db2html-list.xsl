@@ -265,15 +265,68 @@
 <!-- ======================================================================= -->
 <!-- == simplelist ========================================================= -->
 
-<!--
 <xsl:template match="simplelist">
-	<xsl:call-template name="FIXME"/>
+  <xsl:choose>
+    <xsl:when test="@type = 'inline'">
+      <span class="simplelist">
+        <xsl:call-template name="db2html.anchor"/>
+        <xsl:for-each select="member">
+          <xsl:if test="position() != 1">
+            <xsl:text>, </xsl:text>
+          </xsl:if>
+          <xsl:apply-templates select="."/>
+        </xsl:for-each>
+      </span>
+    </xsl:when>
+    <xsl:when test="@type = 'horiz'">
+      <div class="simplelist">
+        <xsl:call-template name="db2html.anchor"/>
+        <table>
+          <xsl:for-each select="member[position() mod ../@columns = 1]">
+            <tr>
+              <td>
+                <xsl:apply-templates select="."/>
+              </td>
+              <xsl:for-each select="following-sibling::member[
+                                      position() &lt; ../@columns]">
+                <td>
+                  <xsl:apply-templates select="."/>
+                </td>
+              </xsl:for-each>
+            </tr>
+          </xsl:for-each>
+        </table>
+      </div>
+    </xsl:when>
+    <xsl:otherwise>
+      <div class="simplelist">
+        <xsl:call-template name="db2html.anchor"/>
+        <xsl:variable name="rows" select="ceiling(count(member) div @columns)"/>
+        <table>
+          <xsl:for-each select="member[position() &lt;= $rows]">
+            <tr>
+              <td>
+                <xsl:apply-templates select="."/>
+              </td>
+              <xsl:for-each select="following-sibling::member[
+                                      position() mod $rows = 0]">
+                <td>
+                  <xsl:apply-templates select="."/>
+                </td>
+              </xsl:for-each>
+            </tr>
+          </xsl:for-each>
+        </table>
+      </div>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
+<!-- = member = -->
 <xsl:template match="member">
-	<xsl:call-template name="FIXME"/>
+  <!-- Do something trivial, and rely on simplelist to do the rest -->
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
--->
 
 <!-- ======================================================================= -->
 <!-- == variablelist ======================================================= -->

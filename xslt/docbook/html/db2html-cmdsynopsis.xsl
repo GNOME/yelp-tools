@@ -7,6 +7,7 @@
 
 <doc:title>Command Synopses</doc:title>
 
+
 <!-- == db2html.cmdsynopsis.sepchar ======================================== -->
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">

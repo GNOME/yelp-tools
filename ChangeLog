@@ -1,3 +1,20 @@
+2004-05-22  Shaun McCance  <shaunm@gnome.org>
+
+	* test/testdocs/README:
+	* test/testdocs/simplelist.x001.xml:
+	- Added test for simplelist
+
+	* xslt/docbook/html/Makefile.am:
+	* xslt/docbook/html/db2html-classsynopsis.xsl:
+	* xslt/docbook/html/db2html.xsl:
+	- Added db2html-classsynopsis, mostly commented out
+
+	* xslt/docbook/html/db2html-list.xsl:
+	- Implemented simplelist
+
+	* xslt/docbook/html/db2html-suppressed.xsl:
+	- Added bibliocoverage
+
 2004-05-21  Shaun McCance  <shaunm@gnome.org>
 
 	* configure.in:
