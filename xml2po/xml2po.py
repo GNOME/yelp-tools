@@ -121,7 +121,6 @@ def normalizeString(text, ignorewhitespace = 1):
         # Lets add document DTD so entities are resolved
         dtd = doc.intSubset()
         tmp = ''
-        print dtd.serialize('utf-8')
         if expand_entities: # FIXME: we get a "Segmentation fault" in libxml2.parseMemory() when we include DTD otherwise
             tmp = dtd.serialize()
         tmp = tmp + '<norm>%s</norm>' % text
@@ -459,6 +458,8 @@ def tryToUpdate(allargs, lang):
     for opt, arg in opts:
         if opt in ('-a', '--automatic-tags'):
             command += " -a"
+        elif opt in ('-k', '--keep-entities'):
+            command += " -k"
         elif opt in ('-m', '--mode'):
             command += " -m %s" % arg
         elif opt in ('-o', '--output'):
