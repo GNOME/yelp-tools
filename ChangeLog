@@ -1,3 +1,11 @@
+2005-01-17  Shaun McCance  <shaunm@gnome.org>
+
+	* gnome-doc-utils.pc.in:
+	- Added xsltdir variable
+
+	* xslt/docbook/common/db-title.xsl:
+	- Fixed title templates to apply to $node, not .
+
 2005-01-16  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/utils/Makefile.am:

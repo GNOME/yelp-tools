@@ -25,7 +25,7 @@
 
 <xsl:template name="db.title">
   <xsl:param name="node" select="."/>
-  <xsl:apply-templates mode="db.title.mode" select="."/>
+  <xsl:apply-templates mode="db.title.mode" select="$node"/>
 </xsl:template>
 
 
@@ -46,7 +46,7 @@
 
 <xsl:template name="db.titleabbrev">
   <xsl:param name="node" select="."/>
-  <xsl:apply-templates mode="db.titleabbrev.mode" select="."/>
+  <xsl:apply-templates mode="db.titleabbrev.mode" select="$node"/>
 </xsl:template>
 
 
@@ -67,7 +67,7 @@
 
 <xsl:template name="db.subtitle">
   <xsl:param name="node" select="."/>
-  <xsl:apply-templates mode="db.subtitle.mode" select="."/>
+  <xsl:apply-templates mode="db.subtitle.mode" select="$node"/>
 </xsl:template>
 
 
