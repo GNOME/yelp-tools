@@ -270,7 +270,7 @@ _DOC_C_HTML = $(patsubst %.xml,%.html,$(_DOC_C_MODULE))
 ## @ _DOC_POFILES
 ## The .po files used for translating the document
 _DOC_POFILES = $(if $(DOC_MODULE),					\
-	$(foreach lc,$(DOC_LINGUAS),$(lc)/$(DOC_MODULE).po))
+	$(foreach lc,$(DOC_LINGUAS),$(lc)/$(lc).po))
 
 .PHONY: po
 po: $(_DOC_POFILES)
