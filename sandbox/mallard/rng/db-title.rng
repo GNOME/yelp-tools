@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='utf-8'?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+	 xmlns:ref="http://www.gnome.org/~shaunm/mallard/reference">
+
+  <ref:title>DB Module for Titles</ref:title>
+
+  <!-- Stub Content Models -->
+
+  <div ref:role="stub">
+    <ref:title>Stub Content Models</ref:title>
+
+    <define name="db-title.stub.attr-common">
+      <ref:refname>db-title.stub.attr-common</ref:refname>
+      <ref:refpurpose>
+	A stub model for common attributes.
+      </ref:refpurpose>
+      <notAllowed/>
+    </define>
+
+    <define name="db-title.stub.inline">
+      <ref:refname>db-title.stub.inline</ref:refname>
+      <ref:refpurpose>
+	A stub model for inline content.
+      </ref:refpurpose>
+      <notAllowed/>
+    </define>
+  </div>
+
+  <!-- Content Model Implementations -->
+
+  <div ref:role="model">
+    <ref:title>Content Model Implementations</ref:title>
+
+    <define name="db-title.model.title">
+      <ref:refname>db-title.model.title</ref:refname>
+      <ref:refpurpose>
+	A model allowing <ref:xmltag>title</ref:xmltag> and
+	<ref:xmltag>titleabbrev</ref:xmltag>, which can be used
+	to implement the stub title model for many modules.
+      </ref:refpurpose>
+
+      <ref name="db-title.element.title"/>
+      <optional>
+	<ref name="db-title.element.titleabbrev"/>
+      </optional>
+    </define>
+
+    <define name="db-title.model.subtitle">
+      <ref:refname>db-title.model.subtitle</ref:refname>
+      <ref:refpurpose>
+	A model allowing <ref:xmltag>title</ref:xmltag>,
+	<ref:xmltag>titleabbrev</ref:xmltag>, and
+	<ref:xmltag>subtitle</ref:xmltag>, which can be used
+	to implement the stub title model for many modules.
+      </ref:refpurpose>
+
+      <ref name="db-title.element.title"/>
+      <optional>
+	<ref name="db-title.element.titleabbrev"/>
+      </optional>
+      <optional>
+	<ref name="db-title.element.subtitle"/>
+      </optional>
+    </define>
+  </div>
+
+  <!-- Element Definitions -->
+
+  <div ref:role="element">
+    <ref:title>Element Definitions</ref:title>
+
+    <define name="db-title.element.subtitle">
+      <element name="subtitle">
+	<ref:refname>subtitle</ref:refname>
+	<ref:refpurpose>
+	  The subtitle of a document or section.
+	</ref:refpurpose>
+
+	<ref name="db-title.stub.attr-common"/>
+	<ref name="db-title.stub.inline"/>
+      </element>
+    </define>
+
+    <define name="db-title.element.title">
+      <element name="title">
+	<ref:refname>title</ref:refname>
+	<ref:refpurpose>
+	  The title of a document or section.
+	</ref:refpurpose>
+
+	<ref name="db-title.stub.attr-common"/>
+	<ref name="db-title.stub.inline"/>
+      </element>
+    </define>
+
+    <define name="db-title.element.titleabbrev">
+      <element name="titleabbrev">
+	<ref:refname>titleabbrev</ref:refname>
+	<ref:refpurpose>
+	  The abbreviation of a title.
+	</ref:refpurpose>
+
+	<ref name="db-title.stub.attr-common"/>
+	<ref name="db-title.stub.inline"/>
+      </element>
+    </define>
+
+  </div>
+</grammar>

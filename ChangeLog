@@ -1,5 +1,10 @@
 2004-03-14  Shaun McCance  <shaunm@gnome.org>
 
+	* sandbox/mallard:
+	- Importing Mallard stuff.
+
+2004-03-14  Shaun McCance  <shaunm@gnome.org>
+
 	* gnome-doc-utils.m4:
 	* test/testdoc1/Makefile.am:
 	* test/testdoc1/autogen.sh:

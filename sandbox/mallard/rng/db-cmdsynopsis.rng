@@ -1,0 +1,223 @@
+<?xml version='1.0' encoding='utf-8'?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+	 xmlns:ref="http://www.gnome.org/~shaunm/mallard/reference">
+
+  <ref:title>DB Module for Command Synopses</ref:title>
+
+  <!-- Dependancies -->
+
+  <div ref:role="depend">
+    <ref:title>Dependancicies</ref:title>
+
+    <include href="db-comp.rng">
+      <define name="db-comp.stub.attr-common">
+	<ref name="db-cmdsynopsis.stub.attr-common"/>
+      </define>
+      <define name="db-comp.stub.inline">
+	<ref name="db-cmdsynopsis.stub.inline"/>
+      </define>
+    </include>
+  </div>
+
+  <!-- Stub Content Models -->
+
+  <div ref:role="stub">
+    <ref:title>Stub Content Models</ref:title>
+
+    <define name="db-cmdsynopsis.stub.attr-common">
+      <ref:refname>db-cmdsynopsis.stub.attr-common</ref:refname>
+      <ref:refpurpose>
+	A stub model for common attributes.
+      </ref:refpurpose>
+      <notAllowed/>
+    </define>
+
+    <define name="db-cmdsynopsis.stub.inline">
+      <ref:refname>db-cmdsynopsis.stub.inline</ref:refname>
+      <ref:refpurpose>
+	A stub model for inline content.
+      </ref:refpurpose>
+      <notAllowed/>
+    </define>
+  </div>
+
+  <!-- Plug Content Models -->
+
+  <div ref:role="plug">
+    <ref:title>Plug Content Models</ref:title>
+
+    <define name="db-cmdsynopsis.plug.extra-inline">
+      <ref:refname>db-cmdsynopsis.plug.extra-inline</ref:refname>
+      <ref:refpurpose>
+	A plug model for extra inline elements for the content of elements such as
+	<ref:xmltag>arg</ref:xmltag> and <ref:xmltag>group</ref:xmltag>.  Dialects
+	should use a <ref:xmltag>choice</ref:xmltag> pattern.
+      </ref:refpurpose>
+      <empty/>
+    </define>
+  </div>
+
+  <!-- Element Classes -->
+
+  <div ref:role="choice">
+    <ref:title>Element Classes</ref:title>
+
+    <define name="db-cmdsynopsis.choice.cmdsynopsis">
+      <ref:refname>db-cmdsynopsis.choice.cmdsynopsis</ref:refname>
+      <ref:refpurpose>
+	A <ref:xmltag>choice</ref:xmltag> containing the block-level list
+	elements defined by this module.
+      </ref:refpurpose>
+
+      <choice>
+	<ref name="db-cmdsynopsis.element.cmdsynopsis"/>
+      </choice>
+    </define>
+  </div>
+
+  <!-- Common Attribute Sets -->
+
+  <div ref:role="attr">
+    <ref:title>Common Attribute Sets</ref:title>
+
+    <define name="db-cmdsynopsis.attr.arg">
+      <group>
+	<optional>
+	  <attribute name="choice">
+	    <choice>
+	      <value type="string">opt</value>
+	      <value type="string">plain</value>
+	      <value type="string">req</value>
+	    </choice>
+	  </attribute>
+	</optional>
+	<optional>
+	  <attribute name="rep">
+	    <choice>
+	      <value type="string">norepeat</value>
+	      <value type="string">repeat</value>
+	    </choice>
+	  </attribute>
+	</optional>
+      </group>
+    </define>
+  </div>
+
+  <!-- Element Definitions -->
+
+  <div ref:role="element">
+    <ref:title>Element Definitions</ref:title>
+
+    <define name="db-cmdsynopsis.element.arg">
+      <element name="arg">
+	<ref:refname>arg</ref:refname>
+	<ref:refpurpose>
+	  An argument in a <ref:xmltag>cmdsynopsis</ref:xmltag>.
+	</ref:refpurpose>
+
+	<ref name="db-cmdsynopsis.stub.attr-common"/>
+	<ref name="db-cmdsynopsis.attr.arg"/>
+
+	<mixed>
+	  <zeroOrMore>
+	    <choice>
+	      <ref name="db-cmdsynopsis.plug.extra-inline"/>
+	      <ref name="db-comp.element.option"/>
+	      <ref name="db-cmdsynopsis.element.arg"/>
+	      <ref name="db-cmdsynopsis.element.group"/>
+	      <ref name="db-cmdsynopsis.element.sbr"/>
+	      <ref name="db-cmdsynopsis.element.synopfragmentref"/>
+	    </choice>
+	  </zeroOrMore>
+	</mixed>
+      </element>
+    </define>
+
+    <define name="db-cmdsynopsis.element.cmdsynopsis">
+      <element name="cmdsynopsis">
+	<ref:refname>cmdsynopsis</ref:refname>
+	<ref:refpurpose>
+	  A syntax summary for a software command.
+	</ref:refpurpose>
+
+	<ref name="db-cmdsynopsis.stub.attr-common"/>
+	<optional><attribute name="cmdlength"/></optional>
+	<optional><attribute name="label"/></optional>
+	<optional><attribute name="sepchar"/></optional>
+
+	<oneOrMore>
+	  <choice>
+	    <ref name="db-comp.element.command"/>
+	    <ref name="db-cmdsynopsis.element.arg"/>
+	    <ref name="db-cmdsynopsis.element.group"/>
+	    <ref name="db-cmdsynopsis.element.sbr"/>
+	  </choice>
+	</oneOrMore>
+	<zeroOrMore>
+	  <ref name="dbe-cmdsynopsis.element.synopfragment"/>
+	</zeroOrMore>
+      </element>
+    </define>
+
+    <define name="db-cmdsynopsis.element.group">
+      <element name="group">
+	<ref:refname>group</ref:refname>
+	<ref:refpurpose>
+	  A group of elements in a <ref:xmltag>cmdsynopsis</ref:xmltag>.
+	</ref:refpurpose>
+
+	<ref name="db-cmdsynopsis.stub.attr-common"/>
+	<ref name="db-cmdsynopsis.attr.arg"/>
+
+	<oneOrMore>
+	  <choice>
+	    <ref name="db-cmdsynopsis.plug.extra-inline"/>
+	    <ref name="db-comp.element.option"/>
+	    <ref name="db-cmdsynopsis.element.arg"/>
+	    <ref name="db-cmdsynopsis.element.group"/>
+	    <ref name="db-cmdsynopsis.element.sbr"/>
+	    <ref name="db-cmdsynopsis.element.synopfragmentref"/>
+	  </choice>
+	</oneOrMore>
+      </element>
+    </define>
+
+    <define name="db-cmdsynopsis.element.synopfragment">
+      <ref:refname>synopfragment</ref:refname>
+      <ref:refpurpose>
+	A portion of a <ref:xmltag>cmdsynopsis</ref:xmltag> broken out
+	from the main body of the synopsis.
+      </ref:refpurpose>
+
+      <ref name="db-cmdsynopsis.stub.attr-common"/>
+
+      <oneOrMore>
+	<choice>
+	  <ref name="db-cmdsynopsis.element.arg"/>
+	  <ref name="db-cmdsynopsis.element.group"/>
+	</choice>
+      </oneOrMore>
+    </define>
+
+    <define name="db-cmdsynopsis.element.synopfragmentref">
+      <ref:refname>synopfragmentref</ref:refname>
+      <ref:refpurpose>
+	A reference to a fragment of a <ref:xmltag>cmdsynopsis</ref:xmltag>.
+      </ref:refpurpose>
+
+      <ref name="db-cmdsynopsis.stub.attr-common"/>
+      <attribute name="linkend"/>
+      <text/>
+    </define>
+
+    <define name="db-cmdsynopsis.sbr">
+      <ref:refname>sbr</ref:refname>
+      <ref:refpurpose>
+	An explicit line break in a <ref:xmltag>cmdsynopsis</ref:xmltag>.
+      </ref:refpurpose>
+
+      <ref name="db-cmdsynopsis.stub.attr-common"/>
+    </define>
+
+  </div>
+</grammar>

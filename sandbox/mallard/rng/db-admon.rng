@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='utf-8'?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+	 xmlns:ref="http://www.gnome.org/~shaunm/mallard/reference">
+
+  <ref:title>DB Module for Admonitions</ref:title>
+
+  <!-- Stub Content Models -->
+
+  <div ref:role="stub">
+    <ref:title>Stub Content Models</ref:title>
+
+    <define name="db-admon.stub.attr-common">
+      <ref:refname>db-admon.stub.attr-common</ref:refname>
+      <ref:refpurpose>
+	A stub model for common attributes.
+      </ref:refpurpose>
+      <notAllowed/>
+    </define>
+
+    <define name="db-admon.stub.block">
+      <ref:refname>db-admon.stub.block</ref:refname>
+      <ref:refpurpose>
+	A stub model for block-level content.
+      </ref:refpurpose>
+      <notAllowed/>
+    </define>
+
+    <define name="db-admon.stub.title-optional">
+      <ref:refname>db-admon.stub.title-optional</ref:refname>
+      <ref:refpurpose>
+	A stub model for title elements.  Dialects should generally
+	use an <ref:xmltag>optional</ref:xmltag> pattern.
+      </ref:refpurpose>
+      <notAllowed/>
+    </define>
+  </div>
+
+  <!-- Element Classes -->
+
+  <div ref:role="choice">
+    <ref:title>Element Classes</ref:title>
+
+    <define name="db-admon.choice.admon">
+      <ref:refname>db-admon.choice.admon</ref:refname>
+      <ref:refpurpose>
+	A <ref:xmltag>choice</ref:xmltag> containing the block-level admonition
+	elements defined by this module.
+      </ref:refpurpose>
+
+      <choice>
+	<ref name="db-admon.element.caution"/>
+	<ref name="db-admon.element.important"/>
+	<ref name="db-admon.element.note"/>
+	<ref name="db-admon.element.tip"/>
+	<ref name="db-admon.element.warning"/>
+      </choice>
+    </define>
+  </div>
+
+  <!-- Element Definitions -->
+
+  <div ref:role="element">
+    <ref:title>Element Definitions</ref:title>
+
+    <define name="db-admon.element.caution">
+      <element name="caution">
+	<ref:refname>caution</ref:refname>
+	<ref:refpurpose>
+	  A note of caution set off from the text.
+	</ref:refpurpose>
+
+	<ref name="db-admon.stub.attr-common"/>
+	<ref name="db-admon.stub.title-optional"/>
+	<ref name="db-admon.stub.block"/>
+      </element>
+    </define>
+
+    <define name="db-admon.element.important">
+      <element name="important">
+	<ref:refname>important</ref:refname>
+	<ref:refpurpose>
+	  An important note of information set off from the text.
+	</ref:refpurpose>
+
+	<ref name="db-admon.stub.attr-common"/>
+	<ref name="db-admon.stub.title-optional"/>
+	<ref name="db-admon.stub.block"/>
+      </element>
+    </define>
+
+    <define name="db-admon.element.note">
+      <element name="note">
+	<ref:refname>note</ref:refname>
+	<ref:refpurpose>
+	  A general note set off from the text.
+	</ref:refpurpose>
+
+	<ref name="db-admon.stub.attr-common"/>
+	<ref name="db-admon.stub.title-optional"/>
+	<ref name="db-admon.stub.block"/>
+      </element>
+    </define>
+
+    <define name="db-admon.element.tip">
+      <element name="tip">
+	<ref:refname>tip</ref:refname>
+	<ref:refpurpose>
+	  A suggestion to the user set off from the text.
+	</ref:refpurpose>
+
+	<ref name="db-admon.stub.attr-common"/>
+	<ref name="db-admon.stub.title-optional"/>
+	<ref name="db-admon.stub.block"/>
+      </element>
+    </define>
+
+    <define name="db-admon.element.warning">
+      <element name="warning">
+	<ref:refname>warning</ref:refname>
+	<ref:refpurpose>
+	  A note of warning set off from the text.
+	</ref:refpurpose>
+
+	<ref name="db-admon.stub.attr-common"/>
+	<ref name="db-admon.stub.title-optional"/>
+	<ref name="db-admon.stub.block"/>
+      </element>
+    </define>
+
+  </div>
+</grammar>

@@ -1,0 +1,616 @@
+<?xml version='1.0' encoding='utf-8'?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+	 xmlns:ref="http://www.gnome.org/~shaunm/mallard/reference">
+
+  <ref:title>DB Module for Credits</ref:title>
+
+  <!-- Stub Content Models -->
+
+  <div ref:role="stub">
+    <ref:title>Stub Content Models</ref:title>
+
+    <define name="db-credits.stub.attr-common">
+      <ref:refname>db-credits.stub.attr-common</ref:refname>
+      <ref:refpurpose>
+	A stub model for common attributes.
+      </ref:refpurpose>
+      <notAllowed/>
+    </define>
+
+    <define name="db-credits.stub.block">
+      <ref:refname>db-credits.stub.block</ref:refname>
+      <ref:refpurpose>
+	A stub model for block-level content.
+      </ref:refpurpose>
+      <notAllowed/>
+    </define>
+
+    <define name="db-credits.stub.inline-restricted">
+      <ref:refname>db-credits.stub.inline</ref:refname>
+      <ref:refpurpose>
+	A stub model for restricted inline content.
+      </ref:refpurpose>
+      <notAllowed/>
+    </define>
+
+    <define name="db-credits.stub.title-optional">
+      <ref:refname>db-credits.stub.title-optional</ref:refname>
+      <ref:refpurpose>
+	A stub model for title elements.
+      </ref:refpurpose>
+      <notAllowed/>
+    </define>
+  </div>
+
+  <!-- Content Model Implementations -->
+
+  <div ref:role="model">
+    <ref:title>Content Model Implementations</ref:title>
+
+    <define name="db-credits.model.credit">
+      <ref:refname>db-credits.model.credit</ref:refname>
+      <ref:refpurpose>
+	The common model used inside elements such as
+	<ref:xmltag>author</ref:xmltag> and <ref:xmltag>editor</ref:xmltag>.
+      </ref:refpurpose>
+
+      <choice>
+	<group>
+	  <ref name="db-credits.element.personname"/>
+	  <zeroOrMore>
+	    <choice>
+	      <ref name="db-credits.element.address"/>
+	      <ref name="db-credits.element.affiliation"/>
+	      <ref name="db-credits.element.contrib"/>
+	      <ref name="db-credits.element.email"/>
+	      <ref name="db-credits.element.personblurb"/>
+	    </choice>
+	  </zeroOrMore>
+	</group>
+	<group>
+	  <ref name="db-credits.element.orgname"/>
+	  <zeroOrMore>
+	    <choice>
+	      <ref name="db-credits.element.orgdiv"/>
+	      <ref name="db-credits.element.affiliation"/>
+	      <ref name="db-credits.element.email"/>
+	      <ref name="db-credits.element.address"/>
+	      <ref name="db-credits.element.contrib"/>
+	    </choice>
+	  </zeroOrMore>
+	</group>
+      </choice>
+    </define>
+  </div>
+
+  <!-- Element Classes -->
+
+  <div ref:role="choice">
+    <ref:title>Element Classes</ref:title>
+
+    <define name="db-credits.choice.credits">
+      <ref:refname>db-credits.choice.credits</ref:refname>
+      <ref:refpurpose>
+	A <ref:xmltag>choice</ref:xmltag> containing the elements used for
+	crediting the contributors of the document.
+      </ref:refpurpose>
+
+      <choice>
+	<ref name="db-credits.element.author"/>
+	<ref name="db-credits.element.editor"/>
+      </choice>
+    </define>
+  </div>
+
+  <!-- Element Definitions -->
+
+  <div ref:role="element">
+    <ref:title>Element Definitions</ref:title>
+
+    <define name="db-credits.element.address">
+      <element name="address">
+	<ref:refname>address</ref:refname>
+	<ref:refpurpose>
+	  A real-world address, generally a postal address.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<mixed>
+	  <zeroOrMore>
+	    <choice>
+	      <ref name="db-credits.element.city"/>
+	      <ref name="db-credits.element.country"/>
+	      <ref name="db-credits.element.email"/>
+	      <ref name="db-credits.element.fax"/>
+	      <ref name="db-credits.element.otheraddr"/>
+	      <ref name="db-credits.element.personname"/>
+	      <ref name="db-credits.element.phone"/>
+	      <ref name="db-credits.element.pob"/>
+	      <ref name="db-credits.element.state"/>
+	      <ref name="db-credits.element.street"/>
+	    </choice>
+	  </zeroOrMore>
+	</mixed>
+      </element>
+    </define>
+
+    <define name="db-credits.element.affiliation">
+      <element name="affiliation">
+	<ref:refname>affiliation</ref:refname>
+	<ref:refpurpose>
+	  The institutional affiliation of an individual.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<optional>
+	  <ref name="db-credits.element.shortaffil"/>
+	</optional>
+	<zeroOrMore>
+	  <ref name="db-credits.element.jobtitle"/>
+	</zeroOrMore>
+	<optional>
+	  <ref name="db-credits.element.orgname"/>
+	</optional>
+	<zeroOrMore>
+	  <ref name="db-credits.element.orgdiv"/>
+	</zeroOrMore>
+	<zeroOrMore>
+	  <ref name="db-credits.element.address"/>
+	</zeroOrMore>
+      </element>
+    </define>
+
+    <define name="db-credits.element.author">
+      <element name="author">
+	<ref:refname>author</ref:refname>
+	<ref:refpurpose>
+	  The name of an individual author.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<ref name="db-credits.model.credit"/>
+      </element>
+    </define>
+
+    <define name="db-credits.element.authorgroup">
+      <element name="authorgroup">
+	<ref:refname>authorgroup</ref:refname>
+	<ref:refpurpose>
+	  Wrapper for author information when a document has
+	  multiple authors or collaborators.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<oneOrMore>
+	  <choice>
+	    <ref name="db-credits.element.author"/>
+	    <ref name="db-credits.element.collab"/>
+	    <ref name="db-credits.element.editor"/>
+	    <ref name="db-credits.element.othercredit"/>
+	    <ref name="db-credits.element.translator"/>
+	  </choice>
+	</oneOrMore>
+      </element>
+    </define>
+
+    <define name="db-credits.element.authorinitials">
+      <element name="authorinitials">
+	<ref:refname>authorinitials</ref:refname>
+	<ref:refpurpose>
+	  The initials or other short identifier for an author.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<ref name="db-credits.stub.inline-restricted"/>
+      </element>
+    </define>
+
+    <define name="db-credits.element.city">
+      <element name="city">
+	<ref:refname>city</ref:refname>
+	<ref:refpurpose>
+	  The name of a city in an address.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<ref name="db-credits.stub.inline-restricted"/>
+      </element>
+    </define>
+
+    <define name="db-credits.element.collab">
+      <element name="collab">
+	<ref:refname>collab</ref:refname>
+	<ref:refpurpose>
+	  The name of an individual editor.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<ref name="db-credits.model.credit"/>
+      </element>
+    </define>
+
+    <define name="db-credits.element.contrib">
+      <element name="contrib">
+	<ref:refname>contrib</ref:refname>
+	<ref:refpurpose>
+	  A summary of the contributions made to a document
+	  by a credited source.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<ref name="db-credits.stub.inline-restricted"/>
+      </element>
+    </define>
+
+    <define name="db-credits.element.copyright">
+      <element name="copyright">
+	<ref:refname>copyright</ref:refname>
+	<ref:refpurpose>
+	  Copyright information about a document.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<oneOrMore>
+	  <ref name="db-credits.element.year"/>
+	</oneOrMore>
+	<zeroOrMore>
+	  <ref name="db-credits.element.holder"/>
+	</zeroOrMore>
+      </element>
+    </define>
+
+    <define name="db-credits.element.country">
+      <element name="country">
+	<ref:refname>country</ref:refname>
+	<ref:refpurpose>
+	  The name of a country.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<ref name="db-credits.stub.inline-restricted"/>
+      </element>
+    </define>
+
+    <define name="db-credits.element.editor">
+      <element name="editor">
+	<ref:refname>editor</ref:refname>
+	<ref:refpurpose>
+	  The name of an individual editor.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<ref name="db-credits.model.credit"/>
+      </element>
+    </define>
+
+    <define name="db-credits.element.email">
+      <element name="email">
+	<ref:refname>email</ref:refname>
+	<ref:refpurpose>
+	  An email address.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<ref name="db-credits.stub.inline-restricted"/>
+      </element>
+    </define>
+
+    <define name="db-credits.element.fax">
+      <element name="fax">
+	<ref:refname>fax</ref:refname>
+	<ref:refpurpose>
+	  A fax number.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<ref name="db-credits.stub.inline-restricted"/>
+      </element>
+    </define>
+
+    <define name="db-credits.element.firstname">
+      <element name="firstname">
+	<ref:refname>firstname</ref:refname>
+	<ref:refpurpose>
+	  The first name of a person.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<ref name="db-credits.stub.inline-restricted"/>
+      </element>
+    </define>
+
+    <define name="db-credits.element.holder">
+      <element name="holder">
+	<ref:refname>holder</ref:refname>
+	<ref:refpurpose>
+	  The name of the individual or organization that holds a copyright.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<ref name="db-credits.stub.inline-restricted"/>
+      </element>
+    </define>
+
+    <define name="db-credits.element.honorific">
+      <element name="honorific">
+	<ref:refname>honorific</ref:refname>
+	<ref:refpurpose>
+	  The title of a person.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<ref name="db-credits.stub.inline-restricted"/>
+      </element>
+    </define>
+
+    <define name="db-credits.element.jobtitle">
+      <element name="jobtitle">
+	<ref:refname>jobtitle</ref:refname>
+	<ref:refpurpose>
+	  The title of an individual in an organization.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<ref name="db-credits.stub.inline-restricted"/>
+      </element>
+    </define>
+
+    <define name="db-credits.element.lineage">
+      <element name="lineage">
+	<ref:refname>lineage</ref:refname>
+	<ref:refpurpose>
+	  The first name of a person.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<ref name="db-credits.stub.inline-restricted"/>
+      </element>
+    </define>
+
+    <define name="db-credits.element.orgdiv">
+      <element name="orgdiv">
+	<ref:refname>orgdiv</ref:refname>
+	<ref:refpurpose>
+	  The portion of a person's name indicating
+	  a relationship to ancestors.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<ref name="db-credits.stub.inline-restricted"/>
+      </element>
+    </define>
+
+    <define name="db-credits.element.orgname">
+      <element name="orgname">
+	<ref:refname>orgname</ref:refname>
+	<ref:refpurpose>
+	  The name of an organization.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<optional>
+	  <attribute name="class">
+	    <choice>
+	      <value type="string">consortium</value>
+	      <value type="string">corporation</value>
+	      <value type="string">informal</value>
+	      <value type="string">nonprofit</value>
+	    </choice>
+	  </attribute>
+	</optional>
+	<ref name="db-credits.stub.inline-restricted"/>
+      </element>
+    </define>
+
+    <define name="db-credits.element.otheraddr">
+      <element name="otheraddr">
+	<ref:refname>otheraddr</ref:refname>
+	<ref:refpurpose>
+	  Uncategorized information in an address.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<ref name="db-credits.stub.inline-restricted"/>
+      </element>
+    </define>
+
+    <define name="db-credits.element.othercredit">
+      <element name="othercredit">
+	<ref:refname>othercredit</ref:refname>
+	<ref:refpurpose>
+	  An uncategorized contributor to the document.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<ref name="db-credits.model.credit"/>
+      </element>
+    </define>
+
+    <define name="db-credits.element.othername">
+      <element name="othername">
+	<ref:refname>othername</ref:refname>
+	<ref:refpurpose>
+	  A component of a person's name that is not a first name,
+	  surname, or lineage.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<ref name="db-credits.stub.inline-restricted"/>
+      </element>
+    </define>
+
+    <define name="db-credits.element.personblurb">
+      <element name="personblurb">
+	<ref:refname>personblurb</ref:refname>
+	<ref:refpurpose>
+	  A short description or note about a person.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<ref name="db-credits.stub.title-optional"/>
+	<ref name="db-credits.stub.block"/>
+      </element>
+    </define>
+
+    <define name="db-credits.element.personname">
+      <element name="personname">
+	<ref:refname>personname</ref:refname>
+	<ref:refpurpose>
+	  The personal name of an individual.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<choice>
+	  <ref name="db-credits.stub.inline-restricted"/>
+	  <oneOrMore>
+	    <choice>
+	      <ref name="db-credits.element.firstname"/>
+	      <ref name="db-credits.element.honorific"/>
+	      <ref name="db-credits.element.lineage"/>
+	      <ref name="db-credits.element.othername"/>
+	      <ref name="db-credits.element.surname"/>
+	    </choice>
+	  </oneOrMore>
+	</choice>
+      </element>
+    </define>
+
+    <define name="db-credits.element.phone">
+      <element name="phone">
+	<ref:refname>phone</ref:refname>
+	<ref:refpurpose>
+	  A telephone number.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<ref name="db-credits.stub.inline-restricted"/>
+      </element>
+    </define>
+
+    <define name="db-credits.element.pob">
+      <element name="pob">
+	<ref:refname>pob</ref:refname>
+	<ref:refpurpose>
+	  A post office box in an address.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<ref name="db-credits.stub.inline-restricted"/>
+      </element>
+    </define>
+
+    <define name="db-credits.element.postcode">
+      <element name="postcode">
+	<ref:refname>postcode</ref:refname>
+	<ref:refpurpose>
+	  A postal code in an address.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<ref name="db-credits.stub.inline-restricted"/>
+      </element>
+    </define>
+
+
+    <define name="db-credits.element.publisher">
+      <element name="publisher">
+	<ref:refname>publisher</ref:refname>
+	<ref:refpurpose>
+	  The publisher of a document.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<ref name="db-credits.element.publishername"/>
+	<zeroOrMore>
+	  <ref name="db-credits.element.address"/>
+	</zeroOrMore>
+      </element>
+    </define>
+
+    <define name="db-credits.element.publishername">
+      <element name="publishername">
+	<ref:refname>publishername</ref:refname>
+	<ref:refpurpose>
+	  The name of the publisher of a document.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<ref name="db-credits.stub.inline-restricted"/>
+      </element>
+    </define>
+
+    <define name="db-credits.element.shortaffil">
+      <element name="shortaffil">
+	<ref:refname>shortaffil</ref:refname>
+	<ref:refpurpose>
+	  A brief description of an affiliation.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<ref name="db-credits.stub.inline-restricted"/>
+      </element>
+    </define>
+
+    <define name="db-credits.element.street">
+      <element name="street">
+	<ref:refname>street</ref:refname>
+	<ref:refpurpose>
+	  A street address in an address.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<ref name="db-credits.stub.inline-restricted"/>
+      </element>
+    </define>
+
+    <define name="db-credits.element.state">
+      <element name="state">
+	<ref:refname>state</ref:refname>
+	<ref:refpurpose>
+	  A state or province in an address.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<ref name="db-credits.stub.inline-restricted"/>
+      </element>
+    </define>
+
+    <define name="db-credits.element.surname">
+      <element name="surname">
+	<ref:refname>surname</ref:refname>
+	<ref:refpurpose>
+	  A family name; in western cultures the
+	  <ref:quote>last name</ref:quote>.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<ref name="db-credits.stub.inline-restricted"/>
+      </element>
+    </define>
+
+    <define name="db-credits.element.translator">
+      <element name="translator">
+	<ref:refname>translator</ref:refname>
+	<ref:refpurpose>
+	  The name of an individual translator.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<ref name="db-credits.model.credit"/>
+      </element>
+    </define>
+
+    <define name="db-credits.element.year">
+      <element name="year">
+	<ref:refname>year</ref:refname>
+	<ref:refpurpose>
+	  The year of publication of a document.
+	</ref:refpurpose>
+
+	<ref name="db-credits.stub.attr-common"/>
+	<ref name="db-credits.stub.inline-restricted"/>
+      </element>
+    </define>
+
+  </div>
+</grammar>

@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='utf-8'?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+	 xmlns:ref="http://www.gnome.org/~shaunm/mallard/reference">
+
+  <ref:title>DB Module for Callouts</ref:title>
+
+  <!-- Stub Content Models -->
+
+  <div ref:role="stub">
+    <ref:title>Stub Content Models</ref:title>
+
+    <define name="db-callout.stub.attr-common">
+      <ref:refname>db-callout.stub.attr-common</ref:refname>
+      <ref:refpurpose>
+	A stub model for common attributes.
+      </ref:refpurpose>
+      <notAllowed/>
+    </define>
+
+    <define name="db-callout.stub.block-optional">
+      <ref:refname>db-callout.stub.block-optional</ref:refname>
+      <ref:refpurpose>
+	A stub model for block-level content.
+      </ref:refpurpose>
+      <notAllowed/>
+    </define>
+
+    <define name="db-callout.stub.inline">
+      <ref:refname>db-callout.stub.inline</ref:refname>
+      <ref:refpurpose>
+	A stub model for inline content.  Dialects should generally
+	use a <ref:xmltag>mixed</ref:xmltag> pattern.
+      </ref:refpurpose>
+      <notAllowed/>
+    </define>
+
+    <define name="db-callout.stub.title-optional">
+      <ref:refname>db-callout.stub.title-optional</ref:refname>
+      <ref:refpurpose>
+	A stub model for title elements.  Dialects should generally
+	use an <ref:xmltag>optional</ref:xmltag> pattern.
+      </ref:refpurpose>
+      <notAllowed/>
+    </define>
+  </div>
+
+  <!-- Element Classes -->
+
+  <div ref:role="choice">
+    <ref:title>Element Classes</ref:title>
+  </div>
+
+  <!-- Element Definitions -->
+
+  <div ref:role="element">
+    <ref:title>Element Definitions</ref:title>
+
+    <!-- FIXME
+	 area
+	 areaset
+	 areaspec
+	 co
+	 imageobjectco
+	 mediaobjectco
+    -->
+
+    <define name="db-callout.element.callout">
+      <element name="callout">
+	<ref:refname>callout</ref:refname>
+	<ref:refpurpose>
+	  An annotation or description, used inside a callout list.
+	</ref:refpurpose>
+
+	<ref name="db-callout.stub.attr-common"/>
+	<ref name="db-callout.stub.block-optional"/>
+      </element>
+    </define>
+
+    <define name="db-callout.element.calloutlist">
+      <element name="calloutlist">
+	<ref:refname>calloutlist</ref:refname>
+	<ref:refpurpose>
+	  A list of annotations or descriptions.
+	</ref:refpurpose>
+
+	<ref name="db-callout.stub.attr-common"/>
+	<ref name="db-callout.stub.title-optional"/>
+	<oneOrMore>
+	  <ref name="db-callout.element.callout"/>
+	</oneOrMore>
+      </element>
+    </define>
+
+  </div>
+</grammar>

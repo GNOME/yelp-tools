@@ -1,0 +1,271 @@
+<?xml version='1.0' encoding='utf-8'?>
+<grammar xmlns="http://relaxng.org/ns/structure/1.0"
+	 xmlns:ref="http://www.gnome.org/~shaunm/mallard/reference">
+
+  <ref:title>DB Module for Media Objects</ref:title>
+
+  <!-- Stub Content Models -->
+
+  <div ref:role="stub">
+    <ref:title>Stub Content Models</ref:title>
+
+    <define name="db-media.stub.attr-common">
+      <ref:refname>db-media.stub.attr-common</ref:refname>
+      <ref:refpurpose>
+	A stub model for common attributes.
+      </ref:refpurpose>
+      <notAllowed/>
+    </define>
+
+    <define name="db-media.stub.block">
+      <ref:refname>db-media.stub.block</ref:refname>
+      <ref:refpurpose>
+	A stub model for block-level content.
+      </ref:refpurpose>
+      <notAllowed/>
+    </define>
+
+    <define name="db-media.stub.caption">
+      <ref:refname>db-media.stub.caption</ref:refname>
+      <ref:refpurpose>
+	A stub model for a caption element.
+      </ref:refpurpose>
+      <notAllowed/>
+    </define>
+
+    <define name="db-media.stub.info">
+      <ref:refname>db-media.stub.info</ref:refname>
+      <ref:refpurpose>
+	A stub model for a meta-information element.
+      </ref:refpurpose>
+      <notAllowed/>
+    </define>
+
+    <define name="db-media.stub.inline">
+      <ref:refname>db-media.stub.inline</ref:refname>
+      <ref:refpurpose>
+	A stub model for inline content.
+      </ref:refpurpose>
+      <notAllowed/>
+    </define>
+  </div>
+
+  <!-- Element Classes -->
+
+  <div ref:role="choice">
+    <ref:title>Element Classes</ref:title>
+
+    <define name="db-media.choice.media">
+      <ref:refname>db-media.choice.media</ref:refname>
+      <ref:refpurpose>
+	A <ref:xmltag>choice</ref:xmltag> containing the block-level media
+	elements defined by this module.
+      </ref:refpurpose>
+
+      <choice>
+	<ref name="db-media.element.mediaobject"/>
+      </choice>
+    </define>
+
+    <define name="db-media.choice.inlinemedia">
+      <ref:refname>db-media.choice.inlinemedia</ref:refname>
+      <ref:refpurpose>
+	A <ref:xmltag>choice</ref:xmltag> containing the inline media
+	elements defined by this module.
+      </ref:refpurpose>
+
+      <choice>
+	<ref name="db-media.element.inlinemediaobject"/>
+      </choice>
+    </define>
+
+    <define name="db-media.choice.object">
+      <ref:refname>db-media.choice.object</ref:refname>
+      <ref:refpurpose>
+	The specific object elements allowed in the media container elements.
+      </ref:refpurpose>
+
+      <choice>
+	<ref name="db-media.element.audioobject"/>
+	<ref name="db-media.element.imageobject"/>
+	<ref name="db-media.element.textobject"/>
+	<ref name="db-media.element.videoobject"/>
+      </choice>
+    </define>
+  </div>
+
+  <!-- Common Attribute Sets -->
+
+  <div ref:role="attr">
+    <ref:title>Common Attribute Sets</ref:title>
+
+    <define name="db-media.attr.mediadata">
+      <group>
+	<attribute name="type"/>
+	<choice>
+	  <attribute name="fileref"/>
+	  <attribute name="entityref"/>
+	</choice>
+      </group>
+    </define>
+
+    <define name="db-media.attr.imagedata">
+      <group>
+	<optional><attribute name="contentheight"/></optional>
+	<optional><attribute name="contentwidth"/></optional>
+	<optional><attribute name="height"/></optional>
+	<optional><attribute name="scale"/></optional>
+	<optional><attribute name="scalefit"/></optional>
+	<optional><attribute name="width"/></optional>
+      </group>
+    </define>
+  </div>
+
+  <!-- Element Definitions -->
+
+  <div ref:role="element">
+    <ref:title>Element Definitions</ref:title>
+
+    <define name="db-media.element.audiodata">
+      <element name="audiodata">
+	<ref:refname>audiodata</ref:refname>
+	<ref:refpurpose>
+	  A pointer to external audio data.
+	</ref:refpurpose>
+
+	<ref name="db-media.stub.attr-common"/>
+	<ref name="db-media.attr.mediadata"/>
+      </element>
+    </define>
+
+    <define name="db-media.element.audioobject">
+      <element name="audioobject">
+	<ref:refname>audioobject</ref:refname>
+	<ref:refpurpose>
+	  A wrapper for audio data and associated meta-information.
+	</ref:refpurpose>
+
+	<ref name="db-media.stub.attr-common"/>
+	<ref name="db-media.stub.info"/>
+	<ref name="db-media.element.audiodata"/>
+      </element>
+    </define>
+
+    <define name="db-media.element.imagedata">
+      <element name="imagedata">
+	<ref:refname>imagedata</ref:refname>
+	<ref:refpurpose>
+	  A pointer to external image data.
+	</ref:refpurpose>
+
+	<ref name="db-media.stub.attr-common"/>
+	<ref name="db-media.attr.mediadata"/>
+	<ref name="db-media.attr.imagedata"/>
+      </element>
+    </define>
+
+    <define name="db-media.element.imageobject">
+      <element name="imageobject">
+	<ref:refname>imageobject</ref:refname>
+	<ref:refpurpose>
+	  A wrapper for image data and associated meta-information.
+	</ref:refpurpose>
+
+	<ref name="db-media.stub.attr-common"/>
+	<ref name="db-media.stub.info"/>
+	<ref name="db-media.element.imagedata"/>
+      </element>
+    </define>
+
+    <define name="db-media.element.inlinemediaobject">
+      <element name="inlinemediaobject">
+	<ref:refname>inlinemediaobject</ref:refname>
+	<ref:refpurpose>
+	  An inline media object.
+	</ref:refpurpose>
+
+	<ref name="db-media.stub.attr-common"/>
+	<ref name="db-media.stub.info"/>
+	<oneOrMore>
+	  <ref name="db-media.choice.object"/>
+	</oneOrMore>
+      </element>
+    </define>
+
+    <define name="db-media.element.mediaobject">
+      <element name="mediaobject">
+	<ref:refname>mediaobject</ref:refname>
+	<ref:refpurpose>
+	  A displayed media object.
+	</ref:refpurpose>
+
+	<ref name="db-media.stub.attr-common"/>
+	<ref name="db-media.stub.info"/>
+	<oneOrMore>
+	  <ref name="db-media.choice.object"/>
+	</oneOrMore>
+	<ref name="db-media.stub.caption"/>
+      </element>
+    </define>
+
+    <define name="db-media.element.textdata">
+      <element name="textdata">
+	<ref:refname>textdata</ref:refname>
+	<ref:refpurpose>
+	  A pointer to external text data.
+	</ref:refpurpose>
+
+	<ref name="db-media.stub.attr-common"/>
+	<ref name="db-media.attr.mediadata"/>
+	<optional>
+	  <attribute name="encoding"/>
+	</optional>
+      </element>
+    </define>
+
+    <define name="db-media.element.textobject">
+      <element name="textobject">
+	<ref:refname>textobject</ref:refname>
+	<ref:refpurpose>
+	  A wrapper for a text description of an object and associated
+	  meta-information.
+	</ref:refpurpose>
+
+	<ref name="db-media.stub.attr-common"/>
+	<ref name="db-media.stub.info"/>
+	<choice>
+	  <ref name="db-media.element.textdata"/>
+	  <ref name="db-media.stub.block"/>
+	  <ref name="db-media.stub.inline"/>
+	</choice>
+      </element>
+    </define>
+
+    <define name="db-media.element.videodata">
+      <element name="videodata">
+	<ref:refname>videodata</ref:refname>
+	<ref:refpurpose>
+	  A pointer to external video data.
+	</ref:refpurpose>
+
+	<ref name="db-media.stub.attr-common"/>
+	<ref name="db-media.attr.mediadata"/>
+	<ref name="db-media.attr.imagedata"/>
+      </element>
+    </define>
+
+    <define name="db-media.element.videoobject">
+      <element name="videoobject">
+	<ref:refname>videoobject</ref:refname>
+	<ref:refpurpose>
+	  A wrapper for video data and associated meta-information.
+	</ref:refpurpose>
+
+	<ref name="db-media.stub.attr-common"/>
+	<ref name="db-media.stub.info"/>
+	<ref name="db-media.element.videodata"/>
+      </element>
+    </define>
+
+  </div>
+</grammar>
