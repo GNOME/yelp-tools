@@ -196,10 +196,9 @@
   <xsl:if test="$authors">
     <div>
       <h2 class="author">
-        <xsl:call-template name="ngettext">
+        <xsl:call-template name="gettext">
           <xsl:with-param name="msgid" select="'Author'"/>
-          <xsl:with-param name="msgid_plural" select="'Authors'"/>
-          <xsl:with-param name="num" select="count($authors)"/>
+          <xsl:with-param name="number" select="count($authors)"/>
         </xsl:call-template>
       </h2>
       <dl>
@@ -239,10 +238,9 @@
   <xsl:if test="$editors">
     <div>
       <h2 class="editor">
-        <xsl:call-template name="ngettext">
+        <xsl:call-template name="gettext">
           <xsl:with-param name="msgid" select="'Editor'"/>
-          <xsl:with-param name="msgid_plural" select="'Editors'"/>
-          <xsl:with-param name="num" select="count($editors)"/>
+          <xsl:with-param name="number" select="count($editors)"/>
         </xsl:call-template>
       </h2>
       <dl>
@@ -282,10 +280,9 @@
   <xsl:if test="$collabs">
     <div>
       <h2 class="collab">
-        <xsl:call-template name="ngettext">
+        <xsl:call-template name="gettext">
           <xsl:with-param name="msgid" select="'Collaborator'"/>
-          <xsl:with-param name="msgid_plural" select="'Collaborators'"/>
-          <xsl:with-param name="num" select="count($collabs)"/>
+          <xsl:with-param name="number" select="count($collabs)"/>
         </xsl:call-template>
       </h2>
       <dl>
@@ -328,10 +325,9 @@
   <xsl:if test="$translators">
     <div>
       <h2 class="translator">
-        <xsl:call-template name="ngettext">
+        <xsl:call-template name="gettext">
           <xsl:with-param name="msgid" select="'Translator'"/>
-          <xsl:with-param name="msgid_plural" select="'Translators'"/>
-          <xsl:with-param name="num" select="count($translators)"/>
+          <xsl:with-param name="number" select="count($translators)"/>
         </xsl:call-template>
       </h2>
       <dl>
@@ -370,10 +366,9 @@
   <xsl:if test="$publishers">
     <div>
       <h2 class="publisher">
-        <xsl:call-template name="ngettext">
+        <xsl:call-template name="gettext">
           <xsl:with-param name="msgid" select="'Publisher'"/>
-          <xsl:with-param name="msgid_plural" select="'Publishers'"/>
-          <xsl:with-param name="num" select="count($publishers)"/>
+          <xsl:with-param name="number" select="count($publishers)"/>
         </xsl:call-template>
       </h2>
       <dl>
@@ -457,10 +452,9 @@
   <xsl:if test="$copyrights">
     <div>
       <h2 class="copyright">
-        <xsl:call-template name="ngettext">
+        <xsl:call-template name="gettext">
           <xsl:with-param name="msgid" select="'Copyright'"/>
-          <xsl:with-param name="msgid_plural" select="'Copyrights'"/>
-          <xsl:with-param name="num" select="count($copyrights)"/>
+          <xsl:with-param name="number" select="count($copyrights)"/>
         </xsl:call-template>
       </h2>
       <dl>
