@@ -99,26 +99,14 @@
 
 <xsl:template name="db2html.admon.boxed">
   <xsl:param name="node" select="."/>
-  <!-- FIXME: We can probably do this without tables, with fancy CSS -->
+  <!-- FIXME: maybe sideline the admon boxes -->
   <div class="admonition">
-    <div class="{name(.)}">
-      <table style="border: none;">
-        <tr>
-          <td rowspan="2" align="center" valign="top" class="image">
-            <xsl:call-template name="db2html.admon.image">
-              <xsl:with-param name="node" select="$node"/>
-            </xsl:call-template>
-          </td>
-          <th align="left" valign="top">
-            <xsl:apply-templates select="$node/title"/>
-          </th>
-        </tr>
-        <tr>
-          <td align="left" valign="top">
-            <xsl:apply-templates select="$node/*[local-name(.) != 'title']"/>
-          </td>
-        </tr>
-      </table>
+    <div class="{local-name(.)}">
+      <xsl:call-template name="db2html.admon.image">
+        <xsl:with-param name="node" select="$node"/>
+      </xsl:call-template>
+      <xsl:apply-templates select="$node/title"/>
+      <xsl:apply-templates select="$node/*[local-name(.) != 'title']"/>
     </div>
   </div>
 </xsl:template>
@@ -169,7 +157,7 @@
 
 <xsl:template name="db2html.admon.image">
   <xsl:param name="node" select="."/>
-  <img>
+  <img style="float: left;">
     <xsl:attribute name="src">
       <xsl:value-of select="$db2html.admon.graphics_path"/>
       <xsl:value-of select="name($node)"/>

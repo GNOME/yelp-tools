@@ -1,4 +1,4 @@
-BEGIN { print "<article>" }
+BEGIN { print "<section>" }
 BEGIN { print "<title>Variable Reference</title>" }
 
 /^[^\#]/ {
@@ -79,5 +79,5 @@ END {
     invarp = 0;
   }
   if(insect) print "</variablelist>";
-  print "</article>";
+  print "</section>";
 }

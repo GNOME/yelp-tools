@@ -1,1 +1,1 @@
-SUBDIRS = xslt
+SUBDIRS = gnome-doc-make xslt

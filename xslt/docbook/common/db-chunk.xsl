@@ -261,7 +261,7 @@
   <para>
     This template will always pass the <parameter>depth_in_chunk</parameter>
     and <parameter>depth_of_chunk</parameter> parameters with appropriate
-    values to the templates it calls.  Additionally, the
+    values to the templates it calls.  Additionally, the parameter
     <parameter>node</parameter> will be passed to all named templates.
   </para>
 </template>
@@ -331,7 +331,24 @@
 
 <xsl:template name="db.chunk.depth-in-chunk">
   <xsl:param name="node" select="."/>
-  <!-- FIXME -->
+  <xsl:variable name="chunk" select="
+    (
+      $node/ancestor::appendix     | $node/ancestor::article      |
+      $node/ancestor::book         | $node/ancestor::bibliography |
+      $node/ancestor::chapter      | $node/ancestor::colophon     |
+      $node/ancestor::glossary     | $node/ancestor::index        |
+      $node/ancestor::part         | $node/ancestor::preface      |
+      $node/ancestor::reference    | $node/ancestor::refentry     |
+      $node/ancestor::refsect1     | $node/ancestor::refsect2     |
+      $node/ancestor::refsect3     | $node/ancestor::refsection   |
+      $node/ancestor::sect1        | $node/ancestor::sect2        |
+      $node/ancestor::sect3        | $node/ancestor::sect4        |
+      $node/ancestor::sect5        | $node/ancestor::section      |
+      $node/ancestor::set          | $node/ancestor::setindex     |
+      $node/ancestor::simplesect
+    )
+    [count(ancestor::*) &lt; $db.chunk.max_depth][last()]"/>
+  <xsl:value-of select="count(ancestor::*[ancestor::* = $chunk])"/>
 </xsl:template>
 
 
@@ -352,7 +369,25 @@
 
 <xsl:template name="db.chunk.depth-of-chunk">
   <xsl:param name="node" select="."/>
-  <!-- FIXME -->
+  <xsl:value-of select="
+    count(
+      (
+        $node/ancestor::appendix     | $node/ancestor::article      |
+        $node/ancestor::book         | $node/ancestor::bibliography |
+        $node/ancestor::chapter      | $node/ancestor::colophon     |
+        $node/ancestor::glossary     | $node/ancestor::index        |
+        $node/ancestor::part         | $node/ancestor::preface      |
+        $node/ancestor::reference    | $node/ancestor::refentry     |
+        $node/ancestor::refsect1     | $node/ancestor::refsect2     |
+        $node/ancestor::refsect3     | $node/ancestor::refsection   |
+        $node/ancestor::sect1        | $node/ancestor::sect2        |
+        $node/ancestor::sect3        | $node/ancestor::sect4        |
+        $node/ancestor::sect5        | $node/ancestor::section      |
+        $node/ancestor::set          | $node/ancestor::setindex     |
+        $node/ancestor::simplesect
+      )
+      [count(ancestor::*) &lt; $db.chunk.max_depth]
+    )"/>
 </xsl:template>
 
 
@@ -369,11 +404,22 @@
       The element for which to find the containing chunk id
     </description>
   </parameter>
+  <parameter>
+    <name>depth_in_chunk</name>
+    <description>
+      The depth of <parameter>node</parameter> in the containing chunk
+    </description>
+  </parameter>
 </template>
 
 <xsl:template name="db.chunk.chunk-id">
   <xsl:param name="node" select="."/>
-  <!-- FIXME -->
+  <xsl:param name="depth_in_chunk">
+    <xsl:call-template name="db.chunk.depth-in-chunk">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:call-template>
+  </xsl:param>
+  <xsl:value-of select="ancestor-or-self::*[$depth_in_chunk + 1]/@id"/>
 </xsl:template>
 
 

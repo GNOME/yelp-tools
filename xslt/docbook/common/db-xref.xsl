@@ -8,7 +8,7 @@
 <doc:title>Common Cross Reference Utilities</doc:title>
 
 
-<!-- == db2html.xref.content =============================================== -->
+<!-- == db.xref.content ==================================================== -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db.xref.content</name>
@@ -22,13 +22,22 @@
   <xsl:param name="target" select="key('idkey', $linkend)"/>
   <xsl:param name="xrefstyle" select="@xrefstyle"/>
   <xsl:choose>
+    <!-- FIXME: should we prefer xrefstyle over xreflabel? -->
     <xsl:when test="$target/@xreflabel">
       <xsl:value-of select="$target/@xreflabel"/>
+    </xsl:when>
+    <xsl:when test="$xrefstyle">
+      <!-- FIXME -->
     </xsl:when>
     <xsl:otherwise>
       <xsl:apply-templates mode="db.xref.content.mode" select="$target"/>
     </xsl:otherwise>
   </xsl:choose>
+</xsl:template>
+
+<!-- FIXME -->
+<xsl:template mode="db.xref.content.mode" match="*">
+  <xsl:call-template name="db.label"/>
 </xsl:template>
 
 <!--
@@ -68,5 +77,46 @@
 </xsl:template>
 
 -->
+
+
+<!-- == db.xref.target ===================================================== -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db.xref.target</name>
+  <description>
+    Generate the target for a cross reference
+  </description>
+  <parameter>
+    <name>linkend</name>
+    <description>
+      The <sgmltag class="attribute">id</sgmltag> of the target element
+    </description>
+  </parameter>
+  <parameter>
+    <name>target</name>
+    <description>
+      The target element
+    </description>
+  </parameter>
+</template>
+
+<xsl:template name="db.xref.target">
+  <xsl:param name="linkend" select="@linkend"/>
+  <xsl:param name="target" select="key('idkey', @linkend)"/>
+  <xsl:variable name="target_chunk_id">
+    <xsl:call-template name="db.chunk.chunk-id">
+      <xsl:with-param name="node" select="$target"/>
+    </xsl:call-template>
+  </xsl:variable>
+  <xsl:choose>
+    <xsl:when test="$target_chunk_id = $linkend">
+      <xsl:value-of select="concat('#', $linkend)"/>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:value-of select="concat($target_chunk_id, $db.chunk.extension,
+                                   '#', $linkend)"/>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
 
 </xsl:stylesheet>

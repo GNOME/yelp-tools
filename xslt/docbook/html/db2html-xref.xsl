@@ -35,7 +35,7 @@
 
 <!-- = link = -->
 <xsl:template match="link">
-  <a>
+  <a class="link">
     <xsl:attribute name="href">
       <xsl:call-template name="db.xref.target">
         <xsl:with-param name="linkend" select="@linkend"/>
@@ -56,25 +56,26 @@
 <xsl:template match="olink">
 <xsl:call-template name="FIXME"/>
 </xsl:template>
-
-<xsl:template name="ulink" match="ulink">
-<xsl:param name="url" select="@url"/>
-<xsl:param name="content" select="false()"/>
-<a href="{$url}">
-<xsl:choose>
-<xsl:when test="$content">
-<xsl:copy-of select="$content"/>
-</xsl:when>
-<xsl:when test="string-length(normalize-space(node())) != 0">
-<xsl:apply-templates/>
-</xsl:when>
-<xsl:otherwise>
-<xsl:value-of select="$url"/>
-</xsl:otherwise>
-</xsl:choose>
-</a>
-</xsl:template>
 -->
+
+<!-- = ulink = -->
+<xsl:template name="ulink" match="ulink">
+  <xsl:param name="url" select="@url"/>
+  <xsl:param name="content" select="false()"/>
+  <a class="ulink" href="{$url}">
+    <xsl:choose>
+      <xsl:when test="$content">
+        <xsl:copy-of select="$content"/>
+      </xsl:when>
+      <xsl:when test="string-length(normalize-space(node())) != 0">
+        <xsl:apply-templates/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$url"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </a>
+</xsl:template>
 
 <!-- = xref = -->
 <xsl:template name="xref" match="xref">
@@ -83,7 +84,7 @@
   <xsl:param name="endterm"   select="@endterm"/>
   <xsl:param name="xrefstyle" select="@xrefstyle"/>
   <xsl:param name="content"   select="false()"/>
-  <a>
+  <a class="xref">
     <xsl:attribute name="href">
       <xsl:call-template name="db.xref.target">
         <xsl:with-param name="linkend" select="$linkend"/>
@@ -107,56 +108,5 @@
     </xsl:choose>
   </a>
 </xsl:template>
-
-<!--
-<xsl:template name="xref.content">
-<xsl:param name="linkend" select="@linkend"/>
-<xsl:param name="target" select="id($linkend)"/>
-<xsl:choose>
-<xsl:when test="$target/@xreflabel">
-<xsl:value-of select="$target/@xreflabel"/>
-</xsl:when>
-<xsl:otherwise>
-<xsl:apply-templates mode="xref.content.mode" select="$target"/>
-</xsl:otherwise>
-</xsl:choose>
-</xsl:template>
-
-<xsl:template mode="xref.content.mode" match="article | reference">
-<xsl:choose>
-<xsl:when test="
-(preceding-sibling::*[name(.) = name(current())])							or
-(following-sibling::*[name(.) = name(current())])							or
-(parent::part/preceding-sibling::part/*[name(.) = name(current())])	or
-(parent::part/following-sibling::part/*[name(.) = name(current())])	">
-<xsl:call-template name="header"/>
-</xsl:when>
-<xsl:otherwise>
-<xsl:call-template name="gettext">
-<xsl:with-param name="msgid" select="'Table of Contents'"/>
-</xsl:call-template>
-</xsl:otherwise>
-</xsl:choose>
-</xsl:template>
-
-<xsl:template mode="xref.content.mode" match="book">
-<xsl:call-template name="gettext">
-<xsl:with-param name="msgid" select="'Table of Contents'"/>
-</xsl:call-template>
-</xsl:template>
-
-<xsl:template mode="xref.content.mode" match="glossentry">
-<xsl:apply-templates mode="xref.content.mode" select="glossterm[1]"/>
-</xsl:template>
-
-<xsl:template mode="xref.content.mode" match="glossterm">
-<xsl:apply-templates/>
-</xsl:template>
-
-<xsl:template mode="xref.content.mode" match="*">
-<xsl:call-template name="header"/>
-</xsl:template>
-
--->
 
 </xsl:stylesheet>

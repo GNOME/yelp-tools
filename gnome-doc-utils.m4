@@ -14,14 +14,14 @@ AC_ARG_WITH([omfdir],
 OMF_DIR="$with_omfdir"
 AC_SUBST(OMF_DIR)
 
-AC_ARG_WITH([doc-formats]
-  AC_HELP_STRING([--with-doc-formats=FORMATS], [list of formats]),,
-  [with_doc-formats='docbook'])
-DOC_FORMATS="$with_doc-formats"
-AC_SUBST(DOC_FORMATS)
+AC_ARG_WITH([help-formats],
+  AC_HELP_STRING([--with-help-formats=FORMATS], [list of formats]),,
+  [with_help_formats='docbook'])
+FORMATS="$with_help_formats"
+AC_SUBST(FORMATS)
 
-GNOME_DOC_RULE='DOC_FORMATS = @DOC_FORMATS@; include $(top_srcdir)/gnome-doc-utils.make'
-AC_SUBST(GNOME_DOC_RULE)
+GNOME_DOC_RULE='include $(top_srcdir)/gnome-doc-utils.make'
+AC_SUBST([GNOME_DOC_RULE])
 
 AC_OUTPUT_COMMANDS([
 gdumk=`pkg-config --variable prefix gnome-doc-utils`/share/gnome-doc-utils/gnome-doc-utils.make

@@ -1,3 +1,29 @@
+2004-07-08  Shaun McCance  <shaunm@gnome.org>
+
+	* configure.in:
+	* doc/Makefile.am:
+	* doc/gnome-doc-make/Makefile.am:
+	* doc/gnome-doc-make/gnome-doc-make.awk:
+	* doc/gnome-doc-make/C/gnome-doc-make.xml:
+	* doc/gnome-doc-make/C/legal.xml:
+	- Hooked up the gnome-doc-make document
+
+	* gnome-doc-utils.m4:
+	- Fixed up the documentation formats argument
+
+	* gnome-doc-utils.make:
+	- Lots and lots of adjustments, more targets working
+
+	* xslt/docbook/common/db-chunk.xsl:
+	- Hooked up some of the chunk utility templates
+
+	* xslt/docbook/common/db-xref.xsl:
+	* xslt/docbook/html/db2html-xref.xsl:
+	- Hooked up some xref stuff
+
+	* xslt/docbook/html/db2html-admon.xsl:
+	- Detableified admonitions, for now
+
 2004-06-13  Shaun McCance  <shaunm@gnome.org>
 
 	* README:
