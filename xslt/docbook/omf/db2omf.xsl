@@ -12,6 +12,42 @@
 <doc:title>DocBook to ScrollKeeper OMF</doc:title>
 
 
+<!-- == db2omf.basename ==================================================== -->
+
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2omf.basename</name>
+  <description>
+    The basename of the referenced document
+  </description>
+</parameter>
+
+<xsl:param name="db2omf.basename"/>
+
+
+<!-- == db2omf.format ====================================================== -->
+
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2omf.format</name>
+  <description>
+    The format of the referenced document, docbook or html
+  </description>
+</parameter>
+
+<xsl:param name="db2omf.format" select="'docbook'"/>
+
+
+<!-- == db2omf.dtd ========================================================= -->
+
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2omf.dtd</name>
+  <description>
+    The FPI of the DocBook version used
+  </description>
+</parameter>
+
+<xsl:param name="db2omf.dtd"/>
+
+
 <!-- == db2omf.lang ======================================================== -->
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
@@ -59,7 +95,6 @@
 
 <xsl:param name="db2omf.omf_in"/>
 
-
 <xsl:variable name="omf_in" select="document($db2omf.omf_in)"/>
 
 
@@ -83,48 +118,50 @@
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
 		       = 'info']"/>
   <omf>
-    <xsl:call-template name="db2omf.creator">
-      <xsl:with-param name="info" select="$info"/>
-    </xsl:call-template>
-    <xsl:call-template name="db2omf.maintainer">
-      <xsl:with-param name="info" select="$info"/>
-    </xsl:call-template>
-    <xsl:call-template name="db2omf.contributor">
-      <xsl:with-param name="info" select="$info"/>
-    </xsl:call-template>
-    <xsl:call-template name="db2omf.title">
-      <xsl:with-param name="info" select="$info"/>
-    </xsl:call-template>
-    <xsl:call-template name="db2omf.date">
-      <xsl:with-param name="info" select="$info"/>
-    </xsl:call-template>
-    <xsl:call-template name="db2omf.version">
-      <xsl:with-param name="info" select="$info"/>
-    </xsl:call-template>
-    <xsl:call-template name="db2omf.subject">
-      <xsl:with-param name="info" select="$info"/>
-    </xsl:call-template>
-    <xsl:call-template name="db2omf.description">
-      <xsl:with-param name="info" select="$info"/>
-    </xsl:call-template>
-    <xsl:call-template name="db2omf.type">
-      <xsl:with-param name="info" select="$info"/>
-    </xsl:call-template>
-    <xsl:call-template name="db2omf.format">
-      <xsl:with-param name="info" select="$info"/>
-    </xsl:call-template>
-    <xsl:call-template name="db2omf.identifier">
-      <xsl:with-param name="info" select="$info"/>
-    </xsl:call-template>
-    <xsl:call-template name="db2omf.language">
-      <xsl:with-param name="info" select="$info"/>
-    </xsl:call-template>
-    <xsl:call-template name="db2omf.relation">
-      <xsl:with-param name="info" select="$info"/>
-    </xsl:call-template>
-    <xsl:call-template name="db2omf.rights">
-      <xsl:with-param name="info" select="$info"/>
-    </xsl:call-template>
+    <resource>
+      <xsl:call-template name="db2omf.creator">
+        <xsl:with-param name="info" select="$info"/>
+      </xsl:call-template>
+      <xsl:call-template name="db2omf.maintainer">
+        <xsl:with-param name="info" select="$info"/>
+      </xsl:call-template>
+      <xsl:call-template name="db2omf.contributor">
+        <xsl:with-param name="info" select="$info"/>
+      </xsl:call-template>
+      <xsl:call-template name="db2omf.title">
+        <xsl:with-param name="info" select="$info"/>
+      </xsl:call-template>
+      <xsl:call-template name="db2omf.date">
+        <xsl:with-param name="info" select="$info"/>
+      </xsl:call-template>
+      <xsl:call-template name="db2omf.version">
+        <xsl:with-param name="info" select="$info"/>
+      </xsl:call-template>
+      <xsl:call-template name="db2omf.subject">
+        <xsl:with-param name="info" select="$info"/>
+      </xsl:call-template>
+      <xsl:call-template name="db2omf.description">
+        <xsl:with-param name="info" select="$info"/>
+      </xsl:call-template>
+      <xsl:call-template name="db2omf.type">
+        <xsl:with-param name="info" select="$info"/>
+      </xsl:call-template>
+      <xsl:call-template name="db2omf.format">
+        <xsl:with-param name="info" select="$info"/>
+      </xsl:call-template>
+      <xsl:call-template name="db2omf.identifier">
+        <xsl:with-param name="info" select="$info"/>
+      </xsl:call-template>
+      <xsl:call-template name="db2omf.language">
+        <xsl:with-param name="info" select="$info"/>
+      </xsl:call-template>
+      <xsl:call-template name="db2omf.relation">
+        <xsl:with-param name="info" select="$info"/>
+      </xsl:call-template>
+      <xsl:call-template name="db2omf.rights">
+        <xsl:with-param name="info" select="$info"/>
+      </xsl:call-template>
+    </resource>
   </omf>
 </xsl:template>
 
@@ -336,7 +373,15 @@
   <xsl:param name="info"
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
 		       = 'info']"/>
-  <!-- FIXME -->
+  <xsl:variable name="date" select="$info/revhistory/revision[1]/date"/>
+  <xsl:if test="not($date)">
+    <xsl:message>
+      <xsl:text>db2omf: Missing revision element in revhistory</xsl:text>
+    </xsl:message>
+  </xsl:if>
+  <date>
+    <xsl:value-of select="$date"/>
+  </date>
 </xsl:template>
 
 
@@ -359,11 +404,11 @@
   <xsl:param name="info"
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
 		       = 'info']"/>
-  <xsl:variable name="identifier"
+  <xsl:variable name="revnumber"
 		select="$info/revhistory/revision[1]/revnumber"/>
   <xsl:variable name="date"
 		select="$info/revhistory/revision[1]/date"/>
-  <xsl:if test="not($identifier)">
+  <xsl:if test="not($revnumber)">
     <xsl:message>
       <xsl:text>db2omf: Missing revnumber element in revhistory</xsl:text>
     </xsl:message>
@@ -375,13 +420,14 @@
   </xsl:if>
   <version>
     <xsl:attribute name="identifier">
-      <xsl:value-of select="$identifier"/>
+      <xsl:value-of select="$revnumber"/>
     </xsl:attribute>
     <xsl:attribute name="date">
       <xsl:value-of select="$date"/>
     </xsl:attribute>
-    <!-- FIXME: -->
+    <!-- FIXME:
     <xsl:attribute name="description"/>
+    -->
   </version>
 </xsl:template>
 
@@ -412,11 +458,7 @@
       <xsl:value-of select="$db2omf.omf_in"/>
     </xsl:message>
   </xsl:if>
-  <subject>
-    <xsl:attribute name="category">
-      <xsl:value-of select="$subject/@category"/>
-    </xsl:attribute>
-  </subject>
+  <xsl:copy-of select="$subject"/>
 </xsl:template>
 
 
@@ -503,7 +545,32 @@
   <xsl:param name="info"
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
 		       = 'info']"/>
-  <!-- FIXME -->
+  <format>
+    <xsl:choose>
+      <xsl:when test="$db2omf.format = 'docbook'">
+        <xsl:attribute name="mime">
+          <xsl:value-of select="text/xml"/>
+        </xsl:attribute>
+        <xsl:attribute name="dtd">
+          <xsl:value-of select="$db2omf.dtd"/>
+        </xsl:attribute>
+      </xsl:when>
+      <xsl:when test="$dbomf.format = 'html'">
+        <xsl:attribute name="mime">
+          <xsl:value-of select="text/html"/>
+        </xsl:attribute>
+        <!-- FIXME:
+        <xsl:attribute name="dtd"/>
+        -->
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:message>
+          <xsl:text>db2omf: Unknown value of db2omf.format: </xsl:text>
+          <xsl:value-of select="$db2omf.format"/>
+        </xsl:message>
+      </xsl:otherwise>
+    </xsl:choose>
+  </format>
 </xsl:template>
 
 
@@ -526,7 +593,35 @@
   <xsl:param name="info"
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
 		       = 'info']"/>
-  <!-- FIXME -->
+  <identifier>
+    <xsl:attribute name="url">
+      <xsl:value-of select="$db2omf.help_dir"/>
+      <xsl:if test="not(substring($db2omf.help_dir,
+                                  string-length($db2omf.help_dir)) = '/')">
+        <xsl:text>/</xsl:text>
+      </xsl:if>
+      <xsl:value-of select="$db2omf.lang"/>
+      <xsl:if test="not(substring($db2omf.lang,
+                                  string-length($db2omf.lang)) = '/')">
+        <xsl:text>/</xsl:text>
+      </xsl:if>
+      <xsl:value-of select="$db2omf.basename"/>
+      <xsl:choose>
+        <xsl:when test="$db2omf.format = 'docbook'">
+          <xsl:text>.xml</xsl:text>
+        </xsl:when>
+        <xsl:when test="$dbomf.format = 'html'">
+          <xsl:text>.html</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:message>
+            <xsl:text>db2omf: Unknown value of db2omf.format: </xsl:text>
+            <xsl:value-of select="$db2omf.format"/>
+          </xsl:message>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:attribute>
+  </identifier>
 </xsl:template>
 
 
@@ -549,7 +644,7 @@
   <xsl:param name="info"
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
 		       = 'info']"/>
-  <!-- FIXME -->
+  <language code="{$db2omf.lang}"/>
 </xsl:template>
 
 
@@ -579,11 +674,7 @@
       <xsl:value-of select="$db2omf.omf_in"/>
     </xsl:message>
   </xsl:if>
-  <relation>
-    <xsl:attribute name="seriesid">
-      <xsl:value-of select="$relation/@seriesid"/>
-    </xsl:attribute>
-  </relation>
+  <xsl:copy-of select="$relation"/>
 </xsl:template>
 
 
@@ -606,7 +697,14 @@
   <xsl:param name="info"
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
 		       = 'info']"/>
-  <!-- FIXME -->
+  <xsl:variable name="rights" select="$omf_in/omf/resource/rights"/>
+  <xsl:if test="not($rights)">
+    <xsl:message>
+      <xsl:text>db2omf: Missing rights in </xsl:text>
+      <xsl:value-of select="$db2omf.omf_in"/>
+    </xsl:message>
+  </xsl:if>
+  <xsl:copy-of select="$rights"/>
 </xsl:template>
 
 </xsl:stylesheet>

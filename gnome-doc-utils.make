@@ -150,6 +150,11 @@ xsldoc: $(_XSLDOC_C_DOCS)
 ## @@ OMF Files
 
 db2omf_args =									\
+	--stringparam db2omf.basename $(DOC_MODULE)				\
+	--stringparam db2omf.format $(3)					\
+	--stringparam db2omf.dtd						\
+		$(shell grep -h -m 1 PUBLIC $(2) | sed -e 's/.*PUBLIC //')	\
+	--stringparam db2omf.lang $(dir $(2))					\
 	--stringparam db2omf.omf_dir $(OMF_DIR)					\
 	--stringparam db2omf.help_dir $(HELP_DIR)				\
 	--stringparam db2omf.omf_in `pwd`/$(_DOC_OMF_IN)			\
@@ -166,7 +171,7 @@ _DOC_OMF_DB = $(if $(_DOC_OMF_IN),						\
 
 $(_DOC_OMF_DB) : $(_DOC_OMF_IN)
 $(_DOC_OMF_DB) : $(DOC_MODULE)-%.omf : %/$(DOC_MODULE).xml
-	xsltproc -o $@ $(call db2omf_args,$@,$<)
+	xsltproc -o $@ $(call db2omf_args,$@,$<,'docbook')
 
 ## @ _DOC_OMF_HTML
 ## The OMF files for HTML output
@@ -175,7 +180,7 @@ _DOC_OMF_HTML = $(if $(_DOC_OMF_IN),						\
 
 $(_DOC_OMF_HTML) : $(_DOC_OMF_IN)
 $(_DOC_OMF_HTML) : $(DOC_MODULE)-html-%.omf : %/$(DOC_MODULE).xml
-	xsltproc -o $@ $(call db2omf_args,$@,$<)
+	xsltproc -o $@ $(call db2omf_args,$@,$<,'html')
 
 ## @ _DOC_OMF_ALL
 ## All OMF output files to be built
@@ -392,7 +397,6 @@ check:							\
 	$(if $(_DOC_OMF_IN),check-omf)
 check-doc: $(_DOC_C_DOCS) $(_DOC_LC_DOCS)
 	for lc in C $(DOC_LINGUAS); do \
-	  xmllint --xinclude $$lc/$(DOC_MODULE).xml | less; \
 	  xmllint --noout --xinclude --postvalid $$lc/$(DOC_MODULE).xml; \
 	done
 check-omf: $(_DOC_OMF_ALL)

@@ -1,5 +1,11 @@
 2004-10-04  Shaun McCance  <shaunm@gnome.org>
 
+	* gnome-doc-utils.make:
+	* xslt/docbook/omf/db2omf.xsl:
+	- More work on db2omf, 'make check-omf' now passes
+
+2004-10-04  Shaun McCance  <shaunm@gnome.org>
+
 	* configure.in:
 	* xslt/docbook/common/Makefile.am:
 	* xslt/gettext/Makefile.am:
