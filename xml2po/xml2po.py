@@ -239,6 +239,13 @@ def startTagForNode(node):
                     params += ' %s="%s"' % (p.name, p.content)
     return result+params
         
+def endTagForNode(node):
+    if not node:
+        return 0
+
+    result = node.name
+    return result
+        
 def isFinalNode(node):
     if automatic:
         auto = autoNodeIsFinal(node)
@@ -301,7 +308,6 @@ def getCommentForNode(node):
 
 def replaceNodeContentsWithText(node,text):
     """Replaces all subnodes of a node with contents of text treated as XML."""
-    #print >> sys.stderr, text
     if node.children:
         starttag = startTagForNode(node)
         endtag = node.name
@@ -373,45 +379,52 @@ def worthOutputting(node):
 
     return autoNodeIsFinal(node)
     
-def processElementTag(node):
+def processElementTag(node, replacements, restart = 0):
     """Process node with node.type == 'element'."""
     if node.type == 'element':
         outtxt = ''
-
-        if not worthOutputting(node):
-            child = node.children
-            while child:
-                outtxt += doSerialize(child)
-                child = child.next
+        if restart:
+            myrepl = []
         else:
-            PlaceHolder = 0
-            submsgs = {}
+            myrepl = replacements
 
-            child = node.children
-            while child:
-                if isFinalNode(child):
-                    PlaceHolder += 1
-                    (starttag, submsg, endtag) = processElementTag(child)
-                    outtxt += '<placeholder-%d/>' % (PlaceHolder)
-                    if mode=='merge':
-                        submsgs[PlaceHolder] = (starttag, getTranslation(submsg, isSpacePreserveNode(node)), endtag)
+        submsgs = []
+
+        child = node.children
+        while child:
+            if isFinalNode(child) or (len(myrepl)==0 and child.type == 'element' and worthOutputting(child)):
+                myrepl.append(processElementTag(child, myrepl, 1))
+                outtxt += '<placeholder-%d/>' % (len(myrepl))
+            else:
+                if child.type == 'element':
+                    (starttag, content, endtag, translation) = processElementTag(child, myrepl, 0)
+                    outtxt += '<%s>%s</%s>' % (starttag, content, endtag)
                 else:
                     outtxt += doSerialize(child)
 
-                child = child.next
+            child = child.next
 
-            if mode=='merge':
-                outtxt = getTranslation(outtxt, isSpacePreserveNode(node))
-                for i in submsgs.keys():
-                    outtxt = outtxt.replace('<placeholder-%d/>' % (i), ''.join(submsgs[i]))
-                if worthOutputting(node):
-                    replaceNodeContentsWithText(node, outtxt)
-            elif worthOutputting(node):
-                msg.outputMessage(outtxt, node.lineNo(), getCommentForNode(node), isSpacePreserveNode(node), tag = node.name)
+        if mode == 'merge':
+            translation = getTranslation(outtxt, isSpacePreserveNode(node))
+        else:
+            translation = outtxt
+        starttag = startTagForNode(node)
+        endtag = endTagForNode(node)
 
-        starttag = '<' + startTagForNode(node) + '>'
-        endtag = '</' + node.name + '>'
-        return (starttag, outtxt, endtag)
+        if restart or worthOutputting(node):
+            i = 0
+            while i < len(myrepl):
+                replacement = '<%s>%s</%s>' % (myrepl[i][0], myrepl[i][3], myrepl[i][2])
+                i += 1
+                translation = translation.replace('<placeholder-%d/>' % (i), replacement)
+
+            if worthOutputting(node):
+                if mode == 'merge':
+                    replaceNodeContentsWithText(node, translation)
+                else:
+                    msg.outputMessage(outtxt, node.lineNo(), getCommentForNode(node), isSpacePreserveNode(node), tag = node.name)
+
+        return (starttag, outtxt, endtag, translation)
     else:
         raise Exception("You must pass node with node.type=='element'.")
 
@@ -460,7 +473,9 @@ def doSerialize(node):
     elif node.type == 'text':
         return node.serialize('utf-8')
     elif node.type == 'element':
-        return ''.join(processElementTag(node))
+        repl = []
+        (starttag, content, endtag, translation) = processElementTag(node, repl, 1)
+        return '<%s>%s</%s>' % (starttag, content, endtag)
     else:
         child = node.children
         outtxt = ''

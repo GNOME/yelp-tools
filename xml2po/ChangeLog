@@ -1,3 +1,14 @@
+2005-03-27  Danilo Šegan  <dsegan@gmx.net>
+
+	* modes/docbook.py (docbookXmlMode.getFinalTags): Add 'title' back
+	to final tags.
+
+	* examples/two.po: Update.
+
+	* xml2po.py (endTagForNode): Added.
+	(processElementTag): Another rewrite.
+	(doSerialize): Adjust for new processElementTag semantics.
+
 2005-03-08  Funda Wang  <fundawang@linux.net.cn>
 
 	Fix #169577.

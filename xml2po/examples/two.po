@@ -1,6 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: упутство\n"
+"POT-Creation-Date: 2005-03-27 16:23+0200\n"
 "PO-Revision-Date: 2005-03-01 15:44+0100\n"
 "Last-Translator: Данило Шеган <danilo@prevod.org>\n"
 "Language-Team: Serbian (sr) <serbiangnome-lista@nongnu.org>\n"
@@ -8,11 +9,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: two.xml:13
+#: two.xml:11 (nonfinaltag)
+msgid "Translators, enter your name"
+msgstr "Данило Шеган"
+
+#: two.xml:13 (title)
 msgid "Introduction"
 msgstr "Увод"
 
-#: two.xml:15
+#: two.xml:15 (para)
 msgid ""
 "<application>Bug Buddy</application> is a tool which will guide you through "
 "making a bug report as painlessly as possible. You can alter things at any "
@@ -26,17 +31,17 @@ msgstr ""
 "документ описује издање 2.1.6 <application>Брата буба</application>: "
 "приметите да је оно знатно измењено у односу на ранија издања."
 
-#: two.xml:25
+#: two.xml:25 (title)
 msgid "Big Bug Buddy Changes"
 msgstr "Много измена у Брату буба"
 
-#: two.xml:26
+#: two.xml:26 (para)
 msgid ""
 "<application>Bug Buddy</application> has undergone major changes recently."
 msgstr ""
 "<application>Брат буба</application> је недавно претрпео велики број измена."
 
-#: two.xml:30
+#: two.xml:30 (para)
 msgid ""
 "The Gnome bug tracking system is moving from the email-based debbugs "
 "installation which it originally used to the web-based <ulink url=\"http://"
@@ -56,7 +61,7 @@ msgstr ""
 "размењује са бубаждајама.  Пријаве ће ићи у стари систем за праћење грешака "
 "у Гному једино ако бубаждаја не садржи категорију за грешку."
 
-#: two.xml:41
+#: two.xml:41 (para)
 msgid ""
 "This also means that <application>Bug Buddy</application> has currently lost "
 "the ability to send bugs to the KDE and Debian bug trackers directly. Note "
@@ -68,7 +73,7 @@ msgstr ""
 "Дебијану. Приметите да и даље можете сачувати извештаје у датотеци и затим "
 "сами је послати."
 
-#: two.xml:54
+#: two.xml:54 (para)
 msgid ""
 "Open the <guimenu>main GNOME menu</guimenu> and select "
 "<menuchoice><guimenu>Applications</guimenu><guisubmenu>Programming</"
@@ -78,7 +83,7 @@ msgstr ""
 "<menuchoice><guimenu>Програми</guimenu><guisubmenu>Програмирање</"
 "guisubmenu><guimenuitem>Пријава грешака</guimenuitem></menuchoice> ."
 
-#: two.xml:66
+#: two.xml:66 (para)
 msgid ""
 "Run <command>bug-buddy</command> at the prompt in a terminal such as "
 "<application>gnome-terminal</application> or <application>xterm</"
@@ -88,7 +93,7 @@ msgstr ""
 "<application>Гномов терминал</application> или <application>xterm</"
 "application>."
 
-#: two.xml:74
+#: two.xml:74 (para)
 msgid ""
 "If you are using <application>Nautilus</application> you can double-click "
 "your mouse on a core file to start it."
@@ -96,7 +101,7 @@ msgstr ""
 "Ако користите <application>Наутилуса</application> можете двокликнути вашим "
 "мишем на датотеку меморије да га покренете."
 
-#: two.xml:81
+#: two.xml:81 (para)
 msgid ""
 "When a GNOME program experiences a bad crash, a <guilabel>crash dialog box</"
 "guilabel> is displayed. If <application>Bug Buddy</application> is present "
@@ -112,7 +117,7 @@ msgstr ""
 "који је прснуо. Продужавање одавде ће покренути <application>Брата буба</"
 "application>."
 
-#: two.xml:49
+#: two.xml:49 (para)
 msgid ""
 "<application>Bug Buddy</application> can be started in a variety of ways: "
 "<placeholder-1/>"
@@ -120,7 +125,7 @@ msgstr ""
 "<application>Брат буба</application> се може покренути на више начина: "
 "<placeholder-1/>"
 
-#: two.xml:94
+#: two.xml:94 (para)
 msgid ""
 "<application>Bug Buddy</application> is a very structured program. At any "
 "stage you can continue forward or head backwards to correct earlier details, "
@@ -133,9 +138,6 @@ msgstr ""
 "да прикажете овај документ."
 
 #. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
-#: two.xml:0
+#: two.xml:0 (None)
 msgid "translator-credits"
 msgstr "Данило Шеган <danilo@kvota.net>"
-
-#~ msgid "Translators, enter your name"
-#~ msgstr "Данило Шеган"

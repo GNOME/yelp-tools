@@ -55,7 +55,7 @@ class docbookXmlMode:
     def getFinalTags(self):
         "Returns array of tags to be considered 'final'."
         return ['para', 'formalpara', 'simpara',
-                'releaseinfo', 'revnumber',
+                'releaseinfo', 'revnumber', 'title',
                 'date', 'term', 'programlisting'] + self.lists
 
     def getSpacePreserveTags(self):
