@@ -12,7 +12,6 @@ htmlargs =							\
 
 $(htmls) : html/% : %.xml
 	@mkdir -p $@
-	xmllint $< > $@/$<
 	xsltproc $(call htmlargs,$@) $<
 
 test: $(htmls)

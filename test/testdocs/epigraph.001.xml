@@ -3,7 +3,7 @@
                   "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd">
 <chapter>
 <chapterinfo>
-<title>Unit Test: article.001.xml</title>
+<title>Unit Test: epigraph.001.xml</title>
 <releaseinfo role="CVS">$Id$</releaseinfo>
 <authorgroup>
 <author><firstname>Norman</firstname><surname>Walsh</surname>
@@ -12,7 +12,7 @@
 <author><firstname>Jane</firstname><surname>Doe</surname></author>
 </authorgroup>
 </chapterinfo>
-<title>Unit Test: article.001.xml</title>
+<title>Unit Test: epigraph.001.xml</title>
 <epigraph><attribution>H. W. Longfellow</attribution>
 <para>If we could read the secret history
 of our enemies, we should find in in each one's life sorrow and

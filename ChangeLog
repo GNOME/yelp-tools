@@ -1,6 +1,26 @@
 2004-05-24  Shaun McCance  <shaunm@gnome.org>
 
 	* test/testdocs/Makefile:
+	- Removed the xmllint of the source
+
+	* test/testdocs/README:
+	* test/testdocs/classsynopsis.x001.xml:
+	* test/testdocs/epigraph.001.xml:
+	- Added classsynopsis.x001.xml
+	- Corrected the title of epigraph.001.xml
+
+	* test/testdocs/db2html.xsl:
+	- Got the title override for the source block better
+
+	* xslt/docbook/html/db2html-classsynopsis.xsl:
+	- Implemented classsynopsis for C++
+
+	* xslt/docbook/html/db2html-funcsynopsis.xsl:
+	- Match initializer
+
+2004-05-24  Shaun McCance  <shaunm@gnome.org>
+
+	* test/testdocs/Makefile:
 	* test/testdocs/db2html:
 	- Made a custom db2html to show the source
 

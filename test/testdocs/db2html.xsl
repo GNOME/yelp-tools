@@ -5,7 +5,7 @@
 
 <xsl:include href="../../xslt/docbook/html/db2html.xsl"/>
 
-<xsl:template match="articleinfo/title | bookinfo/title">
+<xsl:template match="/*/*[1]/title | /*/title">
   <xsl:param name="title_for" select=".."/>
   <xsl:param name="depth_in_chunk">
     <xsl:call-template name="db.chunk.depth-in-chunk"/>

@@ -8,6 +8,12 @@
 <doc:title>Class Synopses</doc:title>
 
 
+<!-- == Variables ========================================================== -->
+<!-- == (possible candidates for params) == -->
+
+<xsl:variable name="cpp.tab" select="'&#160;&#160;&#160;&#160;'"/>
+
+
 <!-- == db2html.classsynopsis.language ===================================== -->
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
@@ -47,18 +53,23 @@
     </xsl:choose>
   </xsl:param>
 
-  <xsl:choose>
-    <xsl:when test="$language = 'cpp'">
-      <xsl:apply-templates mode="db2html.classsynopsis.cpp.mode" select="."/>
-    </xsl:when>
-    <xsl:otherwise>
-      <xsl:message>
-        <xsl:text>No information about the language '</xsl:text>
-        <xsl:value-of select="$language"/>
-        <xsl:text>' for classsynopsis.</xsl:text>
-      </xsl:message>
-    </xsl:otherwise>
-  </xsl:choose>
+  <div class="{local-name(.)}">
+    <xsl:call-template name="db2html.anchor"/>
+    <pre class="$language">
+      <xsl:choose>
+        <xsl:when test="$language = 'cpp'">
+          <xsl:apply-templates mode="db2html.class.cpp.mode" select="."/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:message>
+            <xsl:text>No information about the language '</xsl:text>
+            <xsl:value-of select="$language"/>
+            <xsl:text>' for classsynopsis.</xsl:text>
+          </xsl:message>
+        </xsl:otherwise>
+      </xsl:choose>
+    </pre>
+  </div>
 </xsl:template>
 
 <!-- = classsynopsisinfo = -->
@@ -66,95 +77,237 @@
   <xsl:apply-templates/>
 </xsl:template>
 
-
-<!-- == db2html.classsynopsis.cpp.mode ===================================== -->
-
-<!--
-<xsl:template mode="db2html.classsynopsis.cpp.mode" match="*">
-	<xsl:apply-templates select="."/>
+<!-- = ooclass = -->
+<xsl:template match="ooclass">
+  <span class="ooclass" style="font-family: monospace;">
+    <xsl:for-each select="modifier | classname">
+      <xsl:if test="position() != 1">
+        <xsl:text> </xsl:text>
+      </xsl:if>
+      <xsl:apply-templates select="."/>
+    </xsl:for-each>
+  </span>
 </xsl:template>
 
-<xsl:template mode="db2html.classsynopsis.cpp.mode" match="classsynopsis">
-	<xsl:call-template name="FIXME"/>
+<!-- = ooexception = -->
+<xsl:template match="ooexception">
+  <span class="ooexception" style="font-family: monospace;">
+    <xsl:for-each select="modifier | exceptionname">
+      <xsl:if test="position() != 1">
+        <xsl:text> </xsl:text>
+      </xsl:if>
+      <xsl:apply-templates select="."/>
+    </xsl:for-each>
+  </span>
 </xsl:template>
 
-<xsl:template mode="db2html.classsynopsis.cpp.mode" match="classsynopsisinfo">
-	<xsl:call-template name="FIXME"/>
+<!-- = oointerface = -->
+<xsl:template match="oointerface">
+  <span class="oointerface" style="font-family: monospace;">
+    <xsl:for-each select="modifier | interfacename">
+      <xsl:if test="position() != 1">
+        <xsl:text> </xsl:text>
+      </xsl:if>
+      <xsl:apply-templates select="."/>
+    </xsl:for-each>
+  </span>
 </xsl:template>
 
-<xsl:template mode="db2html.classsynopsis.cpp.mode" match="classname">
-	<xsl:call-template name="FIXME"/>
+
+<!-- == class.cpp.modifier ================================================= -->
+
+<xsl:template name="class.cpp.modifier" doc:private="true">
+  <!-- For C++, we expect the first modifier to be the visibility -->
+  <xsl:if test="../self::classsynopsis">
+    <xsl:variable name="pres" select="
+                  preceding-sibling::constructorsynopsis |
+                  preceding-sibling::destructorsynopsis  |
+                  preceding-sibling::fieldsynopsis       |
+                  preceding-sibling::methodsynopsis      "/>
+    <xsl:if test="not($pres[modifier][last()][modifier[1] = current()/modifier[1]])">
+      <xsl:if test="$pres">
+        <xsl:text>&#x000A;</xsl:text>
+      </xsl:if>
+      <xsl:apply-templates select="modifier[1]"/>
+      <xsl:text>:&#x000A;</xsl:text>
+    </xsl:if>
+  </xsl:if>
 </xsl:template>
 
-<xsl:template mode="db2html.classsynopsis.cpp.mode" match="constructorsynopsis">
-	<xsl:call-template name="FIXME"/>
+
+<!-- == db2html.class.cpp.mode ============================================= -->
+
+<xsl:template mode="db2html.class.cpp.mode" match="*">
+  <xsl:apply-templates select="."/>
 </xsl:template>
 
-<xsl:template mode="db2html.classsynopsis.cpp.mode" match="destructorsynopsis">
-	<xsl:call-template name="FIXME"/>
+<!-- = classsynopsis = -->
+<xsl:template mode="db2html.class.cpp.mode" match="classsynopsis">
+  <xsl:if test="@class = 'class' or not(@class)">
+    <span class="ooclass">
+      <xsl:for-each select="ooclass[1]/modifier">
+        <xsl:if test="position() != 1">
+          <xsl:text> </xsl:text>
+        </xsl:if>
+        <xsl:apply-templates mode="db2html.class.cpp.mode" select="."/>
+      </xsl:for-each>
+      <xsl:text> class </xsl:text>
+      <xsl:apply-templates mode="db2html.class.cpp.mode"
+                           select="ooclass[1]/classname"/>
+    </span>
+    <xsl:if test="ooclass[2]">
+      <xsl:text> : </xsl:text>
+      <xsl:for-each select="ooclass[position() != 1]">
+        <xsl:if test="position() != 1">
+          <xsl:text>, </xsl:text>
+        </xsl:if>
+        <xsl:apply-templates mode="db2html.class.cpp.mode" select="."/>
+      </xsl:for-each>
+    </xsl:if>
+    <xsl:text>&#x000A;{&#x000A;</xsl:text>
+    <xsl:apply-templates mode="db2html.class.cpp.mode"
+                         select="
+                           classsynopsisinfo   |
+                           constructorsynopsis | destructorsynopsis |
+                           fieldsynopsis       | methodsynopsis     "/>
+    <xsl:text>}&#x000A;</xsl:text>
+  </xsl:if>
 </xsl:template>
 
-<xsl:template mode="db2html.classsynopsis.cpp.mode" match="exceptionname">
-	<xsl:call-template name="FIXME"/>
+<!-- = constructorsynopsis = -->
+<xsl:template mode="db2html.class.cpp.mode" match="constructorsynopsis">
+  <xsl:call-template name="class.cpp.modifier"/>
+  <xsl:value-of select="$cpp.tab"/>
+  <xsl:for-each select="modifier[position() != 1]">
+    <xsl:if test="position() != 1">
+      <xsl:text> </xsl:text>
+    </xsl:if>
+    <xsl:apply-templates mode="db2html.class.cpp.mode" select="."/>
+  </xsl:for-each>
+  <xsl:if test="modifier[2]">
+    <xsl:text> </xsl:text>
+  </xsl:if>
+  <xsl:choose>
+    <xsl:when test="methodname">
+      <xsl:apply-templates mode="db2html.class.cpp.mode" select="methodname"/>
+    </xsl:when>
+    <xsl:when test="../self::classsynopsis[ooclass]">
+      <span class="methodname">
+        <xsl:value-of select="../ooclass/classname"/>
+      </span>
+    </xsl:when>
+  </xsl:choose>
+  <xsl:text>(</xsl:text>
+  <xsl:for-each select="methodparam">
+    <xsl:if test="position() != 1">
+      <xsl:text>, </xsl:text>
+    </xsl:if>
+    <xsl:apply-templates mode="db2html.class.cpp.mode" select="."/>
+  </xsl:for-each>
+  <xsl:text>);&#x000A;</xsl:text>
 </xsl:template>
 
-<xsl:template mode="db2html.classsynopsis.cpp.mode" match="fieldsynopsis">
-	<xsl:call-template name="FIXME"/>
+<!-- = destructorsynopsis = -->
+<xsl:template mode="db2html.class.cpp.mode" match="destructorsynopsis">
+  <xsl:call-template name="class.cpp.modifier"/>
+  <xsl:value-of select="$cpp.tab"/>
+  <xsl:for-each select="modifier[position() != 1]">
+    <xsl:if test="position() != 1">
+      <xsl:text> </xsl:text>
+    </xsl:if>
+    <xsl:apply-templates mode="db2html.class.cpp.mode" select="."/>
+  </xsl:for-each>
+  <xsl:if test="modifier[2]">
+    <xsl:text> </xsl:text>
+  </xsl:if>
+  <xsl:choose>
+    <xsl:when test="methodname">
+      <xsl:apply-templates mode="db2html.class.cpp.mode" select="methodname"/>
+    </xsl:when>
+    <xsl:when test="../self::classsynopsis[ooclass]">
+      <span class="methodname">
+        <xsl:text>~</xsl:text>
+        <xsl:value-of select="../ooclass/classname"/>
+      </span>
+    </xsl:when>
+  </xsl:choose>
+  <xsl:text>(</xsl:text>
+  <xsl:for-each select="methodparam">
+    <!-- FIXME: should we do each methodparam on its own line? -->
+    <xsl:if test="position() != 1">
+      <xsl:text>, </xsl:text>
+    </xsl:if>
+    <xsl:apply-templates mode="db2html.class.cpp.mode" select="."/>
+  </xsl:for-each>
+  <xsl:text>);&#x000A;</xsl:text>
 </xsl:template>
 
-<xsl:template mode="db2html.classsynopsis.cpp.mode" match="initializer">
-	<xsl:call-template name="FIXME"/>
+<!-- = fieldsynopsis = -->
+<xsl:template mode="db2html.class.cpp.mode" match="fieldsynopsis">
+  <xsl:call-template name="class.cpp.modifier"/>
+  <xsl:value-of select="$cpp.tab"/>
+  <xsl:for-each select="modifier[position() != 1]">
+    <xsl:if test="position() != 1">
+      <xsl:text> </xsl:text>
+    </xsl:if>
+    <xsl:apply-templates mode="db2html.class.cpp.mode" select="."/>
+  </xsl:for-each>
+  <xsl:if test="modifier[2]">
+    <xsl:text> </xsl:text>
+  </xsl:if>
+  <xsl:if test="type">
+    <xsl:apply-templates mode="db2html.class.cpp.mode" select="type"/>
+  </xsl:if>
+  <xsl:if test="modifier[2] or type">
+    <xsl:text> </xsl:text>
+  </xsl:if>
+  <xsl:apply-templates mode="db2html.class.cpp.mode" select="varname"/>
+  <xsl:if test="initializer">
+    <xsl:text> = </xsl:text>
+    <xsl:apply-templates mode="db2html.class.cpp.mode" select="initializer"/>
+  </xsl:if>
+  <xsl:text>;&#x000A;</xsl:text>
 </xsl:template>
 
-<xsl:template mode="db2html.classsynopsis.cpp.mode" match="interfacename">
-	<xsl:call-template name="FIXME"/>
+<!-- = methodparam = -->
+<xsl:template mode="db2html.class.cpp.mode" match="methodparam">
+  <span class="methodparam">
+    <xsl:for-each select="*">
+      <xsl:if test="position() != 1">
+        <xsl:text> </xsl:text>
+      </xsl:if>
+      <xsl:apply-templates mode="db2html.class.cpp.mode" select="."/>
+    </xsl:for-each>
+  </span>
 </xsl:template>
 
-<xsl:template mode="db2html.classsynopsis.cpp.mode" match="methodname">
-	<xsl:call-template name="FIXME"/>
+<!-- = methodsynopsis = -->
+<xsl:template mode="db2html.class.cpp.mode" match="methodsynopsis">
+  <xsl:call-template name="class.cpp.modifier"/>
+  <xsl:value-of select="$cpp.tab"/>
+  <xsl:for-each select="modifier[position() != 1]">
+    <xsl:if test="position() != 1">
+      <xsl:text> </xsl:text>
+    </xsl:if>
+    <xsl:apply-templates mode="db2html.class.cpp.mode" select="."/>
+  </xsl:for-each>
+  <xsl:if test="modifier[2]">
+    <xsl:text> </xsl:text>
+  </xsl:if>
+  <xsl:apply-templates mode="db2html.class.cpp.mode" select="type | void"/>
+  <xsl:text> </xsl:text>
+  <xsl:apply-templates mode="db2html.class.cpp.mode" select="methodname"/>
+  <xsl:text>(</xsl:text>
+  <xsl:for-each select="methodparam">
+    <xsl:if test="position() != 1">
+      <xsl:text>, </xsl:text>
+    </xsl:if>
+    <xsl:apply-templates mode="db2html.class.cpp.mode" select="."/>
+  </xsl:for-each>
+  <xsl:text>);&#x000A;</xsl:text>
 </xsl:template>
 
-<xsl:template mode="db2html.classsynopsis.cpp.mode" match="methodparam">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
 
-<xsl:template mode="db2html.classsynopsis.cpp.mode" match="methodsynopsis">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="db2html.classsynopsis.cpp.mode" match="modifier">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="db2html.classsynopsis.cpp.mode" match="ooclass">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="db2html.classsynopsis.cpp.mode" match="ooexception">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="db2html.classsynopsis.cpp.mode" match="oointerface">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="db2html.classsynopsis.cpp.mode" match="parameter">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="db2html.classsynopsis.cpp.mode" match="type">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="db2html.classsynopsis.cpp.mode" match="varname">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="db2html.classsynopsis.cpp.mode" match="void">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
--->
 <!-- == classsynopsis.idl ================================================== -->
 <!--
 <xsl:template mode="classsynopsis.idl" match="*">
@@ -213,9 +366,6 @@
 	<xsl:call-template name="FIXME"/>
 </xsl:template>
 
-<xsl:template mode="classsynopsis.idl" match="ooclass">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
 
 <xsl:template mode="classsynopsis.idl" match="ooexception">
 	<xsl:call-template name="FIXME"/>
@@ -345,12 +495,6 @@
 	</span>
 </xsl:template>
 
-<xsl:template mode="classsynopsis.java" match="ooclass">
-	<span class="{name(.)}">
-		<xsl:apply-templates mode="classsynopsis.java" select="classname"/>
-	</span>
-</xsl:template>
-
 <xsl:template mode="classsynopsis.java" match="oointerface">
 	<span class="{name(.)}">
 		<xsl:apply-templates mode="classsynopsis.java" select="interfacename"/>
@@ -423,10 +567,6 @@
 </xsl:template>
 
 <xsl:template mode="classsynopsis.python" match="modifier">
-	<xsl:call-template name="FIXME"/>
-</xsl:template>
-
-<xsl:template mode="classsynopsis.python" match="ooclass">
 	<xsl:call-template name="FIXME"/>
 </xsl:template>
 
