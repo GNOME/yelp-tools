@@ -1,6 +1,13 @@
 2004-07-22  Shaun McCance  <shaunm@gnome.org>
 
 	* gnome-doc-utils.make:
+	- _DOC_LINGUAS is not DOC_LINGUAS
+	- ($patsubst is not $(patsubst
+	- Sigh
+
+2004-07-22  Shaun McCance  <shaunm@gnome.org>
+
+	* gnome-doc-utils.make:
 	- echo is not mkdir
 
 	* xslt/docbook/html/db2html-callout.xsl:

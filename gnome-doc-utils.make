@@ -199,7 +199,7 @@ _DOC_C_DOCS =								\
 ## @ _DOC_C_HTML
 ## All HTML documentation in the C locale
 # FIXME: probably have to shell escape to determine the file names
-_DOC_C_HTML = ($patsubst %.xml,%.html,$(_DOC_C_MODULE))
+_DOC_C_HTML = $(patsubst %.xml,%.html,$(_DOC_C_MODULE))
 
 
 ################################################################################
@@ -250,11 +250,11 @@ _DOC_LC_DOCS =								\
 
 # FIXME: fix the dependancy
 # FIXME: hook xml2po up
-$(_DOC_LC_DOCS) : $(_DOC_LINGUAS)
+$(_DOC_LC_DOCS) : $(DOC_LINGUAS)
 $(_DOC_LC_DOCS) : $(_DOC_C_DOCS)
 	cp C/$(shell echo $@ | sed -e 's/^.*\///') $@
 
-$(_DOC_LINGUAS):
+$(DOC_LINGUAS):
 	if ! test -d $@; then mkdir $@; fi
 
 ################################################################################
