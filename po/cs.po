@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-13 11:16+0100\n"
-"PO-Revision-Date: 2004-11-13 12:07+0100\n"
+"POT-Creation-Date: 2004-11-20 11:11+0100\n"
+"PO-Revision-Date: 2004-11-20 16:21+0100\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -259,57 +259,65 @@ msgid "Message Origin"
 msgstr "Původ zprávy"
 
 #: xslt/gettext/l10n.xml.in.h:47
+msgid "Name"
+msgstr "Jméno"
+
+#: xslt/gettext/l10n.xml.in.h:48
 msgid "Note"
 msgstr "Upozornění"
 
 #. This is an abbreviated form of 'Message Origin'.
 #. Feel free to use the same word/phrase for both.
-#: xslt/gettext/l10n.xml.in.h:50
+#: xslt/gettext/l10n.xml.in.h:51
 msgid "Origin"
 msgstr "Původ"
 
-#: xslt/gettext/l10n.xml.in.h:51
+#: xslt/gettext/l10n.xml.in.h:52
 msgid "Preface"
 msgstr "Předmluva"
 
-#: xslt/gettext/l10n.xml.in.h:52
+#: xslt/gettext/l10n.xml.in.h:53
 msgid "Reference"
 msgstr "Odkaz"
 
-#: xslt/gettext/l10n.xml.in.h:53
+#: xslt/gettext/l10n.xml.in.h:54
 msgid "Release Information"
 msgstr "Informace o vydání"
 
-#: xslt/gettext/l10n.xml.in.h:54
+#: xslt/gettext/l10n.xml.in.h:55
 msgid "Revision History"
 msgstr "Historie revizí"
 
-#: xslt/gettext/l10n.xml.in.h:55
+#: xslt/gettext/l10n.xml.in.h:56
 msgid "See"
 msgstr "Viz"
 
-#: xslt/gettext/l10n.xml.in.h:56
+#: xslt/gettext/l10n.xml.in.h:57
 msgid "See Also"
 msgstr "Viz také"
 
-#: xslt/gettext/l10n.xml.in.h:57
+#: xslt/gettext/l10n.xml.in.h:58
 msgid "Set Index"
 msgstr "Rejstřík sady"
 
-#. Used for a link to a table of contents.
 #: xslt/gettext/l10n.xml.in.h:59
+msgid "Synopsis"
+msgstr "Souhrn"
+
+#. Used for a link to a table of contents.
+#: xslt/gettext/l10n.xml.in.h:61
 msgid "Table of Contents"
 msgstr "Obsah"
 
-#: xslt/gettext/l10n.xml.in.h:60
+#: xslt/gettext/l10n.xml.in.h:62
 msgid "Tip"
 msgstr "Tip"
 
 #. Used as a header for title column in the revision history.
-#: xslt/gettext/l10n.xml.in.h:62
+#: xslt/gettext/l10n.xml.in.h:64
 msgid "Title"
 msgstr "Název"
 
-#: xslt/gettext/l10n.xml.in.h:63
+#: xslt/gettext/l10n.xml.in.h:65
 msgid "Warning"
 msgstr "Varování"
