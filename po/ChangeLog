@@ -1,3 +1,8 @@
+2005-02-16  Alexander Shopov  <ash@contact.bg>
+
+	* bg.po: Updated Bulgarian translation by
+	Alexander Shopov <ash@contact.bg>
+
 2005-02-15  Christophe Merlet  <redfox@redfoxcenter.org>
 
 	* fr.po: Added French translation from
@@ -12,9 +17,9 @@
 	* ne.po: Added Nepali Translation
 
 2005-02-13  David Lodge <dave@cirt.net>
-                                                                                
-        * en_GB.po: Updated British translation.
-                                                                                
+
+	* en_GB.po: Updated British translation.
+
 2005-02-13  Baris Cicek <baris@teamforce.name.tr>
 
 	* tr.po: Added Turkish Translation by Emre Kadioglu

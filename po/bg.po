@@ -7,10 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils-HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-19 19:13+0200\n"
-"PO-Revision-Date: 2004-12-22 16:34-0600\n"
+"POT-Creation-Date: 2005-02-16 19:01+0200\n"
+"PO-Revision-Date: 2005-02-16 19:02+0200\n"
 "Last-Translator: Alexander Shopov <ash@contact.bg>\n"
-"Language-Team: Bulgarian <dict@linux.zonebg.com>\n"
+"Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -97,39 +97,64 @@ msgstr "%t{parent}-%1{number}"
 msgid "format.figure.number.flat"
 msgstr "%1{number}"
 
-#. ‘%t{node}’
+#. (%t{node})
 #: xslt/docbook/common/db-format.xml.in.h:21
+msgid "format.manvolnum"
+msgstr "%t{parent}-%1{number}"
+
+#. Part %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:23
+msgid "format.part.label"
+msgstr "Глава %t{number}"
+
+#. %I{number}
+#: xslt/docbook/common/db-format.xml.in.h:25
+msgid "format.part.number"
+msgstr "%t{parent}-%1{number}"
+
+#. ‘%t{node}’
+#: xslt/docbook/common/db-format.xml.in.h:27
 msgid "format.quote.inner"
 msgstr "«%t{node}»"
 
 #. “%t{node}”
-#: xslt/docbook/common/db-format.xml.in.h:23
+#: xslt/docbook/common/db-format.xml.in.h:29
 msgid "format.quote.outer"
 msgstr "„%t{node}“"
 
+#. %t{title}
+#: xslt/docbook/common/db-format.xml.in.h:31
+msgid "format.refentry.label"
+msgstr "Фигура %t{number}"
+
 #. Section %t{number}
-#: xslt/docbook/common/db-format.xml.in.h:25
+#: xslt/docbook/common/db-format.xml.in.h:33
 msgid "format.section.label"
 msgstr "Дял %t{number}"
 
 #. Table %t{number}
-#: xslt/docbook/common/db-format.xml.in.h:27
+#: xslt/docbook/common/db-format.xml.in.h:35
 msgid "format.table.label"
 msgstr "Таблица %t{number}"
 
 #. %t{parent}-%1{number}
-#: xslt/docbook/common/db-format.xml.in.h:29
+#: xslt/docbook/common/db-format.xml.in.h:37
 msgid "format.table.number"
 msgstr "%t{parent}-%1{number}"
 
 #. %1{number}
-#: xslt/docbook/common/db-format.xml.in.h:31
+#: xslt/docbook/common/db-format.xml.in.h:39
 msgid "format.table.number.flat"
 msgstr "%1{number}"
 
-#. Read the definition for ‘%s{node}’.
-#: xslt/docbook/common/db-format.xml.in.h:33
+#. Read the definition for ‘%s{node}’
+#: xslt/docbook/common/db-format.xml.in.h:41
 msgid "format.tooltip.glossentry"
+msgstr "Виж дефиницията на „%s{node}“"
+
+#. Send email to ‘%s{address}’
+#: xslt/docbook/common/db-format.xml.in.h:43
+msgid "format.tooltip.mailto"
 msgstr "Виж дефиницията на „%s{node}“"
 
 #. Used as a header before a list of authors.
@@ -175,181 +200,171 @@ msgid ""
 msgstr ""
 "<msgstr form=\"0\">Издател</msgstr> <msgstr form=\"1\">Издатели</msgstr>"
 
-#: xslt/gettext/l10n.xml.in.h:13
-msgid "About This Article"
-msgstr "Информация за статията"
-
+#. Link to the titlepage
 #: xslt/gettext/l10n.xml.in.h:14
-msgid "About This Bibliography"
-msgstr "Информация за библиографията"
+msgid "About This Document"
+msgstr "Информация за документа"
 
 #: xslt/gettext/l10n.xml.in.h:15
-msgid "About This Book"
-msgstr "Информация за книгата"
-
-#: xslt/gettext/l10n.xml.in.h:16
-msgid "About This Chapter"
-msgstr "Информация за главата"
-
-#: xslt/gettext/l10n.xml.in.h:17
-msgid "About This Entry"
-msgstr "Информация за статията в речника"
-
-#: xslt/gettext/l10n.xml.in.h:18
-msgid "About This Glossary"
-msgstr "Информация за речника"
-
-#: xslt/gettext/l10n.xml.in.h:19
-msgid "About This Index"
-msgstr "Информация за индекса"
-
-#: xslt/gettext/l10n.xml.in.h:20
-msgid "About This Part"
-msgstr "Информация за частта"
-
-#: xslt/gettext/l10n.xml.in.h:21
-msgid "About This Preface"
-msgstr "Информация за предговора"
-
-#: xslt/gettext/l10n.xml.in.h:22
-msgid "About This Reference"
-msgstr "Информация за препратката"
-
-#: xslt/gettext/l10n.xml.in.h:23
-msgid "About This Section"
-msgstr "Информация за дела"
-
-#: xslt/gettext/l10n.xml.in.h:24
-msgid "About This Set"
-msgstr "Информация за набора"
-
-#: xslt/gettext/l10n.xml.in.h:25
 msgid "Affiliation"
 msgstr "Връзка с физически или юридически лица"
 
 #. This is an abbreviated form of 'Message Audience'.
 #. Feel free to use the same word/phrase for both.
-#: xslt/gettext/l10n.xml.in.h:28
+#: xslt/gettext/l10n.xml.in.h:18
 msgid "Audience"
 msgstr "Адресат"
 
-#: xslt/gettext/l10n.xml.in.h:29
+#: xslt/gettext/l10n.xml.in.h:19
 msgid "Caution"
 msgstr "Внимание"
 
-#: xslt/gettext/l10n.xml.in.h:30
+#: xslt/gettext/l10n.xml.in.h:20
 msgid "Colophon"
 msgstr "Завършек"
 
 #. This is an abbreviated form of 'Table of Contents'.
 #. Feel free to use the same word/phrase for both.
-#: xslt/gettext/l10n.xml.in.h:33
+#: xslt/gettext/l10n.xml.in.h:23
 msgid "Contents"
 msgstr "Съдържание"
 
 #. Used as a header for date column in the revision history.
-#: xslt/gettext/l10n.xml.in.h:35
+#: xslt/gettext/l10n.xml.in.h:25
 msgid "Date"
 msgstr "Дата"
 
-#: xslt/gettext/l10n.xml.in.h:36
+#: xslt/gettext/l10n.xml.in.h:26
 msgid "Dedication"
 msgstr "Посвещение"
 
-#: xslt/gettext/l10n.xml.in.h:37
+#: xslt/gettext/l10n.xml.in.h:27
 msgid "Email"
 msgstr "Електронна поща"
 
-#: xslt/gettext/l10n.xml.in.h:38
+#: xslt/gettext/l10n.xml.in.h:28
 msgid "Important"
 msgstr "Важно"
 
-#: xslt/gettext/l10n.xml.in.h:39
+#: xslt/gettext/l10n.xml.in.h:29
 msgid "Index"
 msgstr "Индекс"
 
-#: xslt/gettext/l10n.xml.in.h:40
+#: xslt/gettext/l10n.xml.in.h:30
 msgid "Legal Notice"
 msgstr "Юридическа информация"
 
 #. This is an abbreviated form of 'Message Level'.
 #. Feel free to use the same word/phrase for both.
-#: xslt/gettext/l10n.xml.in.h:43
+#: xslt/gettext/l10n.xml.in.h:33
 msgid "Level"
 msgstr "Ниво"
 
-#: xslt/gettext/l10n.xml.in.h:44
+#: xslt/gettext/l10n.xml.in.h:34
 msgid "Message Audience"
 msgstr "Адресат на съобщението"
 
-#: xslt/gettext/l10n.xml.in.h:45
+#: xslt/gettext/l10n.xml.in.h:35
 msgid "Message Level"
 msgstr "Ниво на съобщението"
 
-#: xslt/gettext/l10n.xml.in.h:46
+#: xslt/gettext/l10n.xml.in.h:36
 msgid "Message Origin"
 msgstr "Произход на съобщението"
 
-#: xslt/gettext/l10n.xml.in.h:47
+#: xslt/gettext/l10n.xml.in.h:37
 msgid "Name"
 msgstr "Име"
 
-#: xslt/gettext/l10n.xml.in.h:48
+#: xslt/gettext/l10n.xml.in.h:38
 msgid "Note"
 msgstr "Бележка"
 
 #. This is an abbreviated form of 'Message Origin'.
 #. Feel free to use the same word/phrase for both.
-#: xslt/gettext/l10n.xml.in.h:51
+#: xslt/gettext/l10n.xml.in.h:41
 msgid "Origin"
 msgstr "Произход"
 
-#: xslt/gettext/l10n.xml.in.h:52
+#: xslt/gettext/l10n.xml.in.h:42
 msgid "Preface"
 msgstr "Предговор"
 
-#: xslt/gettext/l10n.xml.in.h:53
+#: xslt/gettext/l10n.xml.in.h:43
 msgid "Reference"
 msgstr "Препратка"
 
-#: xslt/gettext/l10n.xml.in.h:54
+#: xslt/gettext/l10n.xml.in.h:44
 msgid "Release Information"
 msgstr "Информация за версията"
 
-#: xslt/gettext/l10n.xml.in.h:55
+#: xslt/gettext/l10n.xml.in.h:45
 msgid "Revision History"
 msgstr "История на промените"
 
-#: xslt/gettext/l10n.xml.in.h:56
+#: xslt/gettext/l10n.xml.in.h:46
 msgid "See"
 msgstr "Виж"
 
-#: xslt/gettext/l10n.xml.in.h:57
+#: xslt/gettext/l10n.xml.in.h:47
 msgid "See Also"
 msgstr "Виж също"
 
-#: xslt/gettext/l10n.xml.in.h:58
+#: xslt/gettext/l10n.xml.in.h:48
 msgid "Set Index"
 msgstr "Индекс"
 
-#: xslt/gettext/l10n.xml.in.h:59
+#: xslt/gettext/l10n.xml.in.h:49
 msgid "Synopsis"
 msgstr "Резюме"
 
 #. Used for a link to a table of contents.
-#: xslt/gettext/l10n.xml.in.h:61
+#: xslt/gettext/l10n.xml.in.h:51
 msgid "Table of Contents"
 msgstr "Съдържание"
 
-#: xslt/gettext/l10n.xml.in.h:62
+#: xslt/gettext/l10n.xml.in.h:52
 msgid "Tip"
 msgstr "Подсказка"
 
 #. Used as a header for title column in the revision history.
-#: xslt/gettext/l10n.xml.in.h:64
+#: xslt/gettext/l10n.xml.in.h:54
 msgid "Title"
 msgstr "Заглавие"
 
-#: xslt/gettext/l10n.xml.in.h:65
+#: xslt/gettext/l10n.xml.in.h:55
 msgid "Warning"
 msgstr "Предупреждение"
+
+#~ msgid "About This Article"
+#~ msgstr "Информация за статията"
+
+#~ msgid "About This Bibliography"
+#~ msgstr "Информация за библиографията"
+
+#~ msgid "About This Book"
+#~ msgstr "Информация за книгата"
+
+#~ msgid "About This Chapter"
+#~ msgstr "Информация за главата"
+
+#~ msgid "About This Entry"
+#~ msgstr "Информация за статията в речника"
+
+#~ msgid "About This Glossary"
+#~ msgstr "Информация за речника"
+
+#~ msgid "About This Index"
+#~ msgstr "Информация за индекса"
+
+#~ msgid "About This Part"
+#~ msgstr "Информация за частта"
+
+#~ msgid "About This Preface"
+#~ msgstr "Информация за предговора"
+
+#~ msgid "About This Reference"
+#~ msgstr "Информация за препратката"
+
+#~ msgid "About This Section"
+#~ msgstr "Информация за дела"
