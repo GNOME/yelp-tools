@@ -12,34 +12,34 @@
 
 <!-- == xsldoc.id ========================================================== -->
 
-<doc:parameter>
-  <doc:name>xsldoc.id</doc:name>
-  <doc:description>
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>xsldoc.id</name>
+  <purpose>
     The id of the top-level element in the output
-  </doc:description>
-</doc:parameter>
+  </purpose>
+</parameter>
 
 <xsl:param name="xsldoc.id"/>
 
 
 <!-- == xsldoc.toplevel_element ============================================ -->
 
-<doc:parameter>
-  <doc:name>xsldoc.toplevel_element</doc:name>
-  <doc:description>
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>xsldoc.toplevel_element</name>
+  <purpose>
     The top-level element in the generated DocBook
-  </doc:description>
-  <doc:para>
-    The <doc:parameter>xsldoc.toplevel_element</doc:parameter> parameter defines
+  </purpose>
+  <para>
+    The <parameter>xsldoc.toplevel_element</parameter> parameter defines
     the top-level element used in the generated DocBook.  Allowed values are
-    <doc:literal>'article'</doc:literal>, <doc:literal>'appendix'</doc:literal>,
-    <doc:literal>'chapter'</doc:literal>, and
-    <doc:literal>'section'</doc:literal>.  The default is
-    <doc:literal>'section'</doc:literal>.  This may also be set by the
-    <doc:xmltag role="xmlpi">xsldoc.toplevel_element</doc:xmltag>
+    <literal>'article'</literal>, <literal>'appendix'</literal>,
+    <literal>'chapter'</literal>, and
+    <literal>'section'</literal>.  The default is
+    <literal>'section'</literal>.  This may also be set by the
+    <xmltag role="xmlpi">xsldoc.toplevel_element</xmltag>
     processing instruction in the source RELAX-NG file.
-  </doc:para>
-</doc:parameter>
+  </para>
+</parameter>
 
 <xsl:param name="xsldoc.toplevel_element">
   <xsl:choose>
@@ -55,12 +55,12 @@
 
 <!-- == xsldoc.checks ====================================================== -->
 
-<doc:template>
-  <doc:name>xsldoc.checks</doc:name>
-  <doc:description>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>xsldoc.checks</name>
+  <purpose>
     Perform some checks on the source file
-  </doc:description>
-</doc:template>
+  </purpose>
+</template>
 
 <xsl:template name="xsldoc.checks">
   <xsl:variable name="stylesheet" select="."/>
@@ -155,12 +155,12 @@
 
 <!-- == xsldoc.summary ===================================================== -->
 
-<doc:template>
-  <doc:name>xsldoc.summary</doc:name>
-  <doc:description>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>xsldoc.summary</name>
+  <purpose>
     Generate the Synopsis section
-  </doc:description>
-</doc:template>
+  </purpose>
+</template>
 
 <xsl:template name="xsldoc.summary">
   <xsl:variable name="parameterQ">
@@ -246,9 +246,9 @@
 
 <!-- == xsldoc.refentry.mode =============================================== -->
 
-<doc:mode>
-  <doc:name>xsldoc.refentry.mode</doc:name>
-</doc:mode>
+<mode xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>xsldoc.refentry.mode</name>
+</mode>
 
 <!-- = doc:mode = -->
 <xsl:template mode="xsldoc.refentry.mode" match="doc:mode">
@@ -263,23 +263,17 @@
         <xsl:value-of select="doc:name"/>
       </refname>
       <refpurpose>
-        <xsl:apply-templates select="doc:description"/>
+        <xsl:apply-templates select="doc:purpose"/>
       </refpurpose>
     </refnamediv>
-    <refsection>
-      <title>Synopsis</title>
-      <para>
-        <xsl:apply-templates select="doc:description"/>
-      </para>
-    </refsection>
-    <refsection>
-      <title>Description</title>
-      <xsl:for-each select="doc:name/following-sibling::doc:*">
-        <xsl:if test="not(self::doc:description) and not(self::doc:parameter)">
+    <xsl:if test="doc:description">
+      <refsection>
+        <title>Description</title>
+        <xsl:for-each select="doc:description/node()">
           <xsl:apply-templates mode="xsldoc.docbook.mode" select="."/>
-        </xsl:if>
-      </xsl:for-each>
-    </refsection>
+        </xsl:for-each>
+      </refsection>
+    </xsl:if>
   </refentry>
 </xsl:template>
 
@@ -296,23 +290,17 @@
         <xsl:value-of select="doc:name"/>
       </refname>
       <refpurpose>
-        <xsl:apply-templates select="doc:description"/>
+        <xsl:apply-templates select="doc:purpose"/>
       </refpurpose>
     </refnamediv>
-    <refsection>
-      <title>Synopsis</title>
-      <para>
-        <xsl:apply-templates select="doc:description"/>
-      </para>
-    </refsection>
-    <refsection>
-      <title>Description</title>
-      <xsl:for-each select="doc:name/following-sibling::doc:*">
-        <xsl:if test="not(self::doc:description) and not(self::doc:parameter)">
+    <xsl:if test="doc:description">
+      <refsection>
+        <title>Description</title>
+        <xsl:for-each select="doc:description/node()">
           <xsl:apply-templates mode="xsldoc.docbook.mode" select="."/>
-        </xsl:if>
-      </xsl:for-each>
-    </refsection>
+        </xsl:for-each>
+      </refsection>
+    </xsl:if>
   </refentry>
 </xsl:template>
 
@@ -329,32 +317,26 @@
         <xsl:value-of select="doc:name"/>
       </refname>
       <refpurpose>
-        <xsl:apply-templates select="doc:description"/>
+        <xsl:apply-templates select="doc:purpose"/>
       </refpurpose>
     </refnamediv>
-    <refsection>
-      <title>Synopsis</title>
-      <para>
-        <xsl:apply-templates select="doc:description"/>
-      </para>
-    </refsection>
-    <refsection>
-      <title>Description</title>
-      <xsl:for-each select="doc:name/following-sibling::doc:*">
-        <xsl:if test="not(self::doc:description) and not(self::doc:parameter)">
+    <xsl:if test="doc:description">
+      <refsection>
+        <title>Description</title>
+        <xsl:for-each select="doc:description/node()">
           <xsl:apply-templates mode="xsldoc.docbook.mode" select="."/>
-        </xsl:if>
-      </xsl:for-each>
-    </refsection>
+        </xsl:for-each>
+      </refsection>
+    </xsl:if>
   </refentry>
 </xsl:template>
 
 
 <!-- == xsldoc.summary.mode ================================================ -->
 
-<doc:mode>
-  <doc:name>xsldoc.summary.mode</doc:name>
-</doc:mode>
+<mode xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>xsldoc.summary.mode</name>
+</mode>
 
 <!-- = doc:mode = -->
 <xsl:template mode="xsldoc.summary.mode" match="doc:mode">
@@ -368,7 +350,7 @@
     </term>
     <listitem>
       <para>
-        <xsl:apply-templates select="doc:description"/>
+        <xsl:apply-templates select="doc:purpose"/>
       </para>
     </listitem>
   </varlistentry>
@@ -386,7 +368,7 @@
     </term>
     <listitem>
       <para>
-        <xsl:apply-templates select="doc:description"/>
+        <xsl:apply-templates select="doc:purpose"/>
       </para>
     </listitem>
   </varlistentry>
@@ -404,7 +386,7 @@
     </term>
     <listitem>
       <para>
-        <xsl:apply-templates select="doc:description"/>
+        <xsl:apply-templates select="doc:purpose"/>
       </para>
     </listitem>
   </varlistentry>
@@ -413,9 +395,9 @@
 
 <!-- == xsldoc.docbook.mode ================================================ -->
 
-<doc:mode>
-  <doc:name>xsldoc.docbook.mode</doc:name>
-</doc:mode>
+<mode xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>xsldoc.docbook.mode</name>
+</mode>
 
 <xsl:template mode="xsldoc.docbook.mode" match="doc:*">
   <xsl:element name="{local-name(.)}">
@@ -439,12 +421,12 @@
 
 <!-- == xsldoc.params ====================================================== -->
 
-<doc:template>
-  <doc:name>xsldoc.params</doc:name>
-  <doc:description>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>xsldoc.params</name>
+  <purpose>
     Generate the Parameters section
-  </doc:description>
-</doc:template>
+  </purpose>
+</template>
 
 <xsl:template name="xsldoc.params">
   <xsl:variable name="params"
@@ -476,12 +458,12 @@
 
 <!-- == xsldoc.named ======================================================= -->
 
-<doc:template>
-  <doc:name>xsldoc.named</doc:name>
-  <doc:description>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>xsldoc.named</name>
+  <purpose>
     Generate the Named Templates section
-  </doc:description>
-</doc:template>
+  </purpose>
+</template>
 
 <xsl:template name="xsldoc.named">
   <xsl:variable name="named"
@@ -515,12 +497,12 @@
 
 <!-- == xsldoc.includes ==================================================== -->
 
-<doc:template>
-  <doc:name>xsldoc.includes</doc:name>
-  <doc:description>
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>xsldoc.includes</name>
+  <purpose>
     Include external files
-  </doc:description>
-</doc:template>
+  </purpose>
+</template>
 
 <xsl:template name="xsldoc.includes">
   <xsl:for-each select="xsl:include[@doc:include='true']">

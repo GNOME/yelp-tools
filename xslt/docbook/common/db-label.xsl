@@ -12,20 +12,20 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db.label</name>
-  <description>
+  <purpose>
     Generate the label for an element
-  </description>
+  </purpose>
   <parameter>
     <name>node</name>
-    <description>
+    <purpose>
       The element for which to generate a label
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>role</name>
-    <description>
+    <purpose>
       The role of the label, as passed to the format templates
-    </description>
+    </purpose>
   </parameter>
   <para>
     This template generates the label used for some sectioning and
@@ -220,14 +220,14 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db.label.name</name>
-  <description>
+  <purpose>
     Generate the name portion of a label
-  </description>
+  </purpose>
   <parameter>
     <name>node</name>
-    <description>
+    <purpose>
       The element for which to generate a name
-    </description>
+    </purpose>
   </parameter>
   <para>
     This template generates the name portion of the label used for some
@@ -534,14 +534,14 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db.label.number</name>
-  <description>
+  <purpose>
     Generate the number portion of a label
-  </description>
+  </purpose>
   <parameter>
     <name>node</name>
-    <description>
+    <purpose>
       The element for which to generate a number
-    </description>
+    </purpose>
   </parameter>
   <para>
     This template generates the number portion of the label used for some

@@ -12,9 +12,9 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.qanda.css</name>
-  <description>
+  <purpose>
     Create CSS for the qanda elements
-  </description>
+  </purpose>
 </template>
 
 <xsl:template name="db2html.qanda.css">

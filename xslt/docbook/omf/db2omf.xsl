@@ -16,9 +16,9 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2omf.basename</name>
-  <description>
+  <purpose>
     The basename of the referenced document
-  </description>
+  </purpose>
 </parameter>
 
 <xsl:param name="db2omf.basename"/>
@@ -28,9 +28,9 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2omf.format</name>
-  <description>
+  <purpose>
     The format of the referenced document
-  </description>
+  </purpose>
 </parameter>
 
 <xsl:param name="db2omf.format"/>
@@ -40,9 +40,9 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2omf.mime</name>
-  <description>
+  <purpose>
     The MIME type of the referenced document, docbook or html
-  </description>
+  </purpose>
 </parameter>
 
 <xsl:param name="db2omf.mime" select="'text/xml'"/>
@@ -52,9 +52,9 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2omf.dtd</name>
-  <description>
+  <purpose>
     The FPI of the DocBook version used
-  </description>
+  </purpose>
 </parameter>
 
 <xsl:param name="db2omf.dtd"/>
@@ -64,9 +64,9 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2omf.lang</name>
-  <description>
+  <purpose>
     The written language of the referenced document
-  </description>
+  </purpose>
 </parameter>
 
 <xsl:param name="db2omf.lang" select="/*/@lang | /*/@xml:lang"/>
@@ -76,9 +76,9 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2omf.omf_dir</name>
-  <description>
+  <purpose>
     The top-level ScrollKeeper OMF directory
-  </description>
+  </purpose>
 </parameter>
 
 <xsl:param name="db2omf.omf_dir"/>
@@ -88,9 +88,9 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2omf.help_dir</name>
-  <description>
+  <purpose>
     The top-level directory where documentation is installed
-  </description>
+  </purpose>
 </parameter>
 
 <xsl:param name="db2omf.help_dir"/>
@@ -100,9 +100,9 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2omf.omf_in</name>
-  <description>
+  <purpose>
     Path to the .omf.in file containing common fields
-  </description>
+  </purpose>
 </parameter>
 
 <xsl:param name="db2omf.omf_in"/>
@@ -114,14 +114,14 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2omf.omf</name>
-  <description>
+  <purpose>
     Generate the top-level <xmltag>omf</xmltag> and all its children
-  </description>
+  </purpose>
   <parameter>
     <name>info</name>
-    <description>
+    <purpose>
       The info element containing metadata
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -182,14 +182,14 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2omf.omf.creator</name>
-  <description>
+  <purpose>
     Generate all <xmltag>creator</xmltag> elements
-  </description>
+  </purpose>
   <parameter>
     <name>info</name>
-    <description>
+    <purpose>
       The info element containing metadata
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -235,14 +235,14 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2omf.omf.maintainer</name>
-  <description>
+  <purpose>
     Generate all <xmltag>maintainer</xmltag> elements
-  </description>
+  </purpose>
   <parameter>
     <name>info</name>
-    <description>
+    <purpose>
       The info element containing metadata
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -291,14 +291,14 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2omf.omf.contributor</name>
-  <description>
+  <purpose>
     Generate all <xmltag>contributor</xmltag> elements
-  </description>
+  </purpose>
   <parameter>
     <name>info</name>
-    <description>
+    <purpose>
       The info element containing metadata
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -339,14 +339,14 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2omf.omf.title</name>
-  <description>
+  <purpose>
     Generate the <xmltag>title</xmltag> element
-  </description>
+  </purpose>
   <parameter>
     <name>info</name>
-    <description>
+    <purpose>
       The info element containing metadata
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -370,14 +370,14 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2omf.omf.date</name>
-  <description>
+  <purpose>
     Generate the <xmltag>date</xmltag> element
-  </description>
+  </purpose>
   <parameter>
     <name>info</name>
-    <description>
+    <purpose>
       The info element containing metadata
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -401,14 +401,14 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2omf.omf.version</name>
-  <description>
+  <purpose>
     Generate the <xmltag>version</xmltag> element
-  </description>
+  </purpose>
   <parameter>
     <name>info</name>
-    <description>
+    <purpose>
       The info element containing metadata
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -448,14 +448,14 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2omf.omf.subject</name>
-  <description>
+  <purpose>
     Generate the <xmltag>subject</xmltag> element
-  </description>
+  </purpose>
   <parameter>
     <name>info</name>
-    <description>
+    <purpose>
       The info element containing metadata
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -478,14 +478,14 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2omf.omf.description</name>
-  <description>
+  <purpose>
     Generate the <xmltag>description</xmltag> element
-  </description>
+  </purpose>
   <parameter>
     <name>info</name>
-    <description>
+    <purpose>
       The info element containing metadata
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -499,10 +499,10 @@
       <xsl:text>db2omf: Missing abstract element with role description</xsl:text>
     </xsl:message>
   </xsl:if>
-  <description>
+  <purpose>
     <!-- FIXME: a smarter textification would be good -->
     <xsl:value-of select="$description"/>
-  </description>
+  </purpose>
 </xsl:template>
 
 
@@ -510,14 +510,14 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2omf.omf.type</name>
-  <description>
+  <purpose>
     Generate the <xmltag>type</xmltag> element
-  </description>
+  </purpose>
   <parameter>
     <name>info</name>
-    <description>
+    <purpose>
       The info element containing metadata
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -542,14 +542,14 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2omf.omf.format</name>
-  <description>
+  <purpose>
     Generate the <xmltag>format</xmltag> element
-  </description>
+  </purpose>
   <parameter>
     <name>info</name>
-    <description>
+    <purpose>
       The info element containing metadata
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -590,14 +590,14 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2omf.omf.identifier</name>
-  <description>
+  <purpose>
     Generate the <xmltag>identifier</xmltag> element
-  </description>
+  </purpose>
   <parameter>
     <name>info</name>
-    <description>
+    <purpose>
       The info element containing metadata
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -643,14 +643,14 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2omf.omf.language</name>
-  <description>
+  <purpose>
     Generate the <xmltag>language</xmltag> element
-  </description>
+  </purpose>
   <parameter>
     <name>info</name>
-    <description>
+    <purpose>
       The info element containing metadata
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -666,14 +666,14 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2omf.omf.relation</name>
-  <description>
+  <purpose>
     Generate the <xmltag>relation</xmltag> element
-  </description>
+  </purpose>
   <parameter>
     <name>info</name>
-    <description>
+    <purpose>
       The info element containing metadata
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -696,14 +696,14 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2omf.omf.rights</name>
-  <description>
+  <purpose>
     Generate the <xmltag>rights</xmltag> element
-  </description>
+  </purpose>
   <parameter>
     <name>info</name>
-    <description>
+    <purpose>
       The info element containing metadata
-    </description>
+    </purpose>
   </parameter>
 </template>
 

@@ -12,9 +12,9 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.title.css</name>
-  <description>
+  <purpose>
     Create CSS for the title elements
-  </description>
+  </purpose>
 </template>
 
 <xsl:template name="db2html.title.css">
@@ -49,20 +49,20 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.title.label</name>
-  <description>
+  <purpose>
     Generate the label for a title
-  </description>
+  </purpose>
   <parameter>
     <name>node</name>
-    <description>
+    <purpose>
       The element for which to generate a label
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>depth_in_chunk</name>
-    <description>
+    <purpose>
       The depth of <parameter>node</parameter> in the containing chunk
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -87,20 +87,20 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.title.block</name>
-  <description>
+  <purpose>
     Generate a labelled block title
-  </description>
+  </purpose>
   <parameter>
     <name>node</name>
-    <description>
+    <purpose>
       The title element for which to generate a title
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>title_for</name>
-    <description>
+    <purpose>
       The element for which this is the title
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -127,20 +127,20 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.title.simple</name>
-  <description>
+  <purpose>
     Generate a simple unlabelled title
-  </description>
+  </purpose>
   <parameter>
     <name>node</name>
-    <description>
+    <purpose>
       The title element for which to generate a title
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>title_for</name>
-    <description>
+    <purpose>
       The element for which this is the title
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -164,26 +164,26 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.title.header</name>
-  <description>
+  <purpose>
     Generate a header-level title
-  </description>
+  </purpose>
   <parameter>
     <name>node</name>
-    <description>
+    <purpose>
       The title element for which to generate a title
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>title_for</name>
-    <description>
+    <purpose>
       The element for which this is the title
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>depth_in_chunk</name>
-    <description>
+    <purpose>
       The depth of <parameter>node</parameter> in the containing chunk
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -238,26 +238,26 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.subtitle.header</name>
-  <description>
+  <purpose>
     Generate a header-level subtitle
-  </description>
+  </purpose>
   <parameter>
     <name>node</name>
-    <description>
+    <purpose>
       The subtitle element for which to generate a subtitle
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>title_for</name>
-    <description>
+    <purpose>
       The element for which this is the subtitle
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>depth_in_chunk</name>
-    <description>
+    <purpose>
       The depth of <parameter>node</parameter> in the containing chunk
-    </description>
+    </purpose>
   </parameter>
 </template>
 

@@ -12,14 +12,14 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.block</name>
-  <description>
+  <purpose>
     Format a block-level element
-  </description>
+  </purpose>
   <parameter>
     <name>verbatim</name>
-    <description>
+    <purpose>
       Whether to maintain whitespace verbatim
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -52,9 +52,9 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.blockquote</name>
-  <description>
+  <purpose>
     Render a blockquote for an element
-  </description>
+  </purpose>
 </template>
 
 <xsl:template name="db2html.blockquote">
@@ -73,9 +73,9 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.para</name>
-  <description>
+  <purpose>
     Format an element as a paragraph
-  </description>
+  </purpose>
 </template>
 
 <xsl:template name="db2html.para">
@@ -90,9 +90,9 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.pre</name>
-  <description>
+  <purpose>
     Format an element in a <xmltag>pre</xmltag> tag
-  </description>
+  </purpose>
 </template>
 
 <xsl:template name="db2html.pre">
@@ -119,9 +119,9 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.block.css</name>
-  <description>
+  <purpose>
     Create CSS for the block elements
-  </description>
+  </purpose>
 </template>
 
 <xsl:template name="db2html.block.css">

@@ -12,49 +12,49 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.co.color</name>
-  <description>
+  <purpose>
     The text color for callout dingbats
-  </description>
+  </purpose>
 </parameter>
 <xsl:param name="db2html.co.color" select="'#FFFFFF'"/>
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.co.background_color</name>
-  <description>
+  <purpose>
     The background color for callout dingbats
-  </description>
+  </purpose>
 </parameter>
 <xsl:param name="db2html.co.background_color" select="'#000000'"/>
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.co.border_color</name>
-  <description>
+  <purpose>
     The border color for callout dingbats
-  </description>
+  </purpose>
 </parameter>
 <xsl:param name="db2html.co.border_color" select="'#000000'"/>
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.co.color.hover</name>
-  <description>
+  <purpose>
     The hover text color for callout dingbats
-  </description>
+  </purpose>
 </parameter>
 <xsl:param name="db2html.co.color.hover" select="'#FFFFFF'"/>
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.co.background_color.hover</name>
-  <description>
+  <purpose>
     The hover background color for callout dingbat
-  </description>
+  </purpose>
 </parameter>
 <xsl:param name="db2html.co.background_color.hover" select="'#333333'"/>
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.co.border_color.hover</name>
-  <description>
+  <purpose>
     The hover border color for callout dingbats
-  </description>
+  </purpose>
 </parameter>
 <xsl:param name="db2html.co.border_color.hover" select="'#333333'"/>
 
@@ -63,9 +63,9 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.callout.css</name>
-  <description>
+  <purpose>
     Create CSS for the callout elements
-  </description>
+  </purpose>
 </template>
 
 <xsl:template name="db2html.callout.css">
@@ -103,14 +103,14 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.co.dingbat</name>
-  <description>
+  <purpose>
     Render the dingbat for a callout
-  </description>
+  </purpose>
   <parameter>
     <name>co</name>
-    <description>
+    <purpose>
       The <xmltag>co</xmltag> element for which to render a dingbat
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -126,15 +126,15 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.co.dingbats</name>
-  <description>
+  <purpose>
     Render a dingbat for each <xmltag>co</xmltag> referenced in the
     <parameter>arearefs</parameter> parameter
-  </description>
+  </purpose>
   <parameter>
     <name>arearefs</name>
-    <description>
+    <purpose>
       A space-seperated list of <xmltag>co</xmltag> elements
-    </description>
+    </purpose>
   </parameter>
 </template>
 

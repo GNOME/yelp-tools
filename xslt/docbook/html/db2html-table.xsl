@@ -12,9 +12,9 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.table.rule_color</name>
-  <description>
+  <purpose>
     The color used for alternating-color rules on table rows
-  </description>
+  </purpose>
 </parameter>
 
 <xsl:param name="db2html.table.rule_color" select="'#F0F0F0'"/>
@@ -32,9 +32,9 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.table.css</name>
-  <description>
+  <purpose>
     Create CSS for the table elements
-  </description>
+  </purpose>
 </template>
 
 <xsl:template name="db2html.table.css">
@@ -419,32 +419,32 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.entry.colnum</name>
-  <description>
+  <purpose>
     Calculate the column number for an <xmltag>entry</xmltag> element
-  </description>
+  </purpose>
   <parameter>
     <name>colspecs</name>
-    <description>
+    <purpose>
       The <xmltag>colspec</xmltag> elements in scope
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>spanspecs</name>
-    <description>
+    <purpose>
       The <xmltag>spanspec</xmltag> elements in scope
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>entry</name>
-    <description>
+    <purpose>
       The <xmltag>entry</xmltag> element to process
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>col</name>
-    <description>
+    <purpose>
       The default column number as passed by the preceding sibling
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -494,26 +494,26 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.colspec.colnum</name>
-  <description>
+  <purpose>
     Calculate the column number for a <xmltag>colspec</xmltag> element
-  </description>
+  </purpose>
   <parameter>
     <name>colspecs</name>
-    <description>
+    <purpose>
       The <xmltag>colspec</xmltag> elements in scope
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>spanspecs</name>
-    <description>
+    <purpose>
       The <xmltag>spanspec</xmltag> elements in scope
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>colspec</name>
-    <description>
+    <purpose>
       The <xmltag>colspec</xmltag> element to process
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -545,27 +545,27 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.entry.colspan</name>
-  <description>
+  <purpose>
     Calculate the <xmltag role="attribute">colspan</xmltag> for an
     <xmltag>entry</xmltag> element
-  </description>
+  </purpose>
   <parameter>
     <name>colspecs</name>
-    <description>
+    <purpose>
       The <xmltag>colspec</xmltag> elements in scope
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>spanspecs</name>
-    <description>
+    <purpose>
       The <xmltag>spanspec</xmltag> elements in scope
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>entry</name>
-    <description>
+    <purpose>
       The <xmltag>entry</xmltag> element to process
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -625,21 +625,21 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.entry.style</name>
-  <description>
+  <purpose>
     Generate the <xmltag role="attribute">style</xmltag> attribute for an
     <xmltag>entry</xmltag> element
-  </description>
+  </purpose>
   <parameter>
     <name>colspecs</name>
-    <description>
+    <purpose>
       The <xmltag>colspec</xmltag> elements in scope
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>spanspecs</name>
-    <description>
+    <purpose>
       The <xmltag>spanspec</xmltag> elements in scope
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -841,32 +841,32 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.spanstr.pop</name>
-  <description>
+  <purpose>
     Calculate the remaining spans after an <xmltag>entry</xmltag> element
-  </description>
+  </purpose>
   <parameter>
     <name>colspecs</name>
-    <description>
+    <purpose>
       The <xmltag>colspec</xmltag> elements in scope
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>spanspecs</name>
-    <description>
+    <purpose>
       The <xmltag>spanspec</xmltag> elements in scope
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>colspan</name>
-    <description>
+    <purpose>
       The number of columns to pop
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>spans</name>
-    <description>
+    <purpose>
       The string representation of the column spans
-    </description>
+    </purpose>
   </parameter>
 </template>
 

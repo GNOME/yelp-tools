@@ -14,10 +14,10 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.funcsynopsis.style</name>
-  <description>
+  <purpose>
     How to render <xmltag>funcsynopsis</xmltag> elements, either
     <constant>'KR'</constant> or <constant>'ANSI'</constant>
-  </description>
+  </purpose>
 </parameter>
 
 <xsl:param name="db2html.funcsynopsis.style">

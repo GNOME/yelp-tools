@@ -12,20 +12,20 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.info</name>
-  <description>
+  <purpose>
     Render the titlepage of a block-level element
-  </description>
+  </purpose>
   <parameter>
     <name>node</name>
-    <description>
+    <purpose>
       The element for which to generate a titlepage
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>info</name>
-    <description>
+    <purpose>
       The info element containing metadata
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -88,20 +88,20 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.info.title</name>
-  <description>
+  <purpose>
     Render the title of a titlepage
-  </description>
+  </purpose>
   <parameter>
     <name>node</name>
-    <description>
+    <purpose>
       The element for which a titlepage is being generated
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>info</name>
-    <description>
+    <purpose>
       The info element containing metadata
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -129,20 +129,20 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.info.subtitle</name>
-  <description>
+  <purpose>
     Render the subtitle of a titlepage
-  </description>
+  </purpose>
   <parameter>
     <name>node</name>
-    <description>
+    <purpose>
       The element for which a titlepage is being generated
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>info</name>
-    <description>
+    <purpose>
       The info element containing metadata
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -170,20 +170,20 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.info.authors</name>
-  <description>
+  <purpose>
     Render the author credits in a titlepage
-  </description>
+  </purpose>
   <parameter>
     <name>node</name>
-    <description>
+    <purpose>
       The element for which a titlepage is being generated
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>info</name>
-    <description>
+    <purpose>
       The info element containing metadata
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -213,20 +213,20 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.info.editors</name>
-  <description>
+  <purpose>
     Render the editor credits in a titlepage
-  </description>
+  </purpose>
   <parameter>
     <name>node</name>
-    <description>
+    <purpose>
       The element for which a titlepage is being generated
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>info</name>
-    <description>
+    <purpose>
       The info element containing metadata
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -255,20 +255,20 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.info.collabs</name>
-  <description>
+  <purpose>
     Render the collaborator credits in a titlepage
-  </description>
+  </purpose>
   <parameter>
     <name>node</name>
-    <description>
+    <purpose>
       The element for which a titlepage is being generated
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>info</name>
-    <description>
+    <purpose>
       The info element containing metadata
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -297,20 +297,20 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.info.translators</name>
-  <description>
+  <purpose>
     Render the translator credits in a titlepage
-  </description>
+  </purpose>
   <parameter>
     <name>node</name>
-    <description>
+    <purpose>
       The element for which a titlepage is being generated
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>info</name>
-    <description>
+    <purpose>
       The info element containing metadata
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -342,20 +342,20 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.info.publishers</name>
-  <description>
+  <purpose>
     Render the publisher credits in a titlepage
-  </description>
+  </purpose>
   <parameter>
     <name>node</name>
-    <description>
+    <purpose>
       The element for which a titlepage is being generated
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>info</name>
-    <description>
+    <purpose>
       The info element containing metadata
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -383,20 +383,20 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.info.othercredits</name>
-  <description>
+  <purpose>
     Render all other credits in a titlepage
-  </description>
+  </purpose>
   <parameter>
     <name>node</name>
-    <description>
+    <purpose>
       The element for which a titlepage is being generated
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>info</name>
-    <description>
+    <purpose>
       The info element containing metadata
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -428,20 +428,20 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.info.copyrights</name>
-  <description>
+  <purpose>
     Render the copyrights in a titlepage
-  </description>
+  </purpose>
   <parameter>
     <name>node</name>
-    <description>
+    <purpose>
       The element for which a titlepage is being generated
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>info</name>
-    <description>
+    <purpose>
       The info element containing metadata
-    </description>
+    </purpose>
   </parameter>
 </template>
 

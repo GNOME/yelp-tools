@@ -15,9 +15,9 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>rngdoc.id</name>
-  <description>
+  <purpose>
     The id of the top-level element in the output
-  </description>
+  </purpose>
 </parameter>
 
 <xsl:param name="rngdoc.id"/>
@@ -27,9 +27,9 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>rngdoc.toplevel_element</name>
-  <description>
+  <purpose>
     The top-level element in the generated DocBook
-  </description>
+  </purpose>
   <para>
     The <parameter>rngdoc.toplevel_element</parameter> parameter defines the
     top-level element used in the generated DocBook.  Allowed values are

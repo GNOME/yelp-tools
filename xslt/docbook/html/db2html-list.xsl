@@ -12,9 +12,9 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.list.border_color</name>
-  <description>
+  <purpose>
     The color of the border around list elements
-  </description>
+  </purpose>
 </parameter>
 
 <xsl:param name="db2html.list.border_color" select="'black'"/>
@@ -24,9 +24,9 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.list.css</name>
-  <description>
+  <purpose>
     Create CSS for the list elements
-  </description>
+  </purpose>
 </template>
 
 <xsl:template name="db2html.list.css">
@@ -137,14 +137,14 @@ dd elements has a negative top margin.
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.orderedlist.start</name>
-  <description>
+  <purpose>
     Determine the starting number for an ordered list
-  </description>
+  </purpose>
   <parameter>
     <name>node</name>
-    <description>
+    <purpose>
       The <xmltag>orderedlist</xmltag> element
-    </description>
+    </purpose>
   </parameter>
 </template>
 

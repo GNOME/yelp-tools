@@ -12,38 +12,38 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.inline</name>
-  <description>
+  <purpose>
     Process an inline element
-  </description>
+  </purpose>
   <parameter>
     <name>bold</name>
-    <description>
+    <purpose>
       Whether to render the element bold
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>italic</name>
-    <description>
+    <purpose>
       Whether to render the element in italics
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>underline</name>
-    <description>
+    <purpose>
       Whether to underline the element
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>mono</name>
-    <description>
+    <purpose>
       Whether to render the element in monospace
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>sans</name>
-    <description>
+    <purpose>
       Whether to render the element in sans-serif
-    </description>
+    </purpose>
   </parameter>
 </template>
 

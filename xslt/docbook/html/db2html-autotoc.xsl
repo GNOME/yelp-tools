@@ -12,14 +12,14 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.autotoc.label</name>
-  <description>
+  <purpose>
     Generate a label for an entry in a table of contents
-  </description>
+  </purpose>
   <parameter>
     <name>node</name>
-    <description>
+    <purpose>
       The element for which to generate a label
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -44,38 +44,38 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.autotoc.flat</name>
-  <description>
+  <purpose>
     Create a table of contents
-  </description>
+  </purpose>
   <parameter>
     <name>node</name>
-    <description>
+    <purpose>
       The node for which to create a table of contents
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>info</name>
-    <description>
+    <purpose>
       The info child element of <parameter>node</parameter>
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>divisions</name>
-    <description>
+    <purpose>
       The division-level child elements of <parameter>node</parameter>
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>toc_depth</name>
-    <description>
+    <purpose>
       How deep to create table of content entries
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>depth_of_chunk</name>
-    <description>
+    <purpose>
       The depth of the containing chunk in the document
-    </description>
+    </purpose>
   </parameter>
 </template>
 

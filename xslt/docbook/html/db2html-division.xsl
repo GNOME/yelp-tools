@@ -12,14 +12,14 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.division.html</name>
-  <description>
+  <purpose>
     Render a complete HTML page for a division element
-  </description>
+  </purpose>
   <parameter>
     <name>depth_of_chunk</name>
-    <description>
+    <purpose>
       The depth of the containing chunk in the document
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -46,56 +46,56 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.division.content</name>
-  <description>
+  <purpose>
     Render the content of a division element, chunking children if necessary
-  </description>
+  </purpose>
   <parameter>
     <name>info</name>
-    <description>
+    <purpose>
       The info child element
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>entries</name>
-    <description>
+    <purpose>
       The entry-style child elements
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>divisions</name>
-    <description>
+    <purpose>
       The division-level child elements
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>depth_in_chunk</name>
-    <description>
+    <purpose>
       The depth of the element in the containing chunk
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>depth_of_chunk</name>
-    <description>
+    <purpose>
       The depth of the containing chunk in the document
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>chunk_divisions</name>
-    <description>
+    <purpose>
       Whether to generate new documents for <parameter>divisions</parameter>
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>chunk_info</name>
-    <description>
+    <purpose>
       Whether to generate a new document for a titlepage
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>autotoc_divisions</name>
-    <description>
+    <purpose>
       Whether to create a contents listing of <parameter>divisions</parameter>
-    </description>
+    </purpose>
   </parameter>
 </template>
 

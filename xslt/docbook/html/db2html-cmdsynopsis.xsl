@@ -12,9 +12,9 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.cmdsynopsis.sepchar</name>
-  <description>
+  <purpose>
     The default value for the <parameter>sepchar</parameter> paramter
-  </description>
+  </purpose>
 </parameter>
 
 <xsl:param name="db2html.cmdsynopsis.sepchar" select="' '"/>
@@ -24,10 +24,10 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.arg.choice</name>
-  <description>
+  <purpose>
     The default value of the <parameter>choice</parameter> paramter
     for <xmltag>arg</xmltag> elements
-  </description>
+  </purpose>
 </parameter>
 
 <xsl:param name="db2html.arg.choice" select="'opt'"/>
@@ -37,10 +37,10 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.arg.rep</name>
-  <description>
+  <purpose>
     The default value of the <parameter>rep</parameter> paramter
     for <xmltag>arg</xmltag> elements
-  </description>
+  </purpose>
 </parameter>
 
 <xsl:param name="db2html.arg.rep" select="'norepeat'"/>
@@ -50,10 +50,10 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.group.choice</name>
-  <description>
+  <purpose>
     The default value of the <parameter>choice</parameter> paramter
     for <xmltag>group</xmltag> elements
-  </description>
+  </purpose>
 </parameter>
 
 <xsl:param name="db2html.group.choice" select="'opt'"/>
@@ -63,10 +63,10 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.group.rep</name>
-  <description>
+  <purpose>
     The default value of the <parameter>rep</parameter> paramter
     for <xmltag>group</xmltag> elements
-  </description>
+  </purpose>
 </parameter>
 
 <xsl:param name="db2html.group.rep" select="'norepeat'"/>

@@ -14,14 +14,14 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db.dingbat</name>
-  <description>
+  <purpose>
     Render a character from a logical name, possibly localized
-  </description>
+  </purpose>
   <parameter>
     <name>dingbat</name>
-    <description>
+    <purpose>
       The logical name of the character
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -52,19 +52,19 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db.linenumbering</name>
-  <description>
+  <purpose>
     Number each line in a verbatim environment
-  </description>
+  </purpose>
   <parameter>
     <name>node</name>
-    <description>
+    <purpose>
       The verbatim element for which create line numbering
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>number</name>
-    <description>
-    </description>
+    <purpose>
+    </purpose>
   </parameter>
 </template>
 
@@ -97,21 +97,21 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db.personname</name>
-  <description>
+  <purpose>
     Render the name of a person
-  </description>
+  </purpose>
   <parameter>
     <name>node</name>
-    <description>
+    <purpose>
       The element containing <xmltag>firstname</xmltag>,
       <xmltag>surname</xmltag>, etc.
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>lang</name>
-    <description>
+    <purpose>
       The language to use for the rules of constructing a name
-    </description>
+    </purpose>
   </parameter>
 </template>
 

@@ -16,9 +16,9 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>gettext.locale</name>
-  <description>
+  <purpose>
     The top-level locale of the document
-  </description>
+  </purpose>
 </parameter>
 
 <xsl:param name="gettext.locale">
@@ -37,9 +37,9 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>gettext.language</name>
-  <description>
+  <purpose>
     The language part of the top-level locale of the document
-  </description>
+  </purpose>
 </parameter>
 
 <xsl:param name="gettext.language">
@@ -64,9 +64,9 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>gettext.region</name>
-  <description>
+  <purpose>
     The region part of the top-level locale of the document
-  </description>
+  </purpose>
 </parameter>
 
 <xsl:param name="gettext.region">
@@ -89,9 +89,9 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>gettext.variant</name>
-  <description>
+  <purpose>
     The variant part of the top-level locale of the document
-  </description>
+  </purpose>
 </parameter>
 
 <xsl:param name="gettext.variant">
@@ -111,9 +111,9 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>gettext.charset</name>
-  <description>
+  <purpose>
     The charset part of the top-level locale of the document
-  </description>
+  </purpose>
 </parameter>
 
 <xsl:param name="gettext.charset">
@@ -127,63 +127,63 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>gettext</name>
-  <description>
+  <purpose>
     Look up a translated string
-  </description>
+  </purpose>
   <parameter>
     <name>msgid</name>
-    <description>
+    <purpose>
       The id of the string to look up, usually the string in the C locale
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>lang</name>
-    <description>
+    <purpose>
       The locale to use when looking up the translated string
-    </description>
+    </purpose>
   </parameter>
   <parameter>
-    <name>lang_lang</name>
-    <description>
+    <name>lang_language</name>
+    <purpose>
       The language portion of the locale to use
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>lang_region</name>
-    <description>
+    <purpose>
       The region portion of the locale to use
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>lang_variant</name>
-    <description>
+    <purpose>
       The variant portion of the locale to use
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>lang_charset</name>
-    <description>
+    <purpose>
       The charset portion of the locale to use
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>number</name>
-    <description>
+    <purpose>
       The cardinality for plural-form lookups
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>form</name>
-    <description>
+    <purpose>
       The form name for plural-form lookups
-    </description>
+    </purpose>
   </parameter>
 </template>
 
 <xsl:template name="gettext">
   <xsl:param name="msgid"/>
   <xsl:param name="lang" select="ancestor-or-self::*[@lang][1]/@lang"/>
-  <xsl:param name="lang_lang">
+  <xsl:param name="lang_language">
     <xsl:call-template name="gettext.get.language">
       <xsl:with-param name="lang" select="$lang"/>
     </xsl:call-template>
@@ -208,10 +208,10 @@
     <xsl:call-template name="gettext.plural_form">
       <xsl:with-param name="number" select="$number"/>
       <xsl:with-param name="lang" select="$lang"/>
-      <xsl:with-param name="lang_lang" select="$lang_lang"/>
-      <xsl:with-param name="lang_region" select="$lang_region"/>
-      <xsl:with-param name="lang_variant" select="$lang_variant"/>
-      <xsl:with-param name="lang_charset" select="$lang_charset"/>
+      <xsl:with-param name="lang_language" select="$lang_language"/>
+      <xsl:with-param name="lang_region"   select="$lang_region"/>
+      <xsl:with-param name="lang_variant"  select="$lang_variant"/>
+      <xsl:with-param name="lang_charset"  select="$lang_charset"/>
     </xsl:call-template>
   </xsl:param>
 
@@ -222,81 +222,86 @@
       <!-- fe_fi@fo.fum -->
       <xsl:when test="($lang_region and $lang_variant and $lang_charset) and 
                 $msg/msg:msgstr[@xml:lang = concat(
-                $lang_lang, '_', $lang_region, '@', $lang_variant, '.', $lang_charset)]">
+                $lang_language, '_', $lang_region,
+                                '@', $lang_variant,
+                                '.', $lang_charset )]">
         <xsl:call-template name="gettext.get">
           <xsl:with-param
            name="msgstr" select="$msg/msg:msgstr[@xml:lang = concat(
-           $lang_lang, '_', $lang_region, '@', $lang_variant, '.', $lang_charset)]"/>
+           $lang_language, '_', $lang_region,
+                           '@', $lang_variant,
+                           '.', $lang_charset )]"/>
           <xsl:with-param name="form" select="$form"/>
         </xsl:call-template>
       </xsl:when>
       <!-- fe_fi@fo -->
       <xsl:when test="($lang_region and $lang_variant) and
                 $msg/msg:msgstr[@xml:lang = concat(
-                $lang_lang, '_', $lang_region, '@', $lang_variant)]">
+                $lang_language, '_', $lang_region, '@', $lang_variant)]">
         <xsl:call-template name="gettext.get">
           <xsl:with-param
            name="msgstr" select="$msg/msg:msgstr[@xml:lang = concat(
-           $lang_lang, '_', $lang_region, '@', $lang_variant)]"/>
+           $lang_language, '_', $lang_region, '@', $lang_variant)]"/>
           <xsl:with-param name="form" select="$form"/>
         </xsl:call-template>
       </xsl:when>
       <!-- fe@fo.fum -->
       <xsl:when test="($lang_variant and $lang_charset) and
                 $msg/msg:msgstr[@xml:lang = concat(
-                $lang_lang, '@', $lang_variant, '.', $lang_charset)]">
+                $lang_language, '@', $lang_variant, '.', $lang_charset)]">
         <xsl:call-template name="gettext.get">
           <xsl:with-param
            name="msgstr" select="$msg/msg:msgstr[@xml:lang = concat(
-           $lang_lang, '@', $lang_variant, '.', $lang_charset)]"/>
+           $lang_language, '@', $lang_variant, '.', $lang_charset)]"/>
           <xsl:with-param name="form" select="$form"/>
         </xsl:call-template>
       </xsl:when>
       <!-- fe@fo -->
       <xsl:when test="($lang_variant) and
-                $msg/msg:msgstr[@xml:lang = concat($lang_lang, '@', $lang_variant)]">
+                $msg/msg:msgstr[@xml:lang = concat(
+                $lang_language, '@', $lang_variant)]">
         <xsl:call-template name="gettext.get">
           <xsl:with-param
            name="msgstr" select="$msg/msg:msgstr[@xml:lang = concat(
-           $lang_lang, '@', $lang_variant)]"/>
+           $lang_language, '@', $lang_variant)]"/>
           <xsl:with-param name="form" select="$form"/>
         </xsl:call-template>
       </xsl:when>
       <!-- fe_fi.fum -->
       <xsl:when test="($lang_region and $lang_charset) and
                 $msg/msg:msgstr[@xml:lang = concat(
-                $lang_lang, '_', $lang_region, '.', $lang_charset)]">
+                $lang_language, '_', $lang_region, '.', $lang_charset)]">
         <xsl:call-template name="gettext.get">
           <xsl:with-param
            name="msgstr" select="$msg/msg:msgstr[@xml:lang = concat(
-           $lang_lang, '_', $lang_region, '.', $lang_charset)]"/>
+           $lang_language, '_', $lang_region, '.', $lang_charset)]"/>
           <xsl:with-param name="form" select="$form"/>
         </xsl:call-template>
       </xsl:when>
       <!-- fe_fi -->
       <xsl:when test="($lang_region) and
-                $msg/msg:msgstr[@xml:lang = concat($lang_lang, '_', $lang_region)]">
+                $msg/msg:msgstr[@xml:lang = concat($lang_language, '_', $lang_region)]">
         <xsl:call-template name="gettext.get">
           <xsl:with-param
            name="msgstr" select="$msg/msg:msgstr[@xml:lang = concat(
-           $lang_lang, '_', $lang_region)]"/>
+           $lang_language, '_', $lang_region)]"/>
           <xsl:with-param name="form" select="$form"/>
         </xsl:call-template>
       </xsl:when>
       <!-- fe.fum -->
       <xsl:when test="($lang_charset) and
-                $msg/msg:msgstr[@xml:lang = concat($lang_lang, '.', $lang_charset)]">
+                $msg/msg:msgstr[@xml:lang = concat($lang_language, '.', $lang_charset)]">
         <xsl:call-template name="gettext.get">
           <xsl:with-param
            name="msgstr" select="$msg/msg:msgstr[@xml:lang = concat(
-           $lang_lang, '.', $lang_charset)]"/>
+           $lang_language, '.', $lang_charset)]"/>
           <xsl:with-param name="form" select="$form"/>
         </xsl:call-template>
       </xsl:when>
       <!-- fe -->
-      <xsl:when test="$msg/msg:msgstr[@xml:lang = $lang_lang]">
+      <xsl:when test="$msg/msg:msgstr[@xml:lang = $lang_language]">
         <xsl:call-template name="gettext.get">
-          <xsl:with-param name="msgstr" select="$msg/msg:msgstr[@xml:lang = $lang_lang]"/>
+          <xsl:with-param name="msgstr" select="$msg/msg:msgstr[@xml:lang = $lang_language]"/>
           <xsl:with-param name="form" select="$form"/>
         </xsl:call-template>
       </xsl:when>
@@ -359,51 +364,51 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>gettext.plural_form</name>
-  <description>
+  <purpose>
     Extract the plural form string for a cardinality
-  </description>
+  </purpose>
   <parameter>
     <name>number</name>
-    <description>
+    <purpose>
       The cardinality of plural form
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>lang</name>
-    <description>
+    <purpose>
       The locale to use when looking up the translated string
-    </description>
+    </purpose>
   </parameter>
   <parameter>
-    <name>lang_lang</name>
-    <description>
+    <name>lang_language</name>
+    <purpose>
       The language portion of the locale to use
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>lang_region</name>
-    <description>
+    <purpose>
       The region portion of the locale to use
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>lang_variant</name>
-    <description>
+    <purpose>
       The variant portion of the locale to use
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>lang_charset</name>
-    <description>
+    <purpose>
       The charset portion of the locale to use
-    </description>
+    </purpose>
   </parameter>
 </template>
 
 <xsl:template name="gettext.plural_form">
   <xsl:param name="number" select="1"/>
   <xsl:param name="lang" select="$gettext.locale"/>
-  <xsl:param name="lang_lang">
+  <xsl:param name="lang_language">
     <xsl:call-template name="gettext.get.language">
       <xsl:with-param name="lang" select="$lang"/>
     </xsl:call-template>
@@ -426,7 +431,7 @@
 
   <xsl:choose>
     <!-- == cs == -->
-    <xsl:when test="$lang_lang = 'cs'">
+    <xsl:when test="$lang_language = 'cs'">
       <xsl:choose>
         <xsl:when test="($number mod 10 = 1) and ($number mod 100 != 11)">
           <xsl:text>0</xsl:text>
@@ -459,14 +464,14 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>gettext.get.language</name>
-  <description>
+  <purpose>
     Extract the language part of a locale
-  </description>
+  </purpose>
   <parameter>
     <name>lang</name>
-    <description>
+    <purpose>
       The locale string from which to extract the language string
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -496,14 +501,14 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>gettext.get.region</name>
-  <description>
+  <purpose>
     Extract the region part of a locale
-  </description>
+  </purpose>
   <parameter>
     <name>lang</name>
-    <description>
+    <purpose>
       The locale string from which to extract the region string
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -535,14 +540,14 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>gettext.get.variant</name>
-  <description>
+  <purpose>
     Extract the variant part of a locale
-  </description>
+  </purpose>
   <parameter>
     <name>lang</name>
-    <description>
+    <purpose>
       The locale string from which to extract the variant string
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -571,14 +576,14 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>gettext.get.charset</name>
-  <description>
+  <purpose>
     Extract the charset part of a locale
-  </description>
+  </purpose>
   <parameter>
     <name>lang</name>
-    <description>
+    <purpose>
       The locale string from which to extract the charset string
-    </description>
+    </purpose>
   </parameter>
 </template>
 

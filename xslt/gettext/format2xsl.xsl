@@ -192,7 +192,7 @@
           <xsl:sort select="contains(@xml:lang, '@')" order="descending"/>
           <xsl:sort select="contains(@xml:lang, '_')" order="descending"/>
           <xsl:sort select="string-length(@xml:lang)" order="descending"/>
-          <xsl:variable name="lang_lang">
+          <xsl:variable name="lang_language">
             <xsl:call-template name="gettext.get.language">
               <xsl:with-param name="lang" select="@xml:lang"/>
             </xsl:call-template>
@@ -226,8 +226,8 @@
             <xsl:element name="{$element}">
               <xsl:if test="$element = 'xslt:when'">
                 <xsl:attribute name="test">
-                  <xsl:text>$lang_lang = '</xsl:text>
-                  <xsl:value-of select="$lang_lang"/>
+                  <xsl:text>$lang_language = '</xsl:text>
+                  <xsl:value-of select="$lang_language"/>
                   <xsl:text>'</xsl:text>
                   <xsl:if test="$lang_region != ''">
                     <xsl:text> and $lang_region = '</xsl:text>
@@ -292,13 +292,13 @@
   <xsl:copy>
     <xsl:for-each select="node()">
       <xsl:apply-templates select="."/>
-      <xsl:if test="self::doc:description">
+      <xsl:if test="self::doc:purpose">
         <xsl:if test="not($doc_template/doc:parameter[doc:name='lang'])">
           <doc:parameter>
             <doc:name>lang</doc:name>
-            <doc:description>
+            <doc:purpose>
               The language language to use for formatting
-            </doc:description>
+            </doc:purpose>
           </doc:parameter>
         </xsl:if>
       </xsl:if>
@@ -348,7 +348,7 @@
   <xslt:template name="{@name}">
     <xsl:apply-templates select="xsl:param"/>
     <xslt:param name="lang" select="$node/ancestor-or-self::*[@lang][1]/@lang"/>
-    <xslt:variable name="lang_lang">
+    <xslt:variable name="lang_language">
       <xslt:call-template name="gettext.get.language">
         <xslt:with-param name="lang" select="$lang"/>
       </xslt:call-template>

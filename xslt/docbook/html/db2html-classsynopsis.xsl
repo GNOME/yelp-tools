@@ -19,9 +19,9 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.classsynopsis.language</name>
-  <description>
+  <purpose>
     The default language for <xmltag>classsynopsis</xmltag> elements
-  </description>
+  </purpose>
 </parameter>
 
 <xsl:param name="db2html.classsynopsis.language">

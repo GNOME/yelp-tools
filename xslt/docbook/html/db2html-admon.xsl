@@ -12,9 +12,9 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.admon.graphics_path</name>
-  <description>
+  <purpose>
     The path to admonition graphics
-  </description>
+  </purpose>
 </parameter>
 
 <xsl:param name="db2html.admon.graphics_path"/>
@@ -24,9 +24,9 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.admon.graphics_extension</name>
-  <description>
+  <purpose>
     The file extension for admonition graphics
-  </description>
+  </purpose>
 </parameter>
 
 <xsl:param name="db2html.admon.graphics_extension" select="'.png'"/>
@@ -36,9 +36,9 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.admon.text_only</name>
-  <description>
+  <purpose>
     Whether to render admonitions text-only
-  </description>
+  </purpose>
 </parameter>
 
 <xsl:param name="db2html.admon.text_only" select="false()"/>
@@ -48,14 +48,14 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.admon</name>
-  <description>
+  <purpose>
     Render admonition elements
-  </description>
+  </purpose>
   <parameter>
     <name>node</name>
-    <description>
+    <purpose>
       The element for which to render an admonition
-    </description>
+    </purpose>
   </parameter>
   <para>
     This template renders the DocBook admonition elements.  The
@@ -86,14 +86,14 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.admon.boxed</name>
-  <description>
+  <purpose>
     Render an admonition element as a stylized box with admonition graphics
-  </description>
+  </purpose>
   <parameter>
     <name>node</name>
-    <description>
+    <purpose>
       The element for which to render an admonition
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -116,14 +116,14 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.admon.text</name>
-  <description>
+  <purpose>
     Render an admonition element as a simple text block
-  </description>
+  </purpose>
   <parameter>
     <name>node</name>
-    <description>
+    <purpose>
       The element for which to render an admonition
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -144,14 +144,14 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.admon.image</name>
-  <description>
+  <purpose>
     Create the <xmltag>img</xmltag> for an admonition graphic
-  </description>
+  </purpose>
   <parameter>
     <name>node</name>
-    <description>
+    <purpose>
       The element for which to render an admonition image
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -171,9 +171,9 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.admon.css</name>
-  <description>
+  <purpose>
     Create CSS for the admonition elements
-  </description>
+  </purpose>
 </template>
 
 <xsl:template name="db2html.admon.css">

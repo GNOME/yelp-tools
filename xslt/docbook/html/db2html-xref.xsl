@@ -12,9 +12,9 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.anchor</name>
-  <description>
+  <purpose>
     Generate an anchor point for an element
-  </description>
+  </purpose>
 </template>
 
 <xsl:template name="db2html.anchor">

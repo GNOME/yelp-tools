@@ -14,9 +14,9 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db.chunk.chunk_top</name>
-  <description>
+  <purpose>
     Whether the top-level chunk should be output with the chunking mechanism
-  </description>
+  </purpose>
 </parameter>
 
 <xsl:param name="db.chunk.chunk_top" select="false()"/>
@@ -26,9 +26,9 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db.chunk.max_depth</name>
-  <description>
+  <purpose>
     The maximum depth for chunking sections
-  </description>
+  </purpose>
 </parameter>
 
 <xsl:param name="db.chunk.max_depth">
@@ -51,9 +51,9 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db.chunk.basename</name>
-  <description>
+  <purpose>
     The basename of the output file, without an extension
-  </description>
+  </purpose>
 </parameter>
 
 <xsl:param name="db.chunk.basename"/>
@@ -63,9 +63,9 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db.chunk.extension</name>
-  <description>
+  <purpose>
     The default file extension for new output documents
-  </description>
+  </purpose>
 </parameter>
 
 <xsl:param name="db.chunk.extension"/>
@@ -75,9 +75,9 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db.chunk.cover_basename</name>
-  <description>
+  <purpose>
     The filename for the coversheet
-  </description>
+  </purpose>
 </parameter>
 
 <xsl:param name="db.chunk.cover_basename"
@@ -88,9 +88,9 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db.chunk.info_basename</name>
-  <description>
+  <purpose>
     The filename for the titlepage
-  </description>
+  </purpose>
 </parameter>
 
 <xsl:param name="db.chunk.info_basename"
@@ -101,9 +101,9 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db.chunk.index_basename</name>
-  <description>
+  <purpose>
     The filename for the index
-  </description>
+  </purpose>
 </parameter>
 
 <xsl:param name="db.chunk.index_basename"
@@ -114,9 +114,9 @@
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db.chunk.toc_basename</name>
-  <description>
+  <purpose>
     The filename for the table of contents
-  </description>
+  </purpose>
 </parameter>
 
 <xsl:param name="db.chunk.toc_basename"
@@ -127,38 +127,38 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db.chunk</name>
-  <description>
+  <purpose>
     Create a new output document
-  </description>
+  </purpose>
   <parameter>
     <name>node</name>
-    <description>
+    <purpose>
       The source element for the output document
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>info</name>
-    <description>
+    <purpose>
       The info child element
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>template</name>
-    <description>
+    <purpose>
       The named template to call to create the document
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>href</name>
-    <description>
+    <purpose>
       The name of the file for the new document
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>depth_of_chunk</name>
-    <description>
+    <purpose>
       The depth of new output document
-    </description>
+    </purpose>
   </parameter>
   <para>
     The <template>db.chunk</template> template creates a new output
@@ -214,32 +214,32 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db.chunk.content</name>
-  <description>
+  <purpose>
     Create the content of a new output document
-  </description>
+  </purpose>
   <parameter>
     <name>node</name>
-    <description>
+    <purpose>
       The source element for the content
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>info</name>
-    <description>
+    <purpose>
       The info child element
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>template</name>
-    <description>
+    <purpose>
       The named template to call to create the content
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>depth_of_chunk</name>
-    <description>
+    <purpose>
       The depth of new output document
-    </description>
+    </purpose>
   </parameter>
   <para>
     The <template>db.chunk.content</template> creates the actual content
@@ -318,14 +318,14 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db.chunk.depth-in-chunk</name>
-  <description>
+  <purpose>
     Determine the depth of an element in the containing chunk
-  </description>
+  </purpose>
   <parameter>
     <name>node</name>
-    <description>
+    <purpose>
       The element for which to determine the depth
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -356,14 +356,14 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db.chunk.depth-of-chunk</name>
-  <description>
+  <purpose>
     Determine the depth of the containing chunk in the document
-  </description>
+  </purpose>
   <parameter>
     <name>node</name>
-    <description>
+    <purpose>
       The element for which to determine the depth
-    </description>
+    </purpose>
   </parameter>
 </template>
 
@@ -395,20 +395,20 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db.chunk.chunk-id</name>
-  <description>
+  <purpose>
     Determine the id of the containing chunk of an element
-  </description>
+  </purpose>
   <parameter>
     <name>node</name>
-    <description>
+    <purpose>
       The element for which to find the containing chunk id
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>depth_in_chunk</name>
-    <description>
+    <purpose>
       The depth of <parameter>node</parameter> in the containing chunk
-    </description>
+    </purpose>
   </parameter>
 </template>
 

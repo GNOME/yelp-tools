@@ -12,9 +12,9 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db.xref.content</name>
-  <description>
+  <purpose>
     Generate the content for a cross reference
-  </description>
+  </purpose>
 </template>
 
 <xsl:template name="db.xref.content">
@@ -45,20 +45,20 @@
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db.xref.target</name>
-  <description>
+  <purpose>
     Generate the target for a cross reference
-  </description>
+  </purpose>
   <parameter>
     <name>linkend</name>
-    <description>
+    <purpose>
       The <sgmltag class="attribute">id</sgmltag> of the target element
-    </description>
+    </purpose>
   </parameter>
   <parameter>
     <name>target</name>
-    <description>
+    <purpose>
       The target element
-    </description>
+    </purpose>
   </parameter>
 </template>
 
