@@ -1,3 +1,9 @@
+2004-07-14  Shaun McCance  <shaunm@gnome.org>
+
+	* test/testdocs/table.x001.xml:
+	* xslt/docbook/html/db2html-table.xsl:
+	- Completed table support, sans a few attributes
+
 2004-07-12  Shaun McCance  <shaunm@gnome.org>
 
 	* test/testdocs/README:

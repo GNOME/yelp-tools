@@ -12,7 +12,7 @@
 </articleinfo>
 
 <informaltable>
-  <tgroup>
+  <tgroup cols="5">
     <colspec colname="first"/>
     <colspec colname="second"/>
     <colspec colname="fourth" colnum="4"/>
@@ -32,17 +32,34 @@
     </thead>
     <tbody>
       <row rowsep="1">
-	<entry spanname="first-fourth">rowspan=4</entry>
+	<entry spanname="first-fourth">colspan=4 colspan=4 colspan=4</entry>
 	<entry>fe</entry>
       </row>
       <row>
 	<entry>fi</entry>
 	<entry>fo</entry>
-	<entry>fum</entry>
+	<entry morerows="2"><screen>fum
+fum
+fum
+fum
+fum
+fum
+fum
+fum</screen></entry>
+        <entry>fe fi</entry>
+	<entry>fo fum</entry>
       </row>
       <row>
+	<entry morerows="1"><screen>rowspan=2
+rowspan=2
+rowspan=2
+rowspan=2</screen></entry>
 	<entry colname="fourth">fourth</entry>
 	<entry>fifth</entry>
+      </row>
+      <row>
+	<entry>second</entry>
+	<entry colname="fifth">fifth</entry>
       </row>
     </tbody>
   </tgroup>
