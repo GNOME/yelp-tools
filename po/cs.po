@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-11-08 23:05+0100\n"
-"PO-Revision-Date: 2004-11-08 23:12+0100\n"
+"POT-Creation-Date: 2004-11-08 23:14+0100\n"
+"PO-Revision-Date: 2004-11-08 23:14+0100\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -88,13 +88,17 @@ msgstr "format.table.number.flat"
 
 #: xslt/gettext/l10n.xml.in.h:1
 msgid "<msgstr form=\"0\">Author</msgstr> <msgstr form=\"1\">Authors</msgstr>"
-msgstr "<msgstr form=\"0\">Autor</msgstr> <msgstr form=\"1\">Autoři</msgstr> <msgstr form=\"2\">Autoři</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Autor</msgstr> <msgstr form=\"1\">Autoři</msgstr> <msgstr "
+"form=\"2\">Autoři</msgstr>"
 
 #: xslt/gettext/l10n.xml.in.h:2
 msgid ""
 "<msgstr form=\"0\">Collaborator</msgstr> <msgstr form=\"1\">Collaborators</"
 "msgstr>"
-msgstr "<msgstr form=\"0\">Spolupracovník</msgstr> <msgstr form=\"1\">Spolupracovníci</msgstr> <msgstr form=\"2\">Spolupracovníci</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Spolupracovník</msgstr> <msgstr form=\"1"
+"\">Spolupracovníci</msgstr> <msgstr form=\"2\">Spolupracovníci</msgstr>"
 
 #: xslt/gettext/l10n.xml.in.h:3
 msgid ""
@@ -103,17 +107,21 @@ msgstr "Copyright"
 
 #: xslt/gettext/l10n.xml.in.h:4
 msgid "<msgstr form=\"0\">Editor</msgstr> <msgstr form=\"1\">Editors</msgstr>"
-msgstr "<msgstr form=\"0\">Redaktor</msgstr> <msgstr form=\"1\">Redaktoři</msgstr> <msgstr form=\"2\">Redaktoři</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Redaktor</msgstr> <msgstr form=\"1\">Redaktoři</msgstr> "
+"<msgstr form=\"2\">Redaktoři</msgstr>"
 
 #: xslt/gettext/l10n.xml.in.h:5
 msgid ""
 "<msgstr form=\"0\">Other Contributor</msgstr> <msgstr form=\"1\">Other "
 "Contributors</msgstr>"
-msgstr "<msgstr form=\"0\">Další přispěvatel</msgstr> <msgstr form=\"1\">Další přispěvatelé</msgstr> <msgstr form=\"2\">Další přispěvatelé</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Další přispěvatel</msgstr> <msgstr form=\"1\">Další "
+"přispěvatelé</msgstr> <msgstr form=\"2\">Další přispěvatelé</msgstr>"
 
 #: xslt/gettext/l10n.xml.in.h:6
 msgid ""
-"<msgstr form=\"0\">Publisher</msgstr> <msgstr form=\"1\">Publisher</msgstr>"
+"<msgstr form=\"0\">Publisher</msgstr> <msgstr form=\"1\">Publishers</msgstr>"
 msgstr "<msgstr form=\"0\">Vydavatel</msgstr> <msgstr form=\"1\">Vydavatelé</msgstr> <msgstr form=\"2\">Vydavatelé</msgstr>"
 
 #: xslt/gettext/l10n.xml.in.h:7
