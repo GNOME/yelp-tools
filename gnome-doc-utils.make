@@ -93,6 +93,8 @@ _xsldoc ?= `pkg-config --variable xsldoc gnome-doc-utils`
 _credits ?= `pkg-congif --variable xmldir gnome-doc-utils`/xml/gnome/xslt/docbook/utils/credits.xsl
 _ids ?= `pkg-congif --variable xmldir gnome-doc-utils`/xml/gnome/xslt/docbook/utils/ids.xsl
 
+_sklocalstatedir ?= `scrollkeeper-config --pkglocalstatedir`
+
 
 ################################################################################
 ## @@ Rules for rngdoc
@@ -497,7 +499,7 @@ install-omf:
 	  echo "$(INSTALL_DATA) $$omf $(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf"; \
 	  $(INSTALL_DATA) $$omf $(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf; \
 	done
-	-scrollkeeper-update -p "$(localstatedir)/scrollkeeper" -o "$(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)"
+	-scrollkeeper-update -p "$(_sklocalstatedir)" -o "$(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)"
 install-dsk:
 	echo install-dsk
 
@@ -514,8 +516,8 @@ uninstall-doc:
 	done
 uninstall-omf:
 	@for omf in $(_DOC_OMF_ALL); do \
-	  echo " scrollkeeper-uninstall -p $(localstatedir)/scrollkeeper -o $(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf"; \
-	  -scrollkeeper-uninstall -p "$(localstatedir)/scrollkeeper" -o "$(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf"; \
+	  echo " scrollkeeper-uninstall -p $(_sklocalstatedir) -o $(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf"; \
+	  -scrollkeeper-uninstall -p "$(_sklocalstatedir)" -o "$(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf"; \
 	  echo "rm -f $(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf"; \
 	  rm -f "$(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf"; \
 	done

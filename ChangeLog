@@ -1,3 +1,8 @@
+2004-11-21  Danilo Šegan  <dsegan@gmx.net>
+
+	* gnome-doc-utils.make: Use "scrollkeeper-config" to find
+	localstatedir.
+
 2004-11-19  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/html/db2html-refentry.xsl:
