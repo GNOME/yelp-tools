@@ -55,11 +55,13 @@
         <xsl:value-of select="@align"/>
       </xsl:attribute>
     </xsl:if>
+<!-- FIXME
     <xsl:if test="$textobject/phrase">
       <xsl:attribute name="alt">
         <xsl:value-of select="phrase[1]"/>
       </xsl:attribute>
     </xsl:if>
+-->
     <!-- FIXME: longdesc -->
   </img>
 </xsl:template>
@@ -69,9 +71,11 @@
 
 <xsl:template name="db2html.mediaobject">
   <xsl:choose>
+<!-- FIXME
     <xsl:when test="$text_only">
       <xsl:apply-templates select="textobject[1]"/>
     </xsl:when>
+-->
     <xsl:when test="imageobject[imagedata/@format = 'PNG']">
       <xsl:apply-templates
        select="imageobject[imagedata/@format = 'PNG'][1]">

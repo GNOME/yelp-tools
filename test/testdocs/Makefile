@@ -1,4 +1,4 @@
-db2html = ../../xslt/docbook/html/db2html.xsl
+db2html = db2html.xsl
 
 tests = $(filter-out template.xml,$(wildcard *.xml))
 htmls = $(patsubst %.xml,html/%,$(tests))

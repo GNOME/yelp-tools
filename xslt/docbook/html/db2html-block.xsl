@@ -147,4 +147,9 @@
   <xsl:call-template name="db2html.block"/>
 </xsl:template>
 
+<!-- = para = -->
+<xsl:template match="para">
+  <xsl:call-template name="db2html.para"/>
+</xsl:template>
+
 </xsl:stylesheet>

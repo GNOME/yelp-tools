@@ -109,6 +109,7 @@
       <xsl:otherwise>1</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
+  <!-- FIXME: auto-numeration for nested lists -->
   <div class="orderedlist">
     <xsl:call-template name="db2html.anchor"/>
     <xsl:apply-templates select="*[name(.) != 'listitem']"/>
@@ -331,40 +332,38 @@
 <!-- ======================================================================= -->
 <!-- == variablelist ======================================================= -->
 
-<!--
 <xsl:template match="variablelist">
-	<div class="variablelist">
-		<xsl:call-template name="db2html.anchor"/>
-		<xsl:apply-templates select="*[name(.) != 'varlistentry']"/>
-		<dl>
-			<xsl:apply-templates select="varlistentry"/>
-		</dl>
-	</div>
+  <div class="variablelist">
+    <xsl:call-template name="db2html.anchor"/>
+    <xsl:apply-templates select="*[name(.) != 'varlistentry']"/>
+    <dl>
+      <xsl:apply-templates select="varlistentry"/>
+    </dl>
+  </div>
 </xsl:template>
 
 <xsl:template match="varlistentry">
-	<dt>
-		<xsl:call-template name="db2html.anchor"/>
-		<xsl:for-each select="term">
-			<xsl:if test="position() != 1">
-				<xsl:text>, </xsl:text>
-			</xsl:if>
-			<xsl:apply-templates select="."/>
-		</xsl:for-each>
-	</dt>
-	<xsl:apply-templates select="listitem"/>
+  <dt>
+    <xsl:call-template name="db2html.anchor"/>
+    <xsl:for-each select="term">
+      <xsl:if test="position() != 1">
+        <xsl:text>, </xsl:text>
+      </xsl:if>
+      <xsl:apply-templates select="."/>
+    </xsl:for-each>
+  </dt>
+  <xsl:apply-templates select="listitem"/>
 </xsl:template>
 
 <xsl:template match="varlistentry/listitem">
-	<dd>
-		<xsl:call-template name="db2html.anchor"/>
-		<xsl:apply-templates/>
-	</dd>
+  <dd>
+    <xsl:call-template name="db2html.anchor"/>
+    <xsl:apply-templates/>
+  </dd>
 </xsl:template>
 
 <xsl:template match="term">
-	<xsl:call-template name="inline"/>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
--->
 
 </xsl:stylesheet>

@@ -1,3 +1,26 @@
+2004-05-24  Shaun McCance  <shaunm@gnome.org>
+
+	* test/testdocs/Makefile:
+	* test/testdocs/db2html:
+	- Made a custom db2html to show the source
+
+	* xslt/docbook/html/Makefile.am:
+	* xslt/docbook/html/db2html-table.xsl:
+	* xslt/docbook/html/db2html.xsl:
+	- Added db2html-table.xsl, mostly commented out
+
+	* xslt/docbook/html/db2html-block.xsl:
+	- Added para
+
+	* xslt/docbook/html/db2html-inline.xsl:
+	- Fixed trademark to process children
+
+	* xslt/docbook/html/db2html-list.xsl:
+	- Re-added variablelist support
+
+	* xslt/docbook/html/db2html-media.xsl:
+	- Commented out some problematic parts, needs to be fixed
+
 2004-05-22  Shaun McCance  <shaunm@gnome.org>
 
 	* test/testdocs/README:

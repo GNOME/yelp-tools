@@ -760,6 +760,7 @@
     </xsl:choose>
   </xsl:variable>
   <span class="trademark">
+    <xsl:apply-templates/>
     <xsl:call-template name="db.dingbat">
       <xsl:with-param name="dingbat" select="$class"/>
     </xsl:call-template>

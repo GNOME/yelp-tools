@@ -60,6 +60,9 @@
 <xsl:include href="db2html-suppressed.xsl"
              doc:summary="true"
              doc:include="true"/>
+<xsl:include href="db2html-table.xsl"
+             doc:summary="true"
+             doc:include="true"/>
 <xsl:include href="db2html-title.xsl"
              doc:summary="true"
              doc:include="true"/>
