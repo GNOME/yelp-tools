@@ -1,5 +1,7 @@
 2004-04-07  Danilo Šegan  <dsegan@gmx.net>
 
+	* configure.ac: Push version number to 1.0.9.
+
 	* modes/docbook.py (docbookXmlMode.postProcessXmlTranslation): Support "book" as well.
 	(docbookXmlMode._find_articleinfo): Support "bookinfo" as well.
 
