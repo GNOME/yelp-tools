@@ -1,3 +1,12 @@
+2004-07-12  Shaun McCance  <shaunm@gnome.org>
+
+	* test/testdocs/README:
+	* test/testdocs/table.x001.xml:
+	- Added table test for spanning stuff
+
+	* xslt/docbook/html/db2html-table.xsl:
+	- Lots of table jolliness, back to half-working
+
 2004-07-09  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/html/db2html.xsl:

@@ -8,5 +8,6 @@ These files are not found in docbook-testdocs:
 classsynopsis.x001.xml
 funcsynopsis.x001.xml
 simplelist.x001.xml
+table.x001.xml
 
 The title of epigraph.001 was changed from article.001 to epigraph.001
