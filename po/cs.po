@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-10-19 11:25+0200\n"
-"PO-Revision-Date: 2004-10-19 15:13+0200\n"
+"POT-Creation-Date: 2004-10-21 11:25+0200\n"
+"PO-Revision-Date: 2004-10-21 16:50+0200\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -26,332 +26,269 @@ msgstr "format.chapter.label"
 msgid "format.citetitle"
 msgstr "format.citetitle"
 
-#. %t{parent}-%1{number}
+#. FIXME
 #: xslt/docbook/common/db-format.xml.in.h:6
+msgid "format.date"
+msgstr "format.date"
+
+#. %t{parent}-%1{number}
+#: xslt/docbook/common/db-format.xml.in.h:8
 msgid "format.example.number"
 msgstr "format.example.number"
 
 #. %1{number}
-#: xslt/docbook/common/db-format.xml.in.h:8
+#: xslt/docbook/common/db-format.xml.in.h:10
 msgid "format.example.number.flat"
 msgstr "format.example.number.flat"
 
 #. Figure %t{number}
-#: xslt/docbook/common/db-format.xml.in.h:10
+#: xslt/docbook/common/db-format.xml.in.h:12
 msgid "format.figure.label"
 msgstr "format.figure.label"
 
 #. %t{parent}-%1{number}
-#: xslt/docbook/common/db-format.xml.in.h:12
+#: xslt/docbook/common/db-format.xml.in.h:14
 msgid "format.figure.number"
 msgstr "format.figure.number"
 
 #. %1{number}
-#: xslt/docbook/common/db-format.xml.in.h:14
+#: xslt/docbook/common/db-format.xml.in.h:16
 msgid "format.figure.number.flat"
 msgstr "format.figure.number.flat"
 
 #. ‘%t{node}’
-#: xslt/docbook/common/db-format.xml.in.h:16
+#: xslt/docbook/common/db-format.xml.in.h:18
 msgid "format.quote.outer"
 msgstr "format.quote.outer"
 
 #. Section %t{number}
-#: xslt/docbook/common/db-format.xml.in.h:18
+#: xslt/docbook/common/db-format.xml.in.h:20
 msgid "format.section.label"
 msgstr "format.section.label"
 
 #. Table %t{number}
-#: xslt/docbook/common/db-format.xml.in.h:20
+#: xslt/docbook/common/db-format.xml.in.h:22
 msgid "format.table.label"
 msgstr "format.table.label"
 
 #. %t{parent}-%1{number}
-#: xslt/docbook/common/db-format.xml.in.h:22
+#: xslt/docbook/common/db-format.xml.in.h:24
 msgid "format.table.number"
 msgstr "format.table.number"
 
 #. %1{number}
-#: xslt/docbook/common/db-format.xml.in.h:24
+#: xslt/docbook/common/db-format.xml.in.h:26
 msgid "format.table.number.flat"
 msgstr "format.table.number.flat"
 
 #: xslt/gettext/l10n.xml.in.h:1
-msgid "&#8216;"
-msgstr "&#8216;"
-
-#: xslt/gettext/l10n.xml.in.h:2
-msgid "&#8217;"
-msgstr "&#8217;"
-
-#: xslt/gettext/l10n.xml.in.h:3
-msgid "&#8220;"
-msgstr "&#8220;"
-
-#: xslt/gettext/l10n.xml.in.h:4
-msgid "&#8221;"
-msgstr "&#8221;"
-
-#: xslt/gettext/l10n.xml.in.h:5
 msgid "About This Article"
 msgstr "O tomto článku"
 
-#: xslt/gettext/l10n.xml.in.h:6
+#: xslt/gettext/l10n.xml.in.h:2
 msgid "About This Bibliography"
 msgstr "O této bibliografii"
 
-#: xslt/gettext/l10n.xml.in.h:7
+#: xslt/gettext/l10n.xml.in.h:3
 msgid "About This Book"
 msgstr "O této knize"
 
-#: xslt/gettext/l10n.xml.in.h:8
+#: xslt/gettext/l10n.xml.in.h:4
 msgid "About This Chapter"
 msgstr "O této kapitole"
 
-#: xslt/gettext/l10n.xml.in.h:9
+#: xslt/gettext/l10n.xml.in.h:5
 msgid "About This Entry"
 msgstr "O této položce"
 
-#: xslt/gettext/l10n.xml.in.h:10
+#: xslt/gettext/l10n.xml.in.h:6
 msgid "About This Glossary"
 msgstr "O tomto glosáři"
 
-#: xslt/gettext/l10n.xml.in.h:11
+#: xslt/gettext/l10n.xml.in.h:7
 msgid "About This Index"
 msgstr "O tomto rejstříku"
 
-#: xslt/gettext/l10n.xml.in.h:12
+#: xslt/gettext/l10n.xml.in.h:8
 msgid "About This Part"
 msgstr "O této části"
 
-#: xslt/gettext/l10n.xml.in.h:13
+#: xslt/gettext/l10n.xml.in.h:9
 msgid "About This Preface"
 msgstr "O této předmluvě"
 
-#: xslt/gettext/l10n.xml.in.h:14
+#: xslt/gettext/l10n.xml.in.h:10
 msgid "About This Reference"
 msgstr "O tomto odkazu"
 
-#: xslt/gettext/l10n.xml.in.h:15
+#: xslt/gettext/l10n.xml.in.h:11
 msgid "About This Section"
 msgstr "O tomto oddílu"
 
-#: xslt/gettext/l10n.xml.in.h:16
+#: xslt/gettext/l10n.xml.in.h:12
 msgid "About This Set"
 msgstr "O této sadě"
 
-#: xslt/gettext/l10n.xml.in.h:17
+#: xslt/gettext/l10n.xml.in.h:13
 msgid "Affiliation"
 msgstr "Přidružení"
 
-#: xslt/gettext/l10n.xml.in.h:18
-msgid "Appendix"
-msgstr "Příloha"
-
-#: xslt/gettext/l10n.xml.in.h:19
-msgid "Article"
-msgstr "Článek"
-
-#: xslt/gettext/l10n.xml.in.h:20
+#: xslt/gettext/l10n.xml.in.h:14
 msgid "Audience"
 msgstr "Čtenáři"
 
-#: xslt/gettext/l10n.xml.in.h:21
+#: xslt/gettext/l10n.xml.in.h:15
 msgid "Author"
 msgstr "Autor"
 
-#: xslt/gettext/l10n.xml.in.h:22
+#: xslt/gettext/l10n.xml.in.h:16
 msgid "Authors"
 msgstr "Autoři"
 
-#: xslt/gettext/l10n.xml.in.h:23
-msgid "Bibliography"
-msgstr "Bibliografie"
-
-#: xslt/gettext/l10n.xml.in.h:24
-msgid "Book"
-msgstr "Kniha"
-
-#: xslt/gettext/l10n.xml.in.h:25
+#: xslt/gettext/l10n.xml.in.h:17
 msgid "Caution"
 msgstr "Upozornění"
 
-#: xslt/gettext/l10n.xml.in.h:26
-msgid "Chapter"
-msgstr "Kapitola"
-
-#: xslt/gettext/l10n.xml.in.h:27
+#: xslt/gettext/l10n.xml.in.h:18
 msgid "Collaborator"
 msgstr "Spolupracovník"
 
-#: xslt/gettext/l10n.xml.in.h:28
+#: xslt/gettext/l10n.xml.in.h:19
 msgid "Collaborators"
 msgstr "Spolupracovníci"
 
-#: xslt/gettext/l10n.xml.in.h:29
+#: xslt/gettext/l10n.xml.in.h:20
 msgid "Colophon"
 msgstr "Tiráž"
 
-#: xslt/gettext/l10n.xml.in.h:30
+#: xslt/gettext/l10n.xml.in.h:21
 msgid "Contents"
 msgstr "Obsah"
 
-#: xslt/gettext/l10n.xml.in.h:31
+#: xslt/gettext/l10n.xml.in.h:22
 msgid "Copyright"
 msgstr "Copyright"
 
-#: xslt/gettext/l10n.xml.in.h:32
+#: xslt/gettext/l10n.xml.in.h:23
 msgid "Copyrights"
 msgstr "Copyrights"
 
-#: xslt/gettext/l10n.xml.in.h:33
+#: xslt/gettext/l10n.xml.in.h:24
 msgid "Date"
 msgstr "Datum"
 
-#: xslt/gettext/l10n.xml.in.h:34
+#: xslt/gettext/l10n.xml.in.h:25
 msgid "Dedication"
 msgstr "Věnování"
 
-#: xslt/gettext/l10n.xml.in.h:35
+#: xslt/gettext/l10n.xml.in.h:26
 msgid "Editor"
 msgstr "Redaktor"
 
-#: xslt/gettext/l10n.xml.in.h:36
+#: xslt/gettext/l10n.xml.in.h:27
 msgid "Editors"
 msgstr "Redaktoři"
 
-#: xslt/gettext/l10n.xml.in.h:37
+#: xslt/gettext/l10n.xml.in.h:28
 msgid "Email"
 msgstr "E-mail"
 
-#: xslt/gettext/l10n.xml.in.h:38
-msgid "Example"
-msgstr "Příklad"
-
-#: xslt/gettext/l10n.xml.in.h:39
-msgid "Figure"
-msgstr "Obrázek"
-
-#: xslt/gettext/l10n.xml.in.h:40
-msgid "Glossary"
-msgstr "Glosář"
-
-#: xslt/gettext/l10n.xml.in.h:41
+#: xslt/gettext/l10n.xml.in.h:29
 msgid "Important"
 msgstr "Důležité"
 
-#: xslt/gettext/l10n.xml.in.h:42
+#: xslt/gettext/l10n.xml.in.h:30
 msgid "Index"
 msgstr "Rejstřík"
 
-#: xslt/gettext/l10n.xml.in.h:43
+#: xslt/gettext/l10n.xml.in.h:31
 msgid "Legal Notice"
 msgstr "Právní upozornění"
 
-#: xslt/gettext/l10n.xml.in.h:44
+#: xslt/gettext/l10n.xml.in.h:32
 msgid "Level"
 msgstr "Úroveň"
 
-#: xslt/gettext/l10n.xml.in.h:45
+#: xslt/gettext/l10n.xml.in.h:33
 msgid "Message Audience"
 msgstr "Čtenáři zprávy"
 
-#: xslt/gettext/l10n.xml.in.h:46
+#: xslt/gettext/l10n.xml.in.h:34
 msgid "Message Level"
 msgstr "Úroveň zprávy"
 
-#: xslt/gettext/l10n.xml.in.h:47
+#: xslt/gettext/l10n.xml.in.h:35
 msgid "Message Origin"
 msgstr "Původ zprávy"
 
-#: xslt/gettext/l10n.xml.in.h:48
+#: xslt/gettext/l10n.xml.in.h:36
 msgid "Note"
 msgstr "Upozornění"
 
-#: xslt/gettext/l10n.xml.in.h:49
+#: xslt/gettext/l10n.xml.in.h:37
 msgid "Origin"
 msgstr "Původ"
 
-#: xslt/gettext/l10n.xml.in.h:50
+#: xslt/gettext/l10n.xml.in.h:38
 msgid "Other Contributor"
 msgstr "Další přispěvatel"
 
-#: xslt/gettext/l10n.xml.in.h:51
+#: xslt/gettext/l10n.xml.in.h:39
 msgid "Other Contributors"
 msgstr "Další přispěvatelé"
 
-#: xslt/gettext/l10n.xml.in.h:52
-msgid "Part"
-msgstr "Část"
-
-#: xslt/gettext/l10n.xml.in.h:53
+#: xslt/gettext/l10n.xml.in.h:40
 msgid "Preface"
 msgstr "Předmluva"
 
-#: xslt/gettext/l10n.xml.in.h:54
+#: xslt/gettext/l10n.xml.in.h:41
 msgid "Publisher"
 msgstr "Vydavatel"
 
-#: xslt/gettext/l10n.xml.in.h:55
+#: xslt/gettext/l10n.xml.in.h:42
 msgid "Publishers"
 msgstr "Vydavatelé"
 
-#: xslt/gettext/l10n.xml.in.h:56
+#: xslt/gettext/l10n.xml.in.h:43
 msgid "Reference"
 msgstr "Odkaz"
 
-#: xslt/gettext/l10n.xml.in.h:57
-msgid "Reference Entry"
-msgstr "Položka odkazu"
-
-#: xslt/gettext/l10n.xml.in.h:58
-msgid "Reference Section"
-msgstr "Oddíl odkazů"
-
-#: xslt/gettext/l10n.xml.in.h:59
+#: xslt/gettext/l10n.xml.in.h:44
 msgid "Release Information"
 msgstr "Informace o vydání"
 
-#: xslt/gettext/l10n.xml.in.h:60
+#: xslt/gettext/l10n.xml.in.h:45
 msgid "Revision History"
 msgstr "Historie revizí"
 
-#: xslt/gettext/l10n.xml.in.h:61
-msgid "Section"
-msgstr "Oddíl"
-
-#: xslt/gettext/l10n.xml.in.h:62
+#: xslt/gettext/l10n.xml.in.h:46
 msgid "See"
 msgstr "Viz"
 
-#: xslt/gettext/l10n.xml.in.h:63
+#: xslt/gettext/l10n.xml.in.h:47
 msgid "See Also"
 msgstr "Viz také"
 
-#: xslt/gettext/l10n.xml.in.h:64
+#: xslt/gettext/l10n.xml.in.h:48
 msgid "Set Index"
 msgstr "Rejstřík sady"
 
-#: xslt/gettext/l10n.xml.in.h:65
-msgid "Table"
-msgstr "Tabulka"
-
-#: xslt/gettext/l10n.xml.in.h:66
+#: xslt/gettext/l10n.xml.in.h:49
 msgid "Table of Contents"
 msgstr "Obsah"
 
-#: xslt/gettext/l10n.xml.in.h:67
+#: xslt/gettext/l10n.xml.in.h:50
 msgid "Tip"
 msgstr "Tip"
 
-#: xslt/gettext/l10n.xml.in.h:68
+#: xslt/gettext/l10n.xml.in.h:51
 msgid "Title"
 msgstr "Název"
 
-#: xslt/gettext/l10n.xml.in.h:69
+#: xslt/gettext/l10n.xml.in.h:52
 msgid "Unknown"
 msgstr "Neznámé"
 
-#: xslt/gettext/l10n.xml.in.h:70
+#: xslt/gettext/l10n.xml.in.h:53
 msgid "Warning"
 msgstr "Varování"
