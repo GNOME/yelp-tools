@@ -1,0 +1,309 @@
+# Nepali Translation Project.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Pawan Chitrakar  <pawan@nplinux.org>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-doc-utils\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-12-11 04:17+0100\n"
+"PO-Revision-Date: 2005-02-14 13:31+0545\n"
+"Last-Translator: Rajeev Shrestha <rstha@ecomail.com.np>\n"
+"Language-Team: Nepali <info@mpp.org.np>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Nepali\n"
+"X-Poedit-Country: NEPAL\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#. Appendix %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:2
+msgid "format.appendix.label"
+msgstr "ढाँचा.एपेन्डिक्स.लेबुल"
+
+#. Chapter %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:4
+msgid "format.chapter.label"
+msgstr "ढाँचा.अध्याय.लेबुल"
+
+#: xslt/docbook/common/db-format.xml.in.h:5
+msgid "format.citetitle"
+msgstr "ढाँचा.साइटशीर्षक"
+
+#. FIXME
+#: xslt/docbook/common/db-format.xml.in.h:7
+msgid "format.date"
+msgstr "ढाँचा.मिति"
+
+#. Example %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:9
+msgid "format.example.label"
+msgstr "ढाँचा.उदारण.लेबुल"
+
+#. %t{parent}-%1{number}
+#: xslt/docbook/common/db-format.xml.in.h:11
+msgid "format.example.number"
+msgstr "ढाँचा.उदारण.नम्बर"
+
+#. %1{number}
+#: xslt/docbook/common/db-format.xml.in.h:13
+msgid "format.example.number.flat"
+msgstr "ढाँचा.उदारण.नम्बर.समतल"
+
+#. Figure %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:15
+msgid "format.figure.label"
+msgstr "ढाँचा.रेखाचित्र.लेबुल"
+
+#. %t{parent}-%1{number}
+#: xslt/docbook/common/db-format.xml.in.h:17
+msgid "format.figure.number"
+msgstr "ढाँचा.रेखाचित्र.नम्बर"
+
+#. %1{number}
+#: xslt/docbook/common/db-format.xml.in.h:19
+msgid "format.figure.number.flat"
+msgstr "ढाँचा.रेखाचित्र.नम्बर.समतल"
+
+#. ‘%t{node}’
+#: xslt/docbook/common/db-format.xml.in.h:21
+msgid "format.quote.inner"
+msgstr "ढाँचा.उदधृत वाक्य.भित्री"
+
+#. “%t{node}”
+#: xslt/docbook/common/db-format.xml.in.h:23
+msgid "format.quote.outer"
+msgstr "ढाँचा.उदधृत वाक्य.बाहिरी"
+
+#. Section %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:25
+msgid "format.section.label"
+msgstr "ढाँचा.सेक्सन.लेबुल"
+
+#. Table %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:27
+msgid "format.table.label"
+msgstr "ढाँचा.तालिका.लेबुल"
+
+#. %t{parent}-%1{number}
+#: xslt/docbook/common/db-format.xml.in.h:29
+msgid "format.table.number"
+msgstr "ढाँचा.तालिका.नम्बर"
+
+#. %1{number}
+#: xslt/docbook/common/db-format.xml.in.h:31
+msgid "format.table.number.flat"
+msgstr "ढाँचा.तालिका.नम्बर.समतल"
+
+#. Read the definition for ‘%s{node}’.
+#: xslt/docbook/common/db-format.xml.in.h:33
+msgid "format.tooltip.glossentry"
+msgstr "ढाँचा.उपकरण टिप.शब्दसंग्रह प्रबिष्टि"
+
+#. Used as a header before a list of authors.
+#: xslt/gettext/l10n.xml.in.h:2
+msgid "<msgstr form=\"0\">Author</msgstr> <msgstr form=\"1\">Authors</msgstr>"
+msgstr "<msgstr form=\"0\">लेखक</msgstr> <msgstr form=\"1\">लेखकहरू</msgstr>"
+
+#. Used as a header before a list of collaborators.
+#: xslt/gettext/l10n.xml.in.h:4
+msgid "<msgstr form=\"0\">Collaborator</msgstr> <msgstr form=\"1\">Collaborators</msgstr>"
+msgstr "<msgstr form=\"0\">सहकारी</msgstr> <msgstr form=\"1\">सहकारीहरू</msgstr>"
+
+#. Used as a header before a list of copyrights.
+#: xslt/gettext/l10n.xml.in.h:6
+msgid "<msgstr form=\"0\">Copyright</msgstr> <msgstr form=\"1\">Copyrights</msgstr>"
+msgstr "<msgstr form=\"0\"> प्रतिलिपि अधिकार</msgstr> <msgstr form=\"1\">प्रतिलिपि अधिकारहरू</msgstr>"
+
+#. Used as a header before a list of editors.
+#: xslt/gettext/l10n.xml.in.h:8
+msgid "<msgstr form=\"0\">Editor</msgstr> <msgstr form=\"1\">Editors</msgstr>"
+msgstr "<msgstr form=\"0\">सम्पादक</msgstr> <msgstr form=\"1\">सम्पादकहरू</msgstr>"
+
+#. Used as a header before a list of contributors.
+#: xslt/gettext/l10n.xml.in.h:10
+msgid "<msgstr form=\"0\">Other Contributor</msgstr> <msgstr form=\"1\">Other Contributors</msgstr>"
+msgstr "<msgstr form=\"0\">अन्य दाता</msgstr> <msgstr form=\"1\">अन्य दाताहरू</msgstr>"
+
+#. Used as a header before a list of publishers.
+#: xslt/gettext/l10n.xml.in.h:12
+msgid "<msgstr form=\"0\">Publisher</msgstr> <msgstr form=\"1\">Publishers</msgstr>"
+msgstr "<msgstr form=\"0\">प्रकाशक</msgstr> <msgstr form=\"1\">प्रकाशकहरू</msgstr>"
+
+#: xslt/gettext/l10n.xml.in.h:13
+msgid "About This Article"
+msgstr "यो लेखको बारेमा"
+
+#: xslt/gettext/l10n.xml.in.h:14
+msgid "About This Bibliography"
+msgstr "यो पुस्तक सूचीको बारेमा"
+
+#: xslt/gettext/l10n.xml.in.h:15
+msgid "About This Book"
+msgstr "यो पुस्तकको बारेमा"
+
+#: xslt/gettext/l10n.xml.in.h:16
+msgid "About This Chapter"
+msgstr "यो अध्यायको बारेमा"
+
+#: xslt/gettext/l10n.xml.in.h:17
+msgid "About This Entry"
+msgstr "यो प्रविष्टिको बारेमा"
+
+#: xslt/gettext/l10n.xml.in.h:18
+msgid "About This Glossary"
+msgstr "यो शब्द संग्रहको बारेमा"
+
+#: xslt/gettext/l10n.xml.in.h:19
+msgid "About This Index"
+msgstr "यो अनुक्रमणिकाको बारेमा"
+
+#: xslt/gettext/l10n.xml.in.h:20
+msgid "About This Part"
+msgstr "यो भागको बारेमा"
+
+#: xslt/gettext/l10n.xml.in.h:21
+msgid "About This Preface"
+msgstr "यो भुमिकाको बारेमा"
+
+#: xslt/gettext/l10n.xml.in.h:22
+msgid "About This Reference"
+msgstr "यो सन्दर्भको बारेमा"
+
+#: xslt/gettext/l10n.xml.in.h:23
+msgid "About This Section"
+msgstr "यो सेक्सनको बारेमा"
+
+#: xslt/gettext/l10n.xml.in.h:24
+msgid "About This Set"
+msgstr "यो सेटको बारेमा"
+
+#: xslt/gettext/l10n.xml.in.h:25
+msgid "Affiliation"
+msgstr "सम्बद्धन"
+
+#. This is an abbreviated form of 'Message Audience'.
+#: xslt/gettext/l10n.xml.in.h:28
+msgid "Audience"
+msgstr "दर्शन"
+
+#: xslt/gettext/l10n.xml.in.h:29
+msgid "Caution"
+msgstr "सावधानी"
+
+#: xslt/gettext/l10n.xml.in.h:30
+msgid "Colophon"
+msgstr "कोलोफोन"
+
+#. This is an abbreviated form of 'Table of Contents'.
+#: xslt/gettext/l10n.xml.in.h:33
+msgid "Contents"
+msgstr "सामग्रीहरू"
+
+#. Used as a header for date column in the revision history.
+#: xslt/gettext/l10n.xml.in.h:35
+msgid "Date"
+msgstr "मिति"
+
+#: xslt/gettext/l10n.xml.in.h:36
+msgid "Dedication"
+msgstr "समर्पण"
+
+#: xslt/gettext/l10n.xml.in.h:37
+msgid "Email"
+msgstr "इमेल"
+
+#: xslt/gettext/l10n.xml.in.h:38
+msgid "Important"
+msgstr "महत्वपूर्ण"
+
+#: xslt/gettext/l10n.xml.in.h:39
+msgid "Index"
+msgstr "अनुक्रमणिका"
+
+#: xslt/gettext/l10n.xml.in.h:40
+msgid "Legal Notice"
+msgstr "बैध सूचना"
+
+#. This is an abbreviated form of 'Message Level'.
+#: xslt/gettext/l10n.xml.in.h:43
+msgid "Level"
+msgstr "तह"
+
+#: xslt/gettext/l10n.xml.in.h:44
+msgid "Message Audience"
+msgstr "सन्देश दर्शन"
+
+#: xslt/gettext/l10n.xml.in.h:45
+msgid "Message Level"
+msgstr "सन्देश तह"
+
+#: xslt/gettext/l10n.xml.in.h:46
+msgid "Message Origin"
+msgstr "सन्देश उत्पत्ति"
+
+#: xslt/gettext/l10n.xml.in.h:47
+msgid "Name"
+msgstr "नाम"
+
+#: xslt/gettext/l10n.xml.in.h:48
+msgid "Note"
+msgstr "द्रष्टव्य"
+
+#. This is an abbreviated form of 'Message Origin'.
+#: xslt/gettext/l10n.xml.in.h:51
+msgid "Origin"
+msgstr "उत्पत्ति"
+
+#: xslt/gettext/l10n.xml.in.h:52
+msgid "Preface"
+msgstr "भुमिका"
+
+#: xslt/gettext/l10n.xml.in.h:53
+msgid "Reference"
+msgstr "सन्दर्भ"
+
+#: xslt/gettext/l10n.xml.in.h:54
+msgid "Release Information"
+msgstr "जारी जानकारी"
+
+#: xslt/gettext/l10n.xml.in.h:55
+msgid "Revision History"
+msgstr "संशोधन इतिहास"
+
+#: xslt/gettext/l10n.xml.in.h:56
+msgid "See"
+msgstr "हेर"
+
+#: xslt/gettext/l10n.xml.in.h:57
+msgid "See Also"
+msgstr "यो पनि हेर"
+
+#: xslt/gettext/l10n.xml.in.h:58
+msgid "Set Index"
+msgstr "अनुक्रमणिका सेट गर्नुहोस्"
+
+#: xslt/gettext/l10n.xml.in.h:59
+msgid "Synopsis"
+msgstr "सारांश"
+
+#. Used for a link to a table of contents.
+#: xslt/gettext/l10n.xml.in.h:61
+msgid "Table of Contents"
+msgstr "सामाग्रीहरूको तालिका"
+
+#: xslt/gettext/l10n.xml.in.h:62
+msgid "Tip"
+msgstr "टिप"
+
+#. Used as a header for title column in the revision history.
+#: xslt/gettext/l10n.xml.in.h:64
+msgid "Title"
+msgstr "शीर्षक "
+
+#: xslt/gettext/l10n.xml.in.h:65
+msgid "Warning"
+msgstr "चेतावनी"
+

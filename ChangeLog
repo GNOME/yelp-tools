@@ -1,3 +1,7 @@
+2005-02-14  Pawan chitrakar  <pawan@nplinux.org>
+
+	* configure.in: Added ne "Nepali" in ALL_LINGUAS
+
 2005-02-13  Baris Cicek <baris@teamforce.name.tr>
 
 	* configure.in: Added tr to ALL_LINGUAS
