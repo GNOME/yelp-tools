@@ -21,7 +21,6 @@
 	</xsl:call-template>
       </xsl:otherwise>
     </xsl:choose>
-    <xsl:text>" \</xsl:text>
     <xsl:if test="email">
       <xsl:text> &lt;</xsl:text>
       <xsl:value-of select="email"/>

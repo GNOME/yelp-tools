@@ -1,3 +1,4 @@
+CLEANFILES =
 EXTRA_DIST =
 
 ################################################################################
@@ -7,38 +8,40 @@ EXTRA_DIST =
 ## The name of the .h file to generate
 DOC_H_FILE ?=
 
-## @ GNOME_DOC_DIRECTORIES
+## @ DOC_DIRECTORIES
 ## The top-level documentation directories used to generate the .h file
 DOC_DIRECTORIES ?=
 
 ## @ _DOC_H_DOCFILES
 ## The input DocBook files
-_DOC_H_DOCFILES = $(foreach dir,$(DOC_DIRECTORIES),		\
-	$(dir)/$(shell make -s -C $(dir) echo-MODULE))
+_DOC_H_DOCFILES = $(if $(DOC_H_FILE),					\
+	$(foreach dir,$(DOC_DIRECTORIES),				\
+		$(dir)/$(shell make -s -C $(dir) echo-MODULE) ) )
 
-$(DOC_H_FILE): $(_DOC_H_DOCFILES)
-	@rm -f $@; touch $@;
-	echo 'const gchar** documentation_credits = {' >> $@
-	for doc in $(_DOC_H_DOCFILES); do \
-	  xsltproc $(_credits) $$doc; \
-	done | sort | uniq \
-	  | sed -e 's/\\/\\\\/' -e 's/"/\\"/' -e 's/\(.*\)/\t"\1",/' >> $@
-	echo '	NULL' >> $@
-	echo '};' >> $@
-	echo >> $@
-	for doc in $(_DOC_H_DOCFILES); do \
-	  docid=`echo $$doc  | sed -e 's/.*\/\([^/]*\)\.xml/\1/' \
-	    | sed -e 's/[^a-zA-Z_]/_/g' | tr 'a-z' 'A-Z'`; \
-	  ids=`xsltproc --xinclude $(_ids) $$doc`; \
-	  for id in $$ids; do \
-	    echo '#define HELP_'`echo $$docid`'_'`echo $$id \
-	      | sed -e 's/[^a-zA-Z_]/_/g' | tr 'a-z' 'A-Z'`' "'$$id'"' >> $@; \
-	  done; \
-	  echo >> $@; \
-	done;
+#$(DOC_H_FILE): $(_DOC_H_DOCFILES)
+#	@rm -f $@; touch $@;
+#	echo 'const gchar** documentation_credits = {' >> $@
+#	for doc in $(_DOC_H_DOCFILES); do \
+#	  xsltproc $(_credits) $$doc; \
+#	done | sort | uniq \
+#	  | sed -e 's/\\/\\\\/' -e 's/"/\\"/' -e 's/\(.*\)/\t"\1",/' >> $@
+#	echo '	NULL' >> $@
+#	echo '};' >> $@
+#	echo >> $@
+#	for doc in $(_DOC_H_DOCFILES); do \
+#	  docid=`echo $$doc  | sed -e 's/.*\/\([^/]*\)\.xml/\1/' \
+#	    | sed -e 's/[^a-zA-Z_]/_/g' | tr 'a-z' 'A-Z'`; \
+#	  ids=`xsltproc --xinclude $(_ids) $$doc`; \
+#	  for id in $$ids; do \
+#	    echo '#define HELP_'`echo $$docid`'_'`echo $$id \
+#	      | sed -e 's/[^a-zA-Z_]/_/g' | tr 'a-z' 'A-Z'`' "'$$id'"' >> $@; \
+#	  done; \
+#	  echo >> $@; \
+#	done;
 
-EXTRA_DIST += $(DOC_H_FILE)
-
+#EXTRA_DIST += $(DOC_H_FILE)
+#CLEANFILES += $(DOC_H_FILE)
+#all: $(DOC_H_FILE)
 
 ################################################################################
 ## @@ Public variables
@@ -150,11 +153,11 @@ db2omf_args =									\
 
 ## @ _DOC_OMF_IN
 ## The OMF input file
-_DOC_OMF_IN = $(if $(DOC_MODULE),$(DOC_MODULE).omf.in)
+_DOC_OMF_IN = $(if $(DOC_MODULE),$(wildcard $(DOC_MODULE).omf.in))
 
 ## @ _DOC_OMF_DB
 ## The OMF files for DocBook output
-_DOC_OMF_DB = $(if $(DOC_MODULE),						\
+_DOC_OMF_DB = $(if $(_DOC_OMF_IN),						\
 	$(foreach lc,C $(DOC_LINGUAS),$(DOC_MODULE)-$(lc).omf))
 
 $(_DOC_OMF_DB) : $(_DOC_OMF_IN)
@@ -163,7 +166,7 @@ $(_DOC_OMF_DB) : $(DOC_MODULE)-%.omf : %/$(DOC_MODULE).xml
 
 ## @ _DOC_OMF_HTML
 ## The OMF files for HTML output
-_DOC_OMF_HTML = $(if $(DOC_MODULE),						\
+_DOC_OMF_HTML = $(if $(_DOC_OMF_IN),						\
 	$(foreach lc,C $(DOC_LINGUAS),$(DOC_MODULE)-html-$(lc).omf))
 
 $(_DOC_OMF_HTML) : $(_DOC_OMF_IN)
@@ -186,11 +189,11 @@ omf: $(_DOC_OMF_ALL)
 
 ## @ _DOC_DSK_IN
 ## The desktop entry input file
-_DOC_DSK_IN = $(if $(DOC_MODULE),$(DOC_MODULE).desktop.in)
+_DOC_DSK_IN = $(if $(DOC_MODULE),$(wildcard $(DOC_MODULE).desktop.in))
 
 ## @ _DOC_DSK_DB
 ## The desktop entry files for DocBook output
-_DOC_DSK_DB = $(if $(DOC_MODULE),						\
+_DOC_DSK_DB = $(if $(_DOC_DSK_IN),						\
 	$(foreach lc,C $(DOC_LINGUAS),$(DOC_MODULE).db.$(lc).desktop))
 
 # FIXME
@@ -200,8 +203,8 @@ $(_DOC_DSK_DB) : $(DOC_MODULE).db.%.desktop : %/$(DOC_MODULE).xml
 
 ## @ _DOC_DSK_HTML
 ## The desktop entry files for HTML output
-_DOC_DSK_HTML =									\
-	$(foreach lc,C $(DOC_LINGUAS),$(DOC_MODULE).html.$(lc).desktop)
+_DOC_DSK_HTML = $(if $(_DOC_DSK_IN),						\
+	$(foreach lc,C $(DOC_LINGUAS),$(DOC_MODULE).html.$(lc).desktop))
 
 $(_DOC_DSK_HTML) : $(_DOC_DSK_IN)
 $(_DOC_DSK_HTML) : $(DOC_MODULE).html.%.desktop : %/$(DOC_MODULE).xml
@@ -310,53 +313,26 @@ $(DOC_LINGUAS):
 ## @@ All Documentation
 
 ## @ _DOC_HTML_ALL
-## All HTML documentation
-_DOC_HTML_ALL = $(_DOC_C_HTML) $(_DOC_LC_HTML)
+## All HTML documentation, only if it's built
+_DOC_HTML_ALL = $(if $(findstring html,$(_DOC_REAL_FORMATS)), \
+	$(_DOC_C_HTML) $(_DOC_LC_HTML))
 
 ## @ _DOC_ALL
 ## All files distributed, built, or installed
-_DOC_ALL =							\
-	$(_DOC_C_DOCS)						\
-	$(_DOC_LC_DOCS)						\
-	$(_DOC_OMF_ALL)						\
-	$(if $(findstring html,$(_DOC_REAL_FORMATS)),$(_DOC_HTML_ALL))
-# $(_DOC_DSK_ALL)
+_DOC_ALL =								\
+	$(_DOC_C_DOCS)		$(_DOC_LC_DOCS)				\
+	$(_DOC_OMF_ALL)		$(_DOC_DSK_ALL)				\
+	$(_DOC_HTML_ALL)
 
 
 ################################################################################
 
-.PHONY: clean-rngdoc clean-xsldoc clean-omf clean-dsk clean-lc clean-h
-
-clean-rngdoc: ; rm -f $(_RNGDOC_C_DOCS) $(_RNGDOC_LC_DOCS)
-clean-xsldoc: ; rm -f $(_XSLDOC_C_DOCS) $(_XSLDOC_LC_DOCS)
-clean-omf: ; rm -f $(_DOC_OMF_DB) $(_DOC_OMF_HTML)
-clean-dsk: ; rm -f $(_DOC_DSK_DB) $(_DOC_DSK_HTML)
-clean-lc:  ; rm -f $(_DOC_LC_DOCS)
-clean-h: ; rm -f $(DOC_H_FILE)
-
-_clean_rngdoc = $(if $(RNGDOC_DIRS),clean-rngdoc)
-_clean_xsldoc = $(if $(XSLDOC_DIRS),clean-xsldoc)
-_clean_omf = $(if $(DOC_MODULE),clean-omf)
-_clean_dsk = $(if $(DOC_MODULE),clean-dsk)
-_clean_lc  = $(if $(DOC_LINGUAS),clean-lc)
-_clean_h   = $(if $(DOC_H_FILE),clean-h)
-
-clean:							\
-	$(_clean_rngdoc)	$(_clean_xsldoc)	\
-	$(_clean_omf)		$(_clean_dsk)		\
-	$(_clean_lc)		$(_clean_h)
-distclean:						\
-	$(_clean_omf)		$(_clean_dsk)
-mostlyclean:						\
-	$(_clean_rngdoc)	$(_clean_xsldoc)	\
-	$(_clean_omf)		$(_clean_dsk)		\
-	$(_clean_lc)		$(_clean_h)
-maintainer-clean:					\
-	$(_clean_rngdoc)	$(_clean_xsldoc)	\
-	$(_clean_omf)		$(_clean_dsk)		\
-	$(_clean_lc)		$(_clean_h)
-
-.PHONY: gnome-doc-dist-hook
+CLEANFILES +=						\
+	$(_RNGDOC_C_DOCS)	$(_RNGDOC_LC_DOCS)	\
+	$(_XSLDOC_C_DOCS)	$(_XSLDOC_LC_DOCS)	\
+	$(_DOC_OMF_DB)		$(_DOC_OMF_HTML)	\
+	$(_DOC_DSK_DB)		$(_DOC_DSK_HTML)	\
+	$(_DOC_LC_DOCS)
 
 # FIXME: need to handle figures, etc.
 EXTRA_DIST += $(_DOC_ALL) $(_DOC_OMF_IN) $(_DOC_DSK_IN)
