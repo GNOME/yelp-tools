@@ -426,7 +426,8 @@
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
   </xsl:param>
-  <xsl:value-of select="$node/ancestor-or-self::*[$depth_in_chunk + 1]/@id"/>
+  <xsl:value-of
+   select="string($node/ancestor-or-self::*[$depth_in_chunk + 1]/@id)"/>
 </xsl:template>
 
 

@@ -1,6 +1,14 @@
 2004-11-18  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/common/db-chunk.xsl:
+	- Stringify result of db.chunk.chunk-id
+
+	* xslt/docbook/common/db-xref.xsl:
+	- Fix top-level links when not($db.chunk.chunk_top)
+
+2004-11-18  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/common/db-chunk.xsl:
 	- Documentation changes
 
 	* xslt/docbook/html/db2html-division.xsl:
