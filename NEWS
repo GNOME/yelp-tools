@@ -1,3 +1,44 @@
+Changes in 0.1.3:
+-----------------
+* Updated translator comments and documentation
+* Small fixes to xsldoc documentation generation
+* Fixed automatic roles in format template generation
+* Better sgmltag handling
+* Suppressed titleabbrev and remark in normal rendering
+* Fixed problem with contributor in OMF generation
+* Made cross references safer for customization layers
+* Put link elements in the HTML head tag
+* Added xsltdir variable to pkg-config file
+* Implemented subtitle and titleabbrev fully
+* Fixed #168571, other xml2po fixes (Danilo Šegan)
+* Updated translations:
+  ar      (Arafat Medini)
+  bg      (Alexander Shopov)
+  ca      (Gil Forcada)
+  de      (Frank Arnold)
+  el      (Nikos Charonitakis)
+  en_GB   (David Lodge)
+  es      (Francisco Javier F. Serrador)
+  et      (Priit Laes)
+  fr      (Christophe Merlet, Raphael Tournoy)
+  gu      (Ankit Patel)
+  hu      (Gabor Kelemen)
+  id      (Ahmad Riza H Nst)
+  it      (Alessio Frusciante)
+  ja      (Takeshi AIHANA)
+  ko      (Changwoo Ryu)
+  lt      (Žygimantas Beručka)
+  nb      (Kjartan Maraas)
+  ne      (Pawan chitrakar)
+  nl      (Taco Witte)
+  pt      (Duarte Loreto)
+  pt_BR   (Raphael Higino)
+  ro      (Dan Damian)
+  sq      (Laurent Dhima)
+  tr      (Baris Cicek, Emre Kadioglu)
+  vi      (Abel Cheung)
+  zh_TW   (GNOME HK Team)
+
 Changes in 0.1.2:
 -----------------
 * Robustified gdu.make, distcheck passes with flying colors
