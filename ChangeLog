@@ -1,5 +1,13 @@
 2004-10-05  Shaun McCance  <shaunm@gnome.org>
 
+	* doc/gnome-doc-make/C/gnome-doc-make.xml:
+	* doc/xslt/C/gnome-doc-xslt.xml:
+	* xslt/docbook/omf/db2omf.xsl:
+	* xslt/xsldoc/xsldoc.xsl:
+	- Changes required to pass 'make check'
+
+2004-10-05  Shaun McCance  <shaunm@gnome.org>
+
 	* gnome-doc-utils.make:
 	* doc/xslt/.cvsignore:
 	* doc/xslt/C/.cvsignore:

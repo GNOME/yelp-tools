@@ -235,6 +235,95 @@
       </xsl:for-each>
     </variablelist>
   </xsl:if>
+  <xsl:if test="$parameterQ = '' and $templateQ = '' and $modeQ = ''">
+    <para>FIXME: Nothing to see here</para>
+  </xsl:if>
+  <xsl:apply-templates mode="xsldoc.refentry.mode" select="doc:parameter"/>
+  <xsl:apply-templates mode="xsldoc.refentry.mode" select="doc:template"/>
+  <xsl:apply-templates mode="xsldoc.refentry.mode" select="doc:mode"/>
+</xsl:template>
+
+
+<!-- == xsldoc.refentry.mode =============================================== -->
+
+<doc:mode>
+  <doc:name>xsldoc.refentry.mode</doc:name>
+  <FIXME/>
+</doc:mode>
+
+<!-- = doc:mode = -->
+<xsl:template mode="xsldoc.refentry.mode" match="doc:mode">
+  <refentry id="{doc:name}">
+    <indexterm>
+      <primary> 
+        <xsl:value-of select="doc:name"/>
+      </primary>
+    </indexterm>
+    <refnamediv>
+      <refname>
+        <xsl:value-of select="doc:name"/>
+      </refname>
+      <refpurpose>
+        <xsl:apply-templates select="doc:description"/>
+      </refpurpose>
+    </refnamediv>
+    <refsection>
+      <title>Synopsis</title>
+      <para>
+        <xsl:apply-templates select="doc:description"/>
+      </para>
+    </refsection>
+  </refentry>
+</xsl:template>
+
+<!-- = doc:parameter = -->
+<xsl:template mode="xsldoc.refentry.mode" match="doc:parameter">
+  <refentry id="{doc:name}">
+    <indexterm>
+      <primary> 
+        <xsl:value-of select="doc:name"/>
+      </primary>
+    </indexterm>
+    <refnamediv>
+      <refname>
+        <xsl:value-of select="doc:name"/>
+      </refname>
+      <refpurpose>
+        <xsl:apply-templates select="doc:description"/>
+      </refpurpose>
+    </refnamediv>
+    <refsection>
+      <title>Synopsis</title>
+      <para>
+        <xsl:apply-templates select="doc:description"/>
+      </para>
+    </refsection>
+  </refentry>
+</xsl:template>
+
+<!-- = doc:template = -->
+<xsl:template mode="xsldoc.refentry.mode" match="doc:template">
+  <refentry id="{doc:name}">
+    <indexterm>
+      <primary> 
+        <xsl:value-of select="doc:name"/>
+      </primary>
+    </indexterm>
+    <refnamediv>
+      <refname>
+        <xsl:value-of select="doc:name"/>
+      </refname>
+      <refpurpose>
+        <xsl:apply-templates select="doc:description"/>
+      </refpurpose>
+    </refnamediv>
+    <refsection>
+      <title>Synopsis</title>
+      <para>
+        <xsl:apply-templates select="doc:description"/>
+      </para>
+    </refsection>
+  </refentry>
 </xsl:template>
 
 
@@ -437,7 +526,7 @@
   </xsl:variable>
   <xsl:element name="{$toplevel_element}">
     <xsl:attribute name="id">
-      <xsl:value-of select="$xsldoc.id"/>
+      <xsl:value-of select="concat($toplevel_element, '-', $xsldoc.id)"/>
     </xsl:attribute>
     <title>
       <xsl:apply-templates select="doc:title[1]/node()"/>

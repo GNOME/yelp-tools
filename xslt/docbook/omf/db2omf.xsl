@@ -24,16 +24,16 @@
 <xsl:param name="db2omf.basename"/>
 
 
-<!-- == db2omf.format ====================================================== -->
+<!-- == db2omf.mime ======================================================== -->
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.format</name>
+  <name>db2omf.mime</name>
   <description>
-    The format of the referenced document, docbook or html
+    The MIME type of the referenced document, docbook or html
   </description>
 </parameter>
 
-<xsl:param name="db2omf.format" select="'docbook'"/>
+<xsl:param name="db2omf.mime" select="'text/xml'"/>
 
 
 <!-- == db2omf.dtd ========================================================= -->
@@ -547,7 +547,7 @@
 		       = 'info']"/>
   <format>
     <xsl:choose>
-      <xsl:when test="$db2omf.format = 'docbook'">
+      <xsl:when test="$db2omf.mime = 'text/xml'">
         <xsl:attribute name="mime">
           <xsl:value-of select="text/xml"/>
         </xsl:attribute>
@@ -555,7 +555,7 @@
           <xsl:value-of select="$db2omf.dtd"/>
         </xsl:attribute>
       </xsl:when>
-      <xsl:when test="$dbomf.format = 'html'">
+      <xsl:when test="$dbomf.mime = 'text/html'">
         <xsl:attribute name="mime">
           <xsl:value-of select="text/html"/>
         </xsl:attribute>
@@ -565,8 +565,8 @@
       </xsl:when>
       <xsl:otherwise>
         <xsl:message>
-          <xsl:text>db2omf: Unknown value of db2omf.format: </xsl:text>
-          <xsl:value-of select="$db2omf.format"/>
+          <xsl:text>db2omf: Unknown value of db2omf.mime: </xsl:text>
+          <xsl:value-of select="$db2omf.mime"/>
         </xsl:message>
       </xsl:otherwise>
     </xsl:choose>

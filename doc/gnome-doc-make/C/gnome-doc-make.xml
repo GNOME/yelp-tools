@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?><!-- -*- indent-tabs-mode: nil -*- -->
-<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
-"http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
+"http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd" [
 ]>
 
 <article id="index" lang="en">
@@ -13,7 +13,7 @@
     <publisher>
       <publishername>GNOME Documentation Project</publishername>
     </publisher>
-    <include href="legal.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+    <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude"/>
     <authorgroup>
       <author>
         <firstname>Shaun</firstname>
@@ -38,6 +38,6 @@
     <para>Foo</para>
   </section>
 
-  <include href="make-ref.xml" xmlns:xi="http://www.w3.org/2001/XInclude"/>
+  <include href="make-ref.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 
 </article>
