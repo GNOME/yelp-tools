@@ -159,7 +159,8 @@
     }
     blockquote[class~="blockquote"] { margin-left: 24px; margin-right: 12px; }
     dt[class~="glossterm"] { margin-left: 8px; }
-    dt[class~="glossterm"] + dd { margin-top: -8px; }
+    dt[class~="glossterm"] + dd { margin-top: 0.4em; margin-bottom: 0.4em; }
+    dt[class~="glossterm"] + dd &gt; p:first-child { margin-top: 0px; }
     dd[class~="glossdef"]     { margin-left: 24px; margin-right: 12px; }
     dd[class~="glosssee"]     { margin-left: 24px; margin-right: 12px; }
     dd[class~="glossseealso"] { margin-left: 24px; margin-right: 12px; }
@@ -235,6 +236,30 @@
     <xsl:apply-templates select="glossterm"/>
   </dt>
   <xsl:apply-templates select="glossdef | glosssee"/>
+</xsl:template>
+
+<!-- = glosssee = -->
+<xsl:template match="glosssee">
+  <!-- FIXME: this i18n sucks badly -->
+  <dd class="glosssee">
+    <p>
+      <xsl:call-template name="gettext">
+        <xsl:with-param name="msgid" select="'See'"/>
+      </xsl:call-template>
+      <xsl:text> </xsl:text>
+      <xsl:choose>
+        <xsl:when test="@otherterm">
+          <xsl:call-template name="db2html.xref">
+            <xsl:with-param name="linkend" select="@otherterm"/>
+          </xsl:call-template>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:apply-templates/>
+        </xsl:otherwise>
+      </xsl:choose>
+      <xsl:text>.</xsl:text>
+    </p>
+  </dd>
 </xsl:template>
 
 <!-- = highlights = -->

@@ -103,10 +103,12 @@
   </xsl:call-template>
 </xsl:template>
 
+<xsl:template mode="db.label.mode" match="glossentry">
+  <xsl:apply-templates select="glossterm/node()"/>
+</xsl:template>
+
 <xsl:template mode="db.label.mode" match="
-              refsect1 | refsect2 | refsect3 | refsection | section |
-              sect1    | sect2    | sect3    | sect4      | sect5   |
-              simplesect ">
+              section | sect1 | sect2 | sect3 | sect4 | sect5 | simplesect">
   <xsl:param name="role"/>
   <xsl:call-template name="format.section.label">
     <xsl:with-param name="node" select="."/>
@@ -124,6 +126,7 @@
   </xsl:call-template>
 </xsl:template>
 
+<!-- FIXME: refsection refsect1 refsect2 refsect3 -->
 
 <xsl:template mode="db.label.mode" match="
               article  | book     | bibliography |

@@ -99,11 +99,12 @@
         <xsl:with-param name="target" select="$target"/>
       </xsl:call-template>
     </xsl:attribute>
-    <xsl:if test="$target/title">
-      <xsl:attribute name="title">
-        <xsl:value-of select="$target/title"/>
-      </xsl:attribute>
-    </xsl:if>
+    <xsl:attribute name="title">
+      <xsl:call-template name="db.xref.tooltip">
+        <xsl:with-param name="linkend" select="$linkend"/>
+        <xsl:with-param name="target" select="$target"/>
+      </xsl:call-template>
+    </xsl:attribute>
     <xsl:choose>
       <xsl:when test="$content">
         <xsl:copy-of select="$content"/>

@@ -380,7 +380,13 @@
     <xsl:with-param name="referent" select="$referent"/>
     <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
     <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
-    <xsl:with-param name="generate_label" select="$referent != /*"/>
+    <xsl:with-param name="generate_label"
+                    select="$referent_depth_in_chunk != 0 and (
+                            $referent/self::appendix   or $referent/self::chatper or
+                            $referent/self::section    or $referent/self::sect1   or
+                            $referent/self::sect2      or $referent/self::sect3   or
+                            $referent/self::sect4      or $referent/self::sect5   or
+                            $referent/self::simplesect )"/>
   </xsl:call-template>
 </xsl:template>
 

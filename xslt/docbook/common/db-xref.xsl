@@ -84,4 +84,33 @@
   </xsl:if>
 </xsl:template>
 
+
+<!-- == db.xref.tooltip ==================================================== -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db.xref.tooltip</name>
+  <purpose>
+    Generate the tooltip for a cross reference
+  </purpose>
+</template>
+
+<xsl:template name="db.xref.tooltip">
+  <xsl:param name="linkend" select="@linkend"/>
+  <xsl:param name="target" select="key('idkey', $linkend)"/>
+  <xsl:apply-templates mode="db.xref.tooltip.mode" select="$target"/>
+</xsl:template>
+
+
+<!-- == db.xref.tooltip.mode =============================================== -->
+
+<xsl:template mode="db.xref.tooltip.mode" match="*[title]">
+  <xsl:value-of select="normalize-space(title)"/>
+</xsl:template>
+
+<xsl:template mode="db.xref.tooltip.mode" match="glossentry">
+  <xsl:call-template name="format.tooltip.glossentry">
+    <xsl:with-param name="node" select="."/>
+  </xsl:call-template>
+</xsl:template>
+
 </xsl:stylesheet>

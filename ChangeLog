@@ -1,3 +1,14 @@
+2004-12-09  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/common/db-format.xml.in:
+	* xslt/docbook/common/db-label.xsl:
+	* xslt/docbook/common/db-xref.xsl:
+	* xslt/docbook/html/db2html-block.xsl:
+	* xslt/docbook/html/db2html-division.xsl:
+	* xslt/docbook/html/db2html-title.xsl:
+	* xslt/docbook/html/db2html-xref.xsl:
+	- glossary work, particularly on glosssee
+
 2004-12-08  Shaun McCance  <shaunm@gnome.org>
 
 	* Makefile.am:

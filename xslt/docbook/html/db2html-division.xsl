@@ -342,6 +342,13 @@
   <xsl:call-template name="db2html.division.content">
     <xsl:with-param name="entries" select="glossentry"/>
     <xsl:with-param name="divisions" select="glossdiv | bibliography"/>
+    <xsl:with-param name="title_content">
+      <xsl:if test="not(title)">
+        <xsl:call-template name="gettext">
+          <xsl:with-param name="msgid" select="'Glossary'"/>
+        </xsl:call-template>
+      </xsl:if>
+    </xsl:with-param>
     <xsl:with-param name="info" select="glossaryinfo"/>
     <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
     <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
