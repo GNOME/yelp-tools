@@ -1,0 +1,355 @@
+# Bulgarian translation of gnome-doc-utils po-file.
+# Copyright (C) 2004 gnome-doc-utils COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-doc-utils package.
+# Alexander Shopov <ash@contact.bg>, 2004.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-doc-utils-HEAD\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-12-19 19:13+0200\n"
+"PO-Revision-Date: 2004-12-19 19:13+0200\n"
+"Last-Translator: Alexander Shopov <ash@contact.bg>\n"
+"Language-Team: Bulgarian <dict@linux.zonebg.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#. Appendix %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:2
+msgid "format.appendix.label"
+msgstr "Приложение %t{number}"
+
+#. Chapter %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:4
+msgid "format.chapter.label"
+msgstr "Глава %t{number}"
+
+#: xslt/docbook/common/db-format.xml.in.h:5
+msgid "format.citetitle"
+msgstr ""
+"<msg:msgstr xml:lang=\"bg\">\n"
+"  <msg:msgstr role=\"article\">„%t{node}“</msg:msgstr>\n"
+"  <msg:msgstr><i>%t{node}</i></msg:msgstr>\n"
+"</msg:msgstr>"
+
+#. FIXME
+#: xslt/docbook/common/db-format.xml.in.h:7
+msgid "format.date"
+msgstr ""
+"<msg:msgstr xml:lang=\"bg\">\n"
+"  <xsl:template>\n"
+"    <xsl:value-of select=\"$day\"/>\n"
+"    <xsl:text> </xsl:text>\n"
+"    <xsl:choose>\n"
+"      <xsl:when test=\"$month =  1\"><xsl:text>януари </xsl:text></xsl:"
+"when>\n"
+"      <xsl:when test=\"$month =  2\"><xsl:text>февруари </xsl:text></xsl:"
+"when>\n"
+"      <xsl:when test=\"$month =  3\"><xsl:text>март </xsl:text></xsl:when>\n"
+"      <xsl:when test=\"$month =  4\"><xsl:text>април </xsl:text></xsl:when>\n"
+"      <xsl:when test=\"$month =  5\"><xsl:text>май </xsl:text></xsl:when>\n"
+"      <xsl:when test=\"$month =  6\"><xsl:text>юни </xsl:text></xsl:when>\n"
+"      <xsl:when test=\"$month =  7\"><xsl:text>юли </xsl:text></xsl:when>\n"
+"      <xsl:when test=\"$month =  8\"><xsl:text>август </xsl:text></xsl:"
+"when>\n"
+"      <xsl:when test=\"$month =  9\"><xsl:text>септември </xsl:text></xsl:"
+"when>\n"
+"      <xsl:when test=\"$month = 10\"><xsl:text>октомври </xsl:text></xsl:"
+"when>\n"
+"      <xsl:when test=\"$month = 11\"><xsl:text>ноември </xsl:text></xsl:"
+"when>\n"
+"      <xsl:when test=\"$month = 12\"><xsl:text>декември </xsl:text></xsl:"
+"when>\n"
+"    </xsl:choose>\n"
+"    <xsl:value-of select=\"$year\"/>\n"
+"  </xsl:template>\n"
+"</msg:msgstr>"
+
+#. Example %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:9
+msgid "format.example.label"
+msgstr "Пример %t{number}"
+
+#. %t{parent}-%1{number}
+#: xslt/docbook/common/db-format.xml.in.h:11
+msgid "format.example.number"
+msgstr "%t{parent}-%1{number}"
+
+#. %1{number}
+#: xslt/docbook/common/db-format.xml.in.h:13
+msgid "format.example.number.flat"
+msgstr "%1{number}"
+
+#. Figure %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:15
+msgid "format.figure.label"
+msgstr "Фигура %t{number}"
+
+#. %t{parent}-%1{number}
+#: xslt/docbook/common/db-format.xml.in.h:17
+msgid "format.figure.number"
+msgstr "%t{parent}-%1{number}"
+
+#. %1{number}
+#: xslt/docbook/common/db-format.xml.in.h:19
+msgid "format.figure.number.flat"
+msgstr "%1{number}"
+
+#. ‘%t{node}’
+#: xslt/docbook/common/db-format.xml.in.h:21
+msgid "format.quote.inner"
+msgstr "«%t{node}»"
+
+#. “%t{node}”
+#: xslt/docbook/common/db-format.xml.in.h:23
+msgid "format.quote.outer"
+msgstr "„%t{node}“"
+
+#. Section %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:25
+msgid "format.section.label"
+msgstr "Дял %t{number}"
+
+#. Table %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:27
+msgid "format.table.label"
+msgstr "Таблица %t{number}"
+
+#. %t{parent}-%1{number}
+#: xslt/docbook/common/db-format.xml.in.h:29
+msgid "format.table.number"
+msgstr "%t{parent}-%1{number}"
+
+#. %1{number}
+#: xslt/docbook/common/db-format.xml.in.h:31
+msgid "format.table.number.flat"
+msgstr "%1{number}"
+
+#. Read the definition for ‘%s{node}’.
+#: xslt/docbook/common/db-format.xml.in.h:33
+msgid "format.tooltip.glossentry"
+msgstr "Виж дефиницията на „%t{node}“"
+
+#. Used as a header before a list of authors.
+#: xslt/gettext/l10n.xml.in.h:2
+msgid "<msgstr form=\"0\">Author</msgstr> <msgstr form=\"1\">Authors</msgstr>"
+msgstr "<msgstr form=\"0\">Автор</msgstr> <msgstr form=\"1\">Автори</msgstr>"
+
+#. Used as a header before a list of collaborators.
+#: xslt/gettext/l10n.xml.in.h:4
+msgid ""
+"<msgstr form=\"0\">Collaborator</msgstr> <msgstr form=\"1\">Collaborators</"
+"msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Сътрудник</msgstr> <msgstr form=\"1\">Сътрудници</msgstr>"
+
+#. Used as a header before a list of copyrights.
+#: xslt/gettext/l10n.xml.in.h:6
+msgid ""
+"<msgstr form=\"0\">Copyright</msgstr> <msgstr form=\"1\">Copyrights</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Авторско право</msgstr> <msgstr form=\"1\">Авторски "
+"права</msgstr>"
+
+#. Used as a header before a list of editors.
+#: xslt/gettext/l10n.xml.in.h:8
+msgid "<msgstr form=\"0\">Editor</msgstr> <msgstr form=\"1\">Editors</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Редактор</msgstr> <msgstr form=\"1\">Редактори</msgstr>"
+
+#. Used as a header before a list of contributors.
+#: xslt/gettext/l10n.xml.in.h:10
+msgid ""
+"<msgstr form=\"0\">Other Contributor</msgstr> <msgstr form=\"1\">Other "
+"Contributors</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Допълнителен сътрудник</msgstr> <msgstr form=\"1"
+"\">Допълнителни сътрудници</msgstr>"
+
+#. Used as a header before a list of publishers.
+#: xslt/gettext/l10n.xml.in.h:12
+msgid ""
+"<msgstr form=\"0\">Publisher</msgstr> <msgstr form=\"1\">Publishers</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Издател</msgstr> <msgstr form=\"1\">Издатели</msgstr>"
+
+#: xslt/gettext/l10n.xml.in.h:13
+msgid "About This Article"
+msgstr "Информация за статията"
+
+#: xslt/gettext/l10n.xml.in.h:14
+msgid "About This Bibliography"
+msgstr "Информация за библиографията"
+
+#: xslt/gettext/l10n.xml.in.h:15
+msgid "About This Book"
+msgstr "Информация за книгата"
+
+#: xslt/gettext/l10n.xml.in.h:16
+msgid "About This Chapter"
+msgstr "Информация за главата"
+
+#: xslt/gettext/l10n.xml.in.h:17
+msgid "About This Entry"
+msgstr "Информация за статията в речника"
+
+#: xslt/gettext/l10n.xml.in.h:18
+msgid "About This Glossary"
+msgstr "Информация за речника"
+
+#: xslt/gettext/l10n.xml.in.h:19
+msgid "About This Index"
+msgstr "Информация за индекса"
+
+#: xslt/gettext/l10n.xml.in.h:20
+msgid "About This Part"
+msgstr "Информация за частта"
+
+#: xslt/gettext/l10n.xml.in.h:21
+msgid "About This Preface"
+msgstr "Информация за предговора"
+
+#: xslt/gettext/l10n.xml.in.h:22
+msgid "About This Reference"
+msgstr "Информация за препратката"
+
+#: xslt/gettext/l10n.xml.in.h:23
+msgid "About This Section"
+msgstr "Информация за дела"
+
+#: xslt/gettext/l10n.xml.in.h:24
+msgid "About This Set"
+msgstr "Информация за набора"
+
+#: xslt/gettext/l10n.xml.in.h:25
+msgid "Affiliation"
+msgstr "Връзка с физически или юридически лица"
+
+#. This is an abbreviated form of 'Message Audience'.
+#. Feel free to use the same word/phrase for both.
+#: xslt/gettext/l10n.xml.in.h:28
+msgid "Audience"
+msgstr "Адресат"
+
+#: xslt/gettext/l10n.xml.in.h:29
+msgid "Caution"
+msgstr "Внимание"
+
+#: xslt/gettext/l10n.xml.in.h:30
+msgid "Colophon"
+msgstr "Завършек"
+
+#. This is an abbreviated form of 'Table of Contents'.
+#. Feel free to use the same word/phrase for both.
+#: xslt/gettext/l10n.xml.in.h:33
+msgid "Contents"
+msgstr "Съдържание"
+
+#. Used as a header for date column in the revision history.
+#: xslt/gettext/l10n.xml.in.h:35
+msgid "Date"
+msgstr "Дата"
+
+#: xslt/gettext/l10n.xml.in.h:36
+msgid "Dedication"
+msgstr "Посвещение"
+
+#: xslt/gettext/l10n.xml.in.h:37
+msgid "Email"
+msgstr "Електронна поща"
+
+#: xslt/gettext/l10n.xml.in.h:38
+msgid "Important"
+msgstr "Важно"
+
+#: xslt/gettext/l10n.xml.in.h:39
+msgid "Index"
+msgstr "Индекс"
+
+#: xslt/gettext/l10n.xml.in.h:40
+msgid "Legal Notice"
+msgstr "Юридическа информация"
+
+#. This is an abbreviated form of 'Message Level'.
+#. Feel free to use the same word/phrase for both.
+#: xslt/gettext/l10n.xml.in.h:43
+msgid "Level"
+msgstr "Ниво"
+
+#: xslt/gettext/l10n.xml.in.h:44
+msgid "Message Audience"
+msgstr "Адресат на съобщението"
+
+#: xslt/gettext/l10n.xml.in.h:45
+msgid "Message Level"
+msgstr "Ниво на съобщението"
+
+#: xslt/gettext/l10n.xml.in.h:46
+msgid "Message Origin"
+msgstr "Произход на съобщението"
+
+#: xslt/gettext/l10n.xml.in.h:47
+msgid "Name"
+msgstr "Име"
+
+#: xslt/gettext/l10n.xml.in.h:48
+msgid "Note"
+msgstr "Бележка"
+
+#. This is an abbreviated form of 'Message Origin'.
+#. Feel free to use the same word/phrase for both.
+#: xslt/gettext/l10n.xml.in.h:51
+msgid "Origin"
+msgstr "Произход"
+
+#: xslt/gettext/l10n.xml.in.h:52
+msgid "Preface"
+msgstr "Предговор"
+
+#: xslt/gettext/l10n.xml.in.h:53
+msgid "Reference"
+msgstr "Препратка"
+
+#: xslt/gettext/l10n.xml.in.h:54
+msgid "Release Information"
+msgstr "Информация за версията"
+
+#: xslt/gettext/l10n.xml.in.h:55
+msgid "Revision History"
+msgstr "История на промените"
+
+#: xslt/gettext/l10n.xml.in.h:56
+msgid "See"
+msgstr "Виж"
+
+#: xslt/gettext/l10n.xml.in.h:57
+msgid "See Also"
+msgstr "Виж също"
+
+#: xslt/gettext/l10n.xml.in.h:58
+msgid "Set Index"
+msgstr "Индекс"
+
+#: xslt/gettext/l10n.xml.in.h:59
+msgid "Synopsis"
+msgstr "Резюме"
+
+#. Used for a link to a table of contents.
+#: xslt/gettext/l10n.xml.in.h:61
+msgid "Table of Contents"
+msgstr "Съдържание"
+
+#: xslt/gettext/l10n.xml.in.h:62
+msgid "Tip"
+msgstr "Подсказка"
+
+#. Used as a header for title column in the revision history.
+#: xslt/gettext/l10n.xml.in.h:64
+msgid "Title"
+msgstr "Заглавие"
+
+#: xslt/gettext/l10n.xml.in.h:65
+msgid "Warning"
+msgstr "Предупреждение"
