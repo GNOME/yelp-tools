@@ -82,6 +82,7 @@ msgstr "Varování"]]></programlisting>
     these into an XML file.  Instead, the translated message string is an XML
     fragment.  This is copied into the localization XML file, and &gettext;
     extracts the value for the appropriate plural form.</para>
+
     <para>After merging values from the PO files, the localization file will
     have entries similar to this:</para>
 
@@ -106,6 +107,7 @@ msgstr "Varování"]]></programlisting>
     <sgmltag class="attribute">form</sgmltag> attribute.  The &gettext; tamplate
     extracts the correct string based on the plural form, which is computed from
     the number of referenced objects.</para>
+
     <para>Translators simply write the correct XML fragment in the translated
     message string.  For example, here is the PO file entry in the
     <literal>cs</literal> locale for the above:</para>
@@ -126,6 +128,15 @@ msgstr ""
     translated message strings, translators may add or remove whitespace
     between <sgmltag>msgstr</sgmltag> elements if they choose.  This extra
     text content is ignored by &gettext;</para>
+
+    <para>Note that translators may add a <sgmltag>msgstr</sgmltag> element
+    without <sgmltag class="attribute">form</sgmltag> attribute as a fallback
+    translation.  In the example above, the last two <sgmltag>msgstr</sgmltag>
+    elements could have been replaced by a single <sgmltag>msgstr</sgmltag>
+    element without a <sgmltag class="attribute">form</sgmltag> attribute.
+    The &gettext; template would match the first element whenever the plural
+    form is 0, and the fallback element otherwise.</para>
+
     <para>The plural form is determined by calling the &gettext_plural_form;
     template.  This template has the plural forms for locales hard-coded;
     they are not extracted automatically from PO files.  When translators

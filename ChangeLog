@@ -1,5 +1,10 @@
 2004-11-21  Shaun McCance  <shaunm@gnome.org>
 
+	* doc/xslt/C/translating.xml:
+	- Blurb on fallbacks for plural form translations
+
+2004-11-21  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/docbook/omf/db2omf.xsl:
 	- OMF has description, not purpose.  Bad search and replace.
 
