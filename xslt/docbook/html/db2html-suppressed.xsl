@@ -41,6 +41,7 @@ modes because of the DocBook content model.
 <xsl:template match="articleinfo"/>
 <xsl:template match="bookinfo"/>
 <xsl:template match="chapterinfo"/>
+<xsl:template match="glossaryinfo"/>
 <xsl:template match="sect1info"/>
 <xsl:template match="sect2info"/>
 <xsl:template match="sect3info"/>

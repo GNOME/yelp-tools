@@ -776,6 +776,13 @@
   <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
+<!-- = uri = -->
+<xsl:template match="uri">
+  <xsl:call-template name="db2html.inline">
+    <xsl:with-param name="mono" select="true()"/>
+  </xsl:call-template>
+</xsl:template>
+
 <!-- = userinput = -->
 <xsl:template match="userinput">
   <xsl:call-template name="db2html.inline">

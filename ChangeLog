@@ -1,3 +1,24 @@
+2004-11-18  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/common/db-chunk.xsl:
+	- Documentation changes
+
+	* xslt/docbook/html/db2html-division.xsl:
+	* xslt/docbook/html/db2html-title.xsl
+	- Fixed bug where titlepages weren't being generated
+	- Added parameter for sans-title divisions to pass a title
+	- Implemented dedication and simplesect
+
+	* xslt/docbook/html/db2html-inline.xsl:
+	- Implemented uri element
+
+	* xslt/docbook/html/db2html-suppressed.xsl:
+	- Suppress glossaryinfo
+
+	* xslt/docbook/html/db2html-info.xsl:
+	- Wrap titlepages in <html> and all that
+	- Some work on revhistory
+
 2004-11-16  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* configure.in: Add «nb» to ALL_LINGUAS.

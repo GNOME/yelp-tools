@@ -52,7 +52,7 @@
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db.chunk.basename</name>
   <purpose>
-    The basename of the output file, without an extension
+    The base filename of the output file, without an extension
   </purpose>
 </parameter>
 
@@ -76,7 +76,7 @@
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db.chunk.cover_basename</name>
   <purpose>
-    The filename for the coversheet
+    The base filename for the coversheet
   </purpose>
 </parameter>
 
@@ -89,7 +89,7 @@
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db.chunk.info_basename</name>
   <purpose>
-    The filename for the titlepage
+    The base filename for the titlepage
   </purpose>
 </parameter>
 
@@ -102,7 +102,7 @@
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db.chunk.index_basename</name>
   <purpose>
-    The filename for the index
+    The base filename for the index
   </purpose>
 </parameter>
 
@@ -115,7 +115,7 @@
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db.chunk.toc_basename</name>
   <purpose>
-    The filename for the table of contents
+    The base filename for the table of contents
   </purpose>
 </parameter>
 

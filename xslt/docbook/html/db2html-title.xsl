@@ -91,7 +91,7 @@
     </purpose>
   </parameter>
   <parameter>
-    <name>title_for</name>
+    <name>referent</name>
     <purpose>
       The element for which this is the title
     </purpose>
@@ -100,14 +100,14 @@
 
 <xsl:template name="db2html.title.block">
   <xsl:param name="node" select="."/>
-  <xsl:param name="title_for" select="$node/.."/>
+  <xsl:param name="referent" select="$node/.."/>
   <div class="{local-name($node)}">
     <span class="{local-name($node)}">
       <xsl:call-template name="db2html.anchor">
         <xsl:with-param name="node" select="$node"/>
       </xsl:call-template>
       <xsl:call-template name="db2html.title.label">
-        <xsl:with-param name="node" select="$title_for"/>
+        <xsl:with-param name="node" select="$referent"/>
       </xsl:call-template>
       <xsl:apply-templates select="$node/node()"/>
     </span>
@@ -129,7 +129,7 @@
     </purpose>
   </parameter>
   <parameter>
-    <name>title_for</name>
+    <name>referent</name>
     <purpose>
       The element for which this is the title
     </purpose>
@@ -138,7 +138,7 @@
 
 <xsl:template name="db2html.title.simple">
   <xsl:param name="node" select="."/>
-  <xsl:param name="title_for" select="$node/.."/>
+  <xsl:param name="referent" select="$node/.."/>
   <div class="{local-name($node)}">
     <span class="{local-name($node)}">
       <xsl:call-template name="db2html.anchor">
@@ -166,7 +166,7 @@
     </purpose>
   </parameter>
   <parameter>
-    <name>title_for</name>
+    <name>referent</name>
     <purpose>
       The element for which this is the title
     </purpose>
@@ -178,47 +178,59 @@
     </purpose>
   </parameter>
   <parameter>
+    <name>referent_depth_in_chunk</name>
+    <purpose>
+      The depth of <parameter>referent</parameter> in the containing chunk
+    </purpose>
+  </parameter>
+  <parameter>
     <name>depth_of_chunk</name>
     <purpose>
       The depth of the containing chunk in the document
+    </purpose>
+  </parameter>
+  <parameter>
+    <name>title_content</name>
+    <purpose>
+      The title, for divisions lacking a <sgmltag>title</sgmltag> element
     </purpose>
   </parameter>
 </template>
 
 <xsl:template name="db2html.title.header">
   <xsl:param name="node" select="."/>
-  <xsl:param name="title_for" select="$node/.."/>
+  <xsl:param name="referent" select="$node/.."/>
   <xsl:param name="depth_in_chunk">
     <xsl:call-template name="db.chunk.depth-in-chunk">
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
+  </xsl:param>
+  <xsl:param name="referent_depth_in_chunk">
+    <xsl:choose>
+      <xsl:when test="$referent = $node">
+        <xsl:value-of select="$depth_in_chunk"/>
+      </xsl:when>
+      <xsl:when test="$node/ancestor::* = $referent">
+        <xsl:value-of select="$depth_in_chunk -
+                      (count($node/ancestor::*) - count($referent/ancestor::*)) "/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:call-template name="db.chunk.depth-in-chunk">
+          <xsl:with-param name="node" select="$referent"/>
+        </xsl:call-template>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:param>
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk">
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
   </xsl:param>
-  <xsl:variable name="title_for_depth">
-    <xsl:choose>
-      <xsl:when test="$title_for = $node">
-        <xsl:value-of select="$depth_in_chunk"/>
-      </xsl:when>
-      <xsl:when test="$node/ancestor::* = $title_for">
-        <xsl:value-of select="
-                      $depth_in_chunk - 1 -
-                      count($node/ancestor::*[ancestor::* = $title_for])"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:call-template name="db.chunk.depth-in-chunk">
-          <xsl:with-param name="node" select="$title_for"/>
-        </xsl:call-template>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:variable>
+  <xsl:param name="title_content"/>
 
   <xsl:element name="{concat('h', $depth_in_chunk)}">
     <xsl:attribute name="class">
-      <xsl:value-of select="local-name($title_for)"/>
+      <xsl:value-of select="local-name($referent)"/>
     </xsl:attribute>
     <span class="{local-name($node)}">
       <xsl:call-template name="db2html.anchor">
@@ -226,11 +238,18 @@
       </xsl:call-template>
       <xsl:if test="$depth_of_chunk != 0">
         <xsl:call-template name="db2html.title.label">
-          <xsl:with-param name="node" select="$title_for"/>
-          <xsl:with-param name="depth_in_chunk" select="$title_for_depth"/>
+          <xsl:with-param name="node" select="$referent"/>
+          <xsl:with-param name="depth_in_chunk" select="$referent_depth_in_chunk"/>
         </xsl:call-template>
       </xsl:if>
-      <xsl:apply-templates select="$node/node()"/>
+      <xsl:choose>
+        <xsl:when test="$node/self::title">
+          <xsl:apply-templates select="$node/node()"/>
+        </xsl:when>
+        <xsl:when test="$title_content">
+          <xsl:value-of select="$title_content"/>
+        </xsl:when>
+      </xsl:choose>
     </span>
   </xsl:element>
 </xsl:template>
@@ -250,7 +269,7 @@
     </purpose>
   </parameter>
   <parameter>
-    <name>title_for</name>
+    <name>referent</name>
     <purpose>
       The element for which this is the subtitle
     </purpose>
@@ -261,43 +280,62 @@
       The depth of <parameter>node</parameter> in the containing chunk
     </purpose>
   </parameter>
+  <parameter>
+    <name>referent_depth_in_chunk</name>
+    <purpose>
+      The depth of <parameter>referent</parameter> in the containing chunk
+    </purpose>
+  </parameter>
+  <parameter>
+    <name>subtitle_content</name>
+    <purpose>
+      The subtitle, for divisions lacking a <sgmltag>subtitle</sgmltag> element
+    </purpose>
+  </parameter>
 </template>
 
 <xsl:template name="db2html.subtitle.header">
   <xsl:param name="node" select="."/>
-  <xsl:param name="title_for" select="$node/.."/>
+  <xsl:param name="referent" select="$node/.."/>
   <xsl:param name="depth_in_chunk">
     <xsl:call-template name="db.chunk.depth-in-chunk">
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
   </xsl:param>
-  <xsl:variable name="title_for_depth">
+  <xsl:param name="referent_depth_in_chunk">
     <xsl:choose>
-      <xsl:when test="$title_for = $node">
+      <xsl:when test="$referent = $node">
         <xsl:value-of select="$depth_in_chunk"/>
       </xsl:when>
-      <xsl:when test="$node/ancestor::* = $title_for">
-        <xsl:value-of select="
-                      $depth_in_chunk - 1 -
-                      count($node/ancestor::*[ancestor::* = $title_for])"/>
+      <xsl:when test="$node/ancestor::* = $referent">
+        <xsl:value-of select="$depth_in_chunk -
+                      (count($node/ancestor::*) - count($referent/ancestor::*)) "/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:call-template name="db.chunk.depth-in-chunk">
-          <xsl:with-param name="node" select="$title_for"/>
+          <xsl:with-param name="node" select="$referent"/>
         </xsl:call-template>
       </xsl:otherwise>
     </xsl:choose>
-  </xsl:variable>
+  </xsl:param>
+  <xsl:param name="subtitle_content"/>
 
   <xsl:element name="{concat('h', $depth_in_chunk + 1)}">
     <xsl:attribute name="class">
-      <xsl:value-of select="local-name($title_for)"/>
+      <xsl:value-of select="local-name($referent)"/>
     </xsl:attribute>
     <span class="{local-name($node)}">
       <xsl:call-template name="db2html.anchor">
         <xsl:with-param name="node" select="$node"/>
       </xsl:call-template>
-      <xsl:apply-templates select="$node/node()"/>
+      <xsl:choose>
+        <xsl:when test="$node/self::subtitle">
+          <xsl:apply-templates select="$node/node()"/>
+        </xsl:when>
+        <xsl:when test="$subtitle_content">
+          <xsl:value-of select="$subtitle_content"/>
+        </xsl:when>
+      </xsl:choose>
     </span>
   </xsl:element>
 </xsl:template>
@@ -307,15 +345,31 @@
 
 <!-- = title = -->
 <xsl:template match="title">
-  <xsl:param name="title_for" select=".."/>
+  <xsl:param name="referent" select=".."/>
   <xsl:param name="depth_in_chunk">
     <xsl:call-template name="db.chunk.depth-in-chunk"/>
+  </xsl:param>
+  <xsl:param name="referent_depth_in_chunk">
+    <xsl:choose>
+      <xsl:when test="$referent = .">
+        <xsl:value-of select="$depth_in_chunk"/>
+      </xsl:when>
+      <xsl:when test="ancestor::* = $referent">
+        <xsl:value-of select="$depth_in_chunk -
+                      (count(ancestor::*) - count($referent/ancestor::*)) "/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:call-template name="db.chunk.depth-in-chunk">
+          <xsl:with-param name="node" select="$referent"/>
+        </xsl:call-template>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:param>
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
   </xsl:param>
   <xsl:call-template name="db2html.title.header">
-    <xsl:with-param name="title_for" select="$title_for"/>
+    <xsl:with-param name="referent" select="$referent"/>
     <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
     <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
   </xsl:call-template>
@@ -323,12 +377,28 @@
 
 <!-- = subtitle = -->
 <xsl:template match="subtitle">
-  <xsl:param name="title_for" select=".."/>
+  <xsl:param name="referent" select=".."/>
   <xsl:param name="depth_in_chunk">
     <xsl:call-template name="db.chunk.depth-in-chunk"/>
   </xsl:param>
+  <xsl:param name="referent_depth_in_chunk">
+    <xsl:choose>
+      <xsl:when test="$referent = .">
+        <xsl:value-of select="$depth_in_chunk"/>
+      </xsl:when>
+      <xsl:when test="ancestor::* = $referent">
+        <xsl:value-of select="$depth_in_chunk -
+                      (count(ancestor::*) - count($referent/ancestor::*)) "/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:call-template name="db.chunk.depth-in-chunk">
+          <xsl:with-param name="node" select="$referent"/>
+        </xsl:call-template>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:param>
   <xsl:call-template name="db2html.subtitle.header">
-    <xsl:with-param name="title_for" select="$title_for"/>
+    <xsl:with-param name="referent" select="$referent"/>
     <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
   </xsl:call-template>
 </xsl:template>
@@ -345,16 +415,6 @@
 
 <!-- = calloutlist/title = -->
 <xsl:template match="calloutlist/title">
-  <xsl:call-template name="db2html.title.simple"/>
-</xsl:template>
-
-<!-- = dedication/title = -->
-<xsl:template match="dedication/title">
-  <xsl:call-template name="db2html.title.simple"/>
-</xsl:template>
-
-<!-- = dedication/subtitle = -->
-<xsl:template match="dedication/subtitle">
   <xsl:call-template name="db2html.title.simple"/>
 </xsl:template>
 

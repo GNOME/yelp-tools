@@ -31,56 +31,65 @@
 
 <xsl:template name="db2html.info">
   <xsl:param name="node" select="."/>
-  <xsl:param name="info" select="'FIXME'"/>
+  <xsl:param name="info">
+    <xsl:message><xsl:text>FIXME: $info</xsl:text></xsl:message>
+  </xsl:param>
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth_of_chunk">
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
   </xsl:param>
 
-  <div class="local-name($info)">
-    <xsl:call-template name="db2html.anchor">
-      <xsl:with-param name="name" select="local-name($info)"/>
-    </xsl:call-template>
-    <xsl:call-template name="db2html.info.title">
-      <xsl:with-param name="node" select="$node"/>
-      <xsl:with-param name="info" select="$info"/>
-    </xsl:call-template>
-    <xsl:call-template name="db2html.info.subtitle">
-      <xsl:with-param name="node" select="$node"/>
-      <xsl:with-param name="info" select="$info"/>
-    </xsl:call-template>
-    <xsl:call-template name="db2html.info.authors">
-      <xsl:with-param name="node" select="$node"/>
-      <xsl:with-param name="info" select="$info"/>
-    </xsl:call-template>
-    <xsl:call-template name="db2html.info.editors">
-      <xsl:with-param name="node" select="$node"/>
-      <xsl:with-param name="info" select="$info"/>
-    </xsl:call-template>
-    <xsl:call-template name="db2html.info.collabs">
-      <xsl:with-param name="node" select="$node"/>
-      <xsl:with-param name="info" select="$info"/>
-    </xsl:call-template>
-    <xsl:call-template name="db2html.info.translators">
-      <xsl:with-param name="node" select="$node"/>
-      <xsl:with-param name="info" select="$info"/>
-    </xsl:call-template>
-    <xsl:call-template name="db2html.info.publishers">
-      <xsl:with-param name="node" select="$node"/>
-      <xsl:with-param name="info" select="$info"/>
-    </xsl:call-template>
-    <xsl:call-template name="db2html.info.othercredits">
-      <xsl:with-param name="node" select="$node"/>
-      <xsl:with-param name="info" select="$info"/>
-    </xsl:call-template>
-    <xsl:call-template name="db2html.info.copyrights">
-      <xsl:with-param name="node" select="$node"/>
-      <xsl:with-param name="info" select="$info"/>
-    </xsl:call-template>
-    <xsl:apply-templates mode="db2html.info.mode" select="legalnotice"/>
-    <xsl:apply-templates mode="db2html.info.mode" select="revhistory"/>
-  </div>
+  <html>
+    <head>
+      <xsl:call-template name="db2html.css"/>
+    </head>
+    <body>
+      <div class="{local-name($info)}">
+        <xsl:call-template name="db2html.anchor">
+          <xsl:with-param name="name" select="local-name($info)"/>
+        </xsl:call-template>
+        <xsl:call-template name="db2html.info.title">
+          <xsl:with-param name="node" select="$node"/>
+          <xsl:with-param name="info" select="$info"/>
+        </xsl:call-template>
+        <xsl:call-template name="db2html.info.subtitle">
+          <xsl:with-param name="node" select="$node"/>
+          <xsl:with-param name="info" select="$info"/>
+        </xsl:call-template>
+        <xsl:call-template name="db2html.info.authors">
+          <xsl:with-param name="node" select="$node"/>
+          <xsl:with-param name="info" select="$info"/>
+        </xsl:call-template>
+        <xsl:call-template name="db2html.info.editors">
+          <xsl:with-param name="node" select="$node"/>
+          <xsl:with-param name="info" select="$info"/>
+        </xsl:call-template>
+        <xsl:call-template name="db2html.info.collabs">
+          <xsl:with-param name="node" select="$node"/>
+          <xsl:with-param name="info" select="$info"/>
+        </xsl:call-template>
+        <xsl:call-template name="db2html.info.translators">
+          <xsl:with-param name="node" select="$node"/>
+          <xsl:with-param name="info" select="$info"/>
+        </xsl:call-template>
+        <xsl:call-template name="db2html.info.publishers">
+          <xsl:with-param name="node" select="$node"/>
+          <xsl:with-param name="info" select="$info"/>
+        </xsl:call-template>
+        <xsl:call-template name="db2html.info.othercredits">
+          <xsl:with-param name="node" select="$node"/>
+          <xsl:with-param name="info" select="$info"/>
+        </xsl:call-template>
+        <xsl:call-template name="db2html.info.copyrights">
+          <xsl:with-param name="node" select="$node"/>
+          <xsl:with-param name="info" select="$info"/>
+        </xsl:call-template>
+        <xsl:apply-templates mode="db2html.info.mode" select="$info/legalnotice"/>
+        <xsl:apply-templates mode="db2html.info.mode" select="$info/revhistory"/>
+      </div>
+    </body>
+  </html>
 </xsl:template>
 
 
@@ -727,12 +736,21 @@
     <xsl:if test="revremark">
       <xsl:text>; </xsl:text>
     </xsl:if>
+<!--
     <xsl:apply-templates mode="db2html.info.mode"
                          select="revremark | revdescription"/>
-    <xsl:if test="author | authorinitials">
-      <xsl:text>(</xsl:text>
-      <xsl:for-each select="author | authorinitials">
+-->
+    <xsl:if test="author | authorinitials | revdescription/para[@role='author']">
+      <xsl:text> (</xsl:text>
+      <xsl:for-each
+       select="author | authorinitials | revdescription/para[@role='author']">
+        <xsl:if test="position() != 1">
+          <xsl:text>, </xsl:text>
+        </xsl:if>
         <xsl:choose>
+          <xsl:when test="self::para">
+            <xsl:apply-templates/>
+          </xsl:when>
           <xsl:when test="self::authorinitials">
             <xsl:apply-templates select="."/>
           </xsl:when>
