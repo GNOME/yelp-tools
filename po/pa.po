@@ -1,0 +1,315 @@
+# translation of gnome-doc-utils.po to Punjabi
+# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
+# Amanpreet Singh Alam <aalam@redhat.com>, 2004.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-doc-utils\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-11-24 15:58+0530\n"
+"PO-Revision-Date: 2004-11-24 16:05+0530\n"
+"Last-Translator: Amanpreet Singh Alam <aalam@redhat.com>\n"
+"Language-Team: Punjabi <fedora-trans-pa@redhat.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.9\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. Appendix %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:2
+msgid "format.appendix.label"
+msgstr "format.appendix.label"
+
+#. Chapter %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:4
+msgid "format.chapter.label"
+msgstr "format.chapter.label"
+
+#: xslt/docbook/common/db-format.xml.in.h:5
+msgid "format.citetitle"
+msgstr "format.citetitle"
+
+#. FIXME
+#: xslt/docbook/common/db-format.xml.in.h:7
+msgid "format.date"
+msgstr "format.date"
+
+#. Figure %t{example}
+#: xslt/docbook/common/db-format.xml.in.h:9
+msgid "format.example.label"
+msgstr "format.example.label"
+
+#. %t{parent}-%1{number}
+#: xslt/docbook/common/db-format.xml.in.h:11
+msgid "format.example.number"
+msgstr "format.example.number"
+
+#. %1{number}
+#: xslt/docbook/common/db-format.xml.in.h:13
+msgid "format.example.number.flat"
+msgstr "format.example.number.flat"
+
+#. Figure %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:15
+msgid "format.figure.label"
+msgstr "format.figure.label"
+
+#. %t{parent}-%1{number}
+#: xslt/docbook/common/db-format.xml.in.h:17
+msgid "format.figure.number"
+msgstr "format.figure.number"
+
+#. %1{number}
+#: xslt/docbook/common/db-format.xml.in.h:19
+msgid "format.figure.number.flat"
+msgstr "format.figure.number.flat"
+
+#. ‘%t{node}’
+#: xslt/docbook/common/db-format.xml.in.h:21
+msgid "format.quote.inner"
+msgstr "format.quote.inner"
+
+#. “%t{node}”
+#: xslt/docbook/common/db-format.xml.in.h:23
+msgid "format.quote.outer"
+msgstr "format.quote.outer"
+
+#. Section %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:25
+msgid "format.section.label"
+msgstr "format.section.label"
+
+#. Table %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:27
+msgid "format.table.label"
+msgstr "format.table.label"
+
+#. %t{parent}-%1{number}
+#: xslt/docbook/common/db-format.xml.in.h:29
+msgid "format.table.number"
+msgstr "format.table.number"
+
+#. %1{number}
+#: xslt/docbook/common/db-format.xml.in.h:31
+msgid "format.table.number.flat"
+msgstr "format.table.number.flat"
+
+#. Used as a header before a list of authors.
+#: xslt/gettext/l10n.xml.in.h:2
+msgid "<msgstr form=\"0\">Author</msgstr> <msgstr form=\"1\">Authors</msgstr>"
+msgstr "<msgstr form=\"0\">ਲੇਖਕ</msgstr> <msgstr form=\"1\">ਲੇਖਕ</msgstr>"
+
+#. Used as a header before a list of collaborators.
+#: xslt/gettext/l10n.xml.in.h:4
+msgid ""
+"<msgstr form=\"0\">Collaborator</msgstr> <msgstr form=\"1\">Collaborators</"
+"msgstr>"
+msgstr ""
+"<msgstr form=\"0\">ਹੋਰ ਸਹਾਇਕ</msgstr> <msgstr form=\"1\">ਹੋਰ ਸਹਾਇਕ</"
+"msgstr>"
+
+#. Used as a header before a list of copyrights.
+#: xslt/gettext/l10n.xml.in.h:6
+msgid "<msgstr form=\"0\">Copyright</msgstr> <msgstr form=\"1\">Copyrights</msgstr>"
+msgstr "<msgstr form=\"0\">ਕਾਪੀਰਾਈਟ</msgstr> <msgstr form=\"1\">ਕਾਪੀਰਾਈਟ</msgstr>"
+
+#. Used as a header before a list of editors.
+#: xslt/gettext/l10n.xml.in.h:8
+msgid "<msgstr form=\"0\">Editor</msgstr> <msgstr form=\"1\">Editors</msgstr>"
+msgstr "<msgstr form=\"0\">ਸੰਪਾਦਕ</msgstr> <msgstr form=\"1\">ਸੰਪਾਦਕ</msgstr>"
+
+#. Used as a header before a list of contributors.
+#: xslt/gettext/l10n.xml.in.h:10
+msgid ""
+"<msgstr form=\"0\">Other Contributor</msgstr> <msgstr form=\"1\">Other "
+"Contributors</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">ਹੋਰ ਯੋਗਦਾਨੀ</msgstr> <msgstr form=\"1\">ਹੋਰ "
+"ਯੋਗਦਾਨੀ</msgstr>"
+
+#. Used as a header before a list of publishers.
+#: xslt/gettext/l10n.xml.in.h:12
+msgid "<msgstr form=\"0\">Publisher</msgstr> <msgstr form=\"1\">Publishers</msgstr>"
+msgstr "<msgstr form=\"0\">ਪ੍ਰਕਾਸ਼ਕ</msgstr> <msgstr form=\"1\">ਪ੍ਰਕਾਸ਼ਕ</msgstr>"
+
+#: xslt/gettext/l10n.xml.in.h:13
+msgid "About This Article"
+msgstr "ਇਸ ਲੇਖ ਬਾਰੇ"
+
+#: xslt/gettext/l10n.xml.in.h:14
+msgid "About This Bibliography"
+msgstr "ਇਸ ਪੁਸਤਕ ਸੂਚੀ ਬਾਰੇ"
+
+#: xslt/gettext/l10n.xml.in.h:15
+msgid "About This Book"
+msgstr "ਇਸ ਕਿਤਾਬ ਬਾਰੇ"
+
+#: xslt/gettext/l10n.xml.in.h:16
+msgid "About This Chapter"
+msgstr "ਇਸ ਅਧਿਆਇ ਬਾਰੇ"
+
+#: xslt/gettext/l10n.xml.in.h:17
+msgid "About This Entry"
+msgstr "ਇਸ ਇੰਦਰਾਜ਼ ਬਾਰੇ"
+
+#: xslt/gettext/l10n.xml.in.h:18
+msgid "About This Glossary"
+msgstr "ਇਸ ਸ਼ਬਦਾਵਲੀ ਬਾਰੇ"
+
+#: xslt/gettext/l10n.xml.in.h:19
+msgid "About This Index"
+msgstr "ਇਸ ਤਤਕਰੇ ਬਾਰੇ"
+
+#: xslt/gettext/l10n.xml.in.h:20
+msgid "About This Part"
+msgstr "ਇਸ ਭਾਗ ਬਾਰੇ"
+
+#: xslt/gettext/l10n.xml.in.h:21
+msgid "About This Preface"
+msgstr "ਇਸ ਮੁੱਖ ਬੰਧ ਬਾਰੇ"
+
+#: xslt/gettext/l10n.xml.in.h:22
+msgid "About This Reference"
+msgstr "ਇਸ ਹਵਾਲੇ ਬਾਰੇ"
+
+#: xslt/gettext/l10n.xml.in.h:23
+msgid "About This Section"
+msgstr "ਇਸ ਭਾਗ ਬਾਰੇ"
+
+#: xslt/gettext/l10n.xml.in.h:24
+msgid "About This Set"
+msgstr "ਇਸ ਸੈੱਟ ਬਾਰੇ"
+
+#: xslt/gettext/l10n.xml.in.h:25
+msgid "Affiliation"
+msgstr "ਸੰਬੰਧਿਤ"
+
+#. This is an abbreviated form of 'Message Audience'.
+#. Feel free to use the same word/phrase for both.
+#: xslt/gettext/l10n.xml.in.h:28
+msgid "Audience"
+msgstr "ਸਰੋਤੇ"
+
+#: xslt/gettext/l10n.xml.in.h:29
+msgid "Caution"
+msgstr "ਸਾਵਧਾਨ"
+
+#: xslt/gettext/l10n.xml.in.h:30
+msgid "Colophon"
+msgstr "ਲੇਖਕ"
+
+#. This is an abbreviated form of 'Table of Contents'.
+#. Feel free to use the same word/phrase for both.
+#: xslt/gettext/l10n.xml.in.h:33
+msgid "Contents"
+msgstr "ਭਾਗ"
+
+#. Used as a header for date column in the revision history.
+#: xslt/gettext/l10n.xml.in.h:35
+msgid "Date"
+msgstr "ਮਿਤੀ"
+
+#: xslt/gettext/l10n.xml.in.h:36
+msgid "Dedication"
+msgstr "ਸਮਰਪਤ"
+
+#: xslt/gettext/l10n.xml.in.h:37
+msgid "Email"
+msgstr "ਈ-ਪੱਤਰ"
+
+#: xslt/gettext/l10n.xml.in.h:38
+msgid "Important"
+msgstr "ਖਾਸ"
+
+#: xslt/gettext/l10n.xml.in.h:39
+msgid "Index"
+msgstr "ਤਤਕਰਾ"
+
+#: xslt/gettext/l10n.xml.in.h:40
+msgid "Legal Notice"
+msgstr "ਕਾਨੂੰਨੀ ਸੂਚਨਾ"
+
+#. This is an abbreviated form of 'Message Level'.
+#. Feel free to use the same word/phrase for both.
+#: xslt/gettext/l10n.xml.in.h:43
+msgid "Level"
+msgstr "ਪੱਧਰ"
+
+#: xslt/gettext/l10n.xml.in.h:44
+msgid "Message Audience"
+msgstr "ਸੁਨੇਹਾ ਸਰੋਤੇ"
+
+#: xslt/gettext/l10n.xml.in.h:45
+msgid "Message Level"
+msgstr "ਸੁਨੇਹਾ ਪੱਧਰ"
+
+#: xslt/gettext/l10n.xml.in.h:46
+msgid "Message Origin"
+msgstr "ਸੁਨੇਹਾ ਆਧਾਰ"
+
+#: xslt/gettext/l10n.xml.in.h:47
+msgid "Name"
+msgstr "ਨਾਂ"
+
+#: xslt/gettext/l10n.xml.in.h:48
+msgid "Note"
+msgstr "ਸੂਚਨਾ"
+
+#. This is an abbreviated form of 'Message Origin'.
+#. Feel free to use the same word/phrase for both.
+#: xslt/gettext/l10n.xml.in.h:51
+msgid "Origin"
+msgstr "ਭੂਮਿਕਾ"
+
+#: xslt/gettext/l10n.xml.in.h:52
+msgid "Preface"
+msgstr "ਮੁੱਖ ਬੰਧ"
+
+#: xslt/gettext/l10n.xml.in.h:53
+msgid "Reference"
+msgstr "ਹਵਾਲਾ"
+
+#: xslt/gettext/l10n.xml.in.h:54
+msgid "Release Information"
+msgstr "ਜਾਰੀ ਜਾਣਕਾਰੀ"
+
+#: xslt/gettext/l10n.xml.in.h:55
+msgid "Revision History"
+msgstr "ਦੁਹਰਾਉ ਅਤੀਤ"
+
+#: xslt/gettext/l10n.xml.in.h:56
+msgid "See"
+msgstr "ਵੇਖੋ"
+
+#: xslt/gettext/l10n.xml.in.h:57
+msgid "See Also"
+msgstr "ਇਹ ਵੀ ਵੇਖੋ"
+
+#: xslt/gettext/l10n.xml.in.h:58
+msgid "Set Index"
+msgstr "ਤਤਕਰਾ ਬਣਾਉ"
+
+#: xslt/gettext/l10n.xml.in.h:59
+msgid "Synopsis"
+msgstr "ਸੰਖੇਪ"
+
+#. Used for a link to a table of contents.
+#: xslt/gettext/l10n.xml.in.h:61
+msgid "Table of Contents"
+msgstr "ਤਤਕਰਾ"
+
+#: xslt/gettext/l10n.xml.in.h:62
+msgid "Tip"
+msgstr "ਇਸ਼ਾਰਾ"
+
+#. Used as a header for title column in the revision history.
+#: xslt/gettext/l10n.xml.in.h:64
+msgid "Title"
+msgstr "ਸਿਰਲੇਖ"
+
+#: xslt/gettext/l10n.xml.in.h:65
+msgid "Warning"
+msgstr "ਚੇਤਾਵਨੀ"
+
