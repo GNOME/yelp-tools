@@ -1,3 +1,9 @@
+2004-09-28  Danilo Šegan  <dsegan@gmx.net>
+
+	* xml2po.py (tryToUpdate): s/e:/e/ (extract-all-entities needs no
+	parameter).
+	(tryToUpdate): Don't append ".po" to lang.
+
 2004-09-25  Danilo Šegan  <dsegan@gmx.net>
 
 	* xml2po.py: Add "-e" option to do .replaceEntities(1).

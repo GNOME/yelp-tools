@@ -457,7 +457,7 @@ def tryToUpdate(allargs, lang):
     # Remove "-u" and "--update-translation"
     command = allargs[0]
     args = allargs[1:]
-    opts, args = getopt.getopt(args, 'avhmke:t:o:p:u:',
+    opts, args = getopt.getopt(args, 'avhmket:o:p:u:',
                                ['automatic-tags','version', 'help', 'keep-entities', 'extract-all-entities', 'merge', 'translation=',
                                 'output=', 'po-file=', 'update-translation=' ])
     for opt, arg in opts:
@@ -487,7 +487,7 @@ def tryToUpdate(allargs, lang):
     while args:
         command += " " + args.pop()
 
-    file = lang + ".po"
+    file = lang
 
     sys.stderr.write("Merging translations for %s: " % (lang))
     result = os.system("%s | msgmerge -o .tmp.%s.po %s -" % (command, lang, file))
