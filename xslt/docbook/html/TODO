@@ -15,13 +15,10 @@ abstract/title
 authorblurb/title
 blockquote/title
 calloutlist/title
-caution/title
 dedication/title
 dedication/subtitle
-important/title
 formalpara/title
 itemizedlist/title
-note/title
 orderedlist/title
 personblurb/title
 procedure/title
@@ -29,9 +26,7 @@ refsynopsisdiv/title
 segmentedlist/title
 sidebar/title
 step/title
-tip/title
 variablelist/title
-warning/title
 
 Use db2html-title.title.header:
 ===============================
