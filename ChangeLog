@@ -1,3 +1,14 @@
+2004-10-20  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/html/db2html-admon.xsl:
+	* xslt/docbook/html/db2html-block.xsl:
+	* xslt/docbook/html/db2html-callout.xsl:
+	* xslt/docbook/html/db2html-css.xsl:
+	* xslt/docbook/html/db2html-list.xsl:
+	* xslt/docbook/html/db2html-table.xsl:
+	* xslt/docbook/html/db2html-title.xsl:
+	- Stylistic improvements
+
 2004-10-18  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/common/db-format.xml.in:

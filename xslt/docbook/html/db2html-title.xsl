@@ -30,7 +30,7 @@
       border-bottom: solid 1px;
       margin-left: -8px;
     }
-    h2 span[class="label"] {
+    h2 span[class~="label"] {
       float: right;
       font-size: 0.8em;
       padding-left: 6px;

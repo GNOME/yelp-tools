@@ -70,7 +70,7 @@
 
 <xsl:template name="db2html.callout.css">
   <xsl:text>
-    span[class="co"] {
+    span[class~="co"] {
       font-size: 8px;
       padding-left:  0.4em;
       padding-right: 0.4em;
@@ -85,7 +85,7 @@
       border-color: </xsl:text>
       <xsl:value-of select="$db2html.co.border_color"/><xsl:text>;
     }
-    span[class="co"]:hover {
+    span[class~="co"]:hover {
       color: </xsl:text>
       <xsl:value-of select="$db2html.co.color.hover"/><xsl:text>;
       background-color: </xsl:text>
@@ -93,8 +93,8 @@
       border-color: </xsl:text>
       <xsl:value-of select="$db2html.co.border_color.hover"/><xsl:text>;
     }
-    span[class="co"] a { text-decoration: none; }
-    span[class="co"] a:hover { text-decoration: none; }
+    span[class~="co"] a { text-decoration: none; }
+    span[class~="co"] a:hover { text-decoration: none; }
   </xsl:text>
 </xsl:template>
 

@@ -178,7 +178,7 @@
 
 <xsl:template name="db2html.admon.css">
   <xsl:text>
-    div[class="admonition"] {
+    div[class~="admonition"] {
       margin-left: 28px;
       margin-right: 28px;
     }

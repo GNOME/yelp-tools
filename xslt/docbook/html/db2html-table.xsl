@@ -39,8 +39,8 @@
 
 <xsl:template name="db2html.table.css">
   <xsl:text>
-    div[class="table"] { margin-left: 28px; }
-    div[class="table"] div[class="title"] span[class="title"] {
+    div[class~="table"] { margin-left: 28px; }
+    div[class~="table"] div[class~="title"] span[class~="title"] {
       padding-top: 2px;
       padding-left: 0.4em;
       padding-right: 0.6em;
@@ -50,7 +50,7 @@
       -moz-border-radius-topleft: 8px;
       -moz-border-radius-topright: 8px;
     }
-    div[class="table"] div[class="title"] span[class="label"] {
+    div[class~="table"] div[class~="title"] span[class~="label"] {
       margin-right: 0.8em;
       font-style: italic;
     }
@@ -61,7 +61,7 @@
     }
   </xsl:text>
   <xsl:if test="$db2html.table.rule_color">
-    <xsl:text>tr[class="odd"] { background-color: </xsl:text>
+    <xsl:text>tr[class~="odd"] { background-color: </xsl:text>
     <xsl:value-of select="$db2html.table.rule_color"/>
     <xsl:text> }</xsl:text>
   </xsl:if>

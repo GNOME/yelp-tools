@@ -16,6 +16,7 @@
 
 <xsl:template name="db2html.css">
   <style>
+    <xsl:call-template name="db2html.css.custom"/>
     <xsl:call-template name="db2html.admon.css"/>
     <xsl:call-template name="db2html.block.css"/>
     <xsl:call-template name="db2html.callout.css"/>
@@ -32,5 +33,7 @@
     }
   </style>
 </xsl:template>
+
+<xsl:template name="db2html.css.custom"/>
 
 </xsl:stylesheet>
