@@ -1,5 +1,9 @@
 2005-02-23  Danilo Šegan  <dsegan@gmx.net>
 
+	* xml2po.py (replaceNodeContentsWithText): Use ParserCtxt instead.
+
+2005-02-23  Danilo Šegan  <dsegan@gmx.net>
+
 	* xml2po.py (replaceNodeContentsWithText): Add DTD here as well.
 
 2004-12-23  Danilo Šegan  <dsegan@gmx.net>
