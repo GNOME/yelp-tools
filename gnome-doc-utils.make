@@ -418,23 +418,26 @@ _DOC_LC_FIGURES = $(foreach lc,$(DOC_LINGUAS),					\
 	$(patsubst $(srcdir)/%,%,$(wildcard $(srcdir)/$(lc)/figures/*.png)) ))
 
 $(_DOC_POFILES): $(_DOC_C_DOCS)
-	if ! test -d $(dir $@); then mkdir $(dir $@); fi
-	if test -f "$(_DOC_C_MODULE)"; then d="../"; else d="../$(srcdir)/"; fi; \
-	if ! test -f $@; then \
-	  (cd $(dir $@) && \
-	    $(_xml2po) -e $(_DOC_C_DOCS_NOENT:%=$${d}%) > $(notdir $@)); \
+	if ! test -d $(srcdir)/$(dir $@); then mkdir $(srcdir)/$(dir $@); fi
+	if ! test -f $(srcdir)/$@; then \
+	  (cd $(srcdir)/$(dir $@) && \
+	    $(_xml2po) -e $(_DOC_C_DOCS_NOENT:%=../%) > $(notdir $@)); \
 	else \
-	  (cd $(dir $@) && \
-	    $(_xml2po) -e -u $(basename $(notdir $@)) $(_DOC_C_DOCS_NOENT:%=$${d}%)); \
+	  (cd $(srcdir)/$(dir $@) && \
+	    $(_xml2po) -e -u $(basename $(notdir $@)) $(_DOC_C_DOCS_NOENT:%=../%)); \
 	fi
 
 # FIXME: fix the dependancy
 # FIXME: hook xml2po up
 $(_DOC_LC_DOCS) : $(_DOC_POFILES)
 $(_DOC_LC_DOCS) : $(_DOC_C_DOCS)
-	if test -f "$(_DOC_C_MODULE)"; then d="../C/"; else d="../$(srcdir)/C/"; fi; \
+	if ! test -d $(dir $@); then mkdir $(dir $@); fi
+	if test -f "$(_DOC_C_MODULE)"; then d="../"; else d="../$(srcdir)/"; fi; \
 	(cd $(dir $@) && \
-	  $(_xml2po) -e -p $(patsubst %/$(notdir $@),%,$@).po $${d}$(notdir $@) > $(notdir $@))
+	  $(_xml2po) -e -p \
+	    $${d}$(dir $@)$(patsubst %/$(notdir $@),%,$@).po \
+	    $${d}C/$(notdir $@) > $(notdir $@).tmp && \
+	    cp $(notdir $@).tmp $(notdir $@) && rm -f $(notdir $@).tmp)
 
 ## @ _DOC_POT
 ## A pot file
