@@ -141,7 +141,7 @@ def normalizeString(text, ignorewhitespace = 1):
     try:
         # Lets add document DTD so entities are resolved
         dtd = doc.intSubset()
-        tmp = dtd.serialize('utf-8')
+        tmp = dtd.serialize()
         tmp = tmp + '<norm>%s</norm>' % text
     except:
         tmp = '<norm>%s</norm>' % text
@@ -172,11 +172,11 @@ def normalizeString(text, ignorewhitespace = 1):
 
 def stringForEntity(node):
     """Replaces entities in the node."""
-    text = node.serialize('utf-8')
+    text = node.serialize()
     try:
         # Lets add document DTD so entities are resolved
         dtd = node.doc.intSubset()
-        tmp = dtd.serialize('utf-8') + '<norm>%s</norm>' % text
+        tmp = dtd.serialize() + '<norm>%s</norm>' % text
         next = 1
     except:
         tmp = '<norm>%s</norm>' % text
@@ -233,7 +233,7 @@ def startTagForNode(node):
         for p in node.properties:
             if p.type == 'attribute':
                 # FIXME: This part sucks
-                params += p.serialize('utf-8')
+                params += p.serialize()
     return result+params
         
 def endTagForNode(node):
@@ -313,7 +313,7 @@ def replaceNodeContentsWithText(node,text):
             dtd = doc.intSubset()
             tmp = ''
             if expand_entities: # FIXME: we get a "Segmentation fault" in libxml2.parseMemory() when we include DTD otherwise
-                tmp = dtd.serialize('utf-8')
+                tmp = dtd.serialize()
             tmp = tmp + '<%s>%s</%s>' % (starttag, text, endtag)
         except:
             tmp = '<%s>%s</%s>' % (starttag, text, endtag)
@@ -461,12 +461,12 @@ def doSerialize(node):
     if ignoreNode(node):
         return ''
     elif not node.children:
-        return node.serialize('utf-8')
+        return node.serialize("utf-8")
     elif node.type == 'entity_ref':
         if isExternalGeneralParsedEntity(node):
             return node.serialize('utf-8')
         else:
-            return stringForEntity(node) #content #content #serialize()
+            return stringForEntity(node) #content #content #serialize("utf-8")
     elif node.type == 'entity_decl':
         return node.serialize('utf-8') #'<%s>%s</%s>' % (startTagForNode(node), node.content, node.name)
     elif node.type == 'text':
