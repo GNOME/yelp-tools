@@ -1,31 +1,29 @@
 # translation of gnome-doc-utils.HEAD.po to 
 # This file is distributed under the same license as the PACKAGE package.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER, 2005.
-#
+# Copyright (C) 2005 THE PACKAGE'S COPYRIGHT HOLDER, 2005.
+# 
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-02-22 07:24+0100\n"
-"PO-Revision-Date: 2005-02-22 09:05+0100\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2005-02-22 09:11+0100\n"
+"Last-Translator:  <kinryu@silverpen.de>\n"
 "Language-Team:  <en@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.9.1\n"
+"Content-Transfer-Encoding: 8bit"
 
 #. Appendix %t{number}
 #: xslt/docbook/common/db-format.xml.in.h:2
-#, fuzzy
 msgid "format.appendix.label"
-msgstr "علامة"
+msgstr ""
 
 #. Chapter %t{number}
 #: xslt/docbook/common/db-format.xml.in.h:4
-#, fuzzy
 msgid "format.chapter.label"
-msgstr "label"
+msgstr ""
 
 #: xslt/docbook/common/db-format.xml.in.h:5
 msgid "format.citetitle"
@@ -33,45 +31,38 @@ msgstr ""
 
 #. FIXME
 #: xslt/docbook/common/db-format.xml.in.h:7
-#, fuzzy
 msgid "format.date"
-msgstr "التّاريخ"
+msgstr ""
 
 #. Example %t{number}
 #: xslt/docbook/common/db-format.xml.in.h:9
-#, fuzzy
 msgid "format.example.label"
-msgstr "label"
+msgstr ""
 
 #. %t{parent}-%1{number}
 #: xslt/docbook/common/db-format.xml.in.h:11
-#, fuzzy
 msgid "format.example.number"
-msgstr "رقم"
+msgstr ""
 
 #. %1{number}
 #: xslt/docbook/common/db-format.xml.in.h:13
-#, fuzzy
 msgid "format.example.number.flat"
-msgstr "رقم"
+msgstr ""
 
 #. Figure %t{number}
 #: xslt/docbook/common/db-format.xml.in.h:15
-#, fuzzy
 msgid "format.figure.label"
-msgstr "label"
+msgstr ""
 
 #. %t{parent}-%1{number}
 #: xslt/docbook/common/db-format.xml.in.h:17
-#, fuzzy
 msgid "format.figure.number"
-msgstr "رقم"
+msgstr ""
 
 #. %1{number}
 #: xslt/docbook/common/db-format.xml.in.h:19
-#, fuzzy
 msgid "format.figure.number.flat"
-msgstr "رقم"
+msgstr ""
 
 #. (%t{node})
 #: xslt/docbook/common/db-format.xml.in.h:21
@@ -80,57 +71,48 @@ msgstr ""
 
 #. Part %t{number}
 #: xslt/docbook/common/db-format.xml.in.h:23
-#, fuzzy
 msgid "format.part.label"
-msgstr "label"
+msgstr ""
 
 #. %I{number}
 #: xslt/docbook/common/db-format.xml.in.h:25
-#, fuzzy
 msgid "format.part.number"
-msgstr "رقم"
+msgstr ""
 
 #. ‘%t{node}’
 #: xslt/docbook/common/db-format.xml.in.h:27
-#, fuzzy
 msgid "format.quote.inner"
-msgstr "تعليق"
+msgstr ""
 
 #. “%t{node}”
 #: xslt/docbook/common/db-format.xml.in.h:29
-#, fuzzy
 msgid "format.quote.outer"
-msgstr "تعليق"
+msgstr ""
 
 #. %t{title}
 #: xslt/docbook/common/db-format.xml.in.h:31
-#, fuzzy
 msgid "format.refentry.label"
-msgstr "label"
+msgstr ""
 
 #. Section %t{number}
 #: xslt/docbook/common/db-format.xml.in.h:33
-#, fuzzy
 msgid "format.section.label"
-msgstr "الفصل label"
+msgstr ""
 
 #. Table %t{number}
 #: xslt/docbook/common/db-format.xml.in.h:35
-#, fuzzy
 msgid "format.table.label"
-msgstr "جدول label"
+msgstr ""
 
 #. %t{parent}-%1{number}
 #: xslt/docbook/common/db-format.xml.in.h:37
-#, fuzzy
 msgid "format.table.number"
-msgstr "جدول رقم"
+msgstr ""
 
 #. %1{number}
 #: xslt/docbook/common/db-format.xml.in.h:39
-#, fuzzy
 msgid "format.table.number.flat"
-msgstr "جدول رقم"
+msgstr ""
 
 #. Read the definition for ‘%s{node}’
 #: xslt/docbook/common/db-format.xml.in.h:41
@@ -144,207 +126,173 @@ msgstr ""
 
 #. Used as a header before a list of authors.
 #: xslt/gettext/l10n.xml.in.h:2
-#, fuzzy
 msgid "<msgstr form=\"0\">Author</msgstr> <msgstr form=\"1\">Authors</msgstr>"
-msgstr "<msgstr form=\"0\"> المؤلّف</msgstr><msgstr form=\"1\"> المؤلّفون</msgstr>"
+msgstr "<msgstr form=\"0\">المؤلّف</msgstr> <msgstr form=\"1\">المؤلّفون</msgstr>"
 
 #. Used as a header before a list of collaborators.
 #: xslt/gettext/l10n.xml.in.h:4
-#, fuzzy
 msgid ""
 "<msgstr form=\"0\">Collaborator</msgstr> <msgstr form=\"1\">Collaborators</"
 "msgstr>"
-msgstr "<msgstr form=\"0\"> المتعاون</msgstr><msgstr form=\"1\"> المتعاونون</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">المتعاون</msgstr> <msgstr form=\"1\">المتعاونون</msgstr>"
 
 #. Used as a header before a list of copyrights.
 #: xslt/gettext/l10n.xml.in.h:6
-#, fuzzy
 msgid "<msgstr form=\"0\">Copyright</msgstr> <msgstr form=\"1\">Copyrights</msgstr>"
-msgstr "<msgstr form=\"0\"> حقق النشر</msgstr><msgstr form=\"1\"> حقوق النشر</msgstr>"
+msgstr "<msgstr form=\"0\">حقوق النشر</msgstr> <msgstr form=\"1\">حقوق النشر</msgstr>"
 
 #. Used as a header before a list of editors.
 #: xslt/gettext/l10n.xml.in.h:8
-#, fuzzy
 msgid "<msgstr form=\"0\">Editor</msgstr> <msgstr form=\"1\">Editors</msgstr>"
-msgstr "<msgstr form=\"0\"> المحرّر</msgstr><msgstr form=\"1\"> محررات</msgstr>"
+msgstr "<msgstr form=\"0\">محرّر</msgstr> <msgstr form=\"1\">محرّرات</msgstr>"
 
 #. Used as a header before a list of contributors.
 #: xslt/gettext/l10n.xml.in.h:10
-#, fuzzy
 msgid ""
 "<msgstr form=\"0\">Other Contributor</msgstr> <msgstr form=\"1\">Other "
 "Contributors</msgstr>"
-msgstr "<msgstr form=\"0\"> أخرى متبرّع</msgstr><msgstr form=\"1\"> أخرى</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">متبرّع آخر</msgstr><msgstr form=\"1\">متبرّعون آخرون</msgstr>"
 
 #. Used as a header before a list of publishers.
 #: xslt/gettext/l10n.xml.in.h:12
-#, fuzzy
 msgid "<msgstr form=\"0\">Publisher</msgstr> <msgstr form=\"1\">Publishers</msgstr>"
-msgstr "<msgstr form=\"0\"> الناشر</msgstr><msgstr form=\"1\"> الناشرون</msgstr>"
+msgstr "<msgstr form=\"0\">النّاشر</msgstr> <msgstr form=\"1\">النّاشرون</msgstr>"
 
 #. Link to the titlepage
 #: xslt/gettext/l10n.xml.in.h:14
-#, fuzzy
 msgid "About This Document"
 msgstr "حول هذا المستند"
 
 #: xslt/gettext/l10n.xml.in.h:15
-#, fuzzy
 msgid "Affiliation"
 msgstr "الإنتساب"
 
 #. This is an abbreviated form of 'Message Audience'.
 #. Feel free to use the same word/phrase for both.
 #: xslt/gettext/l10n.xml.in.h:18
-#, fuzzy
 msgid "Audience"
 msgstr "الجمهور"
 
 #: xslt/gettext/l10n.xml.in.h:19
-#, fuzzy
 msgid "Caution"
-msgstr "إنتبه"
+msgstr "إنتباه"
 
 #: xslt/gettext/l10n.xml.in.h:20
-#, fuzzy
 msgid "Colophon"
-msgstr "الورقة الأخيرة المحتوية على معلومات حول الناشر و الكاتب الخ (لم تعد مستخدمة)"
+msgstr "الورقة الأخيرة المحتوية على معلومات حول الناشر و الكاتب"
 
 #. This is an abbreviated form of 'Table of Contents'.
 #. Feel free to use the same word/phrase for both.
 #: xslt/gettext/l10n.xml.in.h:23
-#, fuzzy
 msgid "Contents"
 msgstr "المحتويات"
 
 #. Used as a header for date column in the revision history.
 #: xslt/gettext/l10n.xml.in.h:25
-#, fuzzy
 msgid "Date"
 msgstr "التّاريخ"
 
 #: xslt/gettext/l10n.xml.in.h:26
-#, fuzzy
 msgid "Dedication"
 msgstr "الإخلاص"
 
 #: xslt/gettext/l10n.xml.in.h:27
-#, fuzzy
 msgid "Email"
 msgstr "البريد الإلكتروني"
 
 #: xslt/gettext/l10n.xml.in.h:28
-#, fuzzy
 msgid "Important"
-msgstr "مهم"
+msgstr "مُهمّ"
 
 #: xslt/gettext/l10n.xml.in.h:29
-#, fuzzy
 msgid "Index"
 msgstr "فهرس"
 
 #: xslt/gettext/l10n.xml.in.h:30
-#, fuzzy
 msgid "Legal Notice"
 msgstr "ملاحظة قانونية"
 
 #. This is an abbreviated form of 'Message Level'.
 #. Feel free to use the same word/phrase for both.
 #: xslt/gettext/l10n.xml.in.h:33
-#, fuzzy
 msgid "Level"
-msgstr "Úroveň"
+msgstr "المستوى"
 
 #: xslt/gettext/l10n.xml.in.h:34
-#, fuzzy
 msgid "Message Audience"
-msgstr "جمهور الرسالة"
+msgstr "جمهور الرّسالة"
 
 #: xslt/gettext/l10n.xml.in.h:35
-#, fuzzy
 msgid "Message Level"
-msgstr "مستوى الرسالة"
+msgstr "مستوى الرّسالة"
 
 #: xslt/gettext/l10n.xml.in.h:36
-#, fuzzy
 msgid "Message Origin"
-msgstr "مصدر الرسالة"
+msgstr "مصدر الرّسالة"
 
 #: xslt/gettext/l10n.xml.in.h:37
-#, fuzzy
 msgid "Name"
-msgstr "الاسم"
+msgstr "الإسم"
 
 #: xslt/gettext/l10n.xml.in.h:38
-#, fuzzy
 msgid "Note"
 msgstr "ملاحظة"
 
 #. This is an abbreviated form of 'Message Origin'.
 #. Feel free to use the same word/phrase for both.
 #: xslt/gettext/l10n.xml.in.h:41
-#, fuzzy
 msgid "Origin"
 msgstr "المصدر"
 
 #: xslt/gettext/l10n.xml.in.h:42
-#, fuzzy
 msgid "Preface"
-msgstr "المقدمة"
+msgstr "مقدّمة"
 
 #: xslt/gettext/l10n.xml.in.h:43
-#, fuzzy
 msgid "Reference"
 msgstr "المرجع"
 
 #: xslt/gettext/l10n.xml.in.h:44
-#, fuzzy
 msgid "Release Information"
-msgstr "معلومات النشر"
+msgstr "معلومات النّشر"
 
 #: xslt/gettext/l10n.xml.in.h:45
-#, fuzzy
 msgid "Revision History"
 msgstr "تاريخ التنقيح"
 
 #: xslt/gettext/l10n.xml.in.h:46
-#, fuzzy
 msgid "See"
 msgstr "راجع"
 
 #: xslt/gettext/l10n.xml.in.h:47
-#, fuzzy
 msgid "See Also"
 msgstr "راجع كذلك"
 
 #: xslt/gettext/l10n.xml.in.h:48
-#, fuzzy
 msgid "Set Index"
 msgstr "تحديد الفهرس"
 
 #: xslt/gettext/l10n.xml.in.h:49
 msgid "Synopsis"
-msgstr ""
+msgstr "تلخيص"
 
 #. Used for a link to a table of contents.
 #: xslt/gettext/l10n.xml.in.h:51
-#, fuzzy
 msgid "Table of Contents"
 msgstr "جدول المحتويات"
 
 #: xslt/gettext/l10n.xml.in.h:52
-#, fuzzy
 msgid "Tip"
 msgstr "تلميحة"
 
 #. Used as a header for title column in the revision history.
 #: xslt/gettext/l10n.xml.in.h:54
-#, fuzzy
 msgid "Title"
 msgstr "العنوان"
 
 #: xslt/gettext/l10n.xml.in.h:55
-#, fuzzy
 msgid "Warning"
 msgstr "تحذير"
 
