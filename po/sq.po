@@ -1,0 +1,382 @@
+# Albanian translation of gnome-doc-utils.
+# Copyright (C) 2004 Free Software Foundation, Inc.
+# This file is distributed under the same license as the  gnome-doc-utils package.
+# Laurent Dhima <laurenti@alblinux.net>, 2004.
+# , fuzzy
+# 
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-doc-utils HEAD\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-07-28 03:38+0200\n"
+"PO-Revision-Date: 2004-07-28 19:48+0200\n"
+"Last-Translator: Laurent Dhima <laurenti@alblinux.net>\n"
+"Language-Team: Albanian <gnome-albanian-perkthyesit@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit"
+
+#: xslt/docbook/common/db-format.xml.in.h:2
+#, no-c-format
+msgid "%t{name} %t{number}"
+msgstr "%t{emri} %t{numri}"
+
+#: xslt/docbook/common/db-format.xml.in.h:4
+#, no-c-format
+msgid "‘%t{node}’"
+msgstr "‘%t{node}’"
+
+#: xslt/docbook/common/db-format.xml.in.h:6
+#, no-c-format
+msgid "“%t{node}”"
+msgstr "“%t{node}”"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:1
+msgid "&#8216;"
+msgstr "&#8216;"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:2
+msgid "&#8217;"
+msgstr "&#8217;"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:3
+msgid "&#8220;"
+msgstr "&#8220;"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:4
+msgid "&#8221;"
+msgstr "&#8221;"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:5
+msgid "About This Article"
+msgstr "Informacione mbi këtë artikull"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:6
+msgid "About This Bibliography"
+msgstr "Informacione në lidhje me këtë Bibliografi"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:7
+msgid "About This Book"
+msgstr "Informacione në lidhje me këtë libër"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:8
+msgid "About This Chapter"
+msgstr "Informacione në lidhje me këtë kapitull"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:9
+msgid "About This Entry"
+msgstr "Informacione në lidhje me këtë zë"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:10
+msgid "About This Glossary"
+msgstr "Informacione në lidhje me këtë përmbledhje"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:11
+msgid "About This Index"
+msgstr "Informacione në lidhje me këtë tregues"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:12
+msgid "About This Part"
+msgstr "Informacione në lidhje me këtë pjesë"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:13
+msgid "About This Preface"
+msgstr "Informacione në lidhje me këtë hyrje"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:14
+msgid "About This Reference"
+msgstr "Informacione në lidhje me këtë referim"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:15
+msgid "About This Section"
+msgstr "Informacione në lidhje me këtë seksion"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:16
+msgid "About This Set"
+msgstr "Informacione në lidhje me këtë sqarim"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:17
+msgid "Affiliation"
+msgstr "Afilim"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:18
+msgid "Appendix"
+msgstr "Shtesë"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:19
+msgid "Article"
+msgstr "Artikull"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:20
+msgid "Audience"
+msgstr "Dëgjim"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:21
+msgid "Author"
+msgstr "Autori"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:22
+msgid "Authors"
+msgstr "Autorët"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:23
+msgid "Bibliography"
+msgstr "Bibliografia"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:24
+msgid "Book"
+msgstr "Libri"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:25
+msgid "Caution"
+msgstr "Kujdes"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:26
+msgid "Chapter"
+msgstr "Kapitulli"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:27
+msgid "Collaborator"
+msgstr "Bashkpunëtori"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:28
+msgid "Collaborators"
+msgstr "Bashkpunues"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:29
+msgid "Colophon"
+msgstr "Colophon"
+
+#: xslt/gettext/l10n.xml.in.h:30
+msgid "Contents"
+msgstr "Përmbajtja"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:31
+msgid "Copyright"
+msgstr "Copyright"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:32
+msgid "Copyrights"
+msgstr "Copyrights"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:33
+msgid "Date"
+msgstr "Data"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:34
+msgid "Dedication"
+msgstr "Dedikimi"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:35
+msgid "Editor"
+msgstr "Editori"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:36
+msgid "Editors"
+msgstr "Editorë"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:37
+msgid "Email"
+msgstr "Email"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:38
+msgid "Example"
+msgstr "Shembull"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:39
+msgid "Figure"
+msgstr "Figura"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:40
+msgid "Glossary"
+msgstr "Termet"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:41
+msgid "Important"
+msgstr "I rëndësishëm"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:42
+msgid "Index"
+msgstr "Treguesi"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:43
+msgid "Legal Notice"
+msgstr "Njoftimi ligjor"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:44
+msgid "Level"
+msgstr "Etiketa"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:45
+msgid "Message Audience"
+msgstr "Dëgjim mesazhi"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:46
+msgid "Message Level"
+msgstr "Etiketa e mesazhit"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:47
+msgid "Message Origin"
+msgstr "Origjina e mesazhit"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:48
+msgid "Note"
+msgstr "Shënim"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:49
+msgid "Origin"
+msgstr "Origjina"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:50
+msgid "Other Contributor"
+msgstr "Kontribues të tjerë"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:51
+msgid "Other Contributors"
+msgstr "Kontribues të tjerë"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:52
+msgid "Part"
+msgstr "Pjesa"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:53
+msgid "Preface"
+msgstr "Hyrja"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:54
+msgid "Publisher"
+msgstr "Publikues"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:55
+msgid "Publishers"
+msgstr "Publikues"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:56
+msgid "Reference"
+msgstr "Referime"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:57
+msgid "Reference Entry"
+msgstr "Element referues"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:58
+msgid "Reference Section"
+msgstr "Seksioni i referimeve"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:59
+msgid "Release Information"
+msgstr "Informacione mbi versionin"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:60
+msgid "Revision History"
+msgstr "Historiku revizionit"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:61
+msgid "Section"
+msgstr "Seksioni"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:62
+msgid "See"
+msgstr "Shiko"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:63
+msgid "See Also"
+msgstr "Shiko gjithashtu"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:64
+msgid "Set Index"
+msgstr "Përcakto treguesin"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:65
+msgid "Table"
+msgstr "Tabela"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:66
+msgid "Table of Contents"
+msgstr "Tabela e përmbajtjes"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:67
+msgid "Tip"
+msgstr "Tip"
+
+#: xslt/gettext/l10n.xml.in.h:68
+msgid "Title"
+msgstr "Titulli"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:69
+msgid "Unknown"
+msgstr "Nuk njihet"
+
+#. GRUT modified this item
+#: xslt/gettext/l10n.xml.in.h:70
+msgid "Warning"
+msgstr "Kujdes"
+
