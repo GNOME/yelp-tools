@@ -1,3 +1,18 @@
+2004-03-15  Shaun McCance  <shaunm@gnome.org>
+
+	* COPYING:
+	- Use LGPL, not GPL
+
+	* xslt/docbook/html/Makefile.am:
+	* xslt/docbook/html/db2html-title.xsl:
+	- Added db2html-title.xsl
+
+	* xslt/docbook/html/db2html-label.xsl:
+	- Annotation improvements and other minor tweaks.
+
+	* xslt/docbook/html/TODO:
+	- Added a TODO file.
+
 2004-03-14  Shaun McCance  <shaunm@gnome.org>
 
 	* sandbox/mallard:
