@@ -1,5 +1,12 @@
 2005-03-27  Danilo Šegan  <dsegan@gmx.net>
 
+	Complete fix of #162089.
+	
+	* xml2po.py (startTagForNode): Use .serialize() instead of doing
+	it manually.
+
+2005-03-27  Danilo Šegan  <dsegan@gmx.net>
+
 	* xml2po.py (worthOutputting): Correct final tags semantics.
 	(processElementTag): Use better check for final tags.
 

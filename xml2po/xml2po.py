@@ -233,10 +233,7 @@ def startTagForNode(node):
         for p in node.properties:
             if p.type == 'attribute':
                 # FIXME: This part sucks
-                try:
-                    params += ' %s:%s="%s"' % (p.ns().name, p.name, p.content)
-                except:
-                    params += ' %s="%s"' % (p.name, p.content)
+                params += p.serialize()
     return result+params
         
 def endTagForNode(node):
