@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-08-17 11:42+0200\n"
-"PO-Revision-Date: 2004-08-17 13:49+0200\n"
+"POT-Creation-Date: 2004-08-27 03:41+0200\n"
+"PO-Revision-Date: 2004-08-27 14:17+0200\n"
 "Last-Translator: Elros Cyriatan <cyriatan@fastmail.fm>\n"
 "Language-Team: Dutch <vertaling@nl.linux.org>\n"
 "MIME-Version: 1.0\n"
@@ -19,33 +19,33 @@ msgstr ""
 #: xslt/docbook/common/db-format.xml.in.h:2
 #, no-c-format
 msgid "%t{name} %t{number}"
-msgstr ""
+msgstr "%t{naam} %t{nummer}"
 
 #: xslt/docbook/common/db-format.xml.in.h:4
 #, no-c-format
 msgid "‘%t{node}’"
-msgstr ""
+msgstr "‘%t{knoop}’"
 
 #: xslt/docbook/common/db-format.xml.in.h:6
 #, no-c-format
 msgid "“%t{node}”"
-msgstr ""
+msgstr "“%t{knoop}”"
 
 #: xslt/gettext/l10n.xml.in.h:1
 msgid "&#8216;"
-msgstr ""
+msgstr "&#8216;"
 
 #: xslt/gettext/l10n.xml.in.h:2
 msgid "&#8217;"
-msgstr ""
+msgstr "&#8217;"
 
 #: xslt/gettext/l10n.xml.in.h:3
 msgid "&#8220;"
-msgstr ""
+msgstr "&#8220;"
 
 #: xslt/gettext/l10n.xml.in.h:4
 msgid "&#8221;"
-msgstr ""
+msgstr "&#8221;"
 
 #: xslt/gettext/l10n.xml.in.h:5
 msgid "About This Article"
@@ -97,7 +97,7 @@ msgstr "Over deze verzameling"
 
 #: xslt/gettext/l10n.xml.in.h:17
 msgid "Affiliation"
-msgstr ""
+msgstr "Verwantschap"
 
 #: xslt/gettext/l10n.xml.in.h:18
 msgid "Appendix"
