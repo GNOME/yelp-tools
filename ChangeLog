@@ -1,3 +1,15 @@
+2004-11-12  Shaun McCance  <shaunm@gnome.org>
+
+	* docbook/common/db-format.xml.in:
+	* docbook/common/db-label.xsl:
+	- Label formatters for chapters and appendixes
+
+	* docbook/html/db2html-table.xsl:
+	- Removed the table title border thing
+
+	* docbook/html/db2html-title.xsl:
+	- Put labels on all titles >= h2, no float: right
+
 2004-11-11  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/common/db-chunk.xsl:

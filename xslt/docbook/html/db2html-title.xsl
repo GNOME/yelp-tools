@@ -19,28 +19,22 @@
 
 <xsl:template name="db2html.title.css">
   <xsl:text>
-    h1 {
-      font-size: 1.6em;
-      margin-top: 0em;
-    }
+    h1 { font-size: 1.6em; margin-top: 0em; }
     h2 {
       font-size: 1.4em;
       margin-top: 1.8em;
       border-bottom: solid 1px;
     }
-    h2 span[class~="label"] {
-      float: right;
-      font-size: 0.8em;
-      padding-left: 6px;
-      padding-top: 6px;
-      padding-bottom: 8px;
-      border-left: solid 1px;
-    }
     h3 { font-size: 1.2em; margin-top: 1.8em; }
     h3 span[class~="title"] { border-bottom: solid 1px; }
-    h4 { font-size: 1.2em; margin-top: 1.2em; }
+    h4 { font-size: 1.0em; margin-top: 1.8em; }
     h4 span[class~="title"] { border-bottom: solid 1px; }
     h5 { font-size: 1.0em; margin-top: 1.2em; }
+    h1 span[class~="label"] { padding-right: 0.8em; }
+    h2 span[class~="label"] { padding-right: 0.8em; }
+    h3 span[class~="label"] { padding-right: 0.8em; }
+    h4 span[class~="label"] { padding-right: 0.8em; }
+    h5 span[class~="label"] { padding-right: 0.8em; }
   </xsl:text>
 </xsl:template>
 
@@ -112,11 +106,9 @@
       <xsl:call-template name="db2html.anchor">
         <xsl:with-param name="node" select="$node"/>
       </xsl:call-template>
-      <span class="label">
-        <xsl:call-template name="db2html.title.label">
-          <xsl:with-param name="node" select="$title_for"/>
-        </xsl:call-template>
-      </span>
+      <xsl:call-template name="db2html.title.label">
+        <xsl:with-param name="node" select="$title_for"/>
+      </xsl:call-template>
       <xsl:apply-templates select="$node/node()"/>
     </span>
   </div>
@@ -221,13 +213,10 @@
       <xsl:call-template name="db2html.anchor">
         <xsl:with-param name="node" select="$node"/>
       </xsl:call-template>
-      <!-- FIXME: I don't quite like doing this -->
-      <xsl:if test="$depth_in_chunk = 2">
-        <xsl:call-template name="db2html.title.label">
-          <xsl:with-param name="node" select="$title_for"/>
-          <xsl:with-param name="depth_in_chunk" select="$title_for_depth"/>
-        </xsl:call-template>
-      </xsl:if>
+      <xsl:call-template name="db2html.title.label">
+        <xsl:with-param name="node" select="$title_for"/>
+        <xsl:with-param name="depth_in_chunk" select="$title_for_depth"/>
+      </xsl:call-template>
       <xsl:apply-templates select="$node/node()"/>
     </span>
   </xsl:element>

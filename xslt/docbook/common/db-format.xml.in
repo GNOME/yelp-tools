@@ -193,6 +193,49 @@
 </xsl:template>
 
 
+<!-- == format.appendix.label ============================================== -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>format.appendix.label</name>
+  <purpose>
+    Format the label for a <xmltag>appendix</xmltag> element
+  </purpose>
+  <parameter>
+    <name>node</name>
+    <purpose>
+      The <xmltag>appendix</xmltag> element to format
+    </purpose>
+  </parameter>
+  <parameter>
+    <name>role</name>
+    <purpose>
+      The role of the label
+    </purpose>
+  </parameter>
+</template>
+
+<xsl:template name="format.appendix.label">
+  <xsl:param name="node" select="."/>
+  <xsl:param name="role"/>
+  <msg:msg id="format.appendix.label">
+    <!-- Appendix %t{number} -->
+    <_msg:msgstr>format.appendix.label</_msg:msgstr>
+    <msg:msgstr xml:lang="C">
+      <msg:msgstr role="header">%t{number}</msg:msgstr>
+      <msg:msgstr>Appendix %t{number}</msg:msgstr>
+    </msg:msgstr>
+  </msg:msg>
+  <msg:arg name="number">
+    <xsl:call-template name="db.label.number">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:call-template>
+  </msg:arg>
+  <msg:arg name="title">
+    <xsl:apply-templates select="$node/title/node()"/>
+  </msg:arg>
+</xsl:template>
+
+
 <!-- == format.chapter.label =============================================== -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
@@ -212,31 +255,22 @@
       The role of the label
     </purpose>
   </parameter>
-  <parameter>
-    <name>depth_in_chunk</name>
-    <purpose>
-      The depth of the element in the containing chunk
-    </purpose>
-  </parameter>
 </template>
 
 <xsl:template name="format.chapter.label">
   <xsl:param name="node" select="."/>
   <xsl:param name="role"/>
-  <xsl:param name="depth_in_chunk">
-    <xsl:call-template name="db.chunk.depth-in-chunk">
-      <xsl:with-param name="node" select="$node"/>
-    </xsl:call-template>
-  </xsl:param>
   <msg:msg id="format.chapter.label">
     <!-- Chapter %t{number} -->
     <_msg:msgstr>format.chapter.label</_msg:msgstr>
-    <msg:msgstr xml:lang="C">Chapter %t{number}</msg:msgstr>
+    <msg:msgstr xml:lang="C">
+      <msg:msgstr role="header">%t{number}</msg:msgstr>
+      <msg:msgstr>Chapter %t{number}</msg:msgstr>
+    </msg:msgstr>
   </msg:msg>
   <msg:arg name="number">
     <xsl:call-template name="db.label.number">
       <xsl:with-param name="node" select="$node"/>
-      <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
     </xsl:call-template>
   </msg:arg>
   <msg:arg name="title">
@@ -264,22 +298,11 @@
       The role of the label
     </purpose>
   </parameter>
-  <parameter>
-    <name>depth_in_chunk</name>
-    <purpose>
-      The depth of the element in the containing chunk
-    </purpose>
-  </parameter>
 </template>
 
 <xsl:template name="format.example.label">
   <xsl:param name="node" select="."/>
   <xsl:param name="role"/>
-  <xsl:param name="depth_in_chunk">
-    <xsl:call-template name="db.chunk.depth-in-chunk">
-      <xsl:with-param name="node" select="$node"/>
-    </xsl:call-template>
-  </xsl:param>
   <msg:msg id="format.example.label">
     <!-- Figure %t{example} -->
     <_msg:msgstr>format.example.label</_msg:msgstr>
@@ -288,7 +311,6 @@
   <msg:arg name="number">
     <xsl:call-template name="db.label.number">
       <xsl:with-param name="node" select="$node"/>
-      <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
     </xsl:call-template>
   </msg:arg>
   <msg:arg name="title">
@@ -316,22 +338,11 @@
       The role of the label
     </purpose>
   </parameter>
-  <parameter>
-    <name>depth_in_chunk</name>
-    <purpose>
-      The depth of the element in the containing chunk
-    </purpose>
-  </parameter>
 </template>
 
 <xsl:template name="format.figure.label">
   <xsl:param name="node" select="."/>
   <xsl:param name="role"/>
-  <xsl:param name="depth_in_chunk">
-    <xsl:call-template name="db.chunk.depth-in-chunk">
-      <xsl:with-param name="node" select="$node"/>
-    </xsl:call-template>
-  </xsl:param>
   <msg:msg id="format.figure.label">
     <!-- Figure %t{number} -->
     <_msg:msgstr>format.figure.label</_msg:msgstr>
@@ -340,7 +351,6 @@
   <msg:arg name="number">
     <xsl:call-template name="db.label.number">
       <xsl:with-param name="node" select="$node"/>
-      <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
     </xsl:call-template>
   </msg:arg>
   <msg:arg name="title">
@@ -368,31 +378,22 @@
       The role of the label
     </purpose>
   </parameter>
-  <parameter>
-    <name>depth_in_chunk</name>
-    <purpose>
-      The depth of the element in the containing chunk
-    </purpose>
-  </parameter>
 </template>
 
 <xsl:template name="format.section.label">
   <xsl:param name="node" select="."/>
   <xsl:param name="role"/>
-  <xsl:param name="depth_in_chunk">
-    <xsl:call-template name="db.chunk.depth-in-chunk">
-      <xsl:with-param name="node" select="$node"/>
-    </xsl:call-template>
-  </xsl:param>
   <msg:msg id="format.section.label">
     <!-- Section %t{number} -->
     <_msg:msgstr>format.section.label</_msg:msgstr>
-    <msg:msgstr xml:lang="C">Section %t{number}</msg:msgstr>
+    <msg:msgstr xml:lang="C">
+      <msg:msgstr role="header">%t{number}</msg:msgstr>
+      <msg:msgstr>Section %t{number}</msg:msgstr>
+    </msg:msgstr>
   </msg:msg>
   <msg:arg name="number">
     <xsl:call-template name="db.label.number">
       <xsl:with-param name="node" select="$node"/>
-      <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
     </xsl:call-template>
   </msg:arg>
   <msg:arg name="title">
@@ -420,22 +421,11 @@
       The role of the label
     </purpose>
   </parameter>
-  <parameter>
-    <name>depth_in_chunk</name>
-    <purpose>
-      The depth of the element in the containing chunk
-    </purpose>
-  </parameter>
 </template>
 
 <xsl:template name="format.table.label">
   <xsl:param name="node" select="."/>
   <xsl:param name="role"/>
-  <xsl:param name="depth_in_chunk">
-    <xsl:call-template name="db.chunk.depth-in-chunk">
-      <xsl:with-param name="node" select="$node"/>
-    </xsl:call-template>
-  </xsl:param>
   <msg:msg id="format.table.label">
     <!-- Table %t{number} -->
     <_msg:msgstr>format.table.label</_msg:msgstr>
@@ -444,7 +434,6 @@
   <msg:arg name="number">
     <xsl:call-template name="db.label.number">
       <xsl:with-param name="node" select="$node"/>
-      <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
     </xsl:call-template>
   </msg:arg>
   <msg:arg name="title">

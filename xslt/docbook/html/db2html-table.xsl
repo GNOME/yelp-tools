@@ -40,16 +40,7 @@
 <xsl:template name="db2html.table.css">
   <xsl:text>
     div[class~="table"] { margin-left: 24px; }
-    div[class~="table"] div[class~="title"] span[class~="title"] {
-      padding-top: 2px;
-      padding-left: 0.4em;
-      padding-right: 0.6em;
-      border-left: solid 1px;
-      border-right: solid 1px;
-      border-top: solid 1px;
-      -moz-border-radius-topleft: 8px;
-      -moz-border-radius-topright: 8px;
-    }
+    div[class~="table"] div[class~="title"] { margin-bottom: 0.2em; }
     div[class~="table"] div[class~="title"] span[class~="label"] {
       margin-right: 0.8em;
       font-style: italic;
