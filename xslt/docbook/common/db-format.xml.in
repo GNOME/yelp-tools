@@ -5,6 +5,44 @@
                 xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/xsl-format"
                 xmlns:_msg="http://www.gnome.org/~shaunm/gnome-doc-utils/xsl-format">
 
+<!-- == format.citetitle =================================================== -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>format.citetitle</name>
+  <description>
+    Format a <xmltag>citetitle</xmltag> element
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The <xmltag>citetitle</xmltag> element to format
+    </description>
+  </parameter>
+  <parameter>
+    <name>role</name>
+    <description>
+      The role of the label
+    </description>
+  </parameter>
+</template>
+
+<xsl:template name="format.citetitle">
+  <xsl:param name="node" select="."/>
+  <xsl:param name="role"/>
+  <msg:msg id="format.citetitle">
+    <!-- FIXME -->
+    <_msg:msgstr>format.citetitle</_msg:msgstr>
+    <msg:msgstr xml:lang="C">
+      <msg:msgstr role="article">“%t{node}”</msg:msgstr>
+      <msg:msgstr><i>%t{node}</i></msg:msgstr>
+    </msg:msgstr>
+  </msg:msg>
+  <msg:arg name="node">
+    <xsl:apply-templates select="$node/node()"/>
+  </msg:arg>
+</xsl:template>
+
+
 <!-- == format.quote.outer ================================================= -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
@@ -22,7 +60,7 @@
 
 <xsl:template name="format.quote.outer">
   <xsl:param name="node" select="."/>
-  <msg:msg id="format.quite.outer">
+  <msg:msg id="format.quote.outer">
     <!-- “%t{node}” -->
     <_msg:msgstr>format.quote.outer</_msg:msgstr>
     <msg:msgstr xml:lang="C">“%t{node}”</msg:msgstr>
@@ -50,7 +88,7 @@
 
 <xsl:template name="format.quote.inner">
   <xsl:param name="node" select="."/>
-  <msg:msg id="format.quite.inner">
+  <msg:msg id="format.quote.inner">
     <!-- ‘%t{node}’ -->
     <_msg:msgstr>format.quote.outer</_msg:msgstr>
     <msg:msgstr xml:lang="C">‘%t{node}’</msg:msgstr>
@@ -63,8 +101,33 @@
 
 <!-- == format.chapter.label =============================================== -->
 
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>format.chapter.label</name>
+  <description>
+    Format the label for a <xmltag>chapter</xmltag> element
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The <xmltag>chapter</xmltag> element to format
+    </description>
+  </parameter>
+  <parameter>
+    <name>role</name>
+    <description>
+      The role of the label
+    </description>
+  </parameter>
+  <parameter>
+    <name>depth_in_chunk</name>
+    <description>
+      The depth of the element in the containing chunk
+    </description>
+  </parameter>
+</template>
+
 <xsl:template name="format.chapter.label">
-  <xsl:param name="node"/>
+  <xsl:param name="node" select="."/>
   <xsl:param name="role"/>
   <xsl:param name="depth_in_chunk">
     <xsl:call-template name="db.chunk.depth-in-chunk">
@@ -82,13 +145,41 @@
       <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
     </xsl:call-template>
   </msg:arg>
+  <msg:arg name="title">
+    <xsl:apply-templates select="$node/title/node()"/>
+  </msg:arg>
 </xsl:template>
 
 
 <!-- == format.figure.label ================================================ -->
 
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>format.figure.label</name>
+  <description>
+    Format the label for a <xmltag>figure</xmltag> element
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The <xmltag>figure</xmltag> element to format
+    </description>
+  </parameter>
+  <parameter>
+    <name>role</name>
+    <description>
+      The role of the label
+    </description>
+  </parameter>
+  <parameter>
+    <name>depth_in_chunk</name>
+    <description>
+      The depth of the element in the containing chunk
+    </description>
+  </parameter>
+</template>
+
 <xsl:template name="format.figure.label">
-  <xsl:param name="node"/>
+  <xsl:param name="node" select="."/>
   <xsl:param name="role"/>
   <xsl:param name="depth_in_chunk">
     <xsl:call-template name="db.chunk.depth-in-chunk">
@@ -106,13 +197,41 @@
       <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
     </xsl:call-template>
   </msg:arg>
+  <msg:arg name="title">
+    <xsl:apply-templates select="$node/title/node()"/>
+  </msg:arg>
 </xsl:template>
 
 
 <!-- == format.section.label =============================================== -->
 
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>format.section.label</name>
+  <description>
+    Format the label for a <xmltag>section</xmltag> element
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The <xmltag>section</xmltag> element to format
+    </description>
+  </parameter>
+  <parameter>
+    <name>role</name>
+    <description>
+      The role of the label
+    </description>
+  </parameter>
+  <parameter>
+    <name>depth_in_chunk</name>
+    <description>
+      The depth of the element in the containing chunk
+    </description>
+  </parameter>
+</template>
+
 <xsl:template name="format.section.label">
-  <xsl:param name="node"/>
+  <xsl:param name="node" select="."/>
   <xsl:param name="role"/>
   <xsl:param name="depth_in_chunk">
     <xsl:call-template name="db.chunk.depth-in-chunk">
@@ -130,13 +249,41 @@
       <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
     </xsl:call-template>
   </msg:arg>
+  <msg:arg name="title">
+    <xsl:apply-templates select="$node/title/node()"/>
+  </msg:arg>
 </xsl:template>
 
 
 <!-- == format.table.label ================================================= -->
 
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>format.table.label</name>
+  <description>
+    Format the label for a <xmltag>table</xmltag> element
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The <xmltag>table</xmltag> element to format
+    </description>
+  </parameter>
+  <parameter>
+    <name>role</name>
+    <description>
+      The role of the label
+    </description>
+  </parameter>
+  <parameter>
+    <name>depth_in_chunk</name>
+    <description>
+      The depth of the element in the containing chunk
+    </description>
+  </parameter>
+</template>
+
 <xsl:template name="format.table.label">
-  <xsl:param name="node"/>
+  <xsl:param name="node" select="."/>
   <xsl:param name="role"/>
   <xsl:param name="depth_in_chunk">
     <xsl:call-template name="db.chunk.depth-in-chunk">
@@ -153,6 +300,198 @@
       <xsl:with-param name="node" select="$node"/>
       <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
     </xsl:call-template>
+  </msg:arg>
+  <msg:arg name="title">
+    <xsl:apply-templates select="$node/title/node()"/>
+  </msg:arg>
+</xsl:template>
+
+
+<!-- == format.example.number ============================================== -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>format.example.number</name>
+  <description>
+    Format the number for a <xmltag>example</xmltag> element
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The element for which to generate a number
+    </description>
+  </parameter>
+</template>
+
+<xsl:template name="format.example.number">
+  <xsl:param name="node" select="."/>
+  <msg:msg id="format.example.number">
+    <!-- %t{parent}-%1{number} -->
+    <_msg:msgstr>format.example.number</_msg:msgstr>
+    <msg:msgstr xml:lang="C">%t{parent}-%1{number}</msg:msgstr>
+  </msg:msg>
+  <msg:arg name="parent">
+    <xsl:call-template name="db.label.number">
+      <xsl:with-param name="node" select="
+                      $node/ancestor::appendix |
+                      $node/ancestor::chapter  "/>
+    </xsl:call-template>
+  </msg:arg>
+  <msg:arg name="number">
+    <xsl:number level="any" count="example" from="chapter | appendix"/>
+  </msg:arg>
+</xsl:template>
+
+
+<!-- == format.example.number.flat ========================================= -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>format.example.number.flat</name>
+  <description>
+    Format the number for a <xmltag>example</xmltag> element in a flat document
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The element for which to generate a number
+    </description>
+  </parameter>
+</template>
+
+<xsl:template name="format.example.number.flat">
+  <xsl:param name="node" select="."/>
+  <msg:msg id="format.example.number.flat">
+    <!-- %1{number} -->
+    <_msg:msgstr>format.example.number.flat</_msg:msgstr>
+    <msg:msgstr xml:lang="C">%1{number}</msg:msgstr>
+  </msg:msg>
+  <msg:arg name="number">
+    <xsl:number level="any" count="example" from="chapter | appendix"/>
+  </msg:arg>
+</xsl:template>
+
+
+<!-- == format.figure.number =============================================== -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>format.figure.number</name>
+  <description>
+    Format the number for a <xmltag>figure</xmltag> element
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The element for which to generate a number
+    </description>
+  </parameter>
+</template>
+
+<xsl:template name="format.figure.number">
+  <xsl:param name="node" select="."/>
+  <msg:msg id="format.figure.number">
+    <!-- %t{parent}-%1{number} -->
+    <_msg:msgstr>format.figure.number</_msg:msgstr>
+    <msg:msgstr xml:lang="C">%t{parent}-%1{number}</msg:msgstr>
+  </msg:msg>
+  <msg:arg name="parent">
+    <xsl:call-template name="db.label.number">
+      <xsl:with-param name="node" select="
+                      $node/ancestor::appendix |
+                      $node/ancestor::chapter  "/>
+    </xsl:call-template>
+  </msg:arg>
+  <msg:arg name="number">
+    <xsl:number level="any" count="figure" from="chapter | appendix"/>
+  </msg:arg>
+</xsl:template>
+
+
+<!-- == format.figure.number.flat ========================================== -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>format.figure.number.flat</name>
+  <description>
+    Format the number for a <xmltag>figure</xmltag> element in a flat document
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The element for which to generate a number
+    </description>
+  </parameter>
+</template>
+
+<xsl:template name="format.figure.number.flat">
+  <xsl:param name="node" select="."/>
+  <msg:msg id="format.figure.number.flat">
+    <!-- %1{number} -->
+    <_msg:msgstr>format.figure.number.flat</_msg:msgstr>
+    <msg:msgstr xml:lang="C">%1{number}</msg:msgstr>
+  </msg:msg>
+  <msg:arg name="number">
+    <xsl:number level="any" count="figure" from="chapter | appendix"/>
+  </msg:arg>
+</xsl:template>
+
+
+<!-- == format.table.number ================================================ -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>format.table.number</name>
+  <description>
+    Format the number for a <xmltag>table</xmltag> element
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The element for which to generate a number
+    </description>
+  </parameter>
+</template>
+
+<xsl:template name="format.table.number">
+  <xsl:param name="node" select="."/>
+  <msg:msg id="format.table.number">
+    <!-- %t{parent}-%1{number} -->
+    <_msg:msgstr>format.table.number</_msg:msgstr>
+    <msg:msgstr xml:lang="C">%t{parent}-%1{number}</msg:msgstr>
+  </msg:msg>
+  <msg:arg name="parent">
+    <xsl:call-template name="db.label.number">
+      <xsl:with-param name="node" select="
+                      $node/ancestor::appendix |
+                      $node/ancestor::chapter  "/>
+    </xsl:call-template>
+  </msg:arg>
+  <msg:arg name="number">
+    <xsl:number level="any" count="table" from="chapter | appendix"/>
+  </msg:arg>
+</xsl:template>
+
+
+<!-- == format.table.number.flat =========================================== -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>format.table.number.flat</name>
+  <description>
+    Format the number for a <xmltag>table</xmltag> element in a flat document
+  </description>
+  <parameter>
+    <name>node</name>
+    <description>
+      The element for which to generate a number
+    </description>
+  </parameter>
+</template>
+
+<xsl:template name="format.table.number.flat">
+  <xsl:param name="node" select="."/>
+  <msg:msg id="format.table.number.flat">
+    <!-- %1{number} -->
+    <_msg:msgstr>format.table.number.flat</_msg:msgstr>
+    <msg:msgstr xml:lang="C">%1{number}</msg:msgstr>
+  </msg:msg>
+  <msg:arg name="number">
+    <xsl:number level="any" count="table" from="chapter | appendix"/>
   </msg:arg>
 </xsl:template>
 

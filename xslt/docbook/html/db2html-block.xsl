@@ -223,6 +223,13 @@
   <xsl:call-template name="db2html.block"/>
 </xsl:template>
 
+<!-- = literallayout = -->
+<xsl:template match="literallayout">
+  <xsl:call-template name="db2html.block">
+    <xsl:with-param name="verbatim" select="true()"/>
+  </xsl:call-template>
+</xsl:template>
+
 <!-- = para = -->
 <xsl:template match="para">
   <xsl:call-template name="db2html.para"/>

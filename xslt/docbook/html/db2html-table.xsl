@@ -738,6 +738,9 @@
       <xsl:value-of select="../../@valign"/>
       <xsl:text>; </xsl:text>
     </xsl:when>
+    <xsl:otherwise>
+      <xsl:text>vertical-align: top; </xsl:text>
+    </xsl:otherwise>
   </xsl:choose>
 </xsl:template>
 

@@ -26,57 +26,19 @@
     <xsl:when test="$target/@xreflabel">
       <xsl:value-of select="$target/@xreflabel"/>
     </xsl:when>
-    <xsl:when test="$xrefstyle">
-      <!-- FIXME -->
+    <xsl:when test="$xrefstyle and starts-with($xrefstyle, 'role:')">
+      <xsl:call-template name="db.label">
+        <xsl:with-param name="node" select="$target"/>
+        <xsl:with-param name="role" select="substring-after($xrefstyle, 'role:')"/>
+      </xsl:call-template>
     </xsl:when>
     <xsl:otherwise>
-      <xsl:apply-templates mode="db.xref.content.mode" select="$target"/>
+      <xsl:call-template name="db.label">
+        <xsl:with-param name="node" select="$target"/>
+      </xsl:call-template>
     </xsl:otherwise>
   </xsl:choose>
 </xsl:template>
-
-<!-- FIXME -->
-<xsl:template mode="db.xref.content.mode" match="*">
-  <xsl:call-template name="db.label"/>
-</xsl:template>
-
-<!--
-<xsl:template mode="xref.content.mode" match="article | reference">
-<xsl:choose>
-<xsl:when test="
-(preceding-sibling::*[name(.) = name(current())])							or
-(following-sibling::*[name(.) = name(current())])							or
-(parent::part/preceding-sibling::part/*[name(.) = name(current())])	or
-(parent::part/following-sibling::part/*[name(.) = name(current())])	">
-<xsl:call-template name="header"/>
-</xsl:when>
-<xsl:otherwise>
-<xsl:call-template name="gettext">
-<xsl:with-param name="msgid" select="'Table of Contents'"/>
-</xsl:call-template>
-</xsl:otherwise>
-</xsl:choose>
-</xsl:template>
-
-<xsl:template mode="xref.content.mode" match="book">
-<xsl:call-template name="gettext">
-<xsl:with-param name="msgid" select="'Table of Contents'"/>
-</xsl:call-template>
-</xsl:template>
-
-<xsl:template mode="xref.content.mode" match="glossentry">
-<xsl:apply-templates mode="xref.content.mode" select="glossterm[1]"/>
-</xsl:template>
-
-<xsl:template mode="xref.content.mode" match="glossterm">
-<xsl:apply-templates/>
-</xsl:template>
-
-<xsl:template mode="xref.content.mode" match="*">
-<xsl:call-template name="header"/>
-</xsl:template>
-
--->
 
 
 <!-- == db.xref.target ===================================================== -->

@@ -221,6 +221,7 @@
       <xsl:call-template name="db2html.anchor">
         <xsl:with-param name="node" select="$node"/>
       </xsl:call-template>
+      <!-- FIXME: I don't quite like doing this -->
       <xsl:if test="$depth_in_chunk = 2">
         <xsl:call-template name="db2html.title.label">
           <xsl:with-param name="node" select="$title_for"/>

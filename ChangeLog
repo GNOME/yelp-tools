@@ -1,3 +1,26 @@
+2004-10-18  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/common/db-format.xml.in:
+	* xslt/docbook/common/db-label.xsl:
+	* xslt/docbook/common/db-xref.xsl:
+	* xslt/docbook/html/db2html-inline.xsl:
+	* xslt/docbook/html/db2html-title.xsl:
+	- Implemented some number formatters
+	- Implemented citetitle as a format template
+
+	* xslt/docbook/html/db2html-admon.xsl:
+	* xslt/docbook/html/db2html-css.xsl:
+	- Some CSS stuff
+
+	* xslt/docbook/html/db2html-block.xsl:
+	- Implemented literallayout
+
+	* xslt/docbook/html/db2html-table.xsl:
+	- Default to vertical-align: top
+
+	* xslt/gettext/format2xsl.xsl:
+	- Got the role stuff working right
+
 2004-10-15  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/common/db-format.xml.in:

@@ -29,7 +29,7 @@
   </description>
 </parameter>
 
-<xsl:param name="db2html.admon.graphics_extension" select="'png'"/>
+<xsl:param name="db2html.admon.graphics_extension" select="'.png'"/>
 
 
 <!-- == db2html.admon.text_only ============================================ -->
@@ -164,6 +164,25 @@
       <xsl:value-of select="$db2html.admon.graphics_extension"/>
     </xsl:attribute>
   </img>
+</xsl:template>
+
+
+<!-- == db2html.admon.css ================================================ -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.admon.css</name>
+  <description>
+    Create CSS for the admonition elements
+  </description>
+</template>
+
+<xsl:template name="db2html.admon.css">
+  <xsl:text>
+    div[class="admonition"] {
+      margin-left: 28px;
+      margin-right: 28px;
+    }
+  </xsl:text>
 </xsl:template>
 
 

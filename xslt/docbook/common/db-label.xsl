@@ -590,24 +590,18 @@
               refentry | refsect1   | refsect2 | refsect3 | refsection |
               sect1    | sect2      | sect3    | sect4    | sect5      |
               section  | simplesect ">
-  <xsl:choose>
-    <xsl:when test="
-              local-name(..) = 'article'   or
-              local-name(..) = 'partintro' or
-              local-name(..) = 'preface'   ">
-      <xsl:number value="
-                  count(preceding-sibling::*[name(.) = name(current())]) + 1"/>
-    </xsl:when>
-    <xsl:otherwise>
-      <xsl:call-template name="db.label.number">
-        <xsl:with-param name="node" select=".."/>
-      </xsl:call-template>
-      <xsl:text>.</xsl:text>
-      <xsl:number value="
-                  count(preceding-sibling::*
-                  [local-name(.) = local-name(current())]) + 1"/>
-    </xsl:otherwise>
-  </xsl:choose>
+  <xsl:if test="local-name(..) != 'article'   and
+                local-name(..) != 'partintro' and
+                local-name(..) != 'preface'   ">
+    <xsl:call-template name="db.label.number">
+      <xsl:with-param name="node" select=".."/>
+    </xsl:call-template>
+    <xsl:text>.</xsl:text>
+  </xsl:if>
+  <xsl:number level="single" format="1" count="
+              refentry | refsect1   | refsect2 | refsect3 | refsection |
+              sect1    | sect2      | sect3    | sect4    | sect5      |
+              section  | simplesect "/>
 </xsl:template>
 
 <xsl:template mode="db.label.number.mode" match="
@@ -630,69 +624,44 @@
   </xsl:call-template>
 </xsl:template>
 
-<xsl:template mode="db.label.number.mode" match="example | figure | table">
-  <xsl:variable name="section" select="
-                ancestor::*[parent::article][
-                local-name(.) = 'refentry' or local-name(.) = 'sect1' or
-                local-name(.) = 'section'  or local-name(.) = 'simplesect'
-                ]"/>
-  <xsl:variable name="parent">
-    <xsl:choose>
-      <xsl:when test="$section">
-        <xsl:call-template name="db.label.number">
-          <xsl:with-param name="node" select="$section[last()]"/>
-        </xsl:call-template>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:variable name="chapter" select="
-                      ancestor::*[
-                      local-name(.) = 'appendix' or local-name(.) = 'chapter'
-                      ]"/>
-        <xsl:if test="$chapter">
-          <xsl:call-template name="db.label.number">
-            <xsl:with-param name="node" select="$chapter[1]"/>
-          </xsl:call-template>
-        </xsl:if>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:variable>
-  <xsl:variable name="num">
-    <xsl:choose>
-      <xsl:when test="$section">
-        <xsl:value-of select="count(
-                      ancestor-or-self::*[
-                      ancestor::refentry[parent::article]   |
-                      ancestor::sect1[parent::article]      |
-                      ancestor::section[parent::article]    |
-                      ancestor::simplesect[parent::article]
-                      ]/preceding-sibling::*/descendant-or-self::*[
-                      name(.) = name(current())
-                      ]) + 1"/>
-      </xsl:when>
-      <xsl:when test="
-                ancestor::*[
-                local-name(.) = 'appendix' or local-name(.) = 'chapter'
-                ]">
-        <xsl:value-of select="count(
-                      ancestor-or-self::*[
-                      ancestor::appendix | ancestor::chapter
-                      ]/preceding-sibling::*/descendant-or-self::*[
-                      name(.) = name(current())
-                      ]) + 1"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:value-of select="count(preceding::*[name(.) = name(current())]) + 1"/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:variable>
+<!-- = example = -->
+<xsl:template mode="db.label.number.mode" match="example">
   <xsl:choose>
-    <xsl:when test="not($parent)">
-      <xsl:number value="$num"/>
+    <xsl:when test="ancestor::appendix or ancestor::chapter">
+      <xsl:call-template name="format.example.number">
+        <xsl:with-param name="node" select="."/>
+      </xsl:call-template>
     </xsl:when>
     <xsl:otherwise>
-      <xsl:value-of select="$parent"/>
-      <xsl:text>-</xsl:text>
-      <xsl:number value="$num"/>
+      <xsl:call-template name="format.example.number.flat"/>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+<!-- = figure = -->
+<xsl:template mode="db.label.number.mode" match="figure">
+  <xsl:choose>
+    <xsl:when test="ancestor::appendix or ancestor::chapter">
+      <xsl:call-template name="format.figure.number">
+        <xsl:with-param name="node" select="."/>
+      </xsl:call-template>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:call-template name="format.figure.number.flat"/>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+<!-- = table = -->
+<xsl:template mode="db.label.number.mode" match="table">
+  <xsl:choose>
+    <xsl:when test="ancestor::appendix or ancestor::chapter">
+      <xsl:call-template name="format.table.number">
+        <xsl:with-param name="node" select="."/>
+      </xsl:call-template>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:call-template name="format.table.number.flat"/>
     </xsl:otherwise>
   </xsl:choose>
 </xsl:template>

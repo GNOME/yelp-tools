@@ -128,6 +128,13 @@
   <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
+<!-- = citetitle = -->
+<xsl:template match="citetitle">
+  <xsl:call-template name="format.citetitle">
+    <xsl:with-param name="role" select="@pubwork"/>
+  </xsl:call-template>
+</xsl:template>
+
 <!-- = city = -->
 <xsl:template match="city">
   <xsl:call-template name="db2html.inline"/>

@@ -16,6 +16,7 @@
 
 <xsl:template name="db2html.css">
   <style>
+    <xsl:call-template name="db2html.admon.css"/>
     <xsl:call-template name="db2html.block.css"/>
     <xsl:call-template name="db2html.callout.css"/>
     <xsl:call-template name="db2html.list.css"/>
@@ -25,6 +26,7 @@
       padding-left: 8px;
       padding-right: 12px;
     }
+    div + div { margin-top: 1em; }
     p {
       text-align: justify;
     }

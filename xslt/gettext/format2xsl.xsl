@@ -77,7 +77,23 @@
               </xsl:if>
               <xsl:apply-templates select="$arg/*"/>
             </xsl:when>
-            <!-- FIXME: numbers -->
+            <xsl:when test="$type = 'a' or $type = 'A' or
+                            $type = 'i' or $type = 'I' or
+                            $type = '1' ">
+              <xsl:if test="not($arg/xsl:number)">
+                <xsl:message terminate="yes">
+                  <xsl:value-of select="concat(
+                                'format2xsl: Error in template ', $template/@name,
+                                ', format string for argument ', $name,
+                                ' is type ', $type,
+                                ' but template calls ', local-name($arg/*[1])
+                                )"/>
+                </xsl:message>
+              </xsl:if>
+              <xsl:apply-templates select="$arg/*">
+                <xsl:with-param name="format" select="$type"/>
+              </xsl:apply-templates>
+            </xsl:when>
           </xsl:choose>
           <xsl:call-template name="format2xsl">
             <xsl:with-param name="msgstr" select="$msgstr"/>
@@ -103,10 +119,12 @@
     <xsl:when test="msg:msgstr[@role]">
       <xslt:choose>
         <xsl:for-each select="msg:msgstr[@role]">
-          <xsl:apply-templates mode="format2xsl.mode" select=".">
-            <xsl:with-param name="template" select="$template"/>
-            <xsl:with-param name="lang" select="$lang"/>
-          </xsl:apply-templates>
+          <xslt:when test="$role = '{@role}'">
+            <xsl:apply-templates mode="format2xsl.mode" select=".">
+              <xsl:with-param name="template" select="$template"/>
+              <xsl:with-param name="lang" select="$lang"/>
+            </xsl:apply-templates>
+          </xslt:when>
         </xsl:for-each>
         <xsl:choose>
           <xsl:when test="msg:msgstr[not(@role)]">
@@ -155,13 +173,14 @@
 
 <!-- == msg:msg == -->
 <xsl:template match="msg:msg">
+  <xsl:variable name="msg" select="."/>
   <xsl:choose>
-    <xsl:when test="(count(msg:msgstr[string(.) != current()/@id]) != 1)  and
-                    not(count(msg:msgstr[string(.) != current()/@id]) = 2 and
+    <xsl:when test="(count(msg:msgstr[string(.) != $msg/@id]) != 1)  and
+                    not(count(msg:msgstr[string(.) != $msg/@id]) = 2 and
                         msg:msgstr[not(@xml:lang)]  and
                         msg:msgstr[@xml:lang = 'C'] )">
       <xslt:choose>
-        <xsl:for-each select="msg:msgstr[string(.) != current()/@id]">
+        <xsl:for-each select="msg:msgstr[string(.) != $msg/@id]">
           <xsl:sort select="contains(@xml:lang, '@') and contains(@xml:lang, '.')"
                     order="descending"/>
           <xsl:sort select="contains(@xml:lang, '.')" order="descending"/>
@@ -294,7 +313,7 @@
       <xsl:choose>
         <xsl:when test="msg:msgstr[@xml:lang = 'C']">
           <xsl:for-each select="msg:msgstr[@xml:lang = 'C'][1]">
-            <xsl:apply-templates mode="format2xsl.mode">
+            <xsl:apply-templates mode="format2xsl.mode" select=".">
               <xsl:with-param name="template" select="../.."/>
               <xsl:with-param name="lang" select="'C'"/>
             </xsl:apply-templates>
@@ -302,7 +321,7 @@
         </xsl:when>
         <xsl:otherwise>
           <xsl:for-each select="msg:msgstr[1]">
-            <xsl:apply-templates mode="format2xsl.mode">
+            <xsl:apply-templates mode="format2xsl.mode" select=".">
               <xsl:with-param name="template" select="../.."/>
               <xsl:with-param name="lang" select="'C'"/>
             </xsl:apply-templates>
@@ -344,35 +363,46 @@
 <!-- == xsl:apply-templates == -->
 <xsl:template match="xsl:apply-templates">
   <xslt:apply-templates>
-    <xsl:if test="@select">
-      <xsl:attribute name="select">
-        <xsl:value-of select="@select"/>
-      </xsl:attribute>
-    </xsl:if>
-    <xsl:if test="@mode">
-      <xsl:attribute name="mode">
-        <xsl:value-of select="@mode"/>
-      </xsl:attribute>
-    </xsl:if>
+    <xsl:for-each select="attribute::*">
+      <xsl:copy/>
+    </xsl:for-each>
     <xsl:apply-templates/>
   </xslt:apply-templates>
 </xsl:template>
 
 <!-- == xsl:call-template == -->
 <xsl:template match="xsl:call-template">
-  <xslt:call-template name="{@name}">
+  <xslt:call-template>
+    <xsl:for-each select="attribute::*">
+      <xsl:copy/>
+    </xsl:for-each>
     <xsl:apply-templates/>
   </xslt:call-template>
+</xsl:template>
+
+<!-- == xsl:number == -->
+<xsl:template match="xsl:number">
+  <xsl:param name="format"/>
+  <xslt:number>
+    <xsl:if test="$format">
+      <xsl:attribute name="format">
+        <xsl:value-of select="$format"/>
+      </xsl:attribute>
+    </xsl:if>
+    <xsl:for-each select="attribute::*">
+      <xsl:if test="not(self::format and $format)">
+        <xsl:copy/>
+      </xsl:if>
+    </xsl:for-each>
+  </xslt:number>
 </xsl:template>
 
 <!-- == xsl:param == -->
 <xsl:template match="xsl:param">
   <xslt:param name="{@name}">
-    <xsl:if test="@select">
-      <xsl:attribute name="select">
-        <xsl:value-of select="@select"/>
-      </xsl:attribute>
-    </xsl:if>
+    <xsl:for-each select="attribute::*">
+      <xsl:copy/>
+    </xsl:for-each>
     <xsl:apply-templates/>
   </xslt:param>
 </xsl:template>
@@ -380,8 +410,8 @@
 <!-- == xsl:template == -->
 <xsl:template match="xsl:template">
   <xslt:template name="{@name}">
-    <xslt:param name="lang" select="/*/@lang"/>
     <xsl:apply-templates select="xsl:param"/>
+    <xslt:param name="lang" select="$node/ancestor-or-self::*[@lang][1]/@lang"/>
     <xslt:variable name="lang_lang">
       <xslt:choose>
         <xslt:when test="contains($lang, '_')">
@@ -480,11 +510,9 @@
 <!-- == xsl:with-param == -->
 <xsl:template match="xsl:with-param">
   <xslt:with-param name="{@name}">
-    <xsl:if test="@select">
-      <xsl:attribute name="select">
-        <xsl:value-of select="@select"/>
-      </xsl:attribute>
-    </xsl:if>
+    <xsl:for-each select="attribute::*">
+      <xsl:copy/>
+    </xsl:for-each>
     <xsl:apply-templates/>
   </xslt:with-param>
 </xsl:template>
