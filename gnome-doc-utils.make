@@ -64,6 +64,10 @@ DOC_ENTITIES ?=
 ## Files included with XInclude
 DOC_INCLUDES ?=
 
+## @ DOC_FIGURES
+## Figures and other external data
+DOC_FIGURES ?=
+
 ## @ DOC_FORMATS
 ## The default formats to be built and installed
 DOC_FORMATS ?= docbook
@@ -320,6 +324,12 @@ _DOC_C_DOCS_NOENT =							\
 	$(_DOC_C_MODULE)	$(_DOC_C_INCLUDES)			\
 	$(_RNGDOC_C_DOCS)	$(_XSLDOC_C_DOCS)
 
+## @ _DOC_C_FIGURES
+## All figures and other external data in the C locale
+_DOC_C_FIGURES = $(if $(DOC_FIGURES),					\
+	$(foreach fig,$(DOC_FIGURES),C/$(fig)),				\
+	$(patsubst $(srcdir)/%,%,$(wildcard $(srcdir)/C/figures/*.png)))
+
 ## @ _DOC_C_HTML
 ## All HTML documentation in the C locale
 # FIXME: probably have to shell escape to determine the file names
@@ -373,6 +383,13 @@ _DOC_LC_DOCS =								\
 	$(_DOC_LC_MODULES)	$(_DOC_LC_INCLUDES)			\
 	$(_RNGDOC_LC_DOCS)	$(_XSLDOC_LC_DOCS)			\
 	$(if $(findstring html,$(_DOC_REAL_FORMATS)),$(_DOC_LC_HTML))
+
+## @ _DOC_LC_FIGURES
+## All figures and other external data in all other locales
+_DOC_LC_FIGURES = $(foreach lc,$(DOC_LINGUAS),					\
+	$(if $(DOC_FIGURES),							\
+	$(foreach fig,$(DOC_FIGURES),$(lc)/$(fig)),				\
+	$(patsubst $(srcdir)/%,%,$(wildcard $(srcdir)/$(lc)/figures/*.png)) ))
 
 $(_DOC_POFILES): $(_DOC_C_DOCS)
 	if ! test -d $(dir $@); then mkdir $(dir $@); fi
@@ -442,6 +459,19 @@ dist-docs: $(_DOC_C_DOCS) $(_DOC_LC_DOCS) $(_DOC_POFILES)
 	  echo "$(INSTALL_DATA) $$d$$doc $(distdir)/$$doc"; \
 	  $(INSTALL_DATA) "$$d$$doc" "$(distdir)/$$doc"; \
 	done
+	@if test "x$(DOC_FIGURES)" != "x"; then \
+	  for lc in C $(DOC_LINGUAS); do \
+	    echo " $(mkinstalldirs) $(distdir)/$$lc/figures"; \
+	    $(mkinstalldirs) "$(distdir)/$$lc/figures"; \
+	  done; \
+	  for fig in $(_DOC_C_FIGURES) $(_DOC_LC_FIGURES); do \
+	    if test -f "$$fig"; then d=; else d="$(srcdir)/"; fi; \
+	    if test -f "$$dd$$fig"; then \
+	      echo "$(INSTALL_DATA) $$d$$fig $(distdir)/$$fig"; \
+	      $(INSTALL_DATA) "$$d$$fig" "$(distdir)/$$fig"; \
+	    fi; \
+	  done; \
+	fi
 
 dist-omf:
 	$(INSTALL_DATA) $(srcdir)/$(_DOC_OMF_IN) $(distdir)/$(_DOC_OMF_IN)
