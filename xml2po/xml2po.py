@@ -276,7 +276,14 @@ def replaceNodeContentsWithText(node,text):
     """Replaces all subnodes of a node with contents of text treated as XML."""
     #print >> sys.stderr, text
     if node.children:
-        tmp = '<%s>%s</%s>' % (startTagForNode(node), text, node.name)
+        try:
+            # Lets add document DTD so entities are resolved
+            dtd = node.doc.intSubset()
+            tmp = dtd.serialize()
+        except:
+            tmp = ''
+
+        tmp += '<%s>%s</%s>' % (startTagForNode(node), text, node.name)
         try:
             newnode = libxml2.parseMemory(tmp,len(tmp))
         except:
