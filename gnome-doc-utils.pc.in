@@ -1,0 +1,7 @@
+prefix=@prefix@
+docbook2html=@prefix@/share/sgml/gnome/docbook/html/db2html.xsl
+
+Name: gnome-doc-utils
+Description: GNOME Document Utilities
+Version: @VERSION@
+

@@ -1,0 +1,10 @@
+AC_INIT
+AM_INIT_AUTOMAKE(gnome-doc-utils, 0.1)
+
+AC_PROG_INTLTOOL
+
+ALL_LINGUAS=""
+
+AC_OUTPUT([
+Makefile
+])
