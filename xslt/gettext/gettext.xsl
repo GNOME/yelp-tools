@@ -425,11 +425,31 @@
   </xsl:param>
 
   <xsl:choose>
-    <xsl:when test="$number = 1">
-      <xsl:text>singular</xsl:text>
+    <!-- == cs == -->
+    <xsl:when test="$lang_lang = 'cs'">
+      <xsl:choose>
+        <xsl:when test="($number mod 10 = 1) and ($number mod 100 != 11)">
+          <xsl:text>0</xsl:text>
+        </xsl:when>
+        <xsl:when test="($number mod 10 &gt;= 2) and ($number mod 10 &lt;= 4) and
+                        (($number mod 100 &lt; 10) or ($number mod 100 &gt; 20))">
+          <xsl:text>1</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>2</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
     </xsl:when>
+    <!-- == C == -->
     <xsl:otherwise>
-      <xsl:text>plural</xsl:text>
+      <xsl:choose>
+        <xsl:when test="$number = 1">
+          <xsl:text>0</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>1</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
     </xsl:otherwise>
   </xsl:choose>
 </xsl:template>

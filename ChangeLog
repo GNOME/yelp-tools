@@ -1,5 +1,12 @@
 2004-11-08  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/gettext/gettext.xsl:
+	* xslt/gettext/l10n.xml.in:
+	- Just using numbers for forms
+	- Added plural form for cs
+
+2004-11-08  Shaun McCance  <shaunm@gnome.org>
+
 	* doc/xslt/C/translating.xml:
 	- More translation instructions
 

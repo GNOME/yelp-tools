@@ -81,8 +81,8 @@
   <!-- Used as a header before a list of authors. -->
   <msgid>Author</msgid>
   <_msgstr>
-    <msgstr form="singular">Author</msgstr>
-    <msgstr form="plural">Authors</msgstr>
+    <msgstr form="0">Author</msgstr>
+    <msgstr form="1">Authors</msgstr>
   </_msgstr>
 </msg>
 <msg>
@@ -105,16 +105,16 @@
   <!-- Used as a header before a list of collaborators. -->
   <msgid>Collaborator</msgid>
   <_msgstr>
-    <msgstr form="singular">Collaborator</msgstr>
-    <msgstr form="plural">Collaborators</msgstr>
+    <msgstr form="0">Collaborator</msgstr>
+    <msgstr form="1">Collaborators</msgstr>
   </_msgstr>
 </msg>
 <msg>
   <!-- Used as a header before a list of copyrights. -->
   <msgid>Copyright</msgid>
   <_msgstr>
-    <msgstr form="singular">Copyright</msgstr>
-    <msgstr form="plural">Copyrights</msgstr>
+    <msgstr form="0">Copyright</msgstr>
+    <msgstr form="1">Copyrights</msgstr>
   </_msgstr>
 </msg>
 <msg>
@@ -131,8 +131,8 @@
   <!-- Used as a header before a list of editors. -->
   <msgid>Editor</msgid>
   <_msgstr>
-    <msgstr form="singular">Editor</msgstr>
-    <msgstr form="plural">Editors</msgstr>
+    <msgstr form="0">Editor</msgstr>
+    <msgstr form="1">Editors</msgstr>
   </_msgstr>
 </msg>
 <msg>
@@ -195,8 +195,8 @@
   <!-- Used as a header before a list of contributors. -->
   <msgid>Other Contributor</msgid>
   <_msgstr>
-    <msgstr form="singular">Other Contributor</msgstr>
-    <msgstr form="plural">Other Contributors</msgstr>
+    <msgstr form="0">Other Contributor</msgstr>
+    <msgstr form="1">Other Contributors</msgstr>
   </_msgstr>
 </msg>
 <msg>
@@ -208,8 +208,8 @@
   <!-- Used as a header before a list of publishers. -->
   <msgid>Publisher</msgid>
   <_msgstr>
-    <msgstr form="singular">Publisher</msgstr>
-    <msgstr form="plural">Publisher</msgstr>
+    <msgstr form="0">Publisher</msgstr>
+    <msgstr form="1">Publisher</msgstr>
   </_msgstr>
 </msg>
 <msg>
