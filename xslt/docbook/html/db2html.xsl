@@ -14,6 +14,7 @@
 
 <xsl:include href="../common/db-chunk.xsl"   doc:summary="true"/>
 <xsl:include href="../common/db-common.xsl"  doc:summary="true"/>
+<xsl:include href="../common/db-format.xsl"  doc:summary="true"/>
 <xsl:include href="../common/db-label.xsl"   doc:summary="true"/>
 <xsl:include href="../common/db-xref.xsl"    doc:summary="true"/>
 

@@ -1,5 +1,13 @@
 2004-07-09  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/html/db2html.xsl:
+	- Hooking up db-format.xsl
+
+	* xslt/gettext/format2xsl.xsl:
+	- Small fix for xsl:when and passing @lang through
+
+2004-07-09  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/docbook/common/db-label.xsl:
 	- s/Bigliography/Bibliography/
 

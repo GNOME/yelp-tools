@@ -106,6 +106,7 @@
 <!-- == template == -->
 <xsl:template match="template">
   <xslt:template name="{@name}">
+    <xslt:param name="lang" select="/*/@lang"/>
     <xsl:for-each select="params/param">
       <xslt:param name="{@name}"/>
     </xsl:for-each>
@@ -118,7 +119,7 @@
           en_US@Latn en@Latn en_US en
         -->
         <xslt:when>
-          <xsl:attribute name="when">
+          <xsl:attribute name="test">
             <xsl:text>$lang = '</xsl:text>
             <xsl:value-of select="@xml:lang"/>
             <xsl:text>'</xsl:text>
