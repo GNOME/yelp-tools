@@ -177,6 +177,12 @@
       The depth of <parameter>node</parameter> in the containing chunk
     </purpose>
   </parameter>
+  <parameter>
+    <name>depth_of_chunk</name>
+    <purpose>
+      The depth of the containing chunk in the document
+    </purpose>
+  </parameter>
 </template>
 
 <xsl:template name="db2html.title.header">
@@ -184,6 +190,11 @@
   <xsl:param name="title_for" select="$node/.."/>
   <xsl:param name="depth_in_chunk">
     <xsl:call-template name="db.chunk.depth-in-chunk">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:call-template>
+  </xsl:param>
+  <xsl:param name="depth_of_chunk">
+    <xsl:call-template name="db.chunk.depth-of-chunk">
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
   </xsl:param>
@@ -213,10 +224,12 @@
       <xsl:call-template name="db2html.anchor">
         <xsl:with-param name="node" select="$node"/>
       </xsl:call-template>
-      <xsl:call-template name="db2html.title.label">
-        <xsl:with-param name="node" select="$title_for"/>
-        <xsl:with-param name="depth_in_chunk" select="$title_for_depth"/>
-      </xsl:call-template>
+      <xsl:if test="$depth_of_chunk != 0">
+        <xsl:call-template name="db2html.title.label">
+          <xsl:with-param name="node" select="$title_for"/>
+          <xsl:with-param name="depth_in_chunk" select="$title_for_depth"/>
+        </xsl:call-template>
+      </xsl:if>
       <xsl:apply-templates select="$node/node()"/>
     </span>
   </xsl:element>
@@ -298,9 +311,13 @@
   <xsl:param name="depth_in_chunk">
     <xsl:call-template name="db.chunk.depth-in-chunk"/>
   </xsl:param>
+  <xsl:param name="depth_of_chunk">
+    <xsl:call-template name="db.chunk.depth-of-chunk"/>
+  </xsl:param>
   <xsl:call-template name="db2html.title.header">
     <xsl:with-param name="title_for" select="$title_for"/>
     <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
+    <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
   </xsl:call-template>
 </xsl:template>
 

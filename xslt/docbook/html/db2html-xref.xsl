@@ -34,13 +34,20 @@
 </xsl:template>
 
 <!-- = link = -->
-<xsl:template match="link">
+<xsl:template name="db2html.link" match="link">
+  <xsl:param name="linkend" select="@linkend"/>
+  <xsl:param name="target" select="key('idkey', $linkend)"/>
   <a class="link">
     <xsl:attribute name="href">
       <xsl:call-template name="db.xref.target">
-        <xsl:with-param name="linkend" select="@linkend"/>
+        <xsl:with-param name="linkend" select="$linkend"/>
       </xsl:call-template>
     </xsl:attribute>
+    <xsl:if test="$target/title">
+      <xsl:attribute name="title">
+        <xsl:value-of select="$target/title"/>
+      </xsl:attribute>
+    </xsl:if>
     <xsl:choose>
       <xsl:when test="normalize-space(.) != ''">
         <xsl:apply-templates/>
@@ -59,9 +66,10 @@
 -->
 
 <!-- = ulink = -->
-<xsl:template name="ulink" match="ulink">
+<xsl:template name="db2html.ulink" match="ulink">
   <xsl:param name="url" select="@url"/>
   <xsl:param name="content" select="false()"/>
+  <!-- FIXME: add @title -->
   <a class="ulink" href="{$url}">
     <xsl:choose>
       <xsl:when test="$content">
@@ -78,7 +86,7 @@
 </xsl:template>
 
 <!-- = xref = -->
-<xsl:template name="xref" match="xref">
+<xsl:template name="db2html.xref" match="xref">
   <xsl:param name="linkend"   select="@linkend"/>
   <xsl:param name="target"    select="key('idkey', $linkend)"/>
   <xsl:param name="endterm"   select="@endterm"/>
@@ -91,6 +99,11 @@
         <xsl:with-param name="target" select="$target"/>
       </xsl:call-template>
     </xsl:attribute>
+    <xsl:if test="$target/title">
+      <xsl:attribute name="title">
+        <xsl:value-of select="$target/title"/>
+      </xsl:attribute>
+    </xsl:if>
     <xsl:choose>
       <xsl:when test="$content">
         <xsl:copy-of select="$content"/>

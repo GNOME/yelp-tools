@@ -346,11 +346,11 @@
       $node/ancestor-or-self::set          | $node/ancestor-or-self::setindex     |
       $node/ancestor-or-self::simplesect   )"/>
   <xsl:choose>
-    <xsl:when test="$divs &lt; $db.chunk.max_depth">
+    <xsl:when test="$divs &lt; ($db.chunk.max_depth + 1)">
       <xsl:value-of select="count($node/ancestor-or-self::*) - $divs"/>
     </xsl:when>
     <xsl:otherwise>
-      <xsl:value-of select="count($node/ancestor-or-self::*) - $db.chunk.max_depth"/>
+      <xsl:value-of select="count($node/ancestor::*) - $db.chunk.max_depth"/>
     </xsl:otherwise>
   </xsl:choose>
 </xsl:template>
@@ -426,7 +426,7 @@
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
   </xsl:param>
-  <xsl:value-of select="ancestor-or-self::*[$depth_in_chunk + 1]/@id"/>
+  <xsl:value-of select="$node/ancestor-or-self::*[$depth_in_chunk + 1]/@id"/>
 </xsl:template>
 
 

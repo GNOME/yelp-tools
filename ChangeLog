@@ -1,3 +1,27 @@
+2004-11-15  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/common/db-chunk.xsl:
+	- Fixed wrong chunk depth code
+
+	* xslt/docbook/common/db-xref.xsl:
+	- Removed spurious # links to tops of pages
+
+	* xslt/docbook/html/db2html-autotoc.xsl:
+	* xslt/docbook/html/db2html-css.xsl:
+	- Some CSS and label work
+
+	* xslt/docbook/html/db2html-division.xsl:
+	- Allow $autotoc_depth to be specified
+
+	* xslt/docbook/html/db2html-list.xsl:
+	- Some CSS work
+
+	* xslt/docbook/html/db2html-title.xsl:
+	- Removed label span on top page
+
+	* xslt/docbook/html/db2html-xref.xsl:
+	- Added title attribute to a tags, for tooltips
+
 2004-11-12  Shaun McCance  <shaunm@gnome.org>
 
 	* docbook/common/db-format.xml.in:

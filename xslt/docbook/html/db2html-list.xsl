@@ -31,29 +31,17 @@
 
 <xsl:template name="db2html.list.css">
   <xsl:text>
-    div[class~="list"] {
-      margin-left: 16px;
-    }
-    table div[class~="list"] {
-      border: none;
-      padding: 0px;
-    }
-    div[class~="list"] dl dt { margin-left: 8px; }
+    div[class~="list"] { margin-left: 24px; padding: 0px; }
+    div[class~="list"] dl dt { margin-left: 0px; }
     div[class~="list"] dl dt + dd { margin-top: -8px; }
     div[class~="list"] dl dd {
-      margin-left: 24px; 
+      margin-left: 24px;
       margin-right: 12px;
     }
-    div[class~="list"] ul li {
-      padding: 0px;
-      margin-left: -12px;
-      margin-right: 12px;
-    }
-    div[class~="list"] ol li {
-      padding: 0px;
-      margin-left: -12px;
-      margin-right: 12px;
-    }
+    div[class~="list"] ul { margin-left: 0px; padding-left: 0px; }
+    div[class~="list"] ol { margin-left: 0px; padding-left: 0px; }
+    div[class~="list"] ul li { margin-right: 12px; padding: 0px; }
+    div[class~="list"] ol li { margin-right: 12px; padding: 0px; }
   </xsl:text>
 </xsl:template>
 

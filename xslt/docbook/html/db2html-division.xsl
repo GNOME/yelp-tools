@@ -92,9 +92,9 @@
     </purpose>
   </parameter>
   <parameter>
-    <name>autotoc_divisions</name>
+    <name>autotoc_depth</name>
     <purpose>
-      Whether to create a contents listing of <parameter>divisions</parameter>
+      How deep to create a contents listing of <parameter>divisions</parameter>
     </purpose>
   </parameter>
 </template>
@@ -115,7 +115,7 @@
   <xsl:param name="chunk_info"
              select="($depth_of_chunk = 0) and
                      ($depth_in_chunk = 0 and $info)"/>
-  <xsl:param name="autotoc_divisions" select="$chunk_divisions"/>
+  <xsl:param name="autotoc_depth" select="number(boolean($chunk_divisions))"/>
 
   <xsl:if test="chunk_info">
     <xsl:call-template name="db.chunk">
@@ -140,12 +140,12 @@
       <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
       <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
     </xsl:apply-templates>
-    <xsl:if test="$autotoc_divisions">
+    <xsl:if test="$autotoc_depth != 0">
       <xsl:call-template name="db2html.autotoc">
         <xsl:with-param name="node" select="."/>
         <xsl:with-param name="info" select="$info"/>
         <xsl:with-param name="divisions" select="$divisions"/>
-        <xsl:with-param name="toc_depth" select="1"/>
+        <xsl:with-param name="toc_depth" select="number($autotoc_depth)"/>
         <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
       </xsl:call-template>
     </xsl:if>
@@ -253,6 +253,7 @@
     <xsl:with-param name="info" select="bookinfo"/>
     <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
     <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+    <xsl:with-param name="autotoc_depth" select="boolean(part) + 1"/>
   </xsl:call-template>
 </xsl:template>
 

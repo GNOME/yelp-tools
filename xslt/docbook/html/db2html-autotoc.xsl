@@ -8,6 +8,31 @@
 <doc:title>Automatic Tables of Contents</doc:title>
 
 
+<!-- == db2html.autotoc.css ================================================ -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.autotoc.css</name>
+  <purpose>
+    Create CSS for tables of contents
+  </purpose>
+</template>
+
+<xsl:template name="db2html.autotoc.css">
+  <xsl:text>
+    div[class~="autotoc"] { margin-left: 24px; padding: 0px; }
+    div[class~="autotoc"] ul { margin-left: 0px; padding-left: 0px; }
+    div[class~="autotoc"] ul li {
+      margin-right: 0px;
+      padding: 0px;
+      list-style-type: none;
+    }
+    div[class~="autotoc"] ul li span[class~="label"] {
+      margin-right: 0.8em;
+    }
+  </xsl:text>
+</xsl:template>
+
+
 <!-- == db2html.autotoc.label ============================================== -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
@@ -32,10 +57,10 @@
 <!-- == db2html.autotoc.label.mode ========================================= -->
 
 <xsl:template mode="db2html.autotoc.label.mode" match="*">
-  <!-- FIXME -->
   <span class="label">
-    <xsl:call-template name="db.label"/>
-    <xsl:text> </xsl:text>
+    <xsl:call-template name="db.label">
+      <xsl:with-param name="role" select="'li'"/>
+    </xsl:call-template>
   </span>
 </xsl:template>
 
@@ -104,8 +129,8 @@
 
 <xsl:template mode="db2html.autotoc.mode" match="*">
   <xsl:param name="toc_depth" select="0"/>
-  <!-- FIXME -->
   <li>
+    <xsl:call-template name="db2html.autotoc.label"/>
     <a>
       <xsl:attribute name="href">
         <xsl:call-template name="db.xref.target">
@@ -113,9 +138,12 @@
           <xsl:with-param name="target" select="."/>
         </xsl:call-template>
       </xsl:attribute>
-      <xsl:call-template name="db2html.autotoc.label"/>
+      <xsl:attribute name="title">
+        <xsl:value-of select="title"/>
+      </xsl:attribute>
       <xsl:apply-templates select="title/node()"/>
     </a>
+    <!-- FIXME: How are we to pass $divisions through? -->
     <xsl:if test="$toc_depth &gt; 0">
       <xsl:call-template name="db2html.autotoc">
         <xsl:with-param name="toc_depth" select="$toc_depth"/>
