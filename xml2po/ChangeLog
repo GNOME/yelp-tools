@@ -1,5 +1,9 @@
 2005-03-27  Danilo Šegan  <dsegan@gmx.net>
 
+	* TODO (BUGS): Updated.
+
+2005-03-27  Danilo Šegan  <dsegan@gmx.net>
+
 	* xml2po.py (normalizeNode): Fix crash with "-k".
 	(normalizeString): Add DTD always.
 

@@ -38,7 +38,8 @@ TODO:
 
 BUGS:
 
- No (undocumented :) bugs known.
+ o Merging with "-k" (keep-entities) option doesn't work correctly
+
 
 DONE:
 
