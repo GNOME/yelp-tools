@@ -309,8 +309,8 @@ def getCommentForNode(node):
 def replaceNodeContentsWithText(node,text):
     """Replaces all subnodes of a node with contents of text treated as XML."""
     if node.children:
-        starttag = startTagForNode(node)
-        endtag = node.name
+        starttag = node.name #startTagForNode(node)
+        endtag = endTagForNode(node)
         try:
             # Lets add document DTD so entities are resolved
             dtd = doc.intSubset()

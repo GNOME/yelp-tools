@@ -1,7 +1,16 @@
 2005-03-27  Danilo Šegan  <dsegan@gmx.net>
 
+	Fix #162089.
+	
+	* xml2po.py (replaceNodeContentsWithText): Don't use
+	startTagForNode, use endTagForNode.
+
+2005-03-27  Danilo Šegan  <dsegan@gmx.net>
+
 	* modes/docbook.py (docbookXmlMode.getFinalTags): Add 'title' back
 	to final tags.
+	(docbookXmlMode.getFinalTags): Add 'figure', 'textobject',
+	'imageobject', 'mediaobject', 'screenshot'.
 
 	* examples/two.po: Update.
 
