@@ -355,10 +355,10 @@
 </xsl:template>
 
 
-<!-- == db.chunk.chunk_id ================================================== -->
+<!-- == db.chunk.chunk-id ================================================== -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db.chunk.chunk_id</name>
+  <name>db.chunk.chunk-id</name>
   <description>
     Determine the id of the containing chunk of an element
   </description>

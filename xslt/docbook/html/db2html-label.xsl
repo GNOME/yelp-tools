@@ -64,12 +64,12 @@
 </mode>
 
 <xsl:template mode="db2html.label.mode" match="
-              appendix  | article    | book      | bibliography | chapter    |
-              colophon  | example    | figure    | glossary     | index      |
-              part      | preface    | reference | refsect1     | refsect2   |
-              refsect3  | refsection | refentry  | sect1        | sect2      |
-              sect3     | sect4      | sect5     | section      | set        |
-              setindex  | simplesect | table     ">
+              appendix | article  | book     | bibliography | chapter   |
+              colophon | example  | figure   | glossary     | index     |
+              part     | qandadiv | qandaset | preface      | reference |
+              refsect1 | refsect2 | refsect3 | refsection   | refentry  |
+              sect1    | sect2    | sect3    | sect4        | sect5     |
+              section  | set      | setindex | simplesect   | table     ">
   <xsl:call-template name="db2html.label.name"/>
   <xsl:text> </xsl:text>
   <xsl:call-template name="db2html.label.number"/>
@@ -421,9 +421,12 @@
 </xsl:template>
 
 <xsl:template mode="db2html.label.name.mode" match="*">
+  <xsl:value-of select="local-name(.)"/>
+  <!--
   <xsl:call-template name="gettext">
     <xsl:with-param name="msgid" select="'Unknown'"/>
   </xsl:call-template>
+  -->
 </xsl:template>
 
 

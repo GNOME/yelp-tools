@@ -63,6 +63,8 @@
 </doc:template>
 
 <xsl:template name="xsldoc.checks">
+  <xsl:variable name="stylesheet" select="."/>
+
   <!-- Check for orphaned doc:parameter -->
   <xsl:for-each select="doc:parameter">
     <xsl:if test="not(following-sibling::*[1]/
@@ -111,6 +113,20 @@
     </xsl:if>
   </xsl:for-each>
 
+  <!-- Check for orphaned doc:mode -->
+  <xsl:for-each select="doc:mode">
+    <xsl:if test="not($stylesheet/xsl:template[@mode = current()/doc:name])">
+      <xsl:if test="not($stylesheet/xsl:template//
+                          xsl:call-template[@mode = current()/doc:name])">
+        <xsl:message>
+          <xsl:value-of select="$xsldoc.id"/>
+          <xsl:text>: Orphaned doc:mode </xsl:text>
+          <xsl:value-of select="doc:name"/>
+        </xsl:message>
+      </xsl:if>
+    </xsl:if>
+  </xsl:for-each>
+
   <!-- Check for undocumented xsl:template/@mode -->
   <xsl:for-each select="xsl:template[@mode]">
     <xsl:if test="not(preceding-sibling::xsl:template[@mode = current()/@mode])">
@@ -121,6 +137,17 @@
           <xsl:value-of select="@mode"/>
         </xsl:message>
       </xsl:if>
+    </xsl:if>
+  </xsl:for-each>
+
+  <!-- Check for undocumented xsl:call-template/@mode -->
+  <xsl:for-each select="xsl:template//xsl:call-template[@mode]">
+    <xsl:if test="not($stylesheet/doc:mode[doc:name = current()/@mode])">
+      <xsl:message>
+        <xsl:value-of select="$xsldoc.id"/>
+        <xsl:text>: Undocumented xsl:call-template/@mode </xsl:text>
+        <xsl:value-of select="@mode"/>
+      </xsl:message>
     </xsl:if>
   </xsl:for-each>
 </xsl:template>

@@ -110,11 +110,6 @@
   <xsl:call-template name="db2html.block"/>
 </xsl:template>
 
-<!-- = abstract/title = -->
-<xsl:template match="abstract/title">
-  <xsl:call-template name="db2html.title.simple"/>
-</xsl:template>
-
 <!-- = ackno = -->
 <xsl:template match="ackno">
   <xsl:call-template name="db2html.para"/>
@@ -125,6 +120,11 @@
   <xsl:call-template name="db2html.block">
     <xsl:with-param name="verbatim" select="true()"/>
   </xsl:call-template>
+</xsl:template>
+
+<!-- = attribution = -->
+<xsl:template match="attribution">
+  <xsl:call-template name="db2html.block"/>
 </xsl:template>
 
 <!-- = blockquote = -->
@@ -145,11 +145,6 @@
 <!-- = example = -->
 <xsl:template match="example">
   <xsl:call-template name="db2html.block"/>
-</xsl:template>
-
-<!-- = example/title = -->
-<xsl:template match="example/title">
-  <xsl:call-template name="db2html.title.block"/>
 </xsl:template>
 
 </xsl:stylesheet>

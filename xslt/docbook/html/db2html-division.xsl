@@ -47,15 +47,21 @@
     Render the content of a division element, chunking children if necessary
   </description>
   <parameter>
-    <name>divisions</name>
-    <description>
-      The division-level child elements
-    </description>
-  </parameter>
-  <parameter>
     <name>info</name>
     <description>
       The info child element
+    </description>
+  </parameter>
+  <parameter>
+    <name>entries</name>
+    <description>
+      The entry-style child elements
+    </description>
+  </parameter>
+  <parameter>
+    <name>divisions</name>
+    <description>
+      The division-level child elements
     </description>
   </parameter>
   <parameter>
@@ -91,8 +97,9 @@
 </template>
 
 <xsl:template name="db2html.division.content">
-  <xsl:param name="divisions"/>
   <xsl:param name="info"/>
+  <xsl:param name="entries"/>
+  <xsl:param name="divisions"/>
   <xsl:param name="depth_in_chunk">
     <xsl:call-template name="db.chunk.depth-in-chunk"/>
   </xsl:param>
@@ -115,24 +122,46 @@
     </xsl:call-template>
   </xsl:if>
   <div class="{local-name(.)}">
+    <xsl:if test="not(title) and $info/title">
+      <xsl:apply-templates select="$info/title">
+        <xsl:with-param name="title_for" select="."/>
+        <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
+      </xsl:apply-templates>
+      <xsl:if test="not(subtitle) and $info/subtitle">
+        <xsl:apply-templates select="$info/subtitle">
+          <xsl:with-param name="title_for" select="."/>
+          <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
+        </xsl:apply-templates>
+      </xsl:if>
+    </xsl:if>
+    <!-- OPTIMIZE: This select is fairly slow. -->
+    <xsl:for-each select="*[not(. = $divisions) and not(. = $entries)]">
+      <xsl:apply-templates select=".">
+        <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
+        <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+      </xsl:apply-templates>
+    </xsl:for-each>
+    <xsl:if test="$entries">
+      <dl class="{local-name(.)}">
+        <xsl:apply-templates select="$entries">
+          <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
+          <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+        </xsl:apply-templates>
+      </dl>
+    </xsl:if>
     <xsl:choose>
       <xsl:when test="$chunk_divisions">
-        <xsl:for-each select="*">
-          <xsl:if test="not(. = $divisions)">
-            <xsl:apply-templates select=".">
-              <xsl:with-param name="depth_in_chunk" select="1"/>
-            </xsl:apply-templates>
-          </xsl:if>
-        </xsl:for-each>
         <xsl:for-each select="$divisions">
           <xsl:call-template name="db.chunk">
+            <xsl:with-param name="depth_in_chunk" select="0"/>
             <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk + 1"/>
           </xsl:call-template>
         </xsl:for-each>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:apply-templates>
-          <xsl:with-param name="depth_in_chunk" select="1"/>
+        <xsl:apply-templates select="$divisions">
+          <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
+          <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
         </xsl:apply-templates>
       </xsl:otherwise>
     </xsl:choose>

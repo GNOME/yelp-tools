@@ -1,31 +1,3 @@
-Use db2html.title.block:
-========================
-equation/title
-figure/title
-msg/title
-msgrel/title
-msgset/title
-msgsub/title 
-table/title
-
-Use db2html.title.simple:
-=========================
-blockquote/title
-calloutlist/title
-dedication/title
-dedication/subtitle
-formalpara/title
-itemizedlist/title
-orderedlist/title
-procedure/title
-refsynopsisdiv/title
-segmentedlist/title
-sidebar/title
-step/title
-variablelist/title
-
-Do something:
-=============
 biblioentry/title
 bibliomixed/title
 bibliomset/title
@@ -33,10 +5,8 @@ biblioset/title
 constraintdef/title
 msgexplan/title
 msgmain/title
-qandadiv/title
-qandaset/title
 biblioentry/subtitle
 bibliomixed/subtitle
 bibliomset/subtitle
 biblioset/subtitle
-refsynopsisdiv/subtitle
+

@@ -14,8 +14,9 @@ modes because of the DocBook content model.
 <xsl:template match="beginpage"/>
 <xsl:template match="bridgehead"/>
 
-<!-- Not matched, but used by db2html.info -->
+<!-- Unmatched info elements, supported indirectly -->
 <xsl:template match="appendixinfo"/>
+<xsl:template match="blockinfo"/>
 <xsl:template match="articleinfo"/>
 <xsl:template match="bookinfo"/>
 <xsl:template match="chapterinfo"/>
