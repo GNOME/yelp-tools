@@ -79,6 +79,7 @@
       <xsl:with-param name="info" select="$info"/>
     </xsl:call-template>
     <xsl:apply-templates mode="db2html.info.mode" select="legalnotice"/>
+    <xsl:apply-templates mode="db2html.info.mode" select="revhistory"/>
   </div>
 </xsl:template>
 
@@ -596,6 +597,11 @@
 </xsl:template>
 
 <!-- = db2html.info.mode == editor = -->
+<xsl:template mode="db2html.info.mode" match="date">
+  <xsl:apply-templates select="."/>
+</xsl:template>
+
+<!-- = db2html.info.mode == editor = -->
 <xsl:template mode="db2html.info.mode" match="editor">
   <dt class="editor">
     <xsl:variable name="node" select="(. | personname)[last()]"/>
@@ -698,6 +704,69 @@
   <span class="publishername">
     <xsl:apply-templates/>
   </span>
+</xsl:template>
+
+<!-- = db2html.info.mode == revdescription = -->
+<xsl:template mode="db2html.info.mode" match="revdescription">
+  <xsl:call-template name="db2html.block"/>
+</xsl:template>
+
+<!-- = db2html.info.mode == revhistory = -->
+<xsl:template mode="db2html.info.mode" match="revhistory">
+  <div class="revhistory">
+    <xsl:call-template name="db2html.anchor"/>
+    <h2>
+      <xsl:call-template name="gettext">
+        <xsl:with-param name="msgid" select="'Revision History'"/>
+      </xsl:call-template>
+    </h2>
+    <xsl:apply-templates mode="db2html.info.mode"/>
+  </div>
+</xsl:template>
+
+<!-- = db2html.info.mode == revision = -->
+<xsl:template mode="db2html.info.mode" match="revision">
+  <div class="revision">
+    <xsl:apply-templates mode="db2html.info.mode" select="date"/>
+    <xsl:text>: </xsl:text>
+    <xsl:apply-templates mode="db2html.info.mode" select="revnumber"/>
+    <xsl:if test="revremark">
+      <xsl:text>; </xsl:text>
+    </xsl:if>
+    <xsl:apply-templates mode="db2html.info.mode"
+                         select="revremark | revdescription"/>
+    <xsl:if test="author | authorinitials">
+      <xsl:text>(</xsl:text>
+      <xsl:for-each select="author | authorinitials">
+        <xsl:choose>
+          <xsl:when test="self::authorinitials">
+            <xsl:apply-templates select="."/>
+          </xsl:when>
+          <xsl:when test="personname">
+            <xsl:call-template name="db.personname">
+              <xsl:with-param name="node" select="personname"/>
+            </xsl:call-template>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:call-template name="db.personname">
+              <xsl:with-param name="node" select="."/>
+            </xsl:call-template>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:for-each>
+      <xsl:text>)</xsl:text>
+    </xsl:if>
+  </div>
+</xsl:template>
+
+<!-- = db2html.info.mode == revnumber = -->
+<xsl:template mode="db2html.info.mode" match="revnumber">
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
+<!-- = db2html.info.mode == revremark = -->
+<xsl:template mode="db2html.info.mode" match="revremark">
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = db2html.info.mode == year = -->

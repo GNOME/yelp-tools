@@ -41,6 +41,14 @@ modes because of the DocBook content model.
 <xsl:template match="personblurb"/>
 <xsl:template match="publisher"/>
 <xsl:template match="publishername"/>
+<xsl:template match="revdescription"/>
+<xsl:template match="revhistory"/>
+<xsl:template match="revision"/>
+<xsl:template match="revnumber"/>
+<xsl:template match="revremark"/>
 <xsl:template match="year"/>
+
+<!-- Handled seperately in db2html.label.mode -->
+<xsl:template match="label"/>
 
 </xsl:stylesheet>

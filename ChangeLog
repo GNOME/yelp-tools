@@ -1,3 +1,28 @@
+2004-05-12  Shaun McCance  <shaunm@gnome.org>
+
+	* doc/xslt/C/gnome-doc-xslt.xml:
+	* xslt/docbook/html/Makefile.am:
+	* xslt/docbook/html/db2html-autotoc.xsl:
+	* xslt/docbook/html/db2html-qanda.xsl:
+	* xslt/docbook/html/db2html.xsl:
+	- Added db2html-autotoc and db2html-qanda
+
+	* test/testdocs/Makefile.am:
+	- xmllinting the original into the output dir, for easier visual checks
+
+	* xslt/docbook/html/db2html-division.xsl:
+	- Added more params to db2html.division.content for flexibility
+
+	* xslt/docbook/html/db2html-info.xsl:
+	* xslt/docbook/html/db2html-suppressed.xsl:
+	- Implemented revhistory and friends
+
+	* xslt/docbook/html/db2html-label.xsl:
+	- Labels for question and answer
+
+	* xslt/docbook/html/db2html-title.xsl:
+	- Passing depth_in_chunk to title match
+
 2004-05-10  Shaun McCance  <shaunm@gnome.org>
 
 	* test/testdocs/README:

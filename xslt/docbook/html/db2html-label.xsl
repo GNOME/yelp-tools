@@ -75,6 +75,22 @@
   <xsl:call-template name="db2html.label.number"/>
 </xsl:template>
 
+<xsl:template mode="db2html.label.mode" match="answer | question">
+  <xsl:variable name="qandaset" select="ancestor::qandaset[1]"/>
+  <xsl:choose>
+    <xsl:when test="label">
+      <xsl:apply-templates select="label/node()"/>
+    </xsl:when>
+    <xsl:when test="$qandaset/@defaultlabel = 'none'"/>
+    <xsl:when test="$qandaset/@defaultlabel = 'qanda'">
+      <xsl:call-template name="db2html.label.name"/>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:call-template name="db2html.label.number"/>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
 <xsl:template mode="db2html.label.mode" match="synopfragment">
   <xsl:text>(</xsl:text>
   <xsl:call-template name="db2html.label.number"/>
@@ -141,6 +157,12 @@
 <FIXME/>
 </mode>
 
+<xsl:template mode="db2html.label.name.mode" match="answer">
+  <xsl:call-template name="gettext">
+    <xsl:with-param name="msgid" select="'A'"/>
+  </xsl:call-template>
+</xsl:template>
+
 <xsl:template mode="db2html.label.name.mode" match="appendixinfo">
   <xsl:call-template name="gettext">
     <xsl:with-param name="msgid" select="'About This Appendix'"/>
@@ -186,6 +208,12 @@
 <xsl:template mode="db2html.label.name.mode" match="partinfo">
   <xsl:call-template name="gettext">
     <xsl:with-param name="msgid" select="'About This Part'"/>
+  </xsl:call-template>
+</xsl:template>
+
+<xsl:template mode="db2html.label.name.mode" match="question">
+  <xsl:call-template name="gettext">
+    <xsl:with-param name="msgid" select="'Q'"/>
   </xsl:call-template>
 </xsl:template>
 
@@ -440,6 +468,10 @@
 <FIXME/>
 </mode>
 
+<xsl:template mode="db2html.label.number.mode" match="answer">
+  <!-- FIXME -->
+</xsl:template>
+
 <xsl:template mode="db2html.label.number.mode" match="appendix">
   <xsl:number format="A" value="
               count(preceding-sibling::appendix) + 1 +
@@ -460,6 +492,10 @@
 
 <xsl:template mode="db2html.label.number.mode" match="part">
   <xsl:number format="I" value="count(preceding-sibling::part) + 1"/>
+</xsl:template>
+
+<xsl:template mode="db2html.label.number.mode" match="question">
+  <!-- FIXME -->
 </xsl:template>
 
 <xsl:template mode="db2html.label.number.mode" match="reference">

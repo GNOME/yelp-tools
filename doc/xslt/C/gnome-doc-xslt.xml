@@ -42,6 +42,7 @@
     <title>DocBook to HTML</title>
 
     <xi:include href="db2html-admon.xml"/>
+    <xi:include href="db2html-autotoc.xml"/>
     <xi:include href="db2html-block.xml"/>
     <xi:include href="db2html-cmdsynopsis.xml"/>
     <xi:include href="db2html-division.xml"/>
@@ -50,6 +51,7 @@
     <xi:include href="db2html-info.xml"/>
     <xi:include href="db2html-inline.xml"/>
     <xi:include href="db2html-label.xml"/>
+    <xi:include href="db2html-qanda.xml"/>
     <xi:include href="db2html-title.xml"/>
     <xi:include href="db2html-xref.xml"/>
   </section>

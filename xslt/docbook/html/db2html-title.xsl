@@ -204,7 +204,12 @@
 </xsl:template>
 
 <xsl:template match="title">
-  <xsl:call-template name="db2html.title.header"/>
+  <xsl:param name="depth_in_chunk">
+    <xsl:call-template name="db.chunk.depth-in-chunk"/>
+  </xsl:param>
+  <xsl:call-template name="db2html.title.header">
+    <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
+  </xsl:call-template>
 </xsl:template>
 
 

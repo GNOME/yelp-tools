@@ -2,6 +2,7 @@ xsldir=$(datadir)/sgml/gnome/docbook/html
 
 xsl_DATA =				\
 	db2html-admon.xsl		\
+	db2html-autotoc.xsl		\
 	db2html-block.xsl		\
 	db2html-cmdsynopsis.xsl		\
 	db2html-division.xsl		\
@@ -10,6 +11,7 @@ xsl_DATA =				\
 	db2html-info.xsl		\
 	db2html-inline.xsl		\
 	db2html-label.xsl		\
+	db2html-qanda.xsl		\
 	db2html-suppressed.xsl		\
 	db2html-title.xsl		\
 	db2html-xref.xsl		\

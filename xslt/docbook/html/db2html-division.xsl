@@ -70,6 +70,24 @@
       The depth of the containing chunk in the document
     </description>
   </parameter>
+  <parameter>
+    <name>chunk_divisions</name>
+    <description>
+      Whether to generate new documents for <parameter>divisions</parameter>
+    </description>
+  </parameter>
+  <parameter>
+    <name>chunk_info</name>
+    <description>
+      Whether to generate a new document for a titlepage
+    </description>
+  </parameter>
+  <parameter>
+    <name>autotoc_divisions</name>
+    <description>
+      Whether to create a contents listing of <parameter>divisions</parameter>
+    </description>
+  </parameter>
 </template>
 
 <xsl:template name="db2html.division.content">
@@ -81,7 +99,15 @@
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
   </xsl:param>
-  <xsl:if test="$depth_of_chunk = 0 and $depth_in_chunk = 0 and $info">
+  <xsl:param name="chunk_divisions"
+             select="($depth_in_chunk = 0) and
+                     ($depth_of_chunk &lt; $db.chunk.max_depth)"/>
+  <xsl:param name="chunk_info"
+             select="($depth_of_chunk = 0) and
+                     ($depth_in_chunk = 0 and $info)"/>
+  <xsl:param name="autotoc_divisions" select="$chunk_divisions"/>
+
+  <xsl:if test="chunk_info">
     <xsl:call-template name="db.chunk">
       <xsl:with-param name="node" select="."/>
       <xsl:with-param name="info" select="$info"/>
@@ -90,8 +116,7 @@
   </xsl:if>
   <div class="{local-name(.)}">
     <xsl:choose>
-      <xsl:when test="$depth_in_chunk = 0 and
-                $depth_of_chunk &lt; $db.chunk.max_depth">
+      <xsl:when test="$chunk_divisions">
         <xsl:for-each select="*">
           <xsl:if test="not(. = $divisions)">
             <xsl:apply-templates select=".">

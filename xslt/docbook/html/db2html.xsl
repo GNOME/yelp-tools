@@ -16,6 +16,7 @@
 <xsl:include href="../common/db-common.xsl"/>
 
 <xsl:include href="db2html-admon.xsl"/>
+<xsl:include href="db2html-autotoc.xsl"/>
 <xsl:include href="db2html-block.xsl"/>
 <xsl:include href="db2html-cmdsynopsis.xsl"/>
 <xsl:include href="db2html-division.xsl"/>
@@ -24,6 +25,7 @@
 <xsl:include href="db2html-info.xsl"/>
 <xsl:include href="db2html-inline.xsl"/>
 <xsl:include href="db2html-label.xsl"/>
+<xsl:include href="db2html-qanda.xsl"/>
 <xsl:include href="db2html-suppressed.xsl"/>
 <xsl:include href="db2html-title.xsl"/>
 <xsl:include href="db2html-xref.xsl"/>
