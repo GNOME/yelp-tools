@@ -296,11 +296,23 @@ def getCommentForNode(node):
     else:
         return None
 
+
 def replaceNodeContentsWithText(node,text):
     """Replaces all subnodes of a node with contents of text treated as XML."""
     #print >> sys.stderr, text
     if node.children:
-        tmp = '<%s>%s</%s>' % (startTagForNode(node), text, node.name)
+        starttag = startTagForNode(node)
+        endtag = node.name
+        try:
+            # Lets add document DTD so entities are resolved
+            dtd = doc.intSubset()
+            tmp = ''
+            if expand_entities: # FIXME: we get a "Segmentation fault" in libxml2.parseMemory() when we include DTD otherwise
+                tmp = dtd.serialize()
+            tmp = tmp + '<%s>%s</%s>' % (starttag, text, endtag)
+        except:
+            tmp = '<%s>%s</%s>' % (starttag, text, endtag)
+
         try:
             ctxt = libxml2.createDocParserCtxt(tmp)
             ctxt.replaceEntities(0)
@@ -309,13 +321,16 @@ def replaceNodeContentsWithText(node,text):
         except:
             print >> sys.stderr, """Error while parsing translation as XML:\n"%s"\n""" % (text)
             return
-        if newnode.children and newnode.children.children:
+
+        newelem = newnode.getRootElement()
+        if newelem and newelem.children:
             free = node.children
             while free:
                 next = free.next
                 free.unlinkNode()
                 free = next
-            node.addChildList(newnode.children.children)
+
+            node.addChildList(newelem.children)
         else:
             # In practice, this happens with tags such as "<para>    </para>" (only whitespace in between)
             pass
