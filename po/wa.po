@@ -1,0 +1,319 @@
+# translation of wa.po to Walloon
+# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) 2004 Free Software Foundation, Inc.
+# Pablo Saratxaga <pablo@walon.org>, 2004.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-doc-utils HEAD\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-09-09 03:44+0200\n"
+"PO-Revision-Date: 2004-09-09 10:00+0200\n"
+"Last-Translator: Pablo Saratxaga <pablo@walon.org>\n"
+"Language-Team: Walloon <linux-wa@walon.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+
+#. Section %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:2
+msgid "format.section.label,header"
+msgstr "format.section.label,header"
+
+#. Section %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:4
+msgid "format.section.label,subject"
+msgstr "format.section.label,subject"
+
+#: xslt/docbook/common/db-format.xml.in.h:6
+#, no-c-format
+msgid "‘%t{node}’"
+msgstr "“%t{node}”"
+
+#: xslt/docbook/common/db-format.xml.in.h:8
+#, no-c-format
+msgid "“%t{node}”"
+msgstr "«%t{node}»"
+
+#: xslt/gettext/l10n.xml.in.h:1
+msgid "&#8216;"
+msgstr "“"
+
+#: xslt/gettext/l10n.xml.in.h:2
+msgid "&#8217;"
+msgstr "”"
+
+#: xslt/gettext/l10n.xml.in.h:3
+msgid "&#8220;"
+msgstr "«"
+
+#: xslt/gettext/l10n.xml.in.h:4
+msgid "&#8221;"
+msgstr "»"
+
+#: xslt/gettext/l10n.xml.in.h:5
+msgid "About This Article"
+msgstr "Åd fwait di l' årtike"
+
+#: xslt/gettext/l10n.xml.in.h:6
+msgid "About This Bibliography"
+msgstr "Åd fwait del bibliografeye"
+
+#: xslt/gettext/l10n.xml.in.h:7
+msgid "About This Book"
+msgstr "Åd fwait do live"
+
+#: xslt/gettext/l10n.xml.in.h:8
+msgid "About This Chapter"
+msgstr "Åd fwait do tchaptrê"
+
+#: xslt/gettext/l10n.xml.in.h:9
+msgid "About This Entry"
+msgstr "Åd fwait d' ciste intrêye ci"
+
+#: xslt/gettext/l10n.xml.in.h:10
+msgid "About This Glossary"
+msgstr "Åd fwait do motlî"
+
+#: xslt/gettext/l10n.xml.in.h:11
+msgid "About This Index"
+msgstr "Åd fwait d' l' indecse"
+
+#: xslt/gettext/l10n.xml.in.h:12
+msgid "About This Part"
+msgstr "Åd fwait di ç' pårteye ci"
+
+#: xslt/gettext/l10n.xml.in.h:13
+msgid "About This Preface"
+msgstr "Åd fwait d' l' adrovaedje"
+
+#: xslt/gettext/l10n.xml.in.h:14
+msgid "About This Reference"
+msgstr "Åd fwait di cisse referince ci"
+
+#: xslt/gettext/l10n.xml.in.h:15
+msgid "About This Section"
+msgstr "Åd fwait del seccion"
+
+#: xslt/gettext/l10n.xml.in.h:16
+msgid "About This Set"
+msgstr "Åd fwait d' l' eshonna"
+
+#: xslt/gettext/l10n.xml.in.h:17
+msgid "Affiliation"
+msgstr "Afiliaedje"
+
+#: xslt/gettext/l10n.xml.in.h:18
+msgid "Appendix"
+msgstr "Anecse"
+
+#: xslt/gettext/l10n.xml.in.h:19
+msgid "Article"
+msgstr "Årtike"
+
+#: xslt/gettext/l10n.xml.in.h:20
+msgid "Audience"
+msgstr "Lijheus såme"
+
+#: xslt/gettext/l10n.xml.in.h:21
+msgid "Author"
+msgstr "Oteur"
+
+#: xslt/gettext/l10n.xml.in.h:22
+msgid "Authors"
+msgstr "Oteurs"
+
+#: xslt/gettext/l10n.xml.in.h:23
+msgid "Bibliography"
+msgstr "Bibliografeye"
+
+#: xslt/gettext/l10n.xml.in.h:24
+msgid "Book"
+msgstr "Live"
+
+#: xslt/gettext/l10n.xml.in.h:25
+msgid "Caution"
+msgstr "Adviertance"
+
+#: xslt/gettext/l10n.xml.in.h:26
+msgid "Chapter"
+msgstr "Tchaptrê"
+
+#: xslt/gettext/l10n.xml.in.h:27
+msgid "Collaborator"
+msgstr "Aidant"
+
+#: xslt/gettext/l10n.xml.in.h:28
+msgid "Collaborators"
+msgstr "Aidants"
+
+#: xslt/gettext/l10n.xml.in.h:29
+msgid "Colophon"
+msgstr "Notes di rawete"
+
+#: xslt/gettext/l10n.xml.in.h:30
+msgid "Contents"
+msgstr "Å dvins"
+
+#: xslt/gettext/l10n.xml.in.h:31
+msgid "Copyright"
+msgstr "Abondroets"
+
+#: xslt/gettext/l10n.xml.in.h:32
+msgid "Copyrights"
+msgstr "Abondroets"
+
+#: xslt/gettext/l10n.xml.in.h:33
+msgid "Date"
+msgstr "Date"
+
+#: xslt/gettext/l10n.xml.in.h:34
+msgid "Dedication"
+msgstr "Dicåce"
+
+#: xslt/gettext/l10n.xml.in.h:35
+msgid "Editor"
+msgstr "Editeu"
+
+#: xslt/gettext/l10n.xml.in.h:36
+msgid "Editors"
+msgstr "Editeus"
+
+#: xslt/gettext/l10n.xml.in.h:37
+msgid "Email"
+msgstr "Emile"
+
+#: xslt/gettext/l10n.xml.in.h:38
+msgid "Example"
+msgstr "Egzimpe"
+
+#: xslt/gettext/l10n.xml.in.h:39
+msgid "Figure"
+msgstr "Imådje"
+
+#: xslt/gettext/l10n.xml.in.h:40
+msgid "Glossary"
+msgstr "Motlî"
+
+#: xslt/gettext/l10n.xml.in.h:41
+msgid "Important"
+msgstr "Impôrtant"
+
+#: xslt/gettext/l10n.xml.in.h:42
+msgid "Index"
+msgstr "Indecse"
+
+#: xslt/gettext/l10n.xml.in.h:43
+msgid "Legal Notice"
+msgstr "Notice lweyåle"
+
+#: xslt/gettext/l10n.xml.in.h:44
+msgid "Level"
+msgstr "Livea"
+
+#: xslt/gettext/l10n.xml.in.h:45
+msgid "Message Audience"
+msgstr "Såme pol messaedje"
+
+#: xslt/gettext/l10n.xml.in.h:46
+msgid "Message Level"
+msgstr "Livea do messaedje"
+
+#: xslt/gettext/l10n.xml.in.h:47
+msgid "Message Origin"
+msgstr "Oridjinne do messaedje"
+
+#: xslt/gettext/l10n.xml.in.h:48
+msgid "Note"
+msgstr "Note"
+
+#: xslt/gettext/l10n.xml.in.h:49
+msgid "Origin"
+msgstr "Oridjinne"
+
+#: xslt/gettext/l10n.xml.in.h:50
+msgid "Other Contributor"
+msgstr "Ôte contribouweu"
+
+#: xslt/gettext/l10n.xml.in.h:51
+msgid "Other Contributors"
+msgstr "Ôtes contribouweus"
+
+#: xslt/gettext/l10n.xml.in.h:52
+msgid "Part"
+msgstr "Pårteye"
+
+#: xslt/gettext/l10n.xml.in.h:53
+msgid "Preface"
+msgstr "Adrovaedje"
+
+#: xslt/gettext/l10n.xml.in.h:54
+msgid "Publisher"
+msgstr "Eplaideu"
+
+#: xslt/gettext/l10n.xml.in.h:55
+msgid "Publishers"
+msgstr "Eplaideus"
+
+#: xslt/gettext/l10n.xml.in.h:56
+msgid "Reference"
+msgstr "Referince"
+
+#: xslt/gettext/l10n.xml.in.h:57
+msgid "Reference Entry"
+msgstr "Intrêye di referince"
+
+#: xslt/gettext/l10n.xml.in.h:58
+msgid "Reference Section"
+msgstr "Seccion di referince"
+
+#: xslt/gettext/l10n.xml.in.h:59
+msgid "Release Information"
+msgstr "Informåcion sol modêye"
+
+#: xslt/gettext/l10n.xml.in.h:60
+msgid "Revision History"
+msgstr "Istwere des candjmints"
+
+#: xslt/gettext/l10n.xml.in.h:61
+msgid "Section"
+msgstr "Seccion"
+
+#: xslt/gettext/l10n.xml.in.h:62
+msgid "See"
+msgstr "Waitîz a"
+
+#: xslt/gettext/l10n.xml.in.h:63
+msgid "See Also"
+msgstr "Loukîz eto a"
+
+# FIXME: "index of the set", or "to set the index"?
+#: xslt/gettext/l10n.xml.in.h:64
+msgid "Set Index"
+msgstr "Indecse di l' eshonna"
+
+#: xslt/gettext/l10n.xml.in.h:65
+msgid "Table"
+msgstr "Tåvlea"
+
+#: xslt/gettext/l10n.xml.in.h:66
+msgid "Table of Contents"
+msgstr "Tåve di l' Ådvins"
+
+#: xslt/gettext/l10n.xml.in.h:67
+msgid "Tip"
+msgstr "Racsegne"
+
+#: xslt/gettext/l10n.xml.in.h:68
+msgid "Title"
+msgstr "Tite"
+
+#: xslt/gettext/l10n.xml.in.h:69
+msgid "Unknown"
+msgstr "Nén cnoxhou"
+
+#: xslt/gettext/l10n.xml.in.h:70
+msgid "Warning"
+msgstr "Adviertixhmint"
+
