@@ -1,3 +1,30 @@
+2004-09-01  Shaun McCance  <shaunm@gnome.org>
+
+	* po/nl.po:
+	* po/pt.po:
+	* po/pt_BR.po:
+	* po/sq.po:
+	* po/sv.po:
+	- Unbroke some PO files
+
+	* xslt/docbook/common/Makefile.am:
+	- Rebuild db-format.xsl when format2xsl.xsl changes
+
+	* xslt/docbook/common/db-format.xml.in:
+	- Changes according to the new format2xsl work
+
+	* xslt/docbook/common/db-label.xsl:
+	* xslt/docbook/html/db2html-title.xsl:
+	- Make use of the new formatting code for labels
+
+	* xslt/docbook/html/report.xslt:
+	- Sans the serifs in report.html
+
+	* xslt/gettext/format2xsl.xsl:
+	- Changes to the file format to support better argument handling
+	- Implemented roles for templates
+	- Actually got the language code hooked up right
+
 2004-08-08  Duarte Loreto <happyguy_pt@hotmail.com>
 
 	* configure.in: Added Portuguese (pt) to ALL_LINGUAS.

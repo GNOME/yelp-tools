@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gnome-doc-utils\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-07-25 14:57+0200\n"
-"PO-Revision-Date: 2004-07-25 13:12-0300\n"
+"PO-Revision-Date: 2004-09-01 15:38-0500\n"
 "Last-Translator: Raphael Higino <raphaelh@uai.com.br>\n"
 "Language-Team: Brazilian Portuguese <gnome-l10n-br@listas.cipsga.org.br>\n"
 "MIME-Version: 1.0\n"
@@ -18,17 +18,17 @@ msgstr ""
 #: xslt/docbook/common/db-format.xml.in.h:2
 #, no-c-format
 msgid "%t{name} %t{number}"
-msgstr "%t{nome} %t{número}"
+msgstr "%t{name} %t{number}"
 
 #: xslt/docbook/common/db-format.xml.in.h:4
 #, no-c-format
 msgid "‘%t{node}’"
-msgstr "‘%t{nó}’"
+msgstr "‘%t{node}’"
 
 #: xslt/docbook/common/db-format.xml.in.h:6
 #, no-c-format
 msgid "“%t{node}”"
-msgstr "“%t{nó}”"
+msgstr "“%t{node}”"
 
 #: xslt/gettext/l10n.xml.in.h:1
 msgid "&#8216;"

@@ -21,6 +21,12 @@
       The element for which to generate a label
     </description>
   </parameter>
+  <parameter>
+    <name>role</name>
+    <description>
+      The role of the label, as passed to the format templates
+    </description>
+  </parameter>
   <para>
     This template generates the label used for some sectioning and
     block-level elements.  For instance, this would generate strings
@@ -36,21 +42,25 @@
     extension).  Do not override this template to suppress label prefixes
     in titles.
   </para>
-  <para>
-    Most labels contain a name portion and a number portion.  Templates
-    should generally call <template>db.label.name</template> and
-    <template>db.label.number</template> to generate these portions.
-  </para>
 </template>
 
 <xsl:template name="db.label">
   <xsl:param name="node" select="."/>
+  <xsl:param name="role"/>
+  <xsl:param name="depth_in_chunk">
+    <xsl:call-template name="db.chunk.depth-in-chunk">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:call-template>
+  </xsl:param>
   <xsl:choose>
     <xsl:when test="$node/@label">
       <xsl:value-of select="$node/@label"/>
     </xsl:when>
     <xsl:otherwise>
-      <xsl:apply-templates mode="db.label.mode" select="$node"/>
+      <xsl:apply-templates mode="db.label.mode" select="$node">
+        <xsl:with-param name="role" select="$role"/>
+        <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
+      </xsl:apply-templates>
     </xsl:otherwise>
   </xsl:choose>
 </xsl:template>
@@ -64,19 +74,39 @@
 </mode>
 
 <xsl:template mode="db.label.mode" match="
+              refsect1 | refsect2 | refsect3 | refsection | section |
+              sect1    | sect2    | sect3    | sect4      | sect5   ">
+  <xsl:param name="role"/>
+  <xsl:param name="depth_in_chunk">
+    <xsl:call-template name="db.chunk.depth-in-chunk">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:call-template>
+  </xsl:param>
+  <xsl:call-template name="format.section.label">
+    <xsl:with-param name="node" select="."/>
+    <xsl:with-param name="role" select="$role"/>
+    <xsl:with-param name="lang" select="ancestor-or-self::*[@lang][1]/@lang"/>
+    <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
+  </xsl:call-template>
+</xsl:template>
+
+<xsl:template mode="db.label.mode" match="
               appendix | article  | book     | bibliography | chapter   |
               colophon | example  | figure   | glossary     | index     |
               part     | qandadiv | qandaset | preface      | reference |
-              refsect1 | refsect2 | refsect3 | refsection   | refentry  |
-              sect1    | sect2    | sect3    | sect4        | sect5     |
-              section  | set      | setindex | simplesect   | table     ">
+              refentry | set      | setindex | simplesect   | table     ">
+  <xsl:param name="role"/>
+<!-- FIXME 
   <xsl:call-template name="db.label.name"/>
   <xsl:text> </xsl:text>
   <xsl:call-template name="db.label.number"/>
+-->
 </xsl:template>
 
 <xsl:template mode="db.label.mode" match="answer | question">
+  <xsl:param name="role"/>
   <xsl:variable name="qandaset" select="ancestor::qandaset[1]"/>
+  <!-- FIXME -->
   <xsl:choose>
     <xsl:when test="label">
       <xsl:apply-templates select="label/node()"/>
@@ -92,12 +122,14 @@
 </xsl:template>
 
 <xsl:template mode="db.label.mode" match="synopfragment">
+  <xsl:param name="role"/>
   <xsl:text>(</xsl:text>
   <xsl:call-template name="db.label.number"/>
   <xsl:text>)</xsl:text>
 </xsl:template>
 
 <xsl:template mode="db.label.mode" match="title | subtitle">
+  <xsl:param name="role"/>
   <xsl:call-template name="db.label">
     <xsl:with-param name="node" select=".."/>
   </xsl:call-template>
@@ -110,6 +142,7 @@
               refsect2info | refsect3info | refsectioninfo   | sect1info    |
               sect2info    | sect3info    | sect4info        | sect5info    |
               sectioninfo  | setindexinfo | setinfo          ">
+  <xsl:param name="role"/>
   <xsl:call-template name="db.label.name"/>
 </xsl:template>
 

@@ -11,5 +11,5 @@ xsl_DATA =			\
 
 EXTRA_DIST=$(xsl_DATA) db-format.xml.in db-format.xml
 
-db-format.xsl: db-format.xml
+db-format.xsl: db-format.xml ../../gettext/format2xsl.xsl
 	xsltproc ../../gettext/format2xsl.xsl $< | xmllint --format - > $@

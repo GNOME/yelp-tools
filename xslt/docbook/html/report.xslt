@@ -8,6 +8,7 @@
     <head>
       <title>Stylesheet Report</title>
       <style type="text/css">
+        body { font-family: sans-serif; }
 	th { text-align: left; }
 	td { vertical-align: top; padding: 0.2em; }
 	tr[class="odd"] { background-color: #EEEEEE; }

@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gnome-doc-utils HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-08-19 11:42+0200\n"
-"PO-Revision-Date: 2004-07-28 19:48+0200\n"
+"PO-Revision-Date: 2004-09-01 15:39-0500\n"
 "Last-Translator: Laurent Dhima <laurenti@alblinux.net>\n"
 "Language-Team: Albanian <gnome-albanian-perkthyesit@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -20,7 +20,7 @@ msgstr ""
 #: xslt/docbook/common/db-format.xml.in.h:2
 #, no-c-format
 msgid "%t{name} %t{number}"
-msgstr "%t{emri} %t{numri}"
+msgstr "%t{name} %t{number}"
 
 #: xslt/docbook/common/db-format.xml.in.h:4
 #, no-c-format

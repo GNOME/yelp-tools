@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: gnome-doc-utils\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2004-07-24 20:00+0200\n"
-"PO-Revision-Date: 2004-07-24 20:00+0200\n"
+"PO-Revision-Date: 2004-09-01 15:38-0500\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -19,17 +19,17 @@ msgstr ""
 #: xslt/docbook/common/db-format.xml.in.h:2
 #, no-c-format
 msgid "%t{name} %t{number}"
-msgstr "%t{namn} %t{nummer}"
+msgstr "%t{name} %t{number}"
 
 #: xslt/docbook/common/db-format.xml.in.h:4
 #, no-c-format
 msgid "‘%t{node}’"
-msgstr "‘%t{nod}’"
+msgstr "‘%t{node}’"
 
 #: xslt/docbook/common/db-format.xml.in.h:6
 #, no-c-format
 msgid "“%t{node}”"
-msgstr "“%t{nod}”"
+msgstr "“%t{node}”"
 
 #: xslt/gettext/l10n.xml.in.h:1
 msgid "&#8216;"

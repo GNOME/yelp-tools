@@ -59,30 +59,11 @@
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
   </xsl:param>
-  <xsl:apply-templates mode="db2html.title.label.mode" select="$node"/>
-</xsl:template>
-
-
-<!-- == db2html.title.label.mode =========================================== -->
-
-<xsl:template mode="db2html.title.label.mode" match="article"/>
-<xsl:template mode="db2html.title.label.mode" match="book"/>
-<xsl:template mode="db2html.title.label.mode" match="qandaset"/>
-
-<xsl:template mode="db2html.title.label.mode" match="*">
-  <span class="label">
-    <xsl:call-template name="db.label"/>
-    <xsl:text> </xsl:text>
-  </span>
-</xsl:template>
-
-<xsl:template mode="db2html.title.label.mode" match="
-              sect1  | sect2  | sect3   |
-              sect4  | sect5  | section ">
-  <span class="label">
-    <xsl:call-template name="db.label.number"/>
-    <xsl:text> </xsl:text>
-  </span>
+  <xsl:call-template name="db.label">
+    <xsl:with-param name="node" select="$node"/>
+    <xsl:with-param name="role" select="'header'"/>
+    <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
+  </xsl:call-template>
 </xsl:template>
 
 

@@ -1,46 +1,54 @@
 <?xml version='1.0' encoding='utf-8'?><!-- -*- indent-tabs-mode: nil -*- -->
 
-<stylesheet>
+<xsl:stylesheet version="1.0"
+                xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/xsl-format"
+                xmlns:_msg="http://www.gnome.org/~shaunm/gnome-doc-utils/xsl-format">
 
-<template name="format.quote.outer">
-  <msg>
-    <_msgstr>“%t{node}”</_msgstr>
-  </msg>
-  <params>
-    <param name="node">
-      <apply-templates select="$node"/>
-    </param>
-  </params>
-</template>
+<xsl:template name="format.quote.outer">
+  <xsl:param name="node" select="."/>
+  <msg:msg id="format.quite.outer">
+    <_msg:msgstr>“%t{node}”</_msg:msgstr>
+  </msg:msg>
+  <msg:arg name="node">
+    <xsl:apply-templates select="$node/node()"/>
+  </msg:arg>
+</xsl:template>
 
-<template name="format.quote.outer">
-  <msg>
-    <_msgstr>‘%t{node}’</_msgstr>
-  </msg>
-  <params>
-    <param name="node">
-      <apply-templates select="$node"/>
-    </param>
-  </params>
-</template>
+<xsl:template name="format.quote.inner">
+  <xsl:param name="node" select="."/>
+  <msg:msg id="format.quite.inner">
+    <_msg:msgstr>‘%t{node}’</_msg:msgstr>
+  </msg:msg>
+  <msg:arg name="node">
+    <xsl:apply-templates select="$node/node()"/>
+  </msg:arg>
+</xsl:template>
 
-<template name="format.section.label">
-  <msg>
-    <_msgstr>%t{name} %t{number}</_msgstr>
-  </msg>
-  <params>
-    <param name="node"/>
-    <param name="name">
-      <call-template name="db.label.name">
-        <with-param name="node" select="$node"/>
-      </call-template>
-    </param>
-    <param name="number">
-      <call-template name="db.label.number">
-        <with-param name="node" select="$node"/>
-      </call-template>
-    </param>
-  </params>
-</template>
+<xsl:template name="format.section.label">
+  <xsl:param name="node"/>
+  <xsl:param name="role"/>
+  <xsl:param name="depth_in_chunk">
+    <xsl:call-template name="db.chunk.depth-in-chunk">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:call-template>
+  </xsl:param>
+  <msg:msg id="format.section.label,header" role="header">
+    <!-- Section %t{number} -->
+    <_msg:msgstr>format.section.label,header</_msg:msgstr>
+    <msg:msgstr xml:lang="C">Section %t{number}</msg:msgstr>
+  </msg:msg>
+  <msg:msg id="format.section.label,subject" role="subject">
+    <!-- Section %t{number} -->
+    <_msg:msgstr>format.section.label,subject</_msg:msgstr>
+    <msg:msgstr xml:lang="C">Section %t{number}</msg:msgstr>
+  </msg:msg>
+  <msg:arg name="number">
+    <xsl:call-template name="db.label.number">
+      <xsl:with-param name="node" select="$node"/>
+      <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
+    </xsl:call-template>
+  </msg:arg>
+</xsl:template>
 
-</stylesheet>
+</xsl:stylesheet>
