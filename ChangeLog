@@ -1,5 +1,21 @@
 2004-04-06  Shaun McCance  <shaunm@gnome.org>
 
+	* doc/xslt/C/gnome-doc-xslt.xml:
+	* xslt/docbook/common/db-chunk.xsl:
+	* xslt/docbook/html/db2html-info.xsl:
+	- Added two new stylesheets
+
+	* xslt/docbook/html/TODO:
+	- Updated TODO
+
+	* xslt/docbook/html/db2html-suppressed.xsl:
+	- Stuff we handle in db2html.info.mode
+
+	* xslt/docbook/html/db2html-title.xsl:
+	- Change db2html-depth.depth-in-chunk to db.chunk.depth-in-chunk
+
+2004-04-06  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/docbook/html/db2html-suppressed.xsl:
 	- Added arg, group, sbr, synopfragment, and synopfragmentref
 

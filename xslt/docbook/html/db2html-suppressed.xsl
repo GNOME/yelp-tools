@@ -10,6 +10,17 @@ supported, while other elements are expected only to be processed in certain
 modes because of the DocBook content model.
 -->
 
+<!-- Only occur in db2html.info.mode -->
+<xsl:template match="affiliation"/>
+<xsl:template match="author"/>
+<xsl:template match="authorblurb"/>
+<xsl:template match="authorgroup"/>
+<xsl:template match="editor"/>
+<xsl:template match="othercredit"/>
+<xsl:template match="personblurb"/>
+<xsl:template match="publisher"/>
+<xsl:template match="publishername"/>
+
 <!-- Only occur in db2html.cmdsynopsis.mode -->
 <xsl:template match="arg"/>
 <xsl:template match="group"/>

@@ -50,7 +50,6 @@
 
 <ref:refname>db2html.title.simple</ref:refname>
 <ref:refpurpose></ref:refpurpose>
-<ref:para></ref:para>
 
 <xsl:template name="db2html.title.simple">
   <xsl:param name="node" select="."/>
@@ -74,7 +73,7 @@
 <xsl:template name="db2html.title.header">
   <xsl:param name="node" select="."/>
   <xsl:param name="depth_in_chunk">
-    <xsl:call-template name="db2html-depth.depth-in-chunk">
+    <xsl:call-template name="db.chunk.depth-in-chunk">
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
   </xsl:param>
@@ -118,7 +117,7 @@
 <xsl:template name="db2html.subtitle.header">
   <xsl:param name="node" select="."/>
   <xsl:param name="depth_in_chunk">
-    <xsl:call-template name="db2html-depth.depth-in-chunk">
+    <xsl:call-template name="db.chunk.depth-in-chunk">
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
   </xsl:param>

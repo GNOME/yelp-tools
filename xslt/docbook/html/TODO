@@ -1,5 +1,5 @@
-Use db2html-title.title.block:
-==============================
+Use db2html.title.block:
+========================
 equation/title
 example/title
 figure/title
@@ -9,10 +9,9 @@ msgset/title
 msgsub/title 
 table/title
 
-Use db2html-title.title.simple:
-===============================
+Use db2html.title.simple:
+=========================
 abstract/title
-authorblurb/title
 blockquote/title
 calloutlist/title
 dedication/title
@@ -20,7 +19,6 @@ dedication/subtitle
 formalpara/title
 itemizedlist/title
 orderedlist/title
-personblurb/title
 procedure/title
 refsynopsisdiv/title
 segmentedlist/title
@@ -28,8 +26,8 @@ sidebar/title
 step/title
 variablelist/title
 
-Use db2html-title.title.header:
-===============================
+Use db2html.title.header:
+=========================
 appendix/title
 article/title
 bibliodiv/title
