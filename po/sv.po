@@ -1,6 +1,6 @@
 # Swedish translation for gnome-doc-utils.
-# Copyright (C) 2004 Free Software Foundation, Inc.
-# Christian Rose <menthos@menthos.com>, 2004.
+# Copyright (C) 2004, 2005 Free Software Foundation, Inc.
+# Christian Rose <menthos@menthos.com>, 2004, 2005.
 #
 # $Id$
 #
@@ -8,310 +8,436 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-07-24 20:00+0200\n"
-"PO-Revision-Date: 2004-09-01 15:38-0500\n"
+"POT-Creation-Date: 2005-01-03 17:41+0100\n"
+"PO-Revision-Date: 2005-01-03 17:42+0100\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#. Appendix %t{number}
 #: xslt/docbook/common/db-format.xml.in.h:2
-#, no-c-format
-msgid "%t{name} %t{number}"
-msgstr "%t{name} %t{number}"
+msgid "format.appendix.label"
+msgstr "format.appendix.etikett"
 
+#. Chapter %t{number}
 #: xslt/docbook/common/db-format.xml.in.h:4
-#, no-c-format
-msgid "‘%t{node}’"
-msgstr "‘%t{node}’"
+msgid "format.chapter.label"
+msgstr "format.kapitel.etikett"
 
-#: xslt/docbook/common/db-format.xml.in.h:6
-#, no-c-format
-msgid "“%t{node}”"
-msgstr "“%t{node}”"
+#: xslt/docbook/common/db-format.xml.in.h:5
+msgid "format.citetitle"
+msgstr "format.citattitel"
 
-#: xslt/gettext/l10n.xml.in.h:1
-msgid "&#8216;"
-msgstr "&#8216;"
+#. FIXME
+#: xslt/docbook/common/db-format.xml.in.h:7
+msgid "format.date"
+msgstr "format.datum"
 
+#. Example %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:9
+msgid "format.example.label"
+msgstr "format.exempel.etikett"
+
+#. %t{parent}-%1{number}
+#: xslt/docbook/common/db-format.xml.in.h:11
+msgid "format.example.number"
+msgstr "format.exempel.nummer"
+
+#. %1{number}
+#: xslt/docbook/common/db-format.xml.in.h:13
+msgid "format.example.number.flat"
+msgstr "format.exempel.nummer.platt"
+
+#. Figure %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:15
+msgid "format.figure.label"
+msgstr "format.figur.etikett"
+
+#. %t{parent}-%1{number}
+#: xslt/docbook/common/db-format.xml.in.h:17
+msgid "format.figure.number"
+msgstr "format.figur.nummer"
+
+#. %1{number}
+#: xslt/docbook/common/db-format.xml.in.h:19
+msgid "format.figure.number.flat"
+msgstr "format.figur.nummer.platt"
+
+#. (%t{node})
+#: xslt/docbook/common/db-format.xml.in.h:21
+msgid "format.manvolnum"
+msgstr "format.manvolnum"
+
+#. Part %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:23
+msgid "format.part.label"
+msgstr "format.del.etikett"
+
+#. %I{number}
+#: xslt/docbook/common/db-format.xml.in.h:25
+msgid "format.part.number"
+msgstr "format.del.nummer"
+
+#. ‘%t{node}’
+#: xslt/docbook/common/db-format.xml.in.h:27
+msgid "format.quote.inner"
+msgstr "format.citat.inre"
+
+#. “%t{node}”
+#: xslt/docbook/common/db-format.xml.in.h:29
+msgid "format.quote.outer"
+msgstr "format.citat.yttre"
+
+#. %t{title}
+#: xslt/docbook/common/db-format.xml.in.h:31
+msgid "format.refentry.label"
+msgstr "format.refpost.etikett"
+
+#. Section %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:33
+msgid "format.section.label"
+msgstr "format.avsnitt.etikett"
+
+#. Table %t{number}
+#: xslt/docbook/common/db-format.xml.in.h:35
+msgid "format.table.label"
+msgstr "format.tabell.etikett"
+
+#. %t{parent}-%1{number}
+#: xslt/docbook/common/db-format.xml.in.h:37
+msgid "format.table.number"
+msgstr "format.tabell.nummer"
+
+#. %1{number}
+#: xslt/docbook/common/db-format.xml.in.h:39
+msgid "format.table.number.flat"
+msgstr "format.tabell.nummer.platt"
+
+#. Read the definition for ‘%s{node}’
+#: xslt/docbook/common/db-format.xml.in.h:41
+msgid "format.tooltip.glossentry"
+msgstr "format.verktygstips.ordlistepost"
+
+#. Send email to ‘%s{address}’
+#: xslt/docbook/common/db-format.xml.in.h:43
+msgid "format.tooltip.mailto"
+msgstr "format.verktygstips.e-postatill"
+
+#. Used as a header before a list of authors.
 #: xslt/gettext/l10n.xml.in.h:2
-msgid "&#8217;"
-msgstr "&#8217;"
+msgid "<msgstr form=\"0\">Author</msgstr> <msgstr form=\"1\">Authors</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Författare</msgstr> <msgstr form=\"1\">Författare</msgstr>"
 
-#: xslt/gettext/l10n.xml.in.h:3
-msgid "&#8220;"
-msgstr "&#8220;"
-
+#. Used as a header before a list of collaborators.
 #: xslt/gettext/l10n.xml.in.h:4
-msgid "&#8221;"
-msgstr "&#8221;"
+msgid ""
+"<msgstr form=\"0\">Collaborator</msgstr> <msgstr form=\"1\">Collaborators</"
+"msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Kollaboratör</msgstr> <msgstr form=\"1\">Kollaboratörer</"
+"msgstr>"
 
-#: xslt/gettext/l10n.xml.in.h:5
-msgid "About This Article"
-msgstr "Om denna artikel"
-
+#. Used as a header before a list of copyrights.
 #: xslt/gettext/l10n.xml.in.h:6
-msgid "About This Bibliography"
-msgstr "Om denna bibliografi"
+msgid ""
+"<msgstr form=\"0\">Copyright</msgstr> <msgstr form=\"1\">Copyrights</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Copyright</msgstr> <msgstr form=\"1\">Copyright</msgstr>"
 
-#: xslt/gettext/l10n.xml.in.h:7
-msgid "About This Book"
-msgstr "Om denna bok"
-
+#. Used as a header before a list of editors.
 #: xslt/gettext/l10n.xml.in.h:8
-msgid "About This Chapter"
-msgstr "Om detta kapitel"
+msgid "<msgstr form=\"0\">Editor</msgstr> <msgstr form=\"1\">Editors</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Redaktör</msgstr> <msgstr form=\"1\">Redaktörer</msgstr>"
 
-#: xslt/gettext/l10n.xml.in.h:9
-msgid "About This Entry"
-msgstr "Om denna post"
-
+#. Used as a header before a list of contributors.
 #: xslt/gettext/l10n.xml.in.h:10
-msgid "About This Glossary"
-msgstr "Om denna ordlista"
+msgid ""
+"<msgstr form=\"0\">Other Contributor</msgstr> <msgstr form=\"1\">Other "
+"Contributors</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Annan bidragsgivare</msgstr> <msgstr form=\"1\">Andra "
+"bidragsgivare</msgstr>"
 
-#: xslt/gettext/l10n.xml.in.h:11
-msgid "About This Index"
-msgstr "Om detta index"
-
+#. Used as a header before a list of publishers.
 #: xslt/gettext/l10n.xml.in.h:12
-msgid "About This Part"
-msgstr "Om denna del"
+msgid ""
+"<msgstr form=\"0\">Publisher</msgstr> <msgstr form=\"1\">Publishers</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Förläggare</msgstr> <msgstr form=\"1\">Förläggare</msgstr>"
 
-#: xslt/gettext/l10n.xml.in.h:13
-msgid "About This Preface"
-msgstr "Om detta förord"
-
+#. Link to the titlepage
 #: xslt/gettext/l10n.xml.in.h:14
-msgid "About This Reference"
-msgstr "Om denna referens"
+msgid "About This Document"
+msgstr "Om detta dokument"
 
 #: xslt/gettext/l10n.xml.in.h:15
-msgid "About This Section"
-msgstr "Om detta avsnitt"
-
-#: xslt/gettext/l10n.xml.in.h:16
-msgid "About This Set"
-msgstr "Om denna samling"
-
-#: xslt/gettext/l10n.xml.in.h:17
 msgid "Affiliation"
 msgstr "Anknytning"
 
+#. This is an abbreviated form of 'Message Audience'.
+#. Feel free to use the same word/phrase for both.
 #: xslt/gettext/l10n.xml.in.h:18
-msgid "Appendix"
-msgstr "Appendix"
-
-#: xslt/gettext/l10n.xml.in.h:19
-msgid "Article"
-msgstr "Artikel"
-
-#: xslt/gettext/l10n.xml.in.h:20
 msgid "Audience"
 msgstr "Målgrupp"
 
-#: xslt/gettext/l10n.xml.in.h:21
-msgid "Author"
-msgstr "Författare"
-
-#: xslt/gettext/l10n.xml.in.h:22
-msgid "Authors"
-msgstr "Författare"
-
-#: xslt/gettext/l10n.xml.in.h:23
-msgid "Bibliography"
-msgstr "Bibliografi"
-
-#: xslt/gettext/l10n.xml.in.h:24
-msgid "Book"
-msgstr "Bok"
-
 # Detta borde nog vara något annat istället
-#: xslt/gettext/l10n.xml.in.h:25
+#: xslt/gettext/l10n.xml.in.h:19
 msgid "Caution"
 msgstr "Varning"
 
-#: xslt/gettext/l10n.xml.in.h:26
-msgid "Chapter"
-msgstr "Kapitel"
-
-#: xslt/gettext/l10n.xml.in.h:27
-msgid "Collaborator"
-msgstr "Kollaboratör"
-
-#: xslt/gettext/l10n.xml.in.h:28
-msgid "Collaborators"
-msgstr "Kollaboratörer"
-
-#: xslt/gettext/l10n.xml.in.h:29
+#: xslt/gettext/l10n.xml.in.h:20
 msgid "Colophon"
 msgstr "Kolofon"
 
-#: xslt/gettext/l10n.xml.in.h:30
+#. This is an abbreviated form of 'Table of Contents'.
+#. Feel free to use the same word/phrase for both.
+#: xslt/gettext/l10n.xml.in.h:23
 msgid "Contents"
 msgstr "Innehåll"
 
-#: xslt/gettext/l10n.xml.in.h:31
-msgid "Copyright"
-msgstr "Copyright"
-
-# Osäker
-#: xslt/gettext/l10n.xml.in.h:32
-msgid "Copyrights"
-msgstr "Copyright"
-
-#: xslt/gettext/l10n.xml.in.h:33
+#. Used as a header for date column in the revision history.
+#: xslt/gettext/l10n.xml.in.h:25
 msgid "Date"
 msgstr "Datum"
 
-#: xslt/gettext/l10n.xml.in.h:34
+#: xslt/gettext/l10n.xml.in.h:26
 msgid "Dedication"
 msgstr "Tillägning"
 
-#: xslt/gettext/l10n.xml.in.h:35
-msgid "Editor"
-msgstr "Redaktör"
-
-#: xslt/gettext/l10n.xml.in.h:36
-msgid "Editors"
-msgstr "Redigerare"
-
-#: xslt/gettext/l10n.xml.in.h:37
+#: xslt/gettext/l10n.xml.in.h:27
 msgid "Email"
 msgstr "E-post"
 
-#: xslt/gettext/l10n.xml.in.h:38
-msgid "Example"
-msgstr "Exempel"
-
-#: xslt/gettext/l10n.xml.in.h:39
-msgid "Figure"
-msgstr "Figur"
-
-#: xslt/gettext/l10n.xml.in.h:40
-msgid "Glossary"
-msgstr "Ordlista"
-
-#: xslt/gettext/l10n.xml.in.h:41
+#: xslt/gettext/l10n.xml.in.h:28
 msgid "Important"
 msgstr "Viktigt"
 
-#: xslt/gettext/l10n.xml.in.h:42
+#: xslt/gettext/l10n.xml.in.h:29
 msgid "Index"
 msgstr "Index"
 
-#: xslt/gettext/l10n.xml.in.h:43
+#: xslt/gettext/l10n.xml.in.h:30
 msgid "Legal Notice"
 msgstr "Juridisk information"
 
-#: xslt/gettext/l10n.xml.in.h:44
+#. This is an abbreviated form of 'Message Level'.
+#. Feel free to use the same word/phrase for both.
+#: xslt/gettext/l10n.xml.in.h:33
 msgid "Level"
 msgstr "Nivå"
 
-#: xslt/gettext/l10n.xml.in.h:45
+#: xslt/gettext/l10n.xml.in.h:34
 msgid "Message Audience"
 msgstr "Meddelandemålgrupp"
 
-#: xslt/gettext/l10n.xml.in.h:46
+#: xslt/gettext/l10n.xml.in.h:35
 msgid "Message Level"
 msgstr "Meddelandenivå"
 
-#: xslt/gettext/l10n.xml.in.h:47
+#: xslt/gettext/l10n.xml.in.h:36
 msgid "Message Origin"
 msgstr "Meddelandeursprung"
 
-#: xslt/gettext/l10n.xml.in.h:48
+#: xslt/gettext/l10n.xml.in.h:37
+msgid "Name"
+msgstr "Namn"
+
+#: xslt/gettext/l10n.xml.in.h:38
 msgid "Note"
 msgstr "Anteckning"
 
-#: xslt/gettext/l10n.xml.in.h:49
+#. This is an abbreviated form of 'Message Origin'.
+#. Feel free to use the same word/phrase for both.
+#: xslt/gettext/l10n.xml.in.h:41
 msgid "Origin"
 msgstr "Ursprung"
 
-#: xslt/gettext/l10n.xml.in.h:50
-msgid "Other Contributor"
-msgstr "Annan bidragsgivare"
-
-#: xslt/gettext/l10n.xml.in.h:51
-msgid "Other Contributors"
-msgstr "Andra bidragsgivare"
-
-#: xslt/gettext/l10n.xml.in.h:52
-msgid "Part"
-msgstr "Del"
-
-#: xslt/gettext/l10n.xml.in.h:53
+#: xslt/gettext/l10n.xml.in.h:42
 msgid "Preface"
 msgstr "Förord"
 
-#: xslt/gettext/l10n.xml.in.h:54
-msgid "Publisher"
-msgstr "Förläggare"
-
-#: xslt/gettext/l10n.xml.in.h:55
-msgid "Publishers"
-msgstr "Förläggare"
-
-#: xslt/gettext/l10n.xml.in.h:56
+#: xslt/gettext/l10n.xml.in.h:43
 msgid "Reference"
 msgstr "Referens"
 
-#: xslt/gettext/l10n.xml.in.h:57
-msgid "Reference Entry"
-msgstr "Referenspost"
-
-#: xslt/gettext/l10n.xml.in.h:58
-msgid "Reference Section"
-msgstr "Referensavsnitt"
-
-#: xslt/gettext/l10n.xml.in.h:59
+#: xslt/gettext/l10n.xml.in.h:44
 msgid "Release Information"
 msgstr "Utgåveinformation"
 
-#: xslt/gettext/l10n.xml.in.h:60
+#: xslt/gettext/l10n.xml.in.h:45
 msgid "Revision History"
 msgstr "Revisionshistorik"
 
-#: xslt/gettext/l10n.xml.in.h:61
-msgid "Section"
-msgstr "Avdelning"
-
-#: xslt/gettext/l10n.xml.in.h:62
+#: xslt/gettext/l10n.xml.in.h:46
 msgid "See"
 msgstr "Se"
 
-#: xslt/gettext/l10n.xml.in.h:63
+#: xslt/gettext/l10n.xml.in.h:47
 msgid "See Also"
 msgstr "Se även"
 
-#: xslt/gettext/l10n.xml.in.h:64
+#: xslt/gettext/l10n.xml.in.h:48
 msgid "Set Index"
 msgstr "Samlingsindex"
 
-#: xslt/gettext/l10n.xml.in.h:65
-msgid "Table"
-msgstr "Tabell"
+#: xslt/gettext/l10n.xml.in.h:49
+msgid "Synopsis"
+msgstr "Sammanfattning"
 
-#: xslt/gettext/l10n.xml.in.h:66
+#. Used for a link to a table of contents.
+#: xslt/gettext/l10n.xml.in.h:51
 msgid "Table of Contents"
 msgstr "Innehållsförteckning"
 
-#: xslt/gettext/l10n.xml.in.h:67
+#: xslt/gettext/l10n.xml.in.h:52
 msgid "Tip"
 msgstr "Tips"
 
-#: xslt/gettext/l10n.xml.in.h:68
+#. Used as a header for title column in the revision history.
+#: xslt/gettext/l10n.xml.in.h:54
 msgid "Title"
 msgstr "Titel"
 
-#: xslt/gettext/l10n.xml.in.h:69
-msgid "Unknown"
-msgstr "Okänd"
-
-#: xslt/gettext/l10n.xml.in.h:70
+#: xslt/gettext/l10n.xml.in.h:55
 msgid "Warning"
 msgstr "Varning"
+
+#~ msgid "%t{name} %t{number}"
+#~ msgstr "%t{name} %t{number}"
+
+#~ msgid "‘%t{node}’"
+#~ msgstr "‘%t{node}’"
+
+#~ msgid "“%t{node}”"
+#~ msgstr "“%t{node}”"
+
+#~ msgid "&#8216;"
+#~ msgstr "&#8216;"
+
+#~ msgid "&#8217;"
+#~ msgstr "&#8217;"
+
+#~ msgid "&#8220;"
+#~ msgstr "&#8220;"
+
+#~ msgid "&#8221;"
+#~ msgstr "&#8221;"
+
+#~ msgid "About This Article"
+#~ msgstr "Om denna artikel"
+
+#~ msgid "About This Bibliography"
+#~ msgstr "Om denna bibliografi"
+
+#~ msgid "About This Book"
+#~ msgstr "Om denna bok"
+
+#~ msgid "About This Chapter"
+#~ msgstr "Om detta kapitel"
+
+#~ msgid "About This Entry"
+#~ msgstr "Om denna post"
+
+#~ msgid "About This Glossary"
+#~ msgstr "Om denna ordlista"
+
+#~ msgid "About This Index"
+#~ msgstr "Om detta index"
+
+#~ msgid "About This Part"
+#~ msgstr "Om denna del"
+
+#~ msgid "About This Preface"
+#~ msgstr "Om detta förord"
+
+#~ msgid "About This Reference"
+#~ msgstr "Om denna referens"
+
+#~ msgid "About This Section"
+#~ msgstr "Om detta avsnitt"
+
+#~ msgid "Appendix"
+#~ msgstr "Appendix"
+
+#~ msgid "Article"
+#~ msgstr "Artikel"
+
+#~ msgid "Author"
+#~ msgstr "Författare"
+
+#~ msgid "Authors"
+#~ msgstr "Författare"
+
+#~ msgid "Bibliography"
+#~ msgstr "Bibliografi"
+
+#~ msgid "Book"
+#~ msgstr "Bok"
+
+#~ msgid "Chapter"
+#~ msgstr "Kapitel"
+
+#~ msgid "Collaborator"
+#~ msgstr "Kollaboratör"
+
+#~ msgid "Collaborators"
+#~ msgstr "Kollaboratörer"
+
+#~ msgid "Copyright"
+#~ msgstr "Copyright"
+
+# Osäker
+#~ msgid "Copyrights"
+#~ msgstr "Copyright"
+
+#~ msgid "Editor"
+#~ msgstr "Redaktör"
+
+#~ msgid "Editors"
+#~ msgstr "Redaktörer"
+
+#~ msgid "Example"
+#~ msgstr "Exempel"
+
+#~ msgid "Figure"
+#~ msgstr "Figur"
+
+#~ msgid "Glossary"
+#~ msgstr "Ordlista"
+
+#~ msgid "Other Contributor"
+#~ msgstr "Annan bidragsgivare"
+
+#~ msgid "Other Contributors"
+#~ msgstr "Andra bidragsgivare"
+
+#~ msgid "Part"
+#~ msgstr "Del"
+
+#~ msgid "Publisher"
+#~ msgstr "Förläggare"
+
+#~ msgid "Publishers"
+#~ msgstr "Förläggare"
+
+#~ msgid "Reference Entry"
+#~ msgstr "Referenspost"
+
+#~ msgid "Reference Section"
+#~ msgstr "Referensavsnitt"
+
+#~ msgid "Section"
+#~ msgstr "Avdelning"
+
+#~ msgid "Table"
+#~ msgstr "Tabell"
+
+#~ msgid "Unknown"
+#~ msgstr "Okänd"
 
 #~ msgid "Applets"
 #~ msgstr "Panelprogram"
@@ -456,9 +582,6 @@ msgstr "Varning"
 
 #~ msgid "Configuration Files"
 #~ msgstr "Konfigurationsfiler"
-
-#~ msgid "Games"
-#~ msgstr "Spel"
 
 #~ msgid "Overviews"
 #~ msgstr "Översikter"
