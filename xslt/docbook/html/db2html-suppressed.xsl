@@ -10,7 +10,14 @@ supported, while other elements are expected only to be processed in certain
 modes because of the DocBook content model.
 -->
 
-<!-- Only occurs in db2html.funcsynopsis.mode -->
+<!-- Only occur in db2html.cmdsynopsis.mode -->
+<xsl:template match="arg"/>
+<xsl:template match="group"/>
+<xsl:template match="sbr"/>
+<xsl:template match="synopfragment"/>
+<xsl:template match="synopfragmentref"/>
+
+<!-- Only occur in db2html.funcsynopsis.mode -->
 <xsl:template match="funcsynopsisinfo"/>
 
 </xsl:stylesheet>

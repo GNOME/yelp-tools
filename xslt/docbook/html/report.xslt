@@ -16,6 +16,10 @@
       </style>
     </head>
     <body>
+      <p>
+	<xsl:value-of select="count(element[not(template[not(@mode)])])"/>
+	<xsl:text> unmatched elements</xsl:text>
+      </p>
       <table>
 	<tr>
 	  <th>Element</th>

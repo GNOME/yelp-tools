@@ -67,7 +67,6 @@ collab
 collabname
 colophon
 colspec
-colspec
 command
 computeroutput
 confdates
@@ -94,7 +93,6 @@ edition
 editor
 email
 emphasis
-entry
 entry
 entrytbl
 envar
@@ -272,11 +270,6 @@ refname
 refnamediv
 refpurpose
 refsect
-refsect
-refsect
-refsect
-refsect
-refsect
 refsection
 refsectioninfo
 refsynopsisdiv
@@ -291,7 +284,6 @@ revision
 revnumber
 revremark
 row
-row
 sbr
 screen
 screenco
@@ -299,15 +291,6 @@ screeninfo
 screenshot
 secondary
 secondaryie
-sect
-sect
-sect
-sect
-sect
-sect
-sect
-sect
-sect
 sect
 section
 sectioninfo
@@ -359,7 +342,6 @@ taskprerequisites
 taskrelated
 tasksummary
 tbody
-tbody
 td
 term
 tertiary
@@ -368,9 +350,7 @@ textdata
 textobject
 tfoot
 tgroup
-tgroup
 th
-thead
 thead
 tip
 title
@@ -380,10 +360,6 @@ tocback
 tocchap
 tocentry
 tocfront
-toclevel
-toclevel
-toclevel
-toclevel
 toclevel
 tocpart
 token

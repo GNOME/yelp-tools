@@ -1,5 +1,16 @@
 2004-04-06  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/html/db2html-suppressed.xsl:
+	- Added arg, group, sbr, synopfragment, and synopfragmentref
+
+	* xslt/docbook/html/elements:
+	- cat elements | uniq > elements
+
+	* xslt/docbook/html/report.xslt:
+	- Added quick count of unmatched elements
+
+2004-04-06  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/docbook/html/Makefile.am:
 	* xslt/docbook/html/db2html-funcsynopsis.xsl:
 	* xslt/docbook/html/db2html-suppressed.xsl:
