@@ -1,3 +1,8 @@
+2005-04-03  Shaun McCance  <shaunm@gnome.org>
+
+	* gnome-doc-utils.make:
+	- Use -e on xml2po when generating docs
+
 2005-04-01  Shaun McCance  <shaunm@gnome.org>
 
 	* gnome-doc-utils.make:
