@@ -20,6 +20,12 @@ AC_ARG_WITH([help-formats],
 DOC_USER_FORMATS="$with_help_formats"
 AC_SUBST(DOC_USER_FORMATS)
 
+AC_ARG_ENABLE([scrollkeeper],
+	[AC_HELP_STRING([--disable-scrollkeeper],
+			[do not make updates to the scrollkeeper database])],,
+	enable_scrollkeeper=yes)
+AM_CONDITIONAL(ENABLE_SK, test "x$enable_scrollkeeper" = "xyes")
+
 AC_OUTPUT_COMMANDS([
 gdumk=`pkg-config --variable prefix gnome-doc-utils`/share/gnome-doc-utils/gnome-doc-utils.make
 if ! test -f gnome-doc-utils.m4; then

@@ -461,6 +461,12 @@ $(_DOC_HTML_TOPS): $(_DOC_C_DOCS) $(_DOC_LC_DOCS)
 
 ################################################################################
 
+if ENABLE_SK
+_ENABLE_SK = true
+else
+_ENABLE_SK = false
+endif
+
 all:							\
 	$(_DOC_C_DOCS)		$(_DOC_LC_DOCS)		\
 	$(_DOC_OMF_ALL)		$(_DOC_DSK_ALL)		\
@@ -601,7 +607,10 @@ install-omf:
 	  echo "$(INSTALL_DATA) $$omf $(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf"; \
 	  $(INSTALL_DATA) $$omf $(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf; \
 	done
-	-scrollkeeper-update -p "$(_sklocalstatedir)" -o "$(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)"
+	@if test "x$(_ENABLE_SK)" = "xtrue"; then \
+	  echo "scrollkeeper-update -p $(_sklocalstatedir) -o $(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)"; \
+	  scrollkeeper-update -p "$(_sklocalstatedir)" -o "$(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)"; \
+	fi;
 
 install-dsk:
 	echo install-dsk
@@ -629,8 +638,10 @@ uninstall-fig:
 
 uninstall-omf:
 	@for omf in $(_DOC_OMF_ALL); do \
-	  echo " scrollkeeper-uninstall -p $(_sklocalstatedir) $(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf"; \
-	  scrollkeeper-uninstall -p "$(_sklocalstatedir)" "$(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf"; \
+	  if test "x$(_ENABLE_SK)" == "xtrue"; then \
+	    echo "scrollkeeper-uninstall -p $(_sklocalstatedir) $(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf"; \
+	    scrollkeeper-uninstall -p "$(_sklocalstatedir)" "$(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf"; \
+	  fi; \
 	  echo "rm -f $(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf"; \
 	  rm -f "$(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf"; \
 	done

@@ -1,5 +1,11 @@
 2005-04-04  Shaun McCance  <shaunm@gnome.org>
 
+	* gnome-doc-utils.m4:
+	* gnome-doc-utils.make:
+	- Added the mythical --disable-scrollkeeper
+
+2005-04-04  Shaun McCance  <shaunm@gnome.org>
+
 	* gnome-doc-utils.make:
 	- Include rule for making pot files
 
