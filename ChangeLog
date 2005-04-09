@@ -1,3 +1,13 @@
+2005-04-09  Shaun McCance  <shaunm@gnome.org>
+
+	* Makefile.am:
+	* autogen.sh:
+	* bootstrap.make:
+	* gnome-doc-utils.m4:
+	* gnome-doc-utils.make:
+	* doc/xslt/Makefile.am:
+	- More builddir != srcdir fixes
+
 2005-04-06  Danilo Šegan  <dsegan@gmx.net>
 
 	* configure.in (ALL_LINGUAS): Added "sr" and "sr@Latn".

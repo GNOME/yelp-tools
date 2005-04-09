@@ -5,12 +5,12 @@ dist-hook: doc-dist-hook
 DOC_MODULE = gnome-doc-xslt
 DOC_INCLUDES = legal.xml translating.xml
 
-DOC_LINGUAS =
+DOC_LINGUAS = es
 
-XSLDOC_DIRS = 					\
-	$(top_srcdir)/xslt/gettext		\
-	$(top_srcdir)/xslt/docbook/common	\
-	$(top_srcdir)/xslt/docbook/html		\
-	$(top_srcdir)/xslt/docbook/omf		\
-	$(top_srcdir)/xslt/rngdoc		\
-	$(top_srcdir)/xslt/xsldoc
+XSLDOC_DIRS = 				\
+	../../xslt/gettext		\
+	../../xslt/docbook/common	\
+	../../xslt/docbook/html		\
+	../../xslt/docbook/omf		\
+	../../xslt/rngdoc		\
+	../../xslt/xsldoc

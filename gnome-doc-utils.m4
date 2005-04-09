@@ -27,10 +27,14 @@ AC_ARG_ENABLE([scrollkeeper],
 AM_CONDITIONAL(ENABLE_SK, test "x$enable_scrollkeeper" = "xyes")
 
 AC_OUTPUT_COMMANDS([
-gdumk=`pkg-config --variable prefix gnome-doc-utils`/share/gnome-doc-utils/gnome-doc-utils.make
-if ! test -f gnome-doc-utils.m4; then
+gdumk=`pkg-config --variable datadir gnome-doc-utils`/gnome-doc-utils/gnome-doc-utils.make
+if test -f $srcdir/gnome-doc-utils.m4; then
+  if ! cmp -s $srcdir/gnome-doc-utils.make gnome-doc-utils.make; then
+    cp $srcdir/gnome-doc-utils.make gnome-doc-utils.make
+  fi
+else
   if ! cmp -s $gdumk gnome-doc-utils.make; then
-    cp $gdumk .
+    cp $gdumk gnome-doc-utils.make
   fi
 fi
 if ! grep -q 'gnome-doc-utils\.make' $ac_top_srcdir/Makefile.am; then

@@ -1,4 +1,4 @@
-_xml2po = PYTHONPATH="$(shell pwd)/$(top_srcdir)/xml2po/modes" "$(shell pwd)/$(top_srcdir)/xml2po/xml2po"
+_xml2po = PYTHONPATH="$(shell pwd)/$(top_srcdir)/xml2po/modes:$(shell pwd)/$(top_builddir)/xml2po/modes" "$(shell pwd)/$(top_builddir)/xml2po/xml2po"
 
 _db2html = $(top_srcdir)/xslt/docbook/html/db2html.xsl
 _db2omf  = $(top_srcdir)/xslt/docbook/omf/db2omf.xsl

@@ -6,7 +6,9 @@ if ENABLE_BUILD_UTILS
 xml2po_SUBDIRS = xml2po
 
 DOC_H_FILE = gnome-doc-utils.h
-DOC_H_DOCS = doc/xslt/C/gnome-doc-xslt.xml doc/gnome-doc-make/C/gnome-doc-make.xml
+DOC_H_DOCS =					\
+	doc/xslt/C/gnome-doc-xslt.xml		\
+	doc/gnome-doc-make/C/gnome-doc-make.xml
 
 aclocaldir = $(datadir)/aclocal
 aclocal_DATA = gnome-doc-utils.m4
