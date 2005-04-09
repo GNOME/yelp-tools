@@ -140,8 +140,8 @@ rngdoc_args =									\
 
 ## @ _RNGDOC_RNGS
 ## The actual RNG files for which to generate documentation with rngdoc
-_RNGDOC_RNGS = $(sort $(foreach dir,$(RNGDOC_DIRS),				\
-	$(wildcard $(dir)/*.rng) $(wildcard $(srcdir)/$(dir)/*.rng)))
+_RNGDOC_RNGS = $(sort $(patsubst ./%, %, $(foreach dir,$(RNGDOC_DIRS),		\
+	$(wildcard $(dir)/*.rng) $(wildcard $(srcdir)/$(dir)/*.rng))))
 
 ## @ _RNGDOC_C_DOCS
 ## The generated rngdoc documentation in the C locale
@@ -167,8 +167,8 @@ xsldoc_args =									\
 
 ## @ _XSLDOC_XSLS
 ## The actual XSLT files for which to generate documentation with xsldoc
-_XSLDOC_XSLS = $(sort $(foreach dir,$(XSLDOC_DIRS),				\
-	$(wildcard $(dir)/*.xsl) $(wildcard $(srcdir)/$(dir)/*.xsl)))
+_XSLDOC_XSLS = $(sort $(patsubst ./%, %, $(foreach dir,$(XSLDOC_DIRS),		\
+	$(wildcard $(dir)/*.xsl) $(wildcard $(srcdir)/$(dir)/*.xsl))))
 
 ## @ _XSLDOC_C_DOCS
 ## The generated xsldoc documentation in the C locale

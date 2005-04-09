@@ -1,5 +1,10 @@
 2005-04-09  Shaun McCance  <shaunm@gnome.org>
 
+	* gnome-doc-utils.make:
+	- Fixed a new problem when buildir == srcdir
+
+2005-04-09  Shaun McCance  <shaunm@gnome.org>
+
 	* Makefile.am:
 	* autogen.sh:
 	* bootstrap.make:
