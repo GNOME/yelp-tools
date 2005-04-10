@@ -511,7 +511,20 @@ clean-rngdoc: ; rm -f $(_RNGDOC_C_DOCS) $(_RNGDOC_LC_DOCS)
 clean-xsldoc: ; rm -f $(_XSLDOC_C_DOCS) $(_XSLDOC_LC_DOCS)
 clean-omf: ; rm -f $(_DOC_OMF_DB) $(_DOC_OMF_HTML)
 clean-dsk: ; rm -f $(_DOC_DSK_DB) $(_DOC_DSK_HTML)
-clean-lc:  ; rm -f $(_DOC_LC_DOCS)
+clean-lc:
+	rm -f $(_DOC_LC_DOCS)
+	@for po in $(_DOC_POFILES); do \
+	  if ! test "$$po" -ef "$(srcdir)/$$po"; then \
+	    echo "rm -f $$po"; \
+	    rm -f "$$po"; \
+	  fi; \
+	done
+	@for lc in C $(DOC_LINGUAS); do \
+	  if test -f "$$lc/.xml2po.mo"; then \
+	    echo "rm -f $$lc/.xml2po.mo"; \
+	    rm -f "$$lc/.xml2po.mo"; \
+	  fi; \
+	done
 
 _clean_rngdoc = $(if $(RNGDOC_DIRS),clean-rngdoc)
 _clean_xsldoc = $(if $(XSLDOC_DIRS),clean-xsldoc)
