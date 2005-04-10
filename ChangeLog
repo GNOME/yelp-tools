@@ -1,3 +1,8 @@
+2005-04-10  Shaun McCance  <shaunm@gnome.org>
+
+	* gnome-doc-utils.make:
+	- Fixed installation of DOC_FIGURES
+
 2005-04-09  Shaun McCance  <shaunm@gnome.org>
 
 	* gnome-doc-utils.make:

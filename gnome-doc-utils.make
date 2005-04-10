@@ -618,17 +618,28 @@ install-doc:
 	done
 
 install-fig:
-	@for lc in C $(DOC_LINGUAS); do \
-	  echo " $(mkinstalldirs) $(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$lc/figures"; \
-	  $(mkinstalldirs) "$(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$lc/figures"; \
-	done;
-	@for fig in $(_DOC_C_FIGURES) $(_DOC_LC_FIGURES); do \
-	  if test -f "$$fig"; then d=; else d="$(srcdir)/"; fi; \
-	  if test -f "$$dd$$fig"; then \
-	    echo "$(INSTALL_DATA) $$d$$fig $(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$fig"; \
-	    $(INSTALL_DATA) "$$d$$fig $(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$fig"; \
-	  fi; \
-	done;
+	@for fig in $(patsubst C/%,%,$(_DOC_C_FIGURES)); do \
+	  for lc in C $(DOC_LINGUAS); do \
+	    if test -f "$$lc/$$fig"; then \
+	      figfile="$$lc/$$fig"; \
+	    elif test -f "$(srcdir)/$$lc/$$fig"; then \
+	      figfile="$(srcdir)/$$lc/$$fig"; \
+	    elif test -f "C/$$fig"; then \
+	      figfile="C/$$fig"; \
+	    else \
+	      figfile="$(srcdir)/C/$$fig"; \
+	    fi; \
+	    figdir="$$lc/"`echo $$fig | sed -e 's/^\(.*\/\).*\|.*/\1/'`; \
+	    figdir="$(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$figdir"; \
+	    if ! test -d "$$figdir"; then \
+	      echo "$(mkinstalldirs) $$figdir"; \
+	      $(mkinstalldirs) "$$figdir"; \
+	    fi; \
+	    figbase=`echo $$fig | sed -e 's/^.*\///'`; \
+	    echo "$(INSTALL_DATA) $$figfile $$figdir$$figbase"; \
+	    $(INSTALL_DATA) "$$figfile" "$$figdir$$figbase"; \
+	  done; \
+	done
 
 install-html:
 	echo install-html
