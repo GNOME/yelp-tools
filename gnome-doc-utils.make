@@ -531,29 +531,39 @@ clean-lc:
 	    rm -f "$$lc/.xml2po.mo"; \
 	  fi; \
 	done
+clean-dir:
+	@for lc in C $(DOC_LINGUAS); do \
+	  for dir in `find $$lc -depth -type d`; do \
+	    if ! test $$dir -ef $(srcdir)/$$dir; then \
+	      echo "rmdir $$dir"; \
+	      rmdir "$$dir"; \
+	   fi; \
+	  done; \
+	done
 
 _clean_rngdoc = $(if $(RNGDOC_DIRS),clean-rngdoc)
 _clean_xsldoc = $(if $(XSLDOC_DIRS),clean-xsldoc)
 _clean_omf = $(if $(_DOC_OMF_IN),clean-omf)
 _clean_dsk = $(if $(_DOC_DSK_IN),clean-dsk)
 _clean_lc  = $(if $(DOC_LINGUAS),clean-lc)
+_clean_dir = $(if $(DOC_MODULE),clean-dir)
 
 clean:							\
 	$(_clean_rngdoc)	$(_clean_xsldoc)	\
 	$(_clean_omf)		$(_clean_dsk)		\
-	$(_clean_lc)
+	$(_clean_lc)		$(_clean_dir)
 distclean:						\
 	$(_clean_rngdoc)	$(_clean_xsldoc)	\
 	$(_clean_omf)		$(_clean_dsk)		\
-	$(_clean_lc)
+	$(_clean_lc)		$(_clean_dir)
 mostlyclean:						\
 	$(_clean_rngdoc)	$(_clean_xsldoc)	\
 	$(_clean_omf)		$(_clean_dsk)		\
-	$(_clean_lc)
+	$(_clean_lc)		$(_clean_dir)
 maintainer-clean:					\
 	$(_clean_rngdoc)	$(_clean_xsldoc)	\
 	$(_clean_omf)		$(_clean_dsk)		\
-	$(_clean_lc)
+	$(_clean_lc)		$(_clean_dir)
 
 
 .PHONY: dist-doc dist-fig dist-omf dist-dsk

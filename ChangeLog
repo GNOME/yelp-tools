@@ -1,6 +1,11 @@
 2005-04-10  Shaun McCance  <shaunm@gnome.org>
 
 	* gnome-doc-utils.make:
+	- Remove extra directories on 'make clean'
+
+2005-04-10  Shaun McCance  <shaunm@gnome.org>
+
+	* gnome-doc-utils.make:
 	- Fix problem with disting non-existant localized figures
 
 	* doc/xslt/Makefile.am:
