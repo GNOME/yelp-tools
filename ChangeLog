@@ -1,3 +1,9 @@
+2005-04-11  Shaun McCance  <shaunm@gnome.org>
+
+	* gnome-doc-utils.make:
+	- Fixed typo that prevented figures from being disted
+	- Fixed disting of the generated .h file
+
 2005-04-10  Shaun McCance  <shaunm@gnome.org>
 
 	* gnome-doc-utils.make:

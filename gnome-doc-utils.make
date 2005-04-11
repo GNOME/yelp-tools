@@ -61,7 +61,7 @@ $(DOC_H_FILE): $(DOC_H_DOCS);
 
 .PHONY: dist-header
 dist-doc-header: $(DOC_H_FILE)
-	$(INSTALL_DATA) $(srcdir)/$(DOC_H_FILE) $(distdir)/$(DOC_H_FILE)
+	$(INSTALL_DATA) $(DOC_H_FILE) $(distdir)/$(DOC_H_FILE)
 
 doc-dist-hook: $(if $(DOC_H_FILE),dist-doc-header)
 
@@ -587,7 +587,7 @@ dist-doc: $(_DOC_C_DOCS) $(_DOC_LC_DOCS) $(_DOC_POFILES)
 dist-fig: $(_DOC_SRC_FIGURES)
 	@for fig in $(_DOC_C_FIGURES) $(_DOC_LC_FIGURES); do \
 	  if test -f "$$fig"; then d=; else d="$(srcdir)/"; fi; \
-	  if test -f "$$dd$$fig"; then \
+	  if test -f "$$d$$fig"; then \
 	    figdir=`echo $$fig | sed -e 's/^\(.*\/\).*\|.*/\1/'`; \
 	    if ! test -d "$(distdir)/$$figdir"; then \
 	      echo "$(mkinstalldirs) $(distdir)/$$figdir"; \
