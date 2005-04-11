@@ -363,6 +363,12 @@ _DOC_C_FIGURES = $(if $(DOC_FIGURES),					\
 	$(foreach fig,$(DOC_FIGURES),C/$(fig)),				\
 	$(patsubst $(srcdir)/%,%,$(wildcard $(srcdir)/C/figures/*.png)))
 
+_DOC_SRC_FIGURES =							\
+	$(_DOC_C_FIGURES)						\
+	$(foreach fig,$(_DOC_C_FIGURES), $(foreach lc,$(DOC_LINGUAS),	\
+		$(wildcard $(srcdir)/$(lc)/$(patsubst C/%,%,$(fig))) ))
+
+
 ## @ _DOC_C_HTML
 ## All HTML documentation in the C locale
 # FIXME: probably have to shell escape to determine the file names
@@ -568,14 +574,15 @@ dist-doc: $(_DOC_C_DOCS) $(_DOC_LC_DOCS) $(_DOC_POFILES)
 	  $(INSTALL_DATA) "$$d$$doc" "$(distdir)/$$doc"; \
 	done
 
-dist-fig: $(_DOC_C_FIGURES) $(_DOC_LC_FIGURES)
-	@for lc in C $(DOC_LINGUAS); do \
-	  echo " $(mkinstalldirs) $(distdir)/$$lc/figures"; \
-	  $(mkinstalldirs) "$(distdir)/$$lc/figures"; \
-	done;
+dist-fig: $(_DOC_SRC_FIGURES)
 	@for fig in $(_DOC_C_FIGURES) $(_DOC_LC_FIGURES); do \
 	  if test -f "$$fig"; then d=; else d="$(srcdir)/"; fi; \
 	  if test -f "$$dd$$fig"; then \
+	    figdir=`echo $$fig | sed -e 's/^\(.*\/\).*\|.*/\1/'`; \
+	    if ! test -d "$(distdir)/$$figdir"; then \
+	      echo "$(mkinstalldirs) $(distdir)/$$figdir"; \
+	      $(mkinstalldirs) "$(distdir)/$$figdir"; \
+	    fi; \
 	    echo "$(INSTALL_DATA) $$d$$fig $(distdir)/$$fig"; \
 	    $(INSTALL_DATA) "$$d$$fig" "$(distdir)/$$fig"; \
 	  fi; \
