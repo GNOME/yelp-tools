@@ -436,7 +436,7 @@ $(_DOC_POFILES): $(_DOC_C_DOCS)
 	  echo "mkdir $(dir $@)"; \
 	  mkdir "$(dir $@)"; \
 	fi
-	@if test ! -f $@ -a -f $(srcdir)$@; then \
+	@if test ! -f $@ -a -f $(srcdir)/$@; then \
 	  echo "cp $(srcdir)/$@ $@"; \
 	  cp "$(srcdir)/$@" "$@"; \
 	fi;
