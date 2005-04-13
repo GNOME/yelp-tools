@@ -616,9 +616,15 @@ check:							\
 
 check-doc: $(_DOC_C_DOCS) $(_DOC_LC_DOCS)
 	@for lc in C $(DOC_LINGUAS); do \
-	  if test -f "$$lc"; then d=; else d="$(srcdir)/"; fi; \
-	  echo " (cd $$d$$lc && xmllint --noout --xinclude --postvalid $(DOC_MODULE).xml)"; \
-	  (cd $$d$$lc && xmllint --noout --xinclude --postvalid $(DOC_MODULE).xml); \
+	  if test -f "$$lc"; \
+	    then d=; \
+	    xmlpath="$$lc"; \
+	  else \
+	    d="$(srcdir)/"; \
+	    xmlpath="$$lc:../$(srcdir)/$$lc"; \
+	  fi; \
+	  echo "xmllint --noout --path $$xmlpath --xinclude --postvalid $$d$$lc/$(DOC_MODULE).xml"; \
+	  xmllint --noout --path "$$xmlpath" --xinclude --postvalid "$$d$$lc/$(DOC_MODULE).xml"; \
 	done
 
 check-omf: $(_DOC_OMF_ALL)

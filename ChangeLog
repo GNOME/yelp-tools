@@ -1,3 +1,8 @@
+2005-04-13  Shaun McCance  <shaunm@gnome.org>
+
+	* gnome-doc-utils.make:
+	- Fixed 'make check' for builddir != srcdir
+
 2005-04-12  Christian Persch  <chpe@cvs.gnome.org>
 
 	* gnome-doc-utils.make:
