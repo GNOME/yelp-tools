@@ -621,7 +621,7 @@ check-doc: $(_DOC_C_DOCS) $(_DOC_LC_DOCS)
 	    xmlpath="$$lc"; \
 	  else \
 	    d="$(srcdir)/"; \
-	    xmlpath="$$lc:../$(srcdir)/$$lc"; \
+	    xmlpath="$$lc:$(srcdir)/$$lc"; \
 	  fi; \
 	  echo "xmllint --noout --path $$xmlpath --xinclude --postvalid $$d$$lc/$(DOC_MODULE).xml"; \
 	  xmllint --noout --path "$$xmlpath" --xinclude --postvalid "$$d$$lc/$(DOC_MODULE).xml"; \
