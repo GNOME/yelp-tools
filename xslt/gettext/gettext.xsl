@@ -23,7 +23,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                 version="1.0">
 
 <xsl:variable name="l10n" select="document('l10n.xml')"/>
-<xsl:key name="msgid" match="msg:msg" use="msg:msgid"/>
+<xsl:key name="msgstr" match="msg:msg/msg:msgstr"
+         use="concat(../msg:msgid, '(LC)', @xml:lang)"/>
 
 <doc:title>Gettext</doc:title>
 
@@ -232,106 +233,123 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:param>
 
   <xsl:for-each select="$l10n">
-    <xsl:variable name="msg" select="key('msgid', $msgid)"/>
-
     <xsl:choose>
       <!-- fe_fi@fo.fum -->
-      <xsl:when test="($lang_region and $lang_variant and $lang_charset) and 
-                $msg/msg:msgstr[@xml:lang = concat(
-                $lang_language, '_', $lang_region,
-                                '@', $lang_variant,
-                                '.', $lang_charset )]">
+      <xsl:when test="($lang_region and $lang_variant and $lang_charset) and
+                      key('msgstr', concat($msgid, '(LC)',
+                                           $lang_language, '_', $lang_region,
+                                                           '@', $lang_variant,
+                                                           '.', $lang_charset))">
         <xsl:call-template name="gettext.get">
           <xsl:with-param
-           name="msgstr" select="$msg/msg:msgstr[@xml:lang = concat(
-           $lang_language, '_', $lang_region,
-                           '@', $lang_variant,
-                           '.', $lang_charset )]"/>
+           name="msgstr"
+           select="key('msgstr', concat($msgid, '(LC)',
+                                        $lang_language, '_', $lang_region,
+                                                        '@', $lang_variant,
+                                                        '.', $lang_charset))"/>
           <xsl:with-param name="form" select="$form"/>
         </xsl:call-template>
       </xsl:when>
       <!-- fe_fi@fo -->
       <xsl:when test="($lang_region and $lang_variant) and
-                $msg/msg:msgstr[@xml:lang = concat(
-                $lang_language, '_', $lang_region, '@', $lang_variant)]">
+                      key('msgstr', concat($msgid, '(LC)',
+                                           $lang_language, '_', $lang_region,
+                                                           '@', $lang_variant))">
         <xsl:call-template name="gettext.get">
           <xsl:with-param
-           name="msgstr" select="$msg/msg:msgstr[@xml:lang = concat(
-           $lang_language, '_', $lang_region, '@', $lang_variant)]"/>
+           name="msgstr"
+           select="key('msgstr', concat($msgid, '(LC)',
+                                        $lang_language, '_', $lang_region,
+                                                        '@', $lang_variant))"/>
           <xsl:with-param name="form" select="$form"/>
         </xsl:call-template>
       </xsl:when>
       <!-- fe@fo.fum -->
       <xsl:when test="($lang_variant and $lang_charset) and
-                $msg/msg:msgstr[@xml:lang = concat(
-                $lang_language, '@', $lang_variant, '.', $lang_charset)]">
+                      key('msgstr', concat($msgid, '(LC)',
+                                           $lang_language, '@', $lang_variant,
+                                                           '.', $lang_charset))">
         <xsl:call-template name="gettext.get">
           <xsl:with-param
-           name="msgstr" select="$msg/msg:msgstr[@xml:lang = concat(
-           $lang_language, '@', $lang_variant, '.', $lang_charset)]"/>
+           name="msgstr"
+           select="key('msgstr', concat($msgid, '(LC)',
+                                        $lang_language, '@', $lang_variant,
+                                                        '.', $lang_charset))"/>
           <xsl:with-param name="form" select="$form"/>
         </xsl:call-template>
       </xsl:when>
       <!-- fe@fo -->
       <xsl:when test="($lang_variant) and
-                $msg/msg:msgstr[@xml:lang = concat(
-                $lang_language, '@', $lang_variant)]">
+                      key('msgstr', concat($msgid, '(LC)',
+                                           $lang_language, '@', $lang_variant))">
         <xsl:call-template name="gettext.get">
           <xsl:with-param
-           name="msgstr" select="$msg/msg:msgstr[@xml:lang = concat(
-           $lang_language, '@', $lang_variant)]"/>
+           name="msgstr"
+           select="key('msgstr', concat($msgid, '(LC)',
+                                        $lang_language, '@', $lang_variant))"/>
           <xsl:with-param name="form" select="$form"/>
         </xsl:call-template>
       </xsl:when>
       <!-- fe_fi.fum -->
       <xsl:when test="($lang_region and $lang_charset) and
-                $msg/msg:msgstr[@xml:lang = concat(
-                $lang_language, '_', $lang_region, '.', $lang_charset)]">
+                      key('msgstr', concat($msgid, '(LC)',
+                                           $lang_language, '_', $lang_region,
+                                                           '.', $lang_charset))">
         <xsl:call-template name="gettext.get">
           <xsl:with-param
-           name="msgstr" select="$msg/msg:msgstr[@xml:lang = concat(
-           $lang_language, '_', $lang_region, '.', $lang_charset)]"/>
+           name="msgstr"
+           select="key('msgstr', concat($msgid, '(LC)',
+                                        $lang_language, '_', $lang_region,
+                                                        '.', $lang_charset))"/>
           <xsl:with-param name="form" select="$form"/>
         </xsl:call-template>
       </xsl:when>
       <!-- fe_fi -->
       <xsl:when test="($lang_region) and
-                $msg/msg:msgstr[@xml:lang = concat($lang_language, '_', $lang_region)]">
+                      key('msgstr', concat($msgid, '(LC)',
+                                           $lang_language, '_', $lang_region))">
         <xsl:call-template name="gettext.get">
           <xsl:with-param
-           name="msgstr" select="$msg/msg:msgstr[@xml:lang = concat(
-           $lang_language, '_', $lang_region)]"/>
+           name="msgstr"
+           select="key('msgstr', concat($msgid, '(LC)',
+                                        $lang_language, '_', $lang_region))"/>
           <xsl:with-param name="form" select="$form"/>
         </xsl:call-template>
       </xsl:when>
       <!-- fe.fum -->
       <xsl:when test="($lang_charset) and
-                $msg/msg:msgstr[@xml:lang = concat($lang_language, '.', $lang_charset)]">
+                      key('msgstr', concat($msgid, '(LC)',
+                                           $lang_language, '.', $lang_charset))">
         <xsl:call-template name="gettext.get">
           <xsl:with-param
-           name="msgstr" select="$msg/msg:msgstr[@xml:lang = concat(
-           $lang_language, '.', $lang_charset)]"/>
+           name="msgstr"
+           select="key('msgstr', concat($msgid, '(LC)',
+                                        $lang_language, '.', $lang_charset))"/>
           <xsl:with-param name="form" select="$form"/>
         </xsl:call-template>
       </xsl:when>
       <!-- fe -->
-      <xsl:when test="$msg/msg:msgstr[@xml:lang = $lang_language]">
+      <xsl:when test="key('msgstr', concat($msgid, '(LC)', $lang_language))">
         <xsl:call-template name="gettext.get">
-          <xsl:with-param name="msgstr" select="$msg/msg:msgstr[@xml:lang = $lang_language]"/>
+          <xsl:with-param
+           name="msgstr"
+           select="key('msgstr', concat($msgid, '(LC)', $lang_language))"/>
           <xsl:with-param name="form" select="$form"/>
         </xsl:call-template>
       </xsl:when>
       <!-- "C" -->
-      <xsl:when test="$msg/msg:msgstr[@xml:lang = 'C']">
+      <xsl:when test="key('msgstr', concat($msgid, '(LC)C'))">
         <xsl:call-template name="gettext.get">
-          <xsl:with-param name="msgstr" select="$msg/msg:msgstr[@xml:lang = 'C']"/>
+          <xsl:with-param
+           name="msgstr" select="key('msgstr', concat($msgid, '(LC)C'))"/>
           <xsl:with-param name="form" select="$form"/>
         </xsl:call-template>
       </xsl:when>
       <!-- not() -->
-      <xsl:when test="$msg/msg:msgstr[not(@xml:lang)]">
+      <xsl:when test="key('msgstr', concat($msgid, '(LC)'))">
         <xsl:call-template name="gettext.get">
-          <xsl:with-param name="msgstr" select="$msg/msg:msgstr[not(@xml:lang)]"/>
+          <xsl:with-param
+           name="msgstr" select="key('msgstr', concat($msgid, '(LC)'))"/>
           <xsl:with-param name="form" select="$form"/>
         </xsl:call-template>
       </xsl:when>

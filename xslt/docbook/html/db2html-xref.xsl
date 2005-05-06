@@ -130,7 +130,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
         <xsl:copy-of select="$content"/>
       </xsl:when>
       <xsl:when test="$endterm">
-        <xsl:apply-templates select="key('idkey', $endterm)"/>
+        <xsl:apply-templates select="key('idkey', $endterm)/node()"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:call-template name="db.xref.content">

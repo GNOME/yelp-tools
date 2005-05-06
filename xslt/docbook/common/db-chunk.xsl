@@ -177,12 +177,6 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
   </xsl:param>
-  <xsl:if test="string($template) = ''">
-    <xsl:call-template name="db.chunk.children">
-      <xsl:with-param name="node" select="$node"/>
-      <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
-    </xsl:call-template>
-  </xsl:if>
   <exsl:document href="{$href}">
     <xsl:call-template name="db.chunk.content">
       <xsl:with-param name="node" select="$node"/>
@@ -190,6 +184,12 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
       <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
     </xsl:call-template>
   </exsl:document>
+  <xsl:if test="string($template) = ''">
+    <xsl:call-template name="db.chunk.children">
+      <xsl:with-param name="node" select="$node"/>
+      <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+    </xsl:call-template>
+  </xsl:if>
 </xsl:template>
 
 
@@ -284,8 +284,15 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     </xsl:call-template>
   </xsl:param>
   <xsl:if test="$depth_of_chunk &lt; $db.chunk.max_depth">
-    <xsl:for-each select="$node/*[contains($db.chunk.chunks_,
-                                    concat(' ', local-name(.), ' '))]">
+    <xsl:for-each select="
+                  $node/appendix   | $node/article    | $node/bibliography |
+                  $node/book       | $node/chapter    | $node/colophon     |
+                  $node/dedication | $node/glossary   | $node/glossdiv     |
+                  $node/index      | $node/lot        | $node/part         |
+                  $node/preface    | $node/refentry   | $node/reference    |
+                  $node/sect1      | $node/sect2      | $node/sect3        |
+                  $node/sect4      | $node/sect5      | $node/section      |
+                  $node/setindex   | $node/simplesect | $node/toc          ">
       <xsl:call-template name="db.chunk">
         <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk + 1"/>
       </xsl:call-template>
@@ -319,9 +326,53 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <xsl:template name="db.chunk.depth-in-chunk">
   <xsl:param name="node" select="."/>
   <xsl:variable name="divs"
+                select="
+count(                          $node/ancestor-or-self::appendix     ) + 
+count(                          $node/ancestor-or-self::article      ) + 
+count(                          $node/ancestor-or-self::bibliography ) + 
+count(                          $node/ancestor-or-self::book         ) + 
+count(                          $node/ancestor-or-self::chapter      ) + 
+count(                          $node/ancestor-or-self::colophon     ) + 
+count(                          $node/ancestor-or-self::dedication   ) + 
+count(                          $node/ancestor-or-self::glossary     ) + 
+count(                          $node/ancestor-or-self::glossdiv     ) + 
+count(                          $node/ancestor-or-self::index        ) + 
+count(                          $node/ancestor-or-self::lot          ) + 
+count(                          $node/ancestor-or-self::part         ) + 
+count(                          $node/ancestor-or-self::preface      ) + 
+count(                          $node/ancestor-or-self::refentry     ) + 
+count(                          $node/ancestor-or-self::reference    ) + 
+count(                          $node/ancestor-or-self::sect1        ) + 
+count(                          $node/ancestor-or-self::sect2        ) + 
+count(                          $node/ancestor-or-self::sect3        ) + 
+count(                          $node/ancestor-or-self::sect4        ) + 
+count(                          $node/ancestor-or-self::sect5        ) + 
+count(                          $node/ancestor-or-self::section      ) + 
+count(                          $node/ancestor-or-self::setindex     ) + 
+count(                          $node/ancestor-or-self::simplesect   ) + 
+count(                          $node/ancestor-or-self::toc          )"/>
+<!--
+  <xsl:variable name="divs"
+                select="count($node/ancestor-or-self::*[
+                          self::appendix     or  self::article   or
+                          self::bibliography or  self::book      or
+                          self::chapter      or  self::colophon  or
+                          self::dedication   or  self::glossary  or
+                          self::glossdiv     or  self::index     or
+                          self::lot          or  self::part      or
+                          self::preface      or  self::refentry  or
+                          self::reference    or  self::sect1     or
+                          self::sect2        or  self::sect3     or
+                          self::sect4        or  self::sect5     or
+                          self::section      or  self::setindex  or
+                          self::simplesect   or  self::toc       ])"/>
+-->
+<!--
+  <xsl:variable name="divs"
                 select="count($node/ancestor-or-self::*
                                [contains($db.chunk.chunks_,
                                   concat(' ', local-name(.), ' '))] )"/>
+-->
   <xsl:choose>
     <xsl:when test="$divs &lt; ($db.chunk.max_depth + 1)">
       <xsl:value-of select="count($node/ancestor-or-self::*) - $divs"/>
@@ -354,6 +405,22 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                 select="count($node/ancestor::*
                                [contains($db.chunk.chunks_,
                                   concat(' ', local-name(.), ' '))] )"/>
+<!--
+  <xsl:variable name="divs"
+                select="count($node/ancestor::*[
+                          self::appendix     or  self::article   or
+                          self::bibliography or  self::book      or
+                          self::chapter      or  self::colophon  or
+                          self::dedication   or  self::glossary  or
+                          self::glossdiv     or  self::index     or
+                          self::lot          or  self::part      or
+                          self::preface      or  self::refentry  or
+                          self::reference    or  self::sect1     or
+                          self::sect2        or  self::sect3     or
+                          self::sect4        or  self::sect5     or
+                          self::section      or  self::setindex  or
+                          self::simplesect   or  self::toc       ])"/>
+-->
   <xsl:choose>
     <xsl:when test="$divs &lt; $db.chunk.max_depth">
       <xsl:value-of select="$divs"/>

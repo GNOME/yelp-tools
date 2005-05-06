@@ -1,3 +1,29 @@
+2005-05-06  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/common/db-chunk.xsl:
+	- Tried to clean up the chunking, still playing
+
+	* xslt/docbook/common/db-format.xml.in:
+	* xslt/docbook/common/db-label.xsl:
+	- Added a book label formatter
+
+	* xslt/docbook/common/db-xref.xsl:
+	- Added is_chunk paramter to db.xref.target for known chunks
+
+	* xslt/docbook/html/db2html-css.xsl:
+	* xslt/docbook/html/db2html-division.xsl:
+	- Made the navbar not look horrible
+	- Added hooks for top and bottom divs
+
+	* xslt/docbook/html/db2html-info.xsl:
+	- Wrapped in a <div class="body">
+
+	* xslt/docbook/html/db2html-xref.xsl:
+	- For endterm, apply to child nodes, not the node itself
+
+	* xslt/gettext/gettext.xsl:
+	- Used xsl:key for faster lookups
+
 2005-04-22  Shaun McCance  <shaunm@gnome.org>
 
 	* gnome-doc-utils.make:

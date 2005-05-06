@@ -44,9 +44,30 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     <xsl:call-template name="db2html.table.css"/>
     <xsl:call-template name="db2html.title.css"/>
     body {
-      padding-top: 8px;
-      padding-left: 8px;
-      padding-right: 12px;
+      margin: 0px;
+    }
+    div[class ~= "body"] {
+      padding: 12px;
+    }
+    div[class ~= "navbar"] {
+      margin-left: 12px;
+      margin-right: 12px;
+      margin-bottom: 12px;
+      padding: 6px;
+      border: solid 1px;
+    }
+    div[class ~= "navbar-prev"] {
+      margin: 0px;
+      padding: 0px;
+      float: left;
+    }
+    div[class ~= "navbar-prev-sans-next"] {
+      float: none;
+    }
+    div[class ~= "navbar-next"] {
+      margin: 0px;
+      padding: 0px;
+      text-align: right;
     }
     div {
       margin-top: 0em;  margin-bottom: 0em;

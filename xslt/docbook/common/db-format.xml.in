@@ -339,6 +339,82 @@
 </xsl:template>
 
 
+<!-- == format.book.label ================================================== -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>format.book.label</name>
+  <purpose>
+    Format the label for a <sgmltag>book</sgmltag> element
+  </purpose>
+  <parameter>
+    <name>node</name>
+    <purpose>
+      The <sgmltag>book</sgmltag> element to format
+    </purpose>
+  </parameter>
+  <parameter>
+    <name>role</name>
+    <purpose>
+      The role of the label
+    </purpose>
+  </parameter>
+  <section>
+    <title>Arguments</title>
+    <para>This is a format template constructed by
+    <function role='xsl-template' moreinfo='refentry'>format2xsl</function>.
+    The following arguments are available for translators:</para>
+    <variablelist>
+      <varlistentry>
+        <term><parameter>title</parameter></term>
+        <listitem><para>A template argument which extracts the title
+        of the element.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><parameter>titleabbrev</parameter></term>
+        <listitem><para>A template argument which extracts the abbreviated
+        title of the element.</para></listitem>
+      </varlistentry>
+    </variablelist>
+  </section>
+</template>
+
+<xsl:template name="format.book.label">
+  <xsl:param name="node" select="."/>
+  <xsl:param name="role"/>
+  <msg:msg id="format.book.label">
+    <!--
+    book - A book
+    http://docbook.org/tdg/en/html/book.html
+
+    This template formats the label of a book.  This tmeplate uses roles
+    to mark different uses of the label.  Books are never numbered by
+    the stylesheets, so only the 'title' and 'titleabbrev' roles are
+    necessary.  Since both of these are automatically constructed by
+    format2xsl, translators usually will not need to provide mutliple
+    role translations, unless they need additional cross reference
+    roles for their locale.
+
+    A simple rendering might look like this: %t{title}
+
+    Read this: ghelp:gnome-doc-xslt#translating
+    Then this: ghelp:gnome-doc-xslt#format.book.label
+    -->
+    <_msg:msgstr>format.book.label</_msg:msgstr>
+    <msg:msgstr xml:lang="C">%t{title}</msg:msgstr>
+  </msg:msg>
+  <msg:arg name="title">
+    <xsl:call-template name="db.title">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:call-template>
+  </msg:arg>
+  <msg:arg name="titleabbrev">
+    <xsl:call-template name="db.titleabbrev">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:call-template>
+  </msg:arg>
+</xsl:template>
+
+
 <!-- == format.chapter.label =============================================== -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">

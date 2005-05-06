@@ -113,14 +113,25 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
       The target element
     </purpose>
   </parameter>
+  <parameter>
+    <name>is_chunk</name>
+    <purpose>
+      Whether the <parameter>target</parameter> node
+      is known to be a chunked node
+    </purpose>
+  </parameter>
 </template>
 
 <xsl:template name="db.xref.target">
   <xsl:param name="linkend" select="@linkend"/>
   <xsl:param name="target" select="key('idkey', $linkend)"/>
+  <xsl:param name="is_chunk" select="false()"/>
   <xsl:choose>
     <xsl:when test="$linkend = $db.chunk.info_basename">
       <xsl:value-of select="concat($db.chunk.info_basename, $db.chunk.extension)"/>
+    </xsl:when>
+    <xsl:when test="$is_chunk">
+      <xsl:value-of select="concat($linkend, $db.chunk.extension)"/>
     </xsl:when>
     <xsl:otherwise>
       <xsl:variable name="target_chunk_id">

@@ -92,6 +92,15 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
+<xsl:template mode="db.label.mode" match="book">
+  <xsl:param name="role"/>
+  <xsl:call-template name="format.book.label">
+    <xsl:with-param name="node" select="."/>
+    <xsl:with-param name="role" select="$role"/>
+    <xsl:with-param name="lang" select="ancestor-or-self::*[@lang][1]/@lang"/>
+  </xsl:call-template>
+</xsl:template>
+
 <xsl:template mode="db.label.mode" match="chapter">
   <xsl:param name="role"/>
   <xsl:call-template name="format.chapter.label">
@@ -163,7 +172,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <!-- FIXME: refsection refsect1 refsect2 refsect3 -->
 
 <xsl:template mode="db.label.mode" match="
-              article  | book     | bibliography |
+              article  |  bibliography |
               colophon | glossary     | index     |
               qandadiv | qandaset | preface      | reference |
               set      | setindex ">
@@ -173,6 +182,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <xsl:text> </xsl:text>
   <xsl:call-template name="db.label.number"/>
 -->
+<xsl:call-template name="db.title"/>
 </xsl:template>
 
 <xsl:template mode="db.label.mode" match="answer | question">
