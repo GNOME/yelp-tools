@@ -1,5 +1,10 @@
 2005-05-06  Shaun McCance  <shaunm@gnome.org>
 
+	* configure.in:
+	- Bumping the version number for yelp
+
+2005-05-06  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/docbook/common/db-chunk.xsl:
 	- Tried to clean up the chunking, still playing
 
