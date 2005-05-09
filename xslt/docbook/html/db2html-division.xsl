@@ -104,6 +104,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
             <xsl:call-template name="db.xref.target">
               <xsl:with-param name="linkend" select="$prev_id"/>
               <xsl:with-param name="target" select="$prev_node"/>
+              <xsl:with-param name="is_chunk" select="true()"/>
             </xsl:call-template>
           </xsl:attribute>
           <xsl:attribute name="title">
@@ -119,6 +120,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
             <xsl:call-template name="db.xref.target">
               <xsl:with-param name="linkend" select="$next_id"/>
               <xsl:with-param name="target" select="$next_node"/>
+              <xsl:with-param name="is_chunk" select="true()"/>
             </xsl:call-template>
           </xsl:attribute>
           <xsl:attribute name="title">
@@ -134,6 +136,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
             <xsl:call-template name="db.xref.target">
               <xsl:with-param name="linkend" select="/*[1]/@id"/>
               <xsl:with-param name="target" select="/*[1]"/>
+              <xsl:with-param name="is_chunk" select="true()"/>
             </xsl:call-template>
           </xsl:attribute>
           <xsl:attribute name="title">
@@ -144,6 +147,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
         </link>
       </xsl:if>
       <xsl:call-template name="db2html.css"/>
+      <xsl:call-template name="db2html.division.head.extra"/>
     </head>
     <body>
       <xsl:call-template name="db2html.division.top">
@@ -173,6 +177,11 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     </body>
   </html>
 </xsl:template>
+
+
+<!-- == db2html.division.head.extra ======================================== -->
+
+<xsl:template name="db2html.division.head.extra"/>
 
 
 <!-- == db2html.division.top =============================================== -->
@@ -450,73 +459,77 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <xsl:param name="next_node" select="key('idkey', $next_id)"/>
   <div class="navbar">
     <xsl:if test="$depth_of_chunk = 0 or $prev_node">
-      <div>
-        <xsl:attribute name="class">
-          <xsl:text>navbar-prev</xsl:text>
-          <xsl:if test="not($next_node)">
-            <xsl:text> navbar-prev-sans-next</xsl:text>
-          </xsl:if>
-        </xsl:attribute>
-        <a class="navbar">
-          <xsl:attribute name="href">
-            <xsl:call-template name="db.xref.target">
-              <xsl:with-param name="linkend" select="$prev_id"/>
-              <xsl:with-param name="is_chunk" select="true()"/>
-            </xsl:call-template>
-          </xsl:attribute>
-          <xsl:choose>
-            <xsl:when test="$depth_of_chunk = 0">
-              <xsl:variable name="label">
-                <xsl:call-template name="db.label">
-                  <xsl:with-param name="node" select="$info"/>
-                </xsl:call-template>
-              </xsl:variable>
-              <xsl:attribute name="title">
-                <xsl:value-of select="normalize-space($label)"/>
-              </xsl:attribute>
-              <xsl:value-of select="$label"/>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:attribute name="title">
-                <xsl:call-template name="db.xref.tooltip">
-                  <xsl:with-param name="linkend" select="$prev_id"/>
-                  <xsl:with-param name="target"  select="$prev_node"/>
-                </xsl:call-template>
-              </xsl:attribute>
-              <xsl:call-template name="db.title">
-                <xsl:with-param name="node" select="$prev_node"/>
+      <xsl:variable name="class">
+        <xsl:text>navbar-prev</xsl:text>
+        <xsl:if test="not($next_node)">
+          <xsl:text> navbar-prev-sans-next</xsl:text>
+        </xsl:if>
+      </xsl:variable>
+      <div class="{$class}">
+        <span class="{$class}">
+          <a class="navbar {$class}">
+            <xsl:attribute name="href">
+              <xsl:call-template name="db.xref.target">
+                <xsl:with-param name="linkend" select="$prev_id"/>
+                <xsl:with-param name="is_chunk" select="true()"/>
               </xsl:call-template>
-            </xsl:otherwise>
-          </xsl:choose>
-        </a>
+            </xsl:attribute>
+            <xsl:choose>
+              <xsl:when test="$depth_of_chunk = 0">
+                <xsl:variable name="label">
+                  <xsl:call-template name="db.label">
+                    <xsl:with-param name="node" select="$info"/>
+                  </xsl:call-template>
+                </xsl:variable>
+                <xsl:attribute name="title">
+                  <xsl:value-of select="normalize-space($label)"/>
+                </xsl:attribute>
+                <xsl:value-of select="$label"/>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:attribute name="title">
+                  <xsl:call-template name="db.xref.tooltip">
+                    <xsl:with-param name="linkend" select="$prev_id"/>
+                    <xsl:with-param name="target"  select="$prev_node"/>
+                  </xsl:call-template>
+                </xsl:attribute>
+                <xsl:call-template name="db.title">
+                  <xsl:with-param name="node" select="$prev_node"/>
+                </xsl:call-template>
+              </xsl:otherwise>
+            </xsl:choose>
+          </a>
+        </span>
       </div>
     </xsl:if>
     <xsl:if test="$next_node">
-      <div>
-        <xsl:attribute name="class">
-          <xsl:text>navbar-next</xsl:text>
-          <xsl:if test="not($prev_node)">
-            <xsl:text> navbar-next-sans-prev</xsl:text>
-          </xsl:if>
-        </xsl:attribute>
-        <a class="navbar">
-          <xsl:attribute name="href">
-            <xsl:call-template name="db.xref.target">
-              <xsl:with-param name="linkend" select="$next_id"/>
-              <xsl:with-param name="is_chunk" select="true()"/>
+      <xsl:variable name="class">
+        <xsl:text>navbar-next</xsl:text>
+        <xsl:if test="not($prev_node)">
+          <xsl:text> navbar-next-sans-prev</xsl:text>
+        </xsl:if>
+      </xsl:variable>
+      <div class="{$class}">
+        <span class="{$class}">
+          <a class="navbar {$class}">
+            <xsl:attribute name="href">
+              <xsl:call-template name="db.xref.target">
+                <xsl:with-param name="linkend" select="$next_id"/>
+                <xsl:with-param name="is_chunk" select="true()"/>
+              </xsl:call-template>
+            </xsl:attribute>
+            <xsl:attribute name="title">
+              <xsl:call-template name="db.xref.tooltip">
+                <xsl:with-param name="linkend" select="$next_id"/>
+                <xsl:with-param name="target"  select="$next_node"/>
+              </xsl:call-template>
+            </xsl:attribute>
+            <xsl:call-template name="db.label">
+              <xsl:with-param name="node" select="$next_node"/>
+              <xsl:with-param name="role" select="'title'"/>
             </xsl:call-template>
-          </xsl:attribute>
-          <xsl:attribute name="title">
-            <xsl:call-template name="db.xref.tooltip">
-              <xsl:with-param name="linkend" select="$next_id"/>
-              <xsl:with-param name="target"  select="$next_node"/>
-            </xsl:call-template>
-          </xsl:attribute>
-          <xsl:call-template name="db.label">
-            <xsl:with-param name="node" select="$next_node"/>
-            <xsl:with-param name="role" select="'title'"/>
-          </xsl:call-template>
-        </a>
+          </a>
+        </span>
       </div>
     </xsl:if>
   </div>
