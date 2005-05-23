@@ -1,3 +1,8 @@
+2005-05-23  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/html/db2html-list.xsl:
+	- Allow bolding of varlistentry terms
+
 2005-05-09  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/html/db2html-division.xsl:

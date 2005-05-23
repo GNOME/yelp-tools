@@ -453,7 +453,9 @@ dd elements has a negative top margin.
 </xsl:template>
 
 <xsl:template match="term">
-  <xsl:call-template name="db2html.inline"/>
+  <xsl:call-template name="db2html.inline">
+    <xsl:with-param name="bold" select="@role = 'bold'"/>
+  </xsl:call-template>
 </xsl:template>
 
 </xsl:stylesheet>
