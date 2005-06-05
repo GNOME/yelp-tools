@@ -1,21 +1,36 @@
-# Italian translation of gnome-doc-utils messages.
-# Copyright (C) 2005 THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the gnome-doc-utils package.
-# Psyk[o] <shaihulud@supereva.it>, 2002.
-# Alessio Frusciante <algol@firenze.linux.it>, 2005.
+# Italian translation of gnome-doc-utils.
+# Copyright (C) 2002 Free Software Foundation, Inc.
+# Luca Ferretti <elle.uca@infinito.it>, 2004.
+#
+# Based on Yelp translation by Psyk[o] <shaihulud@supereva.it>, 2002.
+#
+# ATTENZIONE!!!! Questa traduzione non è facile, specie perché le cose da
+# tradurre non sono messaggi, ma variabili. Si consiglia di installare
+# gnome-doc-utils, aprire Yelp e leggere il documento 
+#
+#         Altra documentazione -> GNOME Documentation XSLT Manual
+#
+# in particolare l'ultima sezione (Translating the Stylesheets) prima di
+# commentare sulla traduzione.
+#
+# Lo stesso documento contiene informazioni sulle traduzioni dei vari
+# pezzi tipo "format.quote.inner": cosa sono, cosa rappresentano e 
+# che argomenti possono accettare.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-doc-tools\n"
+"Project-Id-Version: gnome-doc-utils\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-04 10:05+0100\n"
-"PO-Revision-Date: 2005-03-04 10:16+0100\n"
-"Last-Translator: Alessio Frusciante <algol@firenze.linux.it>\n"
+"POT-Creation-Date: 2005-06-05 18:50+0200\n"
+"PO-Revision-Date: 2005-06-05 19:01+0200\n"
+"Last-Translator: Luca Ferretti <elle.uca@infinito.it>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+# modificato da 
+# 	   role="xref">appendice %t{number} - %{title}</msg:msgstr>
 #.
 #. appendix - An appendix in a book or article
 #. http://docbook.org/tdg/en/html/appendix.html
@@ -30,9 +45,34 @@ msgstr ""
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.appendix.label
 #.
-#: xslt/docbook/common/db-format.xml.in.h:15
+#: ../xslt/docbook/common/db-format.xml.in.h:15
 msgid "format.appendix.label"
 msgstr ""
+"<msg:msgstr role=\"header\">%t{number}.&#x2003;</msg:msgstr>\n"
+"<msg:msgstr role=\"li\">%t{number}.&#x2002;</msg:msgstr>\n"
+"<msg:msgstr role=\"xref\">appendice %t{number}</msg:msgstr>\n"
+"<msg:msgstr>Appendice %t{number}</msg:msgstr>"
+
+#.
+#. book - A book
+#. http://docbook.org/tdg/en/html/book.html
+#.
+#. This template formats the label of a book.  This tmeplate uses roles
+#. to mark different uses of the label.  Books are never numbered by
+#. the stylesheets, so only the 'title' and 'titleabbrev' roles are
+#. necessary.  Since both of these are automatically constructed by
+#. format2xsl, translators usually will not need to provide mutliple
+#. role translations, unless they need additional cross reference
+#. roles for their locale.
+#.
+#. A simple rendering might look like this: %t{title}
+#.
+#. Read this: ghelp:gnome-doc-xslt#translating
+#. Then this: ghelp:gnome-doc-xslt#format.book.label
+#.
+#: ../xslt/docbook/common/db-format.xml.in.h:33
+msgid "format.book.label"
+msgstr "%t{title}"
 
 #.
 #. chapter - A chapter, as of a book
@@ -48,9 +88,13 @@ msgstr ""
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.chapter.label
 #.
-#: xslt/docbook/common/db-format.xml.in.h:30
+#: ../xslt/docbook/common/db-format.xml.in.h:48
 msgid "format.chapter.label"
 msgstr ""
+"<msg:msgstr role=\"header\">%t{number}.&#x2003;</msg:msgstr>\n"
+"<msg:msgstr role=\"li\">%t{number}.&#x2002;</msg:msgstr>\n"
+"<msg:msgstr role=\"xref\">capitolo %t{number}</msg:msgstr>\n"
+"<msg:msgstr>Capitolo %t{number}</msg:msgstr>"
 
 #.
 #. citetitle - The title of a cited work
@@ -63,13 +107,47 @@ msgstr ""
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.citetitle
 #.
-#: xslt/docbook/common/db-format.xml.in.h:42
+#: ../xslt/docbook/common/db-format.xml.in.h:60
 msgid "format.citetitle"
 msgstr ""
+"<msg:msgstr role=\"article\">«%t{node}»</msg:msgstr>\n"
+"<msg:msgstr><i>%t{node}</i></msg:msgstr>"
 
-#: xslt/docbook/common/db-format.xml.in.h:43
+# Idem.
+#: ../xslt/docbook/common/db-format.xml.in.h:61
 msgid "format.date"
 msgstr ""
+"<xsl:template>\n"
+"        <xsl:choose>\n"
+"          <xsl:when test=\"$month =  1\"><xsl:text>Gennaio </xsl:text></xsl:"
+"when>\n"
+"          <xsl:when test=\"$month =  2\"><xsl:text>Febbraio </xsl:text></xsl:"
+"when>\n"
+"          <xsl:when test=\"$month =  3\"><xsl:text>Marzo </xsl:text></xsl:"
+"when>\n"
+"          <xsl:when test=\"$month =  4\"><xsl:text>Aprile </xsl:text></xsl:"
+"when>\n"
+"          <xsl:when test=\"$month =  5\"><xsl:text>Maggio </xsl:text></xsl:"
+"when>\n"
+"          <xsl:when test=\"$month =  6\"><xsl:text>Giugno </xsl:text></xsl:"
+"when>\n"
+"          <xsl:when test=\"$month =  7\"><xsl:text>Luglio </xsl:text></xsl:"
+"when>\n"
+"          <xsl:when test=\"$month =  8\"><xsl:text>Augosto </xsl:text></xsl:"
+"when>\n"
+"          <xsl:when test=\"$month =  9\"><xsl:text>Settembre </xsl:text></"
+"xsl:when>\n"
+"          <xsl:when test=\"$month = 10\"><xsl:text>Ottobre </xsl:text></xsl:"
+"when>\n"
+"          <xsl:when test=\"$month = 11\"><xsl:text>Novembre </xsl:text></xsl:"
+"when>\n"
+"          <xsl:when test=\"$month = 12\"><xsl:text>Dicembre </xsl:text></xsl:"
+"when>\n"
+"        </xsl:choose>\n"
+"        <xsl:value-of select=\"$day\"/>\n"
+"        <xsl:text>, </xsl:text>\n"
+"        <xsl:value-of select=\"$year\"/>\n"
+"      </xsl:template>"
 
 #.
 #. example - A formal example, with a title
@@ -85,9 +163,13 @@ msgstr ""
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.example.label
 #.
-#: xslt/docbook/common/db-format.xml.in.h:58
+#: ../xslt/docbook/common/db-format.xml.in.h:76
 msgid "format.example.label"
 msgstr ""
+"<msg:msgstr role=\"header\">Esempio %t{number}:&#x2003;</msg:msgstr>\n"
+"<msg:msgstr role=\"li\">%t{number}.&#x2002;</msg:msgstr>\n"
+"<msg:msgstr role=\"xref\">capitolo %t{number}</msg:msgstr>\n"
+"<msg:msgstr>Esempio %t{number}</msg:msgstr>"
 
 #.
 #. example - A formal example, with a title
@@ -103,9 +185,9 @@ msgstr ""
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.example.number
 #.
-#: xslt/docbook/common/db-format.xml.in.h:73
+#: ../xslt/docbook/common/db-format.xml.in.h:91
 msgid "format.example.number"
-msgstr ""
+msgstr "%t{parent}.%1{number}"
 
 #.
 #. example - A formal example, with a title
@@ -120,9 +202,9 @@ msgstr ""
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.example.number.flat
 #.
-#: xslt/docbook/common/db-format.xml.in.h:87
+#: ../xslt/docbook/common/db-format.xml.in.h:105
 msgid "format.example.number.flat"
-msgstr ""
+msgstr "%1{number}"
 
 #.
 #. figure - A formal figure, generally an illustration, with a title
@@ -138,9 +220,13 @@ msgstr ""
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.figure.label
 #.
-#: xslt/docbook/common/db-format.xml.in.h:102
+#: ../xslt/docbook/common/db-format.xml.in.h:120
 msgid "format.figure.label"
 msgstr ""
+"<msg:msgstr role=\"header\">Figura %t{number}:&#x2003;</msg:msgstr>\n"
+"<msg:msgstr role=\"li\">%t{number}.&#x2002;</msg:msgstr>\n"
+"<msg:msgstr role=\"xref\">figura %t{number}</msg:msgstr>\n"
+"<msg:msgstr>Figura %t{number}</msg:msgstr>"
 
 #.
 #. figure - A formal figure, generally an illustration, with a title
@@ -156,9 +242,9 @@ msgstr ""
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.figure.number
 #.
-#: xslt/docbook/common/db-format.xml.in.h:117
+#: ../xslt/docbook/common/db-format.xml.in.h:135
 msgid "format.figure.number"
-msgstr ""
+msgstr "%t{parent}.%1{number}"
 
 #.
 #. figure - A formal figure, generally an illustration, with a title
@@ -173,9 +259,9 @@ msgstr ""
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.figure.number.flat
 #.
-#: xslt/docbook/common/db-format.xml.in.h:131
+#: ../xslt/docbook/common/db-format.xml.in.h:149
 msgid "format.figure.number.flat"
-msgstr ""
+msgstr "%1{number}"
 
 #.
 #. manvolnum - A reference volume number
@@ -188,9 +274,9 @@ msgstr ""
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.manvolnum
 #.
-#: xslt/docbook/common/db-format.xml.in.h:143
+#: ../xslt/docbook/common/db-format.xml.in.h:161
 msgid "format.manvolnum"
-msgstr ""
+msgstr "(%t{node})"
 
 #.
 #. part - A division in a book
@@ -206,9 +292,13 @@ msgstr ""
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.part.label
 #.
-#: xslt/docbook/common/db-format.xml.in.h:158
+#: ../xslt/docbook/common/db-format.xml.in.h:176
 msgid "format.part.label"
 msgstr ""
+"<msg:msgstr role=\"header\">%t{number}.&#x2003;</msg:msgstr>\n"
+"<msg:msgstr role=\"li\">%t{number}.&#x2002;</msg:msgstr>\n"
+"<msg:msgstr role=\"xref\">parte %t{number}</msg:msgstr>\n"
+"<msg:msgstr>Parte %t{number}</msg:msgstr>"
 
 #.
 #. part - A division in a book
@@ -220,9 +310,9 @@ msgstr ""
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.part.number
 #.
-#: xslt/docbook/common/db-format.xml.in.h:169
+#: ../xslt/docbook/common/db-format.xml.in.h:187
 msgid "format.part.number"
-msgstr ""
+msgstr "%I{number}"
 
 #.
 #. quote - An inline quotation
@@ -234,9 +324,9 @@ msgstr ""
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.quote.inner
 #.
-#: xslt/docbook/common/db-format.xml.in.h:180
+#: ../xslt/docbook/common/db-format.xml.in.h:198
 msgid "format.quote.inner"
-msgstr ""
+msgstr "‘%t{node}’"
 
 #.
 #. quote - An inline quotation
@@ -248,9 +338,9 @@ msgstr ""
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.quote.outer
 #.
-#: xslt/docbook/common/db-format.xml.in.h:191
+#: ../xslt/docbook/common/db-format.xml.in.h:209
 msgid "format.quote.outer"
-msgstr ""
+msgstr "“%t{node}”"
 
 #.
 #. refentry - A reference page (originally a UNIX man-style reference page)
@@ -269,9 +359,9 @@ msgstr ""
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.refentry.label
 #.
-#: xslt/docbook/common/db-format.xml.in.h:209
+#: ../xslt/docbook/common/db-format.xml.in.h:227
 msgid "format.refentry.label"
-msgstr ""
+msgstr "%t{title}"
 
 #.
 #. http://docbook.org/tdg/en/html/section.html
@@ -295,9 +385,13 @@ msgstr ""
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.section.label
 #.
-#: xslt/docbook/common/db-format.xml.in.h:232
+#: ../xslt/docbook/common/db-format.xml.in.h:250
 msgid "format.section.label"
 msgstr ""
+"<msg:msgstr role=\"header\">%t{number} - </msg:msgstr>\n"
+"<msg:msgstr role=\"li\">%t{number} - </msg:msgstr>\n"
+"<msg:msgstr role=\"xref\">sezione %t{number}</msg:msgstr>\n"
+"<msg:msgstr>Sezione %t{number}</msg:msgstr>"
 
 #.
 #. table - A formal table in a document
@@ -313,9 +407,13 @@ msgstr ""
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.table.label
 #.
-#: xslt/docbook/common/db-format.xml.in.h:247
+#: ../xslt/docbook/common/db-format.xml.in.h:265
 msgid "format.table.label"
 msgstr ""
+"<msg:msgstr role=\"header\">Tabella %t{number}:&#x2003;</msg:msgstr>\n"
+"<msg:msgstr role=\"li\">%t{number}.&#x2002;</msg:msgstr>\n"
+"<msg:msgstr role=\"xref\">tabella %t{number}</msg:msgstr>\n"
+"<msg:msgstr>Tabella %t{number}</msg:msgstr>"
 
 #.
 #. table - A formal table in a document
@@ -331,9 +429,9 @@ msgstr ""
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.table.number
 #.
-#: xslt/docbook/common/db-format.xml.in.h:262
+#: ../xslt/docbook/common/db-format.xml.in.h:280
 msgid "format.table.number"
-msgstr ""
+msgstr "%t{parent}.%1{number}"
 
 #.
 #. table - A formal table in a document
@@ -348,9 +446,9 @@ msgstr ""
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.table.number.flat
 #.
-#: xslt/docbook/common/db-format.xml.in.h:276
+#: ../xslt/docbook/common/db-format.xml.in.h:294
 msgid "format.table.number.flat"
-msgstr ""
+msgstr "%1{number}"
 
 #.
 #. glossentry - An entry in a glossary or glosslist
@@ -362,9 +460,9 @@ msgstr ""
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.tooltip.glossentry
 #.
-#: xslt/docbook/common/db-format.xml.in.h:287
+#: ../xslt/docbook/common/db-format.xml.in.h:305
 msgid "format.tooltip.glossentry"
-msgstr ""
+msgstr "Consulta la definizione di «%n{node}»"
 
 #.
 #. This template formats a tooltip for mailto: links.
@@ -373,178 +471,212 @@ msgstr ""
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.tooltip.mailto
 #.
-#: xslt/docbook/common/db-format.xml.in.h:295
+#: ../xslt/docbook/common/db-format.xml.in.h:313
 msgid "format.tooltip.mailto"
-msgstr ""
+msgstr "Invia una email a «%s{address}»"
 
 #. Used as a header before a list of authors.
-#: xslt/gettext/l10n.xml.in.h:2
+#: ../xslt/gettext/l10n.xml.in.h:2
 msgid "<msgstr form=\"0\">Author</msgstr> <msgstr form=\"1\">Authors</msgstr>"
 msgstr "<msgstr form=\"0\">Autore</msgstr> <msgstr form=\"1\">Autori</msgstr>"
 
 #. Used as a header before a list of collaborators.
-#: xslt/gettext/l10n.xml.in.h:4
+#: ../xslt/gettext/l10n.xml.in.h:4
 msgid ""
 "<msgstr form=\"0\">Collaborator</msgstr> <msgstr form=\"1\">Collaborators</"
 "msgstr>"
-msgstr "<msgstr form=\"0\">Collaboratore</msgstr> <msgstr form=\"1\">Collaboratori</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Collaboratore</msgstr> <msgstr form=\"1\">Collaboratori</"
+"msgstr>"
 
 #. Used as a header before a list of copyrights.
-#: xslt/gettext/l10n.xml.in.h:6
+#: ../xslt/gettext/l10n.xml.in.h:6
 msgid ""
 "<msgstr form=\"0\">Copyright</msgstr> <msgstr form=\"1\">Copyrights</msgstr>"
-msgstr "<msgstr form=\"0\">Copyright</msgstr> <msgstr form=\"1\">Copyright</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Copyright</msgstr> <msgstr form=\"1\">Copyright</msgstr>"
 
 #. Used as a header before a list of editors.
-#: xslt/gettext/l10n.xml.in.h:8
+#: ../xslt/gettext/l10n.xml.in.h:8
 msgid "<msgstr form=\"0\">Editor</msgstr> <msgstr form=\"1\">Editors</msgstr>"
-msgstr "<msgstr form=\"0\">Editore</msgstr> <msgstr form=\"1\">Editori</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Redattore</msgstr> <msgstr form=\"1\">Redattori</msgstr>"
 
 #. Used as a header before a list of contributors.
-#: xslt/gettext/l10n.xml.in.h:10
+#: ../xslt/gettext/l10n.xml.in.h:10
 msgid ""
 "<msgstr form=\"0\">Other Contributor</msgstr> <msgstr form=\"1\">Other "
 "Contributors</msgstr>"
-msgstr "<msgstr form=\"0\">Altro contributore</msgstr> <msgstr form=\"1\">Altri contributori</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Altro contributore</msgstr> <msgstr form=\"1\">Altri "
+"contributori</msgstr>"
 
 #. Used as a header before a list of publishers.
-#: xslt/gettext/l10n.xml.in.h:12
+#: ../xslt/gettext/l10n.xml.in.h:12
 msgid ""
 "<msgstr form=\"0\">Publisher</msgstr> <msgstr form=\"1\">Publishers</msgstr>"
-msgstr "<msgstr form=\"0\">Pubblicatore</msgstr> <msgstr form=\"1\">Pubblicatori</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Editore</msgstr> <msgstr form=\"1\">Editori</msgstr>"
 
 #. Link to the titlepage
-#: xslt/gettext/l10n.xml.in.h:14
+#: ../xslt/gettext/l10n.xml.in.h:14
 msgid "About This Document"
 msgstr "Informazioni su questo documento"
 
-#: xslt/gettext/l10n.xml.in.h:15
+# Dall'elemento <affiliation>, usato nell'elencare autori/contributori, come
+#    Luca Ferretti
+#      Affiliation: Italian GNOME Team
+#: ../xslt/gettext/l10n.xml.in.h:15
 msgid "Affiliation"
 msgstr "Affiliazione"
 
+# Abbreviazione per "Message Audience". È possibile usare la stessa parola/frase per entrambi
 #. This is an abbreviated form of 'Message Audience'.
 #. Feel free to use the same word/phrase for both.
-#: xslt/gettext/l10n.xml.in.h:18
+#: ../xslt/gettext/l10n.xml.in.h:18
 msgid "Audience"
-msgstr "Destinatari"
+msgstr "Pubblico"
 
-#: xslt/gettext/l10n.xml.in.h:19
+# Usato per l'elemento <caution>
+#: ../xslt/gettext/l10n.xml.in.h:19
 msgid "Caution"
-msgstr "Avvertenza"
+msgstr "Attenzione"
 
-#: xslt/gettext/l10n.xml.in.h:20
+# Usato per l'elemento <colophon>
+#: ../xslt/gettext/l10n.xml.in.h:20
 msgid "Colophon"
 msgstr "Colophon"
 
 #. This is an abbreviated form of 'Table of Contents'.
 #. Feel free to use the same word/phrase for both.
-#: xslt/gettext/l10n.xml.in.h:23
+#: ../xslt/gettext/l10n.xml.in.h:23
 msgid "Contents"
 msgstr "Sommario"
 
 #. Used as a header for date column in the revision history.
-#: xslt/gettext/l10n.xml.in.h:25
+#: ../xslt/gettext/l10n.xml.in.h:25
 msgid "Date"
 msgstr "Data"
 
-#: xslt/gettext/l10n.xml.in.h:26
+# Usato per l'elemento <dedication>
+#: ../xslt/gettext/l10n.xml.in.h:26
 msgid "Dedication"
 msgstr "Dedica"
 
-#: xslt/gettext/l10n.xml.in.h:27
+# Usato nell'elencare autori/contributori, come in
+#
+#       Luca Ferretti
+#         Email: elle.uca@infinito.it
+#: ../xslt/gettext/l10n.xml.in.h:27
 msgid "Email"
 msgstr "Email"
 
-#: xslt/gettext/l10n.xml.in.h:28
+# Usato per l'elemento <important>
+#: ../xslt/gettext/l10n.xml.in.h:28
 msgid "Important"
 msgstr "Importante"
 
-#: xslt/gettext/l10n.xml.in.h:29
+# Usato per l'elemento <index>
+#: ../xslt/gettext/l10n.xml.in.h:29
 msgid "Index"
 msgstr "Indice"
 
-#: xslt/gettext/l10n.xml.in.h:30
+# Usato per l'elemento <legalnotice>
+#: ../xslt/gettext/l10n.xml.in.h:30
 msgid "Legal Notice"
-msgstr "Nota legale"
+msgstr "Note legali"
 
 #. This is an abbreviated form of 'Message Level'.
 #. Feel free to use the same word/phrase for both.
-#: xslt/gettext/l10n.xml.in.h:33
+#: ../xslt/gettext/l10n.xml.in.h:33
 msgid "Level"
 msgstr "Livello"
 
-#: xslt/gettext/l10n.xml.in.h:34
+# Usato per l'elemento <msgaud>
+#: ../xslt/gettext/l10n.xml.in.h:34
 msgid "Message Audience"
-msgstr "Destinatari del messaggio"
+msgstr "Pubblico"
 
-#: xslt/gettext/l10n.xml.in.h:35
+# Usato per l'elemento <msglevel>
+#: ../xslt/gettext/l10n.xml.in.h:35
 msgid "Message Level"
-msgstr "Livello del messaggio"
+msgstr "Livello"
 
-#: xslt/gettext/l10n.xml.in.h:36
+# Usato per l'elemento <msgorig>
+#: ../xslt/gettext/l10n.xml.in.h:36
 msgid "Message Origin"
-msgstr "Origine del messaggio"
+msgstr "Origine"
 
-#: xslt/gettext/l10n.xml.in.h:37
+#: ../xslt/gettext/l10n.xml.in.h:37
 msgid "Name"
 msgstr "Nome"
 
-#: xslt/gettext/l10n.xml.in.h:38
+# Usato per l'elemento <note>
+#: ../xslt/gettext/l10n.xml.in.h:38
 msgid "Note"
-msgstr "Nota"
+msgstr "Annotazione"
 
 #. This is an abbreviated form of 'Message Origin'.
 #. Feel free to use the same word/phrase for both.
-#: xslt/gettext/l10n.xml.in.h:41
+#: ../xslt/gettext/l10n.xml.in.h:41
 msgid "Origin"
 msgstr "Origine"
 
-#: xslt/gettext/l10n.xml.in.h:42
+# Usato per l'elemento <preface>
+#: ../xslt/gettext/l10n.xml.in.h:42
 msgid "Preface"
 msgstr "Prefazione"
 
-#: xslt/gettext/l10n.xml.in.h:43
+# Usato per l'elemento <reference>
+#: ../xslt/gettext/l10n.xml.in.h:43
 msgid "Reference"
 msgstr "Riferimento"
 
-#: xslt/gettext/l10n.xml.in.h:44
+# Usato per l'elemento <releaseinfo>
+#: ../xslt/gettext/l10n.xml.in.h:44
 msgid "Release Information"
-msgstr "Informazioni di pubblicazione"
+msgstr "Informazioni sul rilascio"
 
-#: xslt/gettext/l10n.xml.in.h:45
+# Usato per l'elemento <revhistory>
+#: ../xslt/gettext/l10n.xml.in.h:45
 msgid "Revision History"
-msgstr "Storia delle revisioni"
+msgstr "Cronologia delle revisioni"
 
-#: xslt/gettext/l10n.xml.in.h:46
+# Usato per l'elemento <see>
+#: ../xslt/gettext/l10n.xml.in.h:46
 msgid "See"
-msgstr "Vedi"
+msgstr "Confronta"
 
-#: xslt/gettext/l10n.xml.in.h:47
+# Usato per l'elemento <seealso>
+#: ../xslt/gettext/l10n.xml.in.h:47
 msgid "See Also"
-msgstr "Vedi anche"
+msgstr "Confronta anche"
 
-#: xslt/gettext/l10n.xml.in.h:48
+# Usato per l'elemento <setindex>
+#: ../xslt/gettext/l10n.xml.in.h:48
 msgid "Set Index"
-msgstr "Imposta indice"
+msgstr "Indice raccolta"
 
-#: xslt/gettext/l10n.xml.in.h:49
+#: ../xslt/gettext/l10n.xml.in.h:49
 msgid "Synopsis"
 msgstr "Sinossi"
 
 #. Used for a link to a table of contents.
-#: xslt/gettext/l10n.xml.in.h:51
+#: ../xslt/gettext/l10n.xml.in.h:51
 msgid "Table of Contents"
 msgstr "Sommario"
 
-#: xslt/gettext/l10n.xml.in.h:52
+# Usato per l'elemento <tip>
+#: ../xslt/gettext/l10n.xml.in.h:52
 msgid "Tip"
 msgstr "Suggerimento"
 
 #. Used as a header for title column in the revision history.
-#: xslt/gettext/l10n.xml.in.h:54
+#: ../xslt/gettext/l10n.xml.in.h:54
 msgid "Title"
 msgstr "Titolo"
 
-#: xslt/gettext/l10n.xml.in.h:55
+# Usato per l'elemento <warning>
+#: ../xslt/gettext/l10n.xml.in.h:55
 msgid "Warning"
-msgstr "Attenzione"
+msgstr "Avvertimento"
