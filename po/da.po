@@ -7,10 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-08 11:17+0100\n"
-"PO-Revision-Date: 2005-03-08 11:17+0100\n"
+"POT-Creation-Date: 2005-06-10 10:50+0200\n"
+"PO-Revision-Date: 2005-06-10 10:50+0200\n"
 "Last-Translator: Martin Willemoes Hansen <mwh@sysrq.dk>\n"
-"Language-Team: Danish <dansk@klid.dk>\n"
+"Language-Team: Danish <dansk@dansk-gruppen.dk>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -34,6 +34,27 @@ msgid "format.appendix.label"
 msgstr "format.appendix.label"
 
 #.
+#. book - A book
+#. http://docbook.org/tdg/en/html/book.html
+#.
+#. This template formats the label of a book.  This tmeplate uses roles
+#. to mark different uses of the label.  Books are never numbered by
+#. the stylesheets, so only the 'title' and 'titleabbrev' roles are
+#. necessary.  Since both of these are automatically constructed by
+#. format2xsl, translators usually will not need to provide mutliple
+#. role translations, unless they need additional cross reference
+#. roles for their locale.
+#.
+#. A simple rendering might look like this: %t{title}
+#.
+#. Read this: ghelp:gnome-doc-xslt#translating
+#. Then this: ghelp:gnome-doc-xslt#format.book.label
+#.
+#: ../xslt/docbook/common/db-format.xml.in.h:33
+msgid "format.book.label"
+msgstr "format.book.label"
+
+#.
 #. chapter - A chapter, as of a book
 #. http://docbook.org/tdg/en/html/chapter.html
 #.
@@ -47,7 +68,7 @@ msgstr "format.appendix.label"
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.chapter.label
 #.
-#: ../xslt/docbook/common/db-format.xml.in.h:30
+#: ../xslt/docbook/common/db-format.xml.in.h:48
 msgid "format.chapter.label"
 msgstr "format.chapter.label"
 
@@ -62,11 +83,11 @@ msgstr "format.chapter.label"
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.citetitle
 #.
-#: ../xslt/docbook/common/db-format.xml.in.h:42
+#: ../xslt/docbook/common/db-format.xml.in.h:60
 msgid "format.citetitle"
 msgstr "format.citetitle"
 
-#: ../xslt/docbook/common/db-format.xml.in.h:43
+#: ../xslt/docbook/common/db-format.xml.in.h:61
 msgid "format.date"
 msgstr "format.date"
 
@@ -84,7 +105,7 @@ msgstr "format.date"
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.example.label
 #.
-#: ../xslt/docbook/common/db-format.xml.in.h:58
+#: ../xslt/docbook/common/db-format.xml.in.h:76
 msgid "format.example.label"
 msgstr "format.example.label"
 
@@ -102,7 +123,7 @@ msgstr "format.example.label"
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.example.number
 #.
-#: ../xslt/docbook/common/db-format.xml.in.h:73
+#: ../xslt/docbook/common/db-format.xml.in.h:91
 msgid "format.example.number"
 msgstr "format.example.number"
 
@@ -119,7 +140,7 @@ msgstr "format.example.number"
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.example.number.flat
 #.
-#: ../xslt/docbook/common/db-format.xml.in.h:87
+#: ../xslt/docbook/common/db-format.xml.in.h:105
 msgid "format.example.number.flat"
 msgstr "format.example.number.flat"
 
@@ -137,7 +158,7 @@ msgstr "format.example.number.flat"
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.figure.label
 #.
-#: ../xslt/docbook/common/db-format.xml.in.h:102
+#: ../xslt/docbook/common/db-format.xml.in.h:120
 msgid "format.figure.label"
 msgstr "format.figure.label"
 
@@ -155,7 +176,7 @@ msgstr "format.figure.label"
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.figure.number
 #.
-#: ../xslt/docbook/common/db-format.xml.in.h:117
+#: ../xslt/docbook/common/db-format.xml.in.h:135
 msgid "format.figure.number"
 msgstr "format.figure.number"
 
@@ -172,7 +193,7 @@ msgstr "format.figure.number"
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.figure.number.flat
 #.
-#: ../xslt/docbook/common/db-format.xml.in.h:131
+#: ../xslt/docbook/common/db-format.xml.in.h:149
 msgid "format.figure.number.flat"
 msgstr "format.figure.number.flat"
 
@@ -187,7 +208,7 @@ msgstr "format.figure.number.flat"
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.manvolnum
 #.
-#: ../xslt/docbook/common/db-format.xml.in.h:143
+#: ../xslt/docbook/common/db-format.xml.in.h:161
 msgid "format.manvolnum"
 msgstr "format.manvolnum"
 
@@ -205,7 +226,7 @@ msgstr "format.manvolnum"
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.part.label
 #.
-#: ../xslt/docbook/common/db-format.xml.in.h:158
+#: ../xslt/docbook/common/db-format.xml.in.h:176
 msgid "format.part.label"
 msgstr "format.part.label"
 
@@ -219,7 +240,7 @@ msgstr "format.part.label"
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.part.number
 #.
-#: ../xslt/docbook/common/db-format.xml.in.h:169
+#: ../xslt/docbook/common/db-format.xml.in.h:187
 msgid "format.part.number"
 msgstr "format.part.number"
 
@@ -233,7 +254,7 @@ msgstr "format.part.number"
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.quote.inner
 #.
-#: ../xslt/docbook/common/db-format.xml.in.h:180
+#: ../xslt/docbook/common/db-format.xml.in.h:198
 msgid "format.quote.inner"
 msgstr "format.quote.inner"
 
@@ -247,7 +268,7 @@ msgstr "format.quote.inner"
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.quote.outer
 #.
-#: ../xslt/docbook/common/db-format.xml.in.h:191
+#: ../xslt/docbook/common/db-format.xml.in.h:209
 msgid "format.quote.outer"
 msgstr "format.quote.outer"
 
@@ -268,7 +289,7 @@ msgstr "format.quote.outer"
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.refentry.label
 #.
-#: ../xslt/docbook/common/db-format.xml.in.h:209
+#: ../xslt/docbook/common/db-format.xml.in.h:227
 msgid "format.refentry.label"
 msgstr "format.refentry.label"
 
@@ -294,7 +315,7 @@ msgstr "format.refentry.label"
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.section.label
 #.
-#: ../xslt/docbook/common/db-format.xml.in.h:232
+#: ../xslt/docbook/common/db-format.xml.in.h:250
 msgid "format.section.label"
 msgstr "format.section.label"
 
@@ -312,7 +333,7 @@ msgstr "format.section.label"
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.table.label
 #.
-#: ../xslt/docbook/common/db-format.xml.in.h:247
+#: ../xslt/docbook/common/db-format.xml.in.h:265
 msgid "format.table.label"
 msgstr "format.table.label"
 
@@ -330,7 +351,7 @@ msgstr "format.table.label"
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.table.number
 #.
-#: ../xslt/docbook/common/db-format.xml.in.h:262
+#: ../xslt/docbook/common/db-format.xml.in.h:280
 msgid "format.table.number"
 msgstr "format.table.number"
 
@@ -347,7 +368,7 @@ msgstr "format.table.number"
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.table.number.flat
 #.
-#: ../xslt/docbook/common/db-format.xml.in.h:276
+#: ../xslt/docbook/common/db-format.xml.in.h:294
 msgid "format.table.number.flat"
 msgstr "format.table.number.flat"
 
@@ -361,7 +382,7 @@ msgstr "format.table.number.flat"
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.tooltip.glossentry
 #.
-#: ../xslt/docbook/common/db-format.xml.in.h:287
+#: ../xslt/docbook/common/db-format.xml.in.h:305
 msgid "format.tooltip.glossentry"
 msgstr "format.tooltip.glossentry"
 
@@ -372,7 +393,7 @@ msgstr "format.tooltip.glossentry"
 #. Read this: ghelp:gnome-doc-xslt#translating
 #. Then this: ghelp:gnome-doc-xslt#format.tooltip.mailto
 #.
-#: ../xslt/docbook/common/db-format.xml.in.h:295
+#: ../xslt/docbook/common/db-format.xml.in.h:313
 msgid "format.tooltip.mailto"
 msgstr "format.tooltip.mailto"
 
