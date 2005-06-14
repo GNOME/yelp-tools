@@ -623,8 +623,8 @@ check-doc: $(_DOC_C_DOCS) $(_DOC_LC_DOCS)
 	    d="$(srcdir)/"; \
 	    xmlpath="$$lc:$(srcdir)/$$lc"; \
 	  fi; \
-	  echo "xmllint --noout --path $$xmlpath --xinclude --postvalid $$d$$lc/$(DOC_MODULE).xml"; \
-	  xmllint --noout --path "$$xmlpath" --xinclude --postvalid "$$d$$lc/$(DOC_MODULE).xml"; \
+	  echo "xmllint --noout --noent --path $$xmlpath --xinclude --postvalid $$d$$lc/$(DOC_MODULE).xml"; \
+	  xmllint --noout --noent --path "$$xmlpath" --xinclude --postvalid "$$d$$lc/$(DOC_MODULE).xml"; \
 	done
 
 check-omf: $(_DOC_OMF_ALL)
