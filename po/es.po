@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-02-23 00:36+0100\n"
-"PO-Revision-Date: 2005-02-27 14:28-0600\n"
+"PO-Revision-Date: 2005-06-20 22:51+0200\n"
 "Last-Translator: Francisco Javier F. Serrador <serrador@cvs.gnome.org>\n"
 "Language-Team: Spanish <traductores@es.gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -57,7 +57,7 @@ msgstr ""
 #. Example %t{number}
 #: ../xslt/docbook/common/db-format.xml.in.h:9
 msgid "format.example.label"
-msgstr "Ejemplo %t{number}"
+msgstr "Ejemplo %t{number}  "
 
 #. %t{parent}-%1{number}
 #: ../xslt/docbook/common/db-format.xml.in.h:11
@@ -72,7 +72,7 @@ msgstr "%1{number}"
 #. Figure %t{number}
 #: ../xslt/docbook/common/db-format.xml.in.h:15
 msgid "format.figure.label"
-msgstr "Figura %t{number}"
+msgstr "Figura %t{number}  "
 
 #. %t{parent}-%1{number}
 #: ../xslt/docbook/common/db-format.xml.in.h:17
@@ -92,7 +92,7 @@ msgstr "(%t{node})"
 #. Part %t{number}
 #: ../xslt/docbook/common/db-format.xml.in.h:23
 msgid "format.part.label"
-msgstr "Parte %t{number}"
+msgstr "Parte %t{number}  "
 
 #. %I{number}
 #: ../xslt/docbook/common/db-format.xml.in.h:25
@@ -117,12 +117,12 @@ msgstr "%t{title}"
 #. Section %t{number}
 #: ../xslt/docbook/common/db-format.xml.in.h:33
 msgid "format.section.label"
-msgstr "Sección %t{number}"
+msgstr "Sección %t{number}  "
 
 #. Table %t{number}
 #: ../xslt/docbook/common/db-format.xml.in.h:35
 msgid "format.table.label"
-msgstr "Tabla %t{number}"
+msgstr "Tabla %t{number}  "
 
 #. %t{parent}-%1{number}
 #: ../xslt/docbook/common/db-format.xml.in.h:37
@@ -142,7 +142,7 @@ msgstr "Lea la definición de «%s{node}»"
 #. Send email to ‘%s{address}’
 #: ../xslt/docbook/common/db-format.xml.in.h:43
 msgid "format.tooltip.mailto"
-msgstr "Enviar un correo-e a «%s{address}»"
+msgstr "Envíe un correo-e a «%s{address}»"
 
 #. Used as a header before a list of authors.
 #: ../xslt/gettext/l10n.xml.in.h:2
@@ -176,9 +176,7 @@ msgstr ""
 msgid ""
 "<msgstr form=\"0\">Other Contributor</msgstr> <msgstr form=\"1\">Other "
 "Contributors</msgstr>"
-msgstr ""
-"<msgstr form=\"0\">Otro contribuyente</msgstr> <msgstr form=\"1"
-"\">Otroscontribuyentes</msgstr>"
+msgstr "<msgstr form=\"0\">Otro contribuyente</msgstr> <msgstr form=\"1\">Otros contribuyentes</msgstr>"
 
 #. Used as a header before a list of publishers.
 #: ../xslt/gettext/l10n.xml.in.h:12
@@ -227,7 +225,7 @@ msgstr "Dedicatoria"
 
 #: ../xslt/gettext/l10n.xml.in.h:27
 msgid "Email"
-msgstr "Correo electrónico"
+msgstr "Correo-e"
 
 #: ../xslt/gettext/l10n.xml.in.h:28
 msgid "Important"
@@ -249,11 +247,11 @@ msgstr "Nivel"
 
 #: ../xslt/gettext/l10n.xml.in.h:34
 msgid "Message Audience"
-msgstr "Mensaje para la audiencia"
+msgstr "Audiencia del mensaje"
 
 #: ../xslt/gettext/l10n.xml.in.h:35
 msgid "Message Level"
-msgstr "Nivel de mensaje"
+msgstr "Nivel del mensaje"
 
 #: ../xslt/gettext/l10n.xml.in.h:36
 msgid "Message Origin"
