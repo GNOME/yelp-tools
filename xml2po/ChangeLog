@@ -1,3 +1,10 @@
+2005-06-26  Danilo Šegan  <danilo@gnome.org>
+
+	Fixes #300442.
+	
+	* Makefile.am (xml2po.1): Use xsltproc to generate.
+	* xml2po.1.xml: Add stylesheet declaration.
+
 2005-04-02  Danilo Šegan  <dsegan@gmx.net>
 
 	* xml2po.py (getTranslation): Use ugettext() instead of gettext().
