@@ -1,0 +1,578 @@
+# English translation of gnome-doc-utils.
+# Copyright (C) 2005 THE gnome-doc-utils'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the gnome-doc-utils package.
+# Арангел Ангов <ufo@linux.net.mk>, 2005.
+# , fuzzy
+# 
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: gnome-doc-utils 0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-07-01 05:56+0000\n"
+"PO-Revision-Date: 2005-07-01 10:24+0200\n"
+"Last-Translator: Арангел Ангов <ufo@linux.net.mk>\n"
+"Language-Team: Macedonian <ossm-members@hedona.on.net.mk>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit"
+
+#.
+#. appendix - An appendix in a book or article
+#. http://docbook.org/tdg/en/html/appendix.html
+#.
+#. This template formats the label of an appendix.  This tmeplate uses
+#. roles to mark different uses of the label.  The standard label roles
+#. ('header', 'li', and 'xref') should be defined, as well as any extra
+#. roles you would like supported for your locale.
+#.
+#. A simple rendering might look like this: Appendix %t{number}
+#.
+#. Read this: ghelp:gnome-doc-xslt#translating
+#. Then this: ghelp:gnome-doc-xslt#format.appendix.label
+#.
+#: ../xslt/docbook/common/db-format.xml.in.h:15
+msgid "format.appendix.label"
+msgstr "format.appendix.label"
+
+#.
+#. book - A book
+#. http://docbook.org/tdg/en/html/book.html
+#.
+#. This template formats the label of a book.  This tmeplate uses roles
+#. to mark different uses of the label.  Books are never numbered by
+#. the stylesheets, so only the 'title' and 'titleabbrev' roles are
+#. necessary.  Since both of these are automatically constructed by
+#. format2xsl, translators usually will not need to provide mutliple
+#. role translations, unless they need additional cross reference
+#. roles for their locale.
+#.
+#. A simple rendering might look like this: %t{title}
+#.
+#. Read this: ghelp:gnome-doc-xslt#translating
+#. Then this: ghelp:gnome-doc-xslt#format.book.label
+#.
+#: ../xslt/docbook/common/db-format.xml.in.h:33
+msgid "format.book.label"
+msgstr "format.book.label"
+
+#.
+#. chapter - A chapter, as of a book
+#. http://docbook.org/tdg/en/html/chapter.html
+#.
+#. This template formats the label of a chapter.  This tmeplate uses
+#. roles to mark different uses of the label.  The standard label roles
+#. ('header', 'li', and 'xref') should be defined, as well as any extra
+#. roles you would like supported for your locale.
+#.
+#. A simple rendering might look like this: Chapter %t{number}
+#.
+#. Read this: ghelp:gnome-doc-xslt#translating
+#. Then this: ghelp:gnome-doc-xslt#format.chapter.label
+#.
+#: ../xslt/docbook/common/db-format.xml.in.h:48
+msgid "format.chapter.label"
+msgstr "format.chapter.label"
+
+#.
+#. citetitle - The title of a cited work
+#. http://docbook.org/tdg/en/html/citetitle.html
+#.
+#. This template formats an inline title citation.  This template uses
+#. roles to specify the type of publication being cited, such as article
+#. or book.
+#.
+#. Read this: ghelp:gnome-doc-xslt#translating
+#. Then this: ghelp:gnome-doc-xslt#format.citetitle
+#.
+#: ../xslt/docbook/common/db-format.xml.in.h:60
+msgid "format.citetitle"
+msgstr "format.citetitle"
+
+#: ../xslt/docbook/common/db-format.xml.in.h:61
+msgid "format.date"
+msgstr "format.date"
+
+#.
+#. example - A formal example, with a title
+#. http://docbook.org/tdg/en/html/example.html
+#.
+#. This template formats the label of an example.  This tmeplate uses
+#. roles to mark different uses of the label.  The standard label roles
+#. ('header', 'li', and 'xref') should be defined, as well as any extra
+#. roles you would like supported for your locale.
+#.
+#. A simple rendering might look like this: Example %t{number}
+#.
+#. Read this: ghelp:gnome-doc-xslt#translating
+#. Then this: ghelp:gnome-doc-xslt#format.example.label
+#.
+#: ../xslt/docbook/common/db-format.xml.in.h:76
+msgid "format.example.label"
+msgstr "format.example.label"
+
+#.
+#. example - A formal example, with a title
+#. http://docbook.org/tdg/en/html/example.html
+#.
+#. This template formats the number portion of the label for an example.
+#. The parent argument calls the number formatter for the enclosing
+#. chapter, and the number argument formats the number of the element
+#. itself.
+#.
+#. A simple rendering might look like this: %t{parent}-%1{number}
+#.
+#. Read this: ghelp:gnome-doc-xslt#translating
+#. Then this: ghelp:gnome-doc-xslt#format.example.number
+#.
+#: ../xslt/docbook/common/db-format.xml.in.h:91
+msgid "format.example.number"
+msgstr "format.example.number"
+
+#.
+#. example - A formal example, with a title
+#. http://docbook.org/tdg/en/html/example.html
+#.
+#. This template formats the number portion of the label for an example
+#. inside an article.  In articles, formal block elements use a flat
+#. numbering scheme, rather than being numbered by chapter.
+#.
+#. A simple rendering might look like this: %1{number}
+#.
+#. Read this: ghelp:gnome-doc-xslt#translating
+#. Then this: ghelp:gnome-doc-xslt#format.example.number.flat
+#.
+#: ../xslt/docbook/common/db-format.xml.in.h:105
+msgid "format.example.number.flat"
+msgstr "format.example.number.flat"
+
+#.
+#. figure - A formal figure, generally an illustration, with a title
+#. http://docbook.org/tdg/en/html/figure.html
+#.
+#. This template formats the label of a figure.  This tmeplate uses
+#. roles to mark different uses of the label.  The standard label roles
+#. ('header', 'li', and 'xref') should be defined, as well as any extra
+#. roles you would like supported for your locale.
+#.
+#. A simple rendering might look like this: Figure %t{number}
+#.
+#. Read this: ghelp:gnome-doc-xslt#translating
+#. Then this: ghelp:gnome-doc-xslt#format.figure.label
+#.
+#: ../xslt/docbook/common/db-format.xml.in.h:120
+msgid "format.figure.label"
+msgstr "format.figure.label"
+
+#.
+#. figure - A formal figure, generally an illustration, with a title
+#. http://docbook.org/tdg/en/html/figure.html
+#.
+#. This template formats the number portion of the label for a figure.
+#. The parent argument calls the number formatter for the enclosing
+#. chapter, and the number argument formats the number of the element
+#. itself.
+#.
+#. A simple rendering might look like this: %t{parent}-%1{number}
+#.
+#. Read this: ghelp:gnome-doc-xslt#translating
+#. Then this: ghelp:gnome-doc-xslt#format.figure.number
+#.
+#: ../xslt/docbook/common/db-format.xml.in.h:135
+msgid "format.figure.number"
+msgstr "format.figure.number"
+
+#.
+#. figure - A formal figure, generally an illustration, with a title
+#. http://docbook.org/tdg/en/html/figure.html
+#.
+#. This template formats the number portion of the label for a figure
+#. inside an article.  In articles, formal block elements use a flat
+#. numbering scheme, rather than being numbered by chapter.
+#.
+#. A simple rendering might look like this: %1{number}
+#.
+#. Read this: ghelp:gnome-doc-xslt#translating
+#. Then this: ghelp:gnome-doc-xslt#format.figure.number.flat
+#.
+#: ../xslt/docbook/common/db-format.xml.in.h:149
+msgid "format.figure.number.flat"
+msgstr "format.figure.number.flat"
+
+#.
+#. manvolnum - A reference volume number
+#. http://docbook.org/tdg/en/html/manvolnum.html
+#.
+#. This template formats the manvolnum element.  A manvolnum is typically
+#. a number or short string used to identify a sectionof man pages.  It
+#. is typically placed inside parenthesis, like so: (%t{node})
+#.
+#. Read this: ghelp:gnome-doc-xslt#translating
+#. Then this: ghelp:gnome-doc-xslt#format.manvolnum
+#.
+#: ../xslt/docbook/common/db-format.xml.in.h:161
+msgid "format.manvolnum"
+msgstr "format.manvolnum"
+
+#.
+#. part - A division in a book
+#. http://docbook.org/tdg/en/html/part.html
+#.
+#. This template formats the label of a part.  This tmeplate uses
+#. roles to mark different uses of the label.  The standard label roles
+#. ('header', 'li', and 'xref') should be defined, as well as any extra
+#. roles you would like supported for your locale.
+#.
+#. A simple rendering might look like this: Part %t{number}
+#.
+#. Read this: ghelp:gnome-doc-xslt#translating
+#. Then this: ghelp:gnome-doc-xslt#format.part.label
+#.
+#: ../xslt/docbook/common/db-format.xml.in.h:176
+msgid "format.part.label"
+msgstr "format.part.label"
+
+#.
+#. part - A division in a book
+#. http://docbook.org/tdg/en/html/part.html
+#.
+#. This template formats the number portion of the label for a part.
+#. A simple rendering might look like this: %I{number}
+#.
+#. Read this: ghelp:gnome-doc-xslt#translating
+#. Then this: ghelp:gnome-doc-xslt#format.part.number
+#.
+#: ../xslt/docbook/common/db-format.xml.in.h:187
+msgid "format.part.number"
+msgstr "format.part.number"
+
+#.
+#. quote - An inline quotation
+#. http://docbook.org/tdg/en/html/quote.html
+#.
+#. This template formats a nested inline quotation.  The default
+#. rendering in the C locale is this: ‘%t{node}’
+#.
+#. Read this: ghelp:gnome-doc-xslt#translating
+#. Then this: ghelp:gnome-doc-xslt#format.quote.inner
+#.
+#: ../xslt/docbook/common/db-format.xml.in.h:198
+msgid "format.quote.inner"
+msgstr "format.quote.inner"
+
+#.
+#. quote - An inline quotation
+#. http://docbook.org/tdg/en/html/quote.html
+#.
+#. This template formats an inline quotation.  The default
+#. rendering in the C locale is this: “%t{node}”
+#.
+#. Read this: ghelp:gnome-doc-xslt#translating
+#. Then this: ghelp:gnome-doc-xslt#format.quote.outer
+#.
+#: ../xslt/docbook/common/db-format.xml.in.h:209
+msgid "format.quote.outer"
+msgstr "format.quote.outer"
+
+#.
+#. refentry - A reference page (originally a UNIX man-style reference page)
+#. http://docbook.org/tdg/en/html/refentry.html
+#.
+#. This template formats the label of a refentry.  This tmeplate uses
+#. roles to mark different uses of the label.  The standard label roles
+#. ('header', 'li', and 'xref') should be defined, as well as any extra
+#. roles you would like supported for your locale.
+#.
+#. A simple rendering might look like this: %t{title}
+#.
+#. Note that unlike most other labelled elements, refentry is not numbered
+#. by the stylesheets.  Consequently, the number argument is not supported.
+#.
+#. Read this: ghelp:gnome-doc-xslt#translating
+#. Then this: ghelp:gnome-doc-xslt#format.refentry.label
+#.
+#: ../xslt/docbook/common/db-format.xml.in.h:227
+msgid "format.refentry.label"
+msgstr "format.refentry.label"
+
+#.
+#. http://docbook.org/tdg/en/html/section.html
+#. http://docbook.org/tdg/en/html/sect1.html
+#. http://docbook.org/tdg/en/html/sect2.html
+#. http://docbook.org/tdg/en/html/sect3.html
+#. http://docbook.org/tdg/en/html/sect4.html
+#. http://docbook.org/tdg/en/html/sect5.html
+#. http://docbook.org/tdg/en/html/refsection.html
+#. http://docbook.org/tdg/en/html/refsect1.html
+#. http://docbook.org/tdg/en/html/refsect2.html
+#. http://docbook.org/tdg/en/html/refsect3.html
+#.
+#. This template formats the label of a section.  This tmeplate uses
+#. roles to mark different uses of the label.  The standard label roles
+#. ('header', 'li', and 'xref') should be defined, as well as any extra
+#. roles you would like supported for your locale.
+#.
+#. A simple rendering might look like this: Section %t{number}
+#.
+#. Read this: ghelp:gnome-doc-xslt#translating
+#. Then this: ghelp:gnome-doc-xslt#format.section.label
+#.
+#: ../xslt/docbook/common/db-format.xml.in.h:250
+msgid "format.section.label"
+msgstr "format.section.label"
+
+#.
+#. table - A formal table in a document
+#. http://docbook.org/tdg/en/html/table.html
+#.
+#. This template formats the label of a table.  This tmeplate uses
+#. roles to mark different uses of the label.  The standard label roles
+#. ('header', 'li', and 'xref') should be defined, as well as any extra
+#. roles you would like supported for your locale.
+#.
+#. A simple rendering might look like this: Table %t{number}
+#.
+#. Read this: ghelp:gnome-doc-xslt#translating
+#. Then this: ghelp:gnome-doc-xslt#format.table.label
+#.
+#: ../xslt/docbook/common/db-format.xml.in.h:265
+msgid "format.table.label"
+msgstr "format.table.label"
+
+#.
+#. table - A formal table in a document
+#. http://docbook.org/tdg/en/html/table.html
+#.
+#. This template formats the number portion of the label for a table.
+#. The parent argument calls the number formatter for the enclosing
+#. chapter, and the number argument formats the number of the element
+#. itself.
+#.
+#. A simple rendering might look like this: %t{parent}-%1{number}
+#.
+#. Read this: ghelp:gnome-doc-xslt#translating
+#. Then this: ghelp:gnome-doc-xslt#format.table.number
+#.
+#: ../xslt/docbook/common/db-format.xml.in.h:280
+msgid "format.table.number"
+msgstr "format.table.number"
+
+#.
+#. table - A formal table in a document
+#. http://docbook.org/tdg/en/html/table.html
+#.
+#. This template formats the number portion of the label for a table
+#. inside an article.  In articles, formal block elements use a flat
+#. numbering scheme, rather than being numbered by chapter.
+#.
+#. A simple rendering might look like this: %1{number}
+#.
+#. Read this: ghelp:gnome-doc-xslt#translating
+#. Then this: ghelp:gnome-doc-xslt#format.table.number.flat
+#.
+#: ../xslt/docbook/common/db-format.xml.in.h:294
+msgid "format.table.number.flat"
+msgstr "format.table.number.flat"
+
+#.
+#. glossentry - An entry in a glossary or glosslist
+#. http://docbook.org/tdg/en/html/glossentry.html
+#.
+#. This template formats a tooltip for links to glossentry elements.
+#. The default rendering is: Read the definition for ‘%s{node}’
+#.
+#. Read this: ghelp:gnome-doc-xslt#translating
+#. Then this: ghelp:gnome-doc-xslt#format.tooltip.glossentry
+#.
+#: ../xslt/docbook/common/db-format.xml.in.h:305
+msgid "format.tooltip.glossentry"
+msgstr "format.tooltip.glossentry"
+
+#.
+#. This template formats a tooltip for mailto: links.
+#. The default rendering is: Send email to ‘%s{address}’
+#.
+#. Read this: ghelp:gnome-doc-xslt#translating
+#. Then this: ghelp:gnome-doc-xslt#format.tooltip.mailto
+#.
+#: ../xslt/docbook/common/db-format.xml.in.h:313
+msgid "format.tooltip.mailto"
+msgstr "format.tooltip.mailto"
+
+#. Used as a header before a list of authors.
+#: ../xslt/gettext/l10n.xml.in.h:2
+msgid "<msgstr form=\"0\">Author</msgstr> <msgstr form=\"1\">Authors</msgstr>"
+msgstr "<msgstr form=\"0\">Автор</msgstr> <msgstr form=\"1\">Автори</msgstr>"
+
+#. Used as a header before a list of collaborators.
+#: ../xslt/gettext/l10n.xml.in.h:4
+msgid ""
+"<msgstr form=\"0\">Collaborator</msgstr> <msgstr form=\"1\">Collaborators</"
+"msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Соработник</msgstr> <msgstr form=\"1\">Соработници</"
+"msgstr>"
+
+#. Used as a header before a list of copyrights.
+#: ../xslt/gettext/l10n.xml.in.h:6
+msgid ""
+"<msgstr form=\"0\">Copyright</msgstr> <msgstr form=\"1\">Copyrights</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Copyright</msgstr> <msgstr form=\"1\">Copyrights</msgstr>"
+
+#. Used as a header before a list of editors.
+#: ../xslt/gettext/l10n.xml.in.h:8
+msgid "<msgstr form=\"0\">Editor</msgstr> <msgstr form=\"1\">Editors</msgstr>"
+msgstr "<msgstr form=\"0\">Уредник</msgstr> <msgstr form=\"1\">Уредници</msgstr>"
+
+#. Used as a header before a list of contributors.
+#: ../xslt/gettext/l10n.xml.in.h:10
+msgid ""
+"<msgstr form=\"0\">Other Contributor</msgstr> <msgstr form=\"1\">Other "
+"Contributors</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Друг придонесувач</msgstr> <msgstr form=\"1\">Други придонесувачи</msgstr>"
+
+#. Used as a header before a list of publishers.
+#: ../xslt/gettext/l10n.xml.in.h:12
+msgid ""
+"<msgstr form=\"0\">Publisher</msgstr> <msgstr form=\"1\">Publishers</msgstr>"
+msgstr ""
+"<msgstr form=\"0\">Објавувач</msgstr> <msgstr form=\"1\">Објавувачи</msgstr>"
+
+#. Link to the titlepage
+#: ../xslt/gettext/l10n.xml.in.h:14
+msgid "About This Document"
+msgstr "За овој документ"
+
+#: ../xslt/gettext/l10n.xml.in.h:15
+msgid "Affiliation"
+msgstr "Партнери"
+
+#. This is an abbreviated form of 'Message Audience'.
+#. Feel free to use the same word/phrase for both.
+#: ../xslt/gettext/l10n.xml.in.h:18
+msgid "Audience"
+msgstr "Публика"
+
+#: ../xslt/gettext/l10n.xml.in.h:19
+msgid "Caution"
+msgstr "Претпазливо"
+
+#: ../xslt/gettext/l10n.xml.in.h:20
+msgid "Colophon"
+msgstr "Колофон"
+
+#. This is an abbreviated form of 'Table of Contents'.
+#. Feel free to use the same word/phrase for both.
+#: ../xslt/gettext/l10n.xml.in.h:23
+msgid "Contents"
+msgstr "Содржини"
+
+#. Used as a header for date column in the revision history.
+#: ../xslt/gettext/l10n.xml.in.h:25
+msgid "Date"
+msgstr "Датум"
+
+#: ../xslt/gettext/l10n.xml.in.h:26
+msgid "Dedication"
+msgstr "Посветено"
+
+#: ../xslt/gettext/l10n.xml.in.h:27
+msgid "Email"
+msgstr "Е-пошта"
+
+#: ../xslt/gettext/l10n.xml.in.h:28
+msgid "Important"
+msgstr "Важно"
+
+#: ../xslt/gettext/l10n.xml.in.h:29
+msgid "Index"
+msgstr "Индекс"
+
+#: ../xslt/gettext/l10n.xml.in.h:30
+msgid "Legal Notice"
+msgstr "Легална забелешка"
+
+#. This is an abbreviated form of 'Message Level'.
+#. Feel free to use the same word/phrase for both.
+#: ../xslt/gettext/l10n.xml.in.h:33
+msgid "Level"
+msgstr "Ниво"
+
+#: ../xslt/gettext/l10n.xml.in.h:34
+msgid "Message Audience"
+msgstr "Порака"
+
+#: ../xslt/gettext/l10n.xml.in.h:35
+msgid "Message Level"
+msgstr "Ниво на порака"
+
+#: ../xslt/gettext/l10n.xml.in.h:36
+msgid "Message Origin"
+msgstr "Потекло на пораката"
+
+#: ../xslt/gettext/l10n.xml.in.h:37
+msgid "Name"
+msgstr "Име"
+
+#: ../xslt/gettext/l10n.xml.in.h:38
+msgid "Note"
+msgstr "Забелешка"
+
+#. This is an abbreviated form of 'Message Origin'.
+#. Feel free to use the same word/phrase for both.
+#: ../xslt/gettext/l10n.xml.in.h:41
+msgid "Origin"
+msgstr "Потекло"
+
+#: ../xslt/gettext/l10n.xml.in.h:42
+msgid "Preface"
+msgstr "Вовед"
+
+#: ../xslt/gettext/l10n.xml.in.h:43
+msgid "Reference"
+msgstr "Референца"
+
+#: ../xslt/gettext/l10n.xml.in.h:44
+msgid "Release Information"
+msgstr "Информации за изданието"
+
+#: ../xslt/gettext/l10n.xml.in.h:45
+msgid "Revision History"
+msgstr "Ревизија на историјата"
+
+#: ../xslt/gettext/l10n.xml.in.h:46
+msgid "See"
+msgstr "Види"
+
+#: ../xslt/gettext/l10n.xml.in.h:47
+msgid "See Also"
+msgstr "Види исто така"
+
+#: ../xslt/gettext/l10n.xml.in.h:48
+msgid "Set Index"
+msgstr "Постави индекс"
+
+#: ../xslt/gettext/l10n.xml.in.h:49
+msgid "Synopsis"
+msgstr "Опис"
+
+#. Used for a link to a table of contents.
+#: ../xslt/gettext/l10n.xml.in.h:51
+msgid "Table of Contents"
+msgstr "Содржина"
+
+#: ../xslt/gettext/l10n.xml.in.h:52
+msgid "Tip"
+msgstr "Совет"
+
+#. Used as a header for title column in the revision history.
+#: ../xslt/gettext/l10n.xml.in.h:54
+msgid "Title"
+msgstr "Наслов"
+
+#: ../xslt/gettext/l10n.xml.in.h:55
+msgid "Warning"
+msgstr "Предупредување"
+
