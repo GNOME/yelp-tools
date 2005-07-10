@@ -193,7 +193,7 @@ db2omf_args =									\
 	--stringparam db2omf.dtd						\
 	$(shell xmllint --format $(2) | grep -h PUBLIC | head -n 1 		\
 		| sed -e 's/.*PUBLIC \(\"[^\"]*\"\).*/\1/')			\
-	--stringparam db2omf.lang $(patsubst %/$(notdir $(2)),%,$(2))		\
+	--stringparam db2omf.lang $(notdir $(patsubst %/$(notdir $(2)),%,$(2)))	\
 	--stringparam db2omf.omf_dir "$(OMF_DIR)"				\
 	--stringparam db2omf.help_dir "$(HELP_DIR)"				\
 	--stringparam db2omf.omf_in "`pwd`/$(_DOC_OMF_IN)"			\

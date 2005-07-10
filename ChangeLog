@@ -1,3 +1,11 @@
+2005-07-10  Shaun McCance  <shaunm@gnome.org>
+
+	* gnome-doc-utils.make:
+	- Get the OMF language right when builddir != srcdir
+
+	* doc/gnome-doc-make/C/gnome-doc-make.xml:
+	- Use DocBook 4.4, so XInclude works nicely
+
 2005-06-14  Shaun McCance  <shaunm@gnome.org>
 
 	* gnome-doc-utils.make:
