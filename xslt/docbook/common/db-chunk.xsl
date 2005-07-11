@@ -104,6 +104,19 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <xsl:param name="db.chunk.extension"/>
 
 
+<!-- == db.chunk.info_chunk ================================================ -->
+
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db.chunk.info_chunk</name>
+  <purpose>
+    Whether to create a chunk for the titlepage
+  </purpose>
+</parameter>
+
+<xsl:param name="db.chunk.info_chunk"
+           select="$db.chunk.max_depth != 0 and $db.chunk.info_basename != ''"/>
+
+
 <!-- == db.chunk.info_basename ============================================= -->
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
@@ -298,7 +311,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
       </xsl:call-template>
     </xsl:for-each>
   </xsl:if>
-  <xsl:if test="$depth_of_chunk = 0">
+  <xsl:if test="$db.chunk.info_chunk and $depth_of_chunk = 0">
     <xsl:call-template name="db.chunk">
       <xsl:with-param name="node" select="$node"/>
       <xsl:with-param name="template" select="'info'"/>

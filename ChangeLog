@@ -1,5 +1,35 @@
 2005-07-10  Shaun McCance  <shaunm@gnome.org>
 
+	* Makefile.am:
+	* doc/xslt/C/gnome-doc-xslt.xml:
+	* doc/xslt/C/translating.xml:
+	* xslt/docbook/common/Makefile.am:
+	* xslt/docbook/common/db-format.xml.in:
+	* xslt/docbook/common/db-label.xsl:
+	* xslt/docbook/common/db-title.xsl:
+	* xslt/docbook/common/db-xref.xsl:
+	* xslt/docbook/html/db2html-autotoc.xsl:
+	* xslt/docbook/html/db2html-block.xsl:
+	* xslt/docbook/html/db2html-css.xsl:
+	* xslt/docbook/html/db2html-division.xsl:
+	* xslt/docbook/html/db2html-info.xsl:
+	* xslt/docbook/html/db2html-inline.xsl:
+	* xslt/docbook/html/db2html-list.xsl:
+	* xslt/docbook/html/db2html-qanda.xsl:
+	* xslt/docbook/html/db2html-refentry.xsl:
+	* xslt/docbook/html/db2html-suppressed.xsl:
+	* xslt/docbook/html/db2html.xsl:
+	* xslt/gettext/Makefile.am:
+	* xslt/gettext/gettext.xsl:
+	* xslt/gettext/l10n.xml.in:
+	- Changed i18n considerably, no more format2xsl
+	- Updated translator documentation
+
+	* xslt/docbook/common/db-chunk.xsl:
+	- Allow	titlepage to be suppressed
+
+2005-07-10  Shaun McCance  <shaunm@gnome.org>
+
 	* gnome-doc-utils.make:
 	- Get the OMF language right when builddir != srcdir
 

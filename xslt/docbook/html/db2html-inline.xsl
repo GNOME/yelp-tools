@@ -147,8 +147,11 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!-- = citetitle = -->
 <xsl:template match="citetitle">
-  <xsl:call-template name="format.citetitle">
+  <xsl:call-template name="l10n.gettext">
+    <xsl:with-param name="msgid" select="'citetitle.format'"/>
     <xsl:with-param name="role" select="@pubwork"/>
+    <xsl:with-param name="node" select="."/>
+    <xsl:with-param name="format" select="true()"/>
   </xsl:call-template>
 </xsl:template>
 
@@ -237,9 +240,10 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
           <xsl:value-of select="string(.)"/>
         </xsl:attribute>
         <xsl:attribute name="title">
-          <xsl:call-template name="format.tooltip.mailto">
+          <xsl:call-template name="l10n.gettext">
+            <xsl:with-param name="msgid" select="'email.tooltip'"/>
             <xsl:with-param name="node" select="."/>
-            <xsl:with-param name="address" select="string(.)"/>
+            <xsl:with-param name="format" select="true()"/>
           </xsl:call-template>
         </xsl:attribute>
         <xsl:call-template name="db2html.inline"/>
@@ -607,15 +611,22 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!-- = quote = -->
 <xsl:template match="quote">
-  <span class="quote-punc">
-    <xsl:choose>
-      <xsl:when test="(count(ancestor::quote) mod 2) = 0">
-        <xsl:call-template name="format.quote.outer"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:call-template name="format.quote.inner"/>
-      </xsl:otherwise>
-    </xsl:choose>
+  <span class="quote">
+    <xsl:call-template name="l10n.gettext">
+      <xsl:with-param name="msgid" select="'citetitle.format'"/>
+      <xsl:with-param name="role">
+        <xsl:choose>
+          <xsl:when test="(count(ancestor::quote) mod 2) = 0">
+            <xsl:text>outer</xsl:text>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:text>inner</xsl:text>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:with-param>
+      <xsl:with-param name="node" select="."/>
+      <xsl:with-param name="format" select="true()"/>
+    </xsl:call-template>
   </span>
 </xsl:template>
 

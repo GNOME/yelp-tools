@@ -104,7 +104,7 @@ modes because of the DocBook content model.
 <xsl:template match="revremark"/>
 <xsl:template match="year"/>
 
-<!-- Handled seperately in db.label.mode -->
+<!-- Handled specially, so we can apply-templates -->
 <xsl:template match="label"/>
 
 </xsl:stylesheet>

@@ -47,38 +47,6 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2html.autotoc.label ============================================== -->
-
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.autotoc.label</name>
-  <purpose>
-    Generate a label for an entry in a table of contents
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The element for which to generate a label
-    </purpose>
-  </parameter>
-</template>
-
-<xsl:template name="db2html.autotoc.label">
-  <xsl:param name="node" select="."/>
-  <xsl:apply-templates mode="db2html.autotoc.label.mode" select="$node"/>
-</xsl:template>
-
-
-<!-- == db2html.autotoc.label.mode ========================================= -->
-
-<xsl:template mode="db2html.autotoc.label.mode" match="*">
-  <span class="label">
-    <xsl:call-template name="db.label">
-      <xsl:with-param name="role" select="'li'"/>
-    </xsl:call-template>
-  </span>
-</xsl:template>
-
-
 <!-- == db2html.autotoc ==================================================== -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
@@ -144,25 +112,17 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <xsl:template mode="db2html.autotoc.mode" match="*">
   <xsl:param name="toc_depth" select="0"/>
   <li>
-    <xsl:call-template name="db2html.autotoc.label"/>
-    <a>
-      <xsl:attribute name="href">
-        <xsl:call-template name="db.xref.target">
-          <xsl:with-param name="linkend" select="@id"/>
-          <xsl:with-param name="target" select="."/>
-        </xsl:call-template>
-      </xsl:attribute>
-      <xsl:attribute name="title">
-        <xsl:call-template name="db.xref.tooltip">
-          <xsl:with-param name="linkend" select="@id"/>
-          <xsl:with-param name="target" select="."/>
-        </xsl:call-template>
-      </xsl:attribute>
+    <span class="label">
       <xsl:call-template name="db.label">
         <xsl:with-param name="node" select="."/>
-        <xsl:with-param name="role" select="'title'"/>
-      </xsl:call-template> 
-    </a>
+        <xsl:with-param name="role" select="'li'"/>
+      </xsl:call-template>
+    </span>
+    <xsl:call-template name="db2html.xref">
+      <xsl:with-param name="linkend" select="@id"/>
+      <xsl:with-param name="target" select="."/>
+      <xsl:with-param name="xrefstyle" select="'role:title'"/>
+    </xsl:call-template>
     <xsl:if test="$toc_depth &gt; 0">
       <xsl:call-template name="db2html.autotoc">
         <xsl:with-param name="toc_depth" select="$toc_depth"/>
@@ -174,28 +134,17 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </li>
 </xsl:template>
 
+<!-- = refentry = -->
 <xsl:template mode="db2html.autotoc.mode" match="refentry">
   <xsl:param name="toc_depth" select="0"/>
   <li>
-    <a>
-      <xsl:attribute name="href">
-        <xsl:call-template name="db.xref.target">
-          <xsl:with-param name="linkend" select="@id"/>
-          <xsl:with-param name="target" select="."/>
-        </xsl:call-template>
-      </xsl:attribute>
-      <xsl:attribute name="title">
-        <xsl:call-template name="db.xref.tooltip">
-          <xsl:with-param name="linkend" select="@id"/>
-          <xsl:with-param name="target" select="."/>
-        </xsl:call-template>
-      </xsl:attribute>
-      <xsl:call-template name="db.label">
-        <xsl:with-param name="node" select="."/>
-        <xsl:with-param name="role" select="'title'"/>
-      </xsl:call-template> 
-    </a>
+    <xsl:call-template name="db2html.xref">
+      <xsl:with-param name="linkend" select="@id"/>
+      <xsl:with-param name="target" select="."/>
+      <xsl:with-param name="xrefstyle" select="'role:title'"/>
+    </xsl:call-template>
     <xsl:if test="refnamediv/refpurpose">
+      <!-- FIXME: I18N -->
       <xsl:text> — </xsl:text>
       <xsl:apply-templates select="refnamediv/refpurpose[1]"/>
     </xsl:if>

@@ -52,7 +52,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     div[class~="list"] dl dt { margin-left: 0em; }
     div[class~="list"] dl dd + dt { margin-top: 1em; }
     div[class~="list"] dl dd {
-      margin-top: 0.5em;
+      margin-top: 1em;
       margin-left: 2em;
       margin-right: 1em;
     }
@@ -357,7 +357,9 @@ dd elements has a negative top margin.
         <xsl:call-template name="db2html.anchor"/>
         <xsl:for-each select="member">
           <xsl:if test="position() != 1">
-            <xsl:text>, </xsl:text>
+            <xsl:call-template name="l10n.gettext">
+              <xsl:with-param name="msgid" select="', '"/>
+            </xsl:call-template>
           </xsl:if>
           <xsl:apply-templates select="."/>
         </xsl:for-each>

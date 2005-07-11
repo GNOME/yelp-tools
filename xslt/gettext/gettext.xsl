@@ -18,27 +18,27 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 		xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
-                xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/xsl-format"
+                xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n"
 		exclude-result-prefixes="doc"
                 version="1.0">
 
 <xsl:variable name="l10n" select="document('l10n.xml')"/>
-<xsl:key name="msgstr" match="msg:msg/msg:msgstr"
-         use="concat(../msg:msgid, '(LC)', @xml:lang)"/>
+<xsl:key name="msg" match="msg:msgset/msg:msg"
+         use="concat(../msg:msgid, '__LC__', @xml:lang)"/>
 
 <doc:title>Gettext</doc:title>
 
 
-<!-- == gettext.locale ===================================================== -->
+<!-- == l10n.locale ======================================================== -->
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>gettext.locale</name>
+  <name>l10n.locale</name>
   <purpose>
     The top-level locale of the document
   </purpose>
 </parameter>
 
-<xsl:param name="gettext.locale">
+<xsl:param name="l10n.locale">
   <xsl:choose>
     <xsl:when test="/*/@xml:lang">
       <xsl:value-of select="/*/@xml:lang"/>
@@ -50,44 +50,44 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:param>
 
 
-<!-- == gettext.language =================================================== -->
+<!-- == l10n.language ====================================================== -->
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>gettext.language</name>
+  <name>l10n.language</name>
   <purpose>
     The language part of the top-level locale of the document
   </purpose>
 </parameter>
 
-<xsl:param name="gettext.language">
+<xsl:param name="l10n.language">
   <xsl:choose>
-    <xsl:when test="contains($gettext.locale, '_')">
-      <xsl:value-of select="substring-before($gettext.locale, '_')"/>
+    <xsl:when test="contains($l10n.locale, '_')">
+      <xsl:value-of select="substring-before($l10n.locale, '_')"/>
     </xsl:when>
-    <xsl:when test="contains($gettext.locale, '@')">
-      <xsl:value-of select="substring-before($gettext.locale, '@')"/>
+    <xsl:when test="contains($l10n.locale, '@')">
+      <xsl:value-of select="substring-before($l10n.locale, '@')"/>
     </xsl:when>
-    <xsl:when test="contains($gettext.locale, '_')">
-      <xsl:value-of select="substring-before($gettext.locale, '@')"/>
+    <xsl:when test="contains($l10n.locale, '_')">
+      <xsl:value-of select="substring-before($l10n.locale, '@')"/>
     </xsl:when>
     <xsl:otherwise>
-      <xsl:value-of select="$gettext.locale"/>
+      <xsl:value-of select="$l10n.locale"/>
     </xsl:otherwise>
   </xsl:choose>
 </xsl:param>
 
 
-<!-- == gettext.region ===================================================== -->
+<!-- == l10n.region ======================================================== -->
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>gettext.region</name>
+  <name>l10n.region</name>
   <purpose>
     The region part of the top-level locale of the document
   </purpose>
 </parameter>
 
-<xsl:param name="gettext.region">
-  <xsl:variable name="aft" select="substring-after($gettext.locale, '_')"/>
+<xsl:param name="l10n.region">
+  <xsl:variable name="aft" select="substring-after($l10n.locale, '_')"/>
   <xsl:choose>
     <xsl:when test="contains($aft, '@')">
       <xsl:value-of select="substring-before($aft, '@')"/>
@@ -102,17 +102,17 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:param>
 
 
-<!-- == gettext.variant ==================================================== -->
+<!-- == l10n.variant ======================================================= -->
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>gettext.variant</name>
+  <name>l10n.variant</name>
   <purpose>
     The variant part of the top-level locale of the document
   </purpose>
 </parameter>
 
-<xsl:param name="gettext.variant">
-  <xsl:variable name="aft" select="substring-after($gettext.locale, '@')"/>
+<xsl:param name="l10n.variant">
+  <xsl:variable name="aft" select="substring-after($l10n.locale, '@')"/>
   <xsl:choose>
     <xsl:when test="contains($aft, '.')">
       <xsl:value-of select="substring-before($aft, '.')"/>
@@ -124,26 +124,26 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:param>
 
 
-<!-- == gettext.charset ==================================================== -->
+<!-- == l10n.charset ======================================================= -->
 
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>gettext.charset</name>
+  <name>l10n.charset</name>
   <purpose>
     The charset part of the top-level locale of the document
   </purpose>
 </parameter>
 
-<xsl:param name="gettext.charset">
-  <xsl:if test="contains($gettext.locale, '.')">
-    <xsl:value-of select="substring-after($gettext.locale, '.')"/>
+<xsl:param name="l10n.charset">
+  <xsl:if test="contains($l10n.locale, '.')">
+    <xsl:value-of select="substring-after($l10n.locale, '.')"/>
   </xsl:if>
 </xsl:param>
 
 
-<!-- == gettext ============================================================ -->
+<!-- == l10n.gettext ======================================================= -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>gettext</name>
+  <name>l10n.gettext</name>
   <purpose>
     Look up a translated string
   </purpose>
@@ -197,32 +197,32 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </parameter>
 </template>
 
-<xsl:template name="gettext">
+<xsl:template name="l10n.gettext">
   <xsl:param name="msgid"/>
   <xsl:param name="lang" select="ancestor-or-self::*[@lang][1]/@lang"/>
   <xsl:param name="lang_language">
-    <xsl:call-template name="gettext.get.language">
+    <xsl:call-template name="l10n.language">
       <xsl:with-param name="lang" select="$lang"/>
     </xsl:call-template>
   </xsl:param>
   <xsl:param name="lang_region">
-    <xsl:call-template name="gettext.get.region">
+    <xsl:call-template name="l10n.region">
       <xsl:with-param name="lang" select="$lang"/>
     </xsl:call-template>
   </xsl:param>
   <xsl:param name="lang_variant">
-    <xsl:call-template name="gettext.get.variant">
+    <xsl:call-template name="l10n.variant">
       <xsl:with-param name="lang" select="$lang"/>
     </xsl:call-template>
   </xsl:param>
   <xsl:param name="lang_charset">
-    <xsl:call-template name="gettext.get.charset">
+    <xsl:call-template name="l10n.charset">
       <xsl:with-param name="lang" select="$lang"/>
     </xsl:call-template>
   </xsl:param>
   <xsl:param name="number"/>
   <xsl:param name="form">
-    <xsl:call-template name="gettext.plural_form">
+    <xsl:call-template name="l10n.plural.form">
       <xsl:with-param name="number" select="$number"/>
       <xsl:with-param name="lang" select="$lang"/>
       <xsl:with-param name="lang_language" select="$lang_language"/>
@@ -231,126 +231,159 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
       <xsl:with-param name="lang_charset"  select="$lang_charset"/>
     </xsl:call-template>
   </xsl:param>
+  <xsl:param name="role"/>
+  <xsl:param name="node" select="."/>
+  <xsl:param name="format" select="false()"/>
 
   <xsl:for-each select="$l10n">
     <xsl:choose>
       <!-- fe_fi@fo.fum -->
       <xsl:when test="($lang_region and $lang_variant and $lang_charset) and
-                      key('msgstr', concat($msgid, '(LC)',
-                                           $lang_language, '_', $lang_region,
-                                                           '@', $lang_variant,
-                                                           '.', $lang_charset))">
-        <xsl:call-template name="gettext.get">
-          <xsl:with-param
-           name="msgstr"
-           select="key('msgstr', concat($msgid, '(LC)',
+                      key('msg', concat($msgid, '__LC__',
                                         $lang_language, '_', $lang_region,
                                                         '@', $lang_variant,
-                                                        '.', $lang_charset))"/>
+                                                        '.', $lang_charset))">
+        <xsl:call-template name="l10n.gettext.msg">
+          <xsl:with-param
+           name="msg"
+           select="key('msg', concat($msgid, '__LC__',
+                                     $lang_language, '_', $lang_region,
+                                                     '@', $lang_variant,
+                                                     '.', $lang_charset))"/>
           <xsl:with-param name="form" select="$form"/>
+          <xsl:with-param name="role" select="$role"/>
+          <xsl:with-param name="node" select="$node"/>
+          <xsl:with-param name="format" select="$format"/>
         </xsl:call-template>
       </xsl:when>
       <!-- fe_fi@fo -->
       <xsl:when test="($lang_region and $lang_variant) and
-                      key('msgstr', concat($msgid, '(LC)',
-                                           $lang_language, '_', $lang_region,
-                                                           '@', $lang_variant))">
-        <xsl:call-template name="gettext.get">
-          <xsl:with-param
-           name="msgstr"
-           select="key('msgstr', concat($msgid, '(LC)',
+                      key('msg', concat($msgid, '__LC__',
                                         $lang_language, '_', $lang_region,
-                                                        '@', $lang_variant))"/>
+                                                        '@', $lang_variant))">
+        <xsl:call-template name="l10n.gettext.msg">
+          <xsl:with-param
+           name="msg"
+           select="key('msg', concat($msgid, '__LC__',
+                                     $lang_language, '_', $lang_region,
+                                                     '@', $lang_variant))"/>
           <xsl:with-param name="form" select="$form"/>
+          <xsl:with-param name="role" select="$role"/>
+          <xsl:with-param name="node" select="$node"/>
+          <xsl:with-param name="format" select="$format"/>
         </xsl:call-template>
       </xsl:when>
       <!-- fe@fo.fum -->
       <xsl:when test="($lang_variant and $lang_charset) and
-                      key('msgstr', concat($msgid, '(LC)',
-                                           $lang_language, '@', $lang_variant,
-                                                           '.', $lang_charset))">
-        <xsl:call-template name="gettext.get">
-          <xsl:with-param
-           name="msgstr"
-           select="key('msgstr', concat($msgid, '(LC)',
+                      key('msg', concat($msgid, '__LC__',
                                         $lang_language, '@', $lang_variant,
-                                                        '.', $lang_charset))"/>
+                                                        '.', $lang_charset))">
+        <xsl:call-template name="l10n.gettext.msg">
+          <xsl:with-param
+           name="msg"
+           select="key('msg', concat($msgid, '__LC__',
+                                     $lang_language, '@', $lang_variant,
+                                                     '.', $lang_charset))"/>
           <xsl:with-param name="form" select="$form"/>
+          <xsl:with-param name="role" select="$role"/>
+          <xsl:with-param name="node" select="$node"/>
+          <xsl:with-param name="format" select="$format"/>
         </xsl:call-template>
       </xsl:when>
       <!-- fe@fo -->
       <xsl:when test="($lang_variant) and
-                      key('msgstr', concat($msgid, '(LC)',
-                                           $lang_language, '@', $lang_variant))">
-        <xsl:call-template name="gettext.get">
+                      key('msg', concat($msgid, '__LC__',
+                                        $lang_language, '@', $lang_variant))">
+        <xsl:call-template name="l10n.gettext.msg">
           <xsl:with-param
-           name="msgstr"
-           select="key('msgstr', concat($msgid, '(LC)',
-                                        $lang_language, '@', $lang_variant))"/>
+           name="msg"
+           select="key('msg', concat($msgid, '__LC__',
+                                     $lang_language, '@', $lang_variant))"/>
           <xsl:with-param name="form" select="$form"/>
+          <xsl:with-param name="role" select="$role"/>
+          <xsl:with-param name="node" select="$node"/>
+          <xsl:with-param name="format" select="$format"/>
         </xsl:call-template>
       </xsl:when>
       <!-- fe_fi.fum -->
       <xsl:when test="($lang_region and $lang_charset) and
-                      key('msgstr', concat($msgid, '(LC)',
-                                           $lang_language, '_', $lang_region,
-                                                           '.', $lang_charset))">
-        <xsl:call-template name="gettext.get">
-          <xsl:with-param
-           name="msgstr"
-           select="key('msgstr', concat($msgid, '(LC)',
+                      key('msg', concat($msgid, '__LC__',
                                         $lang_language, '_', $lang_region,
-                                                        '.', $lang_charset))"/>
+                                                        '.', $lang_charset))">
+        <xsl:call-template name="l10n.gettext.msg">
+          <xsl:with-param
+           name="msg"
+           select="key('msg', concat($msgid, '__LC__',
+                                     $lang_language, '_', $lang_region,
+                                                     '.', $lang_charset))"/>
           <xsl:with-param name="form" select="$form"/>
+          <xsl:with-param name="role" select="$role"/>
+          <xsl:with-param name="node" select="$node"/>
+          <xsl:with-param name="format" select="$format"/>
         </xsl:call-template>
       </xsl:when>
       <!-- fe_fi -->
       <xsl:when test="($lang_region) and
-                      key('msgstr', concat($msgid, '(LC)',
-                                           $lang_language, '_', $lang_region))">
-        <xsl:call-template name="gettext.get">
+                      key('msg', concat($msgid, '__LC__',
+                                        $lang_language, '_', $lang_region))">
+        <xsl:call-template name="l10n.gettext.msg">
           <xsl:with-param
-           name="msgstr"
-           select="key('msgstr', concat($msgid, '(LC)',
-                                        $lang_language, '_', $lang_region))"/>
+           name="msg"
+           select="key('msg', concat($msgid, '__LC__',
+                                     $lang_language, '_', $lang_region))"/>
           <xsl:with-param name="form" select="$form"/>
+          <xsl:with-param name="role" select="$role"/>
+          <xsl:with-param name="node" select="$node"/>
+          <xsl:with-param name="format" select="$format"/>
         </xsl:call-template>
       </xsl:when>
       <!-- fe.fum -->
       <xsl:when test="($lang_charset) and
-                      key('msgstr', concat($msgid, '(LC)',
+                      key('msg', concat($msgid, '__LC__',
                                            $lang_language, '.', $lang_charset))">
-        <xsl:call-template name="gettext.get">
+        <xsl:call-template name="l10n.gettext.msg">
           <xsl:with-param
-           name="msgstr"
-           select="key('msgstr', concat($msgid, '(LC)',
-                                        $lang_language, '.', $lang_charset))"/>
+           name="msg"
+           select="key('msg', concat($msgid, '__LC__',
+                                     $lang_language, '.', $lang_charset))"/>
           <xsl:with-param name="form" select="$form"/>
+          <xsl:with-param name="role" select="$role"/>
+          <xsl:with-param name="node" select="$node"/>
+          <xsl:with-param name="format" select="$format"/>
         </xsl:call-template>
       </xsl:when>
       <!-- fe -->
-      <xsl:when test="key('msgstr', concat($msgid, '(LC)', $lang_language))">
-        <xsl:call-template name="gettext.get">
+      <xsl:when test="key('msg', concat($msgid, '__LC__', $lang_language))">
+        <xsl:call-template name="l10n.gettext.msg">
           <xsl:with-param
-           name="msgstr"
-           select="key('msgstr', concat($msgid, '(LC)', $lang_language))"/>
+           name="msg"
+           select="key('msg', concat($msgid, '__LC__', $lang_language))"/>
           <xsl:with-param name="form" select="$form"/>
+          <xsl:with-param name="role" select="$role"/>
+          <xsl:with-param name="node" select="$node"/>
+          <xsl:with-param name="format" select="$format"/>
         </xsl:call-template>
       </xsl:when>
       <!-- "C" -->
-      <xsl:when test="key('msgstr', concat($msgid, '(LC)C'))">
-        <xsl:call-template name="gettext.get">
+      <xsl:when test="key('msg', concat($msgid, '__LC__C'))">
+        <xsl:call-template name="l10n.gettext.msg">
           <xsl:with-param
-           name="msgstr" select="key('msgstr', concat($msgid, '(LC)C'))"/>
+           name="msg" select="key('msg', concat($msgid, '__LC__C'))"/>
           <xsl:with-param name="form" select="$form"/>
+          <xsl:with-param name="role" select="$role"/>
+          <xsl:with-param name="node" select="$node"/>
+          <xsl:with-param name="format" select="$format"/>
         </xsl:call-template>
       </xsl:when>
       <!-- not() -->
-      <xsl:when test="key('msgstr', concat($msgid, '(LC)'))">
-        <xsl:call-template name="gettext.get">
+      <xsl:when test="key('msg', concat($msgid, '__LC__'))">
+        <xsl:call-template name="l10n.gettext.msg">
           <xsl:with-param
-           name="msgstr" select="key('msgstr', concat($msgid, '(LC)'))"/>
+           name="msg" select="key('msg', concat($msgid, '__LC__'))"/>
           <xsl:with-param name="form" select="$form"/>
+          <xsl:with-param name="role" select="$role"/>
+          <xsl:with-param name="node" select="$node"/>
+          <xsl:with-param name="format" select="$format"/>
         </xsl:call-template>
       </xsl:when>
       <xsl:otherwise>
@@ -365,27 +398,155 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:for-each>
 </xsl:template>
 
-<xsl:template name="gettext.get" doc:private="true">
-  <xsl:param name="msgstr"/>
+<xsl:template name="l10n.gettext.msg" doc:private="true">
+  <xsl:param name="msg"/>
   <xsl:param name="form"/>
+  <xsl:param name="role"/>
+  <xsl:param name="node" select="."/>
+  <xsl:param name="format" select="false()"/>
   <xsl:choose>
-    <xsl:when test="$msgstr/msg:msgstr[@form]">
+    <xsl:when test="not($msg/msg:msgstr)">
+      <xsl:call-template name="l10n.gettext.msgstr">
+        <xsl:with-param name="msgstr" select="$msg"/>
+        <xsl:with-param name="node" select="$node"/>
+        <xsl:with-param name="format" select="$format"/>
+      </xsl:call-template>
+    </xsl:when>
+    <!-- FIXME: OPTIMIZE: this needs to be faster -->
+    <xsl:when test="$form != '' and $role != ''">
+      <xsl:variable name="msgstr_form" select="$msg/msg:msgstr[@form = $form]"/>
       <xsl:choose>
-        <xsl:when test="$msgstr/msg:msgstr[@form = $form]">
-          <xsl:value-of select="$msgstr/msg:msgstr[@form = $form]"/>
-        </xsl:when>
-        <xsl:when test="$msgstr/msg:msgstr[not(@form)]">
-          <xsl:value-of select="$msgstr/msg:msgstr[not(@form)]"/>
+        <xsl:when test="$msgstr_form">
+          <xsl:choose>
+            <xsl:when test="msgstr_form[@role = $role]">
+              <xsl:call-template name="l10n.gettext.msgstr">
+                <xsl:with-param name="msgstr"
+                                select="msgstr_form[@role = $role][1]"/>
+                <xsl:with-param name="node" select="$node"/>
+                <xsl:with-param name="format" select="$format"/>
+              </xsl:call-template>
+            </xsl:when>
+            <xsl:when test="msgstr_form[not(@role)]">
+              <xsl:call-template name="l10n.gettext.msgstr">
+                <xsl:with-param name="msgstr"
+                                select="msgstr_form[not(@role)][1]"/>
+                <xsl:with-param name="node" select="$node"/>
+                <xsl:with-param name="format" select="$format"/>
+              </xsl:call-template>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:call-template name="l10n.gettext.msgstr">
+                <xsl:with-param name="msgstr"
+                                select="msgstr_form[1]"/>
+                <xsl:with-param name="node" select="$node"/>
+                <xsl:with-param name="format" select="$format"/>
+              </xsl:call-template>
+            </xsl:otherwise>
+          </xsl:choose>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:message>
-            <xsl:text>No translation for </xsl:text>
-            <xsl:value-of select="$msgstr/preceding-sibling::msg:msgid"/>
-            <xsl:text> with plural form </xsl:text>
-            <xsl:value-of select="$form"/>
-          </xsl:message>
+          <xsl:choose>
+            <xsl:when test="$msg/msg:msgstr[@role = $role]">
+              <xsl:call-template name="l10n.gettext.msgstr">
+                <xsl:with-param name="msgstr"
+                                select="$msg/msg:msgstr[@role = $role][1]"/>
+                <xsl:with-param name="node" select="$node"/>
+                <xsl:with-param name="format" select="$format"/>
+              </xsl:call-template>
+            </xsl:when>
+            <xsl:when test="$msg/msg:msgstr[not(@role)]">
+              <xsl:call-template name="l10n.gettext.msgstr">
+                <xsl:with-param name="msgstr"
+                                select="$msg/msg:msgstr[not(@role)][1]"/>
+                <xsl:with-param name="node" select="$node"/>
+                <xsl:with-param name="format" select="$format"/>
+              </xsl:call-template>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:call-template name="l10n.gettext.msgstr">
+                <xsl:with-param name="msgstr"
+                                select="$msg/msg:msgstr[1]"/>
+                <xsl:with-param name="node" select="$node"/>
+                <xsl:with-param name="format" select="$format"/>
+              </xsl:call-template>
+            </xsl:otherwise>
+          </xsl:choose>
         </xsl:otherwise>
       </xsl:choose>
+    </xsl:when>
+    <xsl:when test="$form != ''">
+      <xsl:choose>
+        <xsl:when test="$msg/msg:msgstr[@form = $form]">
+          <xsl:call-template name="l10n.gettext.msgstr">
+            <xsl:with-param name="msgstr"
+                            select="$msg/msg:msgstr[@form = $form][1]"/>
+            <xsl:with-param name="node" select="$node"/>
+            <xsl:with-param name="format" select="$format"/>
+          </xsl:call-template>
+        </xsl:when>
+        <xsl:when test="$msg/msg:msgstr[not(@form)]">
+          <xsl:call-template name="l10n.gettext.msgstr">
+            <xsl:with-param name="msgstr"
+                            select="$msg/msg:msgstr[not(@form)][1]"/>
+            <xsl:with-param name="node" select="$node"/>
+            <xsl:with-param name="format" select="$format"/>
+          </xsl:call-template>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:call-template name="l10n.gettext.msgstr">
+            <xsl:with-param name="msgstr" select="$msg/msg:msgstr[1]"/>
+            <xsl:with-param name="node" select="$node"/>
+            <xsl:with-param name="format" select="$format"/>
+          </xsl:call-template>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:when>
+    <xsl:when test="$role != ''">
+      <xsl:choose>
+        <xsl:when test="$msg/msg:msgstr[@role = $role]">
+          <xsl:call-template name="l10n.gettext.msgstr">
+            <xsl:with-param name="msgstr"
+                            select="$msg/msg:msgstr[@role = $role][1]"/>
+            <xsl:with-param name="node" select="$node"/>
+            <xsl:with-param name="format" select="$format"/>
+          </xsl:call-template>
+        </xsl:when>
+        <xsl:when test="$msg/msg:msgstr[not(@role)]">
+          <xsl:call-template name="l10n.gettext.msgstr">
+            <xsl:with-param name="msgstr"
+                            select="$msg/msg:msgstr[not(@role)][1]"/>
+            <xsl:with-param name="node" select="$node"/>
+            <xsl:with-param name="format" select="$format"/>
+          </xsl:call-template>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:call-template name="l10n.gettext.msgstr">
+            <xsl:with-param name="msgstr" select="$msg/msg:msgstr[1]"/>
+            <xsl:with-param name="node" select="$node"/>
+            <xsl:with-param name="format" select="$format"/>
+          </xsl:call-template>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:call-template name="l10n.gettext.msgstr">
+        <xsl:with-param name="msgstr" select="$msg/msg:msgstr[1]"/>
+        <xsl:with-param name="node" select="$node"/>
+        <xsl:with-param name="format" select="$format"/>
+      </xsl:call-template>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+<xsl:template name="l10n.gettext.msgstr" doc:private="true">
+  <xsl:param name="msgstr"/>
+  <xsl:param name="node" select="."/>
+  <xsl:param name="format" select="false()"/>
+  <xsl:choose>
+    <xsl:when test="$format">
+      <xsl:apply-templates mode="l10n.format.mode" select="$msgstr/node()">
+        <xsl:with-param name="node" select="$node"/>
+      </xsl:apply-templates>
     </xsl:when>
     <xsl:otherwise>
       <xsl:value-of select="$msgstr"/>
@@ -394,10 +555,10 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == gettext.plural_form ================================================ -->
+<!-- == l10n.plural.form =================================================== -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>gettext.plural_form</name>
+  <name>l10n.plural.form</name>
   <purpose>
     Extract the plural form string for a cardinality
   </purpose>
@@ -439,26 +600,26 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </parameter>
 </template>
 
-<xsl:template name="gettext.plural_form">
+<xsl:template name="l10n.plural.form">
   <xsl:param name="number" select="1"/>
-  <xsl:param name="lang" select="$gettext.locale"/>
+  <xsl:param name="lang" select="$l10n.locale"/>
   <xsl:param name="lang_language">
-    <xsl:call-template name="gettext.get.language">
+    <xsl:call-template name="l10n.language">
       <xsl:with-param name="lang" select="$lang"/>
     </xsl:call-template>
   </xsl:param>
   <xsl:param name="lang_region">
-    <xsl:call-template name="gettext.get.region">
+    <xsl:call-template name="l10n.region">
       <xsl:with-param name="lang" select="$lang"/>
     </xsl:call-template>
   </xsl:param>
   <xsl:param name="lang_variant">
-    <xsl:call-template name="gettext.get.variant">
+    <xsl:call-template name="l10n.variant">
       <xsl:with-param name="lang" select="$lang"/>
     </xsl:call-template>
   </xsl:param>
   <xsl:param name="lang_charset">
-    <xsl:call-template name="gettext.get.charset">
+    <xsl:call-template name="l10n.charset">
       <xsl:with-param name="lang" select="$lang"/>
     </xsl:call-template>
   </xsl:param>
@@ -501,10 +662,10 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == gettext.get.language =============================================== -->
+<!-- == l10n.language =============================================== -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>gettext.get.language</name>
+  <name>l10n.language</name>
   <purpose>
     Extract the language part of a locale
   </purpose>
@@ -516,11 +677,11 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </parameter>
 </template>
 
-<xsl:template name="gettext.get.language">
+<xsl:template name="l10n.language">
   <xsl:param name="lang" select="ancestor-or-self::*[@lang][1]/@lang"/>
   <xsl:choose>
-    <xsl:when test="$lang = $gettext.locale">
-      <xsl:value-of select="$gettext.language"/>
+    <xsl:when test="$lang = $l10n.locale">
+      <xsl:value-of select="$l10n.language"/>
     </xsl:when>
     <xsl:when test="contains($lang, '_')">
       <xsl:value-of select="substring-before($lang, '_')"/>
@@ -538,10 +699,10 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == gettext.get.region ================================================= -->
+<!-- == l10n.region ======================================================== -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>gettext.get.region</name>
+  <name>l10n.region</name>
   <purpose>
     Extract the region part of a locale
   </purpose>
@@ -553,11 +714,11 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </parameter>
 </template>
 
-<xsl:template name="gettext.get.region">
+<xsl:template name="l10n.region">
   <xsl:param name="lang" select="ancestor-or-self::*[@lang][1]/@lang"/>
   <xsl:choose>
-    <xsl:when test="$lang = $gettext.locale">
-      <xsl:value-of select="$gettext.region"/>
+    <xsl:when test="$lang = $l10n.locale">
+      <xsl:value-of select="$l10n.region"/>
     </xsl:when>
     <xsl:when test="contains($lang, '_')">
       <xsl:variable name="aft" select="substring-after($lang, '_')"/>
@@ -577,10 +738,10 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == gettext.get.variant ================================================ -->
+<!-- == l10n.variant ======================================================= -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>gettext.get.variant</name>
+  <name>l10n.variant</name>
   <purpose>
     Extract the variant part of a locale
   </purpose>
@@ -592,11 +753,11 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </parameter>
 </template>
 
-<xsl:template name="gettext.get.variant">
+<xsl:template name="l10n.variant">
   <xsl:param name="lang" select="ancestor-or-self::*[@lang][1]/@lang"/>
   <xsl:choose>
-    <xsl:when test="$lang = $gettext.locale">
-      <xsl:value-of select="$gettext.variant"/>
+    <xsl:when test="$lang = $l10n.locale">
+      <xsl:value-of select="$l10n.variant"/>
     </xsl:when>
     <xsl:when test="contains($lang, '@')">
       <xsl:variable name="aft" select="substring-after($lang, '@')"/>
@@ -613,10 +774,10 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == gettext.get.charset ================================================ -->
+<!-- == l10n.charset ======================================================= -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>gettext.get.charset</name>
+  <name>l10n.charset</name>
   <purpose>
     Extract the charset part of a locale
   </purpose>
@@ -628,16 +789,31 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </parameter>
 </template>
 
-<xsl:template name="gettext.get.charset">
+<xsl:template name="l10n.charset">
   <xsl:param name="lang" select="ancestor-or-self::*[@lang][1]/@lang"/>
   <xsl:choose>
-    <xsl:when test="$lang = $gettext.locale">
-      <xsl:value-of select="$gettext.charset"/>
+    <xsl:when test="$lang = $l10n.locale">
+      <xsl:value-of select="$l10n.charset"/>
     </xsl:when>
     <xsl:when test="contains($lang, '.')">
       <xsl:value-of select="substring-after($lang, '.')"/>
     </xsl:when>
   </xsl:choose>
+</xsl:template>
+
+
+<!-- == l10n.format.mode == -->
+
+<xsl:template mode="l10n.format.mode" match="*">
+  <xsl:param name="node"/>
+  <xsl:apply-templates mode="l10n.format.mode">
+    <xsl:with-param name="node" select="$node"/>
+  </xsl:apply-templates>
+</xsl:template>
+
+<xsl:template mode="l10n.format.mode" match="msg:node">
+  <xsl:param name="node"/>
+  <xsl:apply-templates select="$node/node()"/>
 </xsl:template>
 
 </xsl:stylesheet>

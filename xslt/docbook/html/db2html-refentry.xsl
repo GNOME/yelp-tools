@@ -49,8 +49,10 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!-- = manvolnum = -->
 <xsl:template match="manvolnum">
-  <xsl:call-template name="format.manvolnum">
+  <xsl:call-template name="l10n.gettext">
+    <xsl:with-param name="msgid" select="'manvolnum.format'"/>
     <xsl:with-param name="node" select="."/>
+    <xsl:with-param name="format" select="true()"/>
   </xsl:call-template>
 </xsl:template>
 
@@ -105,7 +107,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
         <xsl:with-param name="referent_depth_in_chunk" select="$depth_in_chunk + 1"/>
         <xsl:with-param name="generate_label" select="false()"/>
         <xsl:with-param name="title_content">
-          <xsl:call-template name="gettext">
+          <xsl:call-template name="l10n.gettext">
             <xsl:with-param name="msgid" select="'Name'"/>
           </xsl:call-template>
         </xsl:with-param>
@@ -230,7 +232,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
         <xsl:with-param name="referent_depth_in_chunk" select="$depth_in_chunk"/>
         <xsl:with-param name="generate_label" select="false()"/>
         <xsl:with-param name="title_content">
-          <xsl:call-template name="gettext">
+          <xsl:call-template name="l10n.gettext">
             <xsl:with-param name="msgid" select="'Synopsis'"/>
           </xsl:call-template>
         </xsl:with-param>

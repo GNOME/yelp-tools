@@ -36,17 +36,15 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <xsl:template name="db2html.qanda.css">
   <xsl:text>
-    dl[class~="qandaset"] dt + dd { margin-top: -8px; }
-    dt[class~="question"] { margin-left: 0px; }
-    dt[class~="question"] div[class~="label"] {
-      float: right;
+    dt[class~="question"] { margin-left: 0em; }
+    dt[class~="question"] div[class~="label"] { float: left; }
+    dd + dt[class~="question"] { margin-top: 1em; }
+    dd[class~="answer"] {
+      margin-top: 1em;
+      margin-left: 2em;
       margin-right: 1em;
     }
-    dd[class~="answer"] { margin-left: 12px; }
-    dt[class~="answer"] div[class~="label"] {
-      float: right;
-      margin-right: 1em;
-    }
+    dd[class~="answer"] div[class~="label"] { float: left; }
   </xsl:text>
 </xsl:template>
 
@@ -56,7 +54,9 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <xsl:template match="answer">
   <dd class="answer">
     <div class="label">
-      <xsl:call-template name="db.label"/>
+      <xsl:call-template name="db.label">
+        <xsl:with-param name="role" select="'header'"/>
+      </xsl:call-template>
     </div>
     <xsl:apply-templates/>
   </dd>
@@ -106,9 +106,10 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <xsl:template match="question">
   <dt class="question">
-    <!-- FIXME -->
     <div class="label">
-      <xsl:call-template name="db.label"/>
+      <xsl:call-template name="db.label">
+        <xsl:with-param name="role" select="'header'"/>
+      </xsl:call-template>
     </div>
     <xsl:apply-templates/>
   </dt>

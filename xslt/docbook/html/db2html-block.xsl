@@ -18,6 +18,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
+                xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n"
                 xmlns="http://www.w3.org/1999/xhtml"
                 exclude-result-prefixes="doc"
                 version="1.0">
@@ -90,7 +91,6 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <xsl:template name="db2html.block">
   <xsl:param name="verbatim" select="false()"/>
-
   <div class="{local-name(.)}">
     <xsl:call-template name="db2html.anchor"/>
     <xsl:choose>
@@ -268,10 +268,13 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     }
     blockquote[class~="blockquote"] { margin-left: 2em; margin-right: 1em; }
     dt[class~="glossterm"] { margin-left: 0em; }
-    dd + dt[class~="glossterm"] { margin-top: 1em; }
-    dd[class~="glossdef"]     { margin-top: 0.5em; margin-left: 2em; margin-right: 1em; }
-    dd[class~="glosssee"]     { margin-top: 0.5em; margin-left: 2em; margin-right: 1em; }
-    dd[class~="glossseealso"] { margin-top: 0.5em; margin-left: 2em; margin-right: 1em; }
+    dd + dt[class~="glossterm"] { margin-top: 2em; }
+    dd[class~="glossdef"]
+      { margin-top: 1em; margin-left: 2em; margin-right: 1em; }
+    dd[class~="glosssee"]
+      { margin-top: 1em; margin-left: 2em; margin-right: 1em; }
+    dd[class~="glossseealso"]
+      { margin-top: 1em; margin-left: 2em; margin-right: 1em; }
   </xsl:text>
 </xsl:template>
 
@@ -335,7 +338,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <dd class="glossdef">
     <xsl:apply-templates select="*[local-name(.) != 'glossseealso']"/>
   </dd>
-  <xsl:apply-templates select="glossseealso"/>
+  <xsl:apply-templates select="glossseealso[1]"/>
 </xsl:template>
 
 <!-- = glossentry = -->
@@ -343,31 +346,67 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <dt class="glossterm">
     <xsl:apply-templates select="glossterm"/>
   </dt>
-  <xsl:apply-templates select="glossdef | glosssee"/>
+  <xsl:apply-templates select="glossdef | glosssee[1]"/>
 </xsl:template>
 
 <!-- = glosssee = -->
-<xsl:template match="glosssee">
-  <!-- FIXME: this i18n sucks badly -->
-  <dd class="glosssee">
+<xsl:template match="glosssee | glossseealso">
+  <dd class="{local-name(.)}">
     <p>
-      <xsl:call-template name="gettext">
-        <xsl:with-param name="msgid" select="'See'"/>
+      <xsl:call-template name="l10n.gettext">
+        <xsl:with-param name="msgid" select="concat(local-name(.), '.format')"/>
+        <xsl:with-param name="node" select="."/>
+        <xsl:with-param name="format" select="true()"/>
       </xsl:call-template>
-      <xsl:text> </xsl:text>
-      <xsl:choose>
-        <xsl:when test="@otherterm">
-          <xsl:call-template name="db2html.xref">
-            <xsl:with-param name="linkend" select="@otherterm"/>
-          </xsl:call-template>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:apply-templates/>
-        </xsl:otherwise>
-      </xsl:choose>
-      <xsl:text>.</xsl:text>
     </p>
   </dd>
+</xsl:template>
+
+<xsl:template mode="l10n.format.mode" match="msg:glosssee">
+  <xsl:param name="node"/>
+  <xsl:for-each select="$node |
+                        $node/following-sibling::*[name(.) = name($node)]">
+    <xsl:if test="position() != 1">
+      <xsl:call-template name="l10n.gettext">
+        <xsl:with-param name="msgid" select="', '"/>
+      </xsl:call-template>
+    </xsl:if>
+    <xsl:choose>
+      <xsl:when test="@otherterm">
+        <a>
+          <xsl:attribute name="href">
+            <xsl:call-template name="db.xref.target">
+              <xsl:with-param name="linkend" select="@otherterm"/>
+            </xsl:call-template>
+          </xsl:attribute>
+          <xsl:attribute name="title">
+            <xsl:call-template name="db.xref.tooltip">
+              <xsl:with-param name="linkend" select="@otherterm"/>
+            </xsl:call-template>
+          </xsl:attribute>
+        </a>
+        <xsl:choose>
+          <xsl:when test="normalize-space(.) != ''">
+            <xsl:apply-templates/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:call-template name="db.xref.content">
+              <xsl:with-param name="linkend" select="@otherterm"/>
+              <xsl:with-param name="role" select="'glosssee'"/>
+            </xsl:call-template>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:apply-templates/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:for-each>
+</xsl:template>
+
+<xsl:template mode="l10n.format.mode" match="msg:glosssterm">
+  <xsl:param name="node"/>
+  <xsl:apply-templates select="$node/glossterm"/>
 </xsl:template>
 
 <!-- = highlights = -->

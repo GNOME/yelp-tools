@@ -18,6 +18,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 		xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
+                xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n"
                 xmlns="http://www.w3.org/1999/xhtml"
 		exclude-result-prefixes="doc"
                 version="1.0">
@@ -31,7 +32,6 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <xsl:include href="../common/db-chunk.xsl"   doc:summary="true"/>
 <xsl:include href="../common/db-common.xsl"  doc:summary="true"/>
-<xsl:include href="../common/db-format.xsl"  doc:summary="true"/>
 <xsl:include href="../common/db-label.xsl"   doc:summary="true"/>
 <xsl:include href="../common/db-title.xsl"   doc:summary="true"/>
 <xsl:include href="../common/db-xref.xsl"    doc:summary="true"/>
@@ -105,16 +105,33 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <xsl:apply-templates select="node()"/>
 </xsl:template>
 
-<!-- Implement the format2xsl stub templates -->
-<xsl:template name="format2xsl.element.name">
-  <xsl:param name="name"/>
-  <xsl:param name="namespace"/>
-  <xsl:value-of select="$name"/>
+<!-- == l10n.format.mode == -->
+
+<xsl:template mode="l10n.format.mode" match="msg:i">
+  <xsl:param name="node"/>
+  <i>
+    <xsl:apply-templates mode="l10n.format.mode">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:apply-templates>
+  </i>
 </xsl:template>
-<xsl:template name="format2xsl.element.namespace">
-  <xsl:param name="name"/>
-  <xsl:param name="namespace"/>
-  <xsl:value-of select="'http://www.w3.org/1999/xhtml'"/>
+
+<xsl:template mode="l10n.format.mode" match="msg:b">
+  <xsl:param name="node"/>
+  <b>
+    <xsl:apply-templates mode="l10n.format.mode">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:apply-templates>
+  </b>
+</xsl:template>
+
+<xsl:template mode="l10n.format.mode" match="msg:tt">
+  <xsl:param name="node"/>
+  <tt>
+    <xsl:apply-templates mode="l10n.format.mode">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:apply-templates>
+  </tt>
 </xsl:template>
 
 </xsl:stylesheet>

@@ -18,6 +18,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
+                xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n"
                 exclude-result-prefixes="doc"
                 version="1.0">
 
@@ -25,6 +26,13 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 
 <!-- == db.title =========================================================== -->
+
+<xsl:template mode="l10n.format.mode" match="msg:title">
+  <xsl:param name="node"/>
+  <xsl:call-template name="db.title">
+    <xsl:with-param name="node" select="$node"/>
+  </xsl:call-template>
+</xsl:template>
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db.title</name>
@@ -47,6 +55,13 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!-- == db.titleabbrev ===================================================== -->
 
+<xsl:template mode="l10n.format.mode" match="msg:titleabbrev">
+  <xsl:param name="node"/>
+  <xsl:call-template name="db.titleabbrev">
+    <xsl:with-param name="node" select="$node"/>
+  </xsl:call-template>
+</xsl:template>
+
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db.titleabbrev</name>
   <purpose>
@@ -67,6 +82,13 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 
 <!-- == db.subtitle ======================================================== -->
+
+<xsl:template mode="l10n.format.mode" match="msg:subtitle">
+  <xsl:param name="node"/>
+  <xsl:call-template name="db.subtitle">
+    <xsl:with-param name="node" select="$node"/>
+  </xsl:call-template>
+</xsl:template>
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db.subtitle</name>

@@ -221,7 +221,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <xsl:if test="$authors">
     <div>
       <h2 class="author">
-        <xsl:call-template name="gettext">
+        <xsl:call-template name="l10n.gettext">
           <xsl:with-param name="msgid" select="'Author'"/>
           <xsl:with-param name="number" select="count($authors)"/>
         </xsl:call-template>
@@ -263,7 +263,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <xsl:if test="$editors">
     <div>
       <h2 class="editor">
-        <xsl:call-template name="gettext">
+        <xsl:call-template name="l10n.gettext">
           <xsl:with-param name="msgid" select="'Editor'"/>
           <xsl:with-param name="number" select="count($editors)"/>
         </xsl:call-template>
@@ -305,7 +305,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <xsl:if test="$collabs">
     <div>
       <h2 class="collab">
-        <xsl:call-template name="gettext">
+        <xsl:call-template name="l10n.gettext">
           <xsl:with-param name="msgid" select="'Collaborator'"/>
           <xsl:with-param name="number" select="count($collabs)"/>
         </xsl:call-template>
@@ -350,7 +350,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <xsl:if test="$translators">
     <div>
       <h2 class="translator">
-        <xsl:call-template name="gettext">
+        <xsl:call-template name="l10n.gettext">
           <xsl:with-param name="msgid" select="'Translator'"/>
           <xsl:with-param name="number" select="count($translators)"/>
         </xsl:call-template>
@@ -391,7 +391,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <xsl:if test="$publishers">
     <div>
       <h2 class="publisher">
-        <xsl:call-template name="gettext">
+        <xsl:call-template name="l10n.gettext">
           <xsl:with-param name="msgid" select="'Publisher'"/>
           <xsl:with-param name="number" select="count($publishers)"/>
         </xsl:call-template>
@@ -437,7 +437,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <xsl:if test="$othercredits">
     <div>
       <h2 class="othercredit">
-        <xsl:call-template name="gettext">
+        <xsl:call-template name="l10n.gettext">
           <xsl:with-param name="msgid" select="'Other Contributor'"/>
           <xsl:with-param name="number" select="count($othercredits)"/>
         </xsl:call-template>
@@ -478,7 +478,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <xsl:if test="$copyrights">
     <div>
       <h2 class="copyright">
-        <xsl:call-template name="gettext">
+        <xsl:call-template name="l10n.gettext">
           <xsl:with-param name="msgid" select="'Copyright'"/>
           <xsl:with-param name="number" select="count($copyrights)"/>
         </xsl:call-template>
@@ -514,7 +514,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <xsl:template mode="db2html.info.mode" match="affiliation">
   <dd class="affiliation">
     <i>
-      <xsl:call-template name="gettext">
+      <xsl:call-template name="l10n.gettext">
         <xsl:with-param name="msgid" select="'Affiliation'"/>
       </xsl:call-template>
       <xsl:text>: </xsl:text>
@@ -596,7 +596,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <!-- = db2html.info.mode == copyright = -->
 <xsl:template mode="db2html.info.mode" match="copyright">
   <dt class="copyright">
-    <xsl:call-template name="gettext">
+    <xsl:call-template name="l10n.gettext">
       <xsl:with-param name="msgid" select="'Copyright'"/>
     </xsl:call-template>
     <xsl:text>&#x00A0;©&#x00A0;</xsl:text>
@@ -641,7 +641,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <xsl:template mode="db2html.info.mode" match="email">
   <dd class="affiliation">
     <i>
-      <xsl:call-template name="gettext">
+      <xsl:call-template name="l10n.gettext">
         <xsl:with-param name="msgid" select="'Email'"/>
       </xsl:call-template>
       <xsl:text>: </xsl:text>
@@ -664,7 +664,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     <xsl:call-template name="db2html.anchor"/>
     <xsl:if test="not(title)">
       <h2>
-        <xsl:call-template name="gettext">
+        <xsl:call-template name="l10n.gettext">
           <xsl:with-param name="msgid" select="'Legal Notice'"/>
         </xsl:call-template>
       </h2>
@@ -736,7 +736,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <div class="revhistory">
     <xsl:call-template name="db2html.anchor"/>
     <h2>
-      <xsl:call-template name="gettext">
+      <xsl:call-template name="l10n.gettext">
         <xsl:with-param name="msgid" select="'Revision History'"/>
       </xsl:call-template>
     </h2>

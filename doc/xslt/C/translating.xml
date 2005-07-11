@@ -1,336 +1,575 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?><!-- -*- indent-tabs-mode: nil -*- -->
 <!DOCTYPE section PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN"
 "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd" [
+<!ENTITY intltool "<command>intltool</command>">
 <!ENTITY gettext_xsl "<filename>gettext.xsl</filename>">
-<!ENTITY format2xsl_xsl "<filename>format2xsl.xsl</filename>">
 <!ENTITY l10n_xml "<filename>l10n.xml</filename>">
-<!ENTITY gettext
-  "<function role='xsl-template' moreinfo='refentry'>gettext</function>">
-<!ENTITY gettext_plural_form
-  "<function role='xsl-template' moreinfo='refentry'>gettext.plural_form</function>">
-<!ENTITY format2xsl
-  "<function role='xsl-template' moreinfo='refentry'>format2xsl</function>">
+<!ENTITY l10n_gettext
+  "<function role='xsl-template' moreinfo='refentry'>l10n.gettext</function>">
+<!ENTITY l10n_plural_form
+  "<function role='xsl-template' moreinfo='refentry'>l10n.plural.form</function>">
+<!ENTITY xrefstyle
+  "<sgmltag class='attribute'>xrefstyle</sgmltag>">
 ]>
 
 <section id="translating">
   <title>Translating the Stylesheets</title>
-  <para>The Gnome documentation stylesheets use two different mechanisms for
-  internationalization.  The simpler method is provided by &gettext_xsl;.
-  This method reads in translated strings from a simple &l10n_xml; file, which
-  is easily managed using PO files and <command>intltool</command>.  The other
-  method is provided by &format2xsl_xsl;.  This method converts special format
-  files to XSLT stylesheets at build time.  It is considerably more flexible
-  than the &gettext_xsl; method, as it allows translators programmer-level
-  control over the formatted output.</para>
+  <para>The Gnome documentation stylesheets provide support for localizing
+  the rendered output from DocBook documents.  Localizable strings in the
+  stylesheets are marked for translation and extracted into PO files and
+  &intltool;.  After they have been translated, &intltool; merges them into
+  an XML file called &l10n_xml;, which is then used by the stylesheets to
+  localize the output.</para>
 
-  <para>Generally, &gettext; is used only for simple string lookups that require
-  no special formatting.  However, since it tends to have better performance
-  than &format2xsl;, it is preferred whenever possible.  If you are providing
-  translations and find that a string marked for translation is insufficient
-  for your locale, you should request to have that translation reworked using
-  format strings.  Document processing is a much more difficult task for
-  internationalization than most simple application translations in Gnome.
-  The maintainers don't know all the nuances of document processing in every
-  language, so the only way we can improve the internationalization support is
-  with the help of the translators.</para>
+  <para>Providing full internationalization support for the DocBook stylesheets
+  is not trivial, and providing localizations requires translators to understand
+  how documents are formatted and, to some extent, how DocBook works.  DocBook
+  is a high-level markup language, and it requires processing applications to
+  provide much of the formatting for documents.  DocBook applications must
+  resolve cross references, create tables of contents, format headers, and
+  perform other formatting tasks that need to be localized.  Localizing these
+  tasks involves more than translating stand-alone sentences.  In effect, the
+  very formatting code itself is localizable.</para>
 
-  <section id="translating-gettext">
-    <title>The &gettext; Method</title>
-    <para>The Gnome documentation stylesheets provide an XSLT template called
-    &gettext; which extracts localized values of strings from a localization
-    file.  This file is easily translated with PO files using the XML mode of
-    <command>intltool</command>.</para>
-    <para>For instance, consider the string <wordasword>Caution</wordasword>,
-    which is used as a heading for <sgmltag>caution</sgmltag> elements.  The
-    stylesheets would call &gettext; to extract the translated value of this
-    string for the document's language.  The &l10n_xml; file would have an
-    entry similar to this:</para>
+  <note>
+    <title>Help Us Help You</title>
+    <para>Document formatting varies greatly across the world.  Each locale has
+    a long history of formatting conventions and methods.  The maintainers of
+    these stylesheets do not know all the nuances of formatting documents in
+    all locales.  The only way we can create better output for your locale is
+    if you tell us when you encounter problems.</para>
+  </note>
+
+  <para>Although all localization is done by translating strings in a PO file,
+  there are many cases where the translatable string is not a simple sentence
+  or phrase.  Rather, translators must provide data using XML fragments.  These
+  structured fragments can be used to work with plural forms, provide alternative
+  formattings based on context, or provide format strings.</para>
+
+  <section id="translating-simple">
+    <title>Simple Strings</title>
+
+    <para>Translated strings are extracted in the stylesheets by a template
+    called &l10n_gettext;.  This template extracts strings from an XML file,
+    which is built from PO files by &intltool;.  For example, consider the
+    string <wordasword>Caution</wordasword>, which is used as a heading for
+    <sgmltag>caution</sgmltag> elements.  The stylesheets would call
+    &l10n_gettext; to extract the translated value of this string for
+    the document's language.  The &l10n_xml; file would have an entry
+    similar to this:</para>
 
     <programlisting><![CDATA[
-<msg xmlns=""http://www.gnome.org/~shaunm/gnome-doc-utils/xsl-format">
+<msgset xmlns=""http://www.gnome.org/~shaunm/gnome-doc-utils/l10n">
   <msgid>Caution</msgid>
-  <msgstr>Caution</msgstr>
-  <msgstr xml:lang="ca">Compte</msgstr>
-  <msgstr xml:lang="cs">Upozornění</msgstr>
-  <msgstr xml:lang="de">Warnung</msgstr>
-  <msgstr xml:lang="es">Precaución</msgstr>
-  <msgstr xml:lang="hu">Figyelem</msgstr>
-  <msgstr xml:lang="nl">Let op</msgstr>
-  <msgstr xml:lang="pt">Cuidado</msgstr>
-  <msgstr xml:lang="sq">Kujdes</msgstr>
-  <msgstr xml:lang="sv">Varning</msgstr>
-  <msgstr xml:lang="uk">Застереження</msgstr>
-  <msgstr xml:lang="wa">Adviertance</msgstr>
-</msg>]]></programlisting>
+  <msg>Caution</msg>
+  <msg xml:lang="ar">إنتباه</msg>
+  <msg xml:lang="bg">Внимание</msg>
+  <msg xml:lang="ca">Compte</msg>
+  <msg xml:lang="cs">Upozornění</msg>
+  <msg xml:lang="da">Forsigtig</msg>
+  <msg xml:lang="de">Achtung</msg>
+  <msg xml:lang="el">Προσοχή</msg>
+  <msg xml:lang="en_CA">Caution</msg>
+  <msg xml:lang="en_GB">Caution</msg>
+  <msg xml:lang="es">Precaución</msg>
+  <msg xml:lang="et">Ettevaatust</msg>
+  <msg xml:lang="fi">Varoitus</msg>
+  <msg xml:lang="fr">Attention</msg>
+  <msg xml:lang="gu">સાવધાન</msg>
+  <msg xml:lang="hi">चेतावनी</msg>
+  <msg xml:lang="hu">Figyelem</msg>
+  <msg xml:lang="id">Perhatian</msg>
+  <msg xml:lang="it">Attenzione</msg>
+  <msg xml:lang="ja">注意</msg>
+  <msg xml:lang="ko">주의</msg>
+  <msg xml:lang="lt">Įspėjimas</msg>
+  <msg xml:lang="nb">Advarsel</msg>
+  <msg xml:lang="ne">सावधानी</msg>
+  <msg xml:lang="nl">Let op</msg>
+  <msg xml:lang="no">Advarsel</msg>
+  <msg xml:lang="pa">ਸਾਵਧਾਨ</msg>
+  <msg xml:lang="pt">Cuidado</msg>
+  <msg xml:lang="pt_BR">Cuidado</msg>
+  <msg xml:lang="ro">Atenţie</msg>
+  <msg xml:lang="sk">Výstraha</msg>
+  <msg xml:lang="sq">Kujdes</msg>
+  <msg xml:lang="sr">Пажња</msg>
+  <msg xml:lang="sr@Latn">Pažnja</msg>
+  <msg xml:lang="sv">Varning</msg>
+  <msg xml:lang="tr">Uyarı</msg>
+  <msg xml:lang="uk">Застереження</msg>
+  <msg xml:lang="vi">Cảnh báo</msg>
+  <msg xml:lang="wa">Adviertance</msg>
+  <msg xml:lang="zh_CN">小心</msg>
+  <msg xml:lang="zh_TW">注意</msg>
+</msgset>]]></programlisting>
 
-    <para>A translator, however, will work only with the PO files.  Using
+    <para>Translators, however, will work only with the PO files.  Using
     PO files for these strings is no different than any other simple string
-    translation.  The PO entry in the <literal>cs</literal> locale for the
+    translation.  The PO entry in the <literal>sr</literal> locale for the
     above string would look like this:</para>
 
     <programlisting><![CDATA[
-#: xslt/gettext/l10n.xml.in.h:63
-msgid "Warning"
-msgstr "Varování"]]></programlisting>
+#: ../xslt/gettext/l10n.xml.in.h:1347
+msgid "Caution"
+msgstr "Пажња"]]></programlisting>
+  </section>
 
-    <para>The &gettext; template also allows pluralized translations.  However,
-    the standard multiple message strings used in PO files are not used for the
-    pluralized translations, because <command>intltool</command> can't merge
-    these into an XML file.  Instead, the translated message string is an XML
-    fragment.  This is copied into the localization XML file, and &gettext;
-    extracts the value for the appropriate plural form.</para>
+  <section id="translating-plurals">
+    <title>Plurals</title>
 
-    <para>After merging values from the PO files, the localization file will
-    have entries similar to this:</para>
+    <para>In many cases, a static string is insufficient for proper localized
+    content.  For these cases, the stylesheets allow for alternate strings by
+    placing the strings in a structured XML fragment.  Alternate strings are
+    used in two ways: to provide plural forms according to the plural rules
+    of the langauge, and to provide alternate formattings based on a specified
+    role.  This section discusses plurals.  See <xref linkend="translating-roles"/>
+    for a discussion of roles.</para>
+
+    <para>Plural forms are handled similarly to how they are handled in other
+    applications.  A rule is provided to transform a number into a plural index,
+    and a translation is provided for each of those indexes.  Unfortunately,
+    there is no standard way to encode this information into XML; thus, there
+    is no mechanism in &intltool;'s XML mode.  Consequently, translators must
+    place their translations in an XML fragment.  This fragment is merged into
+    the &l10n_xml; file, and the stylesheets extract the appropriate form.</para>
+
+    <para>Here is an example entry in the &l10n_xml; file:</para>
 
     <programlisting><![CDATA[
-<msg xmlns="http://www.gnome.org/~shaunm/gnome-doc-utils/xsl-format">
+<msgset xmlns=""http://www.gnome.org/~shaunm/gnome-doc-utils/l10n">
   <msgid>Author</msgid>
-  <msgstr>
-    <msgstr form="0">Author</msgstr>
-    <msgstr form="1">Authors</msgstr>
-  </msgstr>
-  <msgstr xml:lang="cs">
-    <msgstr form="0">Autor</msgstr>
-    <msgstr form="1">Autoři</msgstr>
-    <msgstr form="2">Autoři</msgstr>
-  </msgstr>
-</msg>]]></programlisting>
+  <msg>
+    <msgstr form='0'>Author</msgstr>
+    <msgstr form='1'>Authors</msgstr>
+  </msg>
+  <msg xml:lang="sr">
+    <msgstr form='0'>Аутор</msgstr>
+    <msgstr form='1'>Аутори</msgstr>
+    <msgstr form='2'>Аутори</msgstr>
+  </msg>
+</msgset>]]></programlisting>
 
-    <para>As with the simple case, each locale has a <sgmltag>msgstr</sgmltag>
-    element with an <sgmltag class="attribute">xml:lang</sgmltag> attribute.
-    For pluralized translations, however, the translation is a sequence of
-    nested <sgmltag>msgstr</sgmltag> elements, each with a
-    <sgmltag class="attribute">form</sgmltag> attribute.  The &gettext; template
-    extracts the correct string based on the plural form, which is computed from
-    the number of referenced objects.</para>
+    <para>Since the Serbian language has three plural forms, three translations
+    have been provided.  Each of these is placed in a <sgmltag>msgstr</sgmltag>
+    element, and the <sgmltag role="attribute">form</sgmltag> attribute is used
+    to indicate for which plural form they are used.</para>
 
-    <para>Translators simply write the correct XML fragment in the translated
-    message string.  For example, here is the PO file entry in the
-    <literal>cs</literal> locale for the above:</para>
+    <para>Again, translators will only see the entries in their PO files.  The
+    PO file entry for the above translation looks like this:</para>
 
     <programlisting><![CDATA[
 #. Used as a header before a list of authors.
-#: xslt/gettext/l10n.xml.in.h:2
+#: ../xslt/gettext/l10n.xml.in.h:1310
 msgid ""
-"<msgstr form=\"0\">Author</msgstr>"
-"<msgstr form=\"1\">Authors</msgstr>"
+"<msgstr form='0'>Author</msgstr> "
+"<msgstr form='1'>Authors</msgstr>"
 msgstr ""
-"<msgstr form=\"0\">Autor</msgstr>"
-"<msgstr form=\"1\">Autoři</msgstr>"
-"<msgstr form=\"2\">Autoři</msgstr>"]]></programlisting>
+"<msgstr form='0'>Аутор</msgstr>\n"
+"<msgstr form='1'>Аутори</msgstr>\n"
+"<msgstr form='2'>Аутори</msgstr>"
+]]></programlisting>
 
     <para>Since <command>intltool</command> often alters whitespace, the
     entry in the PO file might not look as nice as this.  When creating the
     translated message strings, translators may add or remove whitespace
     between <sgmltag>msgstr</sgmltag> elements if they choose.  This extra
-    text content is ignored by &gettext;.</para>
+    text content is ignored by &l10n_gettext;.</para>
 
     <para>Note that translators may add a <sgmltag>msgstr</sgmltag> element
     without a <sgmltag class="attribute">form</sgmltag> attribute as a fallback
     translation.  In the example above, the last two <sgmltag>msgstr</sgmltag>
     elements could have been replaced by a single <sgmltag>msgstr</sgmltag>
     element without a <sgmltag class="attribute">form</sgmltag> attribute.
-    The &gettext; template would match the first element whenever the plural
-    form is 0, and the fallback element otherwise.</para>
+    The &l10n_gettext; template would match the first element whenever the
+    plural form is 0, and the fallback element otherwise.</para>
 
-    <para>The plural form is determined by calling the &gettext_plural_form;
-    template.  This template has the plural forms for locales hard-coded;
-    they are not extracted automatically from PO files.  When translators
-    begin translating the stylesheets, they should contact the maintainers
-    to have an appropriate plural form added to the stylesheets.</para>
+    <para>The plural form is selected using the &l10n_plural_form; template.
+    This templates takes the number of items as a parameter, and returns the
+    numeric index of the plural form to use.  Currently, the rule cannot be
+    automatically extracted from the <literal>Plural-Forms</literal> entry
+    in the PO file, though this feature is planned for the future.  Until
+    this feature is added, plural rules have to be coded manually in the
+    stylesheets.  Translators need to notify the maintainers when they
+    begin translating the stylesheets.</para>
   </section>
 
-  <section id="translating-format2xsl">
-    <title>The &format2xsl; Method</title>
+  <section id="translating-roles">
+    <title>Roles</title>
+
+    <para>In many cases, how to render an element depends on various
+    conditions, such as the grammatical role.  For these cases, the
+    stylesheets allow translators to provide multiple translations,
+    each marked with a <sgmltag role="attribute">role</sgmltag>
+    attribute from a fixed vocabulary.  The list valid roles will
+    depend on the template, and should be given in the translator
+    comment accompanying each string.  However, there are a number
+    of common cases, particularly for labels and cross references.
+    </para>
+
+    <para>Translating using roles is similar to translating using plural
+    forms.  A translation consists of any number of <sgmltag>msgstr</sgmltag>
+    elements, each with a <sgmltag class="attribute">role</sgmltag> attribute.
+    A <sgmltag>msgstr</sgmltag> element without an attribute can be provided
+    as a default if none of the roles match.</para>
+
+    <para>For example, the <sgmltag>citetitle</sgmltag> element in DocBook
+    is used to cite the title of a publication.  The type of the publication
+    is specified in the <sgmltag class="attribute">class</sgmltag> attribute.
+    In many English publications, article titles are placed in quotes, while
+    book titles are italicized.  The following fragment will quote article
+    titles, but italicize all other cited titles.</para>
+
+    <programlisting><![CDATA[
+<msgstr role='article'>“<node/>”</msgstr>
+<msgstr><i><node/></i></msg:msgstr>
+]]></programlisting>
+
+    <para>The Serbian translation team has chosen to follow the same
+    convention of quoting article titles and italicizing all others.
+    The entry in <filename>sr.po</filename> follows.</para>
+
+    <programlisting><![CDATA[
+#: ../xslt/gettext/l10n.xml.in.h:304
+msgid ""
+"<msgid>citetitle.format</msgid> "
+"<msgstr role='article'>“<node/>”</msgstr> "
+"<msgstr><i><node/></i></msgstr>"
+msgstr ""
+"<msgstr role='article'>„<node/>“</msgstr>\n"
+"<msgstr><i><node/></i></msgstr>"
+]]></programlisting>
+
+    <para>The meaning of the markup inside the <sgmltag>msgstr</sgmltag>
+    elements will be explained in <xref linkend="translating-formats"/>.
+    For now, simply note that multiple strings have been provided, each
+    in a <sgmltag>msgstr</sgmltag> element.  The only difference between
+    the original string and the Serbian string is that Serbian is using
+    a different opening quote character, aligned at the baseline.</para>
+
+    <para>Note also that the original translation contains an additional
+    <sgmltag>msgid</sgmltag> element.  This element is redundant in the
+    merged XML; its only purpose is to distinguish the string from other
+    strings, which may potentially have the same formatting in English.
+    Redundant <sgmltag>msgid</sgmltag> elements are sometimes used even
+    when neither plural forms nor roles are being used.  In those cases,
+    the sole translatable string is placed in a <sgmltag>msgstr</sgmltag>
+    element with no attributes.</para>
+  </section>
+
+  <section id="translating-formats">
+    <title>Format Strings</title>
+
     <para>The Gnome documentation stylesheets can translate more than simple
-    strings using the &format2xsl; template.  The &format2xsl; template creates
-    a localized XSLT stylesheet from an XML template file.  The template file
-    contains format strings which can be translated with PO files.</para>
+    strings using specialized format strings.  These are similar in principle
+    to format strings used in C programs, except that XML is used to insert
+    named parameters, rather than special format tokens being used to insert
+    positional parameters.</para>
 
     <para>For instance, DocBook provides the <sgmltag>quote</sgmltag> element,
     used to mark inline quotations. How to render an inline quotation depends
     on the typographic conventions of the language.  In U.S. English, they are
-    rendered inside “double inverted-comma” quotation marks.  In German, they
-    are typically rendered inside «double angle» quotation marks.</para>
+    rendered inside “double inverted-comma” quotation marks.  In Serbian, they
+    are typically rendered with the opening quotation „aligned at the baseline“.
+    The entry in the Serbian PO file for this format string follows.</para>
 
-    <para> In the template file <filename>db-format.xml.in</filename>, the
-    string <literal>format.quote.outer</literal> is marked for translation.
-    This is a placeholder for the format strings provided by translators.
-    The default value is <literal>“%t{node}”</literal>.  This contains the
-    format argument <literal>%t{node}</literal> which applies XSLT templates
-    to the parameter named <parameter>node</parameter>.  This means that the
-    contents of the <sgmltag>quote</sgmltag> element will be rendered as they
-    would normally be rendered, but they will be wrapped inside quotation
-    marks.</para>
-
-    <para>Each template format string has a set number of named arguments
-    availabe, which should be documented along with the template.  Note that
-    the default translation may not make use of all the availabe arguments.
-    Each argument is either a template argument, string argument, or number
-    argument.</para>
-
-    <para>Template arguments have the form <literal>%t{node}</literal>, and
-    work by applying further XSLT templates to the node.  String arguments have
-    the form <literal>%s{str}</literal>, and work by copying a string into the
-    formatted output.  For template and string arguments, translators must use
-    the correct prefix, either <literal>%t</literal> or <literal>%s</literal>.
-    The stylesheets will fail to build if the prefix is not correct.</para>
-
-    <para>Number arguments work similarly to string arguments, except that
-    translators have control over how the numbers are formatted.  Consider
-    the template string <literal>format.example.number</literal>.  The default
-    value for this is <literal>%t{parent}-%1{number}</literal>.  The template
-    argument calls the number formatter for the enclosing chapter, and the
-    number argument renders the number of the example in the chapter.  If
-    this were being called on the fifth example in the second chapter, the
-    value would be 2-5.</para>
-
-    <para>Unlike template and string arguments, translators may use a number
-    of different prefixes on number arguments.  The prefix indicates how to
-    format the number.  Currently, the prefixes <literal>%1</literal>,
-    <literal>%A</literal>, <literal>%a</literal>, <literal>%I</literal>, and
-    <literal>%i</literal> are supported.  The <literal>%1</literal> prefix
-    formats the number in decimal form using Arabic numerals.  The
-    <literal>%A</literal> and <literal>%a</literal> prefixes format numbers
-    as successive values of the Latin alphabet, either uppercase or lowercase.
-    The <literal>%I</literal> and <literal>%i</literal> prefixes format numbers
-    as Roman numerals, again either uppercase or lowercase.</para>
-
-    <note><para>These five types of number formatters are unlikely to be
-    sufficient, particularly for non-Western languages.  Translators who
-    would like to format numbers differently should contact the maintainers,
-    and we can try to add additional number formatters.</para></note>
-
-    <section id="translating-roles">
-      <title>Using Roles</title>
-
-      <para>In many cases, how to render an element depends on various
-      conditions, such as the grammatical role.  For these cases, the
-      &format2xsl; template can select localized format strings from a
-      list of alternatives, each marked with a
-      <sgmltag role="attribute">role</sgmltag> attribute.  The list
-      of valid roles will depend on the template; however, there are a
-      number of common cases, particularly for automatically generated
-      labels.</para>
-
-      <para>The available roles for a template, as well as how the role
-      is extracted, varies from template to template.  The documentation
-      for each template should clearly state how the role is determined
-      and which roles are available.</para>
-
-      <para>Translating using roles is similar to translating using plural
-      forms.  A translation consists of any number of <sgmltag>msgstr</sgmltag>
-      elements, each with a <sgmltag class="attribute">role</sgmltag> attribute.
-      A <sgmltag>msgstr</sgmltag> element without an attribute can be provided
-      as a default if none of the roles match.</para>
-
-      <para>For example, the <sgmltag>citetitle</sgmltag> element in DocBook
-      is used to cite the title of a publication.  The type of the publication
-      is specified in the <sgmltag class="attribute">class</sgmltag> attribute.
-      In many English publications, article titles are place in quotes, while
-      book titles are italicized.  The following fragment will quote article
-      titles, but italicize all other cited titles.</para>
-
-      <programlisting><![CDATA[
-<msg:msgstr role="article">“%t{node}”</msg:msgstr>
-<msg:msgstr><i>%t{node}</i></msg:msgstr>
-]]></programlisting>
-
-      <para>The Czech translation team has chosen to follow the same
-      convention of quoting article titles and italicizing all others.
-      The entry in <filename>cs.po</filename> follows.</para>
-
-      <programlisting><![CDATA[
-#: xslt/docbook/common/db-format.xml.in.h:5
-msgid "format.citetitle"
+    <programlisting><![CDATA[
+#: ../xslt/gettext/l10n.xml.in.h:936
+msgid ""
+"<msgid>quote.format</msgid> "
+"<msgstr role='inner'>‘<node/>’</msgstr> "
+"<msgstr>“<node/>”</msgstr>"
 msgstr ""
-"<msg:msgstr role=\"article\">„%t{node}”</msg:msgstr>"
-"<msg:msgstr><i>%t{node}</i></msg:msgstr>"
+"<msgstr role='inner'>‘<node/>’</msgstr>\n"
+"<msgstr>„<node/>”</msgstr>"
 ]]></programlisting>
 
-      <important><para>Unlike using plural forms with &gettext;, each
-      <sgmltag>msgstr</sgmltag> element must use the namespace prefix
-      <sgmltag class="namespace">msg:</sgmltag>.  Future versions of
-      the stylesheets should remove this requirement.</para></important>
+    <para>Multiple <sgmltag>msgstr</sgmltag> elements have been provided
+    with roles.  These are used to distinguish inner quotes from outer
+    quotes.  Roles were described in <xref linkend="translating-roles"/>.
+    The <sgmltag>msgstr</sgmltag> elements also contain inline markup.
+    This markup is used to insert additional content.  In this case,
+    only the <sgmltag class="emptytag">node</sgmltag> element has been
+    used.  This element is replaced by the contents of the quotation
+    element being processed.</para>
 
-      <para>In this example, text is italicized using inline markup.
-      Although the HTML <sgmltag>i</sgmltag> tag is being used, the
-      templates are not used exclusively for HTML transformations.
-      A limited set of inline markup is permitted, and each stylesheet
-      using the translated templates provides a template to transform
-      the inline markup into its target format.  Translators should
-      restrict the use of inline markup to <sgmltag>i</sgmltag>
-      (italics), <sgmltag>b</sgmltag> (bold), and <sgmltag>tt</sgmltag>
-      (monospace).</para>
-    </section>
+    <para>Each format string has a set number of named arguments available.
+    These arguments should be documented in the translator comments that
+    accompany the string.  Note that the default translation may not make
+    use of all the available arguments.</para>
 
-    <section id="translating-labels">
-      <title>Translating Labels</title>
+    <para>In addition to marker elements in format strings, translators
+    may also use simple inline formatting markup.  Currently, the only
+    supported elements are <sgmltag>i</sgmltag> for italics,
+    <sgmltag>b</sgmltag> for bold, and <sgmltag>tt</sgmltag> for
+    monospace.  This may be expanded to include all of PangoMarkup
+    in the future.</para>
+  </section>
 
-      <para>The most common use of roles is to translate the formatting
-      of labels for section and other block elements in DocBook.  For
-      example, the second section of an article might be referred to
-      as Section 2.  The label for the section is used in many different
-      places throughout the document, and its formatting varies.  The
-      following roles are common in many label formatters.</para>
+  <section id="translating-types">
+    <title>Common Formatter Types</title>
+
+    <para>There are a number of common types of format strings that are
+    marked for translation in the stylesheets.  DocBook contains a lot
+    of structural markup, and many of the same sorts of formatting tasks
+    have to be performed on different elements.  For example, chapters,
+    appendixes, and sections all have similar formatting needs, but they
+    usually need to be handled distinctly.  The stylesheets do not expose
+    every distinct element of DocBook; rather, they only make distinctions
+    when they matter from a document presentation viewpoint.</para>
+
+    <para>This section outlines many of the common types of strings
+    translators will encounter.  Strings of the same type will generally
+    have the same format arguments and the same set of roles.</para>
+
+    <section id="translating-types-labels">
+      <title>Label Formatters</title>
+      <para>Labels are used before titles in headers and contents listings.
+      Usually, a label will contain the object's number followed by some
+      punctuation.  Formal block objects, such as tables and figures,
+      often have more information in the label.</para>
+
+      <para>The Serbian label formatters for sections and figures follow.</para>
+
+      <programlisting><![CDATA[
+#: ../xslt/gettext/l10n.xml.in.h:1128
+msgid ""
+"<msgid>section.label</msgid> "
+"<msgstr role='header'><number/>.&#x2003;</msgstr> "
+"<msgstr role='li'><number/>.&#x2002;</msgstr> "
+"<msgstr>Section <number/></msgstr>"
+msgstr ""
+"<msgstr role='header'><number/>.&#x2003;</msgstr>\n"
+"<msgstr role='li'><number/>.&#x2002;</msgstr>\n"
+"<msgstr>Одељак <number/></msgstr>"
+
+#: ../xslt/gettext/l10n.xml.in.h:492
+msgid ""
+"<msgid>figure.label</msgid> "
+"<msgstr role='header'><i>Figure <number/></i>&#x2003;</msgstr> "
+"<msgstr role='li'>Figure <number/>&#x2002;</msgstr> "
+"<msgstr>Figure <number/></msgstr>"
+msgstr ""
+"<msgstr role='header'><i>Слика <number/></i>&#x2003;</msgstr>\n"
+"<msgstr role='li'>Слика <number/>&#x2002;</msgstr>\n"
+"<msgstr>Слика <number/></msgstr>"
+]]></programlisting>
+
+      <para>In both cases, translations are provided for the
+      <literal>header</literal> and <literal>li</literal> roles.
+      Additionally, a fallback formatting has been provided to format
+      labels when no role is provided.  Label formatters will generally
+      use the same two roles.  Fallback translations should be provided
+      as well.</para>
+
+      <para>Most label formatters provide three format arguments which
+      can be used in the translations:</para>
 
       <variablelist>
-	<varlistentry>
-	  <term><literal>header</literal></term>
-	  <listitem><para>The label that appears before the title in the
-	  heading of the actual element in the content.  The label of this
-	  section using this role is
-	  <xref xrefstyle="role:header" linkend="translating-labels"/>.
-	  </para></listitem>
-	</varlistentry>
-	<varlistentry>
-	  <term><literal>li</literal></term>
-	  <listitem><para>The label that appears before the entry in the
-	  table of contents.  The label of this section using this role is
-	  <xref xrefstyle="role:li" linkend="translating-labels"/>.
-	  </para></listitem>
-	</varlistentry>
-	<varlistentry>
-	  <term><literal>xref</literal></term>
-	  <listitem><para>The label used for cross references placed inline
-	  in text.  The label of this section using this role is
-	  <xref xrefstyle="role:xref" linkend="translating-labels"/>.
-	  </para></listitem>
-	</varlistentry>
+        <varlistentry>
+          <term><sgmltag class="emptytag">title</sgmltag></term>
+          <listitem><para>Insert the title of the element being labeled.
+          For most types of element, the title is simply provided by the
+          <sgmltag>title</sgmltag> in DocBook.  A few DocBook elements,
+          notably <sgmltag>refentry</sgmltag>, have more complicated
+          content models.  Translators need only reference the argument,
+          and the stylesheets will determine the title.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><sgmltag class="emptytag">titleabbrev</sgmltag></term>
+          <listitem><para>Insert the abbreviated title of the element
+          being labeled.  Abbreviated titles are provided by the
+          <sgmltag>titleabbrev</sgmltag> element in DocBook.  If the
+          labeled element does not have an abbreviated title, the
+          title is used instead.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><sgmltag class="emptytag">number</sgmltag></term>
+          <listitem><para>Insert the fully qualified number of the element
+          being labeled.  For most label formatters, there is a corresponding
+          number formatter that will be called for this argument.</para></listitem>
+        </varlistentry>
       </variablelist>
 
-      <para>Additionally, there are four roles that are often used by the
-      stylesheets, but do not need to be defined by translators.  These
-      roles are <literal>title</literal>, <literal>titleabbrev</literal>,
-      <literal>subtitle</literal>, and <literal>number</literal>.  Unless
-      defined otherwise, these roles will automatically just call the
-      respective argument.</para>
+      <para>Since labels are used before titles, most label formatters should
+      only need to use the number of the element.</para>
+    </section>
 
-      <para>Translators can add support for additional roles for documents
-      written in their language.  This is useful for properly rendering
-      cross references used in different parts of speech.  For instance,
-      <quote>Section 14.2 contains more information</quote> and <quote>See
-      Section 14.2 for more information</quote> use the cross reference
-      label differently.  The first uses it as a subject, the second as
-      a direct object.  In many languages they will need to be rendered
-      differently.</para>
+    <section id="translating-types-numbers">
+      <title>Number Formatters</title>
+      <para>Numbers are used in labels, cross references, and other identifiers.
+      Numbers identify elements by their position in the document.  Numbers can
+      be as simple as single-level positions, or they may indicate a hierarchy.
+      For example, the third subsection of the fourth section in the second
+      chapter would be Section 2.4.3.  The job of number formatters is to put
+      together the hierarchical number string.  Thus, number formatters are not
+      called for single-level numbers.</para>
 
-      <para>When the stylesheets resolve a cross reference, they look first
-      at the <sgmltag class="attribute">xrefstyle</sgmltag> attribute of the
-      <sgmltag>xref</sgmltag> element.  If the attribute value is of the form
-      <literal>role:<replaceable>somerole</replaceable></literal>, then the
-      value <literal><replaceable>somerole</replaceable></literal> will be
-      used as the role.  Otherwise, the fallback role <literal>xref</literal>
-      will be used.</para>
+      <para>The single-level number of an element in its parent is referred to
+      as that element's <firstterm>digit</firstterm>.  Number formatters work
+      by specifying how to combine the parent element's number with the current
+      element's digit.  Two format arguments are allowed:</para>
 
-      <para>Translators may add additional roles, such as
-      <literal>xref-subject</literal> and <literal>xref-object</literal>.
-      Once added to the stylesheets, any document in that language can make
-      use of those roles to influence the rendering of cross references.
-      To avoid naming collisions, translators are recommended to prefix
-      roles with <literal>xref-</literal> when creating new roles for use
-      with cross references.</para>
+      <variablelist>
+        <varlistentry>
+          <term><sgmltag class="emptytag">parent</sgmltag></term>
+          <listitem><para>Insert the fully qualified number of the element's
+          parent.  In many cases, this number is constructed by calling the
+          number formatter for the parent element.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><sgmltag class="emptytag">digit</sgmltag></term>
+          <listitem><para>Insert the single-level position of the element
+          in its parent element.  How the digit is displayed is determined
+          by the corresponding digit format.</para></listitem>
+        </varlistentry>
+      </variablelist>
+
+      <para>The Serbian label formatters for sections and figures follow.</para>
+
+      <programlisting><![CDATA[
+#: ../xslt/gettext/l10n.xml.in.h:1162
+msgid ""
+"<msgid>section.number</msgid> "
+"<msgstr><parent/>.<digit/></msgstr>"
+msgstr""
+"<msgstr><parent/>.<digit/></msgstr>"
+
+#: ../xslt/gettext/l10n.xml.in.h:525
+msgid ""
+"<msgid>figure.number</msgid> "
+"<msgstr><parent/>-<digit/></msgstr>"
+msgstr ""
+"<msgstr><parent/>-<digit/></msgstr>"
+]]></programlisting>
+
+      <para>Note that <sgmltag>msgstr</sgmltag> elements are used to contain
+      the strings, even though neither plural forms nor roles are being used.
+      This is because a <sgmltag>msgid</sgmltag> has been inserted into the
+      translatable string to allow number formatters for different elements
+      to be distinct messages in PO files.</para>
+    </section>
+
+    <section id="translating-types-digits">
+      <title>Digit Formats</title>
+      <para>Digits are the part of an element's number that specify its
+      position in its parent element.  An element's number consists of
+      its parent number and its digit.  Digits can be formatted using
+      a number of numbering systems.</para>
+
+      <para>Digit formats aren't actually format strings, nor are they
+      user-visible strings.  They're simply tokens that specify how to
+      format a number.  Currently, only the following five digit formats
+      are supported:</para>
+
+      <variablelist>
+        <varlistentry>
+          <term><literal>1</literal></term>
+          <listitem><para>Format the number using Arabic numerals:
+          1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><literal>A</literal></term>
+          <listitem><para>Format the number using uppercase Latin letters:
+          A, B, C, D, E, F, G, H, I, J, K, L.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><literal>a</literal></term>
+          <listitem><para>Format the number using lowercase Latin letters:
+          a, b, c, d, e, f, g, h, i, j, k, l.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><literal>I</literal></term>
+          <listitem><para>Format the number using uppercase Roman numerals:
+          I, II, III, IV, V, VI, VII, VIII, IX, X, XI, XII:</para></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><literal>i</literal></term>
+          <listitem><para>Format the number using lowercase Roman numerals:
+          i, ii, iii, iv, v, vi, vii, viii, ix, x, xi, xii:</para></listitem>
+        </varlistentry>
+      </variablelist>
+
+      <note><para>These five numbering systems are unlikely to be sufficient,
+      particularly for non-Western languages.  Translators who would like to
+      format numbers differently should contact the maintainers, and we can
+      try to add additional digit formats.</para></note>
+    </section>
+
+    <section id="translating-types-xrefs">
+      <title>Cross Reference Formatters</title>
+      <para>Cross reference formatters are used to format the text of a link
+      to another element in the document.  In many languages, how best to
+      format an individual cross reference will depend on its usage.  Often,
+      cross references will need to be formatted differently based on their
+      grammatical role in a sentence.</para>
+
+      <para>The cross reference formatters allow translators to provide multiple
+      formattings using roles.  Documentation authors and translators can then
+      select the format for a cross reference using the &xrefstyle; attribute on
+      the <sgmltag>xref</sgmltag> element.  The Gnome documentation stylesheets
+      allow &xrefstyle; attributes of the form
+      <sgmltag class="attvalue">role:<replaceable>somerole</replaceable></sgmltag>,
+      where <replaceable>somerole</replaceable> is the role to be passed to the
+      cross reference formatter.</para>
+
+      <para>Cross reference formatters generally provide the following three
+      format arguments:</para>
+
+      <variablelist>
+        <varlistentry>
+          <term><sgmltag class="emptytag">title</sgmltag></term>
+          <listitem><para>Insert the title of the element being referenced.
+          For most types of element, the title is simply provided by the
+          <sgmltag>title</sgmltag> in DocBook.  A few DocBook elements,
+          notably <sgmltag>refentry</sgmltag>, have more complicated
+          content models.  Translators need only reference the argument,
+          and the stylesheets will determine the title.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><sgmltag class="emptytag">titleabbrev</sgmltag></term>
+          <listitem><para>Insert the abbreviated title of the element
+          being referenced.  Abbreviated titles are provided by the
+          <sgmltag>titleabbrev</sgmltag> element in DocBook.  If the
+          labeled element does not have an abbreviated title, the
+          title is used instead.</para></listitem>
+        </varlistentry>
+        <varlistentry>
+          <term><sgmltag class="emptytag">number</sgmltag></term>
+          <listitem><para>Insert the fully qualified number of the element
+          being referenced.  For most label formatters, there is a corresponding
+          number formatter that will be called for this argument.</para></listitem>
+        </varlistentry>
+      </variablelist>
+
+      <remark>Insert an example here</remark>
+    </section>
+
+    <section id="translating-types-tooltips">
+      <title>Tooltip Formatters</title>
+      <para>Hyperlinks in HTML output are given a tooltips by the stylesheets.
+      Since hyperlinks can be created using a number of different semantic
+      linking mechanisms in DocBook, the stylesheets are able to provide rich
+      information in the hyperlink tooltips.  The stylesheets provide tooltip
+      formatters for various linking mechanisms.  These can then be translated
+      to provide rich information about hyperlinks in any language.</para>
+
+      <para>For example, the <sgmltag>email</sgmltag> element in DocBook is
+      converted into a hyperlink allowing users to send email to the given
+      address.  The Serbian translation for this formatter follows.</para>
+
+      <programlisting><![CDATA[
+#: ../xslt/gettext/l10n.xml.in.h:329
+msgid ""
+"<msgid>email.tooltip</msgid> "
+"<msgstr>Send email to ‘<node/>’.</msgstr>"
+msgstr ""
+]]></programlisting>
+
+      <para>Each tooltip formatter will have its own format arguments.
+      Generally, only a single format argument will be needed, and the
+      translator comments for the string should clearly specify the
+      valid arguments.</para>
     </section>
   </section>
 </section>

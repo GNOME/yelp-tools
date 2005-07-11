@@ -458,7 +458,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <xsl:param name="prev_node" select="key('idkey', $prev_id)"/>
   <xsl:param name="next_node" select="key('idkey', $next_id)"/>
   <div class="navbar">
-    <xsl:if test="$depth_of_chunk = 0 or $prev_node">
+    <xsl:if test="($info and $depth_of_chunk = 0) or $prev_node">
       <xsl:variable name="class">
         <xsl:text>navbar-prev</xsl:text>
         <xsl:if test="not($next_node)">
@@ -476,6 +476,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
             </xsl:attribute>
             <xsl:choose>
               <xsl:when test="$depth_of_chunk = 0">
+                <!-- FIXME: don't use db.label for this -->
                 <xsl:variable name="label">
                   <xsl:call-template name="db.label">
                     <xsl:with-param name="node" select="$info"/>
@@ -493,7 +494,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                     <xsl:with-param name="target"  select="$prev_node"/>
                   </xsl:call-template>
                 </xsl:attribute>
-                <xsl:call-template name="db.title">
+                <xsl:call-template name="db.titleabbrev">
                   <xsl:with-param name="node" select="$prev_node"/>
                 </xsl:call-template>
               </xsl:otherwise>
@@ -524,9 +525,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                 <xsl:with-param name="target"  select="$next_node"/>
               </xsl:call-template>
             </xsl:attribute>
-            <xsl:call-template name="db.label">
+            <xsl:call-template name="db.titleabbrev">
               <xsl:with-param name="node" select="$next_node"/>
-              <xsl:with-param name="role" select="'title'"/>
             </xsl:call-template>
           </a>
         </span>
@@ -780,7 +780,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <xsl:call-template name="db2html.division.div">
     <xsl:with-param name="title_content">
       <xsl:if test="not(title)">
-        <xsl:call-template name="gettext">
+        <xsl:call-template name="l10n.gettext">
           <xsl:with-param name="msgid" select="'Dedication'"/>
         </xsl:call-template>
       </xsl:if>
@@ -803,7 +803,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     <xsl:with-param name="divisions" select="glossdiv | bibliography"/>
     <xsl:with-param name="title_content">
       <xsl:if test="not(title)">
-        <xsl:call-template name="gettext">
+        <xsl:call-template name="l10n.gettext">
           <xsl:with-param name="msgid" select="'Glossary'"/>
         </xsl:call-template>
       </xsl:if>
