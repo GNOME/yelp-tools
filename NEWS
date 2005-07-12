@@ -1,3 +1,19 @@
+Changes in 0.3.1:
+-----------------
+* Implemented format string translations through l10n.gettext
+* Got the OMF language right when builddir != srcdir
+* Switched documentation to DocBook 4.4
+* Used --noent on check-doc validation
+* Allowed bolding of varlistentry terms
+* Allowed titlepages to be turned off
+* Made the navbar not look horrible
+* Added hooks for top and bottom divs
+* For endterm, apply to child nodes, not the node itself
+* Used xsl:key for faster lookups in l10n.gettext
+* Fixed various build problems with gnome-doc-utils.make
+* Added --disable-scrollkeeper to gnome-doc-utils.make
+* Included rule for making pot files
+
 Changes in 0.2.0:
 -----------------
 * Fixes for builddir != srcdir
