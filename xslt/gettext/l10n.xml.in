@@ -12,14 +12,8 @@
   inline lists have to be constructed dynamically.  Using the default
   string of ", ", a list would look like this: A, B, C, D.  Using the
   nonsensical string " - ", a list would look like this: A - B - C - D.
-
-  Note that the actual string has been wrapped in a msgstr element.
-  This wrapper element will be ignored by the gettext XSLT template.
-  The string has been wrapped in msgstr because intltool's XML mode
-  mangles leading and trailing whitespace, and the whitespace is
-  important to proper formatting.
   -->
-  <_msg><msgstr>, </msgstr></_msg>
+  <_msg xml:space="preserve">, </_msg>
 </msgset>
 <msgset>
   <msgid>A:</msgid>

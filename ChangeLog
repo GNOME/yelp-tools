@@ -1,3 +1,8 @@
+2005-07-13  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/gettext/l10n.xml.in:
+	- Use xml:space instead of a wrapper msgstr on ", "
+
 2005-07-12  Shaun McCance  <shaunm@gnome.org>
 
 	* NEWS:
