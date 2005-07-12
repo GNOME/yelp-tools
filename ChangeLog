@@ -1,3 +1,8 @@
+2005-07-12  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/gettext/l10n.xml.in:
+	- Wrap ", " string in msgstr to prevent whitespace mangling
+
 2005-07-10  Shaun McCance  <shaunm@gnome.org>
 
 	* Makefile.am:
