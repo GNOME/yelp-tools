@@ -1,3 +1,11 @@
+2005-07-15 Shaun McCance  <shaunm@gnome.org>
+
+	* doc/xslt/C/gnome-doc-xslt.xml:
+	- Switched to DocBook 4.4, for xml:base validity
+
+	* xslt/xsldoc/xsldoc.xsl:
+	- Prefixed IDs to avoid clashes
+
 2005-07-13  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/gettext/l10n.xml.in:

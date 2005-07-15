@@ -268,7 +268,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!-- = doc:mode = -->
 <xsl:template mode="xsldoc.refentry.mode" match="doc:mode">
-  <refentry id="{doc:name}">
+  <refentry id="mode_{doc:name}">
     <indexterm>
       <primary> 
         <xsl:value-of select="doc:name"/>
@@ -300,7 +300,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!-- = doc:parameter = -->
 <xsl:template mode="xsldoc.refentry.mode" match="doc:parameter">
-  <refentry id="{doc:name}">
+  <refentry id="param_{doc:name}">
     <indexterm>
       <primary> 
         <xsl:value-of select="doc:name"/>
@@ -334,7 +334,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!-- = doc:template = -->
 <xsl:template mode="xsldoc.refentry.mode" match="doc:template">
-  <refentry id="{doc:name}">
+  <refentry id="template_{doc:name}">
     <indexterm>
       <primary> 
         <xsl:value-of select="doc:name"/>
@@ -406,7 +406,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <xsl:template mode="xsldoc.summary.mode" match="doc:mode">
   <varlistentry>
     <term>
-      <link linkend="{doc:name}">
+      <link linkend="mode_{doc:name}">
         <function role="mode">
           <xsl:apply-templates mode="xsldoc.docbook.mode"
                                select="doc:name/node()"/>
@@ -426,7 +426,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <xsl:template mode="xsldoc.summary.mode" match="doc:parameter">
   <varlistentry>
     <term>
-      <link linkend="{doc:name}">
+      <link linkend="param_{doc:name}">
         <parameter>
           <xsl:value-of select="doc:name"/>
         </parameter>
@@ -444,7 +444,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <xsl:template mode="xsldoc.summary.mode" match="doc:template">
   <varlistentry>
     <term>
-      <link linkend="{doc:name}">
+      <link linkend="template_{doc:name}">
         <function role="template">
           <xsl:value-of select="doc:name"/>
         </function>
