@@ -239,10 +239,10 @@
     if you tell us when you encounter problems.</p>
   </div><p xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n" class="para">Although all localization is done by translating strings in a PO file,
   there are many cases where the translatable string is not a simple sentence
-  or phrase.  Rather, translators must provide data using XML snippets.  These
-  structured snippets can be used to work with plural forms, provide alternative
+  or phrase.  Rather, translators must provide data using XML fragments.  These
+  structured fragments can be used to work with plural forms, provide alternative
   formattings based on context, or provide format strings.</p><div class="section"><a name="translating-simple"/><h2 class="section title"><span class="title"><span class="label">1.&#x2003;</span>Simple Strings</span></h2><p xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n" class="para">Translated strings are extracted in the stylesheets by a template
-    called <span class="function" style="font-family: monospace; ">l10n.gettext</span>.  This template extracs strings from an XML file,
+    called <span class="function" style="font-family: monospace; ">l10n.gettext</span>.  This template extracts strings from an XML file,
     which is built from PO files by <span class="command" style="font-family: monospace; ">intltool</span>.  For example, consider the
     string <span class="wordasword" style="font-style: italic; ">Caution</span>, which is used as a heading for
     <tt class="sgmltag-element">caution</tt> elements.  The stylesheets would call
@@ -300,7 +300,7 @@ msgstr "&#x41F;&#x430;&#x436;&#x45A;&#x430;"</pre></div></div><div class="sectio
     content.  For these cases, the stylesheets allow for alternate strings by
     placing the strings in a structured XML fragment.  Alternate strings are
     used in two ways: to provide plural forms according to the plural rules
-    of the langauge, and to provide alternate formattings based on a specified
+    of the language, and to provide alternate formattings based on a specified
     role.  This section discusses plurals.  See <a class="xref" href=".xhtml#translating-roles" title="Roles">Section 3 &#x2015; Roles</a>
     for a discussion of roles.</p><p xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n" class="para">Plural forms are handled similarly to how they are handled in other
     applications.  A rule is provided to transform a number into a plural index,
@@ -322,7 +322,7 @@ msgstr "&#x41F;&#x430;&#x436;&#x45A;&#x430;"</pre></div></div><div class="sectio
 &lt;/msgset&gt;</pre></div><p xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n" class="para">Since the Serbian language has three plural forms, three translations
     have been provided.  Each of these is placed in a <tt class="sgmltag-element">msgstr</tt>
     element, and the <tt class="sgmltag-element">form</tt> attribute is used
-    to indicate for which plural form they are used.</p><p xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n" class="para">Again, translators will only see the entires in their PO files.  The
+    to indicate for which plural form they are used.</p><p xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n" class="para">Again, translators will only see the entries in their PO files.  The
     PO file entry for the above translation looks like this:</p><div xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n" class="programlisting"><pre class="programlisting">#. Used as a header before a list of authors.
 #: ../xslt/gettext/l10n.xml.in.h:1310
 msgid ""
@@ -353,7 +353,7 @@ msgstr ""
     conditions, such as the grammatical role.  For these cases, the
     stylesheets allow translators to provide multiple translations,
     each marked with a <tt class="sgmltag-element">role</tt>
-    attribute from a fixed vocabulary.  The list valid roles will
+    attribute from a fixed vocabulary.  The list of valid roles will
     depend on the template, and should be given in the translator
     comment accompanying each string.  However, there are a number
     of common cases, particularly for labels and cross references.
@@ -414,7 +414,7 @@ msgstr ""
     This markup is used to insert additional content.  In this case,
     only the <tt class="sgmltag-emptytag">&lt;node/&gt;</tt> element has been
     used.  This element is replaced by the contents of the quotation
-    element being processed.</p><p xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n" class="para">Each format string has a set number of named arguments availabe.
+    element being processed.</p><p xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n" class="para">Each format string has a set number of named arguments available.
     These arguments should be documented in the translator comments that
     accompany the string.  Note that the default translation may not make
     use of all the available arguments.</p><p xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n" class="para">In addition to marker elements in format strings, translators
@@ -461,24 +461,24 @@ msgstr ""
       labels when no role is provided.  Label formatters will generally
       use the same two roles.  Fallback translations should be provided
       as well.</p><p xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n" class="para">Most label formatters provide three format arguments which
-      can be used in the translations:</p><div class="list"><div class="variablelist"><dl><dt><span class="term"><tt class="sgmltag-emptytag">&lt;title/&gt;</tt></span></dt><dd><p xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n" class="para">Insert the title of the element being labelled.
+      can be used in the translations:</p><div class="list"><div class="variablelist"><dl><dt><span class="term"><tt class="sgmltag-emptytag">&lt;title/&gt;</tt></span></dt><dd><p xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n" class="para">Insert the title of the element being labeled.
           For most types of element, the title is simply provided by the
           <tt class="sgmltag-element">title</tt> in DocBook.  A few DocBook elements,
           notably <tt class="sgmltag-element">refentry</tt>, have more complicated
           content models.  Translators need only reference the argument,
           and the stylesheets will determine the title.</p></dd><dt><span class="term"><tt class="sgmltag-emptytag">&lt;titleabbrev/&gt;</tt></span></dt><dd><p xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n" class="para">Insert the abbreviated title of the element
-          being labelled.  Abbreviated titles are provided by the
+          being labeled.  Abbreviated titles are provided by the
           <tt class="sgmltag-element">titleabbrev</tt> element in DocBook.  If the
-          labelled element does not have an abbreviated title, the
+          labeled element does not have an abbreviated title, the
           title is used instead.</p></dd><dt><span class="term"><tt class="sgmltag-emptytag">&lt;number/&gt;</tt></span></dt><dd><p xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n" class="para">Insert the fully qualified number of the element
-          being labelled.  For most label formatters, there is a corresponding
+          being labeled.  For most label formatters, there is a corresponding
           number formatter that will be called for this argument.</p></dd></dl></div></div><p xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n" class="para">Since labels are used before titles, most label formatters should
       only need to use the number of the element.</p></div><div class="section"><a name="translating-types-numbers"/><h3 class="section title"><span class="title"><span class="label">5.2.&#x2003;</span>Number Formatters</span></h3><p xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n" class="para">Numbers are used in labels, cross references, and other identifiers.
       Numbers identify elements by their position in the document.  Numbers can
-      be as simple as single-level positions, or they may indicate a heirarchy.
+      be as simple as single-level positions, or they may indicate a hierarchy.
       For example, the third subsection of the fourth section in the second
       chapter would be Section 2.4.3.  The job of number formatters is to put
-      together the heirarchical number string.  Thus, number formatters are not
+      together the hierarchical number string.  Thus, number formatters are not
       called for single-level numbers.</p><p xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n" class="para">The single-level number of an element in its parent is referred to
       as that element's <span class="firstterm" style="font-style: italic; ">digit</span>.  Number formatters work
       by specifying how to combine the parent element's number with the current
@@ -537,21 +537,23 @@ msgstr ""
           and the stylesheets will determine the title.</p></dd><dt><span class="term"><tt class="sgmltag-emptytag">&lt;titleabbrev/&gt;</tt></span></dt><dd><p xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n" class="para">Insert the abbreviated title of the element
           being referenced.  Abbreviated titles are provided by the
           <tt class="sgmltag-element">titleabbrev</tt> element in DocBook.  If the
-          labelled element does not have an abbreviated title, the
+          labeled element does not have an abbreviated title, the
           title is used instead.</p></dd><dt><span class="term"><tt class="sgmltag-emptytag">&lt;number/&gt;</tt></span></dt><dd><p xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n" class="para">Insert the fully qualified number of the element
           being referenced.  For most label formatters, there is a corresponding
-          number formatter that will be called for this argument.</p></dd></dl></div></div></div><div class="section"><a name="translating-types-tooltips"/><h3 class="section title"><span class="title"><span class="label">5.5.&#x2003;</span>Tooltip Formatters</span></h3><p xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n" class="para">Hyperlinks in HTML output are given a tooltips by the stylesheets.
-      Since hyperlinks can be created using a number of different semantic
-      linking mechanisms in DocBook, the stylesheets are able to provide rich
-      information in the hyperlink tooltips.  The stylesheets provide tooltip
-      formatters for various linking mechanisms.  These can then be translated
-      to provide rich information about hyperlinks in any language.</p><p xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n" class="para">For example, the <tt class="sgmltag-element">email</tt> element in DocBook is
+          number formatter that will be called for this argument.</p></dd></dl></div></div></div><div class="section"><a name="translating-types-tooltips"/><h3 class="section title"><span class="title"><span class="label">5.5.&#x2003;</span>Tooltip Formatters</span></h3><p xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n" class="para">Each hyperlink in the HTML output is given a tooltip by the
+      stylesheets.  Since hyperlinks can be created using a number of
+      different semantic linking mechanisms in DocBook, the stylesheets
+      are able to provide rich information in the hyperlink tooltips.
+      The stylesheets provide tooltip formatters for various linking
+      mechanisms.  These can then be translated to provide rich
+      information about hyperlinks in any language.</p><p xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n" class="para">For example, the <tt class="sgmltag-element">email</tt> element in DocBook is
       converted into a hyperlink allowing users to send email to the given
       address.  The Serbian translation for this formatter follows.</p><div xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n" class="programlisting"><pre class="programlisting">#: ../xslt/gettext/l10n.xml.in.h:329
 msgid ""
 "&lt;msgid&gt;email.tooltip&lt;/msgid&gt; "
 "&lt;msgstr&gt;Send email to &#x2018;&lt;node/&gt;&#x2019;.&lt;/msgstr&gt;"
 msgstr ""
+"&#x41F;&#x43E;&#x448;&#x430;&#x459;&#x438;&#x442;&#x435; &#x435;-&#x43F;&#x438;&#x441;&#x43C;&#x43E; &#x43D;&#x430; &#x201E;&lt;node/&gt;&#x201C;."
 </pre></div><p xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n" class="para">Each tooltip formatter will have its own format arguments.
       Generally, only a single format argument will be needed, and the
       translator comments for the string should clearly specify the

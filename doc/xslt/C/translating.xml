@@ -122,7 +122,7 @@ msgstr "Пажња"]]></programlisting>
     content.  For these cases, the stylesheets allow for alternate strings by
     placing the strings in a structured XML fragment.  Alternate strings are
     used in two ways: to provide plural forms according to the plural rules
-    of the langauge, and to provide alternate formattings based on a specified
+    of the language, and to provide alternate formattings based on a specified
     role.  This section discusses plurals.  See <xref linkend="translating-roles"/>
     for a discussion of roles.</para>
 
@@ -201,7 +201,7 @@ msgstr ""
     conditions, such as the grammatical role.  For these cases, the
     stylesheets allow translators to provide multiple translations,
     each marked with a <sgmltag role="attribute">role</sgmltag>
-    attribute from a fixed vocabulary.  The list valid roles will
+    attribute from a fixed vocabulary.  The list of valid roles will
     depend on the template, and should be given in the translator
     comment accompanying each string.  However, there are a number
     of common cases, particularly for labels and cross references.
@@ -547,12 +547,13 @@ msgstr ""
 
     <section id="translating-types-tooltips">
       <title>Tooltip Formatters</title>
-      <para>Hyperlinks in HTML output are given a tooltips by the stylesheets.
-      Since hyperlinks can be created using a number of different semantic
-      linking mechanisms in DocBook, the stylesheets are able to provide rich
-      information in the hyperlink tooltips.  The stylesheets provide tooltip
-      formatters for various linking mechanisms.  These can then be translated
-      to provide rich information about hyperlinks in any language.</para>
+      <para>Each hyperlink in the HTML output is given a tooltip by the
+      stylesheets.  Since hyperlinks can be created using a number of
+      different semantic linking mechanisms in DocBook, the stylesheets
+      are able to provide rich information in the hyperlink tooltips.
+      The stylesheets provide tooltip formatters for various linking
+      mechanisms.  These can then be translated to provide rich
+      information about hyperlinks in any language.</para>
 
       <para>For example, the <sgmltag>email</sgmltag> element in DocBook is
       converted into a hyperlink allowing users to send email to the given
@@ -564,6 +565,7 @@ msgid ""
 "<msgid>email.tooltip</msgid> "
 "<msgstr>Send email to ‘<node/>’.</msgstr>"
 msgstr ""
+"Пошаљите е-писмо на „<node/>“."
 ]]></programlisting>
 
       <para>Each tooltip formatter will have its own format arguments.

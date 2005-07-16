@@ -1,3 +1,9 @@
+2005-07-16 Shaun McCance  <shaunm@gnome.org>
+
+	* TRANSLATORS.xhtml:
+	* doc/xslt/C/translating.xml:
+	- Typo and other fixes from Clytie Siddall
+
 2005-07-15 Shaun McCance  <shaunm@gnome.org>
 
 	* doc/xslt/C/gnome-doc-xslt.xml:
