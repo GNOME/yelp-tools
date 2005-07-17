@@ -625,14 +625,51 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:param>
 
   <xsl:choose>
-    <!-- == cs sr == -->
-    <xsl:when test="($lang_language = 'cs') or ($lang_language = 'sr')">
+    <!--
+    Keep variants first!
+    When adding new languages, make sure the tests are in a format that
+    can be extracted by the plurals.sh script in the i18n directory.
+    -->
+
+    <!-- == pt_BR == -->
+    <xsl:when test="concat($lang_language, '_', $lang_region) = 'pt_BR'">
+      <xsl:choose>
+        <xsl:when test="$number &gt; 1">
+          <xsl:text>0</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>1</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:when>
+
+    <!-- == ar == -->
+    <xsl:when test="$lang_language = 'ar'">
+      <xsl:choose>
+        <xsl:when test="$number = 1">
+          <xsl:text>0</xsl:text>
+        </xsl:when>
+        <xsl:when test="$number = 2">
+          <xsl:text>1</xsl:text>
+        </xsl:when>
+        <xsl:when test="$number &gt;= 3 and $number &lt; 10">
+          <xsl:text>2</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>3</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:when>
+    <!-- == be bs cs ru sr uk == -->
+    <xsl:when test="($lang_language = 'be') or ($lang_language = 'bs') or
+                    ($lang_language = 'cs') or ($lang_language = 'ru') or
+                    ($lang_language = 'sr') or ($lang_language = 'uk') ">
       <xsl:choose>
         <xsl:when test="($number mod 10 = 1) and ($number mod 100 != 11)">
           <xsl:text>0</xsl:text>
         </xsl:when>
         <xsl:when test="($number mod 10 &gt;= 2) and ($number mod 10 &lt;= 4) and
-                        (($number mod 100 &lt; 10) or ($number mod 100 &gt; 20))">
+                        (($number mod 100 &lt; 10) or ($number mod 100 &gt;= 20))">
           <xsl:text>1</xsl:text>
         </xsl:when>
         <xsl:otherwise>
@@ -640,12 +677,80 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
         </xsl:otherwise>
       </xsl:choose>
     </xsl:when>
-    <!-- == hu ja ko th tr vi zh == -->
-    <xsl:when test="($lang_language = 'hu') or ($lang_language = 'ja') or 
-                    ($lang_language = 'ko') or ($lang_language = 'th') or 
-                    ($lang_language = 'tr') or ($lang_language = 'vi') or
-                    ($lang_language = 'zh')">
+    <!-- == cy == -->
+    <xsl:when test="$lang_language = 'cy'">
+      <xsl:choose>
+        <xsl:when test="$number != 2">
+          <xsl:text>0</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>1</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:when>
+    <!-- == fa hu ja ko th tr vi zh == -->
+    <xsl:when test="($lang_language = 'fa') or ($lang_language = 'hu') or
+                    ($lang_language = 'ja') or ($lang_language = 'ko') or
+                    ($lang_language = 'th') or ($lang_language = 'tr') or
+                    ($lang_language = 'vi') or ($lang_language = 'zh') ">
       <xsl:text>0</xsl:text>
+    </xsl:when>
+    <!-- == fr nso wa == -->
+    <xsl:when test="($lang_language = 'fr') or ($lang_language = 'nso') or
+                    ($lang_language = 'wa') ">
+      <xsl:choose>
+        <xsl:when test="$number &gt; 1">
+          <xsl:text>0</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>1</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:when>
+    <!-- == ga == -->
+    <xsl:when test="$lang_language = 'ga'">
+      <xsl:choose>
+        <xsl:when test="$number = 1">
+          <xsl:text>0</xsl:text>
+        </xsl:when>
+        <xsl:when test="$number = 2">
+          <xsl:text>1</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>2</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:when>
+    <!-- == sk == -->
+    <xsl:when test="$lang_language = 'sk'">
+      <xsl:choose>
+        <xsl:when test="$number = 1">
+          <xsl:text>0</xsl:text>
+        </xsl:when>
+        <xsl:when test="($number &gt;= 2) and ($number &lt;= 4)">
+          <xsl:text>1</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>2</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:when>
+    <!-- == sl == -->
+    <xsl:when test="$lang_language = 'sl'">
+      <xsl:choose>
+        <xsl:when test="$number mod 100 = 1">
+          <xsl:text>0</xsl:text>
+        </xsl:when>
+        <xsl:when test="$number mod 100 = 2">
+          <xsl:text>1</xsl:text>
+        </xsl:when>
+        <xsl:when test="($number mod 100 = 3) or ($number mod 100 = 4)">
+          <xsl:text>2</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>3</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
     </xsl:when>
     <!-- == C == -->
     <xsl:otherwise>

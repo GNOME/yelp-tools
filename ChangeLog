@@ -1,3 +1,23 @@
+2005-07-17 Shaun McCance  <shaunm@gnome.org>
+
+	* Makefile.am:
+	* i18n/Makefile:
+	* i18n/PLURALS.txt:
+	* i18n/STYLESHEETS.xhtml:
+	* i18n/plurals.sh:
+	* xslt/gettext/l10n.xml.in:
+	- Moved stylesheets translator docs to i18n/STYLESHEETS.xhtml
+	- Generated PLURALS.txt of supported plural forms
+
+	* i18n/notes/vi.txt
+	- Added Vietnamese formatting notes from Clytie Siddall
+
+	* po/POTFILES.in:
+	- Removed db2format.xml.in
+
+	* xslt/gettext/gettext.xsl:
+	- Added more plural forms
+
 2005-07-16 Shaun McCance  <shaunm@gnome.org>
 
 	* TRANSLATORS.xhtml:

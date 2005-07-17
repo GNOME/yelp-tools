@@ -282,7 +282,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   This is a format message used to format labels for appendices.  Labels
   are used before the title in places like headers and table of contents
@@ -324,7 +324,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   This is a format message used to format numbers for appendices.  Numbers
   are used in labels, cross references, and any other place where the
@@ -363,7 +363,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   This is a format message used to format cross references to appendices.
   Multiple roles can be provided to allow document translators to select
@@ -424,7 +424,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   This is a format message used to format cross references to books.
   Multiple roles can be provided to allow document translators to select
@@ -462,7 +462,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   citetitle - The title of a cited work
   http://docbook.org/tdg/en/html/citetitle.html
@@ -521,7 +521,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   This is a format message used to format labels for chapters.  Labels
   are used before the title in places like headers and table of contents
@@ -563,7 +563,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   This is a format message used to format numbers for chapters.  Numbers
   are used in labels, cross references, and any other place where the
@@ -602,7 +602,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   This is a format message used to format cross references to chapters
   Multiple roles can be provided to allow document translators to select
@@ -642,7 +642,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   This is a format message used to format tooltips on mailto: links
   created from DocBook's email element.
@@ -696,7 +696,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   This is a format message used to format labels for examples.  Labels
   are used before the title in places like headers and table of contents
@@ -738,7 +738,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   This is a format message used to format numbers for example.  Numbers
   are used in labels, cross references, and any other place where the
@@ -777,7 +777,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   This is a format message used to format cross references to examples.
   Multiple roles can be provided to allow document translators to select
@@ -838,7 +838,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   This is a format message used to format labels for figures.  Labels
   are used before the title in places like headers and table of contents
@@ -880,7 +880,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   This is a format message used to format numbers for figure.  Numbers
   are used in labels, cross references, and any other place where the
@@ -919,7 +919,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   This is a format message used to format cross references to figures.
   Multiple roles can be provided to allow document translators to select
@@ -959,7 +959,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   This is a format message used to format cross references to glossaries.
   Multiple roles can be provided to allow document translators to select
@@ -1001,7 +1001,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   This is a format message used to format tooltips on cross references
   to glossary entries.
@@ -1031,7 +1031,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   This is a format message used to format cross references to glossary
   entries.  Multiple roles can be provided to allow document translators to
@@ -1072,7 +1072,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   glosssee - A cross reference from one glossentry to another
   http://docbook.org/tdg/en/html/glosssee.html
@@ -1114,7 +1114,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   glossseealso - A cross reference from one glossentry to another
   http://docbook.org/tdg/en/html/glossseealso.html
@@ -1157,7 +1157,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   manvolnum - A reference volume number
   http://docbook.org/tdg/en/html/manvolnum.html
@@ -1215,7 +1215,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   This is a format message used to format labels for parts.  Labels
   are used before the title in places like headers and table of contents
@@ -1257,7 +1257,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   This is a format message used to format cross references to parts
   Multiple roles can be provided to allow document translators to select
@@ -1318,7 +1318,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   This is a format message used to format labels for questions in
   question-and-answer sets.  Labels are used before the question
@@ -1357,7 +1357,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   This is a format message used to format cross references to questions
   in question-and-answer sets.  Multiple roles can be provided to allow
@@ -1393,7 +1393,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   quote - An inline quotation
   http://docbook.org/tdg/en/html/quote.html
@@ -1438,7 +1438,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   This is a format message used to format cross references to reference
   pages.  Multiple roles can be provided to allow document translators
@@ -1495,7 +1495,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   This is a format message used to format labels for reference sections.
   Labels are used before the title in places like headers and table of
@@ -1537,7 +1537,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   This is a format message used to format numbers for reference sections.
   Numbers are used in labels, cross references, and any other place where
@@ -1577,7 +1577,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   This is a format message used to format cross references to reference
   sections.  Multiple roles can be provided to allow document translators
@@ -1638,7 +1638,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   This is a format message used to format labels for sections.  Labels
   are used before the title in places like headers and table of contents
@@ -1680,7 +1680,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   This is a format message used to format numbers for sections.  Numbers
   are used in labels, cross references, and any other place where the
@@ -1720,7 +1720,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   This is a format message used to format cross references to sections.
   Multiple roles can be provided to allow document translators to select
@@ -1781,7 +1781,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   This is a format message used to format labels for tables.  Labels
   are used before the title in places like headers and table of contents
@@ -1823,7 +1823,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   This is a format message used to format numbers for table.  Numbers
   are used in labels, cross references, and any other place where the
@@ -1862,7 +1862,7 @@
   documentation before translating this message.  The documentation
   is maintained as part of the stylesheet documentation in DocBook.
   For your convenience, it has also been converted to an HTML file
-  named TRANSLATORS.xhtml in the root of the source directory.
+  named STYLESHEETS.xml in the i18n directory.
 
   This is a format message used to format cross references to tables.
   Multiple roles can be provided to allow document translators to select

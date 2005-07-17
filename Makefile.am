@@ -43,9 +43,3 @@ DISTCLEANFILES =					\
 
 distuninstallcheck_listfiles =  \
 find -regex '.*/var/scrollkeeper/.*' -prune -or -type f -print
-
-TRANSLATORS.xhtml: doc/xslt/C/translating.xml
-	xsltproc -o TRANSLATORS.xhtml			\
-	--param db.chunk.max_depth 0			\
-	xslt/docbook/html/db2html.xsl			\
-	doc/xslt/C/translating.xml

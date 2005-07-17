@@ -1,0 +1,35 @@
+From: Clytie Siddall <clytie@riverland.net.au>
+Date: 2005-07-17
+================================================================================
+
+I don't think I really need to give you any alterations for Vietnamese:
+our Chinese-base references are out-of-date, and we really use French-based
+refs for most things. If I find an exception, I'll mention it.
+
+I'd certainly avoid Roman numerals, and alphabetical order, since our
+alphabet has 72 vowels, and a,b,c,d,e,f,g in English order would be
+a,ă,â,b,c,d,đ in Vietnamese: Arabian numerical order is best.
+
+We appreciate very definite hierarchical structure (reflected in our
+social base), and can follow lateral references quite extensively,
+provided the main hierarchy is clear. Our language uses combined
+diacritics, and a lot of them, being a tonal language, so quotation
+marks are a bad idea (we use guillemots) and even superscript and
+subscript need to be carefully spaced. Our upper and lower accents
+can result in crowded line-spacing, so a slightly larger default font
+is a good idea, or simply larger line-spacing.
+
+Underlining links obscures our lower accents, so css removing this is
+a good idea. I generally use colours instead of decoration for links.
+With all our accents, which are crucial to distinguishing the meaning
+of words, the plainer and less confusing the background is, the better.
+
+Our favourite colours are red and gold, so these are good colours to
+use as background and borders. I tend to use a warm, pale yellow
+background, which makes it easier to distinguish similar words. Our
+language requires UTF-8, and any true Unicode font will render it
+well, although it is a test case both for Unicode support and for
+Unicode display, so there are plenty of fonts and applications which
+do not display it properly. Pre-composed Unicode input (UNFC) is
+best, otherwise the vowel and the accent can become separated in some
+types of programs (e.g. Carbon, as opposed to Cocoa).
