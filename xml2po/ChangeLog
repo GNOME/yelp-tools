@@ -1,3 +1,10 @@
+2005-07-18  Danilo Šegan  <danilo@gnome.org>
+
+	Fixes #310754.
+	
+	* modes/docbook.py (docbookXmlMode.postProcessXmlTranslation):
+	Encode translator credits as UTF-8 for libxml2.
+
 2005-06-26  Danilo Šegan  <danilo@gnome.org>
 
 	Fixes #300442.

@@ -187,7 +187,7 @@ class docbookXmlMode:
                         holder = match.group(2)
                     else:
                         holder = "???"
-                    copy.newChild(None, "holder", holder)
+                    copy.newChild(None, "holder", holder.encode('utf-8'))
 
 # Perform some tests when ran standalone
 if __name__ == '__main__':
