@@ -65,12 +65,12 @@ dist-doc-header: $(DOC_H_FILE)
 
 doc-dist-hook: $(if $(DOC_H_FILE),dist-doc-header)
 
-.PHONY: chean-doc-header
+.PHONY: clean-doc-header
 _clean_doc_header = $(if $(DOC_H_FILE),clean-doc-header)
-clean: $(_clean_doc_header)
-distclean: $(_clean_doc_header)
-mostlyclean: $(_clean_doc_header)
-maintainer-clean: $(_clean_doc_header)
+clean-local: $(_clean_doc_header)
+distclean-local: $(_clean_doc_header)
+mostlyclean-local: $(_clean_doc_header)
+maintainer-clean-local: $(_clean_doc_header)
 clean-doc-header:
 	rm -f $(DOC_H_FILE)
 
@@ -511,13 +511,13 @@ all:							\
 	$(_DOC_HTML_ALL)	$(_DOC_POFILES)
 
 
-.PHONY: clean-rngdoc clean-xsldoc clean-omf clean-dsk clean-lc
+.PHONY: clean-doc-rngdoc clean-doc-xsldoc clean-doc-omf clean-doc-dsk clean-doc-lc clean-doc-dir
 
-clean-rngdoc: ; rm -f $(_RNGDOC_C_DOCS) $(_RNGDOC_LC_DOCS)
-clean-xsldoc: ; rm -f $(_XSLDOC_C_DOCS) $(_XSLDOC_LC_DOCS)
-clean-omf: ; rm -f $(_DOC_OMF_DB) $(_DOC_OMF_HTML)
-clean-dsk: ; rm -f $(_DOC_DSK_DB) $(_DOC_DSK_HTML)
-clean-lc:
+clean-doc-rngdoc: ; rm -f $(_RNGDOC_C_DOCS) $(_RNGDOC_LC_DOCS)
+clean-doc-xsldoc: ; rm -f $(_XSLDOC_C_DOCS) $(_XSLDOC_LC_DOCS)
+clean-doc-omf: ; rm -f $(_DOC_OMF_DB) $(_DOC_OMF_HTML)
+clean-doc-dsk: ; rm -f $(_DOC_DSK_DB) $(_DOC_DSK_HTML)
+clean-doc-lc:
 	rm -f $(_DOC_LC_DOCS)
 	@for po in $(_DOC_POFILES); do \
 	  if ! test "$$po" -ef "$(srcdir)/$$po"; then \
@@ -531,7 +531,7 @@ clean-lc:
 	    rm -f "$$lc/.xml2po.mo"; \
 	  fi; \
 	done
-clean-dir:
+clean-doc-dir:
 	@for lc in C $(DOC_LINGUAS); do \
 	  for dir in `find $$lc -depth -type d`; do \
 	    if ! test $$dir -ef $(srcdir)/$$dir; then \
@@ -541,26 +541,26 @@ clean-dir:
 	  done; \
 	done
 
-_clean_rngdoc = $(if $(RNGDOC_DIRS),clean-rngdoc)
-_clean_xsldoc = $(if $(XSLDOC_DIRS),clean-xsldoc)
-_clean_omf = $(if $(_DOC_OMF_IN),clean-omf)
-_clean_dsk = $(if $(_DOC_DSK_IN),clean-dsk)
-_clean_lc  = $(if $(DOC_LINGUAS),clean-lc)
-_clean_dir = $(if $(DOC_MODULE),clean-dir)
+_clean_rngdoc = $(if $(RNGDOC_DIRS),clean-doc-rngdoc)
+_clean_xsldoc = $(if $(XSLDOC_DIRS),clean-doc-xsldoc)
+_clean_omf = $(if $(_DOC_OMF_IN),clean-doc-omf)
+_clean_dsk = $(if $(_DOC_DSK_IN),clean-doc-dsk)
+_clean_lc  = $(if $(DOC_LINGUAS),clean-doc-lc)
+_clean_dir = $(if $(DOC_MODULE),clean-doc-dir)
 
-clean:							\
+clean-local:						\
 	$(_clean_rngdoc)	$(_clean_xsldoc)	\
 	$(_clean_omf)		$(_clean_dsk)		\
 	$(_clean_lc)		$(_clean_dir)
-distclean:						\
+distclean-local:					\
 	$(_clean_rngdoc)	$(_clean_xsldoc)	\
 	$(_clean_omf)		$(_clean_dsk)		\
 	$(_clean_lc)		$(_clean_dir)
-mostlyclean:						\
+mostlyclean-local:					\
 	$(_clean_rngdoc)	$(_clean_xsldoc)	\
 	$(_clean_omf)		$(_clean_dsk)		\
 	$(_clean_lc)		$(_clean_dir)
-maintainer-clean:					\
+maintainer-clean-local:					\
 	$(_clean_rngdoc)	$(_clean_xsldoc)	\
 	$(_clean_omf)		$(_clean_dsk)		\
 	$(_clean_lc)		$(_clean_dir)
