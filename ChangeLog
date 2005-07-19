@@ -1,5 +1,10 @@
 2005-07-19 Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/omf/db2omf.xsl:
+	- Get the last revision, not the first
+
+2005-07-19 Shaun McCance  <shaunm@gnome.org>
+
 	* configure.in:
 	- Bumped version number to 0.3.2
 

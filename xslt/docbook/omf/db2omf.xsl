@@ -411,7 +411,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <xsl:param name="info"
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
 		       = 'info']"/>
-  <xsl:variable name="date" select="$info/revhistory/revision[1]/date"/>
+  <xsl:variable name="date" select="$info/revhistory/revision[last()]/date"/>
   <xsl:if test="not($date)">
     <xsl:message>
       <xsl:text>db2omf: Missing revision element in revhistory</xsl:text>
@@ -443,9 +443,9 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
 		       = 'info']"/>
   <xsl:variable name="revnumber"
-		select="$info/revhistory/revision[1]/revnumber"/>
+		select="$info/revhistory/revision[last()]/revnumber"/>
   <xsl:variable name="date"
-		select="$info/revhistory/revision[1]/date"/>
+		select="$info/revhistory/revision[last()]/date"/>
   <xsl:if test="not($revnumber)">
     <xsl:message>
       <xsl:text>db2omf: Missing revnumber element in revhistory</xsl:text>
