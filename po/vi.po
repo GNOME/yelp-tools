@@ -6,9 +6,9 @@
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-doc-utils Gnome 2.10\n"
+"Project-Id-Version: gnome-doc-utils Gnome 2.12\n"
 "POT-Creation-Date: 2005-07-16 06:07+0000\n"
-"PO-Revision-Date: 2005-07-17 17:24+0930\n"
+"PO-Revision-Date: 2005-07-19 15:38+0930\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
