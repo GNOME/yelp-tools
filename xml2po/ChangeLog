@@ -1,3 +1,7 @@
+2005-07-20  Danilo Šegan  <danilo@gnome.org>
+
+	* xml2po.py: remove path from language name.
+
 2005-07-18  Danilo Šegan  <danilo@gnome.org>
 
 	Fixes #310754.

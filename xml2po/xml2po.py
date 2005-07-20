@@ -643,7 +643,7 @@ for opt, arg in opts:
     elif opt in ('-t', '--translation'):
         mofile = arg
         mode = 'merge'
-        translationlanguage = os.path.splitext(mofile)[0]
+        translationlanguage = os.path.split(os.path.splitext(pofile)[0])[1]
     elif opt in ('-r', '--reuse'):
         origxml = arg
     elif opt in ('-u', '--update-translation'):
@@ -651,7 +651,7 @@ for opt, arg in opts:
     elif opt in ('-p', '--po-file'):
         mofile = ".xml2po.mo"
         pofile = arg
-        translationlanguage = os.path.splitext(pofile)[0]
+        translationlanguage = os.path.split(os.path.splitext(pofile)[0])[1]
         os.system("msgfmt -o %s %s >/dev/null" % (mofile, pofile)) and sys.exit(7)
         mode = 'merge'
     elif opt in ('-o', '--output'):
