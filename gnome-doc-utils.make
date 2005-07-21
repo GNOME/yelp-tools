@@ -636,7 +636,7 @@ check-doc-omf: $(_DOC_OMF_ALL)
 install-data-local:					\
 	$(if $(DOC_MODULE),install-doc-docs)		\
 	$(if $(_DOC_HTML_ALL),install-doc-html)		\
-	$(if $(DOC_FIGURES),install-doc-figs)		\
+	$(if $(_DOC_C_FIGURES),install-doc-figs)	\
 	$(if $(_DOC_OMF_IN),install-doc-omf)
 #	$(if $(_DOC_DSK_IN),install-doc-dsk)
 

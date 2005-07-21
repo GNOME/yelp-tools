@@ -1,5 +1,10 @@
 2005-07-20 Shaun McCance  <shaunm@gnome.org>
 
+	* gnome-doc-utils.make:
+	- Call install-doc-figs if figures exist, not just if DOC_FIGURES is set
+
+2005-07-20 Shaun McCance  <shaunm@gnome.org>
+
 	* Makefile.am:
 	- Added --disable-scrollkeeper to DISTCHECK_CONFIGURE_FLAGS
 
