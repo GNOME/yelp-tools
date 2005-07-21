@@ -59,9 +59,11 @@ $(DOC_H_FILE): $(DOC_H_DOCS);
 	done;
 	cp $@.tmp $@ && rm -f $@.tmp
 
-.PHONY: dist-header
+.PHONY: dist-doc-header
 dist-doc-header: $(DOC_H_FILE)
-	$(INSTALL_DATA) $(DOC_H_FILE) $(distdir)/$(DOC_H_FILE)
+	@if test -f "$(DOC_H_FILE)"; then d=; else d="$(srcdir)/"; fi; \
+	echo "$(INSTALL_DATA) $${d}$(DOC_H_FILE) $(distdir)/$(DOC_H_FILE)"; \
+	$(INSTALL_DATA) "$${d}$(DOC_H_FILE)" "$(distdir)/$(DOC_H_FILE)";
 
 doc-dist-hook: $(if $(DOC_H_FILE),dist-doc-header)
 
@@ -363,12 +365,6 @@ _DOC_C_FIGURES = $(if $(DOC_FIGURES),					\
 	$(foreach fig,$(DOC_FIGURES),C/$(fig)),				\
 	$(patsubst $(srcdir)/%,%,$(wildcard $(srcdir)/C/figures/*.png)))
 
-_DOC_SRC_FIGURES =							\
-	$(_DOC_C_FIGURES)						\
-	$(foreach fig,$(_DOC_C_FIGURES), $(foreach lc,$(DOC_LINGUAS),	\
-		$(wildcard $(srcdir)/$(lc)/$(patsubst C/%,%,$(fig))) ))
-
-
 ## @ _DOC_C_HTML
 ## All HTML documentation in the C locale
 # FIXME: probably have to shell escape to determine the file names
@@ -426,10 +422,12 @@ _DOC_LC_DOCS =								\
 
 ## @ _DOC_LC_FIGURES
 ## All figures and other external data in all other locales
-_DOC_LC_FIGURES = $(foreach lc,$(DOC_LINGUAS),					\
-	$(if $(DOC_FIGURES),							\
-	$(foreach fig,$(DOC_FIGURES),$(lc)/$(fig)),				\
-	$(patsubst $(srcdir)/%,%,$(wildcard $(srcdir)/$(lc)/figures/*.png)) ))
+_DOC_LC_FIGURES = $(foreach lc,$(DOC_LINGUAS),				\
+	$(patsubst C/%,$(lc)/%,$(_DOC_C_FIGURES)) )
+
+_DOC_SRC_FIGURES =							\
+	$(foreach fig,$(_DOC_C_FIGURES), $(foreach lc,C $(DOC_LINGUAS),	\
+		$(wildcard $(srcdir)/$(lc)/$(patsubst C/%,%,$(fig))) ))
 
 $(_DOC_POFILES): $(_DOC_C_DOCS)
 	@if ! test -d $(dir $@); then \
@@ -566,14 +564,14 @@ maintainer-clean-local:					\
 	$(_clean_lc)		$(_clean_dir)
 
 
-.PHONY: dist-doc dist-fig dist-omf dist-dsk
+.PHONY: dist-doc-docs dist-doc-figs dist-doc-omf dist-doc-dsk
 doc-dist-hook: 					\
-	$(if $(DOC_MODULE),dist-doc)		\
-	$(if $(DOC_FIGURES),dist-fig)		\
-	$(if $(_DOC_OMF_IN),dist-omf)		\
-	$(if $(_DOC_DSK_IN),dist-dsk)
+	$(if $(DOC_MODULE),dist-doc-docs)	\
+	$(if $(DOC_FIGURES),dist-doc-figs)	\
+	$(if $(_DOC_OMF_IN),dist-doc-omf)
+#	$(if $(_DOC_DSK_IN),dist-doc-dsk)
 
-dist-doc: $(_DOC_C_DOCS) $(_DOC_LC_DOCS) $(_DOC_POFILES)
+dist-doc-docs: $(_DOC_C_DOCS) $(_DOC_LC_DOCS) $(_DOC_POFILES)
 	@for lc in C $(DOC_LINGUAS); do \
 	  echo " $(mkinstalldirs) $(distdir)/$$lc"; \
 	  $(mkinstalldirs) "$(distdir)/$$lc"; \
@@ -584,7 +582,7 @@ dist-doc: $(_DOC_C_DOCS) $(_DOC_LC_DOCS) $(_DOC_POFILES)
 	  $(INSTALL_DATA) "$$d$$doc" "$(distdir)/$$doc"; \
 	done
 
-dist-fig: $(_DOC_SRC_FIGURES)
+dist-doc-figs: $(_DOC_SRC_FIGURES)
 	@for fig in $(_DOC_C_FIGURES) $(_DOC_LC_FIGURES); do \
 	  if test -f "$$fig"; then d=; else d="$(srcdir)/"; fi; \
 	  if test -f "$$d$$fig"; then \
@@ -598,23 +596,23 @@ dist-fig: $(_DOC_SRC_FIGURES)
 	  fi; \
 	done;
 
-dist-omf:
+dist-doc-omf:
 	@if test -f "$(_DOC_OMF_IN)"; then d=; else d="$(srcdir)/"; fi; \
 	echo "$(INSTALL_DATA) $$d$(_DOC_OMF_IN) $(distdir)/$(notdir $(_DOC_OMF_IN))"; \
 	$(INSTALL_DATA) "$$d$(_DOC_OMF_IN)" "$(distdir)/$(notdir $(_DOC_OMF_IN))"
 
-dist-dsk:
+dist-doc-dsk:
 	@if test -f "$(_DOC_DSK_IN)"; then d=; else d="$(srcdir)/"; fi; \
 	echo "$(INSTALL_DATA) $$d$(_DOC_DSK_IN) $(distdir)/$(notdir $(_DOC_DSK_IN))"; \
 	$(INSTALL_DATA) "$$d$(_DOC_DSK_IN)" "$(distdir)/$(notdir $(_DOC_DSK_IN))"
 
 
-.PHONY: check-doc check-omf
+.PHONY: check-doc-docs check-doc-omf
 check:							\
-	$(if $(DOC_MODULE),check-doc)			\
-	$(if $(_DOC_OMF_IN),check-omf)
+	$(if $(DOC_MODULE),check-doc-docs)		\
+	$(if $(_DOC_OMF_IN),check-doc-omf)
 
-check-doc: $(_DOC_C_DOCS) $(_DOC_LC_DOCS)
+check-doc-docs: $(_DOC_C_DOCS) $(_DOC_LC_DOCS)
 	@for lc in C $(DOC_LINGUAS); do \
 	  if test -f "$$lc"; \
 	    then d=; \
@@ -627,22 +625,22 @@ check-doc: $(_DOC_C_DOCS) $(_DOC_LC_DOCS)
 	  xmllint --noout --noent --path "$$xmlpath" --xinclude --postvalid "$$d$$lc/$(DOC_MODULE).xml"; \
 	done
 
-check-omf: $(_DOC_OMF_ALL)
+check-doc-omf: $(_DOC_OMF_ALL)
 	@for omf in $(_DOC_OMF_ALL); do \
 	  echo "xmllint --noout --dtdvalid 'http://scrollkeeper.sourceforge.net/dtds/scrollkeeper-omf-1.0/scrollkeeper-omf.dtd' $$omf"; \
 	  xmllint --noout --dtdvalid 'http://scrollkeeper.sourceforge.net/dtds/scrollkeeper-omf-1.0/scrollkeeper-omf.dtd' $$omf; \
 	done
 
 
-.PHONY: install-doc install-html install-fig install-omf install-dsk
+.PHONY: install-doc-docs install-doc-html install-doc-figs install-doc-omf install-doc-dsk
 install-data-local:					\
-	$(if $(DOC_MODULE),install-doc)			\
-	$(if $(_DOC_HTML_ALL),install-html)		\
-	$(if $(DOC_FIGURES),install-fig)		\
-	$(if $(_DOC_OMF_IN),install-omf)
-#	$(if $(_DOC_DSK_IN),install-dsk)
+	$(if $(DOC_MODULE),install-doc-docs)		\
+	$(if $(_DOC_HTML_ALL),install-doc-html)		\
+	$(if $(DOC_FIGURES),install-doc-figs)		\
+	$(if $(_DOC_OMF_IN),install-doc-omf)
+#	$(if $(_DOC_DSK_IN),install-doc-dsk)
 
-install-doc:
+install-doc-docs:
 	@for lc in C $(DOC_LINGUAS); do \
 	  echo "$(mkinstalldirs) $(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$lc"; \
 	  $(mkinstalldirs) $(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$lc; \
@@ -653,7 +651,7 @@ install-doc:
 	  $(INSTALL_DATA) $$d$$doc $(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$doc; \
 	done
 
-install-fig:
+install-doc-figs:
 	@for fig in $(patsubst C/%,%,$(_DOC_C_FIGURES)); do \
 	  for lc in C $(DOC_LINGUAS); do \
 	    if test -f "$$lc/$$fig"; then \
@@ -677,10 +675,10 @@ install-fig:
 	  done; \
 	done
 
-install-html:
+install-doc-html:
 	echo install-html
 
-install-omf:
+install-doc-omf:
 	$(mkinstalldirs) $(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)
 	@for omf in $(_DOC_OMF_ALL); do \
 	  echo "$(INSTALL_DATA) $$omf $(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf"; \
@@ -691,31 +689,31 @@ install-omf:
 	  scrollkeeper-update -p "$(_sklocalstatedir)" -o "$(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)"; \
 	fi;
 
-install-dsk:
+install-doc-dsk:
 	echo install-dsk
 
 
-.PHONY: uninstall-doc uninstall-html uninstall-omf uninstall-dsk
+.PHONY: uninstall-doc-docs uninstall-doc-html uninstall-doc-figs uninstall-doc-omf uninstall-doc-dsk
 uninstall-local:					\
-	$(if $(DOC_MODULE),uninstall-doc)		\
-	$(if $(_DOC_HTML_ALL),uninstall-html)		\
-	$(if $(DOC_FIGURES),uninstall-fig)		\
-	$(if $(_DOC_OMF_IN),uninstall-omf)
-#	$(if $(_DOC_DSK_IN),uninstall-dsk)
+	$(if $(DOC_MODULE),uninstall-doc-docs)		\
+	$(if $(_DOC_HTML_ALL),uninstall-doc-html)	\
+	$(if $(DOC_FIGURES),uninstall-doc-figs)		\
+	$(if $(_DOC_OMF_IN),uninstall-doc-omf)
+#	$(if $(_DOC_DSK_IN),uninstall-doc-dsk)
 
-uninstall-doc:
+uninstall-doc-docs:
 	@for doc in $(_DOC_C_DOCS) $(_DOC_LC_DOCS); do \
 	  echo " rm -f $(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$doc"; \
 	  rm -f "$(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$doc"; \
 	done
 
-uninstall-fig:
+uninstall-doc-figs:
 	@for fig in $(_DOC_C_FIGURES) $(_DOC_LC_FIGURES); do \
 	  echo "rm -f $(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$fig"; \
 	  rm -f "$(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$fig"; \
 	done;
 
-uninstall-omf:
+uninstall-doc-omf:
 	@for omf in $(_DOC_OMF_ALL); do \
 	  if test "x$(_ENABLE_SK)" == "xtrue"; then \
 	    echo "scrollkeeper-uninstall -p $(_sklocalstatedir) $(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf"; \

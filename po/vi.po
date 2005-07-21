@@ -1010,40 +1010,6 @@ msgstr "<msgid>question.digit</msgid> <msgstr>1</msgstr>"
 #.For your convenience, it has also been converted to an HTML file
 #.named TRANSLATORS.xhtml in the root of the source directory.
 #.
-#.This is a format message used to format labels for questions in
-#.question-and-answer sets.  Labels are used before the question
-#.both in the question-and-answer list and in table of questions
-#.listings.  Multiple roles can be used to provide different
-#.formattings for different uses of labels.  The following roles
-#.may be used with this format message:
-#.
-#.header - Used for labels inside the question-and-answer set
-#.li     - Used for labels in table of questions listings
-#.
-#.Special elements in the message will be replaced with the
-#.appropriate content, as follows:
-#.
-#.number - The number of the question in its containing qandaset
-#.
-#.These should be written as empty XML elements.  Due to limitations
-#.in intltool, I can't write XML content in translator comments.  To
-#.insert the number, simply write left angle bracket, number, slash,
-#.right angle bracket.
-#.
-#.Additionally, format messages can use the i, b, and tt markup tags
-#.to mark text as italic, bold, and monospace.
-#.
-#:../xslt/gettext/l10n.xml.in.h:877
-msgid "<msgid>question.xref</msgid> <msgstr>Question <number/></msgstr>"
-msgstr "<msgid>question.xref</msgid> <msgstr>Câu hỏi <number/></msgstr>"
-
-#.
-#.This is a special format message.  Please read the full translator
-#.documentation before translating this message.  The documentation
-#.is maintained as part of the stylesheet documentation in DocBook.
-#.For your convenience, it has also been converted to an HTML file
-#.named TRANSLATORS.xhtml in the root of the source directory.
-#.
 #.This is a format message used to format cross references to questions
 #.in question-and-answer sets.  Multiple roles can be provided to allow
 #.document translators to select how to format each cross reference

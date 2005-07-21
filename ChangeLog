@@ -1,3 +1,16 @@
+2005-07-20 Shaun McCance  <shaunm@gnome.org>
+
+	* Makefile.am:
+	- Added --disable-scrollkeeper to DISTCHECK_CONFIGURE_FLAGS
+
+	* gnome-doc-utils.make:
+	- Fixed up some *_FIGURE stuff
+	- Prefixed all the targets with -doc-
+	- Fixed builddir issue for dist-doc-header
+
+	* po/vi.po:
+	- Removed offending extra question.xref
+
 2005-07-19 Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/omf/db2omf.xsl:
