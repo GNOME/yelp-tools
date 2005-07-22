@@ -6,16 +6,17 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-doc-utils Gnome 2.10\n"
+"Project-Id-Version: gnome-doc-utils Gnome 2.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-21 06:18+0000\n"
-"PO-Revision-Date: 2005-05-07 18:53+0930\n"
+"POT-Creation-Date: 2005-07-21 23:17+0000\n"
+"PO-Revision-Date: 2005-07-22 18:26+0930\n"
 "Last-Translator: Clytie Siddall <clytie@riverland.net.au>\n"
 "Language-Team: Vietnamese <gnomevi-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
+"X-Generator: LocFactoryEditor 1.2.2\n"
 
 #.
 #. This is used a simple list item seperator in places where simple
@@ -1033,14 +1034,13 @@ msgstr "<msgid>question.digit</msgid> <msgstr>1</msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:877
-#, fuzzy
 msgid ""
 "<msgid>question.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
 "msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Question "
 "<number/></msgstr>"
 msgstr ""
 "<msgid>section.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
-"msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Tiết đoạn "
+"msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Câu hỏi "
 "<number/></msgstr>"
 
 #.
@@ -1299,9 +1299,8 @@ msgstr ""
 #. contact the maintainers about adding formatters for your language.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1099
-#, fuzzy
 msgid "<msgid>section.digit</msgid> <msgstr>1</msgstr>"
-msgstr "<msgstr form=\"0\">Người biên soạn</msgstr>"
+msgstr "<msgid>section.digit</msgid> <msgstr>1</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1554,45 +1553,39 @@ msgstr "<msgid>table.xref</msgid> <msgstr>Bảng <number/></msgstr>"
 
 #. Used as a header before a list of authors.
 #: ../xslt/gettext/l10n.xml.in.h:1315
-#, fuzzy
 msgid "<msgstr form='0'>Author</msgstr> <msgstr form='1'>Authors</msgstr>"
-msgstr "<msgstr form=\"0\">Tác giả</msgstr>"
+msgstr "<msgstr form='0'>Tác giả</msgstr>"
 
 #. Used as a header before a list of collaborators.
 #: ../xslt/gettext/l10n.xml.in.h:1317
-#, fuzzy
 msgid ""
 "<msgstr form='0'>Collaborator</msgstr> <msgstr form='1'>Collaborators</"
 "msgstr>"
-msgstr "<msgstr form=\"0\">Cộng tác viên</msgstr>"
+msgstr "<msgstr form='0'>Cộng tác viên</msgstr>"
 
 #. Used as a header before a list of copyrights.
 #: ../xslt/gettext/l10n.xml.in.h:1319
-#, fuzzy
 msgid ""
 "<msgstr form='0'>Copyright</msgstr> <msgstr form='1'>Copyrights</msgstr>"
-msgstr "<msgstr form=\"0\">Bản quyền</msgstr>"
+msgstr "<msgstr form='0'>Bản quyền</msgstr>"
 
 #. Used as a header before a list of editors.
 #: ../xslt/gettext/l10n.xml.in.h:1321
-#, fuzzy
 msgid "<msgstr form='0'>Editor</msgstr> <msgstr form='1'>Editors</msgstr>"
-msgstr "<msgstr form=\"0\">Người biên soạn</msgstr>"
+msgstr "<msgstr form='0'>Người biên soạn</msgstr>"
 
 #. Used as a header before a list of contributors.
 #: ../xslt/gettext/l10n.xml.in.h:1323
-#, fuzzy
 msgid ""
 "<msgstr form='0'>Other Contributor</msgstr> <msgstr form='1'>Other "
 "Contributors</msgstr>"
-msgstr "<msgstr form=\"0\">Người đóng góp khác</msgstr>"
+msgstr "<msgstr form='0'>Người đóng góp khác</msgstr>"
 
 #. Used as a header before a list of publishers.
 #: ../xslt/gettext/l10n.xml.in.h:1325
-#, fuzzy
 msgid ""
 "<msgstr form='0'>Publisher</msgstr> <msgstr form='1'>Publishers</msgstr>"
-msgstr "<msgstr form=\"0\">Nhà xuất bản</msgstr>"
+msgstr "<msgstr form='0'>Nhà xuất bản</msgstr>"
 
 #.
 #. http://www.docbook.org/tdg/en/html/qandaentry.html
@@ -1770,111 +1763,3 @@ msgstr "Lời khuyên"
 #: ../xslt/gettext/l10n.xml.in.h:1439
 msgid "Warning"
 msgstr "Cảnh báo"
-
-#~ msgid "format.appendix.label"
-#~ msgstr "Phụ lục %t{number}"
-
-#~ msgid "format.chapter.label"
-#~ msgstr "Chương %t{number}"
-
-#~ msgid "format.citetitle"
-#~ msgstr "Trích dẫn tên"
-
-#~ msgid "format.date"
-#~ msgstr "Ngày"
-
-#~ msgid "format.example.label"
-#~ msgstr "Lời thí dụ %t{number}"
-
-#~ msgid "format.example.number"
-#~ msgstr "%t{parent}-%1{number}"
-
-#~ msgid "format.example.number.flat"
-#~ msgstr "%1{number}"
-
-#~ msgid "format.figure.label"
-#~ msgstr "Hình %1{number}"
-
-#~ msgid "format.figure.number"
-#~ msgstr "%t{parent}-%1{number}"
-
-#~ msgid "format.figure.number.flat"
-#~ msgstr "%1{number}"
-
-#~ msgid "format.manvolnum"
-#~ msgstr "(%t{node})"
-
-#~ msgid "format.part.label"
-#~ msgstr "Phần %t{number}"
-
-#~ msgid "format.part.number"
-#~ msgstr "%I{number}"
-
-#~ msgid "format.quote.inner"
-#~ msgstr "‹%t{node}›"
-
-#~ msgid "format.quote.outer"
-#~ msgstr "«%t{node}»"
-
-#~ msgid "format.refentry.label"
-#~ msgstr "%t{title}"
-
-#~ msgid "format.section.label"
-#~ msgstr "Tiết đoạn %t{number}"
-
-#~ msgid "format.table.label"
-#~ msgstr "Bảng %t{number}"
-
-#~ msgid "format.table.number"
-#~ msgstr "%t{parent}-%1{number}"
-
-#~ msgid "format.table.number.flat"
-#~ msgstr "%1{number}"
-
-#~ msgid "format.tooltip.glossentry"
-#~ msgstr "Đọc lời định nghĩa cho ‘%s{node}’"
-
-#~ msgid "format.tooltip.mailto"
-#~ msgstr "Gởi thư điện tử cho ‘%s{address}’"
-
-#~ msgid "Audience"
-#~ msgstr "Độc giả"
-
-#~ msgid "Contents"
-#~ msgstr "Mục lục"
-
-#~ msgid "Date"
-#~ msgstr "Ngày"
-
-#~ msgid "Level"
-#~ msgstr "Cấp độ"
-
-#~ msgid "Message Audience"
-#~ msgstr "Tin nhắn độc giả"
-
-#~ msgid "Message Level"
-#~ msgstr "Cấp độ tin nhắn"
-
-#~ msgid "Message Origin"
-#~ msgstr "Gốc tin nhắn"
-
-#~ msgid "Origin"
-#~ msgstr "Gốc"
-
-#~ msgid "Reference"
-#~ msgstr "Tham khảo"
-
-#~ msgid "Release Information"
-#~ msgstr "Thông tin phát hành"
-
-#~ msgid "Set Index"
-#~ msgstr "Đặt chỉ mục"
-
-#~ msgid "Table of Contents"
-#~ msgstr "Mục lục"
-
-#~ msgid "Title"
-#~ msgstr "Tên"
-
-#~ msgid ">"
-#~ msgstr ">"
