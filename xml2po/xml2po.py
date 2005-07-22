@@ -643,7 +643,7 @@ for opt, arg in opts:
     elif opt in ('-t', '--translation'):
         mofile = arg
         mode = 'merge'
-        translationlanguage = os.path.split(os.path.splitext(pofile)[0])[1]
+        translationlanguage = os.path.split(os.path.splitext(mofile)[0])[1]
     elif opt in ('-r', '--reuse'):
         origxml = arg
     elif opt in ('-u', '--update-translation'):

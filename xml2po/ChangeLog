@@ -1,3 +1,8 @@
+2005-07-22  Danilo Šegan  <danilo@gnome.org>
+
+	* xml2po.py: use mofile for getting translationlanguage in -t
+	(reported by Daniel Leidert).
+
 2005-07-20  Danilo Šegan  <danilo@gnome.org>
 
 	* xml2po.py: remove path from language name.
