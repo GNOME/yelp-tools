@@ -1,3 +1,10 @@
+2005-07-22 Christian Persch  <chpe@cvs.gnome.org>
+
+	* gnome-doc-prepare.in:
+	Copy gnome-doc-utils.m4 to the AC_CONFIG_MACRO_DIR if
+	present. Should fix "make configure" after changing
+	configure.
+
 2005-07-20 Shaun McCance  <shaunm@gnome.org>
 
 	* gnome-doc-utils.make:
