@@ -547,7 +547,7 @@ def tryToUpdate(allargs, lang):
             sys.stderr.write("Error: cannot rename file.\n")
             sys.exit(11)
         else:
-            os.system("msgfmt -cv -o /dev/null %s" % (file))
+            os.system("msgfmt -cv -o %s %s" % (NULL_STRING, file))
             sys.exit(0)
 
 def load_mode(modename):
@@ -581,6 +581,7 @@ mofile = ''
 ultimate = [ ]
 ignored = [ ]
 filenames = [ ]
+translationlanguage = ''
 
 mode = 'pot' # 'pot' or 'merge'
 automatic = 0
@@ -588,6 +589,9 @@ expand_entities = 1
 expand_all_entities = 0
 
 output  = '-' # this means to stdout
+
+NULL_STRING = '/dev/null'
+if not os.path.exists('/dev/null'): NULL_STRING = 'NUL'
 
 import getopt, fileinput
 
@@ -607,6 +611,7 @@ OPTIONS may be some of:
     -r    --reuse=FILE         Specify translated XML file with the same structure
     -t    --translation=FILE   Specify MO file containing translation, and merge
     -u    --update-translation=LANG.po   Updates a PO file using msgmerge program
+    -l    --language=LANG      Set language of the translation to LANG
     -v    --version            Output version of the xml2po program
 
     -h    --help               Output this message
@@ -626,9 +631,9 @@ EXAMPLES:
 if len(sys.argv) < 2: usage()
 
 args = sys.argv[1:]
-try: opts, args = getopt.getopt(args, 'avhkem:t:o:p:u:r:',
+try: opts, args = getopt.getopt(args, 'avhkem:t:o:p:u:r:l:',
                            ['automatic-tags','version', 'help', 'keep-entities', 'expand-all-entities', 'mode=', 'translation=',
-                            'output=', 'po-file=', 'update-translation=', 'reuse=' ])
+                            'output=', 'po-file=', 'update-translation=', 'reuse=', 'language=' ])
 except getopt.GetoptError: usage(True)
 
 for opt, arg in opts:
@@ -640,10 +645,12 @@ for opt, arg in opts:
         expand_entities = 0
     elif opt in ('-e', '--expand-all-entities'):
         expand_all_entities = 1
+    elif opt in ('-l', '--language'):
+        translationlanguage = arg
     elif opt in ('-t', '--translation'):
         mofile = arg
         mode = 'merge'
-        translationlanguage = os.path.split(os.path.splitext(mofile)[0])[1]
+        if translationlanguage == '': translationlanguage = os.path.split(os.path.splitext(mofile)[0])[1]
     elif opt in ('-r', '--reuse'):
         origxml = arg
     elif opt in ('-u', '--update-translation'):
@@ -651,8 +658,8 @@ for opt, arg in opts:
     elif opt in ('-p', '--po-file'):
         mofile = ".xml2po.mo"
         pofile = arg
-        translationlanguage = os.path.split(os.path.splitext(pofile)[0])[1]
-        os.system("msgfmt -o %s %s >/dev/null" % (mofile, pofile)) and sys.exit(7)
+        if translationlanguage == '': translationlanguage = os.path.split(os.path.splitext(pofile)[0])[1]
+        os.system("msgfmt -o %s %s >%s" % (mofile, pofile, NULL_STRING)) and sys.exit(7)
         mode = 'merge'
     elif opt in ('-o', '--output'):
         output = arg

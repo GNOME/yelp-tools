@@ -1,3 +1,14 @@
+2005-07-23  Danilo Šegan  <danilo@gnome.org>
+
+	* xml2po.1.xml: Document --language option, rewrite other parts.
+
+	* xml2po.py: Add "--language=LANG" option to explicitely set language.
+
+2005-07-23  Danilo Šegan  <danilo@gnome.org>
+
+	* xml2po.py: Replace /dev/null in msgfmt calls with NULL_STRING
+	which is "NUL" when /dev/null doesn't exist (for Windows compatibility).
+
 2005-07-22  Danilo Šegan  <danilo@gnome.org>
 
 	* xml2po.py: use mofile for getting translationlanguage in -t

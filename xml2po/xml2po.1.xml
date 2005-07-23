@@ -130,7 +130,10 @@
 				</term>
 				<listitem>
 					<para>
-						Print resulting text (XML or POT) to the given file.
+						Print resulting text (XML while merging translations 
+						with "-p" or "-t" options, POT template file while 
+						extracting strings, and translated PO file with "-r" 
+						option) to the given FILE.
 					</para>
 				</listitem>
 			</varlistentry>
@@ -141,8 +144,9 @@
 				</term>
 				<listitem>
 					<para>
-						Specify PO file containing translation, and merge.
-						Using this option will overwrites the temporary
+ 						Specify a PO FILE containing translation and output 
+						XML document with translations merged in.
+						Using this option will overwrite the temporary
 						file <filename>.xml2po.mo</filename>.
 					</para>
 				</listitem>
@@ -154,7 +158,9 @@
 				</term>
 				<listitem>
 					<para>
-						Specify a translated XML file with the same structure ...
+						Specify a translated XML document in FILE with the 
+						same structure to generate translated PO file for
+						XML document given on command line. 
 					</para>
 				</listitem>
 			</varlistentry>
@@ -165,7 +171,8 @@
 				</term>
 				<listitem>
 					<para>
-						Specify a MO file containing translation and merge it with ...
+ 						Specify a MO file containing translation and output 
+						XML document with translations merged in.
 					</para>
 				</listitem>
 			</varlistentry>
@@ -177,6 +184,17 @@
 				<listitem>
 					<para>
 						Updates a PO file using <command>msgmerge</command>.
+					</para>
+				</listitem>
+			</varlistentry>
+			<varlistentry>
+				<term>
+					<option>-l</option>,
+					<option>--language=<replaceable>LANG</replaceable></option>
+				</term>
+				<listitem>
+					<para>
+						Explicitely set language of the translation.
 					</para>
 				</listitem>
 			</varlistentry>
@@ -263,8 +281,9 @@
 				update your translation. Alternatively, <command>xml2po</command>
 				provides the <option>-u</option> option, which does exactly these two steps for
 				you. The advantage is, that it also runs <command>msgfmt</command> to give you
-				a statistical output of translation status (untranslated, fuzzy, ...). Additionally
-				use the <option>-e</option> if you decided earlier to expand entities:
+				a statistical output of translation status (count of translated, untranslated 
+				and fuzzy messages). Additionally use the <option>-e</option> if you decided 
+				earlier to expand entities:
 			</para>
 			<programlisting>
 				<command>/usr/bin/xml2po</command> <option>-u</option> LANG.po book.xml
