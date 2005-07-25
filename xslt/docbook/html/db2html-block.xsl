@@ -419,6 +419,11 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <xsl:call-template name="db2html.block"/>
 </xsl:template>
 
+<!-- = informalexample = -->
+<xsl:template match="informalexample">
+  <xsl:call-template name="db2html.block"/>
+</xsl:template>
+
 <!-- = literallayout = -->
 <xsl:template match="literallayout">
   <xsl:call-template name="db2html.block">
@@ -439,6 +444,11 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <!-- = screen = -->
 <xsl:template match="screen">
   <xsl:call-template name="db2html.pre"/>
+</xsl:template>
+
+<!-- = simpara = -->
+<xsl:template match="simpara">
+  <xsl:call-template name="db2html.para"/>
 </xsl:template>
 
 <!-- = synopsis = -->
