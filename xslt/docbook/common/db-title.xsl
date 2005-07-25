@@ -604,7 +604,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
-<xsl:template mode="db.title.mode" match="refentry">
+<xsl:template mode="db.titleabbrev.mode" match="refentry">
   <xsl:choose>
     <xsl:when test="refentryinfo/titleabbrev">
       <xsl:apply-templates select="refentryinfo/titleabbrev/node()"/>

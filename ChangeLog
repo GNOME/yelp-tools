@@ -1,5 +1,10 @@
 2005-07-25 Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/common/db-title.xsl:
+	- Fixed title/titleabbrev type, from Ross Burton, #311516
+
+2005-07-25 Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/docbook/html/db2html-block.xsl:
 	- Support informalexample and simpara
 
