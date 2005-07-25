@@ -21,6 +21,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                 xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n"
                 exclude-result-prefixes="doc"
                 version="1.0">
+<xsl:import href="../../gettext/gettext.xsl"/>
 
 <doc:title>Automatic Labels</doc:title>
 

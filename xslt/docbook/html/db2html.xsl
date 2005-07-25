@@ -22,13 +22,12 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                 xmlns="http://www.w3.org/1999/xhtml"
 		exclude-result-prefixes="doc"
                 version="1.0">
+<xsl:import href="../../gettext/gettext.xsl"/>
 
 <doc:title>DocBook to HTML conversion</doc:title>
 
 <!-- Setting parameters for included stylesheets -->
 <xsl:param name="db.chunk.extension" select="'.xhtml'" doc:private="true"/>
-
-<xsl:include href="../../gettext/gettext.xsl"/>
 
 <xsl:include href="../common/db-chunk.xsl"   doc:summary="true"/>
 <xsl:include href="../common/db-common.xsl"  doc:summary="true"/>

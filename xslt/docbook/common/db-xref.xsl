@@ -20,6 +20,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                 xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
                 exclude-result-prefixes="doc"
                 version="1.0">
+<xsl:import href="../../gettext/gettext.xsl"/>
 
 <doc:title>Common Cross Reference Utilities</doc:title>
 

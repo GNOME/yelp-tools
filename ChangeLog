@@ -1,5 +1,13 @@
 2005-07-25 Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/common/db-label.xsl:
+	* xslt/docbook/common/db-title.xsl:
+	* xslt/docbook/common/db-xref.xsl:
+	* xslt/docbook/html/db2html.xsl:
+	- Added imports for l10n.gettext
+
+2005-07-25 Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/docbook/common/db-title.xsl:
 	- Fixed title/titleabbrev type, from Ross Burton, #311516
 
