@@ -614,9 +614,10 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     <xsl:when test="refmeta/refentrytitle">
       <xsl:apply-templates select="refmeta/refentrytitle/node()"/>
       <xsl:if test="refmeta/manvolnum">
-        <xsl:call-template name="format.manvolnum">
-          <xsl:with-param name="node" select="refmeta/manvolnum[1]"/>
-        </xsl:call-template>
+        <!-- FIXME: I18N -->
+        <xsl:text>(</xsl:text>
+        <xsl:apply-templates select="refmeta/manvolnum[1]/node()"/>
+        <xsl:text>)</xsl:text>
       </xsl:if>
     </xsl:when>
     <xsl:when test="refentryinfo/title">
