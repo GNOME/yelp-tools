@@ -1,5 +1,10 @@
 2005-07-25 Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/common/db-title.xsl:
+	- Remove reference to format.manvolnum
+
+2005-07-25 Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/docbook/common/db-label.xsl:
 	* xslt/docbook/common/db-title.xsl:
 	* xslt/docbook/common/db-xref.xsl:
