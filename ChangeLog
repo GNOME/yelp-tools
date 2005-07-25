@@ -1,5 +1,10 @@
 2005-07-25 Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/html/db2html-division.xsl:
+	- Use deeper autotocs for books with references
+
+2005-07-25 Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/docbook/common/db-title.xsl:
 	- Remove reference to format.manvolnum
 

@@ -747,7 +747,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     <xsl:with-param name="info" select="bookinfo"/>
     <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
     <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
-    <xsl:with-param name="autotoc_depth" select="boolean(part) + 1"/>
+    <xsl:with-param name="autotoc_depth" select="boolean(part | reference) + 1"/>
   </xsl:call-template>
 </xsl:template>
 
