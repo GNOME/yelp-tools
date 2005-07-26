@@ -1,19 +1,24 @@
-2005-07-25 Shaun McCance  <shaunm@gnome.org>
+2005-07-26  Shaun McCance  <shaunm@gnome.org>
+
+	* NEWS:
+	- Version 0.3.2
+
+2005-07-25  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/common/db-title.xsl:
 	- Remove the other reference to format.manvolnum
 
-2005-07-25 Shaun McCance  <shaunm@gnome.org>
+2005-07-25  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/html/db2html-division.xsl:
 	- Use deeper autotocs for books with references
 
-2005-07-25 Shaun McCance  <shaunm@gnome.org>
+2005-07-25  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/common/db-title.xsl:
 	- Remove reference to format.manvolnum
 
-2005-07-25 Shaun McCance  <shaunm@gnome.org>
+2005-07-25  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/common/db-label.xsl:
 	* xslt/docbook/common/db-title.xsl:
@@ -21,29 +26,29 @@
 	* xslt/docbook/html/db2html.xsl:
 	- Added imports for l10n.gettext
 
-2005-07-25 Shaun McCance  <shaunm@gnome.org>
+2005-07-25  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/common/db-title.xsl:
 	- Fixed title/titleabbrev type, from Ross Burton, #311516
 
-2005-07-25 Shaun McCance  <shaunm@gnome.org>
+2005-07-25  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/html/db2html-block.xsl:
 	- Support informalexample and simpara
 
-2005-07-22 Christian Persch  <chpe@cvs.gnome.org>
+2005-07-22  Christian Persch  <chpe@cvs.gnome.org>
 
 	* gnome-doc-prepare.in:
 	Copy gnome-doc-utils.m4 to the AC_CONFIG_MACRO_DIR if
 	present. Should fix "make configure" after changing
 	configure.
 
-2005-07-20 Shaun McCance  <shaunm@gnome.org>
+2005-07-20  Shaun McCance  <shaunm@gnome.org>
 
 	* gnome-doc-utils.make:
 	- Call install-doc-figs if figures exist, not just if DOC_FIGURES is set
 
-2005-07-20 Shaun McCance  <shaunm@gnome.org>
+2005-07-20  Shaun McCance  <shaunm@gnome.org>
 
 	* Makefile.am:
 	- Added --disable-scrollkeeper to DISTCHECK_CONFIGURE_FLAGS
@@ -56,12 +61,12 @@
 	* po/vi.po:
 	- Removed offending extra question.xref
 
-2005-07-19 Shaun McCance  <shaunm@gnome.org>
+2005-07-19  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/omf/db2omf.xsl:
 	- Get the last revision, not the first
 
-2005-07-19 Shaun McCance  <shaunm@gnome.org>
+2005-07-19  Shaun McCance  <shaunm@gnome.org>
 
 	* configure.in:
 	- Bumped version number to 0.3.2
@@ -69,7 +74,7 @@
 	* gnome-doc-utils.make:
 	- Patch from Christian Persch to fix distclean issues
 
-2005-07-17 Shaun McCance  <shaunm@gnome.org>
+2005-07-17  Shaun McCance  <shaunm@gnome.org>
 
 	* Makefile.am:
 	* i18n/Makefile:
@@ -89,13 +94,13 @@
 	* xslt/gettext/gettext.xsl:
 	- Added more plural forms
 
-2005-07-16 Shaun McCance  <shaunm@gnome.org>
+2005-07-16  Shaun McCance  <shaunm@gnome.org>
 
 	* TRANSLATORS.xhtml:
 	* doc/xslt/C/translating.xml:
 	- Typo and other fixes from Clytie Siddall
 
-2005-07-15 Shaun McCance  <shaunm@gnome.org>
+2005-07-15  Shaun McCance  <shaunm@gnome.org>
 
 	* doc/xslt/C/gnome-doc-xslt.xml:
 	- Switched to DocBook 4.4, for xml:base validity

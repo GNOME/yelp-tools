@@ -1,3 +1,24 @@
+Changes in 0.3.2:
+-----------------
+* Use AC_CONFIG_MACRO_DIR if present (Christian Persch)
+* Fixed figure installation problems (Shaun McCance)
+* Fixed builddir issue for header files (Shaun McCance)
+* Various XSLT fixes (Shaun McCance, Ross Burton)
+* Fixed issues with distclean (Christian Persch)
+* Implemented new runtime format string i18n system (Shaun McCance)
+* Updated translator documentation (Shaun McCance, Clytie Siddall)
+* Prefixed IDs in xsldoc output (Shaun McCance)
+* Updated translations:
+  fi      (Tommi Vainikainen)
+  cs      (Miloslav Trmac)
+  de      (Hendrik Brandt)
+  vi      (Clytie Siddall)
+  ne      (Pawan Chitrakar)
+  en_CA   (Adam Weinberger)
+  zh_CN   (Funda Wang)
+  es      (Francisco Javier F. Serrador)
+  ja      (Takeshi AIHANA)
+
 Changes in 0.3.1:
 -----------------
 * Implemented format string translations through l10n.gettext
