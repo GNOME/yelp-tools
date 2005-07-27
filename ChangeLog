@@ -1,6 +1,12 @@
 2005-07-27  Christian Persch  <chpe@cvs.gnome.org>
 
 	* gnome-doc-utils.m4:
+	- Only apply the version check when we're not configuring g-d-u
+	itself.
+
+2005-07-27  Christian Persch  <chpe@cvs.gnome.org>
+
+	* gnome-doc-utils.m4:
 	- Add minimum-version argument to GNOME_DOC_INIT, and check
 	for the required gdu version. Minimum is 0.3.2 if not specified.
 	Fixes bug #311661.

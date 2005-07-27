@@ -2,13 +2,15 @@ dnl GNOME_DOC_INIT([MINIMUM-VERSION])
 
 AC_DEFUN([GNOME_DOC_INIT],
 [
+dnl Only apply the version check if we're not configuring ourselves!
+if test "x$AC_PACKAGE_TARNAME" != "xgnome-doc-utils"; then
+  GDU_REQUIRED_VERSION=0.3.2
+  if test -n "$1"; then
+    GDU_REQUIRED_VERSION=$1
+  fi
 
-GDU_REQUIRED_VERSION=0.3.2
-if test -n "$1"; then
-  GDU_REQUIRED_VERSION=$1
+  PKG_CHECK_MODULES([GDU_MODULE_VERSION_CHECK],[gnome-doc-utils >= $GDU_REQUIRED_VERSION])
 fi
-
-PKG_CHECK_MODULES([GDU_MODULE_VERSION_CHECK],[gnome-doc-utils >= $GDU_REQUIRED_VERSION])
 
 AC_ARG_WITH([help-dir],
   AC_HELP_STRING([--with-help-dir=DIR], [path to help docs]),,
