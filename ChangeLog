@@ -1,3 +1,10 @@
+2005-07-27  Christian Persch  <chpe@cvs.gnome.org>
+
+	* gnome-doc-utils.m4:
+	- Add minimum-version argument to GNOME_DOC_INIT, and check
+	for the required gdu version. Minimum is 0.3.2 if not specified.
+	Fixes bug #311661.
+
 2005-07-26  Shaun McCance  <shaunm@gnome.org>
 
 	* NEWS:

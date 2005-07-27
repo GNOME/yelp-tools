@@ -1,7 +1,15 @@
-dnl GNOME_DOC_INIT
+dnl GNOME_DOC_INIT([MINIMUM-VERSION])
 
 AC_DEFUN([GNOME_DOC_INIT],
 [
+
+GDU_REQUIRED_VERSION=0.3.2
+if test -n "$1"; then
+  GDU_REQUIRED_VERSION=$1
+fi
+
+PKG_CHECK_MODULES([GDU_MODULE_VERSION_CHECK],[gnome-doc-utils >= $GDU_REQUIRED_VERSION])
+
 AC_ARG_WITH([help-dir],
   AC_HELP_STRING([--with-help-dir=DIR], [path to help docs]),,
   [with_help_dir='${datadir}/gnome/help'])
