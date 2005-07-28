@@ -1,3 +1,8 @@
+2005-07-28  Alexander Shopov  <ash@contact.bg>
+
+	* bg.po: Updated Bulgarian translation by
+	Alexander Shopov <ash@contact.bg>
+
 2005-07-27  Ankit Patel <ankit644@yahoo.com>
 
 	* gu.po: Added Gujarati Translation.
@@ -16,7 +21,7 @@
 
 2005-07-22  Clytie Siddall  <clytie@riverland.net.au>
 
-        * vi.po: Updated Vietnamese translation.
+	* vi.po: Updated Vietnamese translation.
 
 2005-07-22  Pawan Chitrakar  <pawan@nplinux.org>
 
@@ -24,11 +29,11 @@
 
 2005-07-21  Clytie Siddall <clytie@riverland.net.au>
 
-        * vi.po: Updated Vietnamese translation.
+	* vi.po: Updated Vietnamese translation.
 
 2005-07-20  Clytie Siddall <clytie@riverland.net.au>
 
-        * vi.po: Updated Vietnamese translation.
+	* vi.po: Updated Vietnamese translation.
 
 2005-07-19  Pawan Chitrakar  <pawan@nplinux.org>
 
@@ -36,11 +41,11 @@
 
 2005-07-19  Clytie Siddall <clytie@riverland.net.au>
 
-        * vi.po: Updated Vietnamese translation.
+	* vi.po: Updated Vietnamese translation.
 
 2005-07-18  Clytie Siddall <clytie@riverland.net.au>
 
-        * vi.po: Updated Vietnamese translation.
+	* vi.po: Updated Vietnamese translation.
 
 2005-07-18  Adam Weinberger  <adamw@gnome.org>
 
@@ -56,7 +61,7 @@
 
 2005-07-17  Clytie Siddall <clytie@riverland.net.au>
 
-        * vi.po: Updated Vietnamese translation.
+	* vi.po: Updated Vietnamese translation.
 
 2005-07-16  Takeshi AIHANA <aihana@gnome.gr.jp>
 
@@ -130,7 +135,7 @@
 
 2005-03-31  Steve Murphy  <murf@e-tools.com>
 
-        * rw.po: Added Kinyarwanda translation.
+	* rw.po: Added Kinyarwanda translation.
 
 2005-03-21  Rajesh Ranjan <rranjan@redhat.com>
 
@@ -248,7 +253,6 @@
 
 	* tr.po: Added Turkish Translation by Emre Kadioglu
 
->>>>>>> 1.93
 2005-02-10  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* nb.po: Update
