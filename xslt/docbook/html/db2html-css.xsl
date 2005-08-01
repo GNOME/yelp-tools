@@ -79,7 +79,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     }
     div + * { margin-top: 1em; }
     p   + * { margin-top: 1em; }
-    p &gt; div { margin-top: 1em; }
+    p &gt; div { margin-top: 1em; margin-bottom: 1em; }
+    p &gt; div + div { margin-top: 0em; }
     p { text-align: justify; }
     <xsl:call-template name="db2html.css.custom"/>
   </style>

@@ -90,7 +90,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <xsl:template name="db2html.admon">
   <xsl:param name="node" select="."/>
-  <div class="admonition {local-name(.)}">
+  <div class="admonition block-indent {local-name(.)}">
     <xsl:apply-templates select="$node/node()"/>
   </div>
 </xsl:template>
@@ -138,8 +138,6 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
       <xsl:value-of select="$db2html.admon.graphics_extension"/><xsl:text>");
     }
     div[class~="admonition"] {
-      margin-left: 2em;
-      margin-right: 2em;
       padding-top: 4px;
       padding-bottom: 4px;
       padding-left: </xsl:text>

@@ -56,7 +56,6 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <xsl:template name="db2html.table.css">
   <xsl:text>
-    div[class~="table"] { margin-left: 2em; }
     table {
       border-collapse: collapse;
       border: solid 1px;
@@ -307,7 +306,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!-- = table = -->
 <xsl:template match="table | informaltable">
-  <div class="table">
+  <div class="table block-indent">
     <xsl:call-template name="db2html.anchor"/>
     <xsl:apply-templates select="title"/>
     <!-- FIXME: I have no idea what I'm supposed to do with textobject -->

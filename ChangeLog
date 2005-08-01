@@ -1,5 +1,13 @@
 2005-08-01  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/html/db2html-admon.xsl:
+	* xslt/docbook/html/db2html-block.xsl:
+	* xslt/docbook/html/db2html-css.xsl:
+	* xslt/docbook/html/db2html-table.xsl:
+	- Changes to make block indents not nest
+
+2005-08-01  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/docbook/common/db-label.xsl:
 	* xslt/docbook/common/db-xref.xsl:
 	* xslt/gettext/l10n.xml.in:

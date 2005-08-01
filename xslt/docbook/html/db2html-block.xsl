@@ -82,6 +82,12 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     Format a block-level element
   </purpose>
   <parameter>
+    <name>indent</name>
+    <purpose>
+      Whether this block should be indented
+    </purpose>
+  </parameter>
+  <parameter>
     <name>verbatim</name>
     <purpose>
       Whether to maintain whitespace verbatim
@@ -90,25 +96,20 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </template>
 
 <xsl:template name="db2html.block">
+  <xsl:param name="indent" select="false()"/>
   <xsl:param name="verbatim" select="false()"/>
-  <div class="{local-name(.)}">
+  <div>
+    <xsl:attribute name="class">
+      <xsl:value-of select="local-name(.)"/>
+      <xsl:if test="$indent">
+        <xsl:text> block-indent</xsl:text>
+      </xsl:if>
+      <xsl:if test="$verbatim">
+        <xsl:text> block-verbatim</xsl:text>
+      </xsl:if>
+    </xsl:attribute>
     <xsl:call-template name="db2html.anchor"/>
-    <xsl:choose>
-      <xsl:when test="$verbatim">
-        <xsl:variable name="style">
-          <xsl:if test="$verbatim">
-            <xsl:text>white-space: pre; </xsl:text>
-          </xsl:if>
-        </xsl:variable>
-        <xsl:attribute name="style">
-          <xsl:value-of select="$style"/>
-        </xsl:attribute>
-        <xsl:apply-templates/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:apply-templates/>
-      </xsl:otherwise>
-    </xsl:choose>
+    <xsl:apply-templates/>
   </div>
 </xsl:template>
 
@@ -123,7 +124,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </template>
 
 <xsl:template name="db2html.blockquote">
-  <div class="{local-name(.)}">
+  <div class="{local-name(.)} block-indent">
     <xsl:apply-templates select="title"/>
     <blockquote class="{local-name(.)}">
       <xsl:apply-templates
@@ -158,9 +159,16 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <purpose>
     Format an element in a <xmltag>pre</xmltag> tag
   </purpose>
+  <parameter>
+    <name>indent</name>
+    <purpose>
+      Whether this block should be indented
+    </purpose>
+  </parameter>
 </template>
 
 <xsl:template name="db2html.pre">
+  <xsl:param name="indent" select="false()"/>
   <!-- FIXME:
   @width
   @language
@@ -168,7 +176,13 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   @format
   @startinglinenumber
   -->
-  <div class="{local-name(.)}">
+  <div>
+    <xsl:attribute name="class">
+      <xsl:value-of select="local-name(.)"/>
+      <xsl:if test="$indent">
+        <xsl:text> block-indent</xsl:text>
+      </xsl:if>
+    </xsl:attribute>
     <xsl:call-template name="db2html.anchor"/>
     <xsl:if test="@linenumbering = 'numbered'">
       <pre class="linenumbering" style="float: left; text-align: right;"><xsl:call-template name="db.linenumbering"/></pre>
@@ -215,10 +229,18 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <xsl:template name="db2html.block.css">
   <xsl:text>
-    div[class~="figure"] { margin-left: 2em; margin-right: 1em; }
-    pre[class~="programlisting"] {
+    *[class~="block-indent"] {
       margin-left: 2em;
       margin-right: 1em;
+    }
+    *[class~="block-indent"] *[class~="block-indent"] {
+      margin-left: 0em;
+      margin-right: 0em;
+    }
+    *[class~="block-verbatim"] {
+      white-space: pre;
+    }
+    pre[class~="programlisting"] {
       padding: 6px;
       -moz-border-radius: 8px;
       overflow: auto;</xsl:text>
@@ -234,8 +256,6 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
       <xsl:text>
     }
     pre[class~="screen"] {
-      margin-left: 2em;
-      margin-right: 1em;
       padding: 6px;
       -moz-border-radius: 8px;
       overflow: auto;</xsl:text>
@@ -251,8 +271,6 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
       <xsl:text>
     }
     pre[class~="synopsis"] {
-      margin-left: 2em;
-      margin-right: 1em;
       overflow: auto;
     }
     pre[class~="linenumbering"] {
@@ -266,7 +284,6 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
       padding-right: 0.4em;
       padding-left: 0.4em;
     }
-    blockquote[class~="blockquote"] { margin-left: 2em; margin-right: 1em; }
     dt[class~="glossterm"] { margin-left: 0em; }
     dd + dt[class~="glossterm"] { margin-top: 2em; }
     dd[class~="glossdef"]
@@ -325,12 +342,16 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!-- = example = -->
 <xsl:template match="example">
-  <xsl:call-template name="db2html.block"/>
+  <xsl:call-template name="db2html.block">
+    <xsl:with-param name="indent" select="true()"/>
+  </xsl:call-template>
 </xsl:template>
 
 <!-- = figure = -->
 <xsl:template match="figure">
-  <xsl:call-template name="db2html.block"/>
+  <xsl:call-template name="db2html.block">
+    <xsl:with-param name="indent" select="true()"/>
+  </xsl:call-template>
 </xsl:template>
 
 <!-- = formalpara = -->
@@ -443,12 +464,16 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!-- = programlisting = -->
 <xsl:template match="programlisting">
-  <xsl:call-template name="db2html.pre"/>
+  <xsl:call-template name="db2html.pre">
+    <xsl:with-param name="indent" select="true()"/>
+  </xsl:call-template>
 </xsl:template>
 
 <!-- = screen = -->
 <xsl:template match="screen">
-  <xsl:call-template name="db2html.pre"/>
+  <xsl:call-template name="db2html.pre">
+    <xsl:with-param name="indent" select="true()"/>
+  </xsl:call-template>
 </xsl:template>
 
 <!-- = simpara = -->
@@ -458,7 +483,9 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!-- = synopsis = -->
 <xsl:template match="synopsis">
-  <xsl:call-template name="db2html.pre"/>
+  <xsl:call-template name="db2html.pre">
+    <xsl:with-param name="indent" select="true()"/>
+  </xsl:call-template>
 </xsl:template>
 
 </xsl:stylesheet>
