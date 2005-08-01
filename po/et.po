@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-11 05:55+0000\n"
+"POT-Creation-Date: 2005-08-01 13:37-0500\n"
 "PO-Revision-Date: 2005-07-11 12:41+0300\n"
 "Last-Translator: Ivar Smolin <okul@linux.ee>\n"
 "Language-Team: Estonian <gnome-et@linux.ee>\n"
@@ -19,9 +19,15 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#. Used a simple list item seperator.
-#: ../xslt/gettext/l10n.xml.in.h:2
-msgid ","
+#.
+#. This is used a simple list item seperator in places where simple
+#. inline lists have to be constructed dynamically.  Using the default
+#. string of ", ", a list would look like this: A, B, C, D.  Using the
+#. nonsensical string " - ", a list would look like this: A - B - C - D.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:7
+#, fuzzy
+msgid ", "
 msgstr ","
 
 #.
@@ -38,7 +44,7 @@ msgstr ","
 #. Non-Western languages probably need additional formatters.  Please
 #. contact the maintainers about adding formatters for your language.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:17
+#: ../xslt/gettext/l10n.xml.in.h:22
 msgid "<msgid>appendix.digit</msgid> <msgstr>A</msgstr>"
 msgstr ""
 
@@ -47,7 +53,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. This is a format message used to format labels for appendices.  Labels
 #. are used before the title in places like headers and table of contents
@@ -75,7 +81,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:51
+#: ../xslt/gettext/l10n.xml.in.h:56
 msgid ""
 "<msgid>appendix.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
 "msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Appendix "
@@ -87,7 +93,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. This is a format message used to format numbers for appendices.  Numbers
 #. are used in labels, cross references, and any other place where the
@@ -114,7 +120,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:84
+#: ../xslt/gettext/l10n.xml.in.h:89
 msgid "<msgid>appendix.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 msgstr ""
 
@@ -123,7 +129,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. This is a format message used to format cross references to appendices.
 #. Multiple roles can be provided to allow document translators to select
@@ -149,7 +155,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:116
+#: ../xslt/gettext/l10n.xml.in.h:121
 msgid ""
 "<msgid>appendix.xref</msgid> <msgstr>Appendix <number/> ― <title/></msgstr>"
 msgstr ""
@@ -168,7 +174,7 @@ msgstr ""
 #. Non-Western languages probably need additional formatters.  Please
 #. contact the maintainers about adding formatters for your language.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:131
+#: ../xslt/gettext/l10n.xml.in.h:136
 msgid "<msgid>book.digit</msgid> <msgstr>1</msgstr>"
 msgstr ""
 
@@ -177,7 +183,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. This is a format message used to format cross references to books.
 #. Multiple roles can be provided to allow document translators to select
@@ -201,7 +207,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:161
+#: ../xslt/gettext/l10n.xml.in.h:166
 msgid "<msgid>book.xref</msgid> <msgstr><title/></msgstr>"
 msgstr ""
 
@@ -219,7 +225,7 @@ msgstr ""
 #. Non-Western languages probably need additional formatters.  Please
 #. contact the maintainers about adding formatters for your language.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:176
+#: ../xslt/gettext/l10n.xml.in.h:181
 msgid "<msgid>chapter.digit</msgid> <msgstr>1</msgstr>"
 msgstr ""
 
@@ -228,7 +234,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. This is a format message used to format labels for chapters.  Labels
 #. are used before the title in places like headers and table of contents
@@ -256,7 +262,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:210
+#: ../xslt/gettext/l10n.xml.in.h:215
 msgid ""
 "<msgid>chapter.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
 "msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Chapter "
@@ -268,7 +274,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. This is a format message used to format numbers for chapters.  Numbers
 #. are used in labels, cross references, and any other place where the
@@ -295,7 +301,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:243
+#: ../xslt/gettext/l10n.xml.in.h:248
 msgid "<msgid>chapter.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 msgstr ""
 
@@ -304,7 +310,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. This is a format message used to format cross references to chapters
 #. Multiple roles can be provided to allow document translators to select
@@ -330,7 +336,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:275
+#: ../xslt/gettext/l10n.xml.in.h:280
 msgid ""
 "<msgid>chapter.xref</msgid> <msgstr>Chapter <number/> ― <title/></msgstr>"
 msgstr ""
@@ -340,7 +346,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. citetitle - The title of a cited work
 #. http://docbook.org/tdg/en/html/citetitle.html
@@ -363,7 +369,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:304
+#: ../xslt/gettext/l10n.xml.in.h:309
 msgid ""
 "<msgid>citetitle.format</msgid> <msgstr role='article'>“<node/>”</msgstr> "
 "<msgstr><i><node/></i></msgstr>"
@@ -374,7 +380,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. This is a format message used to format tooltips on mailto: links
 #. created from DocBook's email element.
@@ -393,7 +399,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:329
+#: ../xslt/gettext/l10n.xml.in.h:334
 msgid "<msgid>email.tooltip</msgid> <msgstr>Send email to ‘<node/>’.</msgstr>"
 msgstr ""
 
@@ -411,7 +417,7 @@ msgstr ""
 #. Non-Western languages probably need additional formatters.  Please
 #. contact the maintainers about adding formatters for your language.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:344
+#: ../xslt/gettext/l10n.xml.in.h:349
 msgid "<msgid>example.digit</msgid> <msgstr>1</msgstr>"
 msgstr ""
 
@@ -420,7 +426,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. This is a format message used to format labels for examples.  Labels
 #. are used before the title in places like headers and table of contents
@@ -448,7 +454,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:378
+#: ../xslt/gettext/l10n.xml.in.h:383
 msgid ""
 "<msgid>example.label</msgid> <msgstr role='header'><i>Example <number/></"
 "i>&#x2003;</msgstr> <msgstr role='li'>Example <number/>&#x2002;</msgstr> "
@@ -460,7 +466,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. This is a format message used to format numbers for example.  Numbers
 #. are used in labels, cross references, and any other place where the
@@ -487,7 +493,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:411
+#: ../xslt/gettext/l10n.xml.in.h:416
 msgid "<msgid>example.number</msgid> <msgstr><parent/>-<digit/></msgstr>"
 msgstr ""
 
@@ -496,7 +502,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. This is a format message used to format cross references to examples.
 #. Multiple roles can be provided to allow document translators to select
@@ -522,7 +528,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:443
+#: ../xslt/gettext/l10n.xml.in.h:448
 msgid "<msgid>example.xref</msgid> <msgstr>Example <number/></msgstr>"
 msgstr ""
 
@@ -540,7 +546,7 @@ msgstr ""
 #. Non-Western languages probably need additional formatters.  Please
 #. contact the maintainers about adding formatters for your language.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:458
+#: ../xslt/gettext/l10n.xml.in.h:463
 msgid "<msgid>figure.digit</msgid> <msgstr>1</msgstr>"
 msgstr ""
 
@@ -549,7 +555,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. This is a format message used to format labels for figures.  Labels
 #. are used before the title in places like headers and table of contents
@@ -577,7 +583,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:492
+#: ../xslt/gettext/l10n.xml.in.h:497
 msgid ""
 "<msgid>figure.label</msgid> <msgstr role='header'><i>Figure <number/></"
 "i>&#x2003;</msgstr> <msgstr role='li'>Figure <number/>&#x2002;</msgstr> "
@@ -589,7 +595,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. This is a format message used to format numbers for figure.  Numbers
 #. are used in labels, cross references, and any other place where the
@@ -616,7 +622,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:525
+#: ../xslt/gettext/l10n.xml.in.h:530
 msgid "<msgid>figure.number</msgid> <msgstr><parent/>-<digit/></msgstr>"
 msgstr ""
 
@@ -625,7 +631,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. This is a format message used to format cross references to figures.
 #. Multiple roles can be provided to allow document translators to select
@@ -651,7 +657,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:557
+#: ../xslt/gettext/l10n.xml.in.h:562
 msgid "<msgid>figure.xref</msgid> <msgstr>Figure <number/></msgstr>"
 msgstr ""
 
@@ -660,7 +666,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. This is a format message used to format cross references to glossaries.
 #. Multiple roles can be provided to allow document translators to select
@@ -688,7 +694,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:591
+#: ../xslt/gettext/l10n.xml.in.h:596
 msgid "<msgid>glossary.xref</msgid> <msgstr><title/></msgstr>"
 msgstr ""
 
@@ -697,7 +703,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. This is a format message used to format tooltips on cross references
 #. to glossary entries.
@@ -715,7 +721,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:615
+#: ../xslt/gettext/l10n.xml.in.h:620
 msgid ""
 "<msgid>glossentry.tooltip</msgid> <msgstr>Read the definition for "
 "‘<glossterm/>’.</msgstr>"
@@ -726,7 +732,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. This is a format message used to format cross references to glossary
 #. entries.  Multiple roles can be provided to allow document translators to
@@ -752,7 +758,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:647
+#: ../xslt/gettext/l10n.xml.in.h:652
 msgid ""
 "<msgid>glossentry.xref</msgid> <msgstr role='glosssee'><glossterm/></msgstr> "
 "<msgstr>‘<glossterm/>’</msgstr>"
@@ -763,7 +769,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. glosssee - A cross reference from one glossentry to another
 #. http://docbook.org/tdg/en/html/glosssee.html
@@ -791,7 +797,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:681
+#: ../xslt/gettext/l10n.xml.in.h:686
 msgid "<msgid>glosssee.format</msgid> <msgstr>See <glosssee/>.</msgstr>"
 msgstr ""
 
@@ -800,7 +806,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. glossseealso - A cross reference from one glossentry to another
 #. http://docbook.org/tdg/en/html/glossseealso.html
@@ -829,7 +835,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:716
+#: ../xslt/gettext/l10n.xml.in.h:721
 msgid ""
 "<msgid>glossseealso.format</msgid> <msgstr>See also <glosssee/>.</msgstr>"
 msgstr ""
@@ -839,7 +845,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. manvolnum - A reference volume number
 #. http://docbook.org/tdg/en/html/manvolnum.html
@@ -862,7 +868,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:745
+#: ../xslt/gettext/l10n.xml.in.h:750
 msgid "<msgid>manvolnum.format</msgid> <msgstr>(<node/>)</msgstr>"
 msgstr ""
 
@@ -880,7 +886,7 @@ msgstr ""
 #. Non-Western languages probably need additional formatters.  Please
 #. contact the maintainers about adding formatters for your language.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:760
+#: ../xslt/gettext/l10n.xml.in.h:765
 msgid "<msgid>part.digit</msgid> <msgstr>I</msgstr>"
 msgstr ""
 
@@ -889,7 +895,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. This is a format message used to format labels for parts.  Labels
 #. are used before the title in places like headers and table of contents
@@ -917,7 +923,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:794
+#: ../xslt/gettext/l10n.xml.in.h:799
 msgid ""
 "<msgid>part.label</msgid> <msgstr role='header'><number/>.&#x2003;</msgstr> "
 "<msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Part <number/></msgstr>"
@@ -928,7 +934,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. This is a format message used to format cross references to parts
 #. Multiple roles can be provided to allow document translators to select
@@ -954,7 +960,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:826
+#: ../xslt/gettext/l10n.xml.in.h:831
 msgid "<msgid>part.xref</msgid> <msgstr>Part <number/> ― <title/></msgstr>"
 msgstr ""
 
@@ -972,7 +978,7 @@ msgstr ""
 #. Non-Western languages probably need additional formatters.  Please
 #. contact the maintainers about adding formatters for your language.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:841
+#: ../xslt/gettext/l10n.xml.in.h:846
 msgid "<msgid>question.digit</msgid> <msgstr>1</msgstr>"
 msgstr ""
 
@@ -981,7 +987,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. This is a format message used to format labels for questions in
 #. question-and-answer sets.  Labels are used before the question
@@ -1006,7 +1012,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:872
+#: ../xslt/gettext/l10n.xml.in.h:877
 msgid ""
 "<msgid>question.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
 "msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Question "
@@ -1018,7 +1024,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. This is a format message used to format cross references to questions
 #. in question-and-answer sets.  Multiple roles can be provided to allow
@@ -1040,7 +1046,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:900
+#: ../xslt/gettext/l10n.xml.in.h:905
 msgid "<msgid>question.xref</msgid> <msgstr>Question <number/></msgstr>"
 msgstr ""
 
@@ -1049,7 +1055,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. quote - An inline quotation
 #. http://docbook.org/tdg/en/html/quote.html
@@ -1079,7 +1085,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:936
+#: ../xslt/gettext/l10n.xml.in.h:941
 msgid ""
 "<msgid>quote.format</msgid> <msgstr role='inner'>‘<node/>’</msgstr> "
 "<msgstr>“<node/>”</msgstr>"
@@ -1090,7 +1096,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. This is a format message used to format cross references to reference
 #. pages.  Multiple roles can be provided to allow document translators
@@ -1112,7 +1118,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:964
+#: ../xslt/gettext/l10n.xml.in.h:969
 msgid "<msgid>refentry.xref</msgid> <msgstr><title/></msgstr>"
 msgstr ""
 
@@ -1130,7 +1136,7 @@ msgstr ""
 #. Non-Western languages probably need additional formatters.  Please
 #. contact the maintainers about adding formatters for your language.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:979
+#: ../xslt/gettext/l10n.xml.in.h:984
 msgid "<msgid>refsection.digit</msgid> <msgstr>1</msgstr>"
 msgstr ""
 
@@ -1139,7 +1145,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. This is a format message used to format labels for reference sections.
 #. Labels are used before the title in places like headers and table of
@@ -1167,7 +1173,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1013
+#: ../xslt/gettext/l10n.xml.in.h:1018
 msgid ""
 "<msgid>refsection.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
 "msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Section "
@@ -1179,7 +1185,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. This is a format message used to format numbers for reference sections.
 #. Numbers are used in labels, cross references, and any other place where
@@ -1207,7 +1213,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1047
+#: ../xslt/gettext/l10n.xml.in.h:1052
 msgid "<msgid>refsection.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 msgstr ""
 
@@ -1216,7 +1222,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. This is a format message used to format cross references to reference
 #. sections.  Multiple roles can be provided to allow document translators
@@ -1242,7 +1248,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1079
+#: ../xslt/gettext/l10n.xml.in.h:1084
 msgid ""
 "<msgid>refsection.xref</msgid> <msgstr>Section <number/> ― <title/></msgstr>"
 msgstr ""
@@ -1261,7 +1267,7 @@ msgstr ""
 #. Non-Western languages probably need additional formatters.  Please
 #. contact the maintainers about adding formatters for your language.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1094
+#: ../xslt/gettext/l10n.xml.in.h:1099
 msgid "<msgid>section.digit</msgid> <msgstr>1</msgstr>"
 msgstr ""
 
@@ -1270,7 +1276,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. This is a format message used to format labels for sections.  Labels
 #. are used before the title in places like headers and table of contents
@@ -1298,7 +1304,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1128
+#: ../xslt/gettext/l10n.xml.in.h:1133
 msgid ""
 "<msgid>section.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
 "msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Section "
@@ -1310,7 +1316,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. This is a format message used to format numbers for sections.  Numbers
 #. are used in labels, cross references, and any other place where the
@@ -1338,7 +1344,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1162
+#: ../xslt/gettext/l10n.xml.in.h:1167
 msgid "<msgid>section.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 msgstr ""
 
@@ -1347,7 +1353,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. This is a format message used to format cross references to sections.
 #. Multiple roles can be provided to allow document translators to select
@@ -1373,7 +1379,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1194
+#: ../xslt/gettext/l10n.xml.in.h:1199
 msgid ""
 "<msgid>section.xref</msgid> <msgstr>Section <number/> ― <title/></msgstr>"
 msgstr ""
@@ -1392,7 +1398,7 @@ msgstr ""
 #. Non-Western languages probably need additional formatters.  Please
 #. contact the maintainers about adding formatters for your language.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1209
+#: ../xslt/gettext/l10n.xml.in.h:1214
 msgid "<msgid>table.digit</msgid> <msgstr>1</msgstr>"
 msgstr ""
 
@@ -1401,7 +1407,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. This is a format message used to format labels for tables.  Labels
 #. are used before the title in places like headers and table of contents
@@ -1429,7 +1435,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1243
+#: ../xslt/gettext/l10n.xml.in.h:1248
 msgid ""
 "<msgid>table.label</msgid> <msgstr role='header'><i>Table <number/></"
 "i>&#x2003;</msgstr> <msgstr role='li'>Table <number/>&#x2002;</msgstr> "
@@ -1441,7 +1447,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. This is a format message used to format numbers for table.  Numbers
 #. are used in labels, cross references, and any other place where the
@@ -1468,7 +1474,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1276
+#: ../xslt/gettext/l10n.xml.in.h:1281
 msgid "<msgid>table.number</msgid> <msgstr><parent/>-<digit/></msgstr>"
 msgstr ""
 
@@ -1477,7 +1483,7 @@ msgstr ""
 #. documentation before translating this message.  The documentation
 #. is maintained as part of the stylesheet documentation in DocBook.
 #. For your convenience, it has also been converted to an HTML file
-#. named TRANSLATORS.xhtml in the root of the source directory.
+#. named STYLESHEETS.xml in the i18n directory.
 #.
 #. This is a format message used to format cross references to tables.
 #. Multiple roles can be provided to allow document translators to select
@@ -1503,39 +1509,43 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1308
+#: ../xslt/gettext/l10n.xml.in.h:1313
 msgid "<msgid>table.xref</msgid> <msgstr>Table <number/></msgstr>"
 msgstr ""
 
 #. Used as a header before a list of authors.
-#: ../xslt/gettext/l10n.xml.in.h:1310
+#: ../xslt/gettext/l10n.xml.in.h:1315
+#, fuzzy
 msgid "<msgstr form='0'>Author</msgstr> <msgstr form='1'>Authors</msgstr>"
 msgstr "<msgstr form='0'>Autor</msgstr> <msgstr form='1'>Autorid</msgstr>"
 
 #. Used as a header before a list of collaborators.
-#: ../xslt/gettext/l10n.xml.in.h:1312
+#: ../xslt/gettext/l10n.xml.in.h:1317
+#, fuzzy
 msgid ""
 "<msgstr form='0'>Collaborator</msgstr> <msgstr form='1'>Collaborators</"
 "msgstr>"
 msgstr ""
-"<msgstr form='0'>Kaastöötaja</msgstr> <msgstr form='1'>Kaastöötajad</"
-"msgstr>"
+"<msgstr form='0'>Kaastöötaja</msgstr> <msgstr form='1'>Kaastöötajad</msgstr>"
 
 #. Used as a header before a list of copyrights.
-#: ../xslt/gettext/l10n.xml.in.h:1314
+#: ../xslt/gettext/l10n.xml.in.h:1319
+#, fuzzy
 msgid ""
 "<msgstr form='0'>Copyright</msgstr> <msgstr form='1'>Copyrights</msgstr>"
 msgstr ""
 "<msgstr form='0'>Autoriõigus</msgstr> <msgstr form='1'>Autoriõigused</msgstr>"
 
 #. Used as a header before a list of editors.
-#: ../xslt/gettext/l10n.xml.in.h:1316
+#: ../xslt/gettext/l10n.xml.in.h:1321
+#, fuzzy
 msgid "<msgstr form='0'>Editor</msgstr> <msgstr form='1'>Editors</msgstr>"
 msgstr ""
 "<msgstr form='0'>Toimetaja</msgstr> <msgstr form='1'>Toimetajad</msgstr>"
 
 #. Used as a header before a list of contributors.
-#: ../xslt/gettext/l10n.xml.in.h:1318
+#: ../xslt/gettext/l10n.xml.in.h:1323
+#, fuzzy
 msgid ""
 "<msgstr form='0'>Other Contributor</msgstr> <msgstr form='1'>Other "
 "Contributors</msgstr>"
@@ -1544,7 +1554,8 @@ msgstr ""
 "kaastöötajad</msgstr>"
 
 #. Used as a header before a list of publishers.
-#: ../xslt/gettext/l10n.xml.in.h:1320
+#: ../xslt/gettext/l10n.xml.in.h:1325
+#, fuzzy
 msgid ""
 "<msgstr form='0'>Publisher</msgstr> <msgstr form='1'>Publishers</msgstr>"
 msgstr ""
@@ -1559,12 +1570,12 @@ msgstr ""
 #. the labelling style for a qandaset.  If the labelling style is set
 #. to 'qanda', this string will be used to label answers.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1330
+#: ../xslt/gettext/l10n.xml.in.h:1335
 msgid "A:&#x2003;"
 msgstr ""
 
 #. Used for links to the titlepage.
-#: ../xslt/gettext/l10n.xml.in.h:1332
+#: ../xslt/gettext/l10n.xml.in.h:1337
 msgid "About This Document"
 msgstr "Dokumendist"
 
@@ -1577,7 +1588,7 @@ msgstr "Dokumendist"
 #. Shaun McCance
 #. Affiliation: GNOME Documentation Project
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1342
+#: ../xslt/gettext/l10n.xml.in.h:1347
 msgid "Affiliation"
 msgstr "Liitumine"
 
@@ -1585,7 +1596,7 @@ msgstr "Liitumine"
 #. http://www.docbook.org/tdg/en/html/caution.html
 #. This is used as a default title for caution elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1347
+#: ../xslt/gettext/l10n.xml.in.h:1352
 msgid "Caution"
 msgstr "Ettevaatust"
 
@@ -1593,7 +1604,7 @@ msgstr "Ettevaatust"
 #. http://www.docbook.org/tdg/en/html/colophon.html
 #. This is used as a default title for colophon elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1352
+#: ../xslt/gettext/l10n.xml.in.h:1357
 msgid "Colophon"
 msgstr "Lõpumärgis"
 
@@ -1601,7 +1612,7 @@ msgstr "Lõpumärgis"
 #. http://www.docbook.org/tdg/en/html/dedication.html
 #. This is used as a default title for dedication elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1357
+#: ../xslt/gettext/l10n.xml.in.h:1362
 msgid "Dedication"
 msgstr "Pühendus"
 
@@ -1614,7 +1625,7 @@ msgstr "Pühendus"
 #. Shaun McCance
 #. Email: shaunm@gnome.org
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1367
+#: ../xslt/gettext/l10n.xml.in.h:1372
 msgid "Email"
 msgstr "E-post"
 
@@ -1622,7 +1633,7 @@ msgstr "E-post"
 #. http://www.docbook.org/tdg/en/html/glossary.html
 #. This is used as a default title for glossary elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1372
+#: ../xslt/gettext/l10n.xml.in.h:1377
 msgid "Glossary"
 msgstr ""
 
@@ -1630,7 +1641,7 @@ msgstr ""
 #. http://www.docbook.org/tdg/en/html/important.html
 #. This is used as a default title for important elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1377
+#: ../xslt/gettext/l10n.xml.in.h:1382
 msgid "Important"
 msgstr "Oluline"
 
@@ -1638,7 +1649,7 @@ msgstr "Oluline"
 #. http://www.docbook.org/tdg/en/html/index.html
 #. This is used as a default title for index elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1382
+#: ../xslt/gettext/l10n.xml.in.h:1387
 msgid "Index"
 msgstr "Sisuregister"
 
@@ -1646,7 +1657,7 @@ msgstr "Sisuregister"
 #. http://www.docbook.org/tdg/en/html/legalnotice.html
 #. This is used as a default title for legalnotice elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1387
+#: ../xslt/gettext/l10n.xml.in.h:1392
 msgid "Legal Notice"
 msgstr "Autoriõiguse märge"
 
@@ -1654,7 +1665,7 @@ msgstr "Autoriõiguse märge"
 #. http://www.docbook.org/tdg/en/html/refnamediv.html
 #. This is used as the title for refnamediv elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1392
+#: ../xslt/gettext/l10n.xml.in.h:1397
 msgid "Name"
 msgstr "Nimi"
 
@@ -1662,7 +1673,7 @@ msgstr "Nimi"
 #. http://www.docbook.org/tdg/en/html/note.html
 #. This is used as a default title for note elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1397
+#: ../xslt/gettext/l10n.xml.in.h:1402
 msgid "Note"
 msgstr "Märkus"
 
@@ -1670,7 +1681,7 @@ msgstr "Märkus"
 #. http://www.docbook.org/tdg/en/html/preface.html
 #. This is used as a default title for preface elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1402
+#: ../xslt/gettext/l10n.xml.in.h:1407
 msgid "Preface"
 msgstr "Eessõna"
 
@@ -1683,7 +1694,7 @@ msgstr "Eessõna"
 #. the labelling style for a qandaset.  If the labelling style is set
 #. to 'qanda', this string will be used to label questions.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1412
+#: ../xslt/gettext/l10n.xml.in.h:1417
 msgid "Q:&#x2003;"
 msgstr ""
 
@@ -1691,15 +1702,23 @@ msgstr ""
 #. http://www.docbook.org/tdg/en/html/revhistory.html
 #. This is used as a header before the revision history.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1417
+#: ../xslt/gettext/l10n.xml.in.h:1422
 msgid "Revision History"
 msgstr "Muudatuste ajalugu"
 
-#: ../xslt/gettext/l10n.xml.in.h:1418
+#.
+#. Used for the <see> element.
+#. FIXME: this should be a format string.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1427
 msgid "See"
 msgstr "Vaata"
 
-#: ../xslt/gettext/l10n.xml.in.h:1419
+#.
+#. Used for the <seealso> element.
+#. FIXME: this should be a format string.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1432
 msgid "See Also"
 msgstr "Vaata ka"
 
@@ -1707,7 +1726,7 @@ msgstr "Vaata ka"
 #. http://www.docbook.org/tdg/en/html/refsynopsisdiv.html
 #. This is used as the default title for refsynopsisdiv elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1424
+#: ../xslt/gettext/l10n.xml.in.h:1437
 msgid "Synopsis"
 msgstr "Sünopsis"
 
@@ -1715,7 +1734,7 @@ msgstr "Sünopsis"
 #. http://www.docbook.org/tdg/en/html/tip.html
 #. This is used as a default title for tip elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1429
+#: ../xslt/gettext/l10n.xml.in.h:1442
 msgid "Tip"
 msgstr "Vihje"
 
@@ -1723,7 +1742,7 @@ msgstr "Vihje"
 #. http://www.docbook.org/tdg/en/html/warning.html
 #. This is used as a default title for warning elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1434
+#: ../xslt/gettext/l10n.xml.in.h:1447
 msgid "Warning"
 msgstr "Hoiatus"
 

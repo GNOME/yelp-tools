@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-07-29 21:23+0200\n"
+"POT-Creation-Date: 2005-08-01 13:37-0500\n"
 "PO-Revision-Date: 2005-07-29 21:58+0200\n"
 "Last-Translator: Marcel Telka <marcel@telka.sk>\n"
 "Language-Team: Slovak <sk-i18n@lists.linux.sk>\n"
@@ -1697,11 +1697,19 @@ msgstr ""
 msgid "Revision History"
 msgstr "História zmien"
 
-#: ../xslt/gettext/l10n.xml.in.h:1423
+#.
+#. Used for the <see> element.
+#. FIXME: this should be a format string.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1427
 msgid "See"
 msgstr "Pozri"
 
-#: ../xslt/gettext/l10n.xml.in.h:1424
+#.
+#. Used for the <seealso> element.
+#. FIXME: this should be a format string.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1432
 msgid "See Also"
 msgstr "Pozri tiež"
 
@@ -1709,7 +1717,7 @@ msgstr "Pozri tiež"
 #. http://www.docbook.org/tdg/en/html/refsynopsisdiv.html
 #. This is used as the default title for refsynopsisdiv elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1429
+#: ../xslt/gettext/l10n.xml.in.h:1437
 msgid "Synopsis"
 msgstr "Prehľad"
 
@@ -1717,7 +1725,7 @@ msgstr "Prehľad"
 #. http://www.docbook.org/tdg/en/html/tip.html
 #. This is used as a default title for tip elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1434
+#: ../xslt/gettext/l10n.xml.in.h:1442
 msgid "Tip"
 msgstr "Tip"
 
@@ -1725,6 +1733,6 @@ msgstr "Tip"
 #. http://www.docbook.org/tdg/en/html/warning.html
 #. This is used as a default title for warning elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1439
+#: ../xslt/gettext/l10n.xml.in.h:1447
 msgid "Warning"
 msgstr "Upozornenie"
