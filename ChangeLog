@@ -1,5 +1,10 @@
 2005-08-01  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/html/db2html-block.xsl:
+	- Added formalpara
+
+2005-08-01  Shaun McCance  <shaunm@gnome.org>
+
 	* MAINTAINERS:
 	- Adding a MAINTAINERS file
 

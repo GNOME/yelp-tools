@@ -333,6 +333,11 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <xsl:call-template name="db2html.block"/>
 </xsl:template>
 
+<!-- = formalpara = -->
+<xsl:template match="formalpara">
+  <xsl:call-template name="db2html.block"/>
+</xsl:template>
+
 <!-- = glossdef = -->
 <xsl:template match="glossdef">
   <dd class="glossdef">
