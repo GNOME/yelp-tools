@@ -213,6 +213,18 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
+<!-- = preface = -->
+<xsl:template mode="db.xref.content.mode" match="preface">
+  <xsl:param name="xrefstyle"/>
+  <xsl:param name="role" select="substring-after($xrefstyle, 'role:')"/>
+  <xsl:call-template name="l10n.gettext">
+    <xsl:with-param name="msgid" select="'preface.xref'"/>
+    <xsl:with-param name="role" select="$role"/>
+    <xsl:with-param name="node" select="."/>
+    <xsl:with-param name="format" select="true()"/>
+  </xsl:call-template>
+</xsl:template>
+
 <!-- = qandaentry = -->
 <xsl:template mode="db.xref.content.mode" match="qandaentry">
   <xsl:param name="xrefstyle"/>

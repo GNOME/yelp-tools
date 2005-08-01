@@ -1289,6 +1289,48 @@
   </_msg>
 </msgset>
 
+<!-- == preface == -->
+<msgset>
+  <msgid>preface.xref</msgid>
+  <!--
+  This is a special format message.  Please read the full translator
+  documentation before translating this message.  The documentation
+  is maintained as part of the stylesheet documentation in DocBook.
+  For your convenience, it has also been converted to an HTML file
+  named STYLESHEETS.xml in the i18n directory.
+
+  This is a format message used to format cross references to prefaces.
+  Multiple roles can be provided to allow document translators to select
+  how to format each cross reference using the xrefstyle attribute.  If
+  your language needs to provide different cross reference formattings
+  for different parts of speech, you should provide multiple roles for
+  cross reference formatters.
+
+  Special elements in the message will be replaced with the
+  appropriate content, as follows:
+
+  title       - The title of the figure
+  titleabbrev - The titleabbrev of the figure, or just the title
+                if no titleabbrev exists
+
+  These should be written as empty XML elements.  Due to limitations
+  in intltool, I can't write XML content in translator comments.  To
+  insert the title, simply write left angle bracket, title, slash,
+  right angle bracket.
+
+  Note that authors are not required to provide explicit titles for
+  prefaces.  If the author does not provide a title, the translatable
+  string 'Preface' is used as a default.
+
+  Additionally, format messages can use the i, b, and tt markup tags
+  to mark text as italic, bold, and monospace.
+  -->  
+  <_msg>
+    <msgid>preface.xref</msgid>
+    <msgstr><title/></msgstr>
+  </_msg>
+</msgset>
+
 <!-- == question == -->
 <msgset>
   <msgid>question.digit</msgid>

@@ -165,6 +165,9 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
+<!-- = preface = -->
+<xsl:template mode="db.label.mode" match="preface"/>
+
 <!-- = question = -->
 <xsl:template mode="db.label.mode" match="question">
   <xsl:param name="role"/>
@@ -230,7 +233,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <xsl:template mode="db.label.mode" match="
               article  |  bibliography |
               colophon |    index     |
-              qandadiv | qandaset | preface      | reference |
+              qandadiv | qandaset |  reference |
               set      | setindex ">
   <xsl:param name="role"/>
 <!-- FIXME 
@@ -399,6 +402,9 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <xsl:call-template name="db.digit"/>
 </xsl:template>
 
+<!-- = preface = -->
+<xsl:template mode="db.number.mode" match="preface"/>
+
 <!-- = question = -->
 <xsl:template mode="db.number.mode" match="question">
   <xsl:call-template name="db.digit"/>
@@ -478,7 +484,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <xsl:template mode="db.number.mode" match="
               book  | bibliography | colophon | glossary |
-              index | preface      | set      | setindex "/>
+              index    | set      | setindex "/>
 
 <xsl:template mode="db.number.mode" match="synopfragment">
   <xsl:value-of select="count(preceding-sibling::synopfragment) + 1"/>
@@ -627,6 +633,9 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     </xsl:with-param>
   </xsl:call-template>
 </xsl:template>
+
+<!-- = preface = -->
+<xsl:template mode="db.digit.mode" match="preface"/>
 
 <!-- = question = -->
 <xsl:template mode="db.digit.mode" match="question">

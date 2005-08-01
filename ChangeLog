@@ -1,5 +1,12 @@
 2005-08-01  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/common/db-label.xsl:
+	* xslt/docbook/common/db-xref.xsl:
+	* xslt/gettext/l10n.xml.in:
+	- Fixed up the preface formatters
+
+2005-08-01  Shaun McCance  <shaunm@gnome.org>
+
 	* configure.in:
 	- Use newer versions of AC_INIT and AM_INIT_AUTOMAKE
 
