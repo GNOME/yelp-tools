@@ -455,9 +455,9 @@ $(_DOC_POFILES): $(_DOC_C_DOCS)
 	    cp $(notdir $@).tmp $(notdir $@) && rm -f $(notdir $@).tmp); \
 	else \
 	  echo "(cd $(dir $@) && \
-	    $(_xml2po) -e -u $(basename $(notdir $@)) $$docs)"; \
+	    $(_xml2po) -e -u $(notdir $@) $$docs)"; \
 	  (cd $(dir $@) && \
-	    $(_xml2po) -e -u $(basename $(notdir $@)) $$docs); \
+	    $(_xml2po) -e -u $(notdir $@) $$docs); \
 	fi
 
 # FIXME: fix the dependancy

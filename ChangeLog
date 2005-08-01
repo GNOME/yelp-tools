@@ -1,5 +1,13 @@
 2005-08-01  Shaun McCance  <shaunm@gnome.org>
 
+	* configure.in:
+	- Use newer versions of AC_INIT and AM_INIT_AUTOMAKE
+
+	* gnome-doc-utils.make:
+	- Pass the PO file to xml2po, not just the language code
+
+2005-08-01  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/docbook/html/db2html-block.xsl:
 	- Added formalpara
 
