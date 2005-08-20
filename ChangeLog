@@ -1,3 +1,8 @@
+2005-08-20  Shaun McCance  <shaunm@gnome.org>
+
+	* gnome-doc-utils.make:
+	- Fix up some sed expressions, from Joe Markus Clarke, #312969
+
 2005-08-02  Abduxukur Abdurixit <abdurixit@gmail.com>
 
 	* configure.in: Added 'ug' to ALL_LINGUAS.
