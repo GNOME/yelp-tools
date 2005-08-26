@@ -1,5 +1,10 @@
 2005-08-26  Shaun McCance  <shaunm@gnome.org>
 
+	* po/pt_BR.po:
+	- Fixed broken XML
+
+2005-08-26  Shaun McCance  <shaunm@gnome.org>
+
 	* po/bg.po:
 	* po/nb.po:
 	* po/no.po:

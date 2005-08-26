@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gnome-doc-utils\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-08-22 14:46+0000\n"
-"PO-Revision-Date: 2005-08-22 22:45-0300\n"
+"PO-Revision-Date: 2005-08-26 14:40-0500\n"
 "Last-Translator: Pedro de Medeiros <pedro.medeiros@gmail.com>\n"
 "Language-Team: Brazilian Portuguese <gnome-l10n-br@listas.cipsga.org.br>\n"
 "MIME-Version: 1.0\n"
@@ -402,7 +402,7 @@ msgstr "<msgid>citetitle.format</msgid> <msgstr>“<i><node/></i>”</msgstr>"
 #.
 #: ../xslt/gettext/l10n.xml.in.h:334
 msgid "<msgid>email.tooltip</msgid> <msgstr>Send email to ‘<node/>’.</msgstr>"
-msgstr "<msgid>email.tooltip</msgid> <msgstr>Enviar e-mail para <<node/>>.</msgstr>"
+msgstr "<msgid>email.tooltip</msgid> <msgstr>Enviar e-mail para &lt;<node/>&gt;.</msgstr>"
 
 #.
 #. The number formatter used for example numbers.  This can be one of
