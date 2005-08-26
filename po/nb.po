@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gnome-doc-utils 0.3.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-08-06 04:55+0200\n"
-"PO-Revision-Date: 2005-08-05 11:39+0200\n"
+"PO-Revision-Date: 2005-08-26 12:15-0500\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmal <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -597,10 +597,7 @@ msgid ""
 "<msgid>figure.label</msgid> <msgstr role='header'><i>Figure <number/></"
 "i>&#x2003;</msgstr> <msgstr role='li'>Figure <number/>&#x2002;</msgstr> "
 "<msgstr>Figure <number/></msgstr>"
-msgstr ""
-"<msgid>figure.label</msgid> <msgstr role='header'><i>Figur <number/></"
-"i>&x2003;</msgstr> <msgstr role='li'>Figur <number/>&#x2002;</msgstr> "
-"<msgstr>Figur <number/></msgstr>"
+msgstr "<msgid>figure.label</msgid> <msgstr role='header'><i>Figur <number/></i>&#x2003;</msgstr> <msgstr role='li'>Figur <number/>&#x2002;</msgstr> <msgstr>Figur <number/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -737,9 +734,7 @@ msgstr "<msgid>glossary.xref</msgid> <msgstr><title/></msgstr>"
 msgid ""
 "<msgid>glossentry.tooltip</msgid> <msgstr>Read the definition for "
 "‘<glossterm/>’.</msgstr>"
-msgstr ""
-"<msgid>glossentry.tooltip</msgid> <msgstr>Les definisjonen for «<glossterm>»."
-"</msgstr>"
+msgstr "<msgid>glossentry.tooltip</msgid> <msgstr>Les definisjonen for «<glossterm/>».</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1374,10 +1369,7 @@ msgid ""
 "<msgid>section.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
 "msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Section "
 "<number/></msgstr>"
-msgstr ""
-"<msgid>section.label</msgid> <msgstr role='header'<number/>.&#x2003;</"
-"msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Del <number/></"
-"msgstr>"
+msgstr "<msgid>section.label</msgid> <msgstr role='header'><number/>.&#x2003;</msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Del <number/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator

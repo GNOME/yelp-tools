@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gnome-doc-utils-HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-08-12 10:05+0300\n"
-"PO-Revision-Date: 2005-08-12 10:05+0300\n"
+"PO-Revision-Date: 2005-08-26 12:13-0500\n"
 "Last-Translator: Alexander Shopov <ash@contact.bg>\n"
 "Language-Team: Bulgarian <dict@fsa-bg.org>\n"
 "MIME-Version: 1.0\n"
@@ -205,7 +205,7 @@ msgstr "<msgstr>1</msgstr>"
 #.
 #: ../xslt/gettext/l10n.xml.in.h:166
 msgid "<msgid>book.xref</msgid> <msgstr><title/></msgstr>"
-msgstr "<msgstr>«<title/>»/msgstr>"
+msgstr "<msgstr>«<title/>»</msgstr>"
 
 #.
 #. The number formatter used for chapter numbers.  This can be one of
@@ -1211,7 +1211,7 @@ msgid ""
 "<msgid>refsection.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
 "msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Section "
 "<number/></msgstr>"
-msgstr "<msgstr>Дял №&#00A0;<number/></msgstr>"
+msgstr "<msgstr>Дял №&#x00A0;<number/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator

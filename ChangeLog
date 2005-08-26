@@ -1,3 +1,13 @@
+2005-08-26  Shaun McCance  <shaunm@gnome.org>
+
+	* po/bg.po:
+	* po/nb.po:
+	* po/no.po:
+	- Fixed broken XML in translations
+
+	* xslt/gettext/Makefile.am:
+	- Added well-formedness check to l10n.xml Makefile rule
+
 2005-08-20  Shaun McCance  <shaunm@gnome.org>
 
 	* gnome-doc-utils.make:
