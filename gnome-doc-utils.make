@@ -162,10 +162,14 @@ rngdoc: $(_RNGDOC_C_DOCS)
 ################################################################################
 ## @@ Rules for xsldoc
 
+# FIXME: _XSLDOC_XSLS is getting dupes with relative/absolute in some
+# cases.  Right now, I'm just taking the first, but that's just a bad
+# work-around.  Fix the real problem.
 xsldoc_args =									\
 	--stringparam xsldoc.id							\
 	$(shell echo $(basename $(notdir $(1))) | sed -e 's/[^A-Za-z0-9_-]/_/g')\
-	$(_xsldoc) $(filter %/$(basename $(notdir $(1))).xsl,$(_XSLDOC_XSLS))
+	$(_xsldoc)								\
+	$(word 1,$(filter %/$(basename $(notdir $(1))).xsl,$(_XSLDOC_XSLS)))
 
 ## @ _XSLDOC_XSLS
 ## The actual XSLT files for which to generate documentation with xsldoc

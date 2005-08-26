@@ -1,5 +1,10 @@
 2005-08-26  Shaun McCance  <shaunm@gnome.org>
 
+	* gnome-doc-utils.make:
+	- Only take one input file for xsldoc
+
+2005-08-26  Shaun McCance  <shaunm@gnome.org>
+
 	* po/pt_BR.po:
 	- Fixed broken XML
 
