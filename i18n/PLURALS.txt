@@ -114,7 +114,7 @@ uk (Ukrainian)
   1: (n % 10 >= 2) && (n % 10 <= 4) && ((n % 100 < 10) || (n % 100 >= 20))
   2: ELSE
 
-vi
+vi (Vietnamese)
 1 plural form
 
 wa
