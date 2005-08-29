@@ -1,3 +1,4 @@
+# translation of es.po to 
 # traducción de es.po al Spanish
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
@@ -7,10 +8,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-04 16:29+0200\n"
-"PO-Revision-Date: 2005-08-04 16:37+0200\n"
-"Last-Translator: Francisco Javier F. Serrador <serrador@cvs.gnome.org>\n"
-"Language-Team: Spanish <traductores@es.gnome.org>\n"
+"POT-Creation-Date: 2005-08-16 03:26+0200\n"
+"PO-Revision-Date: 2005-08-29 20:14+0200\n"
+"Last-Translator: \n"
+"Language-Team:  <en@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -156,10 +157,8 @@ msgstr "<msgid>appendix.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:121
-msgid ""
-"<msgid>appendix.xref</msgid> <msgstr>Appendix <number/> ― <title/></msgstr>"
-msgstr ""
-"<msgid>appendix.xref</msgid> <msgstr>Apéndice <number/> ― <title/></msgstr>"
+msgid "<msgid>appendix.xref</msgid> <msgstr>Appendix <number/> ― <title/></msgstr>"
+msgstr "<msgid>appendix.xref</msgid> <msgstr>Apéndice <number/> ― <title/></msgstr>"
 
 #.
 #. The number formatter used for book numbers.  This can be one of
@@ -341,10 +340,8 @@ msgstr "<msgid>chapter.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:280
-msgid ""
-"<msgid>chapter.xref</msgid> <msgstr>Chapter <number/> ― <title/></msgstr>"
-msgstr ""
-"<msgid>chapter.xref</msgid> <msgstr>Capítulo <number/> ― <title/></msgstr>"
+msgid "<msgid>chapter.xref</msgid> <msgstr>Chapter <number/> ― <title/></msgstr>"
+msgstr "<msgid>chapter.xref</msgid> <msgstr>Capítulo <number/> ― <title/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -378,7 +375,9 @@ msgstr ""
 msgid ""
 "<msgid>citetitle.format</msgid> <msgstr role='article'>“<node/>”</msgstr> "
 "<msgstr><i><node/></i></msgstr>"
-msgstr "<msgid>citetitle.format</msgid> <msgstr role='article'>«<node/>»</msgstr> <msgstr><i><node/></i></msgstr>"
+msgstr ""
+"<msgid>citetitle.format</msgid> <msgstr role='article'>«<node/>»</msgstr> "
+"<msgstr><i><node/></i></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -406,8 +405,7 @@ msgstr "<msgid>citetitle.format</msgid> <msgstr role='article'>«<node/>»</msgs
 #.
 #: ../xslt/gettext/l10n.xml.in.h:334
 msgid "<msgid>email.tooltip</msgid> <msgstr>Send email to ‘<node/>’.</msgstr>"
-msgstr ""
-"<msgid>email.tooltip</msgid> <msgstr>Envíe un correo-e a ‘<node/>’.</msgstr>"
+msgstr "<msgid>email.tooltip</msgid> <msgstr>Envíe un correo-e a &lt;<node/>&gt;.</msgstr>"
 
 #.
 #. The number formatter used for example numbers.  This can be one of
@@ -465,7 +463,10 @@ msgid ""
 "<msgid>example.label</msgid> <msgstr role='header'><i>Example <number/></"
 "i>&#x2003;</msgstr> <msgstr role='li'>Example <number/>&#x2002;</msgstr> "
 "<msgstr>Example <number/></msgstr>"
-msgstr "<msgid>example.label</msgid> <msgstr role='header'><i>Ejemplo <number/></i>&#x2003;</msgstr> <msgstr role='li'>Ejemplo <number/>&#x2002;</msgstr> <msgstr>Ejemplo <number/></msgstr>"
+msgstr ""
+"<msgid>example.label</msgid> <msgstr role='header'><i>Ejemplo <number/></"
+"i>&#x2003;</msgstr> <msgstr role='li'>Ejemplo <number/>&#x2002;</msgstr> "
+"<msgstr>Ejemplo <number/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -594,7 +595,10 @@ msgid ""
 "<msgid>figure.label</msgid> <msgstr role='header'><i>Figure <number/></"
 "i>&#x2003;</msgstr> <msgstr role='li'>Figure <number/>&#x2002;</msgstr> "
 "<msgstr>Figure <number/></msgstr>"
-msgstr "<msgid>figure.label</msgid> <msgstr role='header'><i>Figura <number/></i>&#x2003;</msgstr> <msgstr role='li'>Figura <number/>&#x2002;</msgstr> <msgstr>Figura <number/></msgstr>"
+msgstr ""
+"<msgid>figure.label</msgid> <msgstr role='header'><i>Figura <number/></"
+"i>&#x2003;</msgstr> <msgstr role='li'>Figura <number/>&#x2002;</msgstr> "
+"<msgstr>Figura <number/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -770,7 +774,9 @@ msgstr ""
 msgid ""
 "<msgid>glossentry.xref</msgid> <msgstr role='glosssee'><glossterm/></msgstr> "
 "<msgstr>‘<glossterm/>’</msgstr>"
-msgstr "<msgid>glossentry.xref</msgid> <msgstr role='glosssee'><glossterm/></msgstr> <msgstr>«<glossterm/>»</msgstr>"
+msgstr ""
+"<msgid>glossentry.xref</msgid> <msgstr role='glosssee'><glossterm/></msgstr> "
+"<msgstr>«<glossterm/>»</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -844,10 +850,8 @@ msgstr "<msgid>glosssee.format</msgid> <msgstr>Vea <glosssee/>.</msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:721
-msgid ""
-"<msgid>glossseealso.format</msgid> <msgstr>See also <glosssee/>.</msgstr>"
-msgstr ""
-"<msgid>glossseealso.format</msgid> <msgstr>Vea también <glosssee/>.</msgstr>"
+msgid "<msgid>glossseealso.format</msgid> <msgstr>See also <glosssee/>.</msgstr>"
+msgstr "<msgid>glossseealso.format</msgid> <msgstr>Vea también <glosssee/>.</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1141,7 +1145,9 @@ msgstr "<msgid>question.xref</msgid> <msgstr>Pregunta <number/></msgstr>"
 msgid ""
 "<msgid>quote.format</msgid> <msgstr role='inner'>‘<node/>’</msgstr> "
 "<msgstr>“<node/>”</msgstr>"
-msgstr "<msgid>quote.format</msgid> <msgstr role='inner'>«<node/>»</msgstr> <msgstr>«<node/>»</msgstr>"
+msgstr ""
+"<msgid>quote.format</msgid> <msgstr role='inner'>«<node/>»</msgstr> "
+"<msgstr>«<node/>»</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1304,10 +1310,8 @@ msgstr "<msgid>refsection.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1118
-msgid ""
-"<msgid>refsection.xref</msgid> <msgstr>Section <number/> ― <title/></msgstr>"
-msgstr ""
-"<msgid>refsection.xref</msgid> <msgstr>Sección <number/> ― <title/></msgstr>"
+msgid "<msgid>refsection.xref</msgid> <msgstr>Section <number/> ― <title/></msgstr>"
+msgstr "<msgid>refsection.xref</msgid> <msgstr>Sección <number/> ― <title/></msgstr>"
 
 #.
 #. The number formatter used for section numbers.  This can be one of
@@ -1439,10 +1443,8 @@ msgstr "<msgid>section.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1233
-msgid ""
-"<msgid>section.xref</msgid> <msgstr>Section <number/> ― <title/></msgstr>"
-msgstr ""
-"<msgid>section.xref</msgid> <msgstr>Sección <number/> ― <title/></msgstr>"
+msgid "<msgid>section.xref</msgid> <msgstr>Section <number/> ― <title/></msgstr>"
+msgstr "<msgid>section.xref</msgid> <msgstr>Sección <number/> ― <title/></msgstr>"
 
 #.
 #. The number formatter used for table numbers.  This can be one of
@@ -1586,21 +1588,17 @@ msgstr "<msgstr form='0'>Autor</msgstr> <msgstr form='1'>Autores</msgstr>"
 msgid ""
 "<msgstr form='0'>Collaborator</msgstr> <msgstr form='1'>Collaborators</"
 "msgstr>"
-msgstr ""
-"<msgstr form='0'>Colaborador</msgstr> <msgstr form='1'>Colaboradores</msgstr>"
+msgstr "<msgstr form='0'>Colaborador</msgstr> <msgstr form='1'>Colaboradores</msgstr>"
 
 #. Used as a header before a list of copyrights.
 #: ../xslt/gettext/l10n.xml.in.h:1353
-msgid ""
-"<msgstr form='0'>Copyright</msgstr> <msgstr form='1'>Copyrights</msgstr>"
-msgstr ""
-"<msgstr form='0'>Copyright</msgstr> <msgstr form='1'>Copyrights</msgstr>"
+msgid "<msgstr form='0'>Copyright</msgstr> <msgstr form='1'>Copyrights</msgstr>"
+msgstr "<msgstr form='0'>Copyright</msgstr> <msgstr form='1'>Copyrights</msgstr>"
 
 #. Used as a header before a list of editors.
 #: ../xslt/gettext/l10n.xml.in.h:1355
 msgid "<msgstr form='0'>Editor</msgstr> <msgstr form='1'>Editors</msgstr>"
-msgstr ""
-"<msgstr form='0'>Redactor</msgstr> <msgstr form='1'>Redactores</msgstr>"
+msgstr "<msgstr form='0'>Redactor</msgstr> <msgstr form='1'>Redactores</msgstr>"
 
 #. Used as a header before a list of contributors.
 #: ../xslt/gettext/l10n.xml.in.h:1357
@@ -1613,8 +1611,7 @@ msgstr ""
 
 #. Used as a header before a list of publishers.
 #: ../xslt/gettext/l10n.xml.in.h:1359
-msgid ""
-"<msgstr form='0'>Publisher</msgstr> <msgstr form='1'>Publishers</msgstr>"
+msgid "<msgstr form='0'>Publisher</msgstr> <msgstr form='1'>Publishers</msgstr>"
 msgstr "<msgstr form='0'>Editor</msgstr> <msgstr form='1'>Editores</msgstr>"
 
 #.
@@ -1762,11 +1759,19 @@ msgstr "P:&#x2003;"
 msgid "Revision History"
 msgstr "Historia de revisiones"
 
-#: ../xslt/gettext/l10n.xml.in.h:1457
+#.
+#. Used for the <see> element.
+#. FIXME: this should be a format string.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1461
 msgid "See"
 msgstr "Vea"
 
-#: ../xslt/gettext/l10n.xml.in.h:1458
+#.
+#. Used for the <seealso> element.
+#. FIXME: this should be a format string.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1466
 msgid "See Also"
 msgstr "Vea también"
 
@@ -1774,7 +1779,7 @@ msgstr "Vea también"
 #. http://www.docbook.org/tdg/en/html/refsynopsisdiv.html
 #. This is used as the default title for refsynopsisdiv elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1463
+#: ../xslt/gettext/l10n.xml.in.h:1471
 msgid "Synopsis"
 msgstr "Sinopsis"
 
@@ -1782,7 +1787,7 @@ msgstr "Sinopsis"
 #. http://www.docbook.org/tdg/en/html/tip.html
 #. This is used as a default title for tip elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1468
+#: ../xslt/gettext/l10n.xml.in.h:1476
 msgid "Tip"
 msgstr "Consejo"
 
@@ -1790,266 +1795,7 @@ msgstr "Consejo"
 #. http://www.docbook.org/tdg/en/html/warning.html
 #. This is used as a default title for warning elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1473
+#: ../xslt/gettext/l10n.xml.in.h:1481
 msgid "Warning"
 msgstr "Advertencia"
 
-#~ msgid "format.appendix.label"
-#~ msgstr "Apéndice %t{number}  "
-
-#~ msgid "format.book.label"
-#~ msgstr "%t{title}"
-
-#~ msgid "format.chapter.label"
-#~ msgstr "Capítulo %t{number}  "
-
-#~ msgid "format.citetitle"
-#~ msgstr "<msg:msgstr><i>%t{node}</i></msg:msgstr>"
-
-#~ msgid "format.date"
-#~ msgstr ""
-#~ "<xsl:template>\n"
-#~ " <xsl:value-of select=\"$day\"/><xsl:text>. </xsl:text>\n"
-#~ " <xsl:choose>\n"
-#~ "  <xsl:when test=\"$month =  1\"><xsl:text>enero </xsl:text></xsl:when>\n"
-#~ "  <xsl:when test=\"$month =  2\"><xsl:text>febrero </xsl:text></xsl:"
-#~ "when>\n"
-#~ "  <xsl:when test=\"$month =  3\"><xsl:text>marzo </xsl:text></xsl:when>\n"
-#~ "  <xsl:when test=\"$month =  4\"><xsl:text>abril </xsl:text></xsl:when>\n"
-#~ "  <xsl:when test=\"$month =  5\"><xsl:text>mayo </xsl:text></xsl:when>\n"
-#~ "  <xsl:when test=\"$month =  6\"><xsl:text>junio </xsl:text></xsl:when>\n"
-#~ "  <xsl:when test=\"$month =  7\"><xsl:text>julio </xsl:text></xsl:when>\n"
-#~ "  <xsl:when test=\"$month =  8\"><xsl:text>agosto </xsl:text></xsl:when>\n"
-#~ "  <xsl:when test=\"$month =  9\"><xsl:text>septiembre </xsl:text></xsl:"
-#~ "when>\n"
-#~ "  <xsl:when test=\"$month = 10\"><xsl:text>octubre </xsl:text></xsl:"
-#~ "when>\n"
-#~ "  <xsl:when test=\"$month = 11\"><xsl:text>noviembre </xsl:text></xsl:"
-#~ "when>\n"
-#~ "  <xsl:when test=\"$month = 12\"><xsl:text>diciembre </xsl:text></xsl:"
-#~ "when>\n"
-#~ " </xsl:choose>\n"
-#~ " <xsl:value-of select=\"$year\"/>\n"
-#~ "</xsl:template>"
-
-#~ msgid "format.example.label"
-#~ msgstr "Ejemplo %t{number}  "
-
-#~ msgid "format.example.number"
-#~ msgstr "%t{parent}-%1{number}"
-
-#~ msgid "format.example.number.flat"
-#~ msgstr "%1{number}"
-
-#~ msgid "format.figure.label"
-#~ msgstr "Figura %t{number}  "
-
-#~ msgid "format.figure.number"
-#~ msgstr "%t{parent}-%1{number}"
-
-#~ msgid "format.figure.number.flat"
-#~ msgstr "%1{number}"
-
-#~ msgid "format.manvolnum"
-#~ msgstr "(%t{node})"
-
-#~ msgid "format.part.label"
-#~ msgstr "Parte %t{number}  "
-
-#~ msgid "format.part.number"
-#~ msgstr "%I{number}"
-
-#~ msgid "format.quote.inner"
-#~ msgstr "‘%t{node}’"
-
-#~ msgid "format.quote.outer"
-#~ msgstr "«%t{node}»"
-
-#~ msgid "format.refentry.label"
-#~ msgstr "%t{title}"
-
-#~ msgid "format.section.label"
-#~ msgstr "Sección %t{number}  "
-
-#~ msgid "format.table.label"
-#~ msgstr "Tabla %t{number}  "
-
-#~ msgid "format.table.number"
-#~ msgstr "%t{parent}-%1{number}"
-
-#~ msgid "format.table.number.flat"
-#~ msgstr "%1{number}"
-
-#~ msgid "format.tooltip.glossentry"
-#~ msgstr "Lea la definición de «%s{node}»"
-
-#~ msgid "format.tooltip.mailto"
-#~ msgstr "Envíe un correo-e a «%s{address}»"
-
-#~ msgid "Audience"
-#~ msgstr "Audiencia"
-
-#~ msgid "Contents"
-#~ msgstr "Contenido"
-
-#~ msgid "Date"
-#~ msgstr "Fecha"
-
-#~ msgid "Level"
-#~ msgstr "Nivel"
-
-#~ msgid "Message Audience"
-#~ msgstr "Audiencia del mensaje"
-
-#~ msgid "Message Level"
-#~ msgstr "Nivel del mensaje"
-
-#~ msgid "Message Origin"
-#~ msgstr "Origen del mensaje"
-
-#~ msgid "Origin"
-#~ msgstr "Origen"
-
-#~ msgid "Reference"
-#~ msgstr "Referencia"
-
-#~ msgid "Release Information"
-#~ msgstr "Información de publicación"
-
-#~ msgid "Set Index"
-#~ msgstr "Establecer índice"
-
-#~ msgid "Table of Contents"
-#~ msgstr "Tabla de contenido"
-
-#~ msgid "Title"
-#~ msgstr "Título"
-
-#~ msgid "About This Article"
-#~ msgstr "Acerca de este artículo"
-
-#~ msgid "About This Bibliography"
-#~ msgstr "Acerca de esta bibliografía"
-
-#~ msgid "About This Book"
-#~ msgstr "Acerca de este libro"
-
-#~ msgid "About This Chapter"
-#~ msgstr "Acerca de este capítulo"
-
-#~ msgid "About This Entry"
-#~ msgstr "Acerca de esta entrada"
-
-#~ msgid "About This Glossary"
-#~ msgstr "Acerca de este glosario"
-
-#~ msgid "About This Index"
-#~ msgstr "Acerca de este índice"
-
-#~ msgid "About This Part"
-#~ msgstr "Acerca de esta parte"
-
-#~ msgid "About This Preface"
-#~ msgstr "Acerca de este prefacio"
-
-#~ msgid "About This Reference"
-#~ msgstr "Acerca de esta referencia"
-
-#~ msgid "About This Section"
-#~ msgstr "Acerca de esta sección"
-
-#~ msgid "%t{name} %t{number}"
-#~ msgstr "%t{name} %t{number}"
-
-#~ msgid "‘%t{node}’"
-#~ msgstr "‘%t{node}’"
-
-#~ msgid "“%t{node}”"
-#~ msgstr "“%t{node}”"
-
-#~ msgid "&#8216;"
-#~ msgstr "&#8216;"
-
-#~ msgid "&#8217;"
-#~ msgstr "&#8217;"
-
-#~ msgid "&#8220;"
-#~ msgstr "&#8220;"
-
-#~ msgid "&#8221;"
-#~ msgstr "&#8221;"
-
-#~ msgid "Appendix"
-#~ msgstr "Apéndice"
-
-#~ msgid "Article"
-#~ msgstr "Artículo"
-
-#~ msgid "Author"
-#~ msgstr "Autor"
-
-#~ msgid "Authors"
-#~ msgstr "Autores"
-
-#~ msgid "Bibliography"
-#~ msgstr "Bibliografía"
-
-#~ msgid "Book"
-#~ msgstr "Libro"
-
-#~ msgid "Chapter"
-#~ msgstr "Capítulo"
-
-#~ msgid "Collaborator"
-#~ msgstr "Colaborador"
-
-#~ msgid "Collaborators"
-#~ msgstr "Colaboradores"
-
-#~ msgid "Copyright"
-#~ msgstr "Copyright"
-
-#~ msgid "Copyrights"
-#~ msgstr "Copyrights"
-
-#~ msgid "Editor"
-#~ msgstr "Redactor"
-
-#~ msgid "Editors"
-#~ msgstr "Redactores"
-
-#~ msgid "Example"
-#~ msgstr "Ejemplo"
-
-#~ msgid "Figure"
-#~ msgstr "Figura"
-
-#~ msgid "Other Contributor"
-#~ msgstr "Otro contribuidor"
-
-#~ msgid "Other Contributors"
-#~ msgstr "Otros contribuidores"
-
-#~ msgid "Part"
-#~ msgstr "Parte"
-
-#~ msgid "Publisher"
-#~ msgstr "Editor"
-
-#~ msgid "Publishers"
-#~ msgstr "Editores"
-
-#~ msgid "Reference Entry"
-#~ msgstr "Entrada de referencia"
-
-#~ msgid "Reference Section"
-#~ msgstr "Sección de referencia"
-
-#~ msgid "Section"
-#~ msgstr "Sección"
-
-#~ msgid "Table"
-#~ msgstr "Tabla"
-
-#~ msgid "Unknown"
-#~ msgstr "Desconocido"
