@@ -1,3 +1,7 @@
+2005-08-30  Yair Hershkovitz  <yairhr@gmail.com>
+
+	* configure.in: Added "he" to ALL_LINGUAS
+
 2005-08-30  thetroublemaker  <thetroublemaker@inventati.org>
 
 	* po/it.po: changed the example.xref translation, as it
@@ -5,8 +9,6 @@
 	on italian systems.
 	* po/it.po: corrected a similar mistake in glossentry.tooltip,
 	and a minor italian imprecision.
-
-==================== 0.3.3 ====================
 
 2005-08-29  Shaun McCance  <shaunm@gnome.org>
 
