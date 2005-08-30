@@ -1,0 +1,37 @@
+From: Vincent Untz (vuntz on #docs)
+Date: 2005-08-30
+================================================================================
+
+ <vuntz> but it's in small capitals
+ <vuntz> (and we use the roman digits in "regular" capitals for other things)
+<shaunm> small capitals?
+ <vuntz> yes. Let me find a link that explains it
+ <vuntz> something like this:
+	 http://docs.roxen.com/roxen/4.0/web_developer_manual/text/smallcaps.tag
+ <vuntz> in fact, it exists in css:
+	 http://www.w3schools.com/css/pr_font_font-variant.asp
+<shaunm> ah, that
+<shaunm> ok, I can't add that this release cycle
+<shaunm> but please file a bug about it
+<shaunm> the solution will be to wrap the section.label translation with some
+	 markup
+<shaunm> <smallcaps><number/>.&#x2003;</smallcaps>
+<shaunm> something like that, the syntax may differ
+ <vuntz> ok
+ <vuntz> I'll file a bug
+ <vuntz> last question
+ <vuntz> the worst
+ <vuntz> for the quote format...
+ <vuntz> when the quote is in another quote (that's the "inner" role, iirc),
+	 there's a special case in french
+ <vuntz> if the inner quote ends with the outer quote, then we have only one
+	 quote at the end
+ <vuntz> example:
+ <vuntz> « I told you « don't say that. »
+ <vuntz> I know, it's weird :-)
+ <vuntz> that's not a huge problem, though
+<shaunm> weird indeed
+ <vuntz> we can accept to have two quotes at the end ;-)
+ <vuntz> but it might be something that happens in other languages, so...
+<shaunm> hmm
+<shaunm> I think that can be addressed, with some thought
