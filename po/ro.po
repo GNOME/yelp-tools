@@ -2,15 +2,15 @@
 # Copyright (C) 2005 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-doc-utils package.
 # Dan Damian <dand@gnome.ro>, 2005.
-# 
+# Iulian Benea <iulianb@email.ro>, 2005.
 # 
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-01 13:37-0500\n"
-"PO-Revision-Date: 2005-03-03 15:17+0200\n"
-"Last-Translator: Dan Damian <dand@gnome.ro>\n"
+"POT-Creation-Date: 2005-08-19 22:22+0000\n"
+"PO-Revision-Date: 2005-08-30 11:06+0300\n"
+"Last-Translator: Iulian Benea <iulianb@email.ro>\n"
 "Language-Team: Romanian <gnomero-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -24,7 +24,7 @@ msgstr ""
 #.
 #: ../xslt/gettext/l10n.xml.in.h:7
 msgid ", "
-msgstr ""
+msgstr "Acest caracter este utilizat ca un simplu separator in cadrul unei liste, acolo unde e nevoie de liste construite dinamic. Folosind separatorul normal de şiruri  \", \", o listă va arata aşa: A, B, C, D.  Folosind separatorul \" - \", o listă va arata aşa:  A - B - C - D"
 
 #.
 #. The number formatter used for appendix numbers.  This can be one of
@@ -43,6 +43,18 @@ msgstr ""
 #: ../xslt/gettext/l10n.xml.in.h:22
 msgid "<msgid>appendix.digit</msgid> <msgstr>A</msgstr>"
 msgstr ""
+"Prezentăm caracterele folosite pentru numerotarea anexelor.  Acestea pot fi oricare dintre\n"
+" \"1\", \"A\", \"a\", \"I\", sau \"i\", bineînţeles fără caracterele de citat. Prin combinarea lor \n"
+"putem avea următoarele rezultate:\n"
+"\n"
+"1    2    3    4    5    6    7    8    9   10   11   12   13   14\n"
+"A    B    C    D    E    F    G    H    I    J    K    L    M    N\n"
+"a    b    c    d    e    f    g    h    i    j    k    l    m    n\n"
+"I   II  III   IV    V   VI  VII VIII   IX    X   XI  XII XIII  XIV\n"
+"i   ii  iii   iv    v   vi  vii viii   ix    x   xi  xii xiii  xiv\n"
+"\n"
+"Limibile non-vestice pot avea nevoie de formatatori adiţionali. Vă rugăm contactaţi persoanele\n"
+" care întreţin pachetul înainte de a adaugă noi caractere la aceasta listă."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -78,11 +90,34 @@ msgstr ""
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:56
-msgid ""
-"<msgid>appendix.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
-"msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Appendix "
-"<number/></msgstr>"
+msgid "<msgid>appendix.label</msgid> <msgstr role='header'><number/>.&#x2003;</msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Appendix <number/></msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Vă rog citiţi întreaga documentaţie de traducere înaintea\n"
+" traducerii acestui mesaj. Documentaţia este menţinută ca o parte a documentaţiei\n"
+" stylesheet în DocBook. Pentru uşurinţa dumneavoastra, a fost convertită într-un fişier cu \n"
+"format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"Acesta este un mesaj folosit pentru formatare etichetelor anexelor.Etichetele \n"
+"sunt folosite inaintea titlurilor ca antete de pagina sau inaintea listei de Cuprins.\n"
+"Se pot folosi roluri diferite pentru a oferi diferite formatări necesare indexilor. \n"
+"\n"
+"Următoarle formatări pot fi folosite cu acest mesaj: \n"
+"\n"
+"antet - folosit pentru anexele aflate în antete  \n"
+"li     - folosit pentru anexele afltate în Cuprins \n"
+"\n"
+"Elementele speciale din mesaj vor fi înlocuite cu conţinutul adecvat, după cum urmează:\n"
+"\n"
+"titlul - titlul anexei\n"
+"titleabbrev - Prescurtarea titlului anexei, sau titlul anexei dacă nu există nici o prescurtare\n"
+"număr - Numărul complet al anexei, incluzând probabil şi numărul anexei părinte.\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, nu se poate include\n"
+" conţinut XML în comentariile translatorilor.  Pentru a introduce titlu \n"
+"scrietţi caracterul <, scrieţi titlul, caracterul slash (/) şi caracterul >.\n"
+"\n"
+"În plus, mesajele de formatare pot utiliza i,b şi tt pentru a marca etichete ca\n"
+" italic, îngroşat şi monospaţiu."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -119,6 +154,28 @@ msgstr ""
 #: ../xslt/gettext/l10n.xml.in.h:89
 msgid "<msgid>appendix.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Vă rog citiţi întreaga documentaţie de traducere\n"
+" înaintea traducerii acestui mesaj. Documentaţia este menţinută ca o parte a documentaţiei stylesheet în DocBook. Pentru uşurinţa dumneavoastra, a fost convertită într-un fişier cu format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"Acesta este un mesaj pentru formatare folosit pentru formatarea numerotării anexelor. Numerele\n"
+" sunt folosite în etichete, referinţe sau orice alt loc unde se va face referire la anexe. \n"
+"Numărul anexei va include şi numărul anexei părinte dacă este posibil. De exemplu, \n"
+"numărul 4B reprezintă a doua anexă în al patrulea element principal. În acest exemplu 4 \n"
+"este considerat anexa părinte şi B cifra indicând numărul anexei. Acest tip de formtatare construieşte \n"
+"un număr de formatare din numărul părinteluli şi o cifră reprezentând anexa.\n"
+"\n"
+"Elemente speciale din mesaj vor fi înlocuite corespunzător, după cum urmează:\n"
+"\n"
+"părinte - Numărul complet al elementului părinte al anexei\n"
+"cifră - Numărul anexei în elementul părinte, fără a intorduce cifra 0 înaintea numărului\n"
+"\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, nu se poate \n"
+"include conţinut XML în comentariile translatorilor. Pentru a introduce \n"
+"o cifră scrieţi caracterul <, cifra, caracterul slash (/) şi caracterul >. \n"
+"\n"
+"Pentru formatare mai puteţi folosi deasemenea i, b şi tt pentru a marca text ca \n"
+"italic, îngroşat şi monospaţiat."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -152,9 +209,30 @@ msgstr ""
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:121
-msgid ""
-"<msgid>appendix.xref</msgid> <msgstr>Appendix <number/> ― <title/></msgstr>"
+msgid "<msgid>appendix.xref</msgid> <msgstr>Appendix <number/> ― <title/></msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Vă rog citiţi întreaga documentaţie de traducere\n"
+" înaintea traducerii acestui mesaj. Documentaţia este menţinută \n"
+"ca o parte a documentaţiei stylesheet în DocBook. Pentru uşurinţa dumneavoastra,\n"
+" a fost convertită într-un fişier cu format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"Folosiţi această formatare pentru a marca referinţele la anexe. Exista mai multe roluri\n"
+" prin care translatorii pot alege cum sa formateze cu un atribut xrefstyle. \n"
+"Dacă limba dumneavoastră necesită tipuri diferite de formatări ale referinţelor va \n"
+"trebui să oferiţi roluri diferite pentru formatări.\n"
+"\n"
+"Elementele speciale din mesaj vor fi înlocuite cu conţinutul adecvat, după cum urmează:\n"
+"\n"
+"titlul - titlul anexei\n"
+"titleabbrev - Prescurtarea titlului anexei, sau titlul anexei dacă nu există nici o prescurtare\n"
+"număr - Numărul complet al anexei, incluzând probabil şi numărul anexei părinte.\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, nu se poate include \n"
+"conţinut XML în comentariile translatorilor.  Pentru a introduce\n"
+" titlu scrietţi caracterul <, scrieţi titlul, caracterul slash (/) şi caracterul >.\n"
+"\n"
+"În plus, mesajele de formatare pot utiliza i,b şi tt pentru a marca etichete ca \n"
+"italic, îngroşat şi monospaţiu."
 
 #.
 #. The number formatter used for book numbers.  This can be one of
@@ -173,6 +251,18 @@ msgstr ""
 #: ../xslt/gettext/l10n.xml.in.h:136
 msgid "<msgid>book.digit</msgid> <msgstr>1</msgstr>"
 msgstr ""
+"Prezentăm caracterele folosite pentru numerotarea volumelor.  Acestea pot fi \n"
+"oricare dintre \"1\", \"A\", \"a\", \"I\", sau \"i\", bineînţeles fără caracterele de citat.\n"
+" Prin combinarea lor putem avea următoarele rezultate:\n"
+"\n"
+"1    2    3    4    5    6    7    8    9   10   11   12   13   14\n"
+"A    B    C    D    E    F    G    H    I    J    K    L    M    N\n"
+"a    b    c    d    e    f    g    h    i    j    k    l    m    n\n"
+"I   II  III   IV    V   VI  VII VIII   IX    X   XI  XII XIII  XIV\n"
+"i   ii  iii   iv    v   vi  vii viii   ix    x   xi  xii xiii  xiv\n"
+"\n"
+"Limibile non-vestice pot avea nevoie de formatatori adiţionali. Vă rugăm contactaţi persoanele\n"
+" care întreţin pachetul înainte de a adaugă noi caractere la aceasta listă."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -206,6 +296,27 @@ msgstr ""
 #: ../xslt/gettext/l10n.xml.in.h:166
 msgid "<msgid>book.xref</msgid> <msgstr><title/></msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Vă rog citiţi întreaga documentaţie de traducere\n"
+" înaintea traducerii acestui mesaj. Documentaţia este menţinută\n"
+" ca o parte a documentaţiei stylesheet în DocBook. Pentru uşurinţa dumneavoastra, \n"
+"a fost convertită într-un fişier cu format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"Folosiţi această formatare pentru a marca referinţele la cărţi. Exista mai multe roluri prin\n"
+" care translatorii pot alege cum sa formateze cu un atribut xrefstyle.\n"
+" Dacă limba dumneavoastră necesită tipuri diferite de formatări ale referinţelor\n"
+" va trebui să oferiţi roluri diferite pentru formatări.\n"
+"\n"
+"Elementele speciale din mesaj vor fi înlocuite cu conţinutul adecvat, după cum urmează:\n"
+"\n"
+"titlul - titlul anexei\n"
+"titleabbrev - Prescurtarea titlului anexei, sau titlul anexei dacă nu există nici o prescurtare\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, \n"
+"nu se poate include conţinut XML în comentariile translatorilor.  \n"
+"Pentru a introduce titlu scrietţi caracterul <, scrieţi titlul, caracterul slash (/) şi caracterul >.\n"
+"\n"
+"În plus, mesajele de formatare pot utiliza i,b şi tt pentru a marca etichete ca \n"
+"italic, îngroşat şi monospaţiu."
 
 #.
 #. The number formatter used for chapter numbers.  This can be one of
@@ -224,6 +335,18 @@ msgstr ""
 #: ../xslt/gettext/l10n.xml.in.h:181
 msgid "<msgid>chapter.digit</msgid> <msgstr>1</msgstr>"
 msgstr ""
+"Prezentăm caracterele folosite pentru numerotarea capitolelor.  Acestea pot fi \n"
+"oricare dintre \"1\", \"A\", \"a\", \"I\", sau \"i\", bineînţeles fără caracterele de citat. \n"
+"Prin combinarea lor putem avea următoarele rezultate:\n"
+"\n"
+"1    2    3    4    5    6    7    8    9   10   11   12   13   14\n"
+"A    B    C    D    E    F    G    H    I    J    K    L    M    N\n"
+"a    b    c    d    e    f    g    h    i    j    k    l    m    n\n"
+"I   II  III   IV    V   VI  VII VIII   IX    X   XI  XII XIII  XIV\n"
+"i   ii  iii   iv    v   vi  vii viii   ix    x   xi  xii xiii  xiv\n"
+"\n"
+"Limibile non-vestice pot avea nevoie de formatatori adiţionali. Vă rugăm contactaţi persoanele\n"
+" care întreţin pachetul înainte de a adaugă noi caractere la aceasta listă."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -259,11 +382,36 @@ msgstr ""
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:215
-msgid ""
-"<msgid>chapter.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
-"msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Chapter "
-"<number/></msgstr>"
+msgid "<msgid>chapter.label</msgid> <msgstr role='header'><number/>.&#x2003;</msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Chapter <number/></msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Vă rog citiţi întreaga documentaţie de traducere\n"
+" înaintea traducerii acestui mesaj. Documentaţia este menţinută\n"
+" ca o parte a documentaţiei stylesheet în DocBook. Pentru uşurinţa dumneavoastra, \n"
+"a fost convertită într-un fişier cu format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"Acesta este un mesaj folosit pentru formatare etichetelor capitolelor.Etichetele \n"
+"sunt folosite inaintea titlurilor ca antete de pagina sau inaintea listei de Cuprins.\n"
+"Se pot folosi roluri diferite pentru a oferi diferite formatări necesare indexilor. \n"
+"\n"
+"Următoarle formatări pot fi folosite cu acest mesaj: \n"
+"\n"
+"antet - folosit pentru etichetele aflate în antete  \n"
+"li     - folosit pentru etichetele afltate în Cuprins \n"
+"\n"
+"\n"
+"Elementele speciale din mesaj vor fi înlocuite cu conţinutul adecvat, după cum urmează:\n"
+"\n"
+"titlul - titlul capitoluluii\n"
+"titleabbrev - Prescurtarea titlului capitolului, sau titleif dacă nu există nici o prescurtare\n"
+"număr - Numărul complet al capitolului, incluzând probabil şi numărul elementului părinte.\n"
+"\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, \n"
+"nu se poate include conţinut XML în comentariile translatorilor.\n"
+"  Pentru a introduce titlu scrietţi caracterul <, scrieţi titlul, caracterul slash (/) şi caracterul >.\n"
+"\n"
+"În plus, mesajele de formatare pot utiliza i,b şi tt pentru a marca etichete ca \n"
+"italic, îngroşat şi monospaţiu."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -300,6 +448,31 @@ msgstr ""
 #: ../xslt/gettext/l10n.xml.in.h:248
 msgid "<msgid>chapter.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Vă rog citiţi întreaga documentaţie de traducere\n"
+" înaintea traducerii acestui mesaj. Documentaţia este menţinută ca o parte a documentaţiei stylesheet în DocBook. \n"
+"Pentru uşurinţa dumneavoastra, a fost convertită într-un fişier cu \n"
+"format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"Acesta este un mesaj pentru formatare folosit pentru formatarea numerotării capitolelor. \n"
+"Numerele sunt folosite în etichete, referinţe sau orice alt loc unde se va face referire la capitol. \n"
+"Numărul capitolului va include şi numărul elementului părinte dacă este posibil. \n"
+"De exemplu, numărul 4.2 reprezintă al doilea capitol în al patrulea element principal. \n"
+"În acest exemplu 4 este considerat elementul părinte şi 2 cifra indicând numărul capitolului. \n"
+"Acest tip de formtatare construieşte un număr de formatare din numărul părinteluli\n"
+" şi o cifră reprezentând capitolul.\n"
+"\n"
+"Elemente speciale din mesaj vor fi înlocuite corespunzător, după cum urmează:\n"
+"\n"
+"părinte - Numărul complet al elementului părinte al capitolului\n"
+"cifră - Numărul anexei în elementul părinte, fără a intorduce cifra 0 înaintea numărului\n"
+"\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, nu se poate \n"
+"include conţinut XML în comentariile translatorilor. Pentru a introduce \n"
+"o cifră scrieţi caracterul <, cifra, caracterul slash (/) şi caracterul >. \n"
+"\n"
+"Pentru formatare mai puteţi folosi deasemenea i, b şi tt pentru a marca text ca \n"
+"italic, îngroşat şi monospaţiat."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -333,9 +506,30 @@ msgstr ""
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:280
-msgid ""
-"<msgid>chapter.xref</msgid> <msgstr>Chapter <number/> ― <title/></msgstr>"
+msgid "<msgid>chapter.xref</msgid> <msgstr>Chapter <number/> ― <title/></msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Va rog citiţi întreaga documentaţie de traducere\n"
+" înaintea traducerii acstui mesaj. Documentaţia este menţinută ca o parte a \n"
+"documentaţiei stylesheet în DocBook. Pentru uşurinţa dumneavoastra, a fost convertită într-un fişier cu \n"
+"format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"Folosiţi această formatare pentru a marca referinţele la capitole. Exista mai multe rolur\n"
+"i prin care translatorii pot alege cum sa formateze cu un atribut xrefstyle.\n"
+" Dacă limba dumneavoastră necesită tipuri diferite de formatări ale referinţelor\n"
+" va trebui să oferiţi roluri diferite pentru formatări.\n"
+"\n"
+"Elementele speciale din mesaj vor fi înlocuite cu conţinutul adecvat, după cum urmează:\n"
+"\n"
+"titlul - titlul capitolului\n"
+"titleabbrev - Prescurtarea titlului capitolului, sau doar titlul dacă nu există nici o titleabrev\n"
+"număr - Numărul complet al capitolului, incluzând probabil şi numărul elementului părinte.\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, nu se poate \n"
+"include conţinut XML în comentariile translatorilor.  \n"
+"Pentru a introduce titlu scrietţi caracterul <, scrieţi titlul, caracterul slash (/) şi caracterul >.\n"
+"\n"
+"În plus, mesajele de formatare pot utiliza i,b şi tt pentru a marca etichete ca \n"
+"italic, îngroşat şi monospaţiu."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -366,10 +560,31 @@ msgstr ""
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:309
-msgid ""
-"<msgid>citetitle.format</msgid> <msgstr role='article'>“<node/>”</msgstr> "
-"<msgstr><i><node/></i></msgstr>"
+msgid "<msgid>citetitle.format</msgid> <msgstr role='article'>“<node/>”</msgstr> <msgstr><i><node/></i></msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Vă rog citiţi întreaga documentaţie de traducere \n"
+"înaintea traducerii acestui mesaj. Documentaţia este menţinută \n"
+"ca o parte a documentaţiei stylesheet în DocBook. Pentru uşurinţa dumneavoastra, \n"
+"a fost convertită într-un fişier cu format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"citetitle - Titlul lucrării citate \n"
+"http://docbook.org/tdg/en/html/citetitle.html\n"
+"\n"
+"Acesta este un mesaj pentru formatare folosit pentru formatarea citatelor din text. \n"
+"Acest model foloseşte roluri pentru a controla formaterea citatului. \n"
+"Rolul indică tipul de lurare citată, şi este luat din atributul pubwork \n"
+"al elementului citetitle.\n"
+"\n"
+"Elemente speciale din mesaj vor fi înlocuite corespunzător, după cum urmează:\n"
+"\n"
+"nod - Conţinutul text al elementului citetitle\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, nu se poate \n"
+"include conţinut XML în comentariile translatorilor. \n"
+"Pentru a introduce o cifră scrieţi caracterul <, cifra, caracterul slash (/) şi caracterul >. \n"
+"\n"
+"Pentru formatare mai puteţi folosi deasemenea i, b şi tt pentru a marca text ca \n"
+"italic, îngroşat şi monospaţiat."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -398,6 +613,23 @@ msgstr ""
 #: ../xslt/gettext/l10n.xml.in.h:334
 msgid "<msgid>email.tooltip</msgid> <msgstr>Send email to ‘<node/>’.</msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Vă rog citiţi întreaga documentaţie de traducere \n"
+"înaintea traducerii acestui mesaj. Documentaţia este menţinută \n"
+"ca o parte a documentaţiei stylesheet în DocBook. Pentru uşurinţa dumneavoastra, \n"
+"a fost convertită într-un fişier cu format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"Acesta este un mesaj pentru formatare folosit pentru formatarea indiciilor la legăturile de trimiteţi email la, create din elementul email al DocBook.\n"
+"\n"
+"Elemente speciale din mesaj vor fi înlocuite corespunzător, după cum urmează:\n"
+"\n"
+"nod - Conţinutul elementului email, care ar trebui să fie o adresă email\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, nu se poate \n"
+"include conţinut XML în comentariile translatorilor. \n"
+"Pentru a introduce o cifră scrieţi caracterul <, cifra, caracterul slash (/) şi caracterul >. \n"
+"\n"
+"Pentru formatare mai puteţi folosi deasemenea i, b şi tt pentru a marca text ca \n"
+"italic, îngroşat şi monospaţiat."
 
 #.
 #. The number formatter used for example numbers.  This can be one of
@@ -416,6 +648,18 @@ msgstr ""
 #: ../xslt/gettext/l10n.xml.in.h:349
 msgid "<msgid>example.digit</msgid> <msgstr>1</msgstr>"
 msgstr ""
+"Prezentăm caracterele folosite pentru numerotarea exemplelor.  Acestea pot fi \n"
+"oricare dintre \"1\", \"A\", \"a\", \"I\", sau \"i\", bineînţeles fără caracterele de citat. \n"
+"Prin combinarea lor putem avea următoarele rezultate:\n"
+"\n"
+"1    2    3    4    5    6    7    8    9   10   11   12   13   14\n"
+"A    B    C    D    E    F    G    H    I    J    K    L    M    N\n"
+"a    b    c    d    e    f    g    h    i    j    k    l    m    n\n"
+"I   II  III   IV    V   VI  VII VIII   IX    X   XI  XII XIII  XIV\n"
+"i   ii  iii   iv    v   vi  vii viii   ix    x   xi  xii xiii  xiv\n"
+"\n"
+"Limibile non-vestice pot avea nevoie de formatatori adiţionali. Vă rugăm contactaţi persoanele\n"
+" care întreţin pachetul înainte de a adaugă noi caractere la aceasta listă."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -451,11 +695,33 @@ msgstr ""
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:383
-msgid ""
-"<msgid>example.label</msgid> <msgstr role='header'><i>Example <number/></"
-"i>&#x2003;</msgstr> <msgstr role='li'>Example <number/>&#x2002;</msgstr> "
-"<msgstr>Example <number/></msgstr>"
+msgid "<msgid>example.label</msgid> <msgstr role='header'><i>Example <number/></i>&#x2003;</msgstr> <msgstr role='li'>Example <number/>&#x2002;</msgstr> <msgstr>Example <number/></msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Vă rog citiţi întreaga documentaţie de traducere înaintea\n"
+" traducerii acestui mesaj. Documentaţia este menţinută ca o parte a documentaţiei\n"
+" stylesheet în DocBook. Pentru uşurinţa dumneavoastra, a fost convertită într-un fişier cu \n"
+"format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"Acesta este un mesaj folosit pentru formatare etichetelor pentru exemple.Etichetele \n"
+"sunt folosite inaintea titlurilor ca antete de pagina sau inaintea listei de Cuprins.\n"
+"Se pot folosi roluri diferite pentru a oferi diferite formatări necesare indexilor. \n"
+"Următoarle formatări pot fi folosite cu acest mesaj: \n"
+"\n"
+"antet - folosit pentru etichetele aflate în antete  \n"
+"li     - folosit pentru etichetele afltate în Cuprins \n"
+"\n"
+"Elementele speciale din mesaj vor fi înlocuite cu conţinutul adecvat, după cum urmează:\n"
+"\n"
+"titlul - titlul exemplului\n"
+"titleabbrev - Prescurtarea titlului exemplului, sau titlul anexei dacă nu există nici o prescurtare\n"
+"număr - Numărul complet al exemplului, incluzând şi numărul elementului părinte dacă există\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, nu se poate include\n"
+" conţinut XML în comentariile translatorilor.  Pentru a introduce titlu \n"
+"scrietţi caracterul <, scrieţi titlul, caracterul slash (/) şi caracterul >.\n"
+"\n"
+"În plus, mesajele de formatare pot utiliza i,b şi tt pentru a marca etichete ca\n"
+" italic, îngroşat şi monospaţiu."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -492,6 +758,31 @@ msgstr ""
 #: ../xslt/gettext/l10n.xml.in.h:416
 msgid "<msgid>example.number</msgid> <msgstr><parent/>-<digit/></msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Vă rog citiţi întreaga documentaţie de traducere\n"
+" înaintea traducerii acestui mesaj. Documentaţia este menţinută ca o parte a documentaţiei stylesheet în DocBook. \n"
+"Pentru uşurinţa dumneavoastra, a fost convertită într-un fişier cu \n"
+"format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"Acesta este un mesaj pentru formatare folosit pentru formatarea numerotării exemplelor. \n"
+"Numerele sunt folosite în etichete, referinţe sau orice alt loc unde se va face referire la capitol. \n"
+"Numărul exemplului va include şi numărul elementului părinte dacă este posibil. \n"
+"De exemplu, numărul 4-3 reprezintă al treilea capitol în al patrulea capitol. \n"
+"În acest exemplu 4 este considerat elementul părinte şi 3 cifra indicând numărul exemplului. \n"
+"Acest tip de formtatare construieşte un număr de formatare din numărul părinteluli\n"
+" şi o cifră reprezentând exemplul.\n"
+"\n"
+"Elemente speciale din mesaj vor fi înlocuite corespunzător, după cum urmează:\n"
+"\n"
+"părinte - Numărul complet al elementului părinte al exemplului\n"
+"cifră - Numărul anexei în elementul părinte, fără a intorduce cifra 0 înaintea numărului\n"
+"\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, nu se poate \n"
+"include conţinut XML în comentariile translatorilor. Pentru a introduce \n"
+"o cifră scrieţi caracterul <, cifra, caracterul slash (/) şi caracterul >. \n"
+"\n"
+"Pentru formatare mai puteţi folosi deasemenea i, b şi tt pentru a marca text ca \n"
+"italic, îngroşat şi monospaţiat."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -527,6 +818,27 @@ msgstr ""
 #: ../xslt/gettext/l10n.xml.in.h:448
 msgid "<msgid>example.xref</msgid> <msgstr>Example <number/></msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Vă rog citiţi întreaga documentaţie de traducere\n"
+" înaintea traducerii acestui mesaj. Documentaţia este menţinută\n"
+" ca o parte a documentaţiei stylesheet în DocBook. Pentru uşurinţa dumneavoastra, \n"
+"a fost convertită într-un fişier cu format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"Folosiţi această formatare pentru a marca referinţele la exemple. Exista mai multe roluri prin\n"
+" care translatorii pot alege cum sa formateze cu un atribut xrefstyle.\n"
+" Dacă limba dumneavoastră necesită tipuri diferite de formatări ale referinţelor\n"
+" va trebui să oferiţi roluri diferite pentru formatări.\n"
+"\n"
+"Elementele speciale din mesaj vor fi înlocuite cu conţinutul adecvat, după cum urmează:\n"
+"\n"
+"titlul - titlul exemplului\n"
+"titleabbrev - Prescurtarea titlului exemplului, sau titlul exemplului dacă nu există nici o prescurtare\n"
+"număr - Numărul exemplului, incluzând probabil şi numărul elementului părinte.\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, \n"
+"nu se poate include conţinut XML în comentariile translatorilor.  \n"
+"Pentru a introduce titlu scrietţi caracterul <, scrieţi titlul, caracterul slash (/) şi caracterul >.\n"
+"\n"
+"În plus, mesajele de formatare pot utiliza i,b şi tt pentru a marca etichete ca \n"
+"italic, îngroşat şi monospaţiu."
 
 #.
 #. The number formatter used for figure numbers.  This can be one of
@@ -545,6 +857,18 @@ msgstr ""
 #: ../xslt/gettext/l10n.xml.in.h:463
 msgid "<msgid>figure.digit</msgid> <msgstr>1</msgstr>"
 msgstr ""
+"Prezentăm caracterele folosite pentru numerotarea figurilor.  Acestea pot fi \n"
+"oricare dintre \"1\", \"A\", \"a\", \"I\", sau \"i\", bineînţeles fără caracterele de citat. \n"
+"Prin combinarea lor putem avea următoarele rezultate:\n"
+"\n"
+"1    2    3    4    5    6    7    8    9   10   11   12   13   14\n"
+"A    B    C    D    E    F    G    H    I    J    K    L    M    N\n"
+"a    b    c    d    e    f    g    h    i    j    k    l    m    n\n"
+"I   II  III   IV    V   VI  VII VIII   IX    X   XI  XII XIII  XIV\n"
+"i   ii  iii   iv    v   vi  vii viii   ix    x   xi  xii xiii  xiv\n"
+"\n"
+"Limibile non-vestice pot avea nevoie de formatatori adiţionali. Vă rugăm contactaţi persoanele\n"
+" care întreţin pachetul înainte de a adaugă noi caractere la aceasta listă."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -580,11 +904,33 @@ msgstr ""
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:497
-msgid ""
-"<msgid>figure.label</msgid> <msgstr role='header'><i>Figure <number/></"
-"i>&#x2003;</msgstr> <msgstr role='li'>Figure <number/>&#x2002;</msgstr> "
-"<msgstr>Figure <number/></msgstr>"
+msgid "<msgid>figure.label</msgid> <msgstr role='header'><i>Figure <number/></i>&#x2003;</msgstr> <msgstr role='li'>Figure <number/>&#x2002;</msgstr> <msgstr>Figure <number/></msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Vă rog citiţi întreaga documentaţie de traducere înaintea\n"
+" traducerii acestui mesaj. Documentaţia este menţinută ca o parte a documentaţiei\n"
+" stylesheet în DocBook. Pentru uşurinţa dumneavoastra, a fost convertită într-un fişier cu \n"
+"format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"Acesta este un mesaj folosit pentru formatare etichetelor pentru figuri.Etichetele \n"
+"sunt folosite inaintea titlurilor ca antete de pagina sau inaintea listei de Cuprins.\n"
+"Se pot folosi roluri diferite pentru a oferi diferite formatări necesare etichetelor. \n"
+"Următoarle formatări pot fi folosite cu acest mesaj: \n"
+"\n"
+"antet - folosit pentru etichetele aflate în antete  \n"
+"li     - folosit pentru etichetele afltate în Cuprins \n"
+"\n"
+"Elementele speciale din mesaj vor fi înlocuite cu conţinutul adecvat, după cum urmează:\n"
+"\n"
+"titlul - titlul figurii\n"
+"titleabbrev - Prescurtarea titlului figurii, sau titlul figurii dacă nu există nici o prescurtare\n"
+"număr - Numărul complet al figurii, incluzând şi numărul elementului părinte dacă există\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, nu se poate include\n"
+" conţinut XML în comentariile translatorilor.  Pentru a introduce titlu \n"
+"scrietţi caracterul <, scrieţi titlul, caracterul slash (/) şi caracterul >.\n"
+"\n"
+"În plus, mesajele de formatare pot utiliza i,b şi tt pentru a marca etichete ca\n"
+" italic, îngroşat şi monospaţiu."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -621,6 +967,31 @@ msgstr ""
 #: ../xslt/gettext/l10n.xml.in.h:530
 msgid "<msgid>figure.number</msgid> <msgstr><parent/>-<digit/></msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Vă rog citiţi întreaga documentaţie de traducere\n"
+" înaintea traducerii acestui mesaj. Documentaţia este menţinută ca o parte a documentaţiei stylesheet în DocBook. \n"
+"Pentru uşurinţa dumneavoastra, a fost convertită într-un fişier cu \n"
+"format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"Acesta este un mesaj pentru formatare folosit pentru formatarea numerotării figurilor. \n"
+"Numerele sunt folosite în etichete, referinţe sau orice alt loc unde se va face referire la capitol. \n"
+"Numărul figurii va include şi numărul elementului părinte dacă este posibil. \n"
+"De exemplu, numărul 4-3 reprezintă a treia figură din al patrulea capitol. \n"
+"În acest exemplu 4 este considerat elementul părinte şi 3 cifra indicând numărul figurii. \n"
+"Acest tip de formtatare construieşte un număr de formatare din numărul părinteluli\n"
+" şi o cifră reprezentând figura.\n"
+"\n"
+"Elemente speciale din mesaj vor fi înlocuite corespunzător, după cum urmează:\n"
+"\n"
+"părinte - Numărul complet al elementului părinte al figurii\n"
+"cifră - Numărul figurii în elementul părinte, fără a intorduce cifra 0 înaintea numărului\n"
+"\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, nu se poate \n"
+"include conţinut XML în comentariile translatorilor. Pentru a introduce \n"
+"o cifră scrieţi caracterul <, cifra, caracterul slash (/) şi caracterul >. \n"
+"\n"
+"Pentru formatare mai puteţi folosi deasemenea i, b şi tt pentru a marca text ca \n"
+"italic, îngroşat şi monospaţiat."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -656,6 +1027,28 @@ msgstr ""
 #: ../xslt/gettext/l10n.xml.in.h:562
 msgid "<msgid>figure.xref</msgid> <msgstr>Figure <number/></msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Vă rog citiţi întreaga documentaţie de traducere\n"
+" înaintea traducerii acestui mesaj. Documentaţia este menţinută\n"
+" ca o parte a documentaţiei stylesheet în DocBook. Pentru uşurinţa dumneavoastra, \n"
+"a fost convertită într-un fişier cu format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"Folosiţi această formatare pentru a marca referinţele la figuri. Exista mai multe roluri prin\n"
+" care translatorii pot alege cum sa formateze cu un atribut xrefstyle.\n"
+" Dacă limba dumneavoastră necesită tipuri diferite de formatări ale referinţelor\n"
+" va trebui să oferiţi roluri diferite pentru formatări.\n"
+"\n"
+"Elementele speciale din mesaj vor fi înlocuite cu conţinutul adecvat, după cum urmează:\n"
+"\n"
+"titlul - titlul figurii\n"
+"titleabbrev - Prescurtarea titlului figurii, sau titlul exemplului dacă nu există nici o prescurtare\n"
+"număr - Numărul figurii, incluzând probabil şi numărul elementului părinte.\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, \n"
+"nu se poate include conţinut XML în comentariile translatorilor.  \n"
+"Pentru a introduce titlu scrietţi caracterul <, scrieţi titlul, caracterul slash (/) şi caracterul >.\n"
+"\n"
+"În plus, mesajele de formatare pot utiliza i,b şi tt pentru a marca etichete ca \n"
+"italic, îngroşat şi monospaţiu."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -693,6 +1086,27 @@ msgstr ""
 #: ../xslt/gettext/l10n.xml.in.h:596
 msgid "<msgid>glossary.xref</msgid> <msgstr><title/></msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Vă rog citiţi întreaga documentaţie de traducere\n"
+" înaintea traducerii acestui mesaj. Documentaţia este menţinută\n"
+" ca o parte a documentaţiei stylesheet în DocBook. Pentru uşurinţa dumneavoastra, \n"
+"a fost convertită într-un fişier cu format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"Folosiţi această formatare pentru a marca referinţele la glosar. Exista mai multe roluri prin\n"
+" care translatorii pot alege cum sa formateze cu un atribut xrefstyle.\n"
+" Dacă limba dumneavoastră necesită tipuri diferite de formatări ale referinţelor\n"
+" va trebui să oferiţi roluri diferite pentru formatări.\n"
+"\n"
+"Elementele speciale din mesaj vor fi înlocuite cu conţinutul adecvat, după cum urmează:\n"
+"\n"
+"titlul - titlul figurii\n"
+"titleabbrev - Prescurtarea titlului figurii, sau titlul exemplului dacă nu există nici o prescurtare\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, \n"
+"nu se poate include conţinut XML în comentariile translatorilor.  \n"
+"Pentru a introduce titlu scrietţi caracterul <, scrieţi titlul, caracterul slash (/) şi caracterul >.\n"
+"\n"
+"În plus, mesajele de formatare pot utiliza i,b şi tt pentru a marca etichete ca \n"
+"italic, îngroşat şi monospaţiu."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -718,10 +1132,25 @@ msgstr ""
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:620
-msgid ""
-"<msgid>glossentry.tooltip</msgid> <msgstr>Read the definition for "
-"‘<glossterm/>’.</msgstr>"
+msgid "<msgid>glossentry.tooltip</msgid> <msgstr>Read the definition for ‘<glossterm/>’.</msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Vă rog citiţi întreaga documentaţie de traducere \n"
+"înaintea traducerii acestui mesaj. Documentaţia este menţinută \n"
+"ca o parte a documentaţiei stylesheet în DocBook. Pentru uşurinţa dumneavoastra, \n"
+"a fost convertită într-un fişier cu format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"Acesta este un mesaj pentru formatare folosit pentru formatarea indiciilor la referinţe la glosar.\n"
+"\n"
+"Elemente speciale din mesaj vor fi înlocuite corespunzător, după cum urmează:\n"
+"\n"
+"glossterm - Explicaţia termenului definită în glosar\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, nu se poate \n"
+"include conţinut XML în comentariile translatorilor. \n"
+"Pentru a introduce o cifră scrieţi caracterul <, cifra, caracterul slash (/) şi caracterul >. \n"
+"\n"
+"Pentru formatare mai puteţi folosi deasemenea i, b şi tt pentru a marca text ca \n"
+"itasslic, îngroşat şi monospaţiat."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -755,10 +1184,31 @@ msgstr ""
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:652
-msgid ""
-"<msgid>glossentry.xref</msgid> <msgstr role='glosssee'><glossterm/></msgstr> "
-"<msgstr>‘<glossterm/>’</msgstr>"
+msgid "<msgid>glossentry.xref</msgid> <msgstr role='glosssee'><glossterm/></msgstr> <msgstr>‘<glossterm/>’</msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Vă rog citiţi întreaga documentaţie de traducere\n"
+" înaintea traducerii acestui mesaj. Documentaţia este menţinută\n"
+" ca o parte a documentaţiei stylesheet în DocBook. Pentru uşurinţa dumneavoastra, \n"
+"a fost convertită într-un fişier cu format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"Folosiţi această formatare pentru a marca referinţele la glosar. Exista mai multe roluri prin\n"
+" care translatorii pot alege cum sa formateze cu un atribut xrefstyle.\n"
+" Dacă limba dumneavoastră necesită tipuri diferite de formatări ale referinţelor\n"
+" va trebui să oferiţi roluri diferite pentru formatări.\n"
+"\n"
+"Adiţional, rolul 'glosssee' va fi folosit pentru referinţe de la elemente glosssee sau glossseealso.\n"
+"Acestea sunf folosite în alte înregistrări în glosar pentru a indica cuvinte înrudite.\n"
+"\n"
+"Elementele speciale din mesaj vor fi înlocuite cu conţinutul adecvat, după cum urmează:\n"
+"\n"
+"glossterm - Definiţia termenului din glosar.\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, \n"
+"nu se poate include conţinut XML în comentariile translatorilor.  \n"
+"Pentru a introduce titlu scrietţi caracterul <, scrieţi titlul, caracterul slash (/) şi caracterul >.\n"
+"\n"
+"În plus, mesajele de formatare pot utiliza i,b şi tt pentru a marca etichete ca \n"
+"italic, îngroşat şi monospaţiu."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -796,6 +1246,31 @@ msgstr ""
 #: ../xslt/gettext/l10n.xml.in.h:686
 msgid "<msgid>glosssee.format</msgid> <msgstr>See <glosssee/>.</msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Vă rog citiţi întreaga documentaţie de traducere\n"
+" înaintea traducerii acestui mesaj. Documentaţia este menţinută\n"
+" ca o parte a documentaţiei stylesheet în DocBook. Pentru uşurinţa dumneavoastra, \n"
+"a fost convertită într-un fişier cu format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"glosssee - O referinţă de la o altă înregistrare în glosar (glossentry) la \n"
+"http://docbook.org/tdg/en/html/glosssee.html\n"
+"\n"
+"Folosiţi această formatare pentru a marca referinţele între termenii din glosar. \n"
+"Acest mesaj de formatare controlează fraza folosită pentru a prezenta referinţa,\n"
+" şi nu referinţa în sine. Pentru formatarea referinţei în sine vezi mesajul glossentry.xref.\n"
+"\n"
+"Unul sau mai multe elemente sunt prezentate utilizatorului ca legături la Glosar, formatate \n"
+"ca o singură frază de text. De exemplu, dacă utilizatorul este îndrumat spre înregistrarea \"foo\", \n"
+"glosssee ar putea fi formatat ca \"Vedeţi foo.\"\n"
+"Elementele speciale din mesaj vor fi înlocuite cu conţinutul adecvat, după cum urmează:\n"
+"\n"
+"glosssee - Referinţa sau referinţele la glosar.\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, \n"
+"nu se poate include conţinut XML în comentariile translatorilor.  \n"
+"Pentru a introduce glosssee scrietţi caracterul <, scrieţi glosssee, caracterul slash (/) şi caracterul >.\n"
+"\n"
+"În plus, mesajele de formatare pot utiliza i,b şi tt pentru a marca etichete ca \n"
+"italic, îngroşat şi monospaţiu."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -832,9 +1307,34 @@ msgstr ""
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:721
-msgid ""
-"<msgid>glossseealso.format</msgid> <msgstr>See also <glosssee/>.</msgstr>"
+msgid "<msgid>glossseealso.format</msgid> <msgstr>See also <glosssee/>.</msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Vă rog citiţi întreaga documentaţie de traducere\n"
+" înaintea traducerii acestui mesaj. Documentaţia este menţinută\n"
+" ca o parte a documentaţiei stylesheet în DocBook. Pentru uşurinţa dumneavoastra, \n"
+"a fost convertită într-un fişier cu format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"glosssee - O referinţă de la o altă înregistrare în glosar (glossentry) la \n"
+"http://docbook.org/tdg/en/html/glosssee.html\n"
+"\n"
+"Folosiţi această formatare pentru a marca referinţele între termenii din glosar. \n"
+"Acest mesaj de formatare controlează fraza folosită pentru a prezenta referinţa,\n"
+" şi nu referinţa în sine. Pentru formatarea referinţei în sine vezi mesajul glossentry.xref.\n"
+"\n"
+"Unul sau mai multe elemente glossseealso sunt prezentate utilizatorului ca legături la Glosar, formatate \n"
+"ca o singură frază de text. De exemplu, dacă utilizatorul este îndrumat spre termenii \"foo\", \"bar\" şi \"baz\" \n"
+"glosssee ar putea fi formatat ca \"Vedeţi şi foo, bar, baz.\"\n"
+"\n"
+"Elementele speciale din mesaj vor fi înlocuite cu conţinutul adecvat, după cum urmează:\n"
+"\n"
+"glosssee - Referinţa sau referinţele la glosar.\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, \n"
+"nu se poate include conţinut XML în comentariile translatorilor.  \n"
+"Pentru a introduce glosssee scrietţi caracterul <, scrieţi glosssee, caracterul slash (/) şi caracterul >.\n"
+"\n"
+"În plus, mesajele de formatare pot utiliza i,b şi tt pentru a marca etichete ca \n"
+"italic, îngroşat şi monospaţiu."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -867,6 +1367,28 @@ msgstr ""
 #: ../xslt/gettext/l10n.xml.in.h:750
 msgid "<msgid>manvolnum.format</msgid> <msgstr>(<node/>)</msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Vă rog citiţi întreaga documentaţie de traducere\n"
+" înaintea traducerii acestui mesaj. Documentaţia este menţinută\n"
+" ca o parte a documentaţiei stylesheet în DocBook. Pentru uşurinţa dumneavoastra, \n"
+"a fost convertită într-un fişier cu format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"manvolnum - O referinţă la numărul volumului\n"
+"http://docbook.org/tdg/en/html/manvolnum.html\n"
+"\n"
+"Folosiţi această formatare pentru a marca elementele manvolnum. \n"
+"Un element manvolnum este deobicei un număr sau un şir scurt folosit pentru a identifica \n"
+"secţiunile paginilor de manual (man pages). Este pus deobicei între paranteze.\n"
+"\n"
+"Elementele speciale din mesaj vor fi înlocuite cu conţinutul adecvat, după cum urmează:\n"
+"\n"
+"nod - Conţinutul text al elementului manvolnum\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, \n"
+"nu se poate include conţinut XML în comentariile translatorilor.  \n"
+"Pentru a introduce un nod scrietţi caracterul <, scrieţi node, caracterul slash (/) şi caracterul >.\n"
+"\n"
+"În plus, mesajele de formatare pot utiliza i,b şi tt pentru a marca etichete ca \n"
+"italic, îngroşat şi monospaţiu."
 
 #.
 #. The number formatter used for part numbers.  This can be one of
@@ -885,6 +1407,19 @@ msgstr ""
 #: ../xslt/gettext/l10n.xml.in.h:765
 msgid "<msgid>part.digit</msgid> <msgstr>I</msgstr>"
 msgstr ""
+"Prezentăm caracterele folosite pentru numerotarea paragrafelor.  Acestea pot fi \n"
+"oricare dintre \"1\", \"A\", \"a\", \"I\", sau \"i\", bineînţeles fără caracterele de citat. \n"
+"\n"
+"Prin combinarea lor putem avea următoarele rezultate:\n"
+"\n"
+"1    2    3    4    5    6    7    8    9   10   11   12   13   14\n"
+"A    B    C    D    E    F    G    H    I    J    K    L    M    N\n"
+"a    b    c    d    e    f    g    h    i    j    k    l    m    n\n"
+"I   II  III   IV    V   VI  VII VIII   IX    X   XI  XII XIII  XIV\n"
+"i   ii  iii   iv    v   vi  vii viii   ix    x   xi  xii xiii  xiv\n"
+"\n"
+"Limibile non-vestice pot avea nevoie de formatatori adiţionali. Vă rugăm contactaţi persoanele\n"
+" care întreţin pachetul înainte de a adaugă noi caractere la aceasta listă."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -920,10 +1455,33 @@ msgstr ""
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:799
-msgid ""
-"<msgid>part.label</msgid> <msgstr role='header'><number/>.&#x2003;</msgstr> "
-"<msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Part <number/></msgstr>"
+msgid "<msgid>part.label</msgid> <msgstr role='header'><number/>.&#x2003;</msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Part <number/></msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Vă rog citiţi întreaga documentaţie de traducere înaintea\n"
+" traducerii acestui mesaj. Documentaţia este menţinută ca o parte a documentaţiei\n"
+" stylesheet în DocBook. Pentru uşurinţa dumneavoastra, a fost convertită într-un fişier cu \n"
+"format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"Acesta este un mesaj folosit pentru formatare etichetelor pentru părţi.Etichetele \n"
+"sunt folosite inaintea titlurilor ca antete de pagina sau inaintea listei de Cuprins.\n"
+"Se pot folosi roluri diferite pentru a oferi diferite formatări necesare indexilor. \n"
+"Următoarle formatări pot fi folosite cu acest mesaj: \n"
+"\n"
+"antet - folosit pentru etichetele aflate în antete  \n"
+"li     - folosit pentru etichetele afltate în Cuprins \n"
+"\n"
+"Elementele speciale din mesaj vor fi înlocuite cu conţinutul adecvat, după cum urmează:\n"
+"\n"
+"titlul - titlul părţii\n"
+"titleabbrev - Prescurtarea titlului părţii, sau titlul părţii dacă nu există nici o prescurtare\n"
+"număr - Numărul complet al părţii, incluzând şi numărul elementului părinte dacă există\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, nu se poate include\n"
+" conţinut XML în comentariile translatorilor.  Pentru a introduce titlu \n"
+"scrietţi caracterul <, scrieţi titlul, caracterul slash (/) şi caracterul >.\n"
+"\n"
+"În plus, mesajele de formatare pot utiliza i,b şi tt pentru a marca etichete ca\n"
+" italic, îngroşat şi monospaţiu."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -959,6 +1517,86 @@ msgstr ""
 #: ../xslt/gettext/l10n.xml.in.h:831
 msgid "<msgid>part.xref</msgid> <msgstr>Part <number/> ― <title/></msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Vă rog citiţi întreaga documentaţie de traducere\n"
+" înaintea traducerii acestui mesaj. Documentaţia este menţinută\n"
+" ca o parte a documentaţiei stylesheet în DocBook. Pentru uşurinţa dumneavoastra, \n"
+"a fost convertită într-un fişier cu format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"Folosiţi această formatare pentru a marca referinţele la părţi. Exista mai multe roluri prin\n"
+" care translatorii pot alege cum sa formateze cu un atribut xrefstyle.\n"
+" Dacă limba dumneavoastră necesită tipuri diferite de formatări ale referinţelor\n"
+" va trebui să oferiţi roluri diferite pentru formatări.\n"
+"\n"
+"Elementele speciale din mesaj vor fi înlocuite cu conţinutul adecvat, după cum urmează:\n"
+"\n"
+"titlul - titlul părţii\n"
+"titleabbrev - Prescurtarea titlului părţii, sau titlul părţii dacă nu există nici o prescurtare\n"
+"număr - Numărul complet al părţii, incluzând probabil şi numărul elementului părinte\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, \n"
+"nu se poate include conţinut XML în comentariile translatorilor.  \n"
+"Pentru a introduce titlu scrietţi caracterul <, scrieţi titlul, caracterul slash (/) şi caracterul >.\n"
+"\n"
+"În plus, mesajele de formatare pot utiliza i,b şi tt pentru a marca etichete ca \n"
+"italic, îngroşat şi monospaţiu."
+
+#.
+#. This is a special format message.  Please read the full translator
+#. documentation before translating this message.  The documentation
+#. is maintained as part of the stylesheet documentation in DocBook.
+#. For your convenience, it has also been converted to an HTML file
+#. named STYLESHEETS.xml in the i18n directory.
+#.
+#. This is a format message used to format cross references to prefaces.
+#. Multiple roles can be provided to allow document translators to select
+#. how to format each cross reference using the xrefstyle attribute.  If
+#. your language needs to provide different cross reference formattings
+#. for different parts of speech, you should provide multiple roles for
+#. cross reference formatters.
+#.
+#. Special elements in the message will be replaced with the
+#. appropriate content, as follows:
+#.
+#. title       - The title of the figure
+#. titleabbrev - The titleabbrev of the figure, or just the title
+#. if no titleabbrev exists
+#.
+#. These should be written as empty XML elements.  Due to limitations
+#. in intltool, I can't write XML content in translator comments.  To
+#. insert the title, simply write left angle bracket, title, slash,
+#. right angle bracket.
+#.
+#. Note that authors are not required to provide explicit titles for
+#. prefaces.  If the author does not provide a title, the translatable
+#. string 'Preface' is used as a default.
+#.
+#. Additionally, format messages can use the i, b, and tt markup tags
+#. to mark text as italic, bold, and monospace.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:865
+msgid "<msgid>preface.xref</msgid> <msgstr><title/></msgstr>"
+msgstr ""
+"Acesta este un mesaj cu format special. Va rog citiţi întreaga documentaţie de traducere\n"
+" înaintea traducerii acstui mesaj. Documentaţia este menţinută ca o parte a documentaţiei\n"
+" stylesheet în DocBook. Pentru uşurinţa dumneavoastra, a fost convertită într-un fişier cu \n"
+"format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"Folosiţi această formatare pentru a marca referinţele la prefaţă. Exista mai multe roluri\n"
+"prin care translatorii pot alege cum sa formateze cu un atribut xrefstyle.\n"
+"Dacă limba dumneavoastră necesită tipuri diferite de formatări ale referinţelor\n"
+"va trebui să oferiţi roluri diferite pentru formatări.\n"
+"\n"
+"Elementele speciale din mesaj vor fi înlocuite cu conţinutul adecvat, după cum urmează:\n"
+"\n"
+"title - titlul figurii\n"
+"titleabbrev - Prescurtarea titlului figurii, sau doar titlul dacă nu există nici o titleabbrev\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, nu se poate \n"
+"include conţinut XML în comentariile translatorilor.  \n"
+"Pentru a introduce titlu scrietţi caracterul <, scrieţi titlul, caracterul slash (/) şi caracterul >.\n"
+"\n"
+"În plus, mesajele de formatare pot utiliza i,b şi tt pentru a marca etichete ca \n"
+"italic, îngroşat şi monospaţiu."
 
 #.
 #. The number formatter used for question numbers.  This can be one of
@@ -974,9 +1612,22 @@ msgstr ""
 #. Non-Western languages probably need additional formatters.  Please
 #. contact the maintainers about adding formatters for your language.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:846
+#: ../xslt/gettext/l10n.xml.in.h:880
 msgid "<msgid>question.digit</msgid> <msgstr>1</msgstr>"
 msgstr ""
+"Prezentăm caracterele folosite pentru numerotarea întrebărilor.  Acestea pot fi \n"
+"oricare dintre \"1\", \"A\", \"a\", \"I\", sau \"i\", bineînţeles fără caracterele de citat. \n"
+"\n"
+"Prin combinarea lor putem avea următoarele rezultate:\n"
+"\n"
+"1    2    3    4    5    6    7    8    9   10   11   12   13   14\n"
+"A    B    C    D    E    F    G    H    I    J    K    L    M    N\n"
+"a    b    c    d    e    f    g    h    i    j    k    l    m    n\n"
+"I   II  III   IV    V   VI  VII VIII   IX    X   XI  XII XIII  XIV\n"
+"i   ii  iii   iv    v   vi  vii viii   ix    x   xi  xii xiii  xiv\n"
+"\n"
+"Limibile non-vestice pot avea nevoie de formatatori adiţionali. Vă rugăm contactaţi persoanele\n"
+" care întreţin pachetul înainte de a adaugă noi caractere la aceasta listă."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1008,12 +1659,32 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:877
-msgid ""
-"<msgid>question.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
-"msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Question "
-"<number/></msgstr>"
+#: ../xslt/gettext/l10n.xml.in.h:911
+msgid "<msgid>question.label</msgid> <msgstr role='header'><number/>.&#x2003;</msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Question <number/></msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Vă rog citiţi întreaga documentaţie de traducere înaintea\n"
+" traducerii acestui mesaj. Documentaţia este menţinută ca o parte a documentaţiei\n"
+" stylesheet în DocBook. Pentru uşurinţa dumneavoastra, a fost convertită într-un fişier cu \n"
+"format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"Acesta este un mesaj folosit pentru formatare etichetelor pentru întrebări în seturi de întrebări şi\n"
+"răspunsuri.Etichetele sunt folosite pentru liste cu întrebări şi răspunsuri şi liste de întrebări.\n"
+"Se pot folosi roluri diferite pentru a oferi diferite formatări necesare indexilor. \n"
+"Următoarle formatări pot fi folosite cu acest mesaj: \n"
+"\n"
+"antet - folosit pentru etichetele aflate în listele de întrebări şi răspunsuri\n"
+"li     - folosit pentru etichetele afltate în listele de întrebări\n"
+"\n"
+"Elementele speciale din mesaj vor fi înlocuite cu conţinutul adecvat, după cum urmează:\n"
+"\n"
+"număr - Numărul întrebării în lista de întrebări şi răspunsuri\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, nu se poate include\n"
+" conţinut XML în comentariile translatorilor.  Pentru a introduce numărul \n"
+"scrietţi caracterul <, scrieţi numărul, caracterul slash (/) şi caracterul >.\n"
+"\n"
+"În plus, mesajele de formatare pot utiliza i,b şi tt pentru a marca etichete ca\n"
+" italic, îngroşat şi monospaţiu."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1042,9 +1713,29 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:905
+#: ../xslt/gettext/l10n.xml.in.h:939
 msgid "<msgid>question.xref</msgid> <msgstr>Question <number/></msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Vă rog citiţi întreaga documentaţie de traducere înaintea\n"
+" traducerii acestui mesaj. Documentaţia este menţinută ca o parte a documentaţiei\n"
+" stylesheet în DocBook. Pentru uşurinţa dumneavoastra, a fost convertită într-un fişier cu \n"
+"format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"Acesta este un mesaj folosit pentru formatare etichetelor pentru întrebări în seturi de întrebări şi\n"
+"răspunsuri. Multiple roluri pot fi folosite de cître translatori pentru a formata folosind atributul xrefstyle.\n"
+"Dacă limba dumneavoastră necesită formatări de referinţe diferite va trebui să permiteţi\n"
+"roluri multiple pentru formatările referinţelor. \n"
+"\n"
+"Elementele speciale din mesaj vor fi înlocuite cu conţinutul adecvat, după cum urmează:\n"
+"\n"
+"număr - Numărul întrebării în lista de întrebări şi răspunsuri\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, nu se poate include\n"
+" conţinut XML în comentariile translatorilor.  Pentru a introduce numărul \n"
+"scrietţi caracterul <, scrieţi numărul, caracterul slash (/) şi caracterul >.\n"
+"\n"
+"În plus, mesajele de formatare pot utiliza i,b şi tt pentru a marca etichete ca\n"
+" italic, îngroşat şi monospaţiu."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1081,11 +1772,36 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:941
-msgid ""
-"<msgid>quote.format</msgid> <msgstr role='inner'>‘<node/>’</msgstr> "
-"<msgstr>“<node/>”</msgstr>"
+#: ../xslt/gettext/l10n.xml.in.h:975
+msgid "<msgid>quote.format</msgid> <msgstr role='inner'>‘<node/>’</msgstr> <msgstr>“<node/>”</msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Vă rog citiţi întreaga documentaţie de traducere\n"
+" înaintea traducerii acestui mesaj. Documentaţia este menţinută\n"
+" ca o parte a documentaţiei stylesheet în DocBook. Pentru uşurinţa dumneavoastra, \n"
+"a fost convertită într-un fişier cu format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"quote - O citare în text\n"
+"http://docbook.org/tdg/en/html/quote.html\n"
+"\n"
+"Folosiţi această formatare pentru a marca citatele din text. Acest exemplu foloseşte\n"
+"roluri pentru a controla formatarea. Rolul inidică dacă este un citat inclus în altul sau nu.\n"
+"Majoritatea limbilor au o notaţie alternativă pentru citate aflate în interiorul altor citate.\n"
+"\n"
+"Aceste stylesheet-uri oferă două nivele de formatare a citatelor. Dacă citatele sunt pe mai \n"
+"multe niveluri, stylesheet-urile vor alterna între 'outer' şi 'inner' (exterior şi respectiv interior).\n"
+"Dacă limba dumneavoastră foloseşte o citate pe mai multe nivele, vă rugăm contactaţi persoanele\n"
+" întreţin programul şi vom încerca să creem un mecanism de formatare mai flexibil.\n"
+"\n"
+"Elementele speciale din mesaj vor fi înlocuite cu conţinutul adecvat, după cum urmează:\n"
+"\n"
+"nod - Conţinutul text al elementului manvolnum\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, \n"
+"nu se poate include conţinut XML în comentariile translatorilor.  \n"
+"Pentru a introduce un nod scrietţi caracterul <, scrieţi node, caracterul slash (/) şi caracterul >.\n"
+"\n"
+"În plus, mesajele de formatare pot utiliza i,b şi tt pentru a marca etichete ca \n"
+"italic, îngroşat şi monospaţiu."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1114,9 +1830,29 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:969
+#: ../xslt/gettext/l10n.xml.in.h:1003
 msgid "<msgid>refentry.xref</msgid> <msgstr><title/></msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Vă rog citiţi întreaga documentaţie de traducere înaintea\n"
+" traducerii acestui mesaj. Documentaţia este menţinută ca o parte a documentaţiei\n"
+" stylesheet în DocBook. Pentru uşurinţa dumneavoastra, a fost convertită într-un fişier cu \n"
+"format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"Acesta este un mesaj folosit pentru formatare referinţelor la pagini\n"
+"Multiple roluri pot fi folosite de cître translatori pentru a formata folosind atributul xrefstyle.\n"
+"Dacă limba dumneavoastră necesită formatări de referinţe diferite va trebui să permiteţi\n"
+"roluri multiple pentru formatările referinţelor. \n"
+"\n"
+"Elementele speciale din mesaj vor fi înlocuite cu conţinutul adecvat, după cum urmează:\n"
+"\n"
+"title - Titlul paginii referite\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, nu se poate include\n"
+" conţinut XML în comentariile translatorilor.  Pentru a introduce titlul \n"
+"scrietţi caracterul <, scrieţi titlul, caracterul slash (/) şi caracterul >.\n"
+"\n"
+"În plus, mesajele de formatare pot utiliza i,b şi tt pentru a marca etichete ca\n"
+" italic, îngroşat şi monospaţiu."
 
 #.
 #. The number formatter used for reference section numbers.  This can
@@ -1132,9 +1868,22 @@ msgstr ""
 #. Non-Western languages probably need additional formatters.  Please
 #. contact the maintainers about adding formatters for your language.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:984
+#: ../xslt/gettext/l10n.xml.in.h:1018
 msgid "<msgid>refsection.digit</msgid> <msgstr>1</msgstr>"
 msgstr ""
+"Prezentăm caracterele folosite pentru numerotarea referinţelor la secţiuni.  Acestea pot fi \n"
+"oricare dintre \"1\", \"A\", \"a\", \"I\", sau \"i\", bineînţeles fără caracterele de citat. \n"
+"\n"
+"Prin combinarea lor putem avea următoarele rezultate:\n"
+"\n"
+"1    2    3    4    5    6    7    8    9   10   11   12   13   14\n"
+"A    B    C    D    E    F    G    H    I    J    K    L    M    N\n"
+"a    b    c    d    e    f    g    h    i    j    k    l    m    n\n"
+"I   II  III   IV    V   VI  VII VIII   IX    X   XI  XII XIII  XIV\n"
+"i   ii  iii   iv    v   vi  vii viii   ix    x   xi  xii xiii  xiv\n"
+"\n"
+"Limibile non-vestice pot avea nevoie de formatatori adiţionali. Vă rugăm contactaţi persoanele\n"
+" care întreţin pachetul înainte de a adaugă noi caractere la aceasta listă."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1169,12 +1918,33 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1018
-msgid ""
-"<msgid>refsection.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
-"msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Section "
-"<number/></msgstr>"
+#: ../xslt/gettext/l10n.xml.in.h:1052
+msgid "<msgid>refsection.label</msgid> <msgstr role='header'><number/>.&#x2003;</msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Section <number/></msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Vă rog citiţi întreaga documentaţie de traducere înaintea\n"
+" traducerii acestui mesaj. Documentaţia este menţinută ca o parte a documentaţiei\n"
+" stylesheet în DocBook. Pentru uşurinţa dumneavoastra, a fost convertită într-un fişier cu \n"
+"format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"Acesta este un mesaj folosit pentru formatare etichetelor pentru secţiunile de referinţă.\n"
+"Etichetele sunt folosite pentru titluri sau listele de Conţinut.Se pot folosi roluri diferite pentru\n"
+" a oferi diferite formatări necesare indexilor. Următoarle formatări pot fi folosite cu acest mesaj: \n"
+"\n"
+"antet - folosit pentru etichetele aflate în antete\n"
+"li     - folosit pentru etichetele afltate în listele de Conţinut\n"
+"\n"
+"Elementele speciale din mesaj vor fi înlocuite cu conţinutul adecvat, după cum urmează:\n"
+"\n"
+"titlu - titlul secţiunii\n"
+"titleabbrev - Titlu prescurtat al secţiunii, sau doar titlul dacă nu există prescurtare\n"
+"număr - Numărul complet al secţiunii, incluzând şi numărul elementului părinte\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, nu se poate include\n"
+" conţinut XML în comentariile translatorilor.  Pentru a introduce titlul \n"
+"scrietţi caracterul <, scrieţi titlul, caracterul slash (/) şi caracterul >.\n"
+"\n"
+"În plus, mesajele de formatare pot utiliza i,b şi tt pentru a marca etichete ca\n"
+" italic, îngroşat şi monospaţiu."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1209,9 +1979,34 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1052
+#: ../xslt/gettext/l10n.xml.in.h:1086
 msgid "<msgid>refsection.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Vă rog citiţi întreaga documentaţie de traducere\n"
+" înaintea traducerii acestui mesaj. Documentaţia este menţinută ca o parte a documentaţiei stylesheet în DocBook. \n"
+"Pentru uşurinţa dumneavoastra, a fost convertită într-un fişier cu \n"
+"format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"Acesta este un mesaj pentru formatare folosit pentru formatarea numerotării \n"
+"referinţelor la secţiuni. Numerele sunt folosite în etichete, referinţe sau orice alt loc \n"
+"unde se va face referire la secţiune. Numărul secţiunii va include şi numărul elementului \n"
+"părinte dacă este posibil.De exemplu, numărul 4.3.9 reprezintă a noua secţiune în cea de-a \n"
+"treia secţiune al celui de-al patrulea elemente părinte sau capitol. În acest exemplu, 4.3 este \n"
+"considerat elementul părinte şi 9 cifra indicând numărul secţiunii. Acest tip de formtatare \n"
+"construieşte un număr de formatare din numărul părintelui  şi o cifră reprezentând secţiunea.\n"
+"\n"
+"Elemente speciale din mesaj vor fi înlocuite corespunzător, după cum urmează:\n"
+"\n"
+"părinte - Numărul complet al elementului părinte al secţiunii\n"
+"cifră - Numărul secţiuniii în cadrul elementul părinte, fără a intorduce cifra 0 înaintea numărului\n"
+"\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, nu se poate \n"
+"include conţinut XML în comentariile translatorilor. Pentru a introduce \n"
+"o cifră scrieţi caracterul <, cifra, caracterul slash (/) şi caracterul >. \n"
+"\n"
+"Pentru formatare mai puteţi folosi deasemenea i, b şi tt pentru a marca text ca \n"
+"italic, îngroşat şi monospaţiat."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1244,10 +2039,31 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1084
-msgid ""
-"<msgid>refsection.xref</msgid> <msgstr>Section <number/> ― <title/></msgstr>"
+#: ../xslt/gettext/l10n.xml.in.h:1118
+msgid "<msgid>refsection.xref</msgid> <msgstr>Section <number/> ― <title/></msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Va rog citiţi întreaga documentaţie de traducere\n"
+" înaintea traducerii acstui mesaj. Documentaţia este menţinută ca o parte a \n"
+"documentaţiei stylesheet în DocBook. Pentru uşurinţa dumneavoastra, a fost convertită într-un fişier cu \n"
+"format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"Folosiţi această formatare pentru a marca referinţele la secţiuni. Exista mai multe roluri\n"
+"prin care translatorii pot alege cum sa formateze cu un atribut xrefstyle.\n"
+"Dacă limba dumneavoastră necesită tipuri diferite de formatări ale referinţelor\n"
+"va trebui să oferiţi roluri diferite pentru formatări.\n"
+"\n"
+"Elementele speciale din mesaj vor fi înlocuite cu conţinutul adecvat, după cum urmează:\n"
+"\n"
+"title - titlul secţiunii\n"
+"titleabbrev - Prescurtarea titlului secţiunii, sau doar titlul dacă nu există nici o titleabbrev\n"
+"număr - Numărul complet al capitolului, incluzând probabil şi numărul elementului părinte.\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, nu se poate \n"
+"include conţinut XML în comentariile translatorilor.  \n"
+"Pentru a introduce titlu scrietţi caracterul <, scrieţi titlul, caracterul slash (/) şi caracterul >.\n"
+"\n"
+"În plus, mesajele de formatare pot utiliza i,b şi tt pentru a marca etichete ca \n"
+"italic, îngroşat şi monospaţiu."
 
 #.
 #. The number formatter used for section numbers.  This can be one of
@@ -1263,10 +2079,21 @@ msgstr ""
 #. Non-Western languages probably need additional formatters.  Please
 #. contact the maintainers about adding formatters for your language.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1099
-#, fuzzy
+#: ../xslt/gettext/l10n.xml.in.h:1133
 msgid "<msgid>section.digit</msgid> <msgstr>1</msgstr>"
-msgstr "<msgstr form=\"0\">Editor</msgstr> <msgstr form=\"1\">Editori</msgstr>"
+msgstr ""
+"Prezentăm caracterele folosite pentru numerotarea secţiunilor.  Acestea pot fi \n"
+"oricare dintre \"1\", \"A\", \"a\", \"I\", sau \"i\", bineînţeles fără caracterele de citat. \n"
+"Prin combinarea lor putem avea următoarele rezultate:\n"
+"\n"
+"1    2    3    4    5    6    7    8    9   10   11   12   13   14\n"
+"A    B    C    D    E    F    G    H    I    J    K    L    M    N\n"
+"a    b    c    d    e    f    g    h    i    j    k    l    m    n\n"
+"I   II  III   IV    V   VI  VII VIII   IX    X   XI  XII XIII  XIV\n"
+"i   ii  iii   iv    v   vi  vii viii   ix    x   xi  xii xiii  xiv\n"
+"\n"
+"Limibile non-vestice pot avea nevoie de formatatori adiţionali. Vă rugăm contactaţi persoanele\n"
+" care întreţin pachetul înainte de a adaugă noi caractere la aceasta listă."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1301,12 +2128,34 @@ msgstr "<msgstr form=\"0\">Editor</msgstr> <msgstr form=\"1\">Editori</msgstr>"
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1133
-msgid ""
-"<msgid>section.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
-"msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Section "
-"<number/></msgstr>"
+#: ../xslt/gettext/l10n.xml.in.h:1167
+msgid "<msgid>section.label</msgid> <msgstr role='header'><number/>.&#x2003;</msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Section <number/></msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Vă rog citiţi întreaga documentaţie de traducere înaintea\n"
+"traducerii acestui mesaj. Documentaţia este menţinută ca o parte a documentaţiei\n"
+"stylesheet în DocBook. Pentru uşurinţa dumneavoastra, a fost convertită într-un fişier cu \n"
+"format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"Acesta este un mesaj folosit pentru formatare etichetelor pentru secţiuni. Etichetele \n"
+"sunt folosite inaintea titlurilor ca antete de pagina sau înaintea listei de Cuprins.\n"
+"Se pot folosi roluri diferite pentru a oferi diferite formatări necesare indexilor. \n"
+"Următoarle formatări pot fi folosite cu acest mesaj: \n"
+"\n"
+"antet - folosit pentru etichetele aflate în antete  \n"
+"li     - folosit pentru etichetele afltate în Cuprins \n"
+"\n"
+"Elementele speciale din mesaj vor fi înlocuite cu conţinutul adecvat, după cum urmează:\n"
+"\n"
+"titlul - titlul secţiunii\n"
+"titleabbrev - Prescurtarea titlului secţiunii, sau titlul părţii dacă nu există titleabbrev\n"
+"număr - Numărul complet al secţiunii, incluzând şi numărul elementului părinte dacă există\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, nu se poate include\n"
+" conţinut XML în comentariile translatorilor.  Pentru a introduce titlu \n"
+"scrietţi caracterul <, scrieţi titlul, caracterul slash (/) şi caracterul >.\n"
+"\n"
+"În plus, mesajele de formatare pot utiliza i,b şi tt pentru a marca etichete ca\n"
+" italic, îngroşat şi monospaţiu."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1341,9 +2190,34 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1167
+#: ../xslt/gettext/l10n.xml.in.h:1201
 msgid "<msgid>section.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Vă rog citiţi întreaga documentaţie de traducere\n"
+"înaintea traducerii acestui mesaj. Documentaţia este menţinută ca o parte a documentaţiei stylesheet în \n"
+"DocBook.  Pentru uşurinţa dumneavoastra, a fost convertită într-un fişier cu \n"
+"format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"Acesta este un mesaj pentru formatare folosit pentru formatarea numerotării \n"
+"referinţelor la secţiuni. Numerele sunt folosite în etichete, referinţe sau orice alt loc \n"
+"unde se va face referire la secţiune. Numărul secţiunii va include şi numărul elementului \n"
+"părinte dacă este posibil.De exemplu, numărul 4.3.9 reprezintă a noua secţiune în cea de-a \n"
+"treia secţiune al celui de-al patrulea elemente părinte sau capitol. În acest exemplu, 4.3 este \n"
+"considerat elementul părinte şi 9 cifra indicând numărul secţiunii. Acest tip de formtatare \n"
+"construieşte un număr de formatare din numărul părintelui  şi o cifră reprezentând secţiunea.\n"
+"\n"
+"Elemente speciale din mesaj vor fi înlocuite corespunzător, după cum urmează:\n"
+"\n"
+"părinte - Numărul complet al elementului părinte al secţiunii\n"
+"cifră - Numărul secţiuniii în cadrul elementul părinte, fără a intorduce cifra 0 înaintea numărului\n"
+"\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori. Datorită limitărilor intltool, nu se poate \n"
+"include conţinut XML în comentariile translatorilor. Pentru a introduce \n"
+"o cifră scrieţi caracterul <, cifra, caracterul slash (/) şi caracterul >. \n"
+"\n"
+"Pentru formatare mai puteţi folosi deasemenea i, b şi tt pentru a marca text ca \n"
+"italic, îngroşat şi monospaţiat."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1376,10 +2250,31 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1199
-msgid ""
-"<msgid>section.xref</msgid> <msgstr>Section <number/> ― <title/></msgstr>"
+#: ../xslt/gettext/l10n.xml.in.h:1233
+msgid "<msgid>section.xref</msgid> <msgstr>Section <number/> ― <title/></msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Va rog citiţi întreaga documentaţie de traducere\n"
+"înaintea traducerii acstui mesaj. Documentaţia este menţinută ca o parte a documentaţiei \n"
+"stylesheet în DocBook. Pentru uşurinţa dumneavoastra, a fost convertită într-un fişier cu \n"
+"format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"Folosiţi această formatare pentru a marca referinţele la secţiuni. Exista mai multe roluri\n"
+"prin care translatorii pot alege cum sa formateze cu un atribut xrefstyle.\n"
+"Dacă limba dumneavoastră necesită tipuri diferite de formatări ale referinţelor\n"
+"va trebui să oferiţi roluri diferite pentru formatări.\n"
+"\n"
+"Elementele speciale din mesaj vor fi înlocuite cu conţinutul adecvat, după cum urmează:\n"
+"\n"
+"title - titlul secţiunii\n"
+"titleabbrev - Prescurtarea titlului secţiunii, sau doar titlul dacă nu există nici o titleabbrev\n"
+"număr - Numărul complet al capitolului, incluzând probabil şi numărul elementului părinte.\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, nu se poate \n"
+"include conţinut XML în comentariile translatorilor.  \n"
+"Pentru a introduce titlu scrietţi caracterul <, scrieţi titlul, caracterul slash (/) şi caracterul >.\n"
+"\n"
+"În plus, mesajele de formatare pot utiliza i,b şi tt pentru a marca etichete ca \n"
+"italic, îngroşat şi monospaţiu."
 
 #.
 #. The number formatter used for table numbers.  This can be one of
@@ -1395,9 +2290,22 @@ msgstr ""
 #. Non-Western languages probably need additional formatters.  Please
 #. contact the maintainers about adding formatters for your language.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1214
+#: ../xslt/gettext/l10n.xml.in.h:1248
 msgid "<msgid>table.digit</msgid> <msgstr>1</msgstr>"
 msgstr ""
+"Prezentăm caracterele folosite pentru numerotarea tabelelor.  Acestea pot fi \n"
+"oricare dintre \"1\", \"A\", \"a\", \"I\", sau \"i\", bineînţeles fără caracterele de citat. \n"
+"\n"
+"Prin combinarea lor putem avea următoarele rezultate:\n"
+"\n"
+"1    2    3    4    5    6    7    8    9   10   11   12   13   14\n"
+"A    B    C    D    E    F    G    H    I    J    K    L    M    N\n"
+"a    b    c    d    e    f    g    h    i    j    k    l    m    n\n"
+"I   II  III   IV    V   VI  VII VIII   IX    X   XI  XII XIII  XIV\n"
+"i   ii  iii   iv    v   vi  vii viii   ix    x   xi  xii xiii  xiv\n"
+"\n"
+"Limibile non-vestice pot avea nevoie de formatatori adiţionali. Vă rugăm contactaţi persoanele\n"
+" care întreţin pachetul înainte de a adaugă noi caractere la aceasta listă."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1432,12 +2340,34 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1248
-msgid ""
-"<msgid>table.label</msgid> <msgstr role='header'><i>Table <number/></"
-"i>&#x2003;</msgstr> <msgstr role='li'>Table <number/>&#x2002;</msgstr> "
-"<msgstr>Table <number/></msgstr>"
+#: ../xslt/gettext/l10n.xml.in.h:1282
+msgid "<msgid>table.label</msgid> <msgstr role='header'><i>Table <number/></i>&#x2003;</msgstr> <msgstr role='li'>Table <number/>&#x2002;</msgstr> <msgstr>Table <number/></msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Vă rog citiţi întreaga documentaţie de traducere înaintea\n"
+"traducerii acestui mesaj. Documentaţia este menţinută ca o parte a documentaţiei\n"
+"stylesheet în DocBook. Pentru uşurinţa dumneavoastra, a fost convertită într-un fişier cu \n"
+"format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"Acesta este un mesaj folosit pentru formatare etichetelor pentru tabele. Etichetele \n"
+"sunt folosite înaintea titlurilor ca antete de pagina sau înaintea listei de Cuprins.\n"
+"Se pot folosi roluri diferite pentru a oferi diferite formatări necesare indexilor. \n"
+"Următoarle formatări pot fi folosite cu acest mesaj: \n"
+"\n"
+"antet - folosit pentru etichetele aflate în antete  \n"
+"li     - folosit pentru etichetele afltate în Cuprins \n"
+"\n"
+"Elementele speciale din mesaj vor fi înlocuite cu conţinutul adecvat, după cum urmează:\n"
+"\n"
+"title - titlul tabelului\n"
+"titleabbrev - Prescurtarea titlului tabelului, sau titlul tabelului dacă nu există titleabbrev\n"
+"număr - Numărul complet al tabelului, incluzând şi numărul elementului părinte dacă există\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, nu se poate include\n"
+" conţinut XML în comentariile translatorilor.  Pentru a introduce titlu \n"
+"scrietţi caracterul <, scrieţi titlul, caracterul slash (/) şi caracterul >.\n"
+"\n"
+"În plus, mesajele de formatare pot utiliza i,b şi tt pentru a marca etichete ca\n"
+" italic, îngroşat şi monospaţiu."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1471,9 +2401,30 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1281
+#: ../xslt/gettext/l10n.xml.in.h:1315
 msgid "<msgid>table.number</msgid> <msgstr><parent/>-<digit/></msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Vă rog citiţi întreaga documentaţie de traducere\n"
+"înaintea traducerii acestui mesaj. Documentaţia este menţinută ca o parte a documentaţiei\n"
+" stylesheet în DocBook.Pentru uşurinţa dumneavoastra, a fost convertită într-un fişier cu \n"
+"format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"Acesta este un mesaj pentru formatare folosit pentru formatarea numerotării tabelelor. \n"
+"Numerele sunt folosite în etichete, referinţe sau orice alt loc unde se va face referire la tabel. \n"
+"Numărul tabelului va include şi numărul elementului părinte dacă este posibil. \n"
+"De exemplu, numărul 4-3 reprezintă al treilea tabel din al patrulea capitol. \n"
+"În acest exemplu 4 este considerat elementul părinte şi 3 cifra indicând numărul tabelului.\n"
+"Acest tip de formtatare construieşte un număr de formatare din numărul părinteluli\n"
+" şi o cifră reprezentând tabelul.\n"
+"\n"
+"Elemente speciale din mesaj vor fi înlocuite corespunzător, după cum urmează:\n"
+"\n"
+"părinte - Numărul complet al elementului părinte al tabelului\n"
+"cifră - Numărul tabelului în cadrul elementului părinte, fără a intorduce cifra 0 înaintea numărului\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, nu se poate \n"
+"include conţinut XML în comentariile translatorilor. Pentru a introduce \n"
+"o cifră scrieţi caracterul <, cifra, caracterul slash (/) şi caracterul >."
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1506,57 +2457,61 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1313
+#: ../xslt/gettext/l10n.xml.in.h:1347
 msgid "<msgid>table.xref</msgid> <msgstr>Table <number/></msgstr>"
 msgstr ""
+"Acesta este un mesaj cu format special. Va rog citiţi întreaga documentaţie de traducere\n"
+" înaintea traducerii acstui mesaj. Documentaţia este menţinută ca o parte a \n"
+"documentaţiei stylesheet în DocBook. Pentru uşurinţa dumneavoastra, a fost convertită într-un fişier cu \n"
+"format HTML numit STYLESHEETS.xml în directorul i18n.\n"
+"\n"
+"Folosiţi această formatare pentru a marca referinţele la tabele. Exista mai multe roluri\n"
+"prin care translatorii pot alege cum sa formateze cu un atribut xrefstyle.\n"
+"Dacă limba dumneavoastră necesită tipuri diferite de formatări ale referinţelor\n"
+"va trebui să oferiţi roluri diferite pentru formatări.\n"
+"\n"
+"Elementele speciale din mesaj vor fi înlocuite cu conţinutul adecvat, după cum urmează:\n"
+"\n"
+"title - titlul tabelului\n"
+"titleabbrev - Prescurtarea titlului tabelului, sau doar titlul dacă nu există nici o titleabbrev\n"
+"număr - Numărul complet al tabelului, incluzând probabil şi numărul elementului părinte.\n"
+"\n"
+"Aceasta vor fi scrise ca elemente XML fără valori.  Datorită limitărilor intltool, nu se poate \n"
+"include conţinut XML în comentariile translatorilor.  \n"
+"Pentru a introduce titlu scrietţi caracterul <, scrieţi titlul, caracterul slash (/) şi caracterul >.\n"
+"\n"
+"În plus, mesajele de formatare pot utiliza i,b şi tt pentru a marca etichete ca \n"
+"italic, îngroşat şi monospaţiu."
 
 #. Used as a header before a list of authors.
-#: ../xslt/gettext/l10n.xml.in.h:1315
-#, fuzzy
+#: ../xslt/gettext/l10n.xml.in.h:1349
 msgid "<msgstr form='0'>Author</msgstr> <msgstr form='1'>Authors</msgstr>"
-msgstr "<msgstr form=\"0\">Autor</msgstr> <msgstr form=\"1\">Autori</msgstr>"
+msgstr "Folositi un antent înaintea unei liste de autori."
 
 #. Used as a header before a list of collaborators.
-#: ../xslt/gettext/l10n.xml.in.h:1317
-#, fuzzy
-msgid ""
-"<msgstr form='0'>Collaborator</msgstr> <msgstr form='1'>Collaborators</"
-"msgstr>"
-msgstr ""
-"<msgstr form=\"0\">Colaborator</msgstr> <msgstr form=\"1\">Colaboratori</"
-"msgstr>"
+#: ../xslt/gettext/l10n.xml.in.h:1351
+msgid "<msgstr form='0'>Collaborator</msgstr> <msgstr form='1'>Collaborators</msgstr>"
+msgstr "Folosiţi un antet înainte unei liste de colaboratori."
 
 #. Used as a header before a list of copyrights.
-#: ../xslt/gettext/l10n.xml.in.h:1319
-#, fuzzy
-msgid ""
-"<msgstr form='0'>Copyright</msgstr> <msgstr form='1'>Copyrights</msgstr>"
-msgstr ""
-"<msgstr form=\"0\">Copyright</msgstr> <msgstr form=\"1\">Copyright-uri</"
-"msgstr>"
+#: ../xslt/gettext/l10n.xml.in.h:1353
+msgid "<msgstr form='0'>Copyright</msgstr> <msgstr form='1'>Copyrights</msgstr>"
+msgstr "Folosiţi un antet înainte unei liste de drepturi de autor."
 
 #. Used as a header before a list of editors.
-#: ../xslt/gettext/l10n.xml.in.h:1321
-#, fuzzy
+#: ../xslt/gettext/l10n.xml.in.h:1355
 msgid "<msgstr form='0'>Editor</msgstr> <msgstr form='1'>Editors</msgstr>"
-msgstr "<msgstr form=\"0\">Editor</msgstr> <msgstr form=\"1\">Editori</msgstr>"
+msgstr "Folosiţi un antet înainte unei liste de editori."
 
 #. Used as a header before a list of contributors.
-#: ../xslt/gettext/l10n.xml.in.h:1323
-#, fuzzy
-msgid ""
-"<msgstr form='0'>Other Contributor</msgstr> <msgstr form='1'>Other "
-"Contributors</msgstr>"
-msgstr ""
-"<msgstr form=\"0\">A mai contribuit</msgstr> <msgstr form=\"1\">Au mai "
-"contribuit</msgstr>"
+#: ../xslt/gettext/l10n.xml.in.h:1357
+msgid "<msgstr form='0'>Other Contributor</msgstr> <msgstr form='1'>Other Contributors</msgstr>"
+msgstr "Folosiţi un antet înainte unei liste de \"Au mai contribuit\"."
 
 #. Used as a header before a list of publishers.
-#: ../xslt/gettext/l10n.xml.in.h:1325
-#, fuzzy
-msgid ""
-"<msgstr form='0'>Publisher</msgstr> <msgstr form='1'>Publishers</msgstr>"
-msgstr "<msgstr form=\"0\">Editor</msgstr> <msgstr form=\"1\">Editori</msgstr>"
+#: ../xslt/gettext/l10n.xml.in.h:1359
+msgid "<msgstr form='0'>Publisher</msgstr> <msgstr form='1'>Publishers</msgstr>"
+msgstr "Folosiţi un antet înainte unei liste de edituri."
 
 #.
 #. http://www.docbook.org/tdg/en/html/qandaentry.html
@@ -1567,12 +2522,18 @@ msgstr "<msgstr form=\"0\">Editor</msgstr> <msgstr form=\"1\">Editori</msgstr>"
 #. the labelling style for a qandaset.  If the labelling style is set
 #. to 'qanda', this string will be used to label answers.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1335
+#: ../xslt/gettext/l10n.xml.in.h:1369
 msgid "A:&#x2003;"
 msgstr ""
+"http://www.docbook.org/tdg/en/html/qandaentry.html\n"
+"\n"
+"Această etichetă este folosită înaintea unei întrebări într-un set de întrebări şi raspunsuri\n"
+"În mod implicit, întrebările sunt numerotate dar răspunsurile nu. Oricum, DocBook permite \n"
+"autorului să folosească un tip de etichetare pentru seturile de întrebări şi răspunsuri.  \n"
+"Dacă etichetarea aleasă este 'qanda', şirul va fi folosit ca eticheta întrebării."
 
 #. Used for links to the titlepage.
-#: ../xslt/gettext/l10n.xml.in.h:1337
+#: ../xslt/gettext/l10n.xml.in.h:1371
 msgid "About This Document"
 msgstr "Despre acest document"
 
@@ -1585,7 +2546,7 @@ msgstr "Despre acest document"
 #. Shaun McCance
 #. Affiliation: GNOME Documentation Project
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1347
+#: ../xslt/gettext/l10n.xml.in.h:1381
 msgid "Affiliation"
 msgstr "Afiliere"
 
@@ -1593,7 +2554,7 @@ msgstr "Afiliere"
 #. http://www.docbook.org/tdg/en/html/caution.html
 #. This is used as a default title for caution elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1352
+#: ../xslt/gettext/l10n.xml.in.h:1386
 msgid "Caution"
 msgstr "Atenţie"
 
@@ -1601,7 +2562,7 @@ msgstr "Atenţie"
 #. http://www.docbook.org/tdg/en/html/colophon.html
 #. This is used as a default title for colophon elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1357
+#: ../xslt/gettext/l10n.xml.in.h:1391
 msgid "Colophon"
 msgstr "Casetă"
 
@@ -1609,7 +2570,7 @@ msgstr "Casetă"
 #. http://www.docbook.org/tdg/en/html/dedication.html
 #. This is used as a default title for dedication elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1362
+#: ../xslt/gettext/l10n.xml.in.h:1396
 msgid "Dedication"
 msgstr "Dedicaţie"
 
@@ -1622,7 +2583,7 @@ msgstr "Dedicaţie"
 #. Shaun McCance
 #. Email: shaunm@gnome.org
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1372
+#: ../xslt/gettext/l10n.xml.in.h:1406
 msgid "Email"
 msgstr "Email"
 
@@ -1630,15 +2591,17 @@ msgstr "Email"
 #. http://www.docbook.org/tdg/en/html/glossary.html
 #. This is used as a default title for glossary elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1377
+#: ../xslt/gettext/l10n.xml.in.h:1411
 msgid "Glossary"
 msgstr ""
+"http://www.docbook.org/tdg/en/html/glossary.html\n"
+"Acesta este folosit ca un titlu implicit pentru elementele din glosar."
 
 #.
 #. http://www.docbook.org/tdg/en/html/important.html
 #. This is used as a default title for important elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1382
+#: ../xslt/gettext/l10n.xml.in.h:1416
 msgid "Important"
 msgstr "Important"
 
@@ -1646,7 +2609,7 @@ msgstr "Important"
 #. http://www.docbook.org/tdg/en/html/index.html
 #. This is used as a default title for index elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1387
+#: ../xslt/gettext/l10n.xml.in.h:1421
 msgid "Index"
 msgstr "Index"
 
@@ -1654,7 +2617,7 @@ msgstr "Index"
 #. http://www.docbook.org/tdg/en/html/legalnotice.html
 #. This is used as a default title for legalnotice elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1392
+#: ../xslt/gettext/l10n.xml.in.h:1426
 msgid "Legal Notice"
 msgstr "Notă legală"
 
@@ -1662,7 +2625,7 @@ msgstr "Notă legală"
 #. http://www.docbook.org/tdg/en/html/refnamediv.html
 #. This is used as the title for refnamediv elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1397
+#: ../xslt/gettext/l10n.xml.in.h:1431
 msgid "Name"
 msgstr "Nume"
 
@@ -1670,7 +2633,7 @@ msgstr "Nume"
 #. http://www.docbook.org/tdg/en/html/note.html
 #. This is used as a default title for note elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1402
+#: ../xslt/gettext/l10n.xml.in.h:1436
 msgid "Note"
 msgstr "Notă"
 
@@ -1678,7 +2641,7 @@ msgstr "Notă"
 #. http://www.docbook.org/tdg/en/html/preface.html
 #. This is used as a default title for preface elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1407
+#: ../xslt/gettext/l10n.xml.in.h:1441
 msgid "Preface"
 msgstr "Prefaţă"
 
@@ -1691,31 +2654,29 @@ msgstr "Prefaţă"
 #. the labelling style for a qandaset.  If the labelling style is set
 #. to 'qanda', this string will be used to label questions.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1417
+#: ../xslt/gettext/l10n.xml.in.h:1451
 msgid "Q:&#x2003;"
 msgstr ""
+"http://www.docbook.org/tdg/en/html/qandaentry.html\n"
+"\n"
+"Această etichetă este folosită înaintea unei întrebări într-un set de întrebări şi raspunsuri\n"
+"În mod implicit, întrebările sunt numerotate dar răspunsurile nu. Oricum, DocBook permite \n"
+"autorului să folosească un tip de etichetare pentru seturile de întrebări şi răspunsuri.  \n"
+"Dacă etichetarea aleasă este 'qanda', şirul va fi folosit ca eticheta întrebării."
 
 #.
 #. http://www.docbook.org/tdg/en/html/revhistory.html
 #. This is used as a header before the revision history.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1422
+#: ../xslt/gettext/l10n.xml.in.h:1456
 msgid "Revision History"
 msgstr "Istoric revizii"
 
-#.
-#. Used for the <see> element.
-#. FIXME: this should be a format string.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1427
+#: ../xslt/gettext/l10n.xml.in.h:1457
 msgid "See"
 msgstr "Vezi"
 
-#.
-#. Used for the <seealso> element.
-#. FIXME: this should be a format string.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1432
+#: ../xslt/gettext/l10n.xml.in.h:1458
 msgid "See Also"
 msgstr "Vezi şi"
 
@@ -1723,7 +2684,7 @@ msgstr "Vezi şi"
 #. http://www.docbook.org/tdg/en/html/refsynopsisdiv.html
 #. This is used as the default title for refsynopsisdiv elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1437
+#: ../xslt/gettext/l10n.xml.in.h:1463
 msgid "Synopsis"
 msgstr "Sinopsis"
 
@@ -1731,7 +2692,7 @@ msgstr "Sinopsis"
 #. http://www.docbook.org/tdg/en/html/tip.html
 #. This is used as a default title for tip elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1442
+#: ../xslt/gettext/l10n.xml.in.h:1468
 msgid "Tip"
 msgstr "Sfat"
 
@@ -1739,21 +2700,18 @@ msgstr "Sfat"
 #. http://www.docbook.org/tdg/en/html/warning.html
 #. This is used as a default title for warning elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1447
+#: ../xslt/gettext/l10n.xml.in.h:1473
 msgid "Warning"
 msgstr "Avertisment"
 
 #~ msgid "format.appendix.label"
 #~ msgstr "Anexa %t{number}"
-
 #~ msgid "format.chapter.label"
 #~ msgstr "Capitolul %t{number}"
-
 #~ msgid "format.citetitle"
 #~ msgstr ""
 #~ "<msg:msgstr role=\"article\">„%t{node}”</msg:msgstr><msg:msgstr><i>%t"
 #~ "{node}</i></msg:msgstr>"
-
 #~ msgid "format.date"
 #~ msgstr ""
 #~ "<xsl:template>\n"
@@ -1776,96 +2734,66 @@ msgstr "Avertisment"
 #~ "\"<xsl:text> </xsl:text>\n"
 #~ "\"<xsl:value-of select=\"$year\"/>\n"
 #~ "\"</xsl:template>\""
-
 #~ msgid "format.example.label"
 #~ msgstr "Exemplul %t{number}"
-
 #~ msgid "format.example.number"
 #~ msgstr "%t{parent}-%1{number}"
-
 #~ msgid "format.example.number.flat"
 #~ msgstr "%1{number}"
-
 #~ msgid "format.figure.label"
 #~ msgstr "Figura %t{number}"
-
 #~ msgid "format.figure.number"
 #~ msgstr "\"%t{parent}-%1{number}"
-
 #~ msgid "format.figure.number.flat"
 #~ msgstr "\"%1{number}"
-
 #~ msgid "format.manvolnum"
 #~ msgstr "(%t{node})"
-
 #~ msgid "format.part.label"
 #~ msgstr "Partea %t{number}"
-
 #~ msgid "format.part.number"
 #~ msgstr "%I{number}"
-
 #~ msgid "format.quote.inner"
 #~ msgstr "‚%t{node}’"
-
 #~ msgid "format.quote.outer"
 #~ msgstr "„%t{node}”"
-
 #~ msgid "format.refentry.label"
 #~ msgstr "%t{title}"
-
 #~ msgid "format.section.label"
 #~ msgstr "Secţiunea %t{number}"
-
 #~ msgid "format.table.label"
 #~ msgstr "Tabela %t{number}"
-
 #~ msgid "format.table.number"
 #~ msgstr "%t{parent}-%1{number}"
-
 #~ msgid "format.table.number.flat"
 #~ msgstr "%1{number}"
-
 #~ msgid "format.tooltip.glossentry"
 #~ msgstr "Vezi definiţia pentru „%s{node}”"
-
 #~ msgid "format.tooltip.mailto"
 #~ msgstr "Trimite email la „%s{address}”"
-
 #~ msgid "Audience"
 #~ msgstr "Audienţă"
-
 #~ msgid "Contents"
 #~ msgstr "Sumar"
-
 #~ msgid "Date"
 #~ msgstr "Data"
-
 #~ msgid "Level"
 #~ msgstr "Nivel"
-
 #~ msgid "Message Audience"
 #~ msgstr "Audienţă mesaj"
-
 #~ msgid "Message Level"
 #~ msgstr "Nivel mesaj"
-
 #~ msgid "Message Origin"
 #~ msgstr "Origine mesaj"
-
 #~ msgid "Origin"
 #~ msgstr "Origine"
-
 #~ msgid "Reference"
 #~ msgstr "Referinţă"
-
 #~ msgid "Release Information"
 #~ msgstr "Informaţii despre publicare"
-
 #~ msgid "Set Index"
 #~ msgstr "Setează index"
-
 #~ msgid "Table of Contents"
 #~ msgstr "Sumar"
-
 #~ msgid "Title"
 #~ msgstr "Titlu"
+
