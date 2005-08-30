@@ -552,7 +552,7 @@ msgstr ""
 #.
 #: ../xslt/gettext/l10n.xml.in.h:448
 msgid "<msgid>example.xref</msgid> <msgstr>Example <number/></msgstr>"
-msgstr "msgstr>Esempio <number/></msgstr>"
+msgstr "<msgid>example.xref</msgid> <msgstr>Esempio <number/></msgstr>"
 
 #.
 #. The number formatter used for figure numbers.  This can be one of
@@ -750,7 +750,8 @@ msgstr ""
 msgid ""
 "<msgid>glossentry.tooltip</msgid> <msgstr>Read the definition for "
 "‘<glossterm/>’.</msgstr>"
-msgstr "<msgstr>Consulta la definiziona di «<glossterm/>».</msgstr"
+msgstr "<msgid>glossentry.tooltip</msgid> <msgstr>Consulta la "
+"definizione di «<glossterm/>».</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
