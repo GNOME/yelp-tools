@@ -1,3 +1,7 @@
+2005-08-30  Nickolay V. Shmyrev <nshmyrev@yandex.ru>
+
+	* configure.in: Added "ru" to ALL_LINGUAS
+
 2005-08-30  Yair Hershkovitz  <yairhr@gmail.com>
 
 	* configure.in: Added "he" to ALL_LINGUAS
