@@ -1,3 +1,8 @@
+2005-09-05  Shaun McCance  <shaunm@gnome.org>
+
+	* po/ro.po:
+	- Reverting to revision 1.2, massive breakage
+
 2005-08-30  Nickolay V. Shmyrev <nshmyrev@yandex.ru>
 
 	* configure.in: Added "ru" to ALL_LINGUAS
