@@ -1110,7 +1110,7 @@ msgstr ""
 #.
 #: ../xslt/gettext/l10n.xml.in.h:939
 msgid "<msgid>question.xref</msgid> <msgstr>Question <number/></msgstr>"
-msgstr "<msgid>question.xref</msgid> <msgstr>Soru <number/></msgstr"
+msgstr "<msgid>question.xref</msgid> <msgstr>Soru <number/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
