@@ -1,0 +1,102 @@
+From: Danilo Šegan <danilo@gnome.org>
+Date: 2005-09-05
+Archive: http://mail.gnome.org/archives/gnome-doc-devel-list/2005-September/msg00000.html
+================================================================================
+
+I've finally started on Serbian localisation of g-d-u stylesheets.
+(Yeah, I know you've asked for translators to really get on with this
+way earlier, we are now in hard-code freeze and everything, but lets
+improve l10n.xml even more now :)
+
+And here are the things I may need.
+
+First off, any list numbering can take also use Serbian alphabet
+ordering: 
+
+А Б В Г Д Ђ Е Ж З И Ј К Л Љ М Н Њ О П Р С Т Ћ У Ф Х Ц Ч Џ Ш
+а б в г д ђ е ж з и ј к л љ м н њ о п р с т ћ у ф х ц ч џ ш
+
+This is unusable for anything other than Serbian, since all other
+Cyrillic languages miss at least some of these letters, and commonly
+have some others.  This is probably not easy to add because I even if 
+XSL has support for it, libxslt currently doesn't implement it, so you
+can't simply do 
+
+  <xsl:template name="db.digit.format.sr" >
+    <xsl:param name="digit"/>
+    <xsl:number format="а" lang="sr"/><!-- this is lowercase Cyrillic a -->
+  </xsl:template>
+
+  ...
+  <xsl:when test="$format = 'sr-lower'">
+    <xsl:call-template name="db.digit.format.sr">
+      <xsl:with-param name="digit" select="$digit"/>
+    </xsl:call-template>
+  </xsl:when>
+
+but you'd have to implement something like the following (Euclidean?
+:) algorithm:
+
+  <xsl:template name="db.digit.format.sr.lower" >
+    <xsl:param name="digit"/>
+    <xsl:choose> 
+      <xsl:when test="$digit&gt;30">
+        <xsl:call-template name="db.digit.format.srk">
+          <xsl:with-param name="digit" select="floor($digit div 30)"/>
+        </xsl:call-template>
+        <xsl:call-template name="db.digit.format.srk">
+          <xsl:with-param name="digit" select="$digit mod 30"/>
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:when test="$digit&lt;31">
+        <xsl:value-of select="substring('абвгдђежзијклљмнњопрстћуфхцчџш',$digit,1)"/>
+      </xsl:when>
+    </xsl:choose>
+  </xsl:template>
+
+(this one is for lowercase, and seems to work in my standalone tests :).
+
+Is it ok to add something like this and introduce a new "format"
+"sr-lower" and "sr-upper" that will call-template these ones as
+appropriate?  We should probably even generalise this to any alphabet
+anyway (i.e. instead of hard-coded substring alphabet, pass that up
+too :).
+
+
+
+
+Next, I wonder if we could use different roles for things like
+declensions of labels (<xref> stuff), eg:
+- "on figure 5" is "na *slici* 5" (locative)
+- "from figure 5" is "sa *slike* 5" (genitive)
+- "we blame figure 5" is "krivimo *sliku* 5" (accusative)
+- "figure 5" is "*slika* 5" (nominative)
+... (we have three more, like "with figure 5" [instrumental], "hey,
+figure 5, talk to me" [vocative] and "figure 5 misses something"
+[dative], but I don't want to bore you with examples; oh, I already
+did :)
+
+
+Now, imagine a following paragraph:
+
+<para>On <xref linkend="figure-sample"/>, if you take a good look,
+you'll see something. If we remove <xref linkend="figure-sample"/>,
+you'll end up seeing nothing.</para>
+
+would have to be translated to something like the following in
+Serbian:
+
+<para>On <xref linkend="figure-sample" xrefstyle="locative"/>, if you
+take a good look, you'll see something. If we remove <xref
+linkend="figure-sample" xrefstyle="accusative"/>, you'll end up seeing
+nothing.</para>
+
+and it should be rendered like:
+
+<p>On <a href="#figure-sample">slici 5</a>, if you take a good look,
+you'll see something. If we remove <a href="#figure-sample">sliku
+5</a>, you'll end up seeing nothing.</p>
+
+Note the "slici" and "sliku" renderings.  Do l10n stylesheets support
+that already (I didn't look :), or do we need to work on that as well?
+
