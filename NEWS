@@ -1,3 +1,19 @@
+Changes in 0.4.0:
+-----------------
+* Updated translations:
+  es      (Francisco Javier F. Serrador)
+  fr      (Vincent Untz)
+  he      (Yair Hershkovitz)
+  it      (Luca Ferretti)
+  ko      (Young-Ho Cha)
+  lt      (Žygimantas Beručka)
+  ro      (Iulian Benea)
+  ru      (Nickolay V. Shmyrev)
+  sr      (Danilo Šegan)
+  tr      (Baris Cicek)
+  zh_TW   (Chao-Hsiung Liao)
+  (30/46 languages with 100% translation)
+
 Changes in 0.3.3:
 -----------------
 * Only take one input file for xsldoc                     (Shaun McCance)
