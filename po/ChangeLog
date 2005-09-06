@@ -1,3 +1,8 @@
+2005-09-06  Frank Arnold  <farnold@cvs.gnome.org>
+
+	* de.po: Fixed two messages with untranslated content.
+	See Bug #315328. Spotted by Danilo.
+
 2005-09-06  Danilo Šegan  <danilo@gnome.org>
 
 	* sr.po, sr@Latn.po: Updated.
