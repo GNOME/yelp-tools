@@ -47,7 +47,7 @@ else
     cp $gdumk gnome-doc-utils.make
   fi
 fi
-if ! grep -q 'gnome-doc-utils\.make' $ac_top_srcdir/Makefile.am; then
+if ! grep 'gnome-doc-utils\.make' $ac_top_srcdir/Makefile.am >/dev/null; then
   echo gnome-doc-utils.make should be added to EXTRA_DIST in Makefile.am
 fi
 ])

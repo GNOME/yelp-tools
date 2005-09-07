@@ -1,3 +1,9 @@
+Changes in 0.4.1:
+-----------------
+* Fix Solaris portability issue, #315412                  (Shaun McCance)
+* Updated translations:
+  de      (Frank Arnold)
+
 Changes in 0.4.0:
 -----------------
 * Updated translations:
