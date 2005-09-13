@@ -1,3 +1,8 @@
+2005-09-13  Stepan Kasal  <kasal@ucw.cz>
+
+	* gnome-doc-prepare.in, gnome-doc-utils.pc.in: Add datarootdir
+	variable, for compatibility with future Autoconf releases.
+
 2005-09-07  Shaun McCance  <shaunm@gnome.org>
 
 	* NEWS

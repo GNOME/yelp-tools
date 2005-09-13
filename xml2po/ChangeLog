@@ -1,3 +1,8 @@
+2005-09-13  Stepan Kasal  <kasal@ucw.cz>
+
+	* xml2po.pc.in: Add datarootdir variable, for compatibility
+	with future Autoconf releases.
+
 2005-07-23  Danilo Šegan  <danilo@gnome.org>
 
 	* xml2po.1.xml: Document --language option, rewrite other parts.

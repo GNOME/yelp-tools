@@ -1,5 +1,6 @@
 prefix=@prefix@
 exec_prefix=${prefix}
+datarootdir=@datarootdir@
 modesdir=@datadir@/xml2po
 
 Name: xml2po

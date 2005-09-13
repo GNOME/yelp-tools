@@ -1,4 +1,5 @@
 prefix=@prefix@
+datarootdir=@datarootdir@
 datadir=@datadir@
 xmldir=${datadir}/xml
 xsltdir=${xmldir}/gnome/xslt

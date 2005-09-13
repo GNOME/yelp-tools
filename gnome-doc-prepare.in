@@ -40,6 +40,7 @@ VERSION=@VERSION@
 
 # Directory names.
 prefix=@prefix@
+datarootdir=@datarootdir@
 datadir=@datadir@
 pkgdatadir=@datadir@/gnome-doc-utils
 
