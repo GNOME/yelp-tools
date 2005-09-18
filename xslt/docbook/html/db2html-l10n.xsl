@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- -*- indent-tabs-mode: nil -*- -->
+<!--
+This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU Lesser General Public License as published by the Free
+Software Foundation; either version 2 of the License, or (at your option) any
+later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with this program; see the file COPYING.LGPL.  If not, write to the
+Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
+02111-1307, USA.
+-->
+
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+		xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
+                xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n"
+                xmlns="http://www.w3.org/1999/xhtml"
+		exclude-result-prefixes="doc"
+                version="1.0">
+
+<doc:title>Localization Formatters for HTML</doc:title>
+
+<xsl:template mode="l10n.format.mode" match="msg:span"
+              name="l10n.format.span">
+  <xsl:param name="node"/>
+  <xsl:param name="font_family"     select="string(@font-family)"/>
+  <xsl:param name="font_style"      select="string(@font-style)"/>
+  <xsl:param name="font_variant"    select="string(@font-variant)"/>
+  <xsl:param name="font_weight"     select="string(@font-weight)"/>
+  <xsl:param name="font_stretch"    select="string(@font-stretch)"/>
+  <xsl:param name="font_size"       select="string(@font-size)"/>
+  <xsl:param name="text_decoration" select="string(@text-decoration)"/>
+  <span>
+    <xsl:attribute name="style">
+      <xsl:if test="$font_family != ''">
+        <xsl:value-of select="concat('font-family: ', $font_family, '; ')"/>
+      </xsl:if>
+      <xsl:if test="$font_style != ''">
+        <xsl:value-of select="concat('font-style: ', $font_style, '; ')"/>
+      </xsl:if>
+      <xsl:if test="$font_variant != ''">
+        <xsl:value-of select="concat('font-variant: ', $font_variant, '; ')"/>
+      </xsl:if>
+      <xsl:if test="$font_weight != ''">
+        <xsl:value-of select="concat('font-weight: ', $font_weight, '; ')"/>
+      </xsl:if>
+      <xsl:if test="$font_stretch != ''">
+        <xsl:value-of select="concat('font-stretch: ', $font_stretch, '; ')"/>
+      </xsl:if>
+      <xsl:if test="$font_size != ''">
+        <xsl:value-of select="concat('font-size: ', $font_size, '; ')"/>
+      </xsl:if>
+      <xsl:if test="$text_decoration != ''">
+        <xsl:value-of select="concat('text-decoration: ', $text-decoration, '; ')"/>
+      </xsl:if>
+    </xsl:attribute>
+  </span>
+</xsl:template>
+
+<xsl:template mode="l10n.format.mode" match="msg:b">
+  <xsl:param name="node"/>
+  <xsl:call-template name="l10n.format.span">
+    <xsl:with-param name="node" select="$node"/>
+    <xsl:with-param name="font_weight" select="'bold'"/>
+  </xsl:call-template>
+</xsl:template>
+
+<xsl:template mode="l10n.format.mode" match="msg:big">
+  <xsl:param name="node"/>
+  <xsl:call-template name="l10n.format.span">
+    <xsl:with-param name="node" select="$node"/>
+    <xsl:with-param name="font_size" select="'1.2em'"/>
+  </xsl:call-template>
+</xsl:template>
+
+<xsl:template mode="l10n.format.mode" match="msg:i">
+  <xsl:param name="node"/>
+  <xsl:call-template name="l10n.format.span">
+    <xsl:with-param name="node" select="$node"/>
+    <xsl:with-param name="font_style" select="'italic'"/>
+  </xsl:call-template>
+</xsl:template>
+
+<xsl:template mode="l10n.format.mode" match="msg:sub">
+  <xsl:param name="node"/>
+  <sub>
+    <xsl:apply-templates mode="l10n.format.mode">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:apply-templates>
+  </sub>
+</xsl:template>
+
+<xsl:template mode="l10n.format.mode" match="msg:sup">
+  <xsl:param name="node"/>
+  <sup>
+    <xsl:apply-templates mode="l10n.format.mode">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:apply-templates>
+  </sup>
+</xsl:template>
+
+<xsl:template mode="l10n.format.mode" match="msg:small">
+  <xsl:param name="node"/>
+  <xsl:call-template name="l10n.format.span">
+    <xsl:with-param name="node" select="$node"/>
+    <xsl:with-param name="font_size" select="'0.8em'"/>
+  </xsl:call-template>
+</xsl:template>
+
+<xsl:template mode="l10n.format.mode" match="msg:tt">
+  <xsl:param name="node"/>
+  <xsl:call-template name="l10n.format.span">
+    <xsl:with-param name="node" select="$node"/>
+    <xsl:with-param name="font_family" select="'monospace'"/>
+  </xsl:call-template>
+</xsl:template>
+
+<xsl:template mode="l10n.format.mode" match="msg:u">
+  <xsl:param name="node"/>
+  <xsl:call-template name="l10n.format.span">
+    <xsl:with-param name="node" select="$node"/>
+    <xsl:with-param name="text_decoration" select="'underline'"/>
+  </xsl:call-template>
+</xsl:template>
+
+</xsl:stylesheet>

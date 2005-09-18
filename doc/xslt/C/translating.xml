@@ -260,11 +260,11 @@ msgstr ""
   <section id="translating-formats">
     <title>Format Strings</title>
 
-    <para>The Gnome documentation stylesheets can translate more than simple
-    strings using specialized format strings.  These are similar in principle
-    to format strings used in C programs, except that XML is used to insert
-    named parameters, rather than special format tokens being used to insert
-    positional parameters.</para>
+    <para>Using specialized format strings, the Gnome documentation stylesheets
+    can translate more than just simple strings.  These format strings are
+    similar in principle to format strings used in C programs, except that
+    XML is used to insert named parameters, rather than special format tokens
+    being used to insert positional parameters.</para>
 
     <para>For instance, DocBook provides the <sgmltag>quote</sgmltag> element,
     used to mark inline quotations. How to render an inline quotation depends
@@ -299,11 +299,114 @@ msgstr ""
     use of all the available arguments.</para>
 
     <para>In addition to marker elements in format strings, translators
-    may also use simple inline formatting markup.  Currently, the only
-    supported elements are <sgmltag>i</sgmltag> for italics,
-    <sgmltag>b</sgmltag> for bold, and <sgmltag>tt</sgmltag> for
-    monospace.  This may be expanded to include all of PangoMarkup
-    in the future.</para>
+    may also use simple inline formatting markup.  Any content can be
+    wrapped in a <sgmltag>span</sgmltag> element with certain attributes
+    to control formatting.  The attributes are a subset of CSS properties.
+    For HTML output, they are converted directly into the corresponding
+    CSS.  The list of allowed attributes is as follows:</para>
+
+    <variablelist>
+      <varlistentry>
+        <term><sgmltag>font-family</sgmltag></term>
+        <listitem><para>This attribute sets the font family.  Specifying
+        exact font is generally a not advisable.  Rather, this should be
+        used to provide a generic family: serif, sans-serif, cursive,
+        fantasy, or monospace.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><sgmltag>font-style</sgmltag></term>
+        <listitem><para>This attribute can be used to italicize the text.
+        The allowed values are italic, oblique, and normal.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><sgmltag>font-variant</sgmltag></term>
+        <listitem><para>This attribute can be used to set the text in small
+        caps.  Small caps prints lowercase letters with smaller versions of
+        the uppercase glyphs.  The allowed values are small-caps and normal.
+        </para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><sgmltag>font-weight</sgmltag></term>
+        <listitem><para>This attribute can be used to mark the text bold.
+        CSS allows any number from 100 to 900, with normal text being 400
+        and bold being 700.  In addition to numerical values, you can use
+        one of bold, bolder, lighter, or normal to use pre-defined values.
+        Only bold and normal should generally be needed.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><sgmltag>font-stretch</sgmltag></term>
+        <listitem><para>This attribute can be used to stretch or condense
+        the font.  CSS allows a number of keywords to specify by exactly
+        how much to stretch the font.  In practice, only wider, narrower,
+        and normal should generally be used.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><sgmltag>font-size</sgmltag></term>
+        <listitem><para>This attribute sets the size of the font.  CSS
+        allows both absolute font sizes using keywords or numeric lenghts,
+        as well as relative font sizes using keywords or percentages.
+        Generally, only larger, smaller, and normal should be used for
+        this attribute.  Better, use the <sgmltag>big</sgmltag> and
+        <sgmltag>small</sgmltag> convenience elements described below.
+        They are defined to respect the size scales used throughout the
+        stylesheets.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><sgmltag>text-decoration</sgmltag></term>
+        <listitem><para>This attribute can set various effects on the text.
+        The allowed values are none, underline, overline, line-through,
+        and blink.  Don't use blink.</para></listitem>
+      </varlistentry>
+    </variablelist>
+
+    <para>Additionally, extra inline elements are provided for convenience.
+    The formatting done by these elements could also be done using the
+    <sgmltag>span</sgmltag> element.  Using these elements is just easier
+    for common formatting tasks.</para>
+
+    <variablelist>
+      <varlistentry>
+        <term><sgmltag>big</sgmltag></term>
+        <listitem><para>Make the text larger.  This is preferred over using
+        the <sgmltag>font-size</sgmltag> attribute, because it is defined to
+        use the size scale used throughout the stylesheets.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><sgmltag>small</sgmltag></term>
+        <listitem><para>Make the text smaller.  This is preferred over using
+        the <sgmltag>font-size</sgmltag> attribute, because it is defined to
+        use the size scale used throughout the stylesheets.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><sgmltag>sub</sgmltag></term>
+        <listitem><para>Render the text as a subscript.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><sgmltag>sup</sgmltag></term>
+        <listitem><para>Render the text as a superscript.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><sgmltag>b</sgmltag></term>
+        <listitem><para>Make the text bold.  This is equivalent to setting
+        the <sgmltag>font-weight</sgmltag> attribute to bold.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><sgmltag>i</sgmltag></term>
+        <listitem><para>Make the text italic.  This is equivalent to setting
+        the <sgmltag>font-style</sgmltag> attribute to italic.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><sgmltag>tt</sgmltag></term>
+        <listitem><para>Make the text monospace.  This is equivalent to setting
+        the <sgmltag>font-family</sgmltag> attribute to monospace.</para></listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><sgmltag>u</sgmltag></term>
+        <listitem><para>Underline the text.  This is equivalent to setting the
+        <sgmltag>text-decoration</sgmltag> attribute to underline.</para></listitem>
+      </varlistentry>
+    </variablelist>
+
   </section>
 
   <section id="translating-types">
