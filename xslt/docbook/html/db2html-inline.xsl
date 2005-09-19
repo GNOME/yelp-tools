@@ -396,7 +396,9 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!-- = interface = -->
 <xsl:template match="interface">
-  <xsl:call-template name="db2html.inline"/>
+  <xsl:call-template name="db2html.inline">
+    <xsl:with-param name="bold" select="true()"/>
+  </xsl:call-template>
 </xsl:template>
 
 <!-- = interfacename = -->
