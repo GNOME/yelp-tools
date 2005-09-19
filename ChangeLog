@@ -1,5 +1,13 @@
 2005-09-18  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/html/db2html-inline.xsl:
+	- Fixed bug which causes quote to be formatted as citetitle
+
+	* xslt/docbook/html/db2html-l10n.xsl:
+	- Fixed problem that caused new l10n markup not to work
+
+2005-09-18  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/docbook/html/db2html-title.xsl:
 	- Adjusted some sizes, added space after admon title, #154239
 

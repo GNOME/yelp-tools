@@ -615,7 +615,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <xsl:template match="quote">
   <span class="quote">
     <xsl:call-template name="l10n.gettext">
-      <xsl:with-param name="msgid" select="'citetitle.format'"/>
+      <xsl:with-param name="msgid" select="'quote.format'"/>
       <xsl:with-param name="role">
         <xsl:choose>
           <xsl:when test="(count(ancestor::quote) mod 2) = 0">

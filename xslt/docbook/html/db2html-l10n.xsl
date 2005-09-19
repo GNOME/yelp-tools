@@ -59,6 +59,9 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
         <xsl:value-of select="concat('text-decoration: ', $text-decoration, '; ')"/>
       </xsl:if>
     </xsl:attribute>
+    <xsl:apply-templates mode="l10n.format.mode">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:apply-templates>
   </span>
 </xsl:template>
 
