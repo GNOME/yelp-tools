@@ -1,5 +1,10 @@
 2005-09-18  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/html/db2html-title.xsl:
+	- Adjusted some sizes, added space after admon title, #154239
+
+2005-09-18  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/docbook/html/db2html-inline.xsl:
 	- Style interface like guimenu et al, per #154237
 

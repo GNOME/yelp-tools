@@ -36,24 +36,21 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <xsl:template name="db2html.title.css">
   <xsl:text>
-    h1 { font-size: 1.6em; margin-top: 0em; }
-    h2 { font-size: 1.4em; }
-    h2[class~="title"] { margin-top: 3em; border-bottom: solid 1px; }
+    h1 { font-size: 1.72em; margin-top: 0em; }
+    h2 { font-size: 1.44em; }
+    h2[class~="title"] { margin-top: 1.72em; border-bottom: solid 1px; }
 
     h3                      { font-size: 1.2em; }
-    h3[class~="title"]      { margin-top: 2em; }
+    h3[class~="title"]      { margin-top: 1.72em; }
     h3 span[class~="title"] { border-bottom: solid 1px; }
 
     h4                      { font-size: 1.0em; }
-    h4[class~="title"]      { margin-top: 1.5em; }
+    h4[class~="title"]      { margin-top: 1.44em; }
     h4 span[class~="title"] { border-bottom: solid 1px; }
 
     h5 { font-size: 1em; margin-top: 1em; }
     h6 { font-size: 1em; margin-top: 1em; }
     h7 { font-size: 1em; margin-top: 1em; }
-
-    div[class~="title"] { margin-bottom: 0em; }
-    div[class~="title"] + * { margin-top: 0em; }
   </xsl:text>
 </xsl:template>
 
