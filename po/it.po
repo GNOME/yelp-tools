@@ -21,8 +21,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-09-18 17:53+0200\n"
-"PO-Revision-Date: 2005-09-06 12:47+0200\n"
+"POT-Creation-Date: 2005-09-22 22:14+0200\n"
+"PO-Revision-Date: 2005-09-22 22:15+0200\n"
 "Last-Translator: Luca Ferretti <elle.uca@infinito.it>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "MIME-Version: 1.0\n"
@@ -1659,7 +1659,6 @@ msgstr "Associazione"
 #. This is used as a default title for caution elements.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1386
-#, fuzzy
 msgid "Caution"
 msgstr "Attenzione"
 
