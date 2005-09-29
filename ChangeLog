@@ -1,4 +1,4 @@
-2005-09-21  Shaun McCance  <shaunm@gnome.org>
+2005-09-28  Shaun McCance  <shaunm@gnome.org>
 
 	* gnome-doc-utils.make:
 	- Put figures in the tarball, once and for all
