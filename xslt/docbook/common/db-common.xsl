@@ -88,25 +88,30 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <xsl:param name="node" select="."/>
   <xsl:param name="number" select="1"/>
   <xsl:variable name="substr" select="string($node)"/>
-  <xsl:number value="$number"/>
   <xsl:call-template name="db.linenumbering.substr">
     <xsl:with-param name="substr" select="$substr"/>
-    <xsl:with-param name="number" select="$number + 1"/>
+    <xsl:with-param name="number" select="$number"/>
   </xsl:call-template>
 </xsl:template>
 
 <xsl:template name="db.linenumbering.substr" doc:private="true">
   <xsl:param name="substr"/>
   <xsl:param name="number"/>
-  <xsl:if test="contains($substr, '&#x000A;')">
-    <xsl:text>&#x000A;</xsl:text>
-    <xsl:number value="$number"/>
-    <xsl:call-template name="db.linenumbering.substr">
-      <xsl:with-param name="substr"
-                      select="substring-after($substr, '&#x000A;')"/>
-      <xsl:with-param name="number" select="$number + 1"/>
-    </xsl:call-template>
-  </xsl:if>
+  <xsl:choose>
+    <xsl:when test="contains($substr, '&#x000A;')">
+      <xsl:number value="$number"/>
+      <xsl:text>&#x000A;</xsl:text>
+      <xsl:call-template name="db.linenumbering.substr">
+        <xsl:with-param name="substr"
+                        select="substring-after($substr, '&#x000A;')"/>
+        <xsl:with-param name="number" select="$number + 1"/>
+      </xsl:call-template>
+    </xsl:when>
+    <xsl:when test="string-length($substr) != 0">
+      <xsl:number value="$number"/>
+      <xsl:text>&#x000A;</xsl:text>
+    </xsl:when>
+  </xsl:choose>
 </xsl:template>
 
 <!-- == db.personname ====================================================== -->

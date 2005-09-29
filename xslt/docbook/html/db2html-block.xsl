@@ -276,6 +276,10 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     pre[class~="linenumbering"] {
       <!-- This margin is important to get the line numbering
       to line up vertically with the content. -->
+      padding-top: 6px;
+      padding-bottom: 6px;
+      -moz-border-radius: 8px;
+      border: solid 1px black;
       margin-top: 0px;
       margin-left: 0.83em;
       background-color: black;

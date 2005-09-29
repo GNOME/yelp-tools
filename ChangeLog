@@ -1,5 +1,11 @@
 2005-09-28  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/common/db-common.xsl:
+	* xslt/docbook/html/db2html-block.xsl:
+	- Line numbering fixes from Brent Smith, #317270 #317204
+
+2005-09-28  Shaun McCance  <shaunm@gnome.org>
+
 	* gnome-doc-utils.make:
 	- Put figures in the tarball, once and for all
 
