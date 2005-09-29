@@ -52,15 +52,15 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     div[class~="list"] dl dt { margin-left: 0em; }
     div[class~="list"] dl dd + dt { margin-top: 1em; }
     div[class~="list"] dl dd {
-      margin-top: 1em;
-      margin-left: 2em;
+      margin-top: 0.69em;
+      margin-left: 1.72em;
       margin-right: 1em;
     }
-    div[class~="list"] ul { margin-left: 2em; padding-left: 0em; }
-    div[class~="list"] ol { margin-left: 2em; padding-left: 0em; }
+    div[class~="list"] ul { margin-left: 1.72em; padding-left: 0em; }
+    div[class~="list"] ol { margin-left: 1.72em; padding-left: 0em; }
     div[class~="list"] ul li { margin-right: 1em; padding: 0em; }
     div[class~="list"] ol li { margin-right: 1em; padding: 0em; }
-    div[class~="list"] li + li { margin-top: 0.5em; }
+    div[class~="list"] li + li { margin-top: 0.69em; }
   </xsl:text>
 </xsl:template>
 

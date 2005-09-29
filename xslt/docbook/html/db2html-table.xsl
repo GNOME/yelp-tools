@@ -69,12 +69,12 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:if>
   <xsl:text>
     td {
-      padding-left: 0.8em;
-      padding-right: 0.8em;
+      padding-left: 0.83em;
+      padding-right: 0.83em;
       padding-top: 4px;
       padding-bottom: 4px;
     }
-    th { padding-left: 0.8em; padding-right: 0.8em; }
+    th { padding-left: 0.8em; padding-right: 0.83em; }
     thead {
       border-top: solid 2px;
       border-bottom: solid 2px;

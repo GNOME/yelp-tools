@@ -1,3 +1,14 @@
+2005-09-21  Shaun McCance  <shaunm@gnome.org>
+
+	* gnome-doc-utils.make:
+	- Put figures in the tarball, once and for all
+
+	* xslt/docbook/html/db2html-block.xsl:
+	* xslt/docbook/html/db2html-l10n.xsl:
+	* xslt/docbook/html/db2html-list.xsl:
+	* xslt/docbook/html/db2html-table.xsl:
+	- Sizing adjustments
+
 2005-09-18  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/html/db2html-inline.xsl:

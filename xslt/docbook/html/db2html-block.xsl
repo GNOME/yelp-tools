@@ -230,7 +230,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <xsl:template name="db2html.block.css">
   <xsl:text>
     *[class~="block-indent"] {
-      margin-left: 2em;
+      margin-left: 1.72em;
       margin-right: 1em;
     }
     *[class~="block-indent"] *[class~="block-indent"] {
@@ -277,7 +277,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
       <!-- This margin is important to get the line numbering
       to line up vertically with the content. -->
       margin-top: 0px;
-      margin-left: 0.8em;
+      margin-left: 0.83em;
       background-color: black;
       color: white;
       -moz-opacity: .3;

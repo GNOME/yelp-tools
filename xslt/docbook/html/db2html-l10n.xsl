@@ -111,7 +111,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <xsl:param name="node"/>
   <xsl:call-template name="l10n.format.span">
     <xsl:with-param name="node" select="$node"/>
-    <xsl:with-param name="font_size" select="'0.8em'"/>
+    <xsl:with-param name="font_size" select="'0.83em'"/>
   </xsl:call-template>
 </xsl:template>
 

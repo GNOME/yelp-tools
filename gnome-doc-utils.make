@@ -571,7 +571,7 @@ maintainer-clean-local:					\
 .PHONY: dist-doc-docs dist-doc-figs dist-doc-omf dist-doc-dsk
 doc-dist-hook: 					\
 	$(if $(DOC_MODULE),dist-doc-docs)	\
-	$(if $(DOC_FIGURES),dist-doc-figs)	\
+	$(if $(_DOC_C_FIGURES),dist-doc-figs)	\
 	$(if $(_DOC_OMF_IN),dist-doc-omf)
 #	$(if $(_DOC_DSK_IN),dist-doc-dsk)
 
