@@ -1,3 +1,8 @@
+2005-10-01  Crispin Flowerday  <gnome@flowerday.cx>
+
+	* configure.in: Up version number to 0.5.1 
+	(requested by shaunm)
+
 2005-09-28  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/common/db-common.xsl:
