@@ -469,11 +469,12 @@ $(_DOC_POFILES): $(_DOC_C_DOCS)
 $(_DOC_LC_DOCS) : $(_DOC_POFILES)
 $(_DOC_LC_DOCS) : $(_DOC_C_DOCS)
 	if ! test -d $(dir $@); then mkdir $(dir $@); fi
-	if test -f "C/$(notdir $@)"; then d="../"; else d="../$(srcdir)/"; fi; \
+	case "$(srcdir)" in /*) sd="$(srcdir)";; *) sd="../$(srcdir)";;	esac; \
+	if [ -f "C/$(notdir $@)" ]; then d="../"; else d="$sd/"; fi; \
 	(cd $(dir $@) && \
 	  $(_xml2po) -e -p \
-	    $${d}$(dir $@)$(patsubst %/$(notdir $@),%,$@).po \
-	    $${d}C/$(notdir $@) > $(notdir $@).tmp && \
+	    "$${d}$(dir $@)$(patsubst %/$(notdir $@),%,$@).po" \
+	    "$${d}C/$(notdir $@)" > $(notdir $@).tmp && \
 	    cp $(notdir $@).tmp $(notdir $@) && rm -f $(notdir $@).tmp)
 
 ## @ _DOC_POT
