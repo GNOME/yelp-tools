@@ -34,7 +34,7 @@ DOC_H_DOCS ?=
 $(DOC_H_FILE): $(DOC_H_DOCS);
 	@rm -f $@.tmp; touch $@.tmp;
 	echo 'const gchar* documentation_credits[] = {' >> $@.tmp
-	for doc in $(DOC_H_DOCS); do \
+	list='$(DOC_H_DOCS)'; for doc in $$list; do \
 	  xmlpath="`echo $$doc | sed -e 's/^\(.*\/\).*/\1/' -e '/\//!s/.*//'`:$(srcdir)/`echo $$doc | sed -e 's/^\(.*\/\).*/\1/' -e '/\//!s/.*//'`"; \
 	  if ! test -f "$$doc"; then doc="$(srcdir)/$$doc"; fi; \
 	  xsltproc --path "$$xmlpath" $(_credits) $$doc; \
@@ -44,7 +44,7 @@ $(DOC_H_FILE): $(DOC_H_DOCS);
 	echo '	NULL' >> $@.tmp
 	echo '};' >> $@.tmp
 	echo >> $@.tmp
-	for doc in $(DOC_H_DOCS); do \
+	list='$(DOC_H_DOCS)'; for doc in $$list; do \
 	  xmlpath="`echo $$doc | sed -e 's/^\(.*\/\).*/\1/' -e '/\//!s/.*//'`:$(srcdir)/`echo $$doc | sed -e 's/^\(.*\/\).*/\1/' -e '/\//!s/.*//'`"; \
 	  if ! test -f "$$doc"; then doc="$(srcdir)/$$doc"; fi; \
 	  docid=`echo "$$doc" | sed -e 's/.*\/\([^/]*\)\.xml/\1/' \
@@ -306,7 +306,7 @@ _CVSIGNORE_LC_FILES = $(_DOC_LC_DOCS)
 $(_CVSIGNORE_TOP) : $(_CVSIGNORE_TOP_FILES)
 	if ! test -f $@; then touch $@; fi
 	cat $@ > $@.tmp
-	for file in $^; do \
+	list='$^'; for file in $$list; do \
 	  echo $$file >> $@.tmp; \
 	done
 	cat $@.tmp | sort | uniq > $@
@@ -315,7 +315,7 @@ $(_CVSIGNORE_TOP) : $(_CVSIGNORE_TOP_FILES)
 $(_CVSIGNORE_C) : $(_CVSIGNORE_C_FILES)
 	if ! test -f $@; then touch $@; fi
 	cat $@ > $@.tmp
-	for file in $^; do \
+	list='$^'; for file in $$list; do \
 	  echo $$file | sed -e 's/.*\///' >> $@.tmp; \
 	done
 	cat $@.tmp | sort | uniq > $@
@@ -324,7 +324,8 @@ $(_CVSIGNORE_C) : $(_CVSIGNORE_C_FILES)
 $(_CVSIGNORE_LC) : $(_CVSIGNORE_LC_FILES)
 	if ! test -f $@; then touch $@; fi
 	cat $@ > $@.tmp
-	for file in $(wildcard $(_CVSIGNORE_LC_FILES),$(dir $@)/*); do \
+	list='$(wildcard $(_CVSIGNORE_LC_FILES),$(dir $@)/*)'; \
+	for file in $$list; do \
 	  echo $$file | sed -e 's/.*\///' >> $@.tmp; \
 	done
 	cat $@.tmp | sort | uniq > $@
@@ -443,7 +444,7 @@ $(_DOC_POFILES): $(_DOC_C_DOCS)
 	  cp "$(srcdir)/$@" "$@"; \
 	fi;
 	@docs=; \
-	for doc in $(_DOC_C_DOCS_NOENT) ; do \
+	list='$(_DOC_C_DOCS_NOENT)'; for doc in $$list; do \
 	  if test -f $$doc; then \
 	    docs="$$docs ../$$doc"; \
 	  else \
@@ -522,7 +523,7 @@ clean-doc-omf: ; rm -f $(_DOC_OMF_DB) $(_DOC_OMF_HTML)
 clean-doc-dsk: ; rm -f $(_DOC_DSK_DB) $(_DOC_DSK_HTML)
 clean-doc-lc:
 	rm -f $(_DOC_LC_DOCS)
-	@for po in $(_DOC_POFILES); do \
+	@list='$(_DOC_POFILES)'; for po in $$list; do \
 	  if ! test "$$po" -ef "$(srcdir)/$$po"; then \
 	    echo "rm -f $$po"; \
 	    rm -f "$$po"; \
@@ -581,14 +582,16 @@ dist-doc-docs: $(_DOC_C_DOCS) $(_DOC_LC_DOCS) $(_DOC_POFILES)
 	  echo " $(mkinstalldirs) $(distdir)/$$lc"; \
 	  $(mkinstalldirs) "$(distdir)/$$lc"; \
 	done
-	@for doc in $(_DOC_C_DOCS) $(_DOC_LC_DOCS) $(_DOC_POFILES); do \
+	@list='$(_DOC_C_DOCS) $(_DOC_LC_DOCS) $(_DOC_POFILES)'; \
+	for doc in $$list; do \
 	  if test -f "$$doc"; then d=; else d="$(srcdir)/"; fi; \
 	  echo "$(INSTALL_DATA) $$d$$doc $(distdir)/$$doc"; \
 	  $(INSTALL_DATA) "$$d$$doc" "$(distdir)/$$doc"; \
 	done
 
 dist-doc-figs: $(_DOC_SRC_FIGURES)
-	@for fig in $(_DOC_C_FIGURES) $(_DOC_LC_FIGURES); do \
+	@list='$(_DOC_C_FIGURES) $(_DOC_LC_FIGURES)'; \
+	for fig in $$list; do \
 	  if test -f "$$fig"; then d=; else d="$(srcdir)/"; fi; \
 	  if test -f "$$d$$fig"; then \
 	    figdir=`echo $$fig | sed -e 's/^\(.*\/\).*/\1/' -e '/\//!s/.*//'`; \
@@ -631,7 +634,7 @@ check-doc-docs: $(_DOC_C_DOCS) $(_DOC_LC_DOCS)
 	done
 
 check-doc-omf: $(_DOC_OMF_ALL)
-	@for omf in $(_DOC_OMF_ALL); do \
+	@list='$(_DOC_OMF_ALL)'; for omf in $$list; do \
 	  echo "xmllint --noout --dtdvalid 'http://scrollkeeper.sourceforge.net/dtds/scrollkeeper-omf-1.0/scrollkeeper-omf.dtd' $$omf"; \
 	  xmllint --noout --dtdvalid 'http://scrollkeeper.sourceforge.net/dtds/scrollkeeper-omf-1.0/scrollkeeper-omf.dtd' $$omf; \
 	done
@@ -650,14 +653,14 @@ install-doc-docs:
 	  echo "$(mkinstalldirs) $(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$lc"; \
 	  $(mkinstalldirs) $(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$lc; \
 	done
-	@for doc in $(_DOC_C_DOCS) $(_DOC_LC_DOCS); do \
+	@list='$(_DOC_C_DOCS) $(_DOC_LC_DOCS)'; for doc in $$list; do \
 	  if test -f "$$doc"; then d=; else d="$(srcdir)/"; fi; \
 	  echo "$(INSTALL_DATA) $$d$$doc $(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$doc"; \
 	  $(INSTALL_DATA) $$d$$doc $(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$doc; \
 	done
 
 install-doc-figs:
-	@for fig in $(patsubst C/%,%,$(_DOC_C_FIGURES)); do \
+	@list='$(patsubst C/%,%,$(_DOC_C_FIGURES))'; for fig in $$list; do \
 	  for lc in C $(DOC_LINGUAS); do \
 	    if test -f "$$lc/$$fig"; then \
 	      figfile="$$lc/$$fig"; \
@@ -685,7 +688,7 @@ install-doc-html:
 
 install-doc-omf:
 	$(mkinstalldirs) $(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)
-	@for omf in $(_DOC_OMF_ALL); do \
+	@list='$(_DOC_OMF_ALL)'; for omf in $$list; do \
 	  echo "$(INSTALL_DATA) $$omf $(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf"; \
 	  $(INSTALL_DATA) $$omf $(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf; \
 	done
@@ -707,19 +710,19 @@ uninstall-local:					\
 #	$(if $(_DOC_DSK_IN),uninstall-doc-dsk)
 
 uninstall-doc-docs:
-	@for doc in $(_DOC_C_DOCS) $(_DOC_LC_DOCS); do \
+	@list='$(_DOC_C_DOCS) $(_DOC_LC_DOCS)'; for doc in $$list; do \
 	  echo " rm -f $(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$doc"; \
 	  rm -f "$(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$doc"; \
 	done
 
 uninstall-doc-figs:
-	@for fig in $(_DOC_C_FIGURES) $(_DOC_LC_FIGURES); do \
+	@list='$(_DOC_C_FIGURES) $(_DOC_LC_FIGURES)'; for fig in $$list; do \
 	  echo "rm -f $(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$fig"; \
 	  rm -f "$(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$fig"; \
 	done;
 
 uninstall-doc-omf:
-	@for omf in $(_DOC_OMF_ALL); do \
+	@list='$(_DOC_OMF_ALL)'; for omf in $$list; do \
 	  if test "x$(_ENABLE_SK)" == "xtrue"; then \
 	    echo "scrollkeeper-uninstall -p $(_sklocalstatedir) $(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf"; \
 	    scrollkeeper-uninstall -p "$(_sklocalstatedir)" "$(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf"; \

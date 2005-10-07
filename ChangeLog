@@ -1,3 +1,8 @@
+2005-10-07  Shaun McCance  <shaunm@gnome.org>
+
+	* gnome-doc-utils.make:
+	- Fix for loops on old bourne shells, #317308
+
 2005-10-05  Frederic Crozat  <fcrozat@mandriva.com>
 
 	* gnome-doc-utils.make:
