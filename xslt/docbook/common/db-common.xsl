@@ -87,7 +87,36 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <xsl:template name="db.linenumbering">
   <xsl:param name="node" select="."/>
   <xsl:param name="number" select="1"/>
-  <xsl:variable name="substr" select="string($node)"/>
+  <xsl:variable name="substr">
+    <xsl:choose>
+      <xsl:when test="node()[1]/self::text()">
+        <xsl:choose>
+          <!-- CR LF -->
+          <xsl:when test="starts-with(string($node), '&#x000D;&#x000A;')">
+            <xsl:value-of select="substring-after(string($node), '&#x000D;&#x000A;')"/>
+          </xsl:when>
+          <!-- CR -->
+          <xsl:when test="starts-with(string($node), '&#x000D;')">
+            <xsl:value-of select="substring-after(string($node), '&#x000D;')"/>
+          </xsl:when>
+          <!-- LF -->
+          <xsl:when test="starts-with(string($node), '&#x000A;')">
+            <xsl:value-of select="substring-after(string($node), '&#x000A;')"/>
+          </xsl:when>
+          <!-- NEL -->
+          <xsl:when test="starts-with(string($node), '&#x0085;')">
+            <xsl:value-of select="substring-after(string($node), '&#x0085;')"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="string($node)"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="string($node)"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
   <xsl:call-template name="db.linenumbering.substr">
     <xsl:with-param name="substr" select="$substr"/>
     <xsl:with-param name="number" select="$number"/>
