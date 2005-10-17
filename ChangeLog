@@ -1,3 +1,6 @@
+2005-10-17  Runa Bhattacharjee  <runa@bengalinux.org>
+	* configure.in: Added Bengali (bn) to ALL_LINGUAS
+
 2005-10-12  Brent Smith  <gnome@nextreality.net>
 
 	* xslt/docbook/common/db-common.xsl:
