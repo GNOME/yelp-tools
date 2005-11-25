@@ -570,6 +570,17 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
+<!-- = bibliography = -->
+<xsl:template mode="db.chunk.content.mode" match="bibliography">
+  <xsl:param name="depth_of_chunk">
+    <xsl:call-template name="db.chunk.depth-of-chunk"/>
+  </xsl:param>
+  <xsl:call-template name="db2html.division.html">
+    <xsl:with-param name="info" select="bibliographyinfo"/>
+    <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+  </xsl:call-template>
+</xsl:template>
+
 <!-- = book = -->
 <xsl:template mode="db.chunk.content.mode" match="book">
   <xsl:param name="depth_of_chunk">
@@ -802,7 +813,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     <xsl:with-param name="entries" select="glossentry"/>
     <xsl:with-param name="divisions" select="glossdiv | bibliography"/>
     <xsl:with-param name="title_content">
-      <xsl:if test="not(title)">
+      <xsl:if test="not(title) and not(glossaryinfo/title)">
         <xsl:call-template name="l10n.gettext">
           <xsl:with-param name="msgid" select="'Glossary'"/>
         </xsl:call-template>
@@ -811,6 +822,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     <xsl:with-param name="info" select="glossaryinfo"/>
     <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
     <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+    <xsl:with-param name="chunk_divisions" select="false()"/>
   </xsl:call-template>
 </xsl:template>
 

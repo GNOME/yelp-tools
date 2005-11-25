@@ -25,7 +25,7 @@ for doc in `ls $helpdir`; do
 		mkdir -p "$outdir";
 		rm -f "$logfile" && touch "$logfile";
 		for i in 1 2 3 4 5; do
-		    xsltproc --timing \
+		    xsltproc --xinclude --timing \
 			--stringparam "db.chunk.basename" "$doc" \
 			-o "$outfile" \
 			../../xslt/docbook/html/db2html.xsl \

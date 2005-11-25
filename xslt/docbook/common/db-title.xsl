@@ -156,6 +156,11 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     <xsl:when test="bibliographyinfo/title">
       <xsl:apply-templates select="bibliographyinfo/title/node()"/>
     </xsl:when>
+    <xsl:otherwise>
+      <xsl:call-template name="l10n.gettext">
+        <xsl:with-param name="msgid" select="'Bibliography'"/>
+      </xsl:call-template>
+    </xsl:otherwise>
   </xsl:choose>
 </xsl:template>
 
@@ -484,6 +489,11 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     <xsl:when test="bibliographyinfo/title">
       <xsl:apply-templates select="bibliographyinfo/title/node()"/>
     </xsl:when>
+    <xsl:otherwise>
+      <xsl:call-template name="l10n.gettext">
+        <xsl:with-param name="msgid" select="'Bibliography'"/>
+      </xsl:call-template>
+    </xsl:otherwise>
   </xsl:choose>
 </xsl:template>
 

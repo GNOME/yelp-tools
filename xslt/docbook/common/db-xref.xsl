@@ -129,6 +129,32 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
+<!-- = biblioentry = -->
+<xsl:template mode="db.xref.content.mode" match="biblioentry">
+  <xsl:call-template name="db.label">
+    <xsl:with-param name="node" select="."/>
+  </xsl:call-template>
+</xsl:template>
+
+<!-- = bibliography = -->
+<xsl:template mode="db.xref.content.mode" match="bibliography">
+  <xsl:param name="xrefstyle"/>
+  <xsl:param name="role" select="substring-after($xrefstyle, 'role:')"/>
+  <xsl:call-template name="l10n.gettext">
+    <xsl:with-param name="msgid" select="'bibliography.xref'"/>
+    <xsl:with-param name="role" select="$role"/>
+    <xsl:with-param name="node" select="."/>
+    <xsl:with-param name="format" select="true()"/>
+  </xsl:call-template>
+</xsl:template>
+
+<!-- = bibliomixed = -->
+<xsl:template mode="db.xref.content.mode" match="bibliomixed">
+  <xsl:call-template name="db.label">
+    <xsl:with-param name="node" select="."/>
+  </xsl:call-template>
+</xsl:template>
+
 <!-- = book = -->
 <xsl:template mode="db.xref.content.mode" match="book">
   <xsl:param name="xrefstyle"/>
@@ -392,6 +418,14 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <xsl:template mode="db.xref.tooltip.mode" match="*">
   <xsl:call-template name="db.title">
     <xsl:with-param name="node" select="."/>
+  </xsl:call-template>
+</xsl:template>
+
+<xsl:template mode="db.xref.tooltip.mode" match="biblioentry | bibliomixed">
+  <xsl:call-template name="l10n.gettext">
+    <xsl:with-param name="msgid" select="'biblioentry.tooltip'"/>
+    <xsl:with-param name="node" select="."/>
+    <xsl:with-param name="format" select="true()"/>
   </xsl:call-template>
 </xsl:template>
 

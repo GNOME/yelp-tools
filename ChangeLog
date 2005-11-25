@@ -1,3 +1,26 @@
+2005-11-25  Shaun McCance  <shaunm@gnome.org>
+
+	* test/timing/timeall:
+	- Do XInclude when timing
+
+	* xslt/docbook/common/db-label.xsl:
+	* xslt/docbook/common/db-title.xsl:
+	* xslt/docbook/common/db-xref.xsl:-
+	* xslt/docbook/html/db2html-css.xsl:
+	* xslt/docbook/html/db2html-bibliography.xsl:
+	* xslt/docbook/html/db2html-division.xsl:
+	* xslt/docbook/html/db2html.xsl:
+	* xslt/gettext/l10n.xml.in:
+	- Added support for "cooked" bibliographies
+
+	* xslt/docbook/html/db2html-block.xsl:
+	* xslt/docbook/html/db2html-inline.xsl:
+	* xslt/docbook/html/db2html-suppressed.xsl:
+	- Added artpagenums, edition, isbn, pubdate, publishername
+
+	* xslt/gettext/l10n.xml.in:
+	- Added the 'Translator(s)' string
+
 2005-10-17  Runa Bhattacharjee  <runa@bengalinux.org>
 	* configure.in: Added Bengali (bn) to ALL_LINGUAS
 

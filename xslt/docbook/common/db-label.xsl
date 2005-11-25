@@ -107,6 +107,29 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
+<!-- = bibliography = -->
+<xsl:template mode="db.label.mode" match="bibliography"/>
+
+<!-- = biblioentry | bibliomixed = -->
+<xsl:template mode="db.label.mode" match="biblioentry | bibliomixed">
+  <xsl:if test="*[1]/self::abbrev | @xreflabel | @id">
+    <!-- FIXME: I18N -->
+    <xsl:text>[</xsl:text>
+    <xsl:choose>
+      <xsl:when test="*[1]/self::abbrev">
+        <xsl:apply-templates select="abbrev[1]"/>
+      </xsl:when>
+      <xsl:when test="@xreflabel">
+        <xsl:value-of select="@xreflabel"/>
+      </xsl:when>
+      <xsl:when test="@id">
+        <xsl:value-of select="@id"/>
+      </xsl:when>
+    </xsl:choose>
+    <xsl:text>]</xsl:text>
+  </xsl:if>
+</xsl:template>
+
 <!-- = book = -->
 <xsl:template mode="db.label.mode" match="book">
   <xsl:param name="role"/>
@@ -231,7 +254,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <!-- FIXME -->
 
 <xsl:template mode="db.label.mode" match="
-              article  |  bibliography |
+              article  |
               colophon |    index     |
               qandadiv | qandaset |  reference |
               set      | setindex ">
@@ -278,13 +301,6 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 
 <!-- == db.number ========================================================== -->
-
-<xsl:template mode="l10n.format.mode" match="msg:number">
-  <xsl:param name="node"/>
-  <xsl:call-template name="db.number">
-    <xsl:with-param name="node" select="$node"/>
-  </xsl:call-template>
-</xsl:template>
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db.number</name>
@@ -505,13 +521,6 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!-- == db.digit =========================================================== -->
 
-<xsl:template mode="l10n.format.mode" match="msg:digit">
-  <xsl:param name="node"/>
-  <xsl:call-template name="db.digit">
-    <xsl:with-param name="node" select="$node"/>
-  </xsl:call-template>
-</xsl:template>
-
 <xsl:template name="db.digit">
   <xsl:param name="node" select="."/>
   <xsl:apply-templates mode="db.digit.mode" select="$node"/>
@@ -698,12 +707,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == <msg:parent/> ====================================================== -->
-
-<xsl:template mode="l10n.format.mode" match="msg:parent">
-  <xsl:param name="node"/>
-  <xsl:apply-templates mode="db.number.parent.mode" select="$node"/>
-</xsl:template>
+<!-- == db.number.parent.mode ============================================== -->
 
 <xsl:template mode="db.number.parent.mode" match="*">
   <xsl:call-template name="db.number">
@@ -733,6 +737,40 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     <xsl:with-param name="node"
                     select="(ancestor::appendix | ancestor::chapter)[last()]"/>
   </xsl:call-template>
+</xsl:template>
+
+
+<!-- == msg:* ============================================================== -->
+
+<xsl:template mode="l10n.format.mode" match="msg:digit">
+  <xsl:param name="node"/>
+  <xsl:call-template name="db.digit">
+    <xsl:with-param name="node" select="$node"/>
+  </xsl:call-template>
+</xsl:template>
+
+<xsl:template mode="l10n.format.mode" match="msg:glossterm">
+  <xsl:param name="node"/>
+  <xsl:apply-templates select="$node/glossterm"/>
+</xsl:template>
+
+<xsl:template mode="l10n.format.mode" match="msg:label">
+  <xsl:param name="node"/>
+  <xsl:call-template name="db.label">
+    <xsl:with-param name="node" select="$node"/>
+  </xsl:call-template>
+</xsl:template>
+
+<xsl:template mode="l10n.format.mode" match="msg:number">
+  <xsl:param name="node"/>
+  <xsl:call-template name="db.number">
+    <xsl:with-param name="node" select="$node"/>
+  </xsl:call-template>
+</xsl:template>
+
+<xsl:template mode="l10n.format.mode" match="msg:parent">
+  <xsl:param name="node"/>
+  <xsl:apply-templates mode="db.number.parent.mode" select="$node"/>
 </xsl:template>
 
 </xsl:stylesheet>

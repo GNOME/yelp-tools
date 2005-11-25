@@ -40,6 +40,9 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <xsl:include href="db2html-autotoc.xsl"
              doc:summary="true"
              doc:include="true"/>
+<xsl:include href="db2html-bibliography.xsl"
+             doc:summary="true"
+             doc:include="true"/>
 <xsl:include href="db2html-block.xsl"
              doc:summary="true"
              doc:include="true"/>

@@ -434,11 +434,6 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:for-each>
 </xsl:template>
 
-<xsl:template mode="l10n.format.mode" match="msg:glosssterm">
-  <xsl:param name="node"/>
-  <xsl:apply-templates select="$node/glossterm"/>
-</xsl:template>
-
 <!-- = highlights = -->
 <xsl:template match="highlights">
   <xsl:call-template name="db2html.block"/>

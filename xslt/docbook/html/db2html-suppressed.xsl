@@ -96,7 +96,6 @@ modes because of the DocBook content model.
 <xsl:template match="othercredit"/>
 <xsl:template match="personblurb"/>
 <xsl:template match="publisher"/>
-<xsl:template match="publishername"/>
 <xsl:template match="revdescription"/>
 <xsl:template match="revhistory"/>
 <xsl:template match="revision"/>

@@ -133,6 +133,11 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
+<!-- = artpagenums = -->
+<xsl:template match="artpagenums">
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
 <!-- = application = -->
 <xsl:template match="application">
   <xsl:call-template name="db2html.inline">
@@ -226,6 +231,11 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!-- = date = -->
 <xsl:template match="date">
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
+<!-- = edition = -->
+<xsl:template match="edition">
   <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
@@ -406,6 +416,11 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <xsl:call-template name="db2html.inline">
     <xsl:with-param name="mono" select="true()"/>
   </xsl:call-template>
+</xsl:template>
+
+<!-- = isbn = -->
+<xsl:template match="isbn">
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = jobtitle = -->
@@ -608,6 +623,16 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!-- = property = -->
 <xsl:template match="property">
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
+<!-- = pubdate = -->
+<xsl:template match="pubdate">
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
+<!-- = publishername = -->
+<xsl:template match="publishername">
   <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
