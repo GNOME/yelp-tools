@@ -1,3 +1,10 @@
+2005-11-27  Shaun McCance  <shaunm@gnome.org>
+
+	* Makefile.am:
+	* COPYING.GPL:
+	* COPYING.LGPL:
+	- Added missing license files
+
 2005-11-26  Shaun McCance  <shaunm@gnome.org>
 
 	* NEWS:

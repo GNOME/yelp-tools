@@ -29,6 +29,8 @@ EXTRA_DIST = 						\
 	$(aclocal_DATA)					\
 	$(share_DATA)					\
 	$(pkgconfig_DATA)				\
+	COPYING.GPL					\
+	COPYING.LGPL					\
 	bootstrap.make					\
 	gnome-doc-prepare.in				\
 	intltool-extract.in  				\
