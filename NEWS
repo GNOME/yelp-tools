@@ -1,3 +1,37 @@
+Changes in 0.5.1:
+-----------------
+* Added support for "cooked" bibliographies
+* Added artpagenums, edition, isbn, pubdate, publishername
+* Added the 'Translator(s)' string, which was missing before
+* Sizing adjustments in DocBook rendering
+* Fixed problem that caused new l10n markup not to work
+* Styled interface like guimenu et al, per #154237
+* Expanded the markup allowed in l10n format strings
+* Added another fix for line numbering, #317270 (Brent Smith)
+* Updated translations:
+  bn      (Mahay Alam Khan)
+  es      (Francisco Javier F. Serrador)
+  et      (Ivar Smolin)
+  it      (Alessio Frusciante)
+
+Changes in 0.4.3:
+-----------------
+* Fix for loops on old bourne shells, #317308     (Shaun McCance)
+* Fix paths when $(srcdir) is absolute            (Shaun McCance)
+* Fix DESTDIR support #318007                     (Frederic Crozat)
+* Updated translations:
+  it      (Alessio Frusciante)
+  (32/46 languages with 100% translation)
+
+Changes in 0.4.2:
+-----------------
+* Put figures in the tarball, VERY SERIOUS BUG              (Shaun McCance)
+* Line numbering fixes, #317270 #317204                     (Brent Smith)
+* Fixed bug which causes quote to be formatted as citetitle (Shaun McCance)
+* Added datarootdir variable                                (Stepan Kasal)
+* Updated translations:
+  gl      (Ignacio Casal Quinteiro)
+
 Changes in 0.4.1:
 -----------------
 * Fix Solaris portability issue, #315412                  (Shaun McCance)

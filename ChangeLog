@@ -1,5 +1,10 @@
 2005-11-26  Shaun McCance  <shaunm@gnome.org>
 
+	* NEWS:
+	- Version 0.5.1
+
+2005-11-26  Shaun McCance  <shaunm@gnome.org>
+
 	* i18n/PLURALS.txt
 	* i18n/STYLESHEETS.xhtml
 	- Updated files
