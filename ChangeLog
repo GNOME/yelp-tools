@@ -1,3 +1,8 @@
+2005-11-28  Peter Williams  <peter@newton.cx>
+
+	* xslt/docbook/html/Makefile.am (xsl_DATA): Add the new
+	db2html-bibliography.xsl to xsl_DATA.
+
 2005-11-27  Shaun McCance  <shaunm@gnome.org>
 
 	* Makefile.am:
