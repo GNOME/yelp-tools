@@ -7,8 +7,9 @@ l10n.xml: l10n.xml.in $(wildcard $(top_srcdir)/po/*.po)
 
 xsldir=$(datadir)/xml/gnome/xslt/gettext
 
-xsl_DATA =		\
-	gettext.xsl	\
+xsl_DATA =			\
+	gettext.xsl		\
+	l10n-numbers.xsl	\
 	l10n.xml
 
 EXTRA_DIST=$(xsl_DATA) l10n.xml.in
