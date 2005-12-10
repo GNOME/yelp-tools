@@ -70,7 +70,6 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
       <xsl:number format="I" value="$value"/>
     </xsl:when>
 
-    <!-- CJK -->
     <xsl:when test="$format='japanese'">
       <xsl:call-template name="l10n.number.ideographic">
         <xsl:with-param name="value" select="$value"/>
@@ -78,7 +77,6 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
       </xsl:call-template>
     </xsl:when>
 
-    <!-- Greek -->
     <xsl:when test="$format='ionic-lower' or $format='ionic-upper'">
       <xsl:call-template name="l10n.number.ionic">
         <xsl:with-param name="value" select="$value"/>
@@ -86,7 +84,12 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
       </xsl:call-template>
     </xsl:when>
 
-    <!-- Persian -->
+    <xsl:when test="$format='decimal-arabic'">
+      <xsl:call-template name="l10n.number.numeric">
+        <xsl:with-param name="value" select="$value"/>
+        <xsl:with-param name="digits" select="'٠١٢٣٤٥٦٧٨٩'"/>
+      </xsl:call-template>
+    </xsl:when>
     <xsl:when test="$format='decimal-persian'">
       <xsl:call-template name="l10n.number.numeric">
         <xsl:with-param name="value" select="$value"/>
@@ -94,7 +97,6 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
       </xsl:call-template>
     </xsl:when>
 
-    <!-- Serbian -->
     <xsl:when test="$format='alpha-serbian-lower'">
       <xsl:call-template name="l10n.number.alphabetic">
         <xsl:with-param name="value" select="$value"/>
@@ -110,7 +112,6 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
       </xsl:call-template>
     </xsl:when>
 
-    <!-- Thai -->
     <xsl:when test="$format='alpha-thai'">
       <xsl:call-template name="l10n.number.alphabetic">
         <xsl:with-param name="value" select="$value"/>
