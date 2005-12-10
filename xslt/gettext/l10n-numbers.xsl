@@ -57,52 +57,68 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     <xsl:when test="$format='decimal' or $format='1'">
       <xsl:number format="1" value="$value"/>
     </xsl:when>
-    <xsl:when test="$format='lower-alpha' or $format='a'">
+    <xsl:when test="$format='alpha-lower' or $format='a'">
       <xsl:number format="a" value="$value"/>
     </xsl:when>
-    <xsl:when test="$format='upper-alpha' or $format='A'">
+    <xsl:when test="$format='alpha-upper' or $format='A'">
       <xsl:number format="A" value="$value"/>
     </xsl:when>
-    <xsl:when test="$format='lower-roman' or $format='i'">
+    <xsl:when test="$format='roman-lower' or $format='i'">
       <xsl:number format="i" value="$value"/>
     </xsl:when>
-    <xsl:when test="$format='upper-roman' or $format='I'">
+    <xsl:when test="$format='roman-upper' or $format='I'">
       <xsl:number format="I" value="$value"/>
     </xsl:when>
+
+    <!-- CJK -->
+    <xsl:when test="$format='japanese'">
+      <xsl:call-template name="l10n.number.ideographic">
+        <xsl:with-param name="value" select="$value"/>
+        <xsl:with-param name="format" select="$format"/>
+      </xsl:call-template>
+    </xsl:when>
+
+    <!-- Greek -->
     <xsl:when test="$format='ionic-lower' or $format='ionic-upper'">
       <xsl:call-template name="l10n.number.ionic">
         <xsl:with-param name="value" select="$value"/>
         <xsl:with-param name="format" select="$format"/>
       </xsl:call-template>
     </xsl:when>
-    <xsl:when test="$format='persian-decimal'">
+
+    <!-- Persian -->
+    <xsl:when test="$format='decimal-persian'">
       <xsl:call-template name="l10n.number.numeric">
         <xsl:with-param name="value" select="$value"/>
         <xsl:with-param name="digits" select="'۰۱۲۳۴۵۶۷۸۹'"/>
       </xsl:call-template>
     </xsl:when>
-    <xsl:when test="$format='serbian-lower-alpha'">
+
+    <!-- Serbian -->
+    <xsl:when test="$format='alpha-serbian-lower'">
       <xsl:call-template name="l10n.number.alphabetic">
         <xsl:with-param name="value" select="$value"/>
         <xsl:with-param name="alphabet"
                         select="'абвгдђежзијклљмнњопрстћуфхцчџш'"/>
       </xsl:call-template>
     </xsl:when>
-    <xsl:when test="$format='serbian-upper-alpha'">
+    <xsl:when test="$format='alpha-serbian-upper'">
       <xsl:call-template name="l10n.number.alphabetic">
         <xsl:with-param name="value" select="$value"/>
         <xsl:with-param name="alphabet"
                         select="'АБВГДЂЕЖЗИЈКЛЉМНЊОПРСТЋУФХЦЧЏШ'"/>
       </xsl:call-template>
     </xsl:when>
-    <xsl:when test="$format='thai-alpha'">
+
+    <!-- Thai -->
+    <xsl:when test="$format='alpha-thai'">
       <xsl:call-template name="l10n.number.alphabetic">
         <xsl:with-param name="value" select="$value"/>
         <xsl:with-param name="alphabet"
                         select="'กขคงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรฤลฦวศษสหฬอฮ'"/>
       </xsl:call-template>
     </xsl:when>
-    <xsl:when test="$format='thai-decimal'">
+    <xsl:when test="$format='decimal-thai'">
       <xsl:call-template name="l10n.number.numeric">
         <xsl:with-param name="value" select="$value"/>
         <xsl:with-param name="digits" select="'๐๑๒๓๔๕๖๗๘๙'"/>
@@ -207,6 +223,96 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
         </xsl:call-template>
       </xsl:if>
       <xsl:value-of select="substring($digits, $digit + 1, 1)"/>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+
+<!-- == l10n.number.ideographic ============================================ -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>l10n.number.ideographic</name>
+  <purpose>
+    Format a number using a CJK ideographic system
+  </purpose>
+  <parameter>
+    <name>value</name>
+    <purpose>
+      The numeric value of the number to format
+    </purpose>
+  </parameter>
+  <parameter>
+    <name>format</name>
+    <purpose>
+      Which format to use
+    </purpose>
+  </parameter>
+  <para>See <ulink url="http://en.wikipedia.org/wiki/Greek_numerals"/>.</para>
+</template>
+
+<xsl:template name="l10n.number.ideographic">
+  <xsl:param name="value"/>
+  <xsl:param name="format"/>
+  <xsl:call-template name="l10n.number.ideographic.private">
+    <xsl:with-param name="value" select="$value"/>
+    <xsl:with-param name="format" select="$format"/>
+    <xsl:with-param name="level" select="0"/>
+  </xsl:call-template>
+</xsl:template>
+
+<xsl:template name="l10n.number.ideographic.private" doc:private="true">
+  <xsl:param name="value"/>
+  <xsl:param name="format"/>
+  <xsl:param name="level" select="0"/>
+  <xsl:variable name="ones">
+    <xsl:choose>
+      <xsl:when test="$format='japanese'">
+        <xsl:text>&#x3007;&#x4E00;&#x4E8C;&#x4E09;&#x56DB;</xsl:text>
+        <xsl:text>&#x4E94;&#x516D;&#x4E03;&#x516B;&#x4E5D;</xsl:text>
+      </xsl:when>
+    </xsl:choose>
+  </xsl:variable>
+  <xsl:variable name="tens">
+    <xsl:choose>
+      <xsl:when test="$format='japanese'">
+        <xsl:text>&#x5341;&#x767E;&#x5343;</xsl:text>
+      </xsl:when>
+    </xsl:choose>
+  </xsl:variable>
+  <xsl:variable name="myriads">
+    <xsl:choose>
+      <xsl:when test="$format='japanese'">
+        <xsl:text>&#x4E07;&#x5104;&#x5146;&#x4EAC;&#x5793;</xsl:text>
+      </xsl:when>
+    </xsl:choose>
+  </xsl:variable>
+  <xsl:variable name="digit" select="$value mod 10"/>
+  <xsl:if test="$value - $digit &gt; 0">
+    <xsl:call-template name="l10n.number.ideographic.private">
+      <xsl:with-param name="value" select="($value - $digit) div 10"/>
+      <xsl:with-param name="format" select="$format"/>
+      <xsl:with-param name="level" select="$level + 1"/>
+    </xsl:call-template>
+  </xsl:if>
+  <xsl:choose>
+    <xsl:when test="$digit = 0"/>
+    <xsl:when test="$level != 0 and $digit = 1"/>
+    <xsl:otherwise>
+      <xsl:value-of select="substring($ones, $digit + 1, 1)"/>
+    </xsl:otherwise>
+  </xsl:choose>
+  <xsl:variable name="ten" select="$level mod 4"/>
+  <xsl:choose>
+    <xsl:when test="$ten != 0">
+      <xsl:if test="$digit != 0">
+        <xsl:value-of select="substring($tens, $ten, 1)"/>
+      </xsl:if>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:variable name="myriad" select="($level - $ten) div 4"/>
+      <xsl:if test="$myriad != 0">
+        <xsl:value-of select="substring($myriads, $myriad, 1)"/>
+      </xsl:if>
     </xsl:otherwise>
   </xsl:choose>
 </xsl:template>

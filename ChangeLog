@@ -1,3 +1,11 @@
+2005-12-09  Shaun McCance  <shaunm@gnome.org>
+
+	* i18n/test-numgers:
+	- Adding a script to test l10n-numbers.xsl
+
+	* xslt/gettext/l10n-numbers.xsl:
+	- Japanese ideographic numbers
+
 2005-11-28  Peter Williams  <peter@newton.cx>
 
 	* xslt/docbook/html/Makefile.am (xsl_DATA): Add the new

@@ -1,0 +1,59 @@
+#!/bin/sh
+
+xslfile="../xslt/gettext/l10n-numbers.xsl";
+
+xsldata=\
+'<stylesheet xmlns="http://www.w3.org/1999/XSL/Transform" version="1.0">'\
+'<include href="'$xslfile'"/>'\
+'<output method="text"/>'\
+'<param name="value"/>'\
+'<param name="format"/>'\
+'<template match="/">'\
+'<call-template name="l10n.number">'\
+'<with-param name="value" select="$value"/>'\
+'<with-param name="format" select="$format"/>'\
+'</call-template>'\
+'</template>'\
+'</stylesheet>'
+
+formats=\
+`grep -o "format='[^']*" $xslfile | sed -e "s/format='//" | grep -v "^.$" | sort -u`;
+
+if [ $# -lt 2 ]; then
+    echo "Usage: test-numbers FORMAT MIN [MAX]";
+    echo "Format is one of:";
+    for f in $formats; do
+	echo "   $f";
+    done;
+    exit 1;
+fi;
+
+format="$1";
+min="$2";
+if [ $# -lt 3 ]; then
+    max="$2";
+else
+    max="$3";
+fi;
+
+## Sanity check on $min and $max
+if [ "$min" -le 0 -o "$max" -le 0 -o "$min" -gt "$max" ]; then
+    echo "Error: MIN and MAX must be positive integers with MIN < MAX.";
+    exit 1;
+fi;
+
+## Sanity check on the format
+if ! echo " $formats " | grep -q "$format"; then
+    echo "Error: Unknown format '$format'.  Use of one:"
+    for f in $formats; do
+	echo "   $f";
+    done;
+    exit 1;
+fi;
+
+i=$min;
+while [ $i -le $max ]; do
+    echo $xsldata | xsltproc --param value $i --stringparam format $format - $xslfile
+    echo "";
+    let "i++";
+done;
