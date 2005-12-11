@@ -1,6 +1,11 @@
 2005-12-10  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/gettext/l10n-numbers.xsl:
+	- Implemented Chinese numbering
+
+2005-12-10  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/gettext/l10n-numbers.xsl:
 	- Added Arabic decimal numbers
 
 2005-12-09  Shaun McCance  <shaunm@gnome.org>
