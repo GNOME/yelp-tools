@@ -1,3 +1,7 @@
+2005-12-11  Funda Wang  <fundawang@linux.net.cn>
+
+	* zh_CN.po: Try to use cjk-chinese-simp to numbering chapters.
+
 2005-12-08  Kjartan Maraas  <kmaraas@gnome.org>
 
 	* nb.po: Updated Norwegian bokmål translation.
