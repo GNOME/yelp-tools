@@ -1,0 +1,29 @@
+From: Roozbeh Pourmader
+Date: 2005-12-11
+Subject: Numberings used in Iran
+================================================================================
+
+These are the other item numbering systems we need for Persian as used
+in Iran and Afghanistan:
+
+1) Abjad-normal: This is simple. There is a fixed list of 28 strings,
+and the numbering is not supported beyond that.
+
+2) Abjad-numerical: This is like a the Greek system. There are different
+strings for 1, 2, 3, ..., 9, 10, 20, ..., 90, 100, 200, ..., 900, and
+1000. When counting, strings are concatenated, so 954 is "900"+"50"+"4".
+This can only count until 1999.
+
+3) Alphabetic: This is like Abjad-normal, but with 32 different strings.
+
+4) Spelled numbers: This is a little hard. It's actually spelling each
+number in letters, the equivalent of "one", "two", "three", ...
+
+Of these, 1, 3, 4 are used in everyday documents (but never 1 and 3 in
+the same document). Case 2 is only used when the publisher is somehow
+old-style and the number of pages in the preamble or the items of a list
+exceeds 28.
+
+I can provide details is you are interested in implementing them.
+Specifically, I have written down the exact rules for case 4 in an
+algorithm-like thing, for numbers less than or equal to 10^{15}-1.

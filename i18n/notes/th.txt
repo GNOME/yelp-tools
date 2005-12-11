@@ -1,0 +1,40 @@
+From: Theppitak Karoonboonyanan
+Date: 2005-12-04
+Subject: Thai Numbering in gnome-doc-utils
+================================================================================
+
+Hello,
+
+I'm going to translate gnome-doc-utils into Thai and find two required
+Thai numberings are missing. One is Thai alphabetical, and the other is
+Thai decimal digits.
+
+Thai alphabetical numbering is run with Thai consonants in the range:
+
+  U+0E01 (THAI CHARACTER KO KAI)
+    :
+  U+0E2E (THAI CHARACTER HO NOKHUK)
+
+with three characters skipped, namely:
+
+  - U+0E03 (THAI CHARACTER KHO KHUAT)
+  - U+0E05 (THAI CHARACTER KHO KHON)
+  - U+0E06 (THAI CHARACTER KHO RAKHANG)
+
+(i.e. the sequence is: U+0E01, U+0E02, U+0E04, U+0E07 .. U+0E2E)
+
+This is mainly used for numbering appendixes in Thai documents,
+and occasionally used in ordered lists.
+
+Numbering with Thai decimal digits is less used in general, but exists
+in most official or military documents. It just uses Thai digits in the
+range (U+0E50..U+0E50) for 0..9 respectively.
+
+I'm not sure about digits bahavior described by W3C's XSLT, nor what
+have been done in gnome-doc-utils, but let me mention a common mistake
+in some implementations: the assumed translation of digits. We would
+need an explicit way to specify whether to use Thai digits in numbering,
+rather than automatically translated.
+
+Thank you for your attention. Any comment would be appreciated.
+

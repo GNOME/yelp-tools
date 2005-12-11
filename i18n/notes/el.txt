@@ -1,0 +1,27 @@
+From: Simos Xenitellis
+Date: 2005-12-06
+Archive: http://mail.gnome.org/archives/gnome-i18n/2005-December/msg00022.html
+================================================================================
+
+We would love to have Greek numerals supported!
+
+However, the current locale support in CSS3 [1] appears to be quite suboptimal
+for Greek.  The Greek alphabetic numbering follows the legacy of Ancient Greek
+which adds three letter-numbers [2]. Specifically, it introduces three letters
+(for 6, 90, 900) that shift the letters to the right: 6, 90, 900 are represented
+by ϛ (in modern Greek: στ), ϟ, ϡ
+
+According to [1], CSS3 does not take into account any of those characters and
+especially "στ".  Therefore, there is the issue of correctness for 6, 7, 8,
+and so on.
+
+In addition, CSS3 is not good with the capitalisation (changing case) of Greek
+text, as there are specific rules that drop accents, and in some cases this
+depends on the context (based on the word).
+
+It appears that when CSS3 was being drafted, there was no feedback for Greek :(
+
+Therefore, it would be better for Greek not to use alphabetic numerals through
+CSS3 at this moment for issues of correctness.  For the record, I sent an e-mail
+to this CSS3 working group in case it is possible to fix the missing letters.
+Thanks for bringing the issue to my attention.
