@@ -471,7 +471,7 @@ $(_DOC_LC_DOCS) : $(_DOC_POFILES)
 $(_DOC_LC_DOCS) : $(_DOC_C_DOCS)
 	if ! test -d $(dir $@); then mkdir $(dir $@); fi
 	case "$(srcdir)" in /*) sd="$(srcdir)";; *) sd="../$(srcdir)";;	esac; \
-	if [ -f "C/$(notdir $@)" ]; then d="../"; else d="$sd/"; fi; \
+	if [ -f "C/$(notdir $@)" ]; then d="../"; else d="$$sd/"; fi; \
 	(cd $(dir $@) && \
 	  $(_xml2po) -e -p \
 	    "$${d}$(dir $@)$(patsubst %/$(notdir $@),%,$@).po" \

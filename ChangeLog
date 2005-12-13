@@ -1,3 +1,8 @@
+2005-12-12  Shaun McCance  <shaunm@gnome.org>
+
+	* gnome-doc-utils.make:
+	- Fixed bad syntax in a srcdir directory thing
+
 2005-12-10  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/gettext/l10n-numbers.xsl:
