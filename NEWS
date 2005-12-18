@@ -1,3 +1,28 @@
+Changes in 0.5.2:
+-----------------
+* Removed extra gettext import for better performance  (Don Scorgie)
+* Fixed bad syntax in a srcdir directory thing         (Shaun McCance)
+* Added missing db2html-bibliography to the build      (Peter Williams)
+* Added missing GPL and LGPL copyright files           (Shaun McCance)
+* Implemented the following numbering systems:         (Shaun McCance)
+  Arabic decimal
+  Chinese simplified
+  Chinese traditional
+  Japanese
+  Thai decimal
+  Thai alphabetic
+  Serbian alphabetic
+  Greek Ionic
+* Updated translation:
+  cs      (Miloslav Trmac)
+  en_CA   (Adam Weinberger)
+  gl      (Ignacio Casal Quinteiro)
+  gu      (Ankit Patel)
+  ja      (Takeshi AIHANA)
+  nb      (Kjartan Marass)
+  no      (Kjartan Marass)
+  zh_CN   (Funda Wang)
+
 Changes in 0.5.1:
 -----------------
 * Added support for "cooked" bibliographies

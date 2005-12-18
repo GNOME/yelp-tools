@@ -1,5 +1,11 @@
 2005-12-18  Shaun McCance  <shaunm@gnome.org>
 
+	* NEWS:
+	* configure.in:
+	- Version 0.5.2
+
+2005-12-18  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/docbook/common/db-label.xsl:
 	* xslt/docbook/common/db-title.xsl:
 	* xslt/docbook/common/db-xref.xsl:
