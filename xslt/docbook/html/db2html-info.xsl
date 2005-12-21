@@ -474,7 +474,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <xsl:template name="db2html.info.copyrights">
   <xsl:param name="node" select="."/>
   <xsl:param name="info" select="'FIXME'"/>
-  <xsl:variable name="copyrights" select="$info/copyrights"/>
+  <xsl:variable name="copyrights" select="$info/copyright"/>
   <xsl:if test="$copyrights">
     <div>
       <h2 class="copyright">
@@ -484,7 +484,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
         </xsl:call-template>
       </h2>
       <dl>
-        <xsl:apply-templates mode="db2html.info.mode" select="$copyrigths"/>
+        <xsl:apply-templates mode="db2html.info.mode" select="$copyrights"/>
       </dl>
     </div>
   </xsl:if>
