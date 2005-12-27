@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gnome-doc-utils 0.5.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-12-26 13:46+0700\n"
-"PO-Revision-Date: 2005-12-26 17:52+0700\n"
+"PO-Revision-Date: 2005-12-27 20:46+0700\n"
 "Last-Translator: Theppitak Karoonboonyanan <thep@linux.thai.net>\n"
 "Language-Team: Thai <l10n@opentle.org>\n"
 "MIME-Version: 1.0\n"
@@ -85,9 +85,9 @@ msgid ""
 "<number/></msgstr>"
 msgstr ""
 "<msgid>appendix.label</msgid> "
-"<msgstr role='header'><number/>.&#x2003;</msgstr> "
-"<msgstr role='li'><number/>.&#x2002;</msgstr> "
-"<msgstr>ภาคผนวก <number/></msgstr>"
+"<msgstr role='header'>ภาคผนวก <number/>.&#x2003;</msgstr> "
+"<msgstr role='li'>ภาคผนวก <number/>.&#x2002;</msgstr> "
+"<msgstr>ภาคผนวก <number/>.</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -160,7 +160,7 @@ msgstr "<msgid>appendix.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 msgid ""
 "<msgid>appendix.xref</msgid> <msgstr>Appendix <number/> ― <title/></msgstr>"
 msgstr ""
-"<msgid>appendix.xref</msgid> <msgstr>ภาคผนวก <number/>&#x2002;<title/></msgstr>"
+"<msgid>appendix.xref</msgid> <msgstr>ภาคผนวก <number/>.&#x2002;<title/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -338,8 +338,8 @@ msgid ""
 "<number/></msgstr>"
 msgstr ""
 "<msgid>chapter.label</msgid> "
-"<msgstr role='header'><number/>.&#x2003;</msgstr> "
-"<msgstr role='li'><number/>.&#x2002;</msgstr> "
+"<msgstr role='header'>บทที่ <number/>&#x2003;</msgstr> "
+"<msgstr role='li'>บทที่ <number/>&#x2002;</msgstr> "
 "<msgstr>บทที่ <number/></msgstr>"
 
 #.
@@ -538,7 +538,7 @@ msgid ""
 "<msgstr>Example <number/></msgstr>"
 msgstr ""
 "<msgid>example.label</msgid> "
-"<msgstr role='header'><i>ตัวอย่างที่ <number/></i>&#x2003;</msgstr> "
+"<msgstr role='header'><b>ตัวอย่างที่ <number/></b>&#x2003;</msgstr> "
 "<msgstr role='li'>ตัวอย่างที่ <number/>&#x2002;</msgstr> "
 "<msgstr>ตัวอย่างที่ <number/></msgstr>"
 
@@ -671,7 +671,7 @@ msgid ""
 "<msgstr>Figure <number/></msgstr>"
 msgstr ""
 "<msgid>figure.label</msgid> "
-"<msgstr role='header'><i>รูปที่ <number/></i>&#x2003;</msgstr> "
+"<msgstr role='header'><b>รูปที่ <number/></b>&#x2003;</msgstr> "
 "<msgstr role='li'>รูปที่ <number/>&#x2002;</msgstr> "
 "<msgstr>รูปที่ <number/></msgstr>"
 
@@ -889,7 +889,7 @@ msgstr ""
 #.
 #: xslt/gettext/l10n.xml.in.h:744
 msgid "<msgid>glosssee.format</msgid> <msgstr>See <glosssee/>.</msgstr>"
-msgstr "<msgid>glosssee.format</msgid> <msgstr><i>ดู</i> <glosssee/></msgstr>"
+msgstr "<msgid>glosssee.format</msgid> <msgstr><i>ดู <glosssee/></i></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -930,7 +930,7 @@ msgid ""
 "<msgid>glossseealso.format</msgid> <msgstr>See also <glosssee/>.</msgstr>"
 msgstr ""
 ""
-"<msgid>glossseealso.format</msgid> <msgstr><i>ดู</i> <glosssee/> <i>ประกอบ</i></msgstr>"
+"<msgid>glossseealso.format</msgid> <msgstr><i>ดู <glosssee/> ประกอบ</i></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1021,8 +1021,8 @@ msgid ""
 "<msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Part <number/></msgstr>"
 msgstr ""
 "<msgid>part.label</msgid> "
-"<msgstr role='header'><number/>.&#x2003;</msgstr> "
-"<msgstr role='li'><number/>.&#x2002;</msgstr> "
+"<msgstr role='header'>ภาค <number/>.&#x2003;</msgstr> "
+"<msgstr role='li'>ภาค <number/>.&#x2002;</msgstr> "
 "<msgstr>ภาค <number/></msgstr>"
 
 #.
@@ -1320,8 +1320,8 @@ msgid ""
 "<number/></msgstr>"
 msgstr ""
 "<msgid>refsection.label</msgid> "
-"<msgstr role='header'><number/>.&#x2003;</msgstr> "
-"<msgstr role='li'><number/>.&#x2002;</msgstr> "
+"<msgstr role='header'><number/>&#x2003;</msgstr> "
+"<msgstr role='li'><number/>&#x2002;</msgstr> "
 "<msgstr>หัวข้อ <number/></msgstr>"
 
 #.
@@ -1456,8 +1456,8 @@ msgid ""
 "<number/></msgstr>"
 msgstr ""
 "<msgid>section.label</msgid> "
-"<msgstr role='header'><number/>.&#x2003;</msgstr> "
-"<msgstr role='li'><number/>.&#x2002;</msgstr> "
+"<msgstr role='header'><number/>&#x2003;</msgstr> "
+"<msgstr role='li'><number/>&#x2002;</msgstr> "
 "<msgstr>หัวข้อ <number/></msgstr>"
 
 #.
@@ -1592,7 +1592,7 @@ msgid ""
 "<msgstr>Table <number/></msgstr>"
 msgstr ""
 "<msgid>table.label</msgid> "
-"<msgstr role='header'><i>ตารางที่ <number/></i>&#x2003;</msgstr> "
+"<msgstr role='header'><b>ตารางที่ <number/></b>&#x2003;</msgstr> "
 "<msgstr role='li'>ตารางที่ <number/>&#x2002;</msgstr> "
 "<msgstr>ตารางที่ <number/></msgstr>"
 
