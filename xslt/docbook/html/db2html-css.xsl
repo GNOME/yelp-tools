@@ -44,8 +44,11 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     <xsl:call-template name="db2html.refentry.css"/>
     <xsl:call-template name="db2html.table.css"/>
     <xsl:call-template name="db2html.title.css"/>
+    <xsl:text>
     body {
       margin: 0px;
+      direction: </xsl:text>
+      <xsl:call-template name="l10n.direction"/><xsl:text>;
     }
     div[class ~= "body"] {
       padding: 12px;
@@ -83,6 +86,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     p &gt; div { margin-top: 1em; margin-bottom: 1em; }
     p &gt; div + div { margin-top: 0em; }
     p { text-align: justify; }
+    </xsl:text>
     <xsl:call-template name="db2html.css.custom"/>
   </style>
 </xsl:template>

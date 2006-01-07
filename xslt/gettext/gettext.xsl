@@ -767,6 +767,88 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
+<!-- == l10n.direction ===================================================== -->
+
+<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>l10n.direction</name>
+  <purpose>
+    Determine the text direction for the language of the document
+  </purpose>
+  <parameter>
+    <name>lang</name>
+    <purpose>
+      The locale to use when determining the direction
+    </purpose>
+  </parameter>
+  <parameter>
+    <name>lang_language</name>
+    <purpose>
+      The language portion of the locale to use
+    </purpose>
+  </parameter>
+  <parameter>
+    <name>lang_region</name>
+    <purpose>
+      The region portion of the locale to use
+    </purpose>
+  </parameter>
+  <parameter>
+    <name>lang_variant</name>
+    <purpose>
+      The variant portion of the locale to use
+    </purpose>
+  </parameter>
+  <parameter>
+    <name>lang_charset</name>
+    <purpose>
+      The charset portion of the locale to use
+    </purpose>
+  </parameter>
+</template>
+
+<xsl:template name="l10n.direction">
+  <xsl:param name="lang" select="$l10n.locale"/>
+  <xsl:param name="lang_language">
+    <xsl:call-template name="l10n.language">
+      <xsl:with-param name="lang" select="$lang"/>
+    </xsl:call-template>
+  </xsl:param>
+  <xsl:param name="lang_region">
+    <xsl:call-template name="l10n.region">
+      <xsl:with-param name="lang" select="$lang"/>
+    </xsl:call-template>
+  </xsl:param>
+  <xsl:param name="lang_variant">
+    <xsl:call-template name="l10n.variant">
+      <xsl:with-param name="lang" select="$lang"/>
+    </xsl:call-template>
+  </xsl:param>
+  <xsl:param name="lang_charset">
+    <xsl:call-template name="l10n.charset">
+      <xsl:with-param name="lang" select="$lang"/>
+    </xsl:call-template>
+  </xsl:param>
+  <xsl:variable name="direction">
+    <xsl:call-template name="l10n.gettext">
+      <xsl:with-param name="msgid" select="'ltr'"/>
+      <xsl:with-param name="lang" select="$lang"/>
+      <xsl:with-param name="lang_language" select="$lang_language"/>
+      <xsl:with-param name="lang_region"   select="$lang_region"/>
+      <xsl:with-param name="lang_variant"  select="$lang_variant"/>
+      <xsl:with-param name="lang_charset"  select="$lang_charset"/>
+    </xsl:call-template>
+  </xsl:variable>
+  <xsl:choose>
+    <xsl:when test="$direction = 'rtl'">
+      <xsl:text>rtl</xsl:text>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:text>ltr</xsl:text>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+
 <!-- == l10n.language =============================================== -->
 
 <template xmlns="http://www.gnome.org/~shaunm/xsldoc">

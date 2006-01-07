@@ -6,6 +6,15 @@
 <!-- == Simple Strings ===================================================== -->
 
 <msgset>
+  <msgid>ltr</msgid>
+  <!--
+  The string determines the text direction of the formatted output.
+  If your language reads right-to-left, translatet this string to
+  rtl.  Otherwise, leave it as ltr.
+  -->
+  <_msg>ltr</_msg>
+</msgset>
+<msgset>
   <msgid>, </msgid>
   <!--
   This is used a simple list item seperator in places where simple

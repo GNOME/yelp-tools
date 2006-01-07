@@ -1,3 +1,10 @@
+2006-01-07  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/html/db2html-css.xsl:
+	* xslt/gettext/gettext.xsl:
+	* xslt/gettext/l10n.xml.in:
+	- Added support for RTL setting in the CSS
+
 2005-12-26  Theppitak Karoonboonyanan  <thep@linux.thai.net>
 
 	* configure.in: Added 'th' (Thai) to ALL_LINGUAS.
