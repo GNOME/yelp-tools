@@ -445,7 +445,7 @@
   -->  
   <_msg>
     <msgid>biblioentry.tooltip</msgid>
-    <msgstr>View the biblioraphy entry <label/>.</msgstr>
+    <msgstr>View the bibliography entry <label/>.</msgstr>
   </_msg>
 </msgset>
 
