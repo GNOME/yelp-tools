@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-30 18:54+0200\n"
-"PO-Revision-Date: 2005-08-02 11:40+0300\n"
+"POT-Creation-Date: 2006-01-08 00:40+0200\n"
+"PO-Revision-Date: 2006-01-08 00:42+0200\n"
 "Last-Translator: Ilkka Tuohela <hile@iki.fi>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -185,8 +185,8 @@ msgstr "<msgstr>Liite <number/> ― <title/></msgstr>"
 #.
 #: ../xslt/gettext/l10n.xml.in.h:145
 msgid ""
-"<msgid>biblioentry.tooltip</msgid> <msgstr>View the biblioraphy entry <label/"
-">.</msgstr>"
+"<msgid>biblioentry.tooltip</msgid> <msgstr>View the bibliography entry "
+"<label/>.</msgstr>"
 msgstr ""
 "<msgid>biblioentry.tooltip</msgid> <msgstr>Näytä lähdeluettelon kohta "
 "<label/></msgstr>"
@@ -1704,8 +1704,7 @@ msgstr ""
 #: ../xslt/gettext/l10n.xml.in.h:1419
 msgid ""
 "<msgstr form='0'>Translator</msgstr> <msgstr form='1'>Translators</msgstr>"
-msgstr ""
-"<msgstr form='0'>Kääntäjä</msgstr> <msgstr form='1'>Kääntäjät</msgstr>"
+msgstr "<msgstr form='0'>Kääntäjä</msgstr> <msgstr form='1'>Kääntäjät</msgstr>"
 
 #.
 #. http://www.docbook.org/tdg/en/html/qandaentry.html
@@ -1896,6 +1895,15 @@ msgstr "Vinkki"
 #: ../xslt/gettext/l10n.xml.in.h:1543
 msgid "Warning"
 msgstr "Varoitus"
+
+#.
+#. The string determines the text direction of the formatted output.
+#. If your language reads right-to-left, translatet this string to
+#. rtl.  Otherwise, leave it as ltr.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1549
+msgid "ltr"
+msgstr "ltr"
 
 #~ msgid "<msgstr>, </msgstr>"
 #~ msgstr "<msgstr>, </msgstr>"
