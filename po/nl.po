@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-06 14:09+0100\n"
-"PO-Revision-Date: 2006-01-06 20:34+0100\n"
+"POT-Creation-Date: 2006-01-08 06:36+0100\n"
+"PO-Revision-Date: 2006-01-08 13:54+0100\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "MIME-Version: 1.0\n"
@@ -160,7 +160,6 @@ msgid ""
 msgstr ""
 "<msgid>appendix.xref</msgid> <msgstr>Appendix <number/> ― <title/></msgstr>"
 
-# Engels BUG: Biblioraphy ipv Bibliography
 #.
 #. This is a special format message.  Please read the full translator
 #. documentation before translating this message.  The documentation
@@ -186,9 +185,11 @@ msgstr ""
 #.
 #: ../xslt/gettext/l10n.xml.in.h:145
 msgid ""
-"<msgid>biblioentry.tooltip</msgid> <msgstr>View the biblioraphy entry <label/"
-">.</msgstr>"
-msgstr "<msgid>biblioentry.tooltip</msgid> <msgstr>Het bibliografie-item weergeven <label/>.</msgstr>"
+"<msgid>biblioentry.tooltip</msgid> <msgstr>View the bibliography entry "
+"<label/>.</msgstr>"
+msgstr ""
+"<msgid>biblioentry.tooltip</msgid> <msgstr>Het bibliografie-item weergeven "
+"<label/>.</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1892,92 +1893,14 @@ msgstr "Tip"
 msgid "Warning"
 msgstr "Waarschuwing"
 
-#~ msgid "format.appendix.label"
-#~ msgstr "format.appendix.label"
-
-#~ msgid "format.book.label"
-#~ msgstr "format.book.label"
-
-#~ msgid "format.chapter.label"
-#~ msgstr "format.chapter.label"
-
-#~ msgid "format.citetitle"
-#~ msgstr "format.citetitle"
-
-#~ msgid "format.date"
-#~ msgstr "format.date"
-
-#~ msgid "format.example.label"
-#~ msgstr "format.example.label"
-
-#~ msgid "format.example.number"
-#~ msgstr "format.example.number"
-
-#~ msgid "format.example.number.flat"
-#~ msgstr "format.example.number.flat"
-
-#~ msgid "format.figure.label"
-#~ msgstr "format.figure.label"
-
-#~ msgid "format.figure.number"
-#~ msgstr "format.figure.number"
-
-#~ msgid "format.figure.number.flat"
-#~ msgstr "format.figure.number.flat"
-
-#~ msgid "format.manvolnum"
-#~ msgstr "format.manvolnum"
-
-#~ msgid "format.part.label"
-#~ msgstr "format.part.label"
-
-#~ msgid "format.part.number"
-#~ msgstr "format.part.number"
-
-#~ msgid "format.quote.inner"
-#~ msgstr "format.quote.inner"
-
-#~ msgid "format.quote.outer"
-#~ msgstr "format.quote.outer"
-
-#~ msgid "format.refentry.label"
-#~ msgstr "format.refentry.label"
-
-#~ msgid "format.section.label"
-#~ msgstr "format.section.label"
-
-#~ msgid "format.table.label"
-#~ msgstr "format.table.label"
-
-#~ msgid "format.table.number"
-#~ msgstr "format.table.number"
-
-#~ msgid "format.table.number.flat"
-#~ msgstr "format.table.number.flat"
-
-#~ msgid "format.tooltip.glossentry"
-#~ msgstr "format.tooltip.glossentry"
-
-#~ msgid "format.tooltip.mailto"
-#~ msgstr "format.tooltip.mailto"
-
-#~ msgid "Audience"
-#~ msgstr "Doelgroep"
-
-#~ msgid "Contents"
-#~ msgstr "Inhoud"
-
-#~ msgid "Date"
-#~ msgstr "Datum"
-
-#~ msgid "Level"
-#~ msgstr "Niveau"
-
-#~ msgid "Message Audience"
-#~ msgstr "Berichtsdoelgroep"
-
-#~ msgid "Message Level"
-#~ msgstr "Berichtsniveau"
+#.
+#. The string determines the text direction of the formatted output.
+#. If your language reads right-to-left, translatet this string to
+#. rtl.  Otherwise, leave it as ltr.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1549
+msgid "ltr"
+msgstr "lnr"
 
 #~ msgid "Message Origin"
 #~ msgstr "Berichtsoorsprong"
@@ -2080,18 +2003,6 @@ msgstr "Waarschuwing"
 
 #~ msgid "“%t{node}”"
 #~ msgstr "“%t{node}”"
-
-#~ msgid "&#8216;"
-#~ msgstr "&#8216;"
-
-#~ msgid "&#8217;"
-#~ msgstr "&#8217;"
-
-#~ msgid "&#8220;"
-#~ msgstr "&#8220;"
-
-#~ msgid "&#8221;"
-#~ msgstr "&#8221;"
 
 #~ msgid "Appendix"
 #~ msgstr "Appendix"
