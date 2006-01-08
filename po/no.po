@@ -1,14 +1,14 @@
 # Norwegian bokmål translation of gnome-doc-utils.
 # Copyright (C) 2004, 2005 Shaun McChance
 # This file is distributed under the same license as the gnome-doc-utils package.
-# Kjartan Maraas <kmaraas@gnome.org>, 2004,2005.
+# Kjartan Maraas <kmaraas@gnome.org>, 2004,2006.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils 0.3.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-07 11:06+0100\n"
-"PO-Revision-Date: 2005-12-07 11:09+0100\n"
+"POT-Creation-Date: 2006-01-08 14:58+0100\n"
+"PO-Revision-Date: 2006-01-08 14:59+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian bokmal <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -184,9 +184,11 @@ msgstr ""
 #.
 #: ../xslt/gettext/l10n.xml.in.h:145
 msgid ""
-"<msgid>biblioentry.tooltip</msgid> <msgstr>View the biblioraphy entry <label/"
+"<msgid>biblioentry.tooltip</msgid> <msgstr>View the bibliography entry "
+"<label/>.</msgstr>"
+msgstr ""
+"<msgid>biblioentry.tooltip</msgid> <msgstr>Vis bibliografioppføringen <label/"
 ">.</msgstr>"
-msgstr "<msgid>biblioentry.tooltip</msgid> <msgstr>Vis bibliografioppføringen <label/>.</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1696,7 +1698,8 @@ msgstr "<msgstr form='0'>Utgiver</msgstr> <msgstr form='1'>Utgivere</msgstr>"
 #: ../xslt/gettext/l10n.xml.in.h:1419
 msgid ""
 "<msgstr form='0'>Translator</msgstr> <msgstr form='1'>Translators</msgstr>"
-msgstr "<msgstr form='0'>Oversetter</msgstr> <msgstr form='1'>Oversettere</msgstr>"
+msgstr ""
+"<msgstr form='0'>Oversetter</msgstr> <msgstr form='1'>Oversettere</msgstr>"
 
 #.
 #. http://www.docbook.org/tdg/en/html/qandaentry.html
@@ -1887,3 +1890,12 @@ msgstr "Tips"
 #: ../xslt/gettext/l10n.xml.in.h:1543
 msgid "Warning"
 msgstr "Advarsel"
+
+#.
+#. The string determines the text direction of the formatted output.
+#. If your language reads right-to-left, translatet this string to
+#. rtl.  Otherwise, leave it as ltr.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1549
+msgid "ltr"
+msgstr "ltr"
