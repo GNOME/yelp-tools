@@ -2,14 +2,14 @@
 # translation of gnome-doc-utils.HEAD.po to Galego
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
-# Ignacio Casal Quinteiro <nacho.resa@gmail.com>, 2005.
+# Ignacio Casal Quinteiro <nacho.resa@gmail.com>, 2005, 2006.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-28 13:57+0100\n"
-"PO-Revision-Date: 2005-11-28 13:59+0100\n"
+"POT-Creation-Date: 2006-01-09 10:05+0100\n"
+"PO-Revision-Date: 2006-01-09 10:06+0100\n"
 "Last-Translator: Ignacio Casal Quinteiro <nacho.resa@gmail.com>\n"
 "Language-Team: Galego\n"
 "MIME-Version: 1.0\n"
@@ -184,11 +184,11 @@ msgstr "<msgid>appendix.xref</msgid> <msgstr>Apéndice <number/> ― <title/></m
 #.
 #: ../xslt/gettext/l10n.xml.in.h:145
 msgid ""
-"<msgid>biblioentry.tooltip</msgid> <msgstr>View the biblioraphy entry <label/"
-">.</msgstr>"
+"<msgid>biblioentry.tooltip</msgid> <msgstr>View the bibliography entry "
+"<label/>.</msgstr>"
 msgstr ""
-"<msgid>biblioentry.tooltip</msgid> <msgstr>Ver a entrada de bibliografía <label/"
-">.</msgstr>"
+"<msgid>biblioentry.tooltip</msgid> <msgstr>Ver a entrada de bibliografía "
+"<label/>.</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1877,4 +1877,13 @@ msgstr "Consello"
 #: ../xslt/gettext/l10n.xml.in.h:1543
 msgid "Warning"
 msgstr "Aviso"
+
+#.
+#. The string determines the text direction of the formatted output.
+#. If your language reads right-to-left, translatet this string to
+#. rtl.  Otherwise, leave it as ltr.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1549
+msgid "ltr"
+msgstr "ltr"
 
