@@ -1765,7 +1765,7 @@ msgstr "呈獻"
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1468
 msgid "Email"
-msgstr "電子郵件"
+msgstr "電郵"
 
 #.
 #. http://www.docbook.org/tdg/en/html/glossary.html
