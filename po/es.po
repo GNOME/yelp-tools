@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-26 19:21+0100\n"
-"PO-Revision-Date: 2005-11-26 19:23+0100\n"
+"POT-Creation-Date: 2006-01-16 18:58+0100\n"
+"PO-Revision-Date: 2006-01-16 18:59+0100\n"
 "Last-Translator: \n"
 "Language-Team:  <en@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -187,9 +187,9 @@ msgstr ""
 #.
 #: ../xslt/gettext/l10n.xml.in.h:145
 msgid ""
-"<msgid>biblioentry.tooltip</msgid> <msgstr>View the biblioraphy entry <label/"
-">.</msgstr>"
-msgstr "<msgid>glossentry.tooltip</msgid> <msgstr>Vea la entrada de bibliografía <label/>.</msgstr>"
+"<msgid>biblioentry.tooltip</msgid> <msgstr>View the bibliography entry "
+"<label/>.</msgstr>"
+msgstr "<msgid>biblioentry.tooltip</msgid> <msgstr>Vea la entrada de bibliografía <label/>.</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1701,7 +1701,8 @@ msgstr "<msgstr form='0'>Editor</msgstr> <msgstr form='1'>Editores</msgstr>"
 #: ../xslt/gettext/l10n.xml.in.h:1419
 msgid ""
 "<msgstr form='0'>Translator</msgstr> <msgstr form='1'>Translators</msgstr>"
-msgstr "<msgstr form='0'>Traductor</msgstr> <msgstr form='1'>Traductores</msgstr>"
+msgstr ""
+"<msgstr form='0'>Traductor</msgstr> <msgstr form='1'>Traductores</msgstr>"
 
 #.
 #. http://www.docbook.org/tdg/en/html/qandaentry.html
@@ -1853,11 +1854,19 @@ msgstr "P:&#x2003;"
 msgid "Revision History"
 msgstr "Historia de revisiones"
 
-#: ../xslt/gettext/l10n.xml.in.h:1519
+#.
+#. Used for the <see> element.
+#. FIXME: this should be a format string.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1523
 msgid "See"
 msgstr "Vea"
 
-#: ../xslt/gettext/l10n.xml.in.h:1520
+#.
+#. Used for the <seealso> element.
+#. FIXME: this should be a format string.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1528
 msgid "See Also"
 msgstr "Vea también"
 
@@ -1865,7 +1874,7 @@ msgstr "Vea también"
 #. http://www.docbook.org/tdg/en/html/refsynopsisdiv.html
 #. This is used as the default title for refsynopsisdiv elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1525
+#: ../xslt/gettext/l10n.xml.in.h:1533
 msgid "Synopsis"
 msgstr "Sinopsis"
 
@@ -1873,7 +1882,7 @@ msgstr "Sinopsis"
 #. http://www.docbook.org/tdg/en/html/tip.html
 #. This is used as a default title for tip elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1530
+#: ../xslt/gettext/l10n.xml.in.h:1538
 msgid "Tip"
 msgstr "Consejo"
 
@@ -1881,6 +1890,15 @@ msgstr "Consejo"
 #. http://www.docbook.org/tdg/en/html/warning.html
 #. This is used as a default title for warning elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1535
+#: ../xslt/gettext/l10n.xml.in.h:1543
 msgid "Warning"
 msgstr "Advertencia"
+
+#.
+#. The string determines the text direction of the formatted output.
+#. If your language reads right-to-left, translatet this string to
+#. rtl.  Otherwise, leave it as ltr.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1549
+msgid "ltr"
+msgstr "ltr"
