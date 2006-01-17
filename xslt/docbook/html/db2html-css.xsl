@@ -33,6 +33,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <xsl:template name="db2html.css">
   <style>
+    <xsl:call-template name="db2html.footnote.css"/>
     <xsl:call-template name="db2html.admon.css"/>
     <xsl:call-template name="db2html.autotoc.css"/>
     <xsl:call-template name="db2html.bibliography.css"/>

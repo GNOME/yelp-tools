@@ -11,6 +11,7 @@ xsl_DATA =				\
 	db2html-css.xsl			\
 	db2html-division.xsl		\
 	db2html-ebnf.xsl		\
+	db2html-footnote.xsl		\
 	db2html-funcsynopsis.xsl	\
 	db2html-info.xsl		\
 	db2html-inline.xsl		\

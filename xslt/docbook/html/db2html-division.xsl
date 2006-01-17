@@ -410,12 +410,27 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
         </xsl:apply-templates>
       </dl>
     </xsl:if>
-    <xsl:if test="not($chunk_divisions)">
-      <xsl:apply-templates select="$divisions">
-        <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
-        <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
-      </xsl:apply-templates>
-    </xsl:if>
+    <xsl:choose>
+     <xsl:when test="not($chunk_divisions)">
+	<xsl:apply-templates select="$divisions">
+          <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
+          <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+        </xsl:apply-templates>
+	<!-- we can have children that are in $divisions, so we only
+	  want to process footnotes for the top-level division where
+	  $depth_in_chunk = 0-->
+	<xsl:if test="$depth_in_chunk = 0">
+          <xsl:call-template name="process.footnotes"/>
+        </xsl:if>
+     </xsl:when>
+     <xsl:otherwise>
+       <!-- this is basically the elements outside the intersection of child::* and $division -->
+       <xsl:variable name="nonchunk" select="*[count(.|$divisions) != count($divisions)]"/>
+       <xsl:for-each select="$nonchunk">
+         <xsl:call-template name="process.footnotes"/>
+       </xsl:for-each>
+     </xsl:otherwise>
+    </xsl:choose>
   </div>
 </xsl:template>
 
