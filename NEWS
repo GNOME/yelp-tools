@@ -1,3 +1,26 @@
+Changes in 0.5.3:
+-----------------
+* Added per-language setting for text direction  (Shaun McCance)
+* Added support for footnotes, #317203           (Brent Smith)
+* Fixed misspelled biblioraphy, #325205          (Shaun McCance)
+* Fixed generation of copyright information      (Peter Williams)
+* Updated translations:
+  th      (Theppitak Karoonboonyanan)
+  es      (Francisco Javier F. Serrador)
+  zh_HK   (Chao-Hsiung Liao)
+  zh_TW   (Chao-Hsiung Liao)
+  en_CA   (Adam Weinberger)
+  bg      (Alexander Shopov)
+  gl      (Ignacio Casal Quinteiro)
+  vi      (Clytie Siddall)
+  gu      (Ankit Patel)
+  nl      (Tino Meinen)
+  nb      (Kjartan Maraas)
+  no      (Kjartan Maraas)
+  fi      (Ilkka Tuohela)
+  ca      (Josep Puigdemont i Casamajó)
+  cs      (Miloslav Trmac)
+
 Changes in 0.5.2:
 -----------------
 * Removed extra gettext import for better performance  (Don Scorgie)
