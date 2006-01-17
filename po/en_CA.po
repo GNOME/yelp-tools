@@ -1,14 +1,14 @@
 # Canadian English translation for gnome-doc-utils.
-# Copyright (C) 2004 Adam Weinberger and the GNOME Foudnation
+# Copyright (C) 2004-2006 Adam Weinberger and the GNOME Foudnation
 # This file is distributed under the same licence as the gnome-doc-utils package.
-# Adam Weinberger <adamw@gnome.org>, 2004.
+# Adam Weinberger <adamw@gnome.org>, 2004, 2006.
 #
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-09 21:54-0500\n"
+"POT-Creation-Date: 2006-01-17 14:41-0500\n"
 "PO-Revision-Date: 2005-08-02 20:44-0400\n"
 "Last-Translator: Adam Weinberger <adamw@gnome.org>\n"
 "Language-Team: Canadian English <adamw@gnome.org>\n"
@@ -1893,10 +1893,11 @@ msgid "Warning"
 msgstr "Warning"
 
 #.
-#. The string determines the text direction of the formatted output.
-#. If your language reads right-to-left, translatet this string to
-#. rtl.  Otherwise, leave it as ltr.
+#. Translate to default:RTL if your language should be displayed
+#. right-to-left, otherwise translate to default:LTR.  Do *not*
+#. translate it to "predefinito:LTR", if it it isn't default:LTR
+#. or default:RTL it will not work
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1549
-msgid "ltr"
-msgstr "ltr"
+#: ../xslt/gettext/l10n.xml.in.h:1550
+msgid "default:LTR"
+msgstr "default:LTR"
