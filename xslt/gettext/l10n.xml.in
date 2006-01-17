@@ -8,11 +8,12 @@
 <msgset>
   <msgid>ltr</msgid>
   <!--
-  The string determines the text direction of the formatted output.
-  If your language reads right-to-left, translatet this string to
-  rtl.  Otherwise, leave it as ltr.
+  Translate to default:RTL if your language should be displayed
+  right-to-left, otherwise translate to default:LTR.  Do *not*
+  translate it to "predefinito:LTR", if it it isn't default:LTR
+  or default:RTL it will not work
   -->
-  <_msg>ltr</_msg>
+  <_msg>default:LTR</_msg>
 </msgset>
 <msgset>
   <msgid>, </msgid>

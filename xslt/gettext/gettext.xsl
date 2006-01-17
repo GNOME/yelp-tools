@@ -830,7 +830,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:param>
   <xsl:variable name="direction">
     <xsl:call-template name="l10n.gettext">
-      <xsl:with-param name="msgid" select="'ltr'"/>
+      <xsl:with-param name="msgid" select="'default:LTR'"/>
       <xsl:with-param name="lang" select="$lang"/>
       <xsl:with-param name="lang_language" select="$lang_language"/>
       <xsl:with-param name="lang_region"   select="$lang_region"/>
@@ -839,7 +839,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     </xsl:call-template>
   </xsl:variable>
   <xsl:choose>
-    <xsl:when test="$direction = 'rtl'">
+    <xsl:when test="$direction = 'default:RTL'">
       <xsl:text>rtl</xsl:text>
     </xsl:when>
     <xsl:otherwise>

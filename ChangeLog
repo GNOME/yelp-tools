@@ -1,3 +1,9 @@
+2006-01-16  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/gettext/gettext.xsl:
+	* xslt/gettext/l10n.xml.in:
+	- Changed the string 'ltr' to 'default:LTR'
+
 2006-01-16  Brent Smith  <gnome@nextreality.net>
 
 	* xslt/docbook/html/Makefile.am:
