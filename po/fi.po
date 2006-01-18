@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-08 00:40+0200\n"
-"PO-Revision-Date: 2006-01-08 00:42+0200\n"
+"POT-Creation-Date: 2006-01-18 07:07+0200\n"
+"PO-Revision-Date: 2006-01-18 07:10+0200\n"
 "Last-Translator: Ilkka Tuohela <hile@iki.fi>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -188,8 +188,8 @@ msgid ""
 "<msgid>biblioentry.tooltip</msgid> <msgstr>View the bibliography entry "
 "<label/>.</msgstr>"
 msgstr ""
-"<msgid>biblioentry.tooltip</msgid> <msgstr>Näytä lähdeluettelon kohta "
-"<label/></msgstr>"
+"<msgid>biblioentry.tooltip</msgid> <msgstr>Näytä lähdeluettelon kohta <label/"
+"></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1897,13 +1897,17 @@ msgid "Warning"
 msgstr "Varoitus"
 
 #.
-#. The string determines the text direction of the formatted output.
-#. If your language reads right-to-left, translatet this string to
-#. rtl.  Otherwise, leave it as ltr.
+#. Translate to default:RTL if your language should be displayed
+#. right-to-left, otherwise translate to default:LTR.  Do *not*
+#. translate it to "predefinito:LTR", if it it isn't default:LTR
+#. or default:RTL it will not work
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1549
-msgid "ltr"
-msgstr "ltr"
+#: ../xslt/gettext/l10n.xml.in.h:1550
+msgid "default:LTR"
+msgstr "default:LTR"
+
+#~ msgid "ltr"
+#~ msgstr "ltr"
 
 #~ msgid "<msgstr>, </msgstr>"
 #~ msgstr "<msgstr>, </msgstr>"
