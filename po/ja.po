@@ -1,15 +1,15 @@
 # ja.po for gnome-doc-utils.
-# Copyright (C) 2004,2005 Shaun McCance <shaunm@gnome.org>
+# Copyright (C) 2004-2006 Shaun McCance <shaunm@gnome.org>
 # This file is distributed under the same license as the gnome-doc-utils package.
 # Satoru SATOH <ss@gnome.gr.jp>, 2004.
-# Takeshi AIHANA <aihana@jcom.home.ne.jp>, 2005.
+# Takeshi AIHANA <aihana@jcom.home.ne.jp>, 2005,2006.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-27 16:45+0900\n"
-"PO-Revision-Date: 2005-08-07 15:15+0900\n"
+"POT-Creation-Date: 2006-01-19 23:13+0900\n"
+"PO-Revision-Date: 2006-01-19 23:11+0900\n"
 "Last-Translator: Takeshi AIHANA <aihana@jcom.home.ne.jp>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "MIME-Version: 1.0\n"
@@ -185,10 +185,10 @@ msgstr ""
 #.
 #: ../xslt/gettext/l10n.xml.in.h:145
 msgid ""
-"<msgid>biblioentry.tooltip</msgid> <msgstr>View the biblioraphy entry <label/"
-">.</msgstr>"
+"<msgid>biblioentry.tooltip</msgid> <msgstr>View the bibliography entry "
+"<label/>.</msgstr>"
 msgstr ""
-"<msgid>biblioentry.tooltip</msgid> <msgstr><label/>の参考文献を表示する。</"
+"<msgid>biblioentry.tooltip</msgid> <msgstr><label/> の参考文献を表示する。</"
 "msgstr>"
 
 #.
@@ -1889,3 +1889,13 @@ msgstr "チップス"
 #: ../xslt/gettext/l10n.xml.in.h:1543
 msgid "Warning"
 msgstr "警告"
+
+#.
+#. Translate to default:RTL if your language should be displayed
+#. right-to-left, otherwise translate to default:LTR.  Do *not*
+#. translate it to "predefinito:LTR", if it it isn't default:LTR
+#. or default:RTL it will not work
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1550
+msgid "default:LTR"
+msgstr "default:LTR"
