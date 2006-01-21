@@ -1,1883 +1,2614 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# Funda Wang <fundawang@linux.net.cn>, 2004.
-#
+# Simplified Chinese translation for profterm.
+# Copyright (C) 2002 Free Software Foundation, Inc.
+# He Qiangqiang <carton@linux.net.cn>, 2002.
+# Funda Wang <fundawang@linux.net.cn>, 2003,2004.
+# 
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-doc-utils\n"
+"Project-Id-Version: gnome-terminal\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-12-11 06:34+0100\n"
-"PO-Revision-Date: 2005-12-11 19:24+0800\n"
+"POT-Creation-Date: 2006-01-21 07:08+0100\n"
+"PO-Revision-Date: 2006-01-21 18:32+0800\n"
 "Last-Translator: Funda Wang <fundawang@linux.net.cn>\n"
 "Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
-#.
-#. This is used a simple list item seperator in places where simple
-#. inline lists have to be constructed dynamically.  Using the default
-#. string of ", ", a list would look like this: A, B, C, D.  Using the
-#. nonsensical string " - ", a list would look like this: A - B - C - D.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:7
-msgid ", "
-msgstr "、"
+#: ../gnome-terminal.desktop.in.in.h:1 ../src/gnome-terminal.schemas.in.h:121
+#: ../src/terminal-accels.c:181 ../src/terminal-profile.c:278
+#: ../src/terminal-window.c:765 ../src/terminal.c:1206 ../src/terminal.c:1638
+msgid "Terminal"
+msgstr "终端"
 
-#.
-#. The number formatter used for appendix numbers.  This can be one of
-#. "1", "A", "a", "I", or "i", without the quotes.  These formatters
-#. provide the following results:
-#.
-#. 1    2    3    4    5    6    7    8    9   10   11   12   13   14
-#. A    B    C    D    E    F    G    H    I    J    K    L    M    N
-#. a    b    c    d    e    f    g    h    i    j    k    l    m    n
-#. I   II  III   IV    V   VI  VII VIII   IX    X   XI  XII XIII  XIV
-#. i   ii  iii   iv    v   vi  vii viii   ix    x   xi  xii xiii  xiv
-#.
-#. Non-Western languages probably need additional formatters.  Please
-#. contact the maintainers about adding formatters for your language.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:22
-msgid "<msgid>appendix.digit</msgid> <msgstr>A</msgstr>"
-msgstr "<msgid>appendix.digit</msgid> <msgstr>A</msgstr>"
+#: ../gnome-terminal.desktop.in.in.h:2
+msgid "Use the command line"
+msgstr "使用命令行"
 
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. This is a format message used to format labels for appendices.  Labels
-#. are used before the title in places like headers and table of contents
-#. listings.  Multiple roles can be used to provide different formattings
-#. for different uses of labels.  The following roles may be used with
-#. this format message:
-#.
-#. header - Used for labels in headers
-#. li     - Used for labels in table of contents listings
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. title       - The title of the appendix
-#. titleabbrev - The titleabbrev of the appendix, or just the title
-#. if no titleabbrev exists
-#. number      - The full number of the appendix, possibly including
-#. the number of the parent element
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the title, simply write left angle bracket, title, slash,
-#. right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:56
+#: ../src/eggcellrendererkeys.c:25
+msgid "New accelerator..."
+msgstr "新加速键..."
+
+#: ../src/eggcellrendererkeys.c:167 ../src/eggcellrendererkeys.c:168
+msgid "Accelerator key"
+msgstr "加速键"
+
+#: ../src/eggcellrendererkeys.c:177 ../src/eggcellrendererkeys.c:178
+msgid "Accelerator modifiers"
+msgstr "加速修饰键"
+
+#: ../src/eggcellrendererkeys.c:186 ../src/eggcellrendererkeys.c:187
+msgid "Accelerator keycode"
+msgstr "加速键按键代码"
+
+#: ../src/eggcellrendererkeys.c:197
+msgid "Accel Mode"
+msgstr "加速模式"
+
+#: ../src/eggcellrendererkeys.c:198
+msgid "The type of accelerator."
+msgstr "加速键类型。"
+
+#: ../src/eggcellrendererkeys.c:246 ../src/terminal-accels.c:726
+msgid "Disabled"
+msgstr "已禁用"
+
+#: ../src/encoding.c:55
+msgid "Current Locale"
+msgstr "当前区域"
+
+#: ../src/encoding.c:58 ../src/encoding.c:84 ../src/encoding.c:127
+#: ../src/encoding.c:175 ../src/encoding.c:199
+msgid "Western"
+msgstr "西欧"
+
+#: ../src/encoding.c:60 ../src/encoding.c:129 ../src/encoding.c:155
+#: ../src/encoding.c:195
+msgid "Central European"
+msgstr "中欧"
+
+#: ../src/encoding.c:62
+msgid "South European"
+msgstr "南欧"
+
+#: ../src/encoding.c:64 ../src/encoding.c:80 ../src/encoding.c:209
+msgid "Baltic"
+msgstr "波罗的语"
+
+#: ../src/encoding.c:66 ../src/encoding.c:131 ../src/encoding.c:144
+#: ../src/encoding.c:148 ../src/encoding.c:159 ../src/encoding.c:197
+msgid "Cyrillic"
+msgstr "西里尔语"
+
+#: ../src/encoding.c:68 ../src/encoding.c:137 ../src/encoding.c:153
+#: ../src/encoding.c:207
+msgid "Arabic"
+msgstr "阿拉伯语"
+
+#: ../src/encoding.c:70 ../src/encoding.c:165 ../src/encoding.c:201
+msgid "Greek"
+msgstr "希腊语"
+
+#: ../src/encoding.c:72
+msgid "Hebrew Visual"
+msgstr "可视希伯来语"
+
+#: ../src/encoding.c:74 ../src/encoding.c:135 ../src/encoding.c:171
+#: ../src/encoding.c:205
+msgid "Hebrew"
+msgstr "希伯来语"
+
+#: ../src/encoding.c:76 ../src/encoding.c:133 ../src/encoding.c:179
+#: ../src/encoding.c:203
+msgid "Turkish"
+msgstr "土耳其语"
+
+#: ../src/encoding.c:78
+msgid "Nordic"
+msgstr "北欧"
+
+#: ../src/encoding.c:82
+msgid "Celtic"
+msgstr "凯尔特语"
+
+#: ../src/encoding.c:86 ../src/encoding.c:177
+msgid "Romanian"
+msgstr "罗马尼亚语"
+
+#: ../src/encoding.c:89 ../src/encoding.c:91 ../src/encoding.c:93
+#: ../src/encoding.c:95 ../src/encoding.c:97
+msgid "Unicode"
+msgstr "Unicode"
+
+#: ../src/encoding.c:100
+msgid "Armenian"
+msgstr "亚美尼亚语"
+
+#: ../src/encoding.c:102 ../src/encoding.c:104 ../src/encoding.c:113
+msgid "Chinese Traditional"
+msgstr "繁体中文"
+
+#: ../src/encoding.c:106
+msgid "Cyrillic/Russian"
+msgstr "西里尔语/俄语"
+
+#: ../src/encoding.c:109 ../src/encoding.c:140 ../src/encoding.c:184
+msgid "Japanese"
+msgstr "日语"
+
+#: ../src/encoding.c:111 ../src/encoding.c:142 ../src/encoding.c:146
+#: ../src/encoding.c:190
+msgid "Korean"
+msgstr "朝鲜语"
+
+#: ../src/encoding.c:116 ../src/encoding.c:118 ../src/encoding.c:120
+#: ../src/encoding.c:124
+msgid "Chinese Simplified"
+msgstr "简体中文"
+
+#: ../src/encoding.c:122
+msgid "Georgian"
+msgstr "格鲁吉亚语"
+
+#: ../src/encoding.c:150 ../src/encoding.c:181
+msgid "Cyrillic/Ukrainian"
+msgstr "西里尔语/乌克兰语"
+
+#: ../src/encoding.c:157
+msgid "Croatian"
+msgstr "克罗地亚语"
+
+#: ../src/encoding.c:161
+msgid "Hindi"
+msgstr "北印度语"
+
+#: ../src/encoding.c:163
+msgid "Persian"
+msgstr "波斯语"
+
+#: ../src/encoding.c:167
+msgid "Gujarati"
+msgstr "古吉拉特特"
+
+#: ../src/encoding.c:169
+msgid "Gurmukhi"
+msgstr "旁遮普语"
+
+#: ../src/encoding.c:173
+msgid "Icelandic"
+msgstr "冰岛语"
+
+#: ../src/encoding.c:186 ../src/encoding.c:192 ../src/encoding.c:211
+msgid "Vietnamese"
+msgstr "越南语"
+
+#: ../src/encoding.c:188
+msgid "Thai"
+msgstr "泰语"
+
+#: ../src/encoding.c:377
+msgid "User Defined"
+msgstr "用户定义"
+
+#: ../src/encoding.c:735 ../src/encoding.c:799
+msgid "_Description"
+msgstr "描述(_D)"
+
+#: ../src/encoding.c:744 ../src/encoding.c:808
+msgid "_Encoding"
+msgstr "编码(_E)"
+
+#: ../src/encoding.c:977
+#, c-format
 msgid ""
-"<msgid>appendix.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
-"msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Appendix "
-"<number/></msgstr>"
+"There was an error subscribing to notification of terminal encoding list "
+"changes. (%s)\n"
+msgstr "订阅终端编码清单更改通知时出错。(%s)\n"
+
+#: ../src/gnome-terminal.glade2.h:1
+msgid "    "
+msgstr "    "
+
+#: ../src/gnome-terminal.glade2.h:2
+msgid "<b>Background</b>"
+msgstr "<b>背景</b>"
+
+#: ../src/gnome-terminal.glade2.h:3
+msgid "<b>Command</b>"
+msgstr "<b>命令</b>"
+
+#: ../src/gnome-terminal.glade2.h:4
+msgid "<b>Compatibility</b>"
+msgstr "<b>兼容性</b>"
+
+#: ../src/gnome-terminal.glade2.h:5
+msgid "<b>Foreground and Background</b>"
+msgstr "<b>前景色和背景色</b>"
+
+#: ../src/gnome-terminal.glade2.h:6
+msgid "<b>General</b>"
+msgstr "<b>常规</b>"
+
+#: ../src/gnome-terminal.glade2.h:7
+msgid "<b>Palette</b>"
+msgstr "<b>调色板</b>"
+
+#: ../src/gnome-terminal.glade2.h:8
+msgid "<b>Scrolling</b>"
+msgstr "<b>滚动</b>"
+
+#: ../src/gnome-terminal.glade2.h:9
+msgid "<b>Title</b>"
+msgstr "<b>标题</b>"
+
+#: ../src/gnome-terminal.glade2.h:10
+msgid ""
+"<small><i><b>Note:</b> Terminal applications have these colors available to "
+"them.</i></small>"
+msgstr "<small><i><b>注意：</b>终端应用程序可用下列颜色。</i></small>"
+
+#: ../src/gnome-terminal.glade2.h:11
+msgid ""
+"<small><i><b>Note:</b> The command running inside the terminal may "
+"dynamically set a new title.</i></small>"
 msgstr ""
-"<msgid>appendix.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
-"msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>附录 <number/"
-"></msgstr>"
+"<small><i><b>注意：</b>在终端中运行的命令可以动态设置新标题。</i></small>"
 
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. This is a format message used to format numbers for appendices.  Numbers
-#. are used in labels, cross references, and any other place where the
-#. appendix might be referenced.  The number for an appendix includes the
-#. number for its parent element, if applicable.  For example, the number
-#. 4.B indicates the second appendix in the fourth top-level element.  In
-#. this example, 4 is referred to as the parent number, and B is referred
-#. to as the appendix digit.  This format message constructs a full number
-#. from a parent number and an appendix digit.
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. parent - The full number of the appendix's parent element
-#. digit  - The number of the appendix in its parent element,
-#. not including any leading numbers from the parent
-#. element
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the digit, simply write left angle bracket, digit, slash,
-#. right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:89
-msgid "<msgid>appendix.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
-msgstr "<msgid>appendix.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
-
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. This is a format message used to format cross references to appendices.
-#. Multiple roles can be provided to allow document translators to select
-#. how to format each cross reference using the xrefstyle attribute.  If
-#. your language needs to provide different cross reference formattings
-#. for different parts of speech, you should provide multiple roles for
-#. cross reference formatters.
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. title       - The title of the appendix
-#. titleabbrev - The titleabbrev of the appendix, or just the title
-#. if no titleabbrev exists
-#. number      - The full number of the appendix, possibly including
-#. the number of the parent element
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the title, simply write left angle bracket, title, slash,
-#. right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:121
+#: ../src/gnome-terminal.glade2.h:12
 msgid ""
-"<msgid>appendix.xref</msgid> <msgstr>Appendix <number/> ― <title/></msgstr>"
+"<small><i><b>Note:</b> These options may cause some applications to behave "
+"incorrectly.  They are only here to allow you to work around certain "
+"applications and operating systems that expect different terminal behavior.</"
+"i></small>"
 msgstr ""
-"<msgid>appendix.xref</msgid> <msgstr>附录 <number/> ― <title/></msgstr>"
+"<small><i><b>注意：</b>这些选项可能造成一些应用程序产生不正确的行为。仅用于允"
+"许您在一些应用程序和操作系统中作调整以获得不同的终端行为。</i></small>"
 
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. This is a format message used to format tooltips on cross references
-#. to bibliography entries.
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. label - The term being defined by the glossary entry
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the label, simply write left angle bracket, label,  slash,
-#. right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:145
+#: ../src/gnome-terminal.glade2.h:13
+msgid "<small><i>Maximum</i></small>"
+msgstr "<small><i>最大</i></small>"
+
+#: ../src/gnome-terminal.glade2.h:14
+msgid "<small><i>None</i></small>"
+msgstr "<small><i>无</i></small>"
+
+#: ../src/gnome-terminal.glade2.h:15
 msgid ""
-"<msgid>biblioentry.tooltip</msgid> <msgstr>View the biblioraphy entry <label/"
-">.</msgstr>"
+"ASCII DEL\n"
+"Escape sequence\n"
+"Control-H"
 msgstr ""
-"<msgid>biblioentry.tooltip</msgid> <msgstr>查看参考书目<label/>。</msgstr>"
+"ASCII DEL\n"
+"转码序列\n"
+"Ctrl+H"
 
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. This is a format message used to format cross references to bibliographies.
-#. Multiple roles can be provided to allow document translators to select
-#. how to format each cross reference using the xrefstyle attribute.  If
-#. your language needs to provide different cross reference formattings
-#. for different parts of speech, you should provide multiple roles for
-#. cross reference formatters.
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. title       - The title of the figure
-#. titleabbrev - The titleabbrev of the figure, or just the title
-#. if no titleabbrev exists
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the title, simply write left angle bracket, title, slash,
-#. right angle bracket.
-#.
-#. Note that authors are not required to provide explicit titles for
-#. bibliographies.  If the author does not provide a title, the
-#. translatable string 'Bibliography' is used as a default.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:179
-msgid "<msgid>bibliography.xref</msgid> <msgstr><title/></msgstr>"
-msgstr "<msgid>bibliography.xref</msgid> <msgstr><title/></msgstr>"
+#: ../src/gnome-terminal.glade2.h:18
+msgid "A_vailable encodings:"
+msgstr "可用的编码(_V)："
 
-#.
-#. The number formatter used for book numbers.  This can be one of
-#. "1", "A", "a", "I", or "i", without the quotes.  These formatters
-#. provide the following results:
-#.
-#. 1    2    3    4    5    6    7    8    9   10   11   12   13   14
-#. A    B    C    D    E    F    G    H    I    J    K    L    M    N
-#. a    b    c    d    e    f    g    h    i    j    k    l    m    n
-#. I   II  III   IV    V   VI  VII VIII   IX    X   XI  XII XIII  XIV
-#. i   ii  iii   iv    v   vi  vii viii   ix    x   xi  xii xiii  xiv
-#.
-#. Non-Western languages probably need additional formatters.  Please
-#. contact the maintainers about adding formatters for your language.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:194
-msgid "<msgid>book.digit</msgid> <msgstr>1</msgstr>"
-msgstr "<msgid>book.digit</msgid> <msgstr>I</msgstr>"
+#: ../src/gnome-terminal.glade2.h:19
+msgid "Add encoding to menu."
+msgstr "在菜单中添加编码。"
 
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. This is a format message used to format cross references to books.
-#. Multiple roles can be provided to allow document translators to select
-#. how to format each cross reference using the xrefstyle attribute.  If
-#. your language needs to provide different cross reference formattings
-#. for different parts of speech, you should provide multiple roles for
-#. cross reference formatters.
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. title       - The title of the book
-#. titleabbrev - The titleabbrev of the book, or just the title
-#. if no titleabbrev exists
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the title, simply write left angle bracket, title, slash,
-#. right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:224
-msgid "<msgid>book.xref</msgid> <msgstr><title/></msgstr>"
-msgstr "<msgid>book.xref</msgid> <msgstr><title/></msgstr>"
+#: ../src/gnome-terminal.glade2.h:20
+msgid "Add or Remove Terminal Encodings"
+msgstr "添加或删除终端编码"
 
-#.
-#. The number formatter used for chapter numbers.  This can be one of
-#. "1", "A", "a", "I", or "i", without the quotes.  These formatters
-#. provide the following results:
-#.
-#. 1    2    3    4    5    6    7    8    9   10   11   12   13   14
-#. A    B    C    D    E    F    G    H    I    J    K    L    M    N
-#. a    b    c    d    e    f    g    h    i    j    k    l    m    n
-#. I   II  III   IV    V   VI  VII VIII   IX    X   XI  XII XIII  XIV
-#. i   ii  iii   iv    v   vi  vii viii   ix    x   xi  xii xiii  xiv
-#.
-#. Non-Western languages probably need additional formatters.  Please
-#. contact the maintainers about adding formatters for your language.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:239
-msgid "<msgid>chapter.digit</msgid> <msgstr>1</msgstr>"
-msgstr "<msgid>chapter.digit</msgid> <msgstr>cjk-chinese-simp</msgstr>"
+#: ../src/gnome-terminal.glade2.h:21
+msgid "Background _image"
+msgstr "背景图像(_I)"
 
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. This is a format message used to format labels for chapters.  Labels
-#. are used before the title in places like headers and table of contents
-#. listings.  Multiple roles can be used to provide different formattings
-#. for different uses of labels.  The following roles may be used with
-#. this format message:
-#.
-#. header - Used for labels in headers
-#. li     - Used for labels in table of contents listings
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. title       - The title of the chapter
-#. titleabbrev - The titleabbrev of the chapter, or just the title
-#. if no titleabbrev exists
-#. number      - The full number of the chapter, possibly including
-#. the number of the parent element
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the title, simply write left angle bracket, title, slash,
-#. right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:273
+#: ../src/gnome-terminal.glade2.h:22
+msgid "Background image _scrolls"
+msgstr "背景图像可以滚动(_S)"
+
+#: ../src/gnome-terminal.glade2.h:23
+msgid "Built-_in schemes:"
+msgstr "内置方案(_I)："
+
+#: ../src/gnome-terminal.glade2.h:24
+msgid "Built-in _schemes:"
+msgstr "内置方案(_S)："
+
+#: ../src/gnome-terminal.glade2.h:25
+msgid "C_reate"
+msgstr "创建(_R)"
+
+#: ../src/gnome-terminal.glade2.h:26
+msgid "Choose A Profile Icon"
+msgstr "选择配置文件图标"
+
+#: ../src/gnome-terminal.glade2.h:27
+msgid "Choose Terminal Background Color"
+msgstr "选择终端背景颜色"
+
+#: ../src/gnome-terminal.glade2.h:28
+msgid "Choose Terminal Text Color"
+msgstr "选择终端文本颜色"
+
+#: ../src/gnome-terminal.glade2.h:29
+msgid "Color _palette:"
+msgstr "调色板(_P)："
+
+#: ../src/gnome-terminal.glade2.h:30
+msgid "Colors"
+msgstr "颜色"
+
+#: ../src/gnome-terminal.glade2.h:31
+msgid "Compatibility"
+msgstr "兼容性"
+
+#: ../src/gnome-terminal.glade2.h:32
+msgid "Cursor blin_ks"
+msgstr "光标闪烁(_K)"
+
+#: ../src/gnome-terminal.glade2.h:33
+msgid "Custom"
+msgstr "自定义"
+
+#: ../src/gnome-terminal.glade2.h:34
+msgid "Custom co_mmand:"
+msgstr "自定义命令(_M)："
+
+#: ../src/gnome-terminal.glade2.h:35
+msgid "Disable all me_nu access keys (such as Alt+f to open File menu)"
+msgstr "禁用所有菜单访问键(如使用 Alt+f 来打开文件菜单)(_N)"
+
+#: ../src/gnome-terminal.glade2.h:36
+msgid "Disable m_enu shortcut key (F10 by default)"
+msgstr "禁用菜单快捷键(默认是 F10)(_E)"
+
+#: ../src/gnome-terminal.glade2.h:37
+msgid "E_ncodings shown in menu:"
+msgstr "菜单中显示的编码(_N)："
+
+#: ../src/gnome-terminal.glade2.h:38
+msgid "Effects"
+msgstr "效果"
+
+#: ../src/gnome-terminal.glade2.h:39
 msgid ""
-"<msgid>chapter.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
-"msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Chapter "
-"<number/></msgstr>"
+"Exit the terminal\n"
+"Restart the command\n"
+"Hold the terminal open"
 msgstr ""
-"<msgid>chapter.label</msgid> <msgstr role='header'><number/> &#x2003;</"
-"msgstr> <msgstr role='li'><number/> &#x2002;</msgstr> <msgstr><number/></"
-"msgstr>"
+"退出终端\n"
+"重新启动命令\n"
+"保持终端打开"
 
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. This is a format message used to format numbers for chapters.  Numbers
-#. are used in labels, cross references, and any other place where the
-#. chapter might be referenced.  The number for a chapter includes the
-#. number for its parent element, if applicable.  For example, the number
-#. 4.2 indicates the second chapter in the fourth top-level element.  In
-#. this example, 4 is referred to as the parent number, and B is referred
-#. to as the chapter digit.  This format message constructs a full number
-#. from a parent number and a chapter digit.
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. parent - The full number of the chapter's parent element
-#. digit  - The number of the chapter in its parent element,
-#. not including any leading numbers from the parent
-#. element
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the digit, simply write left angle bracket, digit, slash,
-#. right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:306
-msgid "<msgid>chapter.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
-msgstr "<msgid>chapter.number</msgid> <msgstr><parent/>第<digit/>章</msgstr>"
+#: ../src/gnome-terminal.glade2.h:42
+msgid "General"
+msgstr "常规"
 
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. This is a format message used to format cross references to chapters
-#. Multiple roles can be provided to allow document translators to select
-#. how to format each cross reference using the xrefstyle attribute.  If
-#. your language needs to provide different cross reference formattings
-#. for different parts of speech, you should provide multiple roles for
-#. cross reference formatters.
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. title       - The title of the chapter
-#. titleabbrev - The titleabbrev of the chapter, or just the title
-#. if no titleabbrev exists
-#. number      - The full number of the chapter, possibly including
-#. the number of the parent element
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the title, simply write left angle bracket, title, slash,
-#. right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:338
+#: ../src/gnome-terminal.glade2.h:43
+msgid "Image _file:"
+msgstr "图像文件(_F)："
+
+#: ../src/gnome-terminal.glade2.h:44
+msgid "Initial _title:"
+msgstr "起始标题(_T)："
+
+#: ../src/gnome-terminal.glade2.h:45
+msgid "Keyboard Shortcuts"
+msgstr "快捷键"
+
+#: ../src/gnome-terminal.glade2.h:46 ../src/terminal-accels.c:82
+msgid "New Profile"
+msgstr "新建配置文件"
+
+#: ../src/gnome-terminal.glade2.h:47
 msgid ""
-"<msgid>chapter.xref</msgid> <msgstr>Chapter <number/> ― <title/></msgstr>"
-msgstr "<msgid>chapter.xref</msgid> <msgstr><number/> ― <title/></msgstr>"
-
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. citetitle - The title of a cited work
-#. http://docbook.org/tdg/en/html/citetitle.html
-#.
-#. This is a format message used to format inline title citations.
-#. This template uses roles to control how the citation is formatted.
-#. The role indicates the type of work being cited, and is taken from
-#. the pubwork attribute of the citetitle element.
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. node - The text content of the citetitle element
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the node, simply write left angle bracket, node, slash,
-#. right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:367
-msgid ""
-"<msgid>citetitle.format</msgid> <msgstr role='article'>“<node/>”</msgstr> "
-"<msgstr><i><node/></i></msgstr>"
+"On the left side\n"
+"On the right side\n"
+"Disabled"
 msgstr ""
-"<msgid>citetitle.format</msgid> <msgstr role='article'>“<node/>”</msgstr> "
-"<msgstr><i><node/></i></msgstr>"
+"左侧\n"
+"右侧\n"
+"禁用"
 
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. This is a format message used to format tooltips on mailto: links
-#. created from DocBook's email element.
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. node - The contents of the email element, which should be the
-#. linked-to email address
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the node, simply write left angle bracket, node, slash,
-#. right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:392
-msgid "<msgid>email.tooltip</msgid> <msgstr>Send email to ‘<node/>’.</msgstr>"
+#: ../src/gnome-terminal.glade2.h:50
+msgid "Password:"
+msgstr "密码："
+
+#: ../src/gnome-terminal.glade2.h:51
+msgid "Profile Editor"
+msgstr "配置文件编辑器"
+
+#: ../src/gnome-terminal.glade2.h:52
+msgid "Profile _icon:"
+msgstr "配置文件图标(_I)："
+
+#: ../src/gnome-terminal.glade2.h:53
+msgid "Profile _name:"
+msgstr "配置文件名(_N)："
+
+#: ../src/gnome-terminal.glade2.h:54
+msgid "Remove encoding from menu."
+msgstr "从菜单中删除编码。"
+
+#: ../src/gnome-terminal.glade2.h:55
+msgid ""
+"Replaces initial title\n"
+"Goes before initial title\n"
+"Goes after initial title\n"
+"Isn't displayed"
 msgstr ""
-"<msgid>email.tooltip</msgid> <msgstr>给“<node/>”发送电子邮件。</msgstr>"
+"替换初始标题\n"
+"置于初始标题之前\n"
+"置于初始标题之后\n"
+"不显示"
 
-#.
-#. The number formatter used for example numbers.  This can be one of
-#. "1", "A", "a", "I", or "i", without the quotes.  These formatters
-#. provide the following results:
-#.
-#. 1    2    3    4    5    6    7    8    9   10   11   12   13   14
-#. A    B    C    D    E    F    G    H    I    J    K    L    M    N
-#. a    b    c    d    e    f    g    h    i    j    k    l    m    n
-#. I   II  III   IV    V   VI  VII VIII   IX    X   XI  XII XIII  XIV
-#. i   ii  iii   iv    v   vi  vii viii   ix    x   xi  xii xiii  xiv
-#.
-#. Non-Western languages probably need additional formatters.  Please
-#. contact the maintainers about adding formatters for your language.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:407
-msgid "<msgid>example.digit</msgid> <msgstr>1</msgstr>"
-msgstr "<msgid>example.digit</msgid> <msgstr>1</msgstr>"
+#: ../src/gnome-terminal.glade2.h:59
+msgid "Ru_n a custom command instead of my shell"
+msgstr "运行自定义命令而不是 Shell(_N)"
 
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. This is a format message used to format labels for examples.  Labels
-#. are used before the title in places like headers and table of contents
-#. listings.  Multiple roles can be used to provide different formattings
-#. for different uses of labels.  The following roles may be used with
-#. this format message:
-#.
-#. header - Used for labels in headers
-#. li     - Used for labels in table of contents listings
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. title       - The title of the example
-#. titleabbrev - The titleabbrev of the example, or just the title
-#. if no titleabbrev exists
-#. number      - The full number of the example, possibly including
-#. the number of the parent element
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the title, simply write left angle bracket, title, slash,
-#. right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:441
+#: ../src/gnome-terminal.glade2.h:60
+msgid "S/Key Challenge Response"
+msgstr "S/Key 挑战响应"
+
+#: ../src/gnome-terminal.glade2.h:61
+msgid "S_hade transparent or image background:"
+msgstr "加深透明和图像背景(_H)："
+
+#: ../src/gnome-terminal.glade2.h:62
+msgid "Sc_roll on output"
+msgstr "输出时滚动(_R)"
+
+#: ../src/gnome-terminal.glade2.h:63
+msgid "Scr_ollback:"
+msgstr "最多向上滚动(_O)："
+
+#: ../src/gnome-terminal.glade2.h:64
+msgid "Scroll on _keystroke"
+msgstr "击键时滚动(_K)"
+
+#: ../src/gnome-terminal.glade2.h:65
+msgid "Scrolling"
+msgstr "滚动"
+
+#: ../src/gnome-terminal.glade2.h:66
+msgid "Select Background Image"
+msgstr "选择背景图像"
+
+#: ../src/gnome-terminal.glade2.h:67
+msgid "Select-by-_word characters:"
+msgstr "选择单词的标识字符(_W)："
+
+#: ../src/gnome-terminal.glade2.h:68
+msgid "Show _menubar by default in new terminals"
+msgstr "默认在新终端中显示菜单栏(_M)"
+
+#: ../src/gnome-terminal.glade2.h:69
+msgid "Terminal _bell"
+msgstr "终端响铃(_B)"
+
+#: ../src/gnome-terminal.glade2.h:70
+msgid "Title and Command"
+msgstr "标题和命令"
+
+#: ../src/gnome-terminal.glade2.h:71
+msgid "Use colors from s_ystem theme"
+msgstr "使用系统主题中的颜色(_Y)"
+
+#: ../src/gnome-terminal.glade2.h:72
+msgid "When command _exits:"
+msgstr "命令退出时(_E)："
+
+#: ../src/gnome-terminal.glade2.h:73
+msgid "_Allow bold text"
+msgstr "允许粗体字(_A)"
+
+#: ../src/gnome-terminal.glade2.h:74
+msgid "_Background color:"
+msgstr "背景颜色(_B)："
+
+#: ../src/gnome-terminal.glade2.h:75
+msgid "_Backspace key generates:"
+msgstr "按 _Backspace 键产生："
+
+#: ../src/gnome-terminal.glade2.h:76
+msgid "_Base on:"
+msgstr "基于(_B)："
+
+#: ../src/gnome-terminal.glade2.h:77
+msgid "_Delete key generates:"
+msgstr "按 _Delete 键产生："
+
+#: ../src/gnome-terminal.glade2.h:78
+msgid "_Dynamically-set title:"
+msgstr "动态设置标题(_D)："
+
+#: ../src/gnome-terminal.glade2.h:79
+msgid "_None (use solid color)"
+msgstr "无(使用纯色)(_N)"
+
+#: ../src/gnome-terminal.glade2.h:80
+msgid "_Profile name:"
+msgstr "配置文件名(_P)："
+
+#: ../src/gnome-terminal.glade2.h:81
+msgid "_Reset Compatibility Options to Defaults"
+msgstr "重置兼容性选项为默认值(_R)"
+
+#: ../src/gnome-terminal.glade2.h:82
+msgid "_Run command as a login shell"
+msgstr "以登录 Shell 方式运行命令(_R)"
+
+#: ../src/gnome-terminal.glade2.h:83
+msgid "_Scrollbar is:"
+msgstr "滚动条(_S)："
+
+#: ../src/gnome-terminal.glade2.h:84
+msgid "_Shortcut keys:"
+msgstr "快捷键(_S)："
+
+#: ../src/gnome-terminal.glade2.h:85
+msgid "_Text color:"
+msgstr "文本颜色(_T)："
+
+#: ../src/gnome-terminal.glade2.h:86
+msgid "_Transparent background"
+msgstr "透明背景(_T)"
+
+#: ../src/gnome-terminal.glade2.h:87
+msgid "_Update login records when command is launched"
+msgstr "执行命令时更新登录记录(_U)"
+
+#: ../src/gnome-terminal.glade2.h:88
+msgid "_Use the system terminal font"
+msgstr "使用系统终端字体(_U)"
+
+#: ../src/gnome-terminal.glade2.h:89
+msgid "_lines"
+msgstr "行(_L)"
+
+#: ../src/gnome-terminal.glade2.h:90
+msgid "kilo_bytes"
+msgstr "K 字节(_B)"
+
+#: ../src/gnome-terminal.schemas.in.h:1
 msgid ""
-"<msgid>example.label</msgid> <msgstr role='header'><i>Example <number/></"
-"i>&#x2003;</msgstr> <msgstr role='li'>Example <number/>&#x2002;</msgstr> "
-"<msgstr>Example <number/></msgstr>"
+"A subset of possible encodings are presented in the Encoding submenu. This "
+"is a list of encodings to appear there. The special encoding name \"current"
+"\" means to display the encoding of the current locale."
 msgstr ""
-"<msgid>example.label</msgid> <msgstr role='header'><i>例 <number/></"
-"i>&#x2003;</msgstr> <msgstr role='li'>例 <number/>&#x2002;</msgstr> "
-"<msgstr>例 <number/></msgstr>"
+"出现在编码菜单中的可选编码子集。这里就是出现在那里的编码清单。特殊的编码名"
+"称“当前”意味着显示当前语系的编码。"
 
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. This is a format message used to format numbers for example.  Numbers
-#. are used in labels, cross references, and any other place where the
-#. example might be referenced.  The number for an example includes the
-#. number for its parent element, if applicable.  For example, the number
-#. 4-3 indicates the third example in the fourth top-level chapter.  In
-#. this example, 4 is referred to as the parent number, and 3 is referred
-#. to as the example digit.  This format message constructs a full number
-#. from a parent number and an example digit.
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. parent - The full number of the example's parent element
-#. digit  - The number of the example in its parent element,
-#. not including any leading numbers from the parent
-#. element
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the digit, simply write left angle bracket, digit, slash,
-#. right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:474
-msgid "<msgid>example.number</msgid> <msgstr><parent/>-<digit/></msgstr>"
-msgstr "<msgid>example.number</msgid> <msgstr><parent/>-<digit/></msgstr>"
-
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. This is a format message used to format cross references to examples.
-#. Multiple roles can be provided to allow document translators to select
-#. how to format each cross reference using the xrefstyle attribute.  If
-#. your language needs to provide different cross reference formattings
-#. for different parts of speech, you should provide multiple roles for
-#. cross reference formatters.
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. title       - The title of the example
-#. titleabbrev - The titleabbrev of the example, or just the title
-#. if no titleabbrev exists
-#. number      - The full number of the example, possibly including
-#. the number of the parent element
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the title, simply write left angle bracket, title, slash,
-#. right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:506
-msgid "<msgid>example.xref</msgid> <msgstr>Example <number/></msgstr>"
-msgstr "<msgid>example.xref</msgid> <msgstr>例 <number/></msgstr>"
-
-#.
-#. The number formatter used for figure numbers.  This can be one of
-#. "1", "A", "a", "I", or "i", without the quotes.  These formatters
-#. provide the following results:
-#.
-#. 1    2    3    4    5    6    7    8    9   10   11   12   13   14
-#. A    B    C    D    E    F    G    H    I    J    K    L    M    N
-#. a    b    c    d    e    f    g    h    i    j    k    l    m    n
-#. I   II  III   IV    V   VI  VII VIII   IX    X   XI  XII XIII  XIV
-#. i   ii  iii   iv    v   vi  vii viii   ix    x   xi  xii xiii  xiv
-#.
-#. Non-Western languages probably need additional formatters.  Please
-#. contact the maintainers about adding formatters for your language.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:521
-msgid "<msgid>figure.digit</msgid> <msgstr>1</msgstr>"
-msgstr "<msgid>figure.digit</msgid> <msgstr>1</msgstr>"
-
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. This is a format message used to format labels for figures.  Labels
-#. are used before the title in places like headers and table of contents
-#. listings.  Multiple roles can be used to provide different formattings
-#. for different uses of labels.  The following roles may be used with
-#. this format message:
-#.
-#. header - Used for labels in headers
-#. li     - Used for labels in table of contents listings
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. title       - The title of the figure
-#. titleabbrev - The titleabbrev of the figure, or just the title
-#. if no titleabbrev exists
-#. number      - The full number of the figure, possibly including
-#. the number of the parent element
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the title, simply write left angle bracket, title, slash,
-#. right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:555
+#: ../src/gnome-terminal.schemas.in.h:2
 msgid ""
-"<msgid>figure.label</msgid> <msgstr role='header'><i>Figure <number/></"
-"i>&#x2003;</msgstr> <msgstr role='li'>Figure <number/>&#x2002;</msgstr> "
-"<msgstr>Figure <number/></msgstr>"
+"A value between 0.0 and 1.0 indicating how much to darken the background "
+"image. 0.0 means no darkness, 1.0 means fully dark. In the current "
+"implementation, there are only two levels of darkness possible, so the "
+"setting behaves as a boolean, where 0.0 disables the darkening effect."
 msgstr ""
-"<msgid>figure.label</msgid> <msgstr role='header'><i>图 <number/></i>&#x2003;"
-"</msgstr> <msgstr role='li'>Figure <number/>&#x2002;</msgstr> <msgstr>图 "
-"<number/></msgstr>"
+"介于 0.0 和 1.0 之间的值，表明背景图像的灰暗程度。0.0 表示不作处理，1.0 表明"
+"全黑。在目前的实现方案中，只有两种级别的灰暗程度，所以这里的设置和布尔值类"
+"似，即 0.0 禁用灰暗效果。"
 
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. This is a format message used to format numbers for figure.  Numbers
-#. are used in labels, cross references, and any other place where the
-#. figure might be referenced.  The number for a figure includes the
-#. number for its parent element, if applicable.  For example, the number
-#. 4-3 indicates the third figure in the fourth top-level chapter.  In
-#. this figure, 4 is referred to as the parent number, and 3 is referred
-#. to as the figure digit.  This format message constructs a full number
-#. from a parent number and a figure digit.
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. parent - The full number of the figure's parent element
-#. digit  - The number of the figure in its parent element,
-#. not including any leading numbers from the parent
-#. element
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the digit, simply write left angle bracket, digit, slash,
-#. right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:588
-msgid "<msgid>figure.number</msgid> <msgstr><parent/>-<digit/></msgstr>"
-msgstr "<msgid>figure.number</msgid> <msgstr><parent/>-<digit/></msgstr>"
-
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. This is a format message used to format cross references to figures.
-#. Multiple roles can be provided to allow document translators to select
-#. how to format each cross reference using the xrefstyle attribute.  If
-#. your language needs to provide different cross reference formattings
-#. for different parts of speech, you should provide multiple roles for
-#. cross reference formatters.
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. title       - The title of the figure
-#. titleabbrev - The titleabbrev of the figure, or just the title
-#. if no titleabbrev exists
-#. number      - The full number of the figure, possibly including
-#. the number of the parent element
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the title, simply write left angle bracket, title, slash,
-#. right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:620
-msgid "<msgid>figure.xref</msgid> <msgstr>Figure <number/></msgstr>"
-msgstr "<msgid>figure.xref</msgid> <msgstr>图 <number/></msgstr>"
-
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. This is a format message used to format cross references to glossaries.
-#. Multiple roles can be provided to allow document translators to select
-#. how to format each cross reference using the xrefstyle attribute.  If
-#. your language needs to provide different cross reference formattings
-#. for different parts of speech, you should provide multiple roles for
-#. cross reference formatters.
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. title       - The title of the figure
-#. titleabbrev - The titleabbrev of the figure, or just the title
-#. if no titleabbrev exists
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the title, simply write left angle bracket, title, slash,
-#. right angle bracket.
-#.
-#. Note that authors are not required to provide explicit titles for
-#. glossaries.  If the author does not provide a title, the translatable
-#. string 'Glossary' is used as a default.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:654
-msgid "<msgid>glossary.xref</msgid> <msgstr><title/></msgstr>"
-msgstr "<msgid>glossary.xref</msgid> <msgstr><title/></msgstr>"
-
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. This is a format message used to format tooltips on cross references
-#. to glossary entries.
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. glossterm - The term being defined by the glossary entry
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the glossterm, simply write left angle bracket, glossterm,
-#. slash, right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:678
+#: ../src/gnome-terminal.schemas.in.h:3
 msgid ""
-"<msgid>glossentry.tooltip</msgid> <msgstr>Read the definition for "
-"‘<glossterm/>’.</msgstr>"
+"Accelerator key to detach current tab. Expressed as a string in the same "
+"format used for GTK+ resource files. If you set the option to the special "
+"string \"disabled\", then there will be no keybinding for this action."
 msgstr ""
-"<msgid>glossentry.tooltip</msgid> <msgstr>阅读“<glossterm/>”的定义。</msgstr>"
+"漂移当前标签的加速键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为"
+"特殊字符串“disabled”，则此操作就没有快捷键。"
 
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. This is a format message used to format cross references to glossary
-#. entries.  Multiple roles can be provided to allow document translators to
-#. select how to format each cross reference using the xrefstyle attribute.
-#. If your language needs to provide different cross reference formattings
-#. for different parts of speech, you should provide multiple roles for
-#. cross reference formatters.
-#.
-#. In addition, the 'glosssee' role will be used for cross references
-#. from glosssee or glossseealso elements.  These are used in other
-#. glossary entries to direct the user to the linked-to entry.
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. glossterm - The term being defined by the glossary entry
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the glossterm, simply write left angle bracket, glossterm,
-#. slash, right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:710
+#: ../src/gnome-terminal.schemas.in.h:4
 msgid ""
-"<msgid>glossentry.xref</msgid> <msgstr role='glosssee'><glossterm/></msgstr> "
-"<msgstr>‘<glossterm/>’</msgstr>"
+"Accelerator key to move the current tab to the left. Expressed as a string "
+"in the same format used for GTK+ resource files. If you set the option to "
+"the special string \"disabled\", then there will be no keybinding for this "
+"action."
 msgstr ""
-"<msgid>glossentry.xref</msgid> <msgstr role='glosssee'><glossterm/></msgstr> "
-"<msgstr>“<glossterm/>”</msgstr>"
+"将当前标签左移的加速键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设"
+"为特殊字符串“disabled”，则此操作就没有快捷键。"
 
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. glosssee - A cross reference from one glossentry to another
-#. http://docbook.org/tdg/en/html/glosssee.html
-#.
-#. This is a format message used to format glossary cross references.
-#. This format message controls the sentence used to present the cross
-#. reference, not the link itself.  For the formatting of the actual
-#. link, see the message glossentry.xref.
-#.
-#. One or more glosssee elements are presented as a links to the user
-#. in the glossary, formatted as a single prose sentence.  For example,
-#. if the user is being directed to the entry "foo", the glosssee may
-#. be formatted as "See foo."
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. glosssee - The actual link or links of the cross reference
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the glosssee, simply write left angle bracket, glosssee,
-#. slash, right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:744
-msgid "<msgid>glosssee.format</msgid> <msgstr>See <glosssee/>.</msgstr>"
-msgstr "<msgid>glosssee.format</msgid> <msgstr>参见<glosssee/>。</msgstr>"
-
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. glossseealso - A cross reference from one glossentry to another
-#. http://docbook.org/tdg/en/html/glossseealso.html
-#.
-#. This is a format message used to format glossary cross references.
-#. This format message controls the sentence used to present the cross
-#. reference, not the link itself.  For the formatting of the actual
-#. link, see the message glossentry.xref.
-#.
-#. One or more glossseealso elements are presented as a links to the
-#. user in the glossary, formatted as a single prose sentence.  For
-#. example, if the user is being directed to the entries "foo", "bar",
-#. and "baz", the glossseealso may be formatted as "See also foo, bar,
-#. baz."
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. glosssee - The actual link or links of the cross reference
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the glosssee, simply write left angle bracket, glosssee,
-#. slash, right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:779
+#: ../src/gnome-terminal.schemas.in.h:5
 msgid ""
-"<msgid>glossseealso.format</msgid> <msgstr>See also <glosssee/>.</msgstr>"
-msgstr "<msgid>glossseealso.format</msgid> <msgstr>参见<glosssee/>。</msgstr>"
-
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. manvolnum - A reference volume number
-#. http://docbook.org/tdg/en/html/manvolnum.html
-#.
-#. This is a format message used to format manvolnum elements.
-#. A manvolnum is typically a number or short string used to
-#. identify a section of man pages.  It is typically placed
-#. inside parentheses.
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. node - The text content of the manvolnum element
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the node, simply write left angle bracket, node, slash,
-#. right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:808
-msgid "<msgid>manvolnum.format</msgid> <msgstr>(<node/>)</msgstr>"
-msgstr "<msgid>manvolnum.format</msgid> <msgstr>(<node/>)</msgstr>"
-
-#.
-#. The number formatter used for part numbers.  This can be one of
-#. "1", "A", "a", "I", or "i", without the quotes.  These formatters
-#. provide the following results:
-#.
-#. 1    2    3    4    5    6    7    8    9   10   11   12   13   14
-#. A    B    C    D    E    F    G    H    I    J    K    L    M    N
-#. a    b    c    d    e    f    g    h    i    j    k    l    m    n
-#. I   II  III   IV    V   VI  VII VIII   IX    X   XI  XII XIII  XIV
-#. i   ii  iii   iv    v   vi  vii viii   ix    x   xi  xii xiii  xiv
-#.
-#. Non-Western languages probably need additional formatters.  Please
-#. contact the maintainers about adding formatters for your language.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:823
-msgid "<msgid>part.digit</msgid> <msgstr>I</msgstr>"
-msgstr "<msgid>part.digit</msgid> <msgstr>I</msgstr>"
-
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. This is a format message used to format labels for parts.  Labels
-#. are used before the title in places like headers and table of contents
-#. listings.  Multiple roles can be used to provide different formattings
-#. for different uses of labels.  The following roles may be used with
-#. this format message:
-#.
-#. header - Used for labels in headers
-#. li     - Used for labels in table of contents listings
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. title       - The title of the part
-#. titleabbrev - The titleabbrev of the part, or just the title
-#. if no titleabbrev exists
-#. number      - The full number of the part, possibly including
-#. the number of the parent element
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the title, simply write left angle bracket, title, slash,
-#. right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:857
-msgid ""
-"<msgid>part.label</msgid> <msgstr role='header'><number/>.&#x2003;</msgstr> "
-"<msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Part <number/></msgstr>"
+"Accelerator key to move the current tab to the right. Expressed as a string "
+"in the same format used for GTK+ resource files. If you set the option to "
+"the special string \"disabled\", then there will be no keybinding for this "
+"action."
 msgstr ""
-"<msgid>part.label</msgid> <msgstr role='header'><number/>.&#x2003;</msgstr> "
-"<msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>第<number/>部分</"
-"msgstr>"
+"将当前标签右移的加速键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设"
+"为特殊字符串“disabled”，则此操作就没有快捷键。"
 
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. This is a format message used to format cross references to parts
-#. Multiple roles can be provided to allow document translators to select
-#. how to format each cross reference using the xrefstyle attribute.  If
-#. your language needs to provide different cross reference formattings
-#. for different parts of speech, you should provide multiple roles for
-#. cross reference formatters.
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. title       - The title of the part
-#. titleabbrev - The titleabbrev of the part, or just the title
-#. if no titleabbrev exists
-#. number      - The full number of the part, possibly including
-#. the number of the parent element
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the title, simply write left angle bracket, title, slash,
-#. right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:889
-msgid "<msgid>part.xref</msgid> <msgstr>Part <number/> ― <title/></msgstr>"
-msgstr "<msgid>part.xref</msgid> <msgstr>第<number/>部分 ― <title/></msgstr>"
+#: ../src/gnome-terminal.schemas.in.h:6
+msgid "Accelerator to detach current tab."
+msgstr "漂移当前标签的加速键。"
 
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. This is a format message used to format cross references to prefaces.
-#. Multiple roles can be provided to allow document translators to select
-#. how to format each cross reference using the xrefstyle attribute.  If
-#. your language needs to provide different cross reference formattings
-#. for different parts of speech, you should provide multiple roles for
-#. cross reference formatters.
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. title       - The title of the figure
-#. titleabbrev - The titleabbrev of the figure, or just the title
-#. if no titleabbrev exists
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the title, simply write left angle bracket, title, slash,
-#. right angle bracket.
-#.
-#. Note that authors are not required to provide explicit titles for
-#. prefaces.  If the author does not provide a title, the translatable
-#. string 'Preface' is used as a default.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:923
-msgid "<msgid>preface.xref</msgid> <msgstr><title/></msgstr>"
-msgstr "<msgid>refentry.xref</msgid> <msgstr><title/></msgstr>"
+#: ../src/gnome-terminal.schemas.in.h:7
+msgid "Accelerator to move the current tab to the left."
+msgstr "将当前标签左移的加速键。"
 
-#.
-#. The number formatter used for question numbers.  This can be one of
-#. "1", "A", "a", "I", or "i", without the quotes.  These formatters
-#. provide the following results:
-#.
-#. 1    2    3    4    5    6    7    8    9   10   11   12   13   14
-#. A    B    C    D    E    F    G    H    I    J    K    L    M    N
-#. a    b    c    d    e    f    g    h    i    j    k    l    m    n
-#. I   II  III   IV    V   VI  VII VIII   IX    X   XI  XII XIII  XIV
-#. i   ii  iii   iv    v   vi  vii viii   ix    x   xi  xii xiii  xiv
-#.
-#. Non-Western languages probably need additional formatters.  Please
-#. contact the maintainers about adding formatters for your language.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:938
-msgid "<msgid>question.digit</msgid> <msgstr>1</msgstr>"
-msgstr "<msgid>question.digit</msgid> <msgstr>1</msgstr>"
+#: ../src/gnome-terminal.schemas.in.h:8
+msgid "Accelerator to move the current tab to the right."
+msgstr "将当前标签右移的加速键。"
 
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. This is a format message used to format labels for questions in
-#. question-and-answer sets.  Labels are used before the question
-#. both in the question-and-answer list and in table of questions
-#. listings.  Multiple roles can be used to provide different
-#. formattings for different uses of labels.  The following roles
-#. may be used with this format message:
-#.
-#. header - Used for labels inside the question-and-answer set
-#. li     - Used for labels in table of questions listings
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. number - The number of the question in its containing qandaset
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the number, simply write left angle bracket, number, slash,
-#. right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:969
+#: ../src/gnome-terminal.schemas.in.h:9
+msgid "An Pango font name. Examples are \"Sans 12\" or \"Monospace Bold 14\"."
+msgstr "Pango 字体名称。例如“Sans 12”或“Monospace Bold 14”。"
+
+#: ../src/gnome-terminal.schemas.in.h:10
 msgid ""
-"<msgid>question.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
-"msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Question "
-"<number/></msgstr>"
+"An X font name. See the X man page (type \"man X\") for more details on the "
+"format of X font names."
 msgstr ""
-"<msgid>question.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
-"msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>问题 <number/"
-"></msgstr>"
+"X 字体名。参看 X man page(输入“man X”)以获得关于 X 字体名格式的更多信息。"
 
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. This is a format message used to format cross references to questions
-#. in question-and-answer sets.  Multiple roles can be provided to allow
-#. document translators to select how to format each cross reference
-#. using the xrefstyle attribute.  If your language needs to provide
-#. different cross reference formattings for different parts of speech,
-#. you should provide multiple roles for cross reference formatters.
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. number - The number of the question in its containing qandaset
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the number, simply write left angle bracket, number, slash,
-#. right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:997
-msgid "<msgid>question.xref</msgid> <msgstr>Question <number/></msgstr>"
-msgstr "<msgid>question.xref</msgid> <msgstr>问题 <number/></msgstr>"
+#: ../src/gnome-terminal.schemas.in.h:11
+msgid "Background image"
+msgstr "背景图像"
 
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. quote - An inline quotation
-#. http://docbook.org/tdg/en/html/quote.html
-#.
-#. This is a format message used to format inline quotations.  This template
-#. uses roles to control how the quotation is formatted.  The role indicates
-#. whether this is an outer or inner quotation.  Quotations nested inside
-#. another quotation are inner quotations.  Many languages have an alternate
-#. notation for nested quotations.
-#.
-#. These stylesheets only provide two levels of quotation formatting.  If
-#. quote elements are nested deeper, the stylesheets will alternate between
-#. the 'outer' and 'inner' roles.  If your language uses different formatting
-#. for deeper quotations, please contact the maintainers, and we will try to
-#. implement a more flexible formatting mechanism.
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. node - The text content of the quote element
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the node, simply write left angle bracket, node, slash,
-#. right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1033
+#: ../src/gnome-terminal.schemas.in.h:12
+msgid "Background type"
+msgstr "背景类型"
+
+#: ../src/gnome-terminal.schemas.in.h:13
+msgid "Characters that are considered \"part of a word\""
+msgstr "被认为是“单词的一部分”的字符"
+
+#: ../src/gnome-terminal.schemas.in.h:14
+msgid "Custom command to use instead of the shell"
+msgstr "取代 shell 的自定义命令"
+
+#: ../src/gnome-terminal.schemas.in.h:15
+msgid "Default"
+msgstr "默认"
+
+#: ../src/gnome-terminal.schemas.in.h:16
+msgid "Default color of terminal background"
+msgstr "终端背景的默认颜色"
+
+#: ../src/gnome-terminal.schemas.in.h:17
 msgid ""
-"<msgid>quote.format</msgid> <msgstr role='inner'>‘<node/>’</msgstr> "
-"<msgstr>“<node/>”</msgstr>"
+"Default color of terminal background, as a color specification (can be HTML-"
+"style hex digits, or a color name such as \"red\")."
 msgstr ""
-"<msgid>quote.format</msgid> <msgstr role='inner'>‘<node/>’</msgstr> "
-"<msgstr>“<node/>”</msgstr>"
+"终端背景的默认颜色，必须是颜色指定(可以是 HTML 风格的十六进制数码，也可以是"
+"像“red”这样的颜色名称)。"
 
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. This is a format message used to format cross references to reference
-#. pages.  Multiple roles can be provided to allow document translators
-#. to select how to format each cross reference using the xrefstyle
-#. attribute.  If your language needs to provide different cross
-#. reference formattings for different parts of speech, you should
-#. provide multiple roles for cross reference formatters.
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. title       - The title of the reference page
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the title, simply write left angle bracket, title, slash,
-#. right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1061
-msgid "<msgid>refentry.xref</msgid> <msgstr><title/></msgstr>"
-msgstr "<msgid>refentry.xref</msgid> <msgstr><title/></msgstr>"
+#: ../src/gnome-terminal.schemas.in.h:18
+msgid "Default color of text in the terminal"
+msgstr "终端文字的默认颜色"
 
-#.
-#. The number formatter used for reference section numbers.  This can
-#. be one of "1", "A", "a", "I", or "i", without the quotes.  These
-#. formatters provide the following results:
-#.
-#. 1    2    3    4    5    6    7    8    9   10   11   12   13   14
-#. A    B    C    D    E    F    G    H    I    J    K    L    M    N
-#. a    b    c    d    e    f    g    h    i    j    k    l    m    n
-#. I   II  III   IV    V   VI  VII VIII   IX    X   XI  XII XIII  XIV
-#. i   ii  iii   iv    v   vi  vii viii   ix    x   xi  xii xiii  xiv
-#.
-#. Non-Western languages probably need additional formatters.  Please
-#. contact the maintainers about adding formatters for your language.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1076
-msgid "<msgid>refsection.digit</msgid> <msgstr>1</msgstr>"
-msgstr "<msgid>refsection.digit</msgid> <msgstr>1</msgstr>"
-
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. This is a format message used to format labels for reference sections.
-#. Labels are used before the title in places like headers and table of
-#. contents listings.  Multiple roles can be used to provide different
-#. formattings for different uses of labels.  The following roles may
-#. be used with this format message:
-#.
-#. header - Used for labels in headers
-#. li     - Used for labels in table of contents listings
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. title       - The title of the section
-#. titleabbrev - The titleabbrev of the section, or just the title
-#. if no titleabbrev exists
-#. number      - The full number of the section, possibly including
-#. the number of the parent element
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the title, simply write left angle bracket, title, slash,
-#. right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1110
+#: ../src/gnome-terminal.schemas.in.h:19
 msgid ""
-"<msgid>refsection.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
-"msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Section "
-"<number/></msgstr>"
+"Default color of text in the terminal, as a color specification (can be HTML-"
+"style hex digits, or a color name such as \"red\")."
 msgstr ""
-"<msgid>refsection.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
-"msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>第<number/>节</"
-"msgstr>"
+"终端文字的默认颜色，必须是颜色指定(可以是 HTML 风格的十六进制数码，也可以是"
+"像“red”这样的颜色名称)。"
 
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. This is a format message used to format numbers for reference sections.
-#. Numbers are used in labels, cross references, and any other place where
-#. the section might be referenced.  The number for a section includes the
-#. number for its parent element, if applicable.  For example, the number
-#. 4.3.9 indicates the ninth section in the third section of the fourth
-#. top-level section or chapter.  In this example, 4.3 is referred to as
-#. the parent number, and 9 is referred to as the section digit.  This
-#. format message constructs a full number from a parent number and a
-#. section digit.
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. parent - The full number of the section's parent element
-#. digit  - The number of the section in its parent element,
-#. not including any leading numbers from the parent
-#. element
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the digit, simply write left angle bracket, digit, slash,
-#. right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1144
-msgid "<msgid>refsection.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
-msgstr "<msgid>refsection.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
+#: ../src/gnome-terminal.schemas.in.h:20
+msgid "Effect of the Backspace key"
+msgstr "Backspace 键的效果"
 
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. This is a format message used to format cross references to reference
-#. sections.  Multiple roles can be provided to allow document translators
-#. to select how to format each cross reference using the xrefstyle attribute.
-#. If your language needs to provide different cross reference formattings
-#. for different parts of speech, you should provide multiple roles for
-#. cross reference formatters.
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. title       - The title of the section
-#. titleabbrev - The titleabbrev of the section, or just the title
-#. if no titleabbrev exists
-#. number      - The full number of the section, possibly including
-#. the number of the parent element
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the title, simply write left angle bracket, title, slash,
-#. right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1176
+#: ../src/gnome-terminal.schemas.in.h:21
+msgid "Effect of the Delete key"
+msgstr "Delete 键的效果"
+
+#: ../src/gnome-terminal.schemas.in.h:22
+msgid "Filename of a background image."
+msgstr "背景图像的文件名。"
+
+#: ../src/gnome-terminal.schemas.in.h:23
+msgid "Font"
+msgstr "字体"
+
+#. Translators: S/Key is the name of an application, so it should
+#. not be translated.
+#: ../src/gnome-terminal.schemas.in.h:26
+msgid "Highlight S/Key challenges"
+msgstr "高亮 S/Key 挑战"
+
+#: ../src/gnome-terminal.schemas.in.h:27
+msgid "How much to darken the background image"
+msgstr "背景图像的灰暗程度"
+
+#: ../src/gnome-terminal.schemas.in.h:28
+msgid "Human-readable name of the profile"
+msgstr "配置文件的友好名称"
+
+#: ../src/gnome-terminal.schemas.in.h:29
+msgid "Human-readable name of the profile."
+msgstr "配置文件的友好名称。"
+
+#: ../src/gnome-terminal.schemas.in.h:30
+msgid "Icon for terminal window"
+msgstr "终端窗口的图标"
+
+#: ../src/gnome-terminal.schemas.in.h:31
+msgid "Icon to use for tabs/windows containing this profile."
+msgstr "包含此配置文件的标签/窗口所用的图标。"
+
+#: ../src/gnome-terminal.schemas.in.h:32
 msgid ""
-"<msgid>refsection.xref</msgid> <msgstr>Section <number/> ― <title/></msgstr>"
+"If the application in the terminal sets the title (most typically people "
+"have their shell set up to do this), the dynamically-set title can erase the "
+"configured title, go before it, go after it, or replace it. The possible "
+"values are \"replace\", \"before\", \"after\", and \"ignore\"."
 msgstr ""
-"<msgid>refsection.xref</msgid> <msgstr>第<number/>节 ― <title/></msgstr>"
+"如果终端中的程序设置了标题(最典型的就是用户自己的 shell 可能执行这一操作)，动"
+"态设置的标题可以删除配置好的标题，或者在原有标题前/后插入。可供选择的值有“替"
+"换”、“之前”、“之后”和“忽略”。"
 
-#.
-#. The number formatter used for section numbers.  This can be one of
-#. "1", "A", "a", "I", or "i", without the quotes.  These formatters
-#. provide the following results:
-#.
-#. 1    2    3    4    5    6    7    8    9   10   11   12   13   14
-#. A    B    C    D    E    F    G    H    I    J    K    L    M    N
-#. a    b    c    d    e    f    g    h    i    j    k    l    m    n
-#. I   II  III   IV    V   VI  VII VIII   IX    X   XI  XII XIII  XIV
-#. i   ii  iii   iv    v   vi  vii viii   ix    x   xi  xii xiii  xiv
-#.
-#. Non-Western languages probably need additional formatters.  Please
-#. contact the maintainers about adding formatters for your language.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1191
-msgid "<msgid>section.digit</msgid> <msgstr>1</msgstr>"
-msgstr "<msgid>section.digit</msgid> <msgstr>1</msgstr>"
+#: ../src/gnome-terminal.schemas.in.h:33
+msgid "If true, allow applications in the terminal to make text boldface."
+msgstr "如果为 true，就允许终端中的程序将文字以粗体显示。"
 
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. This is a format message used to format labels for sections.  Labels
-#. are used before the title in places like headers and table of contents
-#. listings.  Multiple roles can be used to provide different formattings
-#. for different uses of labels.  The following roles may be used with
-#. this format message:
-#.
-#. header - Used for labels in headers
-#. li     - Used for labels in table of contents listings
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. title       - The title of the section
-#. titleabbrev - The titleabbrev of the section, or just the title
-#. if no titleabbrev exists
-#. number      - The full number of the section, possibly including
-#. the number of the parent element
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the title, simply write left angle bracket, title, slash,
-#. right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1225
+#: ../src/gnome-terminal.schemas.in.h:34
 msgid ""
-"<msgid>section.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
-"msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Section "
-"<number/></msgstr>"
+"If true, don't make a noise when applications send the escape sequence for "
+"the terminal bell."
+msgstr "如果为 true，在应用程序发送终端响铃的转码序列时就闷声不响。"
+
+#: ../src/gnome-terminal.schemas.in.h:35
+msgid ""
+"If true, font anti-aliasing will be disabled when running without the X "
+"RENDER extension, which gives a considerable performance improvement in "
+"these situations."
 msgstr ""
-"<msgid>section.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
-"msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>第<number/>节</"
-"msgstr>"
+"如果为 true，在没有 X RENDERE 扩展的情况下运行时将会禁用字体反锯齿，"
+"以便显著改进性能。"
 
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. This is a format message used to format numbers for sections.  Numbers
-#. are used in labels, cross references, and any other place where the
-#. section might be referenced.  The number for a section includes the
-#. number for its parent element, if applicable.  For example, the number
-#. 4.3.9 indicates the ninth section in the third section of the fourth
-#. top-level section or chapter.  In this example, 4.3 is referred to as
-#. the parent number, and 9 is referred to as the section digit.  This
-#. format message constructs a full number from a parent number and a
-#. section digit.
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. parent - The full number of the section's parent element
-#. digit  - The number of the section in its parent element,
-#. not including any leading numbers from the parent
-#. element
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the digit, simply write left angle bracket, digit, slash,
-#. right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1259
-msgid "<msgid>section.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
-msgstr "<msgid>section.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
+#: ../src/gnome-terminal.schemas.in.h:36
+msgid "If true, pressing a key jumps the scrollbar to the bottom."
+msgstr "如果为 true，按键就把滚动条滚动到底部。"
 
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. This is a format message used to format cross references to sections.
-#. Multiple roles can be provided to allow document translators to select
-#. how to format each cross reference using the xrefstyle attribute.  If
-#. your language needs to provide different cross reference formattings
-#. for different parts of speech, you should provide multiple roles for
-#. cross reference formatters.
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. title       - The title of the section
-#. titleabbrev - The titleabbrev of the section, or just the title
-#. if no titleabbrev exists
-#. number      - The full number of the section, possibly including
-#. the number of the parent element
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the title, simply write left angle bracket, title, slash,
-#. right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1291
+#: ../src/gnome-terminal.schemas.in.h:37
 msgid ""
-"<msgid>section.xref</msgid> <msgstr>Section <number/> ― <title/></msgstr>"
-msgstr "<msgid>section.xref</msgid> <msgstr>第<number/>节 ― <title/></msgstr>"
-
-#.
-#. The number formatter used for table numbers.  This can be one of
-#. "1", "A", "a", "I", or "i", without the quotes.  These formatters
-#. provide the following results:
-#.
-#. 1    2    3    4    5    6    7    8    9   10   11   12   13   14
-#. A    B    C    D    E    F    G    H    I    J    K    L    M    N
-#. a    b    c    d    e    f    g    h    i    j    k    l    m    n
-#. I   II  III   IV    V   VI  VII VIII   IX    X   XI  XII XIII  XIV
-#. i   ii  iii   iv    v   vi  vii viii   ix    x   xi  xii xiii  xiv
-#.
-#. Non-Western languages probably need additional formatters.  Please
-#. contact the maintainers about adding formatters for your language.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1306
-msgid "<msgid>table.digit</msgid> <msgstr>1</msgstr>"
-msgstr "<msgid>table.digit</msgid> <msgstr>1</msgstr>"
-
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. This is a format message used to format labels for tables.  Labels
-#. are used before the title in places like headers and table of contents
-#. listings.  Multiple roles can be used to provide different formattings
-#. for different uses of labels.  The following roles may be used with
-#. this format message:
-#.
-#. header - Used for labels in headers
-#. li     - Used for labels in table of contents listings
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. title       - The title of the table
-#. titleabbrev - The titleabbrev of the table, or just the title
-#. if no titleabbrev exists
-#. number      - The full number of the table, possibly including
-#. the number of the parent element
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the title, simply write left angle bracket, title, slash,
-#. right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1340
-msgid ""
-"<msgid>table.label</msgid> <msgstr role='header'><i>Table <number/></"
-"i>&#x2003;</msgstr> <msgstr role='li'>Table <number/>&#x2002;</msgstr> "
-"<msgstr>Table <number/></msgstr>"
+"If true, scroll the background image with the foreground text; if false, "
+"keep the image in a fixed position and scroll the text above it."
 msgstr ""
-"<msgid>table.label</msgid> <msgstr role='header'><i>表 <number/></i>&#x2003;"
-"</msgstr> <msgstr role='li'>Table <number/>&#x2002;</msgstr> <msgstr>表 "
-"<number/></msgstr>"
+"如果为 true，就和前景文字一起滚动背景图像；如果为 false，就将图像保留在固定位"
+"置，而只滚动其上的文字。"
 
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. This is a format message used to format numbers for table.  Numbers
-#. are used in labels, cross references, and any other place where the
-#. table might be referenced.  The number for a table includes the
-#. number for its parent element, if applicable.  For example, the number
-#. 4-3 indicates the third table in the fourth top-level chapter.  In
-#. this table, 4 is referred to as the parent number, and 3 is referred
-#. to as the table digit.  This format message constructs a full number
-#. from a parent number and a table digit.
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. parent - The full number of the table's parent element
-#. digit  - The number of the table in its parent element,
-#. not including any leading numbers from the parent
-#. element
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the digit, simply write left angle bracket, digit, slash,
-#. right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1373
-msgid "<msgid>table.number</msgid> <msgstr><parent/>-<digit/></msgstr>"
-msgstr "<msgid>table.number</msgid> <msgstr><parent/>-<digit/></msgstr>"
-
-#.
-#. This is a special format message.  Please read the full translator
-#. documentation before translating this message.  The documentation
-#. is maintained as part of the stylesheet documentation in DocBook.
-#. For your convenience, it has also been converted to an HTML file
-#. named STYLESHEETS.xml in the i18n directory.
-#.
-#. This is a format message used to format cross references to tables.
-#. Multiple roles can be provided to allow document translators to select
-#. how to format each cross reference using the xrefstyle attribute.  If
-#. your language needs to provide different cross reference formattings
-#. for different parts of speech, you should provide multiple roles for
-#. cross reference formatters.
-#.
-#. Special elements in the message will be replaced with the
-#. appropriate content, as follows:
-#.
-#. title       - The title of the table
-#. titleabbrev - The titleabbrev of the table, or just the title
-#. if no titleabbrev exists
-#. number      - The full number of the table, possibly including
-#. the number of the parent element
-#.
-#. These should be written as empty XML elements.  Due to limitations
-#. in intltool, I can't write XML content in translator comments.  To
-#. insert the title, simply write left angle bracket, title, slash,
-#. right angle bracket.
-#.
-#. Additionally, format messages can use the i, b, and tt markup tags
-#. to mark text as italic, bold, and monospace.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1405
-msgid "<msgid>table.xref</msgid> <msgstr>Table <number/></msgstr>"
-msgstr "<msgid>table.xref</msgid> <msgstr>表 <number/></msgstr>"
-
-#. Used as a header before a list of authors.
-#: ../xslt/gettext/l10n.xml.in.h:1407
-msgid "<msgstr form='0'>Author</msgstr> <msgstr form='1'>Authors</msgstr>"
-msgstr "<msgstr form='0'>作者</msgstr> <msgstr form='1'>作者</msgstr>"
-
-#. Used as a header before a list of collaborators.
-#: ../xslt/gettext/l10n.xml.in.h:1409
+#: ../src/gnome-terminal.schemas.in.h:38
 msgid ""
-"<msgstr form='0'>Collaborator</msgstr> <msgstr form='1'>Collaborators</"
-"msgstr>"
-msgstr "<msgstr form='0'>合作者</msgstr> <msgstr form='1'>合作者</msgstr>"
-
-#. Used as a header before a list of copyrights.
-#: ../xslt/gettext/l10n.xml.in.h:1411
-msgid ""
-"<msgstr form='0'>Copyright</msgstr> <msgstr form='1'>Copyrights</msgstr>"
-msgstr "<msgstr form='0'>版权</msgstr> <msgstr form='1'>版权</msgstr>"
-
-#. Used as a header before a list of editors.
-#: ../xslt/gettext/l10n.xml.in.h:1413
-msgid "<msgstr form='0'>Editor</msgstr> <msgstr form='1'>Editors</msgstr>"
-msgstr "<msgstr form='0'>编辑</msgstr> <msgstr form='1'>编辑</msgstr>"
-
-#. Used as a header before a list of contributors.
-#: ../xslt/gettext/l10n.xml.in.h:1415
-msgid ""
-"<msgstr form='0'>Other Contributor</msgstr> <msgstr form='1'>Other "
-"Contributors</msgstr>"
+"If true, the command inside the terminal will be launched as a login shell. "
+"(argv[0] will have a hyphen in front of it.)"
 msgstr ""
-"<msgstr form='0'>其他贡献者</msgstr> <msgstr form='1'>其他贡献者</msgstr>"
+"如果为 true，终端中的命令将会以登录 shell 被调用。(argv[0] 将在前面有一个连字"
+"符。)"
 
-#. Used as a header before a list of publishers.
-#: ../xslt/gettext/l10n.xml.in.h:1417
+#: ../src/gnome-terminal.schemas.in.h:39
 msgid ""
-"<msgstr form='0'>Publisher</msgstr> <msgstr form='1'>Publishers</msgstr>"
-msgstr "<msgstr form='0'>出版者</msgstr> <msgstr form='1'>出版者</msgstr>"
+"If true, the system login records utmp and wtmp will be updated when the "
+"command inside the terminal is launched."
+msgstr "如果为 true，将会在终端内的命令调用时更新登录记录 utmp/wtmp。"
 
-#. Used as a header before a list of translators.
-#: ../xslt/gettext/l10n.xml.in.h:1419
+#: ../src/gnome-terminal.schemas.in.h:40
 msgid ""
-"<msgstr form='0'>Translator</msgstr> <msgstr form='1'>Translators</msgstr>"
-msgstr "<msgstr form='0'>翻译者</msgstr> <msgstr form='1'>翻译者</msgstr>"
+"If true, the terminal will use the desktop-global standard font if it's "
+"monospace (and the most similar font it can come up with otherwise)."
+msgstr ""
+"如果为 true，终端就将使用与桌面相同的标准字体，假如该字体为等宽字体的话(否则"
+"就是用最为接近的字体)。"
 
-#.
-#. http://www.docbook.org/tdg/en/html/qandaentry.html
-#.
-#. This is used as a label before answers in a question-and-answer
-#. set.  Typically, answers are simply numbered and answers are not
-#. labelled at all.  However, DocBook allows document authors to set
-#. the labelling style for a qandaset.  If the labelling style is set
-#. to 'qanda', this string will be used to label answers.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1429
-msgid "A:&#x2003;"
-msgstr "答："
+#: ../src/gnome-terminal.schemas.in.h:41
+msgid ""
+"If true, the theme color scheme used for text entry boxes will be used for "
+"the terminal, instead of colors provided by the user."
+msgstr ""
+"如果为 true，终端就会使用文本输入框的主题颜色配对，而不是用户给出的颜色。"
 
-#. Used for links to the titlepage.
-#: ../xslt/gettext/l10n.xml.in.h:1431
-msgid "About This Document"
-msgstr "关于本文档"
+#: ../src/gnome-terminal.schemas.in.h:42
+msgid ""
+"If true, the value of the custom_command setting will be used in place of "
+"running a shell."
+msgstr "如果为 true，将会使用用户自定义的设置来取代 shell。"
 
-#.
-#. http://www.docbook.org/tdg/en/html/affiliation.html
-#.
-#. This is used as a label before affiliations when listing
-#. authors and other contributors to the document.  For example:
-#.
-#. Shaun McCance
-#. Affiliation: GNOME Documentation Project
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1441
-msgid "Affiliation"
-msgstr "隶属"
+#: ../src/gnome-terminal.schemas.in.h:43
+msgid ""
+"If true, whenever there's new output the terminal will scroll to the bottom."
+msgstr "如果为 true，在终端有新输出时滚动条就会滚动到底部。"
 
-#. Used as a title for a bibliography.
-#: ../xslt/gettext/l10n.xml.in.h:1443
-msgid "Bibliography"
-msgstr "参考书目"
+#: ../src/gnome-terminal.schemas.in.h:44
+msgid ""
+"Keyboard shortcut key for bringing up the dialog for profile creation. "
+"Expressed as a string in the same format used for GTK+ resource files. If "
+"you set the option to the special string \"disabled\", then there will be no "
+"keyboard shortcut for this action."
+msgstr ""
+"启动配置文件创建对话框的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您"
+"将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
 
-#.
-#. http://www.docbook.org/tdg/en/html/caution.html
-#. This is used as a default title for caution elements.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1448
-msgid "Caution"
-msgstr "小心"
+#: ../src/gnome-terminal.schemas.in.h:45
+msgid ""
+"Keyboard shortcut key for closing a tab. Expressed as a string in the same "
+"format used for GTK+ resource files. If you set the option to the special "
+"string \"disabled\", then there will be no keyboard shortcut for this action."
+msgstr ""
+"关闭标签的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊"
+"字符串“disabled”，则此操作就没有快捷键。"
 
-#.
-#. http://www.docbook.org/tdg/en/html/colophon.html
-#. This is used as a default title for colophon elements.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1453
-msgid "Colophon"
-msgstr "版权页"
+#: ../src/gnome-terminal.schemas.in.h:46
+msgid ""
+"Keyboard shortcut key for closing a window. Expressed as a string in the "
+"same format used for GTK+ resource files. If you set the option to the "
+"special string \"disabled\", then there will be no keyboard shortcut for "
+"this action."
+msgstr ""
+"关闭窗口的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊"
+"字符串“disabled”，则此操作就没有快捷键。"
 
-#.
-#. http://www.docbook.org/tdg/en/html/dedication.html
-#. This is used as a default title for dedication elements.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1458
-msgid "Dedication"
-msgstr "贡献"
+#: ../src/gnome-terminal.schemas.in.h:47
+msgid ""
+"Keyboard shortcut key for copying selected text to the clipboard. Expressed "
+"as a string in the same format used for GTK+ resource files. If you set the "
+"option to the special string \"disabled\", then there will be no keyboard "
+"shortcut for this action."
+msgstr ""
+"将选中文字复制到剪贴板的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您"
+"将选项设为特殊字符串“disabled”，则此操作就没有快捷键。"
 
-#.
-#. http://www.docbook.org/tdg/en/html/affiliation.html
-#.
-#. This is used as a label before email addresses when listing
-#. authors and other contributors to the document.  For example:
-#.
-#. Shaun McCance
-#. Email: shaunm@gnome.org
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1468
-msgid "Email"
-msgstr "电子邮件"
+#: ../src/gnome-terminal.schemas.in.h:48
+msgid ""
+"Keyboard shortcut key for launching help. Expressed as a string in the same "
+"format used for GTK+ resource files. If you set the option to the special "
+"string \"disabled\", then there will be no keyboard shortcut for this action."
+msgstr ""
+"调用帮助的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊"
+"字符串“disabled”，则此操作就没有快捷键。"
 
-#.
-#. http://www.docbook.org/tdg/en/html/glossary.html
-#. This is used as a default title for glossary elements.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1473
-msgid "Glossary"
-msgstr "术语表"
+#: ../src/gnome-terminal.schemas.in.h:49
+msgid ""
+"Keyboard shortcut key for making font larger. Expressed as a string in the "
+"same format used for GTK+ resource files. If you set the option to the "
+"special string \"disabled\", then there will be no keyboard shortcut for "
+"this action."
+msgstr ""
+"设为大字体的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特"
+"殊字符串“disabled”，则此操作就没有快捷键。"
 
-#.
-#. http://www.docbook.org/tdg/en/html/important.html
-#. This is used as a default title for important elements.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1478
-msgid "Important"
-msgstr "重要"
+#: ../src/gnome-terminal.schemas.in.h:50
+msgid ""
+"Keyboard shortcut key for making font smaller. Expressed as a string in the "
+"same format used for GTK+ resource files. If you set the option to the "
+"special string \"disabled\", then there will be no keyboard shortcut for "
+"this action."
+msgstr ""
+"设为小字体的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特"
+"殊字符串“disabled”，则此操作就没有快捷键。"
 
-#.
-#. http://www.docbook.org/tdg/en/html/index.html
-#. This is used as a default title for index elements.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1483
-msgid "Index"
-msgstr "索引"
+#: ../src/gnome-terminal.schemas.in.h:51
+msgid ""
+"Keyboard shortcut key for making font the normal size. Expressed as a string "
+"in the same format used for GTK+ resource files. If you set the option to "
+"the special string \"disabled\", then there will be no keyboard shortcut for "
+"this action."
+msgstr ""
+"设为普通字体的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为"
+"特殊字符串“disabled”，则此操作就没有快捷键。"
 
-#.
-#. http://www.docbook.org/tdg/en/html/legalnotice.html
-#. This is used as a default title for legalnotice elements.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1488
-msgid "Legal Notice"
-msgstr "版权通告"
+#: ../src/gnome-terminal.schemas.in.h:52
+msgid ""
+"Keyboard shortcut key for opening a new tab. Expressed as a string in the "
+"same format used for GTK+ resource files. If you set the option to the "
+"special string \"disabled\", then there will be no keyboard shortcut for "
+"this action."
+msgstr ""
+"打开新标签的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特"
+"殊字符串“disabled”，则此操作就没有快捷键。"
 
-#.
-#. http://www.docbook.org/tdg/en/html/refnamediv.html
-#. This is used as the title for refnamediv elements.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1493
-msgid "Name"
-msgstr "名称"
+#: ../src/gnome-terminal.schemas.in.h:53
+msgid ""
+"Keyboard shortcut key for opening a new window. Expressed as a string in the "
+"same format used for GTK+ resource files. If you set the option to the "
+"special string \"disabled\", then there will be no keyboard shortcut for "
+"this action."
+msgstr ""
+"打开新窗口的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特"
+"殊字符串“disabled”，则此操作就没有快捷键。"
 
-#.
-#. http://www.docbook.org/tdg/en/html/note.html
-#. This is used as a default title for note elements.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1498
-msgid "Note"
-msgstr "备注"
+#: ../src/gnome-terminal.schemas.in.h:54
+msgid ""
+"Keyboard shortcut key for pasting the contents of the clipboard into the "
+"terminal. Expressed as a string in the same format used for GTK+ resource "
+"files. If you set the option to the special string \"disabled\", then there "
+"will be no keyboard shortcut for this action."
+msgstr ""
+"从剪贴板粘贴文字的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项"
+"设为特殊字符串“disabled”，则此操作就没有快捷键。"
 
-#.
-#. http://www.docbook.org/tdg/en/html/preface.html
-#. This is used as a default title for preface elements.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1503
-msgid "Preface"
-msgstr "封面"
+#: ../src/gnome-terminal.schemas.in.h:55
+msgid ""
+"Keyboard shortcut key for switch to tab 1. Expressed as a string in the same "
+"format used for GTK+ resource files. If you set the option to the special "
+"string \"disabled\", then there will be no keyboard shortcut for this action."
+msgstr ""
+"切换到标签 1 的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为"
+"特殊字符串“disabled”，则此操作就没有快捷键。"
 
-#.
-#. http://www.docbook.org/tdg/en/html/qandaentry.html
-#.
-#. This is used as a label before questions in a question-and-answer
-#. set.  Typically, questions are simply numbered and answers are not
-#. labelled at all.  However, DocBook allows document authors to set
-#. the labelling style for a qandaset.  If the labelling style is set
-#. to 'qanda', this string will be used to label questions.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1513
-msgid "Q:&#x2003;"
-msgstr "问："
+#: ../src/gnome-terminal.schemas.in.h:56
+msgid ""
+"Keyboard shortcut key for switch to tab 10. Expressed as a string in the "
+"same format used for GTK+ resource files. If you set the option to the "
+"special string \"disabled\", then there will be no keyboard shortcut for "
+"this action."
+msgstr ""
+"切换到标签 10 的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设"
+"为特殊字符串“disabled”，则此操作就没有快捷键。"
 
-#.
-#. http://www.docbook.org/tdg/en/html/revhistory.html
-#. This is used as a header before the revision history.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1518
-msgid "Revision History"
-msgstr "版本历史"
+#: ../src/gnome-terminal.schemas.in.h:57
+msgid ""
+"Keyboard shortcut key for switch to tab 11. Expressed as a string in the "
+"same format used for GTK+ resource files. If you set the option to the "
+"special string \"disabled\", then there will be no keyboard shortcut for "
+"this action."
+msgstr ""
+"切换到标签 11 的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设"
+"为特殊字符串“disabled”，则此操作就没有快捷键。"
 
-#.
-#. Used for the <see> element.
-#. FIXME: this should be a format string.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1523
-msgid "See"
-msgstr "见"
+#: ../src/gnome-terminal.schemas.in.h:58
+msgid ""
+"Keyboard shortcut key for switch to tab 12. Expressed as a string in the "
+"same format used for GTK+ resource files. If you set the option to the "
+"special string \"disabled\", then there will be no keyboard shortcut for "
+"this action."
+msgstr ""
+"切换到标签 12 的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设"
+"为特殊字符串“disabled”，则此操作就没有快捷键。"
 
-#.
-#. Used for the <seealso> element.
-#. FIXME: this should be a format string.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1528
-msgid "See Also"
-msgstr "参见"
+#: ../src/gnome-terminal.schemas.in.h:59
+msgid ""
+"Keyboard shortcut key for switch to tab 2. Expressed as a string in the same "
+"format used for GTK+ resource files. If you set the option to the special "
+"string \"disabled\", then there will be no keyboard shortcut for this action."
+msgstr ""
+"切换到标签 2 的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为"
+"特殊字符串“disabled”，则此操作就没有快捷键。"
 
-#.
-#. http://www.docbook.org/tdg/en/html/refsynopsisdiv.html
-#. This is used as the default title for refsynopsisdiv elements.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1533
-msgid "Synopsis"
-msgstr "提要"
+#: ../src/gnome-terminal.schemas.in.h:60
+msgid ""
+"Keyboard shortcut key for switch to tab 3. Expressed as a string in the same "
+"format used for GTK+ resource files. If you set the option to the special "
+"string \"disabled\", then there will be no keyboard shortcut for this action."
+msgstr ""
+"切换到标签 3 的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为"
+"特殊字符串“disabled”，则此操作就没有快捷键。"
 
-#.
-#. http://www.docbook.org/tdg/en/html/tip.html
-#. This is used as a default title for tip elements.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1538
-msgid "Tip"
-msgstr "提示"
+#: ../src/gnome-terminal.schemas.in.h:61
+msgid ""
+"Keyboard shortcut key for switch to tab 4. Expressed as a string in the same "
+"format used for GTK+ resource files. If you set the option to the special "
+"string \"disabled\", then there will be no keyboard shortcut for this action."
+msgstr ""
+"切换到标签 4 的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为"
+"特殊字符串“disabled”，则此操作就没有快捷键。"
 
+#: ../src/gnome-terminal.schemas.in.h:62
+msgid ""
+"Keyboard shortcut key for switch to tab 5. Expressed as a string in the same "
+"format used for GTK+ resource files. If you set the option to the special "
+"string \"disabled\", then there will be no keyboard shortcut for this action."
+msgstr ""
+"切换到标签 5 的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为"
+"特殊字符串“disabled”，则此操作就没有快捷键。"
+
+#: ../src/gnome-terminal.schemas.in.h:63
+msgid ""
+"Keyboard shortcut key for switch to tab 6. Expressed as a string in the same "
+"format used for GTK+ resource files. If you set the option to the special "
+"string \"disabled\", then there will be no keyboard shortcut for this action."
+msgstr ""
+"切换到标签 6 的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为"
+"特殊字符串“disabled”，则此操作就没有快捷键。"
+
+#: ../src/gnome-terminal.schemas.in.h:64
+msgid ""
+"Keyboard shortcut key for switch to tab 7. Expressed as a string in the same "
+"format used for GTK+ resource files. If you set the option to the special "
+"string \"disabled\", then there will be no keyboard shortcut for this action."
+msgstr ""
+"切换到标签 7 的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为"
+"特殊字符串“disabled”，则此操作就没有快捷键。"
+
+#: ../src/gnome-terminal.schemas.in.h:65
+msgid ""
+"Keyboard shortcut key for switch to tab 8. Expressed as a string in the same "
+"format used for GTK+ resource files. If you set the option to the special "
+"string \"disabled\", then there will be no keyboard shortcut for this action."
+msgstr ""
+"切换到标签 8 的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为"
+"特殊字符串“disabled”，则此操作就没有快捷键。"
+
+#: ../src/gnome-terminal.schemas.in.h:66
+msgid ""
+"Keyboard shortcut key for switch to tab 9. Expressed as a string in the same "
+"format used for GTK+ resource files. If you set the option to the special "
+"string \"disabled\", then there will be no keyboard shortcut for this action."
+msgstr ""
+"切换到标签 9 的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为"
+"特殊字符串“disabled”，则此操作就没有快捷键。"
+
+#: ../src/gnome-terminal.schemas.in.h:67
+msgid ""
+"Keyboard shortcut key for toggling full screen mode. Expressed as a string "
+"in the same format used for GTK+ resource files. If you set the option to "
+"the special string \"disabled\", then there will be no keyboard shortcut for "
+"this action."
+msgstr ""
+"切换全屏模式的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为"
+"特殊字符串“disabled”，则此操作就没有快捷键。"
+
+#: ../src/gnome-terminal.schemas.in.h:68
+msgid ""
+"Keyboard shortcut key to reset and clear the terminal. Expressed as a string "
+"in the same format used for GTK+ resource files. If you set the option to "
+"the special string \"disabled\", then there will be no keyboard shortcut for "
+"this action."
+msgstr ""
+"重置并清除终端的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设"
+"为特殊字符串“disabled”，则此操作就没有快捷键。"
+
+#: ../src/gnome-terminal.schemas.in.h:69
+msgid ""
+"Keyboard shortcut key to reset the terminal. Expressed as a string in the "
+"same format used for GTK+ resource files. If you set the option to the "
+"special string \"disabled\", then there will be no keyboard shortcut for "
+"this action."
+msgstr ""
+"重置终端的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为特殊"
+"字符串“disabled”，则此操作就没有快捷键。"
+
+#: ../src/gnome-terminal.schemas.in.h:70
+msgid ""
+"Keyboard shortcut key to set the terminal title. Expressed as a string in "
+"the same format used for GTK+ resource files. If you set the option to the "
+"special string \"disabled\", then there will be no keyboard shortcut for "
+"this action."
+msgstr ""
+"设定终端标题的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设为"
+"特殊字符串“disabled”，则此操作就没有快捷键。"
+
+#: ../src/gnome-terminal.schemas.in.h:71
+msgid ""
+"Keyboard shortcut key to switch to the next tab. Expressed as a string in "
+"the same format used for GTK+ resource files. If you set the option to the "
+"special string \"disabled\", then there will be no keyboard shortcut for "
+"this action."
+msgstr ""
+"切换到下一标签的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设"
+"为特殊字符串“disabled”，则此操作就没有快捷键。"
+
+#: ../src/gnome-terminal.schemas.in.h:72
+msgid ""
+"Keyboard shortcut key to switch to the previous tab. Expressed as a string "
+"in the same format used for GTK+ resource files. If you set the option to "
+"the special string \"disabled\", then there will be no keyboard shortcut for "
+"this action."
+msgstr ""
+"切换到上一标签的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选项设"
+"为特殊字符串“disabled”，则此操作就没有快捷键。"
+
+#: ../src/gnome-terminal.schemas.in.h:73
+msgid ""
+"Keyboard shortcut key to toggle the visibility of the menubar. Expressed as "
+"a string in the same format used for GTK+ resource files. If you set the "
+"option to the special string \"disabled\", then there will be no keyboard "
+"shortcut for this action."
+msgstr ""
+"切换菜单栏是否可见的快捷键。以 GTK+ 资源文件所用格式给出的字符串。如果您将选"
+"项设为特殊字符串“disabled”，则此操作就没有快捷键。"
+
+#: ../src/gnome-terminal.schemas.in.h:74
+msgid "Keyboard shortcut to close a tab"
+msgstr "关闭标签的快捷键"
+
+#: ../src/gnome-terminal.schemas.in.h:75
+msgid "Keyboard shortcut to close a window"
+msgstr "关闭窗口的快捷键"
+
+#: ../src/gnome-terminal.schemas.in.h:76
+msgid "Keyboard shortcut to copy text"
+msgstr "复制文字的快捷键"
+
+#: ../src/gnome-terminal.schemas.in.h:77
+msgid "Keyboard shortcut to create a new profile"
+msgstr "创建新配置文件的快捷键"
+
+#: ../src/gnome-terminal.schemas.in.h:78
+msgid "Keyboard shortcut to launch help"
+msgstr "调用帮助的快捷键"
+
+#: ../src/gnome-terminal.schemas.in.h:79
+msgid "Keyboard shortcut to make font larger"
+msgstr "大字体的快捷键"
+
+#: ../src/gnome-terminal.schemas.in.h:80
+msgid "Keyboard shortcut to make font normal-size"
+msgstr "普通字体的快捷键"
+
+#: ../src/gnome-terminal.schemas.in.h:81
+msgid "Keyboard shortcut to make font smaller"
+msgstr "小字体的快捷键"
+
+#: ../src/gnome-terminal.schemas.in.h:82
+msgid "Keyboard shortcut to open a new tab"
+msgstr "打开新标签的快捷键"
+
+#: ../src/gnome-terminal.schemas.in.h:83
+msgid "Keyboard shortcut to open a new window"
+msgstr "打开新窗口的快捷键"
+
+#: ../src/gnome-terminal.schemas.in.h:84
+msgid "Keyboard shortcut to paste text"
+msgstr "粘贴文字的快捷键"
+
+#: ../src/gnome-terminal.schemas.in.h:85
+msgid "Keyboard shortcut to reset and clear the terminal"
+msgstr "重置并清除终端的快捷键"
+
+#: ../src/gnome-terminal.schemas.in.h:86
+msgid "Keyboard shortcut to reset the terminal"
+msgstr "重置终端的快捷键"
+
+#: ../src/gnome-terminal.schemas.in.h:87
+msgid "Keyboard shortcut to set the terminal title"
+msgstr "设置终端标题的快捷键"
+
+#: ../src/gnome-terminal.schemas.in.h:88
+msgid "Keyboard shortcut to switch to tab 1"
+msgstr "切换到标签 1 的快捷键"
+
+#: ../src/gnome-terminal.schemas.in.h:89
+msgid "Keyboard shortcut to switch to tab 10"
+msgstr "切换到标签 10 的快捷键"
+
+#: ../src/gnome-terminal.schemas.in.h:90
+msgid "Keyboard shortcut to switch to tab 11"
+msgstr "切换到标签 11 的快捷键"
+
+#: ../src/gnome-terminal.schemas.in.h:91
+msgid "Keyboard shortcut to switch to tab 12"
+msgstr "切换到标签 12 的快捷键"
+
+#: ../src/gnome-terminal.schemas.in.h:92
+msgid "Keyboard shortcut to switch to tab 2"
+msgstr "切换到标签 2 的快捷键"
+
+#: ../src/gnome-terminal.schemas.in.h:93
+msgid "Keyboard shortcut to switch to tab 3"
+msgstr "切换到标签 3 的快捷键"
+
+#: ../src/gnome-terminal.schemas.in.h:94
+msgid "Keyboard shortcut to switch to tab 4"
+msgstr "切换到标签 4 的快捷键"
+
+#: ../src/gnome-terminal.schemas.in.h:95
+msgid "Keyboard shortcut to switch to tab 5"
+msgstr "切换到标签 5 的快捷键"
+
+#: ../src/gnome-terminal.schemas.in.h:96
+msgid "Keyboard shortcut to switch to tab 6"
+msgstr "切换到标签 6 的快捷键"
+
+#: ../src/gnome-terminal.schemas.in.h:97
+msgid "Keyboard shortcut to switch to tab 7"
+msgstr "切换到标签 7 的快捷键"
+
+#: ../src/gnome-terminal.schemas.in.h:98
+msgid "Keyboard shortcut to switch to tab 8"
+msgstr "切换到标签 8 的快捷键"
+
+#: ../src/gnome-terminal.schemas.in.h:99
+msgid "Keyboard shortcut to switch to tab 9"
+msgstr "切换到标签 9 的快捷键"
+
+#: ../src/gnome-terminal.schemas.in.h:100
+msgid "Keyboard shortcut to switch to the next tab"
+msgstr "切换到下一标签的快捷键"
+
+#: ../src/gnome-terminal.schemas.in.h:101
+msgid "Keyboard shortcut to switch to the previous tab"
+msgstr "切换到上一标签的快捷键"
+
+#: ../src/gnome-terminal.schemas.in.h:102
+msgid "Keyboard shortcut to toggle full screen mode"
+msgstr "切换全屏模式的快捷键"
+
+#: ../src/gnome-terminal.schemas.in.h:103
+msgid "Keyboard shortcut to toggle the visibility of the menubar"
+msgstr "切换菜单栏是否可见的快捷键"
+
+#: ../src/gnome-terminal.schemas.in.h:104
+msgid "List of available encodings"
+msgstr "可用编码的列表"
+
+#: ../src/gnome-terminal.schemas.in.h:105
+msgid "List of profiles"
+msgstr "配置文件列表"
+
+#: ../src/gnome-terminal.schemas.in.h:106
+msgid ""
+"List of profiles known to gnome-terminal. The list contains strings naming "
+"subdirectories relative to /apps/gnome-terminal/profiles."
+msgstr ""
+"列出了 gnome-terminal 已知的配置文件。列表包含的子目录是相对于 /apps/gnome-"
+"terminal/profiles 的。"
+
+#: ../src/gnome-terminal.schemas.in.h:107
+msgid ""
+"Normally you can access the menubar with F10. This can also be customized "
+"via gtkrc (gtk-menu-bar-accel = \"whatever\"). This option allows the "
+"standard menubar accelerator to be disabled."
+msgstr ""
+"通常您可以用 F10 访问菜单栏。这也可以通过 gtkrc 自定义(gtk-menu-bar-accel = "
+"\"whatever\")。此选项允许禁用标准的菜单栏加速键。"
+
+#: ../src/gnome-terminal.schemas.in.h:108
+msgid "Number of lines to keep in scrollback"
+msgstr "回滚的行数"
+
+#: ../src/gnome-terminal.schemas.in.h:109
+msgid ""
+"Number of scrollback lines to keep around. You can scroll back in the "
+"terminal by this number of lines; lines that don't fit in the scrollback are "
+"discarded. Be careful with this setting; it's the primary factor in "
+"determining how much memory the terminal will use."
+msgstr ""
+"保留回滚的行数。您可以往回滚动终端这么多行；不适合回滚的行将被丢弃。请小心使"
+"用此设置；因为它直接涉及到终端要使用多大的内存。"
+
+#: ../src/gnome-terminal.schemas.in.h:110
+msgid "Palette for terminal applications"
+msgstr "终端程序调色板"
+
+#. Translators: S/Key is the name of an application, so it should
+#. not be translated.
+#: ../src/gnome-terminal.schemas.in.h:113
+msgid ""
+"Popup a dialog when an S/Key challenge response query is detected and "
+"clicked on. Typing a password into the dialog will send it to the terminal."
+msgstr ""
+"检测到 S/Key 挑战响应查询且单击时弹出一个对话框。在对话框中输入的密码将发送到"
+"终端。"
+
+#: ../src/gnome-terminal.schemas.in.h:114
+msgid "Position of the scrollbar"
+msgstr "滚动条的位置"
+
+#: ../src/gnome-terminal.schemas.in.h:115
+msgid ""
+"Possible values are \"close\" to close the terminal, and \"restart\" to "
+"restart the command."
+msgstr "可供选择的值中，“关闭”可关闭终端，“重新启动”可重新启动命令。"
+
+#: ../src/gnome-terminal.schemas.in.h:116
+msgid ""
+"Profile to be used when opening a new window or tab. Must be in profile_list."
+msgstr "打开新窗口或标签时要使用的配置文件。必须位于配置文件列表中。"
+
+#: ../src/gnome-terminal.schemas.in.h:117
+msgid "Profile to use for new terminals"
+msgstr "新终端要使用的配置文件"
+
+#: ../src/gnome-terminal.schemas.in.h:118
+msgid "Run this command in place of the shell, if use_custom_command is true."
+msgstr "在 shell 的位置运行此命令，如果 use_custom_command 为 true。"
+
+#: ../src/gnome-terminal.schemas.in.h:119
+msgid ""
+"Sets what code the backspace key generates. Possible values are \"ascii-del"
+"\" for the ASCII DEL character, \"control-h\" for Control-H (AKA the ASCII "
+"BS character), \"escape-sequence\" for the escape sequence typically bound "
+"to backspace or delete. \"ascii-del\" is normally considered the correct "
+"setting for the Backspace key."
+msgstr ""
+"设置退格键生成的代码。可供选择的值有，“ascii-del”代表 ASCII DEL 字"
+"符，“control-h”代表 Ctrl+H(即 ASCII BS 字符)，“escape-sequence”代表 "
+"backspace 或 delete 代表的转码序列。“ascii-del”通常是退格键正确的设置。"
+
+#: ../src/gnome-terminal.schemas.in.h:120
+msgid ""
+"Sets what code the delete key generates. Possible values are \"ascii-del\" "
+"for the ASCII DEL character, \"control-h\" for Control-H (AKA the ASCII BS "
+"character), \"escape-sequence\" for the escape sequence typically bound to "
+"backspace or delete. \"escape-sequence\" is normally considered the correct "
+"setting for the Delete key."
+msgstr ""
+"设置 Delete 键生成的代码。可供选择的值有，“ascii-del”代表 ASCII DEL 字"
+"符，“control-h”代表 Ctrl+H(即 ASCII BS 字符)，“escape-sequence”代表 "
+"backspace 或 delete 代表的转码序列。“ascii-del”通常是 Delete 键正确的设置。"
+
+#: ../src/gnome-terminal.schemas.in.h:122
+msgid ""
+"Terminals have a 16-color palette that applications inside the terminal can "
+"use. This is that palette, in the form of a colon-separated list of color "
+"names. Color names should be in hex format e.g. \"#FF00FF\""
+msgstr ""
+"终端使用 16 色的调色板，以供终端中的程序使用。这就是该调色板，格式为冒号分隔"
+"的颜色名称。颜色名必须是十六进制格式，即“#FF00FF”"
+
+#: ../src/gnome-terminal.schemas.in.h:123
+msgid "Title for terminal"
+msgstr "终端标题"
+
+#: ../src/gnome-terminal.schemas.in.h:124
+msgid ""
+"Title to display for the terminal window or tab. This title may be replaced "
+"by or combined with the title set by the application inside the terminal, "
+"depending on the title_mode setting."
+msgstr ""
+"终端窗口或标签显示用的标题。根据 title_mode 设置的不同，此标题可替换为终端内"
+"程序所指定的标题，或与之组合。"
+
+#: ../src/gnome-terminal.schemas.in.h:125
+msgid ""
+"True if the cursor should blink when the terminal has focus, for windows/"
+"tabs with this profile."
+msgstr "True 代表当使用此配置文件的窗口/标签内的终端拥有焦点时就闪烁光标，"
+
+#: ../src/gnome-terminal.schemas.in.h:126
+msgid ""
+"True if the menubar should be shown in new windows, for windows/tabs with "
+"this profile."
+msgstr "True 代表要在使用此配置文件的新窗口中显示菜单栏。"
+
+#: ../src/gnome-terminal.schemas.in.h:127
+msgid ""
+"Type of terminal background. May be \"solid\" for a solid color, \"image\" "
+"for an image, or \"transparent\" for pseudo-transparency."
+msgstr ""
+"终端背景的类型。可以是“纯色”代表单一颜色，“图像”代表图像，以及“透明”代表假透"
+"明。"
+
+#: ../src/gnome-terminal.schemas.in.h:128
+msgid "What to do with dynamic title"
+msgstr "如何对待动态标题"
+
+#: ../src/gnome-terminal.schemas.in.h:129
+msgid "What to do with the terminal when the child command exits"
+msgstr "如何对待子命令退出时"
+
+#: ../src/gnome-terminal.schemas.in.h:130
+msgid ""
+"When selecting text by word, sequences of these characters are considered "
+"single words. Ranges can be given as \"A-Z\". Literal hyphen (not expressing "
+"a range) should be the first character given."
+msgstr ""
+"逐词选中文字时，这些字符的序列将被认为是一个单词。范围可以给为“A-Z”。连字符"
+"(不表示范围)必须是给出的第一个字符。"
+
+#: ../src/gnome-terminal.schemas.in.h:131
+msgid ""
+"Where to put the terminal scrollbar. Possibilities are \"left\", \"right\", "
+"and \"disabled\"."
+msgstr "将终端滚动条放在哪里。可供选择的值是“左”、“右”和“禁用”。"
+
+#: ../src/gnome-terminal.schemas.in.h:132
+msgid "Whether the menubar has access keys"
+msgstr "菜单栏是否有访问键"
+
+#: ../src/gnome-terminal.schemas.in.h:133
+msgid "Whether the standard GTK shortcut for menubar access is enabled"
+msgstr "是否启用 GTK 标准的快捷键访问菜单栏"
+
+#: ../src/gnome-terminal.schemas.in.h:134
+msgid "Whether to allow bold text"
+msgstr "是否允许粗体字"
+
+#: ../src/gnome-terminal.schemas.in.h:135
+msgid ""
+"Whether to ask for confirmation when closing a terminal window which has "
+"more than one open tab."
+msgstr "是否在关闭打开了多个标签的终端窗口时请求确认。"
+
+#: ../src/gnome-terminal.schemas.in.h:136
+msgid "Whether to ask for confirmation when closing terminal windows"
+msgstr "是否在关闭终端窗口时请求确认"
+
+#: ../src/gnome-terminal.schemas.in.h:137
+msgid "Whether to blink the cursor"
+msgstr "是否闪烁光标"
+
+#: ../src/gnome-terminal.schemas.in.h:138
+msgid "Whether to disable anti-aliasing without the X RENDER extension"
+msgstr "在没有 X RENDER 扩展的情况下是否要禁用反锯齿"
+
+#: ../src/gnome-terminal.schemas.in.h:139
+msgid ""
+"Whether to have Alt+letter access keys for the menubar. They may interfere "
+"with some applications run inside the terminal so it's possible to turn them "
+"off."
+msgstr ""
+"菜单栏是否使用 Alt+字母的快捷键。终端运行的很多程序都可能与此快捷键产生冲突，"
+"所以可以关闭此特性。"
+
+#: ../src/gnome-terminal.schemas.in.h:140
+msgid "Whether to launch the command in the terminal as a login shell"
+msgstr "是否以登录 shell 在终端调用命令"
+
+#: ../src/gnome-terminal.schemas.in.h:141
+msgid "Whether to run a custom command instead of the shell"
+msgstr "是否运行自定义命令而不是 Shell"
+
+#: ../src/gnome-terminal.schemas.in.h:142
+msgid "Whether to scroll background image"
+msgstr "是否滚动背景图像"
+
+#: ../src/gnome-terminal.schemas.in.h:143
+msgid "Whether to scroll to the bottom when a key is pressed"
+msgstr "是否在按键时滚动到底部"
+
+#: ../src/gnome-terminal.schemas.in.h:144
+msgid "Whether to scroll to the bottom when there's new output"
+msgstr "是否在有新输出时滚动到底部"
+
+#: ../src/gnome-terminal.schemas.in.h:145
+msgid "Whether to show menubar in new windows/tabs"
+msgstr "是否在新窗口/标签显示菜单栏"
+
+#: ../src/gnome-terminal.schemas.in.h:146
+msgid "Whether to silence terminal bell"
+msgstr "是否禁用终端铃声"
+
+#: ../src/gnome-terminal.schemas.in.h:147
+msgid "Whether to update login records when launching terminal command"
+msgstr "是否在调用终端命令时更新登录日志"
+
+#: ../src/gnome-terminal.schemas.in.h:148
+msgid "Whether to use the colors from the theme for the terminal widget"
+msgstr "是否为终端部件使用主题中的颜色"
+
+#: ../src/gnome-terminal.schemas.in.h:149
+msgid "Whether to use the system font"
+msgstr "是否使用系统字体"
+
+#. Translators: Please note that this has to be a list of
+#. valid encodings (which are to be taken from the list in src/encoding.c).
+#. It has to include UTF-8 and the word 'current', which is not to be
+#. translated. This is provided for customization of the default encoding
+#. menu; see bug 144810 for an use case. In most cases, this should be
+#. left alone.
+#: ../src/gnome-terminal.schemas.in.h:156
+msgid "[UTF-8,current]"
+msgstr "[UTF-8,GB18030,GBK,GB2312,current]"
+
+#: ../src/profile-editor.c:49
+msgid "Black on light yellow"
+msgstr "浅黄背景黑字"
+
+#: ../src/profile-editor.c:51
+msgid "Black on white"
+msgstr "白底黑字"
+
+#: ../src/profile-editor.c:53
+msgid "Gray on black"
+msgstr "黑底灰字"
+
+#: ../src/profile-editor.c:55
+msgid "Green on black"
+msgstr "黑底绿字"
+
+#: ../src/profile-editor.c:57
+msgid "White on black"
+msgstr "黑底白字"
+
+#: ../src/profile-editor.c:70
+msgid "Linux console"
+msgstr "Linux 终端"
+
+#: ../src/profile-editor.c:71
+msgid "XTerm"
+msgstr "Xterm"
+
+#: ../src/profile-editor.c:72
+msgid "Rxvt"
+msgstr "Rxvt"
+
+#: ../src/profile-editor.c:884
+msgid "Images"
+msgstr "图像"
+
+#: ../src/profile-editor.c:888
+msgid "All Files"
+msgstr "全部文件"
+
+#: ../src/profile-editor.c:1199
+#, c-format
+msgid "Choose Palette Color %d"
+msgstr "选择调色板颜色 %d"
+
+#: ../src/profile-editor.c:1203
+#, c-format
+msgid "Palette entry %d"
+msgstr "调色板项 %d"
+
+#: ../src/profile-editor.c:1231 ../src/profile-editor.c:1264
+msgid "Choose A Terminal Font"
+msgstr "选择终端字体"
+
+#: ../src/profile-editor.c:1242 ../src/simple-x-font-selector.c:327
+msgid "_Font:"
+msgstr "字体(_F)："
+
+#: ../src/profile-editor.c:1545
+#, c-format
+msgid "Editing Profile \"%s\""
+msgstr "编辑配置文件“%s”"
+
+#: ../src/simple-x-font-selector.c:332
+msgid "Si_ze:"
+msgstr "大小(_Z)："
+
+#: ../src/simple-x-font-selector.c:334
+msgid "_Use bold version of font"
+msgstr "使用粗体字(_U)"
+
+#: ../src/simple-x-font-selector.c:341
+msgid "Click to choose font type"
+msgstr "单击此处选择字体类型"
+
+#: ../src/simple-x-font-selector.c:345
+msgid "Click to choose font size"
+msgstr "单击此处选择字体大小"
+
+#: ../src/simple-x-font-selector.c:656
+msgid "roman"
+msgstr "正体"
+
+#: ../src/simple-x-font-selector.c:657
+msgid "italic"
+msgstr "斜体"
+
+#: ../src/simple-x-font-selector.c:658
+msgid "oblique"
+msgstr "倾斜"
+
+#: ../src/simple-x-font-selector.c:659
+msgid "reverse italic"
+msgstr "反向斜体"
+
+#: ../src/simple-x-font-selector.c:660
+msgid "reverse oblique"
+msgstr "反向倾斜"
+
+#: ../src/simple-x-font-selector.c:661
+msgid "other"
+msgstr "其他"
+
+#: ../src/simple-x-font-selector.c:668
+msgid "proportional"
+msgstr "均衡"
+
+#: ../src/simple-x-font-selector.c:669
+msgid "monospaced"
+msgstr "等宽"
+
+#: ../src/simple-x-font-selector.c:670
+msgid "char cell"
+msgstr "字符单元格"
+
+#: ../src/simple-x-font-selector.c:1265
+msgid "MAX_FONTS exceeded. Some fonts may be missing."
+msgstr "超出字体数限制。一些字体可能会丢失。"
+
+#: ../src/skey-popup.c:122
+msgid "The text you clicked on doesn't seem to be a valid S/Key challenge."
+msgstr "您点击的文字不像是有效的 S/Key 挑战。"
+
+#: ../src/skey-popup.c:133
+msgid "The text you clicked on doesn't seem to be a valid OTP challenge."
+msgstr "您点击的文字不像是有效的 OTP 挑战。"
+
+#: ../src/terminal-accels.c:78
+msgid "New Tab"
+msgstr "新建标签"
+
+#: ../src/terminal-accels.c:80
+msgid "New Window"
+msgstr "新建窗口"
+
+#: ../src/terminal-accels.c:84
+msgid "Close Tab"
+msgstr "关闭标签"
+
+#: ../src/terminal-accels.c:86
+msgid "Close Window"
+msgstr "关闭窗口"
+
+#: ../src/terminal-accels.c:92
+msgid "Copy"
+msgstr "复制"
+
+#: ../src/terminal-accels.c:94
+msgid "Paste"
+msgstr "粘贴"
+
+#: ../src/terminal-accels.c:100
+msgid "Hide and Show menubar"
+msgstr "隐藏/显示菜单栏"
+
+#: ../src/terminal-accels.c:102
+msgid "Full Screen"
+msgstr "全屏"
+
+#: ../src/terminal-accels.c:104
+msgid "Zoom In"
+msgstr "放大"
+
+#: ../src/terminal-accels.c:106
+msgid "Zoom Out"
+msgstr "缩小"
+
+#: ../src/terminal-accels.c:108
+msgid "Normal Size"
+msgstr "普通大小"
+
+#: ../src/terminal-accels.c:114 ../src/terminal-screen.c:2109
+msgid "Set Title"
+msgstr "设置标题"
+
+#: ../src/terminal-accels.c:116
+msgid "Reset"
+msgstr "复位"
+
+#: ../src/terminal-accels.c:118
+msgid "Reset and Clear"
+msgstr "复位并清除"
+
+#: ../src/terminal-accels.c:124
+msgid "Switch to Previous Tab"
+msgstr "切换到上个标签"
+
+#: ../src/terminal-accels.c:126
+msgid "Switch to Next Tab"
+msgstr "切换到下个标签"
+
+#: ../src/terminal-accels.c:128
+msgid "Move Tab to the Left"
+msgstr "标签左移"
+
+#: ../src/terminal-accels.c:130
+msgid "Move Tab to the Right"
+msgstr "标签右移"
+
+#: ../src/terminal-accels.c:132 ../src/terminal-window.c:1041
+msgid "Detach Tab"
+msgstr "漂移标签"
+
+#: ../src/terminal-accels.c:134
+msgid "Switch to Tab 1"
+msgstr "切换到标签 1"
+
+#: ../src/terminal-accels.c:137
+msgid "Switch to Tab 2"
+msgstr "切换到标签 2"
+
+#: ../src/terminal-accels.c:140
+msgid "Switch to Tab 3"
+msgstr "切换到标签 3"
+
+#: ../src/terminal-accels.c:143
+msgid "Switch to Tab 4"
+msgstr "切换到标签 4"
+
+#: ../src/terminal-accels.c:146
+msgid "Switch to Tab 5"
+msgstr "切换到标签 5"
+
+#: ../src/terminal-accels.c:149
+msgid "Switch to Tab 6"
+msgstr "切换到标签 6"
+
+#: ../src/terminal-accels.c:152
+msgid "Switch to Tab 7"
+msgstr "切换到标签 7"
+
+#: ../src/terminal-accels.c:155
+msgid "Switch to Tab 8"
+msgstr "切换到标签 8"
+
+#: ../src/terminal-accels.c:158
+msgid "Switch to Tab 9"
+msgstr "切换到标签 9"
+
+#: ../src/terminal-accels.c:161
+msgid "Switch to Tab 10"
+msgstr "切换到标签 10"
+
+#: ../src/terminal-accels.c:164
+msgid "Switch to Tab 11"
+msgstr "切换到标签 11"
+
+#: ../src/terminal-accels.c:167
+msgid "Switch to Tab 12"
+msgstr "切换到标签 12"
+
+#: ../src/terminal-accels.c:173
+msgid "Contents"
+msgstr "目录"
+
+#: ../src/terminal-accels.c:178
+msgid "File"
+msgstr "文件"
+
+#: ../src/terminal-accels.c:179
+msgid "Edit"
+msgstr "编辑"
+
+#: ../src/terminal-accels.c:180
+msgid "View"
+msgstr "查看"
+
+#: ../src/terminal-accels.c:182
+msgid "Go"
+msgstr "转到"
+
+#: ../src/terminal-accels.c:183
+msgid "Help"
+msgstr "帮助"
+
+#: ../src/terminal-accels.c:273 ../src/terminal-profile.c:395
+#: ../src/terminal-screen.c:204 ../src/terminal.c:1724
+#, c-format
+msgid "There was an error loading config from %s. (%s)\n"
+msgstr "从 %s 中载入配置时出错。(%s)\n"
+
+#: ../src/terminal-accels.c:287
+#, c-format
+msgid ""
+"There was an error subscribing to notification of terminal keybinding "
+"changes. (%s)\n"
+msgstr "订阅终端键盘关联配置改变通知时出错。(%s)\n"
+
+#: ../src/terminal-accels.c:328
+#, c-format
+msgid "There was an error loading a terminal keybinding. (%s)\n"
+msgstr "载入键盘关联配置时出错。(%s)\n"
+
+#: ../src/terminal-accels.c:344
+#, c-format
+msgid "The value of configuration key %s is not valid; value is \"%s\"\n"
+msgstr "配置键 %s 的值无效，该值为“%s”\n"
+
+#: ../src/terminal-accels.c:367
+#, c-format
+msgid ""
+"There was an error loading config value for whether to use menubar access "
+"keys. (%s)\n"
+msgstr "载入是否使用菜单访问的配置时出错。(%s)\n"
+
+#: ../src/terminal-accels.c:381
+#, c-format
+msgid ""
+"There was an error subscribing to notification on changes on whether to use "
+"menubar access keys (%s)\n"
+msgstr "订阅是否使用菜单访问键的更改通知时出错。(%s)\n"
+
+#: ../src/terminal-accels.c:392
+#, c-format
+msgid ""
+"There was an error loading config value for whether to use menu "
+"accelerators. (%s)\n"
+msgstr "载入是否使用菜单快捷键的配置时出错。(%s)\n"
+
+#: ../src/terminal-accels.c:408
+#, c-format
+msgid ""
+"There was an error subscribing to notification for use_menu_accelerators (%"
+"s)\n"
+msgstr "订阅菜单加速键更改通知时出错。(%s)\n"
+
+#: ../src/terminal-accels.c:786
+#, c-format
+msgid "Error propagating accelerator change to configuration database: %s\n"
+msgstr "将加速键改动存入配置数据库时出错：%s\n"
+
+#: ../src/terminal-accels.c:995
+#, c-format
+msgid "The shortcut key \"%s\" is already bound to the \"%s\" action"
+msgstr "快捷键“%s”已经绑定到“%s”动作"
+
+#: ../src/terminal-accels.c:1029
+#, c-format
+msgid "Error setting new accelerator in configuration database: %s\n"
+msgstr "配置数据库中设置新加速键时出错：%s\n"
+
+#: ../src/terminal-accels.c:1060
+#, c-format
+msgid "Error setting %s config key: %s\n"
+msgstr "设置 %s 配置键时出错：%s\n"
+
+#: ../src/terminal-accels.c:1088
+#, c-format
+msgid "Error setting use_menu_accelerators key: %s\n"
+msgstr "设置使用菜单加速键时出错：%s\n"
+
+#: ../src/terminal-accels.c:1207
+msgid "_Action"
+msgstr "动作(_A)"
+
+#: ../src/terminal-accels.c:1227
+msgid "Shortcut _Key"
+msgstr "快捷键(_K)"
+
+#: ../src/terminal-profile.c:410
+#, c-format
+msgid ""
+"There was an error subscribing to notification of terminal profile changes. "
+"(%s)\n"
+msgstr "订阅终端配置文件更改通知时出错。(%s)\n"
+
+#: ../src/terminal-profile.c:1005
+#, c-format
+msgid "Could not find an icon called \"%s\" for terminal profile \"%s\"\n"
+msgstr "找不到终端配置文件“%2$s”需要的名为“%1$s”的图标\n"
+
+#: ../src/terminal-profile.c:1019
+#, c-format
+msgid "Failed to load icon \"%s\" for terminal profile \"%s\": %s\n"
+msgstr "未能载入终端配置文件“%2$s”需要的图标“%1$s”：%3$s\n"
+
+#: ../src/terminal-profile.c:1205
+#, c-format
+msgid ""
+"Could not find a background image called \"%s\" for terminal profile \"%s\"\n"
+msgstr "找不到终端配置文件“%2$s”需要的名为“%1$s”的背景图像\n"
+
+#: ../src/terminal-profile.c:1219
+#, c-format
+msgid ""
+"Failed to load background image \"%s\" for terminal profile \"%s\": %s\n"
+msgstr "未能载入终端配置文件“%2$s”需要的背景图像“%1$s”：%3$s\n"
+
+#: ../src/terminal-profile.c:1881
+#, c-format
+msgid ""
+"GNOME Terminal: font name \"%s\" set in configuration database is not valid\n"
+msgstr "GNOME 终端：配置数据库中的字体名“%s”无效\n"
+
+#: ../src/terminal-profile.c:2184
+#, c-format
+msgid "Error getting default value of %s: %s\n"
+msgstr "取得 %s 的默认值时出错：%s\n"
+
+#: ../src/terminal-profile.c:2190
+#, c-format
+msgid "There wasn't a default value for %s\n"
+msgstr "%s 没有默认值\n"
+
+#: ../src/terminal-profile.c:2205
+#, c-format
+msgid "Error setting key %s back to default: %s\n"
+msgstr "恢复键 %s 为默认值时出错：%s\n"
+
+#: ../src/terminal-profile.c:2408
+#, c-format
+msgid ""
+"There was an error while removing the configuration directory %s. (%s)\n"
+msgstr "删除配置目录 %s 时出错。(%s)\n"
+
+#: ../src/terminal-profile.c:2465
+#, c-format
+msgid ""
+"There was an error subscribing to notification of changes to default "
+"profile. (%s)\n"
+msgstr "订阅默认终端配置文件更改通知时出错。(%s)\n"
+
+#: ../src/terminal-profile.c:2510
+msgid "_Details"
+msgstr "详细信息(_D)"
+
+#: ../src/terminal-profile.c:2953 ../src/terminal.c:2391
+#, c-format
+msgid "There was an error creating the profile \"%s\""
+msgstr "创建配置文件“%s”时出错"
+
+#: ../src/terminal-profile.c:3045
+msgid "There was an error deleting the profiles"
+msgstr "删除配置文件时出错"
+
+#: ../src/terminal-profile.c:3148
+#, c-format
+msgid "Could not parse string \"%s\" as a color palette\n"
+msgstr "无法将字符串“%s”解析为颜色调色板\n"
+
+#: ../src/terminal-profile.c:3157
+#, c-format
+msgid "Palette had %d entry instead of %d\n"
+msgid_plural "Palette had %d entries instead of %d\n"
+msgstr[0] "调色板颜色数为%d而不是%d\n"
+
+#: ../src/terminal-screen.c:220
+#, c-format
+msgid ""
+"There was an error subscribing to notification of monospace font changes. (%"
+"s)\n"
+msgstr "订阅等宽字体更改通知时出错。(%s)\n"
+
+#: ../src/terminal-screen.c:873
+#, c-format
+msgid "Could not load font \"%s\"\n"
+msgstr "无法加载字体“%s”\n"
+
+#: ../src/terminal-screen.c:1002
+#, c-format
+msgid "There was a problem with the command for this terminal: %s"
+msgstr "该终端的命令行有误：%s"
+
+#: ../src/terminal-screen.c:1409
+#, c-format
+msgid ""
+"Could not open the address \"%s\":\n"
+"%s"
+msgstr ""
+"无法打开地址“%s”：\n"
+"%s"
+
+#: ../src/terminal-screen.c:1506 ../src/terminal-window.c:791
+#, c-format
+msgid ""
+"There was an error loading config value for whether to use image in menus. (%"
+"s)\n"
+msgstr "装入是否在菜单中使用图像的配置值出错。(%s)\n"
+
+#: ../src/terminal-screen.c:1595
+msgid "_Send Mail To..."
+msgstr "发送邮件给(_S)..."
+
+#: ../src/terminal-screen.c:1600
+msgid "_Copy E-mail Address"
+msgstr "复制电子邮件地址(_C)"
+
+#: ../src/terminal-screen.c:1607
+msgid "_Open Link"
+msgstr "打开链接(_O)"
+
+#: ../src/terminal-screen.c:1612
+msgid "_Copy Link Address"
+msgstr "复制链接地址(_C)"
+
+#: ../src/terminal-screen.c:1623 ../src/terminal-window.c:854
+msgid "Open _Terminal"
+msgstr "打开终端(_T)"
+
+#: ../src/terminal-screen.c:1628 ../src/terminal-window.c:857
+msgid "Open Ta_b"
+msgstr "打开标签(_B)"
+
+#: ../src/terminal-screen.c:1638 ../src/terminal-window.c:872
+msgid "C_lose Tab"
+msgstr "关闭标签(_L)"
+
+#: ../src/terminal-screen.c:1638 ../src/terminal-window.c:876
+msgid "_Close Window"
+msgstr "关闭窗口(_C)"
+
+#: ../src/terminal-screen.c:1663
+msgid "Change P_rofile"
+msgstr "更改配置文件(_R)"
+
+#: ../src/terminal-screen.c:1699
+msgid "_Edit Current Profile..."
+msgstr "编辑当前配置文件(_E)..."
+
+#: ../src/terminal-screen.c:1704
+msgid "Show _Menubar"
+msgstr "显示菜单栏(_M)"
+
+#: ../src/terminal-screen.c:1714
+msgid "_Input Methods"
+msgstr "输入法(_I)"
+
+#: ../src/terminal-screen.c:2138
+msgid "_Title:"
+msgstr "标题(_T)："
+
+#: ../src/terminal-screen.c:2252
+#, c-format
+msgid "text/plain dropped on terminal had wrong format (%d) or length (%d)\n"
+msgstr "拖到终端上的 text/plain 文本格式错误(%d)或长度错误(%d)\n"
+
+#: ../src/terminal-screen.c:2275
+#, c-format
+msgid "Color dropped on terminal had wrong format (%d) or length (%d)\n"
+msgstr "拖到终端上的颜色格式错误(%d)或长度错误(%d)\n"
+
+#: ../src/terminal-screen.c:2318
+#, c-format
+msgid "Mozilla url dropped on terminal had wrong format (%d) or length (%d)\n"
+msgstr "拖到终端上的 Mozilla URL 格式错误(%d)或长度错误(%d)\n"
+
+#: ../src/terminal-screen.c:2367
+#, c-format
+msgid "URI list dropped on terminal had wrong format (%d) or length (%d)\n"
+msgstr "拖到终端上的 URI 列表格式错误(%d)或长度错误(%d)\n"
+
+#: ../src/terminal-screen.c:2422
+#, c-format
+msgid ""
+"Image filename dropped on terminal had wrong format (%d) or length (%d)\n"
+msgstr "拖到终端上的图片文件名格式错误(%d)或长度错误(%d)\n"
+
+#: ../src/terminal-screen.c:2448
+#, c-format
+msgid "Error converting URI \"%s\" into filename: %s\n"
+msgstr "将 URI“%s”转化为文件名时出错：%s\n"
+
+#: ../src/terminal-widget-vte.c:575
+msgid "There was an error creating the child process for this terminal"
+msgstr "创建此终端的子进程时出错"
+
+#: ../src/terminal-window.c:360
+#, c-format
+msgid ""
+"There was an error subscribing to notification of menu icon visibility "
+"changes. (%s)\n"
+msgstr "订阅菜单图标可见性更改通知时出错。(%s)\n"
+
+#: ../src/terminal-window.c:573
+#, c-format
+msgid "_%d. %s"
+msgstr "_%d. %s"
+
+#: ../src/terminal-window.c:575
+#, c-format
+msgid "_%c. %s"
+msgstr "_%c. %s"
+
+#: ../src/terminal-window.c:698
+msgid "_Add or Remove..."
+msgstr "添加或删除(_A)..."
+
+#. This is fairly bogus to have here but I don't know
+#. * where else to put it really
 #.
-#. http://www.docbook.org/tdg/en/html/warning.html
-#. This is used as a default title for warning elements.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1543
-msgid "Warning"
-msgstr "警告"
+#: ../src/terminal-window.c:865
+msgid "New _Profile..."
+msgstr "新建配置文件(_P)..."
+
+#: ../src/terminal-window.c:909
+msgid "P_rofiles..."
+msgstr "配置文件(_R)..."
+
+#: ../src/terminal-window.c:912
+msgid "_Keyboard Shortcuts..."
+msgstr "快捷键(_K)..."
+
+#: ../src/terminal-window.c:916
+msgid "C_urrent Profile..."
+msgstr "当前配置文件(_U)..."
+
+#. This is a check menu item so that the togglability is evident, but when it is not checked,
+#. * it won't be seen, of course, because the menubar will be then hidden.
+#: ../src/terminal-window.c:931
+msgid "Show Menu_bar"
+msgstr "显示菜单栏(_B)"
+
+#: ../src/terminal-window.c:935
+msgid "_Full Screen"
+msgstr "全屏(_F)"
+
+#: ../src/terminal-window.c:978
+msgid "Change _Profile"
+msgstr "更改配置文件(_P)"
+
+#: ../src/terminal-window.c:981
+msgid "_Set Title..."
+msgstr "设置标题(_S)..."
+
+#: ../src/terminal-window.c:988
+msgid "Set _Character Encoding"
+msgstr "设定字符编码(_C)"
+
+#: ../src/terminal-window.c:998
+msgid "_Reset"
+msgstr "复位(_R)"
+
+#: ../src/terminal-window.c:1001
+msgid "Reset and C_lear"
+msgstr "复位并清屏(_L)"
+
+#: ../src/terminal-window.c:1015
+msgid "_Previous Tab"
+msgstr "前一标签(_P)"
+
+#: ../src/terminal-window.c:1019
+msgid "_Next Tab"
+msgstr "后一标签(_N)"
+
+#: ../src/terminal-window.c:1030
+msgid "Move Tab to the _Left"
+msgstr "标签左移(_L)"
+
+#: ../src/terminal-window.c:1034
+msgid "Move Tab to the _Right"
+msgstr "标签右移(_R)"
+
+#: ../src/terminal-window.c:1060
+msgid "_Contents"
+msgstr "目录(_C)"
+
+#: ../src/terminal-window.c:1070
+msgid "_About"
+msgstr "关于(_A)"
+
+#: ../src/terminal-window.c:1259
+#, c-format
+msgid ""
+"There was an error loading config value for whether to use mnemonics. (%s)\n"
+msgstr "载入是否使用记忆术的配置时出错。(%s)\n"
+
+#: ../src/terminal-window.c:1278
+#, c-format
+msgid ""
+"There was an error subscribing to notification of terminal window "
+"configuration changes. (%s)\n"
+msgstr "订阅终端窗口配置更改通知时出错。(%s)\n"
+
+#: ../src/terminal-window.c:2060
+msgid "_File"
+msgstr "文件(_F)"
+
+#: ../src/terminal-window.c:2062 ../src/terminal.c:2983
+msgid "_Edit"
+msgstr "编辑(_E)"
+
+#: ../src/terminal-window.c:2064
+msgid "_View"
+msgstr "查看(_V)"
+
+#: ../src/terminal-window.c:2066
+msgid "_Terminal"
+msgstr "终端(_T)"
+
+#: ../src/terminal-window.c:2068
+msgid "Ta_bs"
+msgstr "标签(_B)"
+
+#: ../src/terminal-window.c:2070
+msgid "_Help"
+msgstr "帮助(_H)"
+
+#: ../src/terminal-window.c:2265
+#, c-format
+msgid "This window has one tab open. Closing the window will close it."
+msgid_plural ""
+"This window has %d tabs open. Closing the window will also close all of its "
+"tabs."
+msgstr[0] "此窗口仍打开了 %d 个标签。关闭窗口即将关闭其下的全部标签。"
+
+#: ../src/terminal-window.c:2274
+msgid "Close all tabs?"
+msgstr "关闭全部标签吗？"
+
+#: ../src/terminal-window.c:2286
+msgid "Close All _Tabs"
+msgstr "关闭全部标签(_T)"
+
+#: ../src/terminal-window.c:2833
+msgid "GNOME Terminal"
+msgstr "GNOME 终端"
+
+#: ../src/terminal-window.c:2834
+msgid "A terminal emulator for the GNOME desktop"
+msgstr "GNOME 桌面的终端模拟器"
+
+#: ../src/terminal-window.c:2838
+msgid "translator-credits"
+msgstr ""
+"He Qiangqiang <carton@linux.net.cn>, 2002\n"
+"Funda Wang <fundawang@linux.net.cn>, 2003, 2004"
+
+#: ../src/terminal.c:190
+msgid "Execute the argument to this option inside the terminal."
+msgstr "在终端中执行此选项的参数。"
+
+#: ../src/terminal.c:199
+msgid "Execute the remainder of the command line inside the terminal."
+msgstr "在终端中执行剩余的命令行的内容。"
+
+#: ../src/terminal.c:208
+msgid ""
+"Open a new window containing a tab with the default profile. More than one "
+"of these options can be provided."
+msgstr "打开一个包含标签的新窗口，它使用默认的配置文件。可以设置多个选项。"
+
+#: ../src/terminal.c:217
+msgid ""
+"Open a new window containing a tab with the given profile. More than one of "
+"these options can be provided."
+msgstr "打开一个包含标签的新窗口，它使用指定的配置文件。可以设置多个选项。"
+
+#: ../src/terminal.c:218 ../src/terminal.c:236
+msgid "PROFILENAME"
+msgstr "配置文件名"
+
+#: ../src/terminal.c:226
+msgid ""
+"Open a new tab in the last-opened window with the default profile. More than "
+"one of these options can be provided."
+msgstr ""
+"在最后一个打开的窗口中打开一个新标签，它使用默认的配置文件。可以设置多个选"
+"项。"
+
+#: ../src/terminal.c:235
+msgid ""
+"Open a new tab in the last-opened window with the given profile. More than "
+"one of these options can be provided."
+msgstr ""
+"在最后一个打开的窗口中打开一个新标签，它使用指定的配置文件。可以设置多个选"
+"项。"
+
+#: ../src/terminal.c:244
+msgid ""
+"Open a new window containing a tab with the given profile ID. Used "
+"internally to save sessions."
+msgstr ""
+"打开一个包含标签的新窗口，它使用指定的配置文件 ID。内部使用以保存会话。"
+
+#: ../src/terminal.c:245 ../src/terminal.c:254
+msgid "PROFILEID"
+msgstr "配置文件 ID"
+
+#: ../src/terminal.c:253
+msgid ""
+"Open a new tab in the last-opened window with the given profile ID. Used "
+"internally to save sessions."
+msgstr ""
+"在最后一个打开的窗口中打开一个新标签，它使用指定的配置文件 ID。内部使用以保存"
+"会话。"
+
+#: ../src/terminal.c:262
+msgid ""
+"Set the role for the last-specified window; applies to only one window; can "
+"be specified once for each window you create from the command line."
+msgstr ""
+"设置最后指定的窗口的角色；仅应用到一个窗口；您从命令行创建的每一个窗口都可指"
+"定一次。"
+
+#: ../src/terminal.c:263
+msgid "ROLE"
+msgstr "角色"
+
+#: ../src/terminal.c:271
+msgid ""
+"Turn on the menubar for the last-specified window; applies to only one "
+"window; can be specified once for each window you create from the command "
+"line."
+msgstr ""
+"显示最后一个指定的窗口的菜单栏，仅应用于一个窗口，对于每个用命令行打开的窗口"
+"可以一次指定。"
+
+#: ../src/terminal.c:280
+msgid ""
+"Turn off the menubar for the last-specified window; applies to only one "
+"window; can be specified once for each window you create from the command "
+"line."
+msgstr ""
+"隐藏最后一个指定的窗口的菜单栏，仅应用于一个窗口，对于每个用命令行打开的窗口"
+"可以一次指定。"
+
+#: ../src/terminal.c:289
+msgid ""
+"Set the last-specified window into fullscreen mode; applies to only one "
+"window; can be specified once for each window you create from the command "
+"line."
+msgstr ""
+"将最后指定的窗口设置为全屏模式；仅应用到一个窗口；您从命令行创建的每一个窗口"
+"都可指定一次。"
+
+#: ../src/terminal.c:298
+msgid ""
+"X geometry specification (see \"X\" man page), can be specified once per "
+"window to be opened."
+msgstr "指定 X 几何属性 (参见“X”手册页)，对于每个打开的窗口可以一次指定。"
+
+#: ../src/terminal.c:299
+msgid "GEOMETRY"
+msgstr "几何属性"
+
+#: ../src/terminal.c:307
+msgid ""
+"Do not register with the activation nameserver, do not re-use an active "
+"terminal"
+msgstr "不用激活名称服务器注册，不重用激活终端"
+
+#: ../src/terminal.c:316
+msgid "Register with the activation nameserver [default]"
+msgstr "不用激活名称服务器注册[默认]"
+
+#: ../src/terminal.c:325
+msgid "ID for startup notification protocol."
+msgstr "启动通知协议的 ID。"
+
+#: ../src/terminal.c:334
+msgid "Set the terminal's title"
+msgstr "设置终端标题"
+
+#: ../src/terminal.c:335
+msgid "TITLE"
+msgstr "标题"
+
+#: ../src/terminal.c:343
+msgid "Set the terminal's working directory"
+msgstr "设置终端的工作目录"
+
+#: ../src/terminal.c:344 ../src/terminal.c:353
+msgid "DIRNAME"
+msgstr "目录名"
+
+#: ../src/terminal.c:352
+msgid "Set the default terminal's working directory. Used internally"
+msgstr "设置终端的默认工作目录。只是内部使用"
+
+#: ../src/terminal.c:361
+msgid "Set the terminal's zoom factor (1.0 = normal size)"
+msgstr "设置终端的缩放比例(1.0=普通大小)"
+
+#: ../src/terminal.c:362 ../src/terminal.c:371
+msgid "ZOOMFACTOR"
+msgstr "缩放比例"
+
+#: ../src/terminal.c:370
+msgid "Set the last specified tab as the active one in its window"
+msgstr "将上次指定的标签设定为所在窗口的当前标签"
+
+#: ../src/terminal.c:713
+#, c-format
+msgid "Could not load icon \"%s\": %s\n"
+msgstr "无法加载图标“%s”：%s\n"
+
+#: ../src/terminal.c:778
+#, c-format
+msgid "Option \"%s\" requires specifying the command to run\n"
+msgstr "选项“%s”需要指定要执行的命令\n"
+
+#: ../src/terminal.c:786
+#, c-format
+msgid "Argument to \"%s\" is not a valid command: %s\n"
+msgstr "“%s”的参数为无效的命令：%s\n"
+
+#: ../src/terminal.c:796 ../src/terminal.c:820
+#, c-format
+msgid "\"%s\" specified more than once for the same window or tab\n"
+msgstr "对于相同的窗口或标签指定了多次的“%s”\n"
+
+#: ../src/terminal.c:811
+#, c-format
+msgid ""
+"Option \"%s\" requires specifying the command to run on the rest of the "
+"command line\n"
+msgstr "选项“%s”需要在剩余的命令行中指定要执行的命令\n"
+
+#: ../src/terminal.c:842 ../src/terminal.c:866
+#, c-format
+msgid "Option \"%s\" requires an argument specifying what profile to use\n"
+msgstr "选项“%s”需要指定使用哪个配置文件的参数\n"
+
+#: ../src/terminal.c:900 ../src/terminal.c:926
+#, c-format
+msgid "\"%s\" option given twice for the same window\n"
+msgstr "为同一窗口指定了两次“%s”选项\n"
+
+#: ../src/terminal.c:966
+#, c-format
+msgid "Option \"%s\" requires an argument giving the role\n"
+msgstr "选项“%s”需要给定角色的参数\n"
+
+#: ../src/terminal.c:975
+msgid "Two roles given for one window\n"
+msgstr "给一个窗口指定了两种角色\n"
+
+#: ../src/terminal.c:991
+#, c-format
+msgid "Option \"%s\" requires an argument giving the geometry\n"
+msgstr "选项“%s”需要几何属性参数\n"
+
+#: ../src/terminal.c:1000
+#, c-format
+msgid "Two \"%s\" options given for one window\n"
+msgstr "给一个窗口指定了两个“%s”选项\n"
+
+#: ../src/terminal.c:1010
+msgid "Two geometries given for one window\n"
+msgstr "给一个窗口指定了两个几何属性\n"
+
+#: ../src/terminal.c:1036
+#, c-format
+msgid "Option \"%s\" requires an argument giving the title\n"
+msgstr "选项“%s”需要给出标题的参数\n"
+
+#: ../src/terminal.c:1044 ../src/terminal.c:1067 ../src/terminal.c:1109
+#, c-format
+msgid "Two \"%s\" options given for one tab\n"
+msgstr "给一个标签指定了两个“%s”\n"
+
+#: ../src/terminal.c:1059
+#, c-format
+msgid "Option \"%s\" requires an argument giving the directory\n"
+msgstr "选项“%s”需要给出目录的参数\n"
+
+#: ../src/terminal.c:1079
+msgid ""
+"Option --default-working-directory requires an argument giving the "
+"directory\n"
+msgstr "选项 --default-working-directories 需要给出目录的参数\n"
+
+#: ../src/terminal.c:1085
+msgid "Two --default-working-directories given\n"
+msgstr "给出了两个 --default-working-directories\n"
+
+#: ../src/terminal.c:1101
+#, c-format
+msgid "Option \"%s\" requires an argument giving the zoom factor\n"
+msgstr "选项“%s”需要给出缩放比例的参数\n"
+
+#: ../src/terminal.c:1124
+#, c-format
+msgid "\"%s\" is not a valid zoom factor\n"
+msgstr "“%s”不是有效的缩放比例\n"
+
+#: ../src/terminal.c:1132
+#, c-format
+msgid "Zoom factor \"%g\" is too small, using %g\n"
+msgstr "缩放比例“%g”太小，使用 %g\n"
+
+#: ../src/terminal.c:1139
+#, c-format
+msgid "Zoom factor \"%g\" is too large, using %g\n"
+msgstr "缩放比例“%g”太大，使用 %g\n"
+
+#: ../src/terminal.c:1160
+#, c-format
+msgid ""
+"Option --%s is no longer supported in this version of gnome-terminal; you "
+"might want to create a profile with the desired setting, and use the new --"
+"window-with-profile option\n"
+msgstr ""
+"此版本的 gnome-terminal 已不再支持选项 %s。您可能要创建一个新的配置文件来保存"
+"想要的设置，然后使用新的 --window-with-profile 选项\n"
+
+#: ../src/terminal.c:1166
+#, c-format
+msgid "\"%s\" option given twice\n"
+msgstr "“%s”选项给出两次\n"
+
+#: ../src/terminal.c:1171 ../src/terminal.c:1312
+#, c-format
+msgid "\"%s\" option requires an argument\n"
+msgstr "“%s”选项需要参数\n"
+
+#: ../src/terminal.c:1290
+#, c-format
+msgid "No argument given to \"%s\" option\n"
+msgstr "“%s”选项没有给出参数\n"
+
+#: ../src/terminal.c:1424
+#, c-format
+msgid "No such profile '%s', using default profile\n"
+msgstr "不存在配置文件“%s”，使用默认配置文件\n"
+
+#: ../src/terminal.c:1667
+#, c-format
+msgid "Invalid argument: \"%s\"\n"
+msgstr "无效参数：“%s”\n"
+
+#: ../src/terminal.c:1740
+#, c-format
+msgid ""
+"There was an error subscribing to notification of terminal profile list "
+"changes. (%s)\n"
+msgstr "订阅终端配置文件列表更改通知时出错。(%s)\n"
+
+#: ../src/terminal.c:1986
+#, c-format
+msgid "Invalid geometry string \"%s\"\n"
+msgstr "无效的几何属性字符串“%s”\n"
+
+#: ../src/terminal.c:2052
+#, c-format
+msgid "There was an error getting the list of terminal profiles. (%s)\n"
+msgstr "获取终端配置文件列表时出错。(%s)\n"
+
+#: ../src/terminal.c:2356
+#, c-format
+msgid ""
+"You already have a profile called \"%s\". Do you want to create another "
+"profile with the same name?"
+msgstr ""
+"您已经有名为“%s”的配置文件。您是否想要使用相同的名称创建另外一个配置文件？"
+
+#: ../src/terminal.c:2370
+msgid ""
+"The profile you selected as a base for your new profile no longer exists"
+msgstr "您选择作为新建的配置文件基础的配置文件已不存在"
+
+#: ../src/terminal.c:2466
+msgid "Enter profile name"
+msgstr "输入配置文件名"
+
+#: ../src/terminal.c:2476
+msgid "Choose base profile"
+msgstr "选择基础配置文件"
+
+#: ../src/terminal.c:2615
+msgid "Profile list"
+msgstr "配置文件列表"
+
+#: ../src/terminal.c:2684
+msgid "You must select one or more profiles to delete."
+msgstr "删除前必须至少选择一个配置文件。"
+
+#: ../src/terminal.c:2695
+msgid "You must have at least one profile; you can't delete all of them."
+msgstr "您必须至少拥有一个配置文件，而不能把它们全部删除。"
+
+#: ../src/terminal.c:2703
+#, c-format
+msgid "Delete this profile?\n"
+msgid_plural "Delete these %d profiles?\n"
+msgstr[0] "删除这%d个配置文件吗？\n"
+
+#: ../src/terminal.c:2724
+#, c-format
+msgid "Delete profile \"%s\"?"
+msgstr "删除配置文件“%s”吗？"
+
+#: ../src/terminal.c:2746
+msgid "Delete Profile"
+msgstr "删除配置文件"
+
+#: ../src/terminal.c:3019
+msgid "Profiles"
+msgstr "配置文件"
+
+#: ../src/terminal.c:3060
+msgid "_Profiles:"
+msgstr "配置文件(_P)："
+
+#: ../src/terminal.c:3092
+msgid "Click to open new profile dialog"
+msgstr "单击此处打开新配置文件对话框"
+
+#: ../src/terminal.c:3100
+msgid "Click to open edit profile dialog"
+msgstr "单击此处打开编辑配置文件对话框"
+
+#: ../src/terminal.c:3108
+msgid "Click to delete selected profile"
+msgstr "单击此处删除选中的配置文件"
+
+#: ../src/terminal.c:3113
+msgid "Profile _used when launching a new terminal:"
+msgstr "打开新终端时使用的配置文件(_U)："
+
+#: ../src/terminal.c:3169
+msgid "Click button to choose profile"
+msgstr "单击此按钮以选择配置文件"
+
+#: ../src/terminal.c:3586
+#, c-format
+msgid "There was an error displaying help: %s"
+msgstr "显示帮助时出错：%s"
+
+#: ../src/terminal.c:3657
+#, c-format
+msgid ""
+"The file \"%s\" is missing. This indicates that the application is installed "
+"incorrectly."
+msgstr "文件“%s”已丢失。这表示应用程序没有正确安装。"
+
+#: ../src/terminal.c:3821
+msgid ""
+"It appears that you do not have gnome-terminal.server installed in a valid "
+"location. Factory mode disabled.\n"
+msgstr "您没有将 gnome-terminal.server 安装到有效的位置。禁用 Factory 模式。\n"
+
+#: ../src/terminal.c:3824
+msgid ""
+"Error registering terminal with the activation service; factory mode "
+"disabled.\n"
+msgstr "在激活服务中注册终端时出错；禁用 Factory 模式。\n"
+
+#: ../src/terminal.c:3860
+msgid "Failed to retrieve terminal server from activation server\n"
+msgstr "从激活服务器获取中断服务器失败\n"
+
