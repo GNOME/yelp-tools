@@ -6,7 +6,7 @@
 <!-- == Simple Strings ===================================================== -->
 
 <msgset>
-  <msgid>ltr</msgid>
+  <msgid>default:LTR</msgid>
   <!--
   Translate to default:RTL if your language should be displayed
   right-to-left, otherwise translate to default:LTR.  Do *not*

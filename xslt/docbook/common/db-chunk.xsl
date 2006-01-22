@@ -415,9 +415,9 @@ count(                          $node/ancestor-or-self::toc          )"/>
 <xsl:template name="db.chunk.depth-of-chunk">
   <xsl:param name="node" select="."/>
   <xsl:variable name="divs"
-                select="count($node/ancestor::*
-                               [contains($db.chunk.chunks_,
-                                  concat(' ', local-name(.), ' '))] )"/>
+                select="$node/ancestor-or-self::*
+                         [contains($db.chunk.chunks_,
+                            concat(' ', local-name(.), ' '))]"/>
 <!--
   <xsl:variable name="divs"
                 select="count($node/ancestor::*[
@@ -435,8 +435,8 @@ count(                          $node/ancestor-or-self::toc          )"/>
                           self::simplesect   or  self::toc       ])"/>
 -->
   <xsl:choose>
-    <xsl:when test="$divs &lt; $db.chunk.max_depth">
-      <xsl:value-of select="$divs"/>
+    <xsl:when test="count($divs) - 1 &lt; $db.chunk.max_depth">
+      <xsl:value-of select="count($divs) - 1"/>
     </xsl:when>
     <xsl:otherwise>
       <xsl:value-of select="$db.chunk.max_depth"/>

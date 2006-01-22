@@ -1,3 +1,21 @@
+2006-01-22  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/common/db-chunk.xsl:
+	- Fixed incorrectness in db.chunk.depth_of_chunk
+
+	* xslt/docbook/common/db-label.xsl:
+	- Added footnote numbering here, with the other numberers
+
+	* xslt/docbook/html/db2html-division.xsl:
+	- Using a $node parameter throughout db2html.division.html
+	- Changed how the footnote footer is called
+
+	* xslt/docbook/html/db2html-footnote.xsl:
+	- Changes and improvements to the footnotes stuff
+
+	* xslt/gettext/l10n.xml.in:
+	- Using the msgid default:LTR for the string default:LTR
+
 2006-01-17  Shaun McCance  <shaunm@gnome.org>
 
 	* NEWS:

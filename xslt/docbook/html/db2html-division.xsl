@@ -281,6 +281,12 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     Render the content of a division element, chunking children if necessary
   </purpose>
   <parameter>
+    <name>node</name>
+    <purpose>
+      The node to render the content of
+    </purpose>
+  </parameter>
+  <parameter>
     <name>title_content</name>
     <purpose>
       The title, for divisions lacking a <sgmltag>title</sgmltag> element
@@ -337,15 +343,20 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </template>
 
 <xsl:template name="db2html.division.div">
+  <xsl:param name="node" select="."/>
   <xsl:param name="title_content"/>
   <xsl:param name="info"/>
   <xsl:param name="entries" select="/false"/>
   <xsl:param name="divisions" select="/false"/>
   <xsl:param name="depth_in_chunk">
-    <xsl:call-template name="db.chunk.depth-in-chunk"/>
+    <xsl:call-template name="db.chunk.depth-in-chunk">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:call-template>
   </xsl:param>
   <xsl:param name="depth_of_chunk">
-    <xsl:call-template name="db.chunk.depth-of-chunk"/>
+    <xsl:call-template name="db.chunk.depth-of-chunk">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:call-template>
   </xsl:param>
   <!-- FIXME: these two parameters don't make much sense now -->
   <xsl:param name="chunk_divisions"
@@ -356,9 +367,11 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                      ($depth_in_chunk = 0 and $info)"/>
   <xsl:param name="autotoc_depth" select="number(boolean($chunk_divisions))"/>
 
-  <div class="{local-name(.)}">
-    <xsl:call-template name="db2html.anchor"/>
-    <xsl:variable name="titles" select="title | subtitle"/>
+  <div class="{local-name($node)}">
+    <xsl:call-template name="db2html.anchor">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:call-template>
+    <xsl:variable name="titles" select="$node/title | $node/subtitle"/>
     <xsl:choose>
       <xsl:when test="$titles">
         <xsl:apply-templates select="$titles">
@@ -368,20 +381,20 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
       </xsl:when>
       <xsl:when test="$info and $info/title">
         <xsl:apply-templates select="$info/title">
-          <xsl:with-param name="referent" select="."/>
+          <xsl:with-param name="referent" select="$node"/>
           <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
           <xsl:with-param name="referent_depth_in_chunk" select="$depth_in_chunk"/>
         </xsl:apply-templates>
         <xsl:apply-templates select="$info/subtitle">
-          <xsl:with-param name="referent" select="."/>
+          <xsl:with-param name="referent" select="$node"/>
           <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
           <xsl:with-param name="referent_depth_in_chunk" select="$depth_in_chunk"/>
         </xsl:apply-templates>
       </xsl:when>
       <xsl:when test="$title_content">
         <xsl:call-template name="db2html.title.header">
-          <xsl:with-param name="node" select="."/>
-          <xsl:with-param name="referent" select="."/>
+          <xsl:with-param name="node" select="$node"/>
+          <xsl:with-param name="referent" select="$node"/>
           <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
           <xsl:with-param name="referent_depth_in_chunk" select="$depth_in_chunk"/>
           <xsl:with-param name="title_content" select="$title_content"/>
@@ -390,7 +403,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     </xsl:choose>
     <xsl:if test="$autotoc_depth != 0">
       <xsl:call-template name="db2html.autotoc">
-        <xsl:with-param name="node" select="."/>
+        <xsl:with-param name="node" select="$node"/>
         <xsl:with-param name="info" select="$info"/>
         <xsl:with-param name="divisions" select="$divisions"/>
         <xsl:with-param name="toc_depth" select="number($autotoc_depth)"/>
@@ -403,34 +416,25 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
       <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
     </xsl:apply-templates>
     <xsl:if test="$entries">
-      <dl class="{local-name(.)}">
+      <dl class="{local-name($node)}">
         <xsl:apply-templates select="$entries">
           <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
           <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
         </xsl:apply-templates>
       </dl>
     </xsl:if>
-    <xsl:choose>
-     <xsl:when test="not($chunk_divisions)">
-	<xsl:apply-templates select="$divisions">
-          <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
-          <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
-        </xsl:apply-templates>
-	<!-- we can have children that are in $divisions, so we only
-	  want to process footnotes for the top-level division where
-	  $depth_in_chunk = 0-->
-	<xsl:if test="$depth_in_chunk = 0">
-          <xsl:call-template name="process.footnotes"/>
-        </xsl:if>
-     </xsl:when>
-     <xsl:otherwise>
-       <!-- this is basically the elements outside the intersection of child::* and $division -->
-       <xsl:variable name="nonchunk" select="*[count(.|$divisions) != count($divisions)]"/>
-       <xsl:for-each select="$nonchunk">
-         <xsl:call-template name="process.footnotes"/>
-       </xsl:for-each>
-     </xsl:otherwise>
-    </xsl:choose>
+    <xsl:if test="not($chunk_divisions)">
+      <xsl:apply-templates select="$divisions">
+        <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
+        <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+      </xsl:apply-templates>
+    </xsl:if>
+    <xsl:if test="$depth_in_chunk = 0">
+      <xsl:call-template name="db2html.footnote.footer">
+        <xsl:with-param name="node" select="$node"/>
+        <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+      </xsl:call-template>
+    </xsl:if>
   </div>
 </xsl:template>
 

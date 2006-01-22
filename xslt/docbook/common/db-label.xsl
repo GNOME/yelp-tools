@@ -409,6 +409,57 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = footnote = -->
+<xsl:template mode="db.number.mode" match="footnote">
+  <xsl:param name="depth_in_chunk">
+    <xsl:call-template name="db.chunk.depth-in-chunk">
+      <xsl:with-param name="node" select="."/>
+    </xsl:call-template>
+  </xsl:param>
+  <xsl:variable name="notes" select="preceding::footnote"/>
+  <xsl:choose>
+    <xsl:when test="count($notes) != 0">
+      <xsl:call-template name="db.number.footnote.tally">
+        <xsl:with-param name="chunk" select="ancestor::*[number($depth_in_chunk)]"/>
+        <xsl:with-param name="notes" select="$notes"/>
+        <xsl:with-param name="pos" select="1"/>
+        <xsl:with-param name="count" select="1"/>
+      </xsl:call-template>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:value-of select="1"/>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+<xsl:template name="db.number.footnote.tally" doc:private="true">
+  <xsl:param name="chunk"/>
+  <xsl:param name="notes"/>
+  <xsl:param name="pos"/>
+  <xsl:param name="count"/>
+  <xsl:variable name="this" select="$notes[$pos]"/>
+  <xsl:variable name="depth">
+    <xsl:call-template name="db.chunk.depth-in-chunk">
+      <xsl:with-param name="node" select="$this"/>
+    </xsl:call-template>
+  </xsl:variable>
+  <xsl:variable name="increment"
+                select="number($this/ancestor::*[number($depth)] = $chunk)"/>
+  <xsl:choose>
+    <xsl:when test="$pos = count($notes)">
+      <xsl:value-of select="$count + $increment"/>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:call-template name="db.number.footnote.tally">
+        <xsl:with-param name="chunk" select="$chunk"/>
+        <xsl:with-param name="notes" select="$notes"/>
+        <xsl:with-param name="pos" select="$pos + 1"/>
+        <xsl:with-param name="count" select="$count + $increment"/>
+      </xsl:call-template>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
 <!-- = glossary = -->
 <xsl:template mode="db.number.mode" match="glossary"/>
 
