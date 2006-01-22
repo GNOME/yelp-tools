@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-16 18:58+0100\n"
-"PO-Revision-Date: 2006-01-16 18:59+0100\n"
+"POT-Creation-Date: 2006-01-22 22:49+0100\n"
+"PO-Revision-Date: 2006-01-22 22:50+0100\n"
 "Last-Translator: \n"
 "Language-Team:  <en@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -189,7 +189,9 @@ msgstr ""
 msgid ""
 "<msgid>biblioentry.tooltip</msgid> <msgstr>View the bibliography entry "
 "<label/>.</msgstr>"
-msgstr "<msgid>biblioentry.tooltip</msgid> <msgstr>Vea la entrada de bibliografía <label/>.</msgstr>"
+msgstr ""
+"<msgid>biblioentry.tooltip</msgid> <msgstr>Vea la entrada de bibliografía "
+"<label/>.</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1895,10 +1897,14 @@ msgid "Warning"
 msgstr "Advertencia"
 
 #.
-#. The string determines the text direction of the formatted output.
-#. If your language reads right-to-left, translatet this string to
-#. rtl.  Otherwise, leave it as ltr.
+#. Translate to default:RTL if your language should be displayed
+#. right-to-left, otherwise translate to default:LTR.  Do *not*
+#. translate it to "predefinito:LTR", if it it isn't default:LTR
+#. or default:RTL it will not work
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1549
-msgid "ltr"
-msgstr "ltr"
+#: ../xslt/gettext/l10n.xml.in.h:1550
+msgid "default:LTR"
+msgstr "default:LTR"
+
+#~ msgid "ltr"
+#~ msgstr "ltr"
