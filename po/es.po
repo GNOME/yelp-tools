@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-22 22:49+0100\n"
-"PO-Revision-Date: 2006-01-22 22:50+0100\n"
+"POT-Creation-Date: 2006-01-23 22:47+0100\n"
+"PO-Revision-Date: 2006-01-23 22:48+0100\n"
 "Last-Translator: \n"
 "Language-Team:  <en@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -1886,7 +1886,7 @@ msgstr "Sinopsis"
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1538
 msgid "Tip"
-msgstr "Consejo"
+msgstr "Sugerencia"
 
 #.
 #. http://www.docbook.org/tdg/en/html/warning.html
