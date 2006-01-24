@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-08 06:36+0100\n"
-"PO-Revision-Date: 2006-01-08 13:54+0100\n"
+"POT-Creation-Date: 2006-01-23 23:15+0100\n"
+"PO-Revision-Date: 2006-01-24 05:34+0100\n"
 "Last-Translator: Tino Meinen <a.t.meinen@chello.nl>\n"
 "Language-Team: Dutch <vertaling@vrijschrift.org>\n"
 "MIME-Version: 1.0\n"
@@ -1894,13 +1894,14 @@ msgid "Warning"
 msgstr "Waarschuwing"
 
 #.
-#. The string determines the text direction of the formatted output.
-#. If your language reads right-to-left, translatet this string to
-#. rtl.  Otherwise, leave it as ltr.
+#. Translate to default:RTL if your language should be displayed
+#. right-to-left, otherwise translate to default:LTR.  Do *not*
+#. translate it to "predefinito:LTR", if it it isn't default:LTR
+#. or default:RTL it will not work
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1549
-msgid "ltr"
-msgstr "lnr"
+#: ../xslt/gettext/l10n.xml.in.h:1550
+msgid "default:LTR"
+msgstr "default:LTR"
 
 #~ msgid "Message Origin"
 #~ msgstr "Berichtsoorsprong"
