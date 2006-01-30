@@ -1,3 +1,24 @@
+Changes in 0.5.4:
+-----------------
+* Do not automatically update po files                (Shaun McCance)
+* Fixed incorrectness in depth chunk                  (Shaun McCance)
+* Improvements to the footnotes stuff                 (Shaun McCance)
+* Fixed stupid oversight with the default:LTR string  (Shaun McCance)
+* Updated translations:
+  en_CA   (Adam Weinberger)
+  es      (Francisco Javier F. Serrador)
+  fi      (Ilkka Tuohela)
+  gl      (Ignacio Casal Quinteiro)
+  gu      (Ankit Patel)
+  ja      (Takeshi AIHANA)
+  nb      (Kjartan Maraas)
+  nl      (Tino Meinen)
+  no      (Kjartan Maraas)
+  vi      (Clytie Siddall)
+  zh_CN   (Funda Wang)
+  zh_HK   (Chao-Hsiung Liao)
+  zh_TW   (Chao-Hsiung Liao)
+
 Changes in 0.5.3:
 -----------------
 * Added per-language setting for text direction  (Shaun McCance)
