@@ -434,7 +434,7 @@ _DOC_SRC_FIGURES =							\
 	$(foreach fig,$(_DOC_C_FIGURES), $(foreach lc,C $(DOC_LINGUAS),	\
 		$(wildcard $(srcdir)/$(lc)/$(patsubst C/%,%,$(fig))) ))
 
-$(_DOC_POFILES): $(_DOC_C_DOCS)
+$(_DOC_POFILES):
 	@if ! test -d $(dir $@); then \
 	  echo "mkdir $(dir $@)"; \
 	  mkdir "$(dir $@)"; \
