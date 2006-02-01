@@ -449,6 +449,13 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <xsl:call-template name="db2html.block"/>
 </xsl:template>
 
+<!-- = informalfigure = -->
+<xsl:template match="informalfigure">
+  <xsl:call-template name="db2html.block">
+    <xsl:with-param name="indent" select="true()"/>
+  </xsl:call-template>
+</xsl:template>
+
 <!-- = literallayout = -->
 <xsl:template match="literallayout">
   <xsl:call-template name="db2html.block">

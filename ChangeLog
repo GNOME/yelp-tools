@@ -1,3 +1,8 @@
+2006-01-31  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/html/db2html-block.xsl:
+	- Implemented informalfigure
+
 2006-01-30  Shaun McCance  <shaunm@gnome.org>
 
 	* NEWS:
