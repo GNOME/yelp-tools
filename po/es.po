@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-23 22:47+0100\n"
+"POT-Creation-Date: 2006-02-09 20:05+0100\n"
 "PO-Revision-Date: 2006-01-23 22:48+0100\n"
 "Last-Translator: \n"
 "Language-Team:  <en@li.org>\n"
@@ -1856,19 +1856,11 @@ msgstr "P:&#x2003;"
 msgid "Revision History"
 msgstr "Historia de revisiones"
 
-#.
-#. Used for the <see> element.
-#. FIXME: this should be a format string.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1523
+#: ../xslt/gettext/l10n.xml.in.h:1519
 msgid "See"
 msgstr "Vea"
 
-#.
-#. Used for the <seealso> element.
-#. FIXME: this should be a format string.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1528
+#: ../xslt/gettext/l10n.xml.in.h:1520
 msgid "See Also"
 msgstr "Vea también"
 
@@ -1876,7 +1868,7 @@ msgstr "Vea también"
 #. http://www.docbook.org/tdg/en/html/refsynopsisdiv.html
 #. This is used as the default title for refsynopsisdiv elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1533
+#: ../xslt/gettext/l10n.xml.in.h:1525
 msgid "Synopsis"
 msgstr "Sinopsis"
 
@@ -1884,7 +1876,7 @@ msgstr "Sinopsis"
 #. http://www.docbook.org/tdg/en/html/tip.html
 #. This is used as a default title for tip elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1538
+#: ../xslt/gettext/l10n.xml.in.h:1530
 msgid "Tip"
 msgstr "Sugerencia"
 
@@ -1892,7 +1884,7 @@ msgstr "Sugerencia"
 #. http://www.docbook.org/tdg/en/html/warning.html
 #. This is used as a default title for warning elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1543
+#: ../xslt/gettext/l10n.xml.in.h:1535
 msgid "Warning"
 msgstr "Advertencia"
 
@@ -1902,7 +1894,7 @@ msgstr "Advertencia"
 #. translate it to "predefinito:LTR", if it it isn't default:LTR
 #. or default:RTL it will not work
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1550
+#: ../xslt/gettext/l10n.xml.in.h:1542
 msgid "default:LTR"
 msgstr "default:LTR"
 
