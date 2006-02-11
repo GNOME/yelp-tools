@@ -1,3 +1,9 @@
+2006-02-11  Brent Smith  <gnome@nextreality.net>
+
+	* xslt/docbook/common/db-chunk.xsl:
+	Provided reasonable defaults for the db.chunk.basename and
+	db.chunk.info_basename stylesheet parameters.
+
 2006-02-05  Brent Smith  <gnome@nextreality.net>
 
 	* doc/gnome-doc-make/C/gnome-doc-make.xml:

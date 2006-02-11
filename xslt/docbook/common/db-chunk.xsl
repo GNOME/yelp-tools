@@ -89,7 +89,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </purpose>
 </parameter>
 
-<xsl:param name="db.chunk.basename"/>
+<xsl:param name="db.chunk.basename" select="/*/@id"/>
 
 
 <!-- == db.chunk.extension ================================================= -->
@@ -126,9 +126,14 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </purpose>
 </parameter>
 
-<xsl:param name="db.chunk.info_basename"
-           select="concat($db.chunk.basename, '-info')"/>
-
+<xsl:param name="db.chunk.info_basename">
+  <xsl:choose>
+    <xsl:when test="$db.chunk.basename">
+      <xsl:value-of select="concat($db.chunk.basename, '-info')"/>
+    </xsl:when>
+    <xsl:otherwise>info</xsl:otherwise>
+  </xsl:choose>
+</xsl:param>
 
 <!-- == db.chunk =========================================================== -->
 
