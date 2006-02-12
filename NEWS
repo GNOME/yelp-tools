@@ -1,3 +1,16 @@
+Changes in 0.5.5:
+-----------------
+* Use reasonable defaults for the db.chunk.basename and
+  db.chunk.info_basename stylesheet parameters.                (Brent Smith)
+* Created some documentation for the build utilities; based
+  the documents off the GnomeDocUtilsMigrationHowTo wiki page  (Brent Smith)
+* Implemented informalfigure                                   (Shaun McCance)
+* Updated translations:
+  de    (Hendrik Richter)
+  es    (Francisco Javier F. Serrador)
+  sr    (Slobodan D. Sredojevic)
+  vi    (Clytie Siddall)
+
 Changes in 0.5.4:
 -----------------
 * Do not automatically update po files                (Shaun McCance)

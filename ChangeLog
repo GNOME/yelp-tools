@@ -1,3 +1,9 @@
+2006-02-12  Shaun McCance  <shaunm@gnome.org>
+
+	* NEWS:
+	* configure.in:
+	- Version 0.5.5
+
 2006-02-11  Brent Smith  <gnome@nextreality.net>
 
 	* xslt/docbook/common/db-chunk.xsl:
