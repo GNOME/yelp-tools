@@ -705,7 +705,7 @@ install-doc-dsk:
 uninstall-local:					\
 	$(if $(DOC_MODULE),uninstall-doc-docs)		\
 	$(if $(_DOC_HTML_ALL),uninstall-doc-html)	\
-	$(if $(DOC_FIGURES),uninstall-doc-figs)		\
+	$(if $(_DOC_C_FIGURES),uninstall-doc-figs)	\
 	$(if $(_DOC_OMF_IN),uninstall-doc-omf)
 #	$(if $(_DOC_DSK_IN),uninstall-doc-dsk)
 

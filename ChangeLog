@@ -1,3 +1,8 @@
+2006-02-18  Shaun McCance  <shaunm@gnome.org>
+
+	* gnome-doc-utils.make:
+	- Fixed issue with uninstalling implicitly declared figures
+
 2006-02-18  Brent Smith  <gnome@nextreality.net>
 
 	* doc/xslt/C/gnome-doc-xslt.xml:
