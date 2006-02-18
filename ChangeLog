@@ -1,3 +1,9 @@
+2006-02-18  Brent Smith  <gnome@nextreality.net>
+
+	* xslt/docbook/common/db-chunk.xsl:
+	- fix an expression in db.chunk.info_chunk param that didn't make
+	sense anymore.
+
 2006-02-18  Shaun McCance  <shaunm@gnome.org>
 
 	* doc/gnome-doc-make/C/gnome-doc-make.xml:

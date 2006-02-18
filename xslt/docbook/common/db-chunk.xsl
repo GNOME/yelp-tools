@@ -114,7 +114,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </parameter>
 
 <xsl:param name="db.chunk.info_chunk"
-           select="$db.chunk.max_depth != 0 and $db.chunk.info_basename != ''"/>
+           select="$db.chunk.max_depth != 0"/>
 
 
 <!-- == db.chunk.info_basename ============================================= -->
