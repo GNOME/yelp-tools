@@ -1,5 +1,11 @@
 2006-02-18  Shaun McCance  <shaunm@gnome.org>
 
+	* NEWS:
+	* configure.in:
+	- Version 0.5.6
+
+2006-02-18  Shaun McCance  <shaunm@gnome.org>
+
 	* gnome-doc-utils.make:
 	- Fixed issue with uninstalling implicitly declared figures
 

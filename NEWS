@@ -1,3 +1,17 @@
+Changes in 0.5.6:
+-----------------
+* Fixed issue with uninstalling implicitly declared figures   (Shaun McCance)
+* Created some documentation for the xslt stylesheets         (Brent Smith)
+* Fixed an expression in db.chunk.info_chunk param            (Brent Smith)
+* Added id attributes to the documentation sections           (Shaun McCance)
+* Updated translations:
+  nl    (Tino Meinen)
+  pt    (Duarte Loreto)
+  lt    (Žygimantas Beručka)
+  it    (Luca Ferretti)
+  cs    (Miloslav Trmac)
+  (17/49 languages with 100% translation)
+
 Changes in 0.5.5:
 -----------------
 * Use reasonable defaults for the db.chunk.basename and
