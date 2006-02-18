@@ -1,5 +1,10 @@
 2006-02-18  Brent Smith  <gnome@nextreality.net>
 
+	* doc/xslt/C/gnome-doc-xslt.xml:
+	Created some documentation for the xslt stylesheets
+
+2006-02-18  Brent Smith  <gnome@nextreality.net>
+
 	* xslt/docbook/common/db-chunk.xsl:
 	- fix an expression in db.chunk.info_chunk param that didn't make
 	sense anymore.
