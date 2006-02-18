@@ -1,3 +1,8 @@
+2006-02-18  Shaun McCance  <shaunm@gnome.org>
+
+	* doc/gnome-doc-make/C/gnome-doc-make.xml:
+	- Added id attributes to the sections
+
 2006-02-12  Shaun McCance  <shaunm@gnome.org>
 
 	* NEWS:

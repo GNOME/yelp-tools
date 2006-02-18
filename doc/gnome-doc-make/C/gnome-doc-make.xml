@@ -65,7 +65,7 @@
     </revhistory>
   </articleinfo>
 
-  <section>
+  <section id="intro">
     <title>Introduction</title>
 
     <para>The GNOME Documentation Build Utilities were created to make it
@@ -100,7 +100,7 @@
     document.</para>
   </section>
 
-  <section>
+  <section id="migrating">
     <title>Migrating to GNOME Documentation Build Utilities</title>
 
     <para>Many applications use an older method of including documentation. It
