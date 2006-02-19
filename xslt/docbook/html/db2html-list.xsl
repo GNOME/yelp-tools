@@ -61,6 +61,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     div[class~="list"] ul li { margin-right: 1em; padding: 0em; }
     div[class~="list"] ol li { margin-right: 1em; padding: 0em; }
     div[class~="list"] li + li { margin-top: 0.69em; }
+    div[class~="simplelist"] &gt; table { border: none; }
   </xsl:text>
 </xsl:template>
 
@@ -351,6 +352,16 @@ dd elements has a negative top margin.
 <!-- == simplelist ========================================================= -->
 
 <xsl:template match="simplelist">
+  <xsl:variable name="columns">
+    <xsl:choose>
+      <xsl:when test="@columns">
+        <xsl:value-of select="@columns"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="1"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
   <xsl:choose>
     <xsl:when test="@type = 'inline'">
       <span class="simplelist">
@@ -370,13 +381,13 @@ dd elements has a negative top margin.
         <div class="simplelist">
           <xsl:call-template name="db2html.anchor"/>
           <table>
-            <xsl:for-each select="member[position() mod ../@columns = 1]">
+            <xsl:for-each select="member[position() mod $columns = 1]">
               <tr>
                 <td>
                   <xsl:apply-templates select="."/>
                 </td>
                 <xsl:for-each select="following-sibling::member[
-                              position() &lt; ../@columns]">
+                                        position() &lt; $columns]">
                   <td>
                     <xsl:apply-templates select="."/>
                   </td>
@@ -391,7 +402,7 @@ dd elements has a negative top margin.
       <div class="list">
         <div class="simplelist">
           <xsl:call-template name="db2html.anchor"/>
-          <xsl:variable name="rows" select="ceiling(count(member) div @columns)"/>
+          <xsl:variable name="rows" select="ceiling(count(member) div $columns)"/>
           <table>
             <xsl:for-each select="member[position() &lt;= $rows]">
               <tr>
