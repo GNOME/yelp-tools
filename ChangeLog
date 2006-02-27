@@ -1,5 +1,11 @@
 2006-02-19  Shaun McCance  <shaunm@gnome.org>
 
+	* NEWS:
+	* configure.in:
+	- Version 0.5.7
+
+2006-02-19  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/docbook/html/db2html-list.xsl:
 	- Fixed simplelist without columns attribute
 

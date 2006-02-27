@@ -1,3 +1,15 @@
+Changes in 0.5.7:
+-----------------
+* Fixed simplelist without columns attribute  (Shaun McCance)
+* Updates translations:
+  ca      (Gil Forcada)
+  el      (Kostas Papadimas)
+  et      (Priit Laes)
+  nl      (Tino Meinen)
+  sq      (Laurent Dhima)
+  vi      (Clytie Siddall)
+  (21/49 languages with 100% translation)
+
 Changes in 0.5.6:
 -----------------
 * Fixed issue with uninstalling implicitly declared figures   (Shaun McCance)
