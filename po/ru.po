@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-09-01 17:30+0400\n"
-"PO-Revision-Date: 2005-08-25 12:26+0400\n"
+"POT-Creation-Date: 2006-02-28 08:07+0100\n"
+"PO-Revision-Date: 2006-02-28 19:26+0300\n"
 "Last-Translator: Nickolay V. Shmyrev <nshmyrev@yandex.ru>\n"
 "Language-Team: Russian <gnome-cyr@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -21,7 +21,7 @@ msgstr ""
 #. string of ", ", a list would look like this: A, B, C, D.  Using the
 #. nonsensical string " - ", a list would look like this: A - B - C - D.
 #.
-#: xslt/gettext/l10n.xml.in.h:7
+#: ../xslt/gettext/l10n.xml.in.h:7
 msgid ", "
 msgstr ", "
 
@@ -39,7 +39,7 @@ msgstr ", "
 #. Non-Western languages probably need additional formatters.  Please
 #. contact the maintainers about adding formatters for your language.
 #.
-#: xslt/gettext/l10n.xml.in.h:22
+#: ../xslt/gettext/l10n.xml.in.h:22
 msgid "<msgid>appendix.digit</msgid> <msgstr>A</msgstr>"
 msgstr "<msgid>appendix.digit</msgid> <msgstr>I</msgstr>"
 
@@ -76,7 +76,7 @@ msgstr "<msgid>appendix.digit</msgid> <msgstr>I</msgstr>"
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:56
+#: ../xslt/gettext/l10n.xml.in.h:56
 msgid ""
 "<msgid>appendix.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
 "msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Appendix "
@@ -118,7 +118,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:89
+#: ../xslt/gettext/l10n.xml.in.h:89
 msgid "<msgid>appendix.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 msgstr "<msgid>appendix.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 
@@ -153,11 +153,79 @@ msgstr "<msgid>appendix.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:121
+#: ../xslt/gettext/l10n.xml.in.h:121
 msgid ""
 "<msgid>appendix.xref</msgid> <msgstr>Appendix <number/> ― <title/></msgstr>"
 msgstr ""
 "<msgid>appendix.xref</msgid> <msgstr>Дополнение <number/> ― <title/></msgstr>"
+
+#.
+#. This is a special format message.  Please read the full translator
+#. documentation before translating this message.  The documentation
+#. is maintained as part of the stylesheet documentation in DocBook.
+#. For your convenience, it has also been converted to an HTML file
+#. named STYLESHEETS.xml in the i18n directory.
+#.
+#. This is a format message used to format tooltips on cross references
+#. to bibliography entries.
+#.
+#. Special elements in the message will be replaced with the
+#. appropriate content, as follows:
+#.
+#. label - The term being defined by the glossary entry
+#.
+#. These should be written as empty XML elements.  Due to limitations
+#. in intltool, I can't write XML content in translator comments.  To
+#. insert the label, simply write left angle bracket, label,  slash,
+#. right angle bracket.
+#.
+#. Additionally, format messages can use the i, b, and tt markup tags
+#. to mark text as italic, bold, and monospace.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:145
+msgid ""
+"<msgid>biblioentry.tooltip</msgid> <msgstr>View the bibliography entry "
+"<label/>.</msgstr>"
+msgstr ""
+"<msgid>biblioentry.tooltip</msgid> <msgstr>Смотрите дополнительный документ "
+"<label/>.</msgstr>"
+
+#.
+#. This is a special format message.  Please read the full translator
+#. documentation before translating this message.  The documentation
+#. is maintained as part of the stylesheet documentation in DocBook.
+#. For your convenience, it has also been converted to an HTML file
+#. named STYLESHEETS.xml in the i18n directory.
+#.
+#. This is a format message used to format cross references to bibliographies.
+#. Multiple roles can be provided to allow document translators to select
+#. how to format each cross reference using the xrefstyle attribute.  If
+#. your language needs to provide different cross reference formattings
+#. for different parts of speech, you should provide multiple roles for
+#. cross reference formatters.
+#.
+#. Special elements in the message will be replaced with the
+#. appropriate content, as follows:
+#.
+#. title       - The title of the figure
+#. titleabbrev - The titleabbrev of the figure, or just the title
+#. if no titleabbrev exists
+#.
+#. These should be written as empty XML elements.  Due to limitations
+#. in intltool, I can't write XML content in translator comments.  To
+#. insert the title, simply write left angle bracket, title, slash,
+#. right angle bracket.
+#.
+#. Note that authors are not required to provide explicit titles for
+#. bibliographies.  If the author does not provide a title, the
+#. translatable string 'Bibliography' is used as a default.
+#.
+#. Additionally, format messages can use the i, b, and tt markup tags
+#. to mark text as italic, bold, and monospace.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:179
+msgid "<msgid>bibliography.xref</msgid> <msgstr><title/></msgstr>"
+msgstr "<msgid>bibliography.xref</msgid> <msgstr><title/></msgstr>"
 
 #.
 #. The number formatter used for book numbers.  This can be one of
@@ -173,7 +241,7 @@ msgstr ""
 #. Non-Western languages probably need additional formatters.  Please
 #. contact the maintainers about adding formatters for your language.
 #.
-#: xslt/gettext/l10n.xml.in.h:136
+#: ../xslt/gettext/l10n.xml.in.h:194
 msgid "<msgid>book.digit</msgid> <msgstr>1</msgstr>"
 msgstr "<msgid>book.digit</msgid> <msgstr>1</msgstr>"
 
@@ -206,7 +274,7 @@ msgstr "<msgid>book.digit</msgid> <msgstr>1</msgstr>"
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:166
+#: ../xslt/gettext/l10n.xml.in.h:224
 msgid "<msgid>book.xref</msgid> <msgstr><title/></msgstr>"
 msgstr "<msgid>book.xref</msgid> <msgstr><title/></msgstr>"
 
@@ -224,7 +292,7 @@ msgstr "<msgid>book.xref</msgid> <msgstr><title/></msgstr>"
 #. Non-Western languages probably need additional formatters.  Please
 #. contact the maintainers about adding formatters for your language.
 #.
-#: xslt/gettext/l10n.xml.in.h:181
+#: ../xslt/gettext/l10n.xml.in.h:239
 msgid "<msgid>chapter.digit</msgid> <msgstr>1</msgstr>"
 msgstr "<msgid>chapter.digit</msgid> <msgstr>1</msgstr>"
 
@@ -261,7 +329,7 @@ msgstr "<msgid>chapter.digit</msgid> <msgstr>1</msgstr>"
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:215
+#: ../xslt/gettext/l10n.xml.in.h:273
 msgid ""
 "<msgid>chapter.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
 "msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Chapter "
@@ -303,7 +371,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:248
+#: ../xslt/gettext/l10n.xml.in.h:306
 msgid "<msgid>chapter.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 msgstr "<msgid>chapter.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 
@@ -338,7 +406,7 @@ msgstr "<msgid>chapter.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:280
+#: ../xslt/gettext/l10n.xml.in.h:338
 msgid ""
 "<msgid>chapter.xref</msgid> <msgstr>Chapter <number/> ― <title/></msgstr>"
 msgstr ""
@@ -372,7 +440,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:309
+#: ../xslt/gettext/l10n.xml.in.h:367
 msgid ""
 "<msgid>citetitle.format</msgid> <msgstr role='article'>“<node/>”</msgstr> "
 "<msgstr><i><node/></i></msgstr>"
@@ -404,7 +472,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:334
+#: ../xslt/gettext/l10n.xml.in.h:392
 msgid "<msgid>email.tooltip</msgid> <msgstr>Send email to ‘<node/>’.</msgstr>"
 msgstr ""
 "<msgid>email.tooltip</msgid> <msgstr>Послать письмо \"<node/>\".</msgstr>"
@@ -423,7 +491,7 @@ msgstr ""
 #. Non-Western languages probably need additional formatters.  Please
 #. contact the maintainers about adding formatters for your language.
 #.
-#: xslt/gettext/l10n.xml.in.h:349
+#: ../xslt/gettext/l10n.xml.in.h:407
 msgid "<msgid>example.digit</msgid> <msgstr>1</msgstr>"
 msgstr "<msgid>example.digit</msgid> <msgstr>1</msgstr>"
 
@@ -460,7 +528,7 @@ msgstr "<msgid>example.digit</msgid> <msgstr>1</msgstr>"
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:383
+#: ../xslt/gettext/l10n.xml.in.h:441
 msgid ""
 "<msgid>example.label</msgid> <msgstr role='header'><i>Example <number/></"
 "i>&#x2003;</msgstr> <msgstr role='li'>Example <number/>&#x2002;</msgstr> "
@@ -502,7 +570,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:416
+#: ../xslt/gettext/l10n.xml.in.h:474
 msgid "<msgid>example.number</msgid> <msgstr><parent/>-<digit/></msgstr>"
 msgstr "<msgid>example.number</msgid> <msgstr><parent/>-<digit/></msgstr>"
 
@@ -537,7 +605,7 @@ msgstr "<msgid>example.number</msgid> <msgstr><parent/>-<digit/></msgstr>"
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:448
+#: ../xslt/gettext/l10n.xml.in.h:506
 msgid "<msgid>example.xref</msgid> <msgstr>Example <number/></msgstr>"
 msgstr "<msgid>example.xref</msgid> <msgstr>Пример <number/></msgstr>"
 
@@ -555,7 +623,7 @@ msgstr "<msgid>example.xref</msgid> <msgstr>Пример <number/></msgstr>"
 #. Non-Western languages probably need additional formatters.  Please
 #. contact the maintainers about adding formatters for your language.
 #.
-#: xslt/gettext/l10n.xml.in.h:463
+#: ../xslt/gettext/l10n.xml.in.h:521
 msgid "<msgid>figure.digit</msgid> <msgstr>1</msgstr>"
 msgstr "<msgid>figure.digit</msgid> <msgstr>1</msgstr>"
 
@@ -592,7 +660,7 @@ msgstr "<msgid>figure.digit</msgid> <msgstr>1</msgstr>"
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:497
+#: ../xslt/gettext/l10n.xml.in.h:555
 msgid ""
 "<msgid>figure.label</msgid> <msgstr role='header'><i>Figure <number/></"
 "i>&#x2003;</msgstr> <msgstr role='li'>Figure <number/>&#x2002;</msgstr> "
@@ -634,7 +702,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:530
+#: ../xslt/gettext/l10n.xml.in.h:588
 msgid "<msgid>figure.number</msgid> <msgstr><parent/>-<digit/></msgstr>"
 msgstr "<msgid>figure.number</msgid> <msgstr><parent/>-<digit/></msgstr>"
 
@@ -669,7 +737,7 @@ msgstr "<msgid>figure.number</msgid> <msgstr><parent/>-<digit/></msgstr>"
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:562
+#: ../xslt/gettext/l10n.xml.in.h:620
 msgid "<msgid>figure.xref</msgid> <msgstr>Figure <number/></msgstr>"
 msgstr "<msgid>figure.xref</msgid> <msgstr>Рисунок <number/></msgstr>"
 
@@ -706,7 +774,7 @@ msgstr "<msgid>figure.xref</msgid> <msgstr>Рисунок <number/></msgstr>"
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:596
+#: ../xslt/gettext/l10n.xml.in.h:654
 msgid "<msgid>glossary.xref</msgid> <msgstr><title/></msgstr>"
 msgstr "<msgid>glossary.xref</msgid> <msgstr><title/></msgstr>"
 
@@ -733,7 +801,7 @@ msgstr "<msgid>glossary.xref</msgid> <msgstr><title/></msgstr>"
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:620
+#: ../xslt/gettext/l10n.xml.in.h:678
 msgid ""
 "<msgid>glossentry.tooltip</msgid> <msgstr>Read the definition for "
 "‘<glossterm/>’.</msgstr>"
@@ -772,7 +840,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:652
+#: ../xslt/gettext/l10n.xml.in.h:710
 msgid ""
 "<msgid>glossentry.xref</msgid> <msgstr role='glosssee'><glossterm/></msgstr> "
 "<msgstr>‘<glossterm/>’</msgstr>"
@@ -813,7 +881,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:686
+#: ../xslt/gettext/l10n.xml.in.h:744
 msgid "<msgid>glosssee.format</msgid> <msgstr>See <glosssee/>.</msgstr>"
 msgstr "<msgid>glosssee.format</msgid> <msgstr>Смотрите <glosssee/>.</msgstr>"
 
@@ -851,7 +919,7 @@ msgstr "<msgid>glosssee.format</msgid> <msgstr>Смотрите <glosssee/>.</ms
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:721
+#: ../xslt/gettext/l10n.xml.in.h:779
 msgid ""
 "<msgid>glossseealso.format</msgid> <msgstr>See also <glosssee/>.</msgstr>"
 msgstr ""
@@ -886,7 +954,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:750
+#: ../xslt/gettext/l10n.xml.in.h:808
 msgid "<msgid>manvolnum.format</msgid> <msgstr>(<node/>)</msgstr>"
 msgstr "<msgid>manvolnum.format</msgid> <msgstr>(<node/>)</msgstr>"
 
@@ -904,7 +972,7 @@ msgstr "<msgid>manvolnum.format</msgid> <msgstr>(<node/>)</msgstr>"
 #. Non-Western languages probably need additional formatters.  Please
 #. contact the maintainers about adding formatters for your language.
 #.
-#: xslt/gettext/l10n.xml.in.h:765
+#: ../xslt/gettext/l10n.xml.in.h:823
 msgid "<msgid>part.digit</msgid> <msgstr>I</msgstr>"
 msgstr "<msgid>part.digit</msgid> <msgstr>I</msgstr>"
 
@@ -941,7 +1009,7 @@ msgstr "<msgid>part.digit</msgid> <msgstr>I</msgstr>"
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:799
+#: ../xslt/gettext/l10n.xml.in.h:857
 msgid ""
 "<msgid>part.label</msgid> <msgstr role='header'><number/>.&#x2003;</msgstr> "
 "<msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Part <number/></msgstr>"
@@ -981,7 +1049,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:831
+#: ../xslt/gettext/l10n.xml.in.h:889
 msgid "<msgid>part.xref</msgid> <msgstr>Part <number/> ― <title/></msgstr>"
 msgstr "<msgid>part.xref</msgid> <msgstr>Часть <number/> ― <title/></msgstr>"
 
@@ -1018,7 +1086,7 @@ msgstr "<msgid>part.xref</msgid> <msgstr>Часть <number/> ― <title/></msgs
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:865
+#: ../xslt/gettext/l10n.xml.in.h:923
 msgid "<msgid>preface.xref</msgid> <msgstr><title/></msgstr>"
 msgstr "<msgid>preface.xref</msgid> <msgstr><title/></msgstr>"
 
@@ -1036,7 +1104,7 @@ msgstr "<msgid>preface.xref</msgid> <msgstr><title/></msgstr>"
 #. Non-Western languages probably need additional formatters.  Please
 #. contact the maintainers about adding formatters for your language.
 #.
-#: xslt/gettext/l10n.xml.in.h:880
+#: ../xslt/gettext/l10n.xml.in.h:938
 msgid "<msgid>question.digit</msgid> <msgstr>1</msgstr>"
 msgstr "<msgid>question.digit</msgid> <msgstr>1</msgstr>"
 
@@ -1070,7 +1138,7 @@ msgstr "<msgid>question.digit</msgid> <msgstr>1</msgstr>"
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:911
+#: ../xslt/gettext/l10n.xml.in.h:969
 msgid ""
 "<msgid>question.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
 "msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Question "
@@ -1107,7 +1175,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:939
+#: ../xslt/gettext/l10n.xml.in.h:997
 msgid "<msgid>question.xref</msgid> <msgstr>Question <number/></msgstr>"
 msgstr "<msgid>question.xref</msgid> <msgstr>Вопрос <number/></msgstr>"
 
@@ -1146,7 +1214,7 @@ msgstr "<msgid>question.xref</msgid> <msgstr>Вопрос <number/></msgstr>"
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:975
+#: ../xslt/gettext/l10n.xml.in.h:1033
 msgid ""
 "<msgid>quote.format</msgid> <msgstr role='inner'>‘<node/>’</msgstr> "
 "<msgstr>“<node/>”</msgstr>"
@@ -1181,7 +1249,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:1003
+#: ../xslt/gettext/l10n.xml.in.h:1061
 msgid "<msgid>refentry.xref</msgid> <msgstr><title/></msgstr>"
 msgstr "<msgid>refentry.xref</msgid> <msgstr><title/></msgstr>"
 
@@ -1199,7 +1267,7 @@ msgstr "<msgid>refentry.xref</msgid> <msgstr><title/></msgstr>"
 #. Non-Western languages probably need additional formatters.  Please
 #. contact the maintainers about adding formatters for your language.
 #.
-#: xslt/gettext/l10n.xml.in.h:1018
+#: ../xslt/gettext/l10n.xml.in.h:1076
 msgid "<msgid>refsection.digit</msgid> <msgstr>1</msgstr>"
 msgstr "<msgid>refsection.digit</msgid> <msgstr>1</msgstr>"
 
@@ -1236,7 +1304,7 @@ msgstr "<msgid>refsection.digit</msgid> <msgstr>1</msgstr>"
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:1052
+#: ../xslt/gettext/l10n.xml.in.h:1110
 msgid ""
 "<msgid>refsection.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
 "msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Section "
@@ -1279,7 +1347,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:1086
+#: ../xslt/gettext/l10n.xml.in.h:1144
 msgid "<msgid>refsection.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 msgstr "<msgid>refsection.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 
@@ -1314,7 +1382,7 @@ msgstr "<msgid>refsection.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:1118
+#: ../xslt/gettext/l10n.xml.in.h:1176
 msgid ""
 "<msgid>refsection.xref</msgid> <msgstr>Section <number/> ― <title/></msgstr>"
 msgstr ""
@@ -1334,7 +1402,7 @@ msgstr ""
 #. Non-Western languages probably need additional formatters.  Please
 #. contact the maintainers about adding formatters for your language.
 #.
-#: xslt/gettext/l10n.xml.in.h:1133
+#: ../xslt/gettext/l10n.xml.in.h:1191
 msgid "<msgid>section.digit</msgid> <msgstr>1</msgstr>"
 msgstr "<msgid>section.digit</msgid> <msgstr>1</msgstr>"
 
@@ -1371,7 +1439,7 @@ msgstr "<msgid>section.digit</msgid> <msgstr>1</msgstr>"
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:1167
+#: ../xslt/gettext/l10n.xml.in.h:1225
 msgid ""
 "<msgid>section.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
 "msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Section "
@@ -1414,7 +1482,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:1201
+#: ../xslt/gettext/l10n.xml.in.h:1259
 msgid "<msgid>section.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 msgstr "<msgid>section.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 
@@ -1449,7 +1517,7 @@ msgstr "<msgid>section.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:1233
+#: ../xslt/gettext/l10n.xml.in.h:1291
 msgid ""
 "<msgid>section.xref</msgid> <msgstr>Section <number/> ― <title/></msgstr>"
 msgstr ""
@@ -1469,7 +1537,7 @@ msgstr ""
 #. Non-Western languages probably need additional formatters.  Please
 #. contact the maintainers about adding formatters for your language.
 #.
-#: xslt/gettext/l10n.xml.in.h:1248
+#: ../xslt/gettext/l10n.xml.in.h:1306
 msgid "<msgid>table.digit</msgid> <msgstr>1</msgstr>"
 msgstr "<msgid>table.digit</msgid> <msgstr>1</msgstr>"
 
@@ -1506,7 +1574,7 @@ msgstr "<msgid>table.digit</msgid> <msgstr>1</msgstr>"
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:1282
+#: ../xslt/gettext/l10n.xml.in.h:1340
 msgid ""
 "<msgid>table.label</msgid> <msgstr role='header'><i>Table <number/></"
 "i>&#x2003;</msgstr> <msgstr role='li'>Table <number/>&#x2002;</msgstr> "
@@ -1548,7 +1616,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:1315
+#: ../xslt/gettext/l10n.xml.in.h:1373
 msgid "<msgid>table.number</msgid> <msgstr><parent/>-<digit/></msgstr>"
 msgstr "<msgid>table.number</msgid> <msgstr><parent/>-<digit/></msgstr>"
 
@@ -1583,19 +1651,19 @@ msgstr "<msgid>table.number</msgid> <msgstr><parent/>-<digit/></msgstr>"
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: xslt/gettext/l10n.xml.in.h:1347
+#: ../xslt/gettext/l10n.xml.in.h:1405
 msgid "<msgid>table.xref</msgid> <msgstr>Table <number/></msgstr>"
 msgstr "<msgid>table.xref</msgid> <msgstr>Таблица <number/>.</msgstr>"
 
 #. Used as a header before a list of authors.
-#: xslt/gettext/l10n.xml.in.h:1349
+#: ../xslt/gettext/l10n.xml.in.h:1407
 msgid "<msgstr form='0'>Author</msgstr> <msgstr form='1'>Authors</msgstr>"
 msgstr ""
 "<msgstr form='0'>Автор</msgstr> <msgstr form='1'>Авторы</msgstr> <msgstr "
 "form='2'>Авторы</msgstr>"
 
 #. Used as a header before a list of collaborators.
-#: xslt/gettext/l10n.xml.in.h:1351
+#: ../xslt/gettext/l10n.xml.in.h:1409
 msgid ""
 "<msgstr form='0'>Collaborator</msgstr> <msgstr form='1'>Collaborators</"
 "msgstr>"
@@ -1604,23 +1672,22 @@ msgstr ""
 "<msgstr form='2'>Помощники</msgstr>"
 
 #. Used as a header before a list of copyrights.
-#: xslt/gettext/l10n.xml.in.h:1353
+#: ../xslt/gettext/l10n.xml.in.h:1411
 msgid ""
 "<msgstr form='0'>Copyright</msgstr> <msgstr form='1'>Copyrights</msgstr>"
 msgstr ""
-"<msgstr form='0'>Авторские права</msgstr> "
-"<msgstr form='1'>Авторские права</msgstr> "
-"<msgstr form='2'>Авторские права</msgstr>"
+"<msgstr form='0'>Авторские права</msgstr> <msgstr form='1'>Авторские права</"
+"msgstr> <msgstr form='2'>Авторские права</msgstr>"
 
 #. Used as a header before a list of editors.
-#: xslt/gettext/l10n.xml.in.h:1355
+#: ../xslt/gettext/l10n.xml.in.h:1413
 msgid "<msgstr form='0'>Editor</msgstr> <msgstr form='1'>Editors</msgstr>"
 msgstr ""
 "<msgstr form='0'>Редактор</msgstr> <msgstr form='1'>Редакторы</msgstr> "
 "<msgstr form='2'>Редакторы</msgstr>"
 
 #. Used as a header before a list of contributors.
-#: xslt/gettext/l10n.xml.in.h:1357
+#: ../xslt/gettext/l10n.xml.in.h:1415
 msgid ""
 "<msgstr form='0'>Other Contributor</msgstr> <msgstr form='1'>Other "
 "Contributors</msgstr>"
@@ -1629,12 +1696,20 @@ msgstr ""
 "msgstr> <msgstr form='2'>Другие помощники</msgstr>"
 
 #. Used as a header before a list of publishers.
-#: xslt/gettext/l10n.xml.in.h:1359
+#: ../xslt/gettext/l10n.xml.in.h:1417
 msgid ""
 "<msgstr form='0'>Publisher</msgstr> <msgstr form='1'>Publishers</msgstr>"
 msgstr ""
-"<msgstr form='0'>Распространитель</msgstr> <msgstr form='1'>Распространители</msgstr> "
-"<msgstr form='2'>Распространители</msgstr>"
+"<msgstr form='0'>Распространитель</msgstr> <msgstr "
+"form='1'>Распространители</msgstr> <msgstr form='2'>Распространители</msgstr>"
+
+#. Used as a header before a list of translators.
+#: ../xslt/gettext/l10n.xml.in.h:1419
+msgid ""
+"<msgstr form='0'>Translator</msgstr> <msgstr form='1'>Translators</msgstr>"
+msgstr ""
+"<msgstr form='0'>Переводчик</msgstr> <msgstr form='1'>Переводчики</msgstr> "
+"<msgstr form='2'>Переводчики</msgstr>"
 
 #.
 #. http://www.docbook.org/tdg/en/html/qandaentry.html
@@ -1645,12 +1720,12 @@ msgstr ""
 #. the labelling style for a qandaset.  If the labelling style is set
 #. to 'qanda', this string will be used to label answers.
 #.
-#: xslt/gettext/l10n.xml.in.h:1369
+#: ../xslt/gettext/l10n.xml.in.h:1429
 msgid "A:&#x2003;"
 msgstr "О:&#x2003;"
 
 #. Used for links to the titlepage.
-#: xslt/gettext/l10n.xml.in.h:1371
+#: ../xslt/gettext/l10n.xml.in.h:1431
 msgid "About This Document"
 msgstr "Об этом документе"
 
@@ -1663,15 +1738,20 @@ msgstr "Об этом документе"
 #. Shaun McCance
 #. Affiliation: GNOME Documentation Project
 #.
-#: xslt/gettext/l10n.xml.in.h:1381
+#: ../xslt/gettext/l10n.xml.in.h:1441
 msgid "Affiliation"
 msgstr "Организация"
+
+#. Used as a title for a bibliography.
+#: ../xslt/gettext/l10n.xml.in.h:1443
+msgid "Bibliography"
+msgstr "Дополнительные документы"
 
 #.
 #. http://www.docbook.org/tdg/en/html/caution.html
 #. This is used as a default title for caution elements.
 #.
-#: xslt/gettext/l10n.xml.in.h:1386
+#: ../xslt/gettext/l10n.xml.in.h:1448
 msgid "Caution"
 msgstr "Внимание"
 
@@ -1679,7 +1759,7 @@ msgstr "Внимание"
 #. http://www.docbook.org/tdg/en/html/colophon.html
 #. This is used as a default title for colophon elements.
 #.
-#: xslt/gettext/l10n.xml.in.h:1391
+#: ../xslt/gettext/l10n.xml.in.h:1453
 msgid "Colophon"
 msgstr "Заключение"
 
@@ -1687,7 +1767,7 @@ msgstr "Заключение"
 #. http://www.docbook.org/tdg/en/html/dedication.html
 #. This is used as a default title for dedication elements.
 #.
-#: xslt/gettext/l10n.xml.in.h:1396
+#: ../xslt/gettext/l10n.xml.in.h:1458
 msgid "Dedication"
 msgstr "Посвящение"
 
@@ -1700,7 +1780,7 @@ msgstr "Посвящение"
 #. Shaun McCance
 #. Email: shaunm@gnome.org
 #.
-#: xslt/gettext/l10n.xml.in.h:1406
+#: ../xslt/gettext/l10n.xml.in.h:1468
 msgid "Email"
 msgstr "Эл. почта"
 
@@ -1708,7 +1788,7 @@ msgstr "Эл. почта"
 #. http://www.docbook.org/tdg/en/html/glossary.html
 #. This is used as a default title for glossary elements.
 #.
-#: xslt/gettext/l10n.xml.in.h:1411
+#: ../xslt/gettext/l10n.xml.in.h:1473
 msgid "Glossary"
 msgstr "Словарь терминов"
 
@@ -1716,7 +1796,7 @@ msgstr "Словарь терминов"
 #. http://www.docbook.org/tdg/en/html/important.html
 #. This is used as a default title for important elements.
 #.
-#: xslt/gettext/l10n.xml.in.h:1416
+#: ../xslt/gettext/l10n.xml.in.h:1478
 msgid "Important"
 msgstr "Важно"
 
@@ -1724,7 +1804,7 @@ msgstr "Важно"
 #. http://www.docbook.org/tdg/en/html/index.html
 #. This is used as a default title for index elements.
 #.
-#: xslt/gettext/l10n.xml.in.h:1421
+#: ../xslt/gettext/l10n.xml.in.h:1483
 msgid "Index"
 msgstr "Оглавление"
 
@@ -1732,7 +1812,7 @@ msgstr "Оглавление"
 #. http://www.docbook.org/tdg/en/html/legalnotice.html
 #. This is used as a default title for legalnotice elements.
 #.
-#: xslt/gettext/l10n.xml.in.h:1426
+#: ../xslt/gettext/l10n.xml.in.h:1488
 msgid "Legal Notice"
 msgstr "Юридический статус"
 
@@ -1740,7 +1820,7 @@ msgstr "Юридический статус"
 #. http://www.docbook.org/tdg/en/html/refnamediv.html
 #. This is used as the title for refnamediv elements.
 #.
-#: xslt/gettext/l10n.xml.in.h:1431
+#: ../xslt/gettext/l10n.xml.in.h:1493
 msgid "Name"
 msgstr "Название"
 
@@ -1748,7 +1828,7 @@ msgstr "Название"
 #. http://www.docbook.org/tdg/en/html/note.html
 #. This is used as a default title for note elements.
 #.
-#: xslt/gettext/l10n.xml.in.h:1436
+#: ../xslt/gettext/l10n.xml.in.h:1498
 msgid "Note"
 msgstr "Заметка"
 
@@ -1756,7 +1836,7 @@ msgstr "Заметка"
 #. http://www.docbook.org/tdg/en/html/preface.html
 #. This is used as a default title for preface elements.
 #.
-#: xslt/gettext/l10n.xml.in.h:1441
+#: ../xslt/gettext/l10n.xml.in.h:1503
 msgid "Preface"
 msgstr "Вступление"
 
@@ -1769,7 +1849,7 @@ msgstr "Вступление"
 #. the labelling style for a qandaset.  If the labelling style is set
 #. to 'qanda', this string will be used to label questions.
 #.
-#: xslt/gettext/l10n.xml.in.h:1451
+#: ../xslt/gettext/l10n.xml.in.h:1513
 msgid "Q:&#x2003;"
 msgstr "В:&#x2003;"
 
@@ -1777,15 +1857,23 @@ msgstr "В:&#x2003;"
 #. http://www.docbook.org/tdg/en/html/revhistory.html
 #. This is used as a header before the revision history.
 #.
-#: xslt/gettext/l10n.xml.in.h:1456
+#: ../xslt/gettext/l10n.xml.in.h:1518
 msgid "Revision History"
 msgstr "История создания"
 
-#: xslt/gettext/l10n.xml.in.h:1457
+#.
+#. Used for the <see> element.
+#. FIXME: this should be a format string.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1523
 msgid "See"
 msgstr "Смотрите"
 
-#: xslt/gettext/l10n.xml.in.h:1458
+#.
+#. Used for the <seealso> element.
+#. FIXME: this should be a format string.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1528
 msgid "See Also"
 msgstr "Смотрите также"
 
@@ -1793,7 +1881,7 @@ msgstr "Смотрите также"
 #. http://www.docbook.org/tdg/en/html/refsynopsisdiv.html
 #. This is used as the default title for refsynopsisdiv elements.
 #.
-#: xslt/gettext/l10n.xml.in.h:1463
+#: ../xslt/gettext/l10n.xml.in.h:1533
 msgid "Synopsis"
 msgstr "Аннотация"
 
@@ -1801,7 +1889,7 @@ msgstr "Аннотация"
 #. http://www.docbook.org/tdg/en/html/tip.html
 #. This is used as a default title for tip elements.
 #.
-#: xslt/gettext/l10n.xml.in.h:1468
+#: ../xslt/gettext/l10n.xml.in.h:1538
 msgid "Tip"
 msgstr "Подсказка"
 
@@ -1809,6 +1897,16 @@ msgstr "Подсказка"
 #. http://www.docbook.org/tdg/en/html/warning.html
 #. This is used as a default title for warning elements.
 #.
-#: xslt/gettext/l10n.xml.in.h:1473
+#: ../xslt/gettext/l10n.xml.in.h:1543
 msgid "Warning"
 msgstr "Предупреждение"
+
+#.
+#. Translate to default:RTL if your language should be displayed
+#. right-to-left, otherwise translate to default:LTR.  Do *not*
+#. translate it to "predefinito:LTR", if it it isn't default:LTR
+#. or default:RTL it will not work
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1550
+msgid "default:LTR"
+msgstr "default:LTR"
