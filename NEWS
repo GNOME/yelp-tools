@@ -1,7 +1,22 @@
+Changes in 0.6.0:
+-----------------
+
+* Updated translations:
+  bg	  (Alexander Shopov)
+  es	  (Francisco Javier F. Serrador)
+  et	  (Priit Laes)
+  hu	  (Gabor Kelemen)
+  pt_BR	  (Leandro A. F. Pereira)
+  pt	  (Duarte Loreto)
+  ru	  (Nickolay V. Shmyrev)
+  sq	  (Laurent Dhima)
+  sv	  (Daniel Nylander)
+  uk	  (Maxim Dziumanenko)
+
 Changes in 0.5.7:
 -----------------
 * Fixed simplelist without columns attribute  (Shaun McCance)
-* Updates translations:
+* Updated translations:
   ca      (Gil Forcada)
   el      (Kostas Papadimas)
   et      (Priit Laes)
