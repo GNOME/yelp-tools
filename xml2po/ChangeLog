@@ -1,5 +1,12 @@
 2006-03-31  Danilo Šegan  <danilo@gnome.org>
 
+	Fixes bug #317502.
+	
+	* xml2po.py (normalizeNode): don't remove blank nodes followed by
+	entities.
+
+2006-03-31  Danilo Šegan  <danilo@gnome.org>
+
 	Fixes bug #336765.
 
 	* xml2po.py (replaceNodeContentsWithText): integrate DTD when

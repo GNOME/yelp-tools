@@ -121,7 +121,7 @@ def normalizeNode(node):
     elif isSpacePreserveNode(node):
         return
     elif node.isText():
-        if node.isBlankNode():
+        if node.isBlankNode() and (not expand_entities and (not node.next or node.next.type!='entity_ref')):
             node.setContent('')
         else:
             node.setContent(re.sub('\s+',' ', node.content))
