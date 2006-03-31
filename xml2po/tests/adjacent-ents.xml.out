@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.2//EN" "http://www.oasis-open.org/docbook/xml/4.2/docbookx.dtd" [
+<!ENTITY suse "SUSE">
+<!ENTITY suselinux "&suse; Linux">
+<!ENTITY suse-version "10.1">
+]>
+<sect1>
+ <title>&suselinux; &suse-version; Објава издања</title>
+ <para><application>SUSE Линукс</application> &suse-version; је ...</para>
+ <para>&suselinux; <application>&suse-version;</application> је ...</para>
+</sect1>

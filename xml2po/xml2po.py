@@ -116,13 +116,17 @@ msgstr ""
 
 
 def normalizeNode(node):
+    #print >>sys.stderr, "<%s> (%s) [%s]" % (node.name, node.type, node.serialize('utf-8'))
     if not node:
         return
     elif isSpacePreserveNode(node):
         return
     elif node.isText():
-        if node.isBlankNode() and (not expand_entities and (not node.next or node.next.type!='entity_ref')):
-            node.setContent('')
+        if node.isBlankNode():
+            if expand_entities or ( not (node.prev and not node.prev.isBlankNode()
+                                         and node.next and not node.next.isBlankNode()) ):
+                #print >>sys.stderr, "BLANK"
+                node.setContent('')
         else:
             node.setContent(re.sub('\s+',' ', node.content))
 
@@ -213,6 +217,7 @@ def getTranslation(text, spacepreserve = 0):
     text should be a string to look for, spacepreserve set to 1
     when spaces should be preserved.
     """
+    #print >>sys.stderr,"getTranslation('%s')" % (text.encode('utf-8'))
     text = normalizeString(text, not spacepreserve)
     if (text.strip() == ''):
         return text
@@ -302,28 +307,26 @@ def getCommentForNode(node):
     else:
         return None
 
-
 def replaceNodeContentsWithText(node,text):
     """Replaces all subnodes of a node with contents of text treated as XML."""
 
     if node.children:
         starttag = node.name #startTagForNode(node)
         endtag = endTagForNode(node)
+
+        # Lets add document DTD so entities are resolved
+        tmp = '<?xml version="1.0" encoding="utf-8" ?>'
         try:
-            # Lets add document DTD so entities are resolved
             dtd = doc.intSubset()
-            tmp = ''
-            # NOTE: We used to get a "Segmentation fault" in libxml2.parseMemory() when we included DTD
-            #       when not expand_entities!
-            #       libxml 2.6.21 is known to work, need to see what's the minimal version.
-            #if expand_entities:
-            tmp = dtd.serialize('utf-8')
-            tmp = tmp + '<%s>%s</%s>' % (starttag, text, endtag)
-        except:
-            tmp = '<%s>%s</%s>' % (starttag, text, endtag)
+            tmp = tmp + dtd.serialize('utf-8')
+        except libxml2.treeError:
+            pass
+            
+        content = '<%s>%s</%s>' % (starttag, text, endtag)
+        tmp = tmp + content.encode('utf-8')
 
         try:
-            ctxt = libxml2.createDocParserCtxt(tmp.encode('utf-8'))
+            ctxt = libxml2.createDocParserCtxt(tmp)
             ctxt.replaceEntities(0)
             ctxt.parseDocument()
             newnode = ctxt.doc()
@@ -339,7 +342,12 @@ def replaceNodeContentsWithText(node,text):
                 free.unlinkNode()
                 free = next
 
-            node.addChildList(newelem.children)
+            add = newelem.children
+            if node:
+                copy = newelem.copyNodeList()
+                next = node.next
+                node.replaceNode(newelem.copyNodeList())
+                node.next = next
         else:
             # In practice, this happens with tags such as "<para>    </para>" (only whitespace in between)
             pass

@@ -1,3 +1,14 @@
+2006-04-01  Danilo Šegan  <danilo@gnome.org>
+
+	* adjacent-ents.xml, adjacent-ents.xml.out, adjacent-ents.pot, 
+	adjacent-ents.po: 
+	* test.py (SIMPLETESTS): 
+	Added adjacent-ents.xml test-case.
+
+2006-04-01  Danilo Šegan  <danilo@gnome.org>
+
+	* test.py (SIMPLETESTS): Updated framework to support options.
+
 2006-03-31  Danilo Šegan  <danilo@gnome.org>
 
 	* keepents.xml, keepents.xml.out, keepents.pot, keepents.po, 
