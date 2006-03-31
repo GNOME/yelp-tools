@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import sys, os
 
-SIMPLETESTS = ['deep-finals.xml', 'deep-nonfinals.xml', 'attribute-entities.xml', 'docbook.xml', 'utf8-original.xml' ]
+SIMPLETESTS = ['deep-finals.xml', 'deep-nonfinals.xml', 'attribute-entities.xml', 'docbook.xml', 'utf8-original.xml', 'footnotes.xml' ]
 
 OTHERTESTS = [ ('relnotes', 'test.sh') ]
 

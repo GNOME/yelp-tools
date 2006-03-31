@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+    "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" >
+<article>
+  <sect1 id="intro">
+	<title>Introduction</title> 
+
+	<para>
+	  This is a test of footnotes<footnote><para>Those short
+          explanations on the bottom of the page</para></footnote> extraction,
+          since footnotes are not "final" (i.e. directly extracted) elements.
+        </para>
+	<para>
+	  That means that if there is some ignorable content inside the footnote<footnote>
+           <para>Remember?</para>
+           <!-- nothing important -->
+          </footnote>, they would still not be shown in the output.
+           This also applies to other cases of nested tags, but it was
+           originally reported against footnotes as bug #172784.
+        </para>
+  </sect1>
+
+</article>
