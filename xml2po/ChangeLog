@@ -1,5 +1,12 @@
 2006-04-01  Danilo Šegan  <danilo@gnome.org>
 
+	Fix #317110.
+	
+	* xml2po.py (startTagForNode): fix attribute handling.
+	(replaceNodeContentsWithText): Use startTagForNode for starttag.
+
+2006-04-01  Danilo Šegan  <danilo@gnome.org>
+
 	* xml2po.py (replaceNodeContentsWithText): Improve fix for #336765.
 
 2006-03-31  Danilo Šegan  <danilo@gnome.org>

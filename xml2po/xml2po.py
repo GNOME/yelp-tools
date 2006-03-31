@@ -237,8 +237,11 @@ def startTagForNode(node):
     if node.properties:
         for p in node.properties:
             if p.type == 'attribute':
-                # FIXME: This part sucks
-                params += p.serialize('utf-8')
+                try:
+                    nsprop = p.ns().name + ":" + p.name
+                except:
+                    nsprop = p.name
+                params += " %s=\"%s\"" % (nsprop, p.doc.encodeEntitiesReentrant(p.content))
     return result+params
         
 def endTagForNode(node):
@@ -311,7 +314,7 @@ def replaceNodeContentsWithText(node,text):
     """Replaces all subnodes of a node with contents of text treated as XML."""
 
     if node.children:
-        starttag = node.name #startTagForNode(node)
+        starttag = startTagForNode(node)
         endtag = endTagForNode(node)
 
         # Lets add document DTD so entities are resolved
@@ -325,12 +328,16 @@ def replaceNodeContentsWithText(node,text):
         content = '<%s>%s</%s>' % (starttag, text, endtag)
         tmp = tmp + content.encode('utf-8')
 
+        newnode = None
         try:
             ctxt = libxml2.createDocParserCtxt(tmp)
             ctxt.replaceEntities(0)
             ctxt.parseDocument()
             newnode = ctxt.doc()
         except:
+            pass
+
+        if not newnode:
             print >> sys.stderr, """Error while parsing translation as XML:\n"%s"\n""" % (text.encode('utf-8'))
             return
 
@@ -342,7 +349,6 @@ def replaceNodeContentsWithText(node,text):
                 free.unlinkNode()
                 free = next
 
-            add = newelem.children
             if node:
                 copy = newelem.copyNodeList()
                 next = node.next
