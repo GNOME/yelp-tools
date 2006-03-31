@@ -1,3 +1,9 @@
+2006-03-31  Danilo Šegan  <danilo@gnome.org>
+
+	Fixes bug #172784.
+	
+	* xml2po.py (isFinalNode): ignore blank nodes.
+
 2005-09-13  Stepan Kasal  <kasal@ucw.cz>
 
 	* xml2po.pc.in: Add datarootdir variable, for compatibility
