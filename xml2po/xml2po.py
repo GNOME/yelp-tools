@@ -260,7 +260,7 @@ def isFinalNode(node):
         final_children = 1
         child = node.children
         while child and final_children:
-            if not isFinalNode(child):
+            if not child.isBlankNode() and not isFinalNode(child):
                 final_children = 0
             child = child.next
         if final_children:
