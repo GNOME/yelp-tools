@@ -1,5 +1,13 @@
 2006-03-31  Danilo Šegan  <danilo@gnome.org>
 
+	Fixes bug #336765.
+
+	* xml2po.py (replaceNodeContentsWithText): integrate DTD when
+	keeping entities.
+	* TODO: Document this fix. 
+
+2006-03-31  Danilo Šegan  <danilo@gnome.org>
+
 	Fixes bug #172784.
 	
 	* xml2po.py (isFinalNode): ignore blank nodes.

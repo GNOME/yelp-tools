@@ -36,12 +36,11 @@ TODO:
    dramatically down; some of the things should be transferred to 
    libxml2 (like using node.isText()).
 
-BUGS:
-
- o Merging with "-k" (keep-entities) option doesn't work correctly
-
 
 DONE:
+
+ o [BUG FIXED with at least libxml2 2.6.21] 
+   Merging with "-k" (keep-entities) option doesn't work correctly 
 
  o add "-a" option to automatically detect final tags (should be
    simple, use something like worthOutputting in isFinalTag)

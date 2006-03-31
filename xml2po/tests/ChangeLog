@@ -1,7 +1,14 @@
 2006-03-31  Danilo Šegan  <danilo@gnome.org>
 
-	* footnotes.xml, footnotes.xml.out, footnotes.pot, footnotes.po: 
-	* test.py (SIMPLETESTS): 
+	* keepents.xml, keepents.xml.out, keepents.pot, keepents.po, 
+	test.py: 
+
+	Added 'keepents.xml' test case.
+
+2006-03-31  Danilo Šegan  <danilo@gnome.org>
+
+	* footnotes.xml, footnotes.xml.out, footnotes.pot, footnotes.po, 
+	test.py: 
 
 	Added 'footnotes.xml' test case.
 

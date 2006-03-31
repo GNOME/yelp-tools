@@ -305,6 +305,7 @@ def getCommentForNode(node):
 
 def replaceNodeContentsWithText(node,text):
     """Replaces all subnodes of a node with contents of text treated as XML."""
+
     if node.children:
         starttag = node.name #startTagForNode(node)
         endtag = endTagForNode(node)
@@ -312,8 +313,11 @@ def replaceNodeContentsWithText(node,text):
             # Lets add document DTD so entities are resolved
             dtd = doc.intSubset()
             tmp = ''
-            if expand_entities: # FIXME: we get a "Segmentation fault" in libxml2.parseMemory() when we include DTD otherwise
-                tmp = dtd.serialize('utf-8')
+            # NOTE: We used to get a "Segmentation fault" in libxml2.parseMemory() when we included DTD
+            #       when not expand_entities!
+            #       libxml 2.6.21 is known to work, need to see what's the minimal version.
+            #if expand_entities:
+            tmp = dtd.serialize('utf-8')
             tmp = tmp + '<%s>%s</%s>' % (starttag, text, endtag)
         except:
             tmp = '<%s>%s</%s>' % (starttag, text, endtag)

@@ -1,0 +1,7 @@
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+"http://www.docbook.org/xml/4.4/docbookx.dtd" [
+<!ENTITY % language "Serbian">
+]>
+<article>
+<title>&language; is best language!</title>
+</article>
