@@ -1,5 +1,31 @@
 2006-04-01  Danilo Šegan  <danilo@gnome.org>
 
+	* tests/*: updated test cases.
+
+2006-04-01  Danilo Šegan  <danilo@gnome.org>
+
+	Added Ubuntu mode supporting &language; entity replacement.
+	
+	* modes/Makefile.am (common_DATA): Added ubuntu.py.
+	* modes/ubuntu.py: Added.
+
+2006-04-01  Danilo Šegan  <danilo@gnome.org>
+
+	Fix #172459.
+	
+	* xml2po.py (NoneTranslations): return None for all *gettext calls
+	as a fallback.
+	(getTranslation): make use of NoneTranslations.
+	(processElementTag): if mark_untranslated, node.setLang('C').
+
+2006-04-01  Danilo Šegan  <danilo@gnome.org>
+
+	* xml2po.py (myAttributeSerialize): Added entity-non-expanding
+	serialization.
+	(startTagForNode): Use myAttributeSerialize.
+
+2006-04-01  Danilo Šegan  <danilo@gnome.org>
+
 	Fix #317110.
 	
 	* xml2po.py (startTagForNode): fix attribute handling.

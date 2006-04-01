@@ -36,6 +36,27 @@ import gettext
 import os
 import re
 
+class NoneTranslations:
+    def gettext(self, message):
+        return None
+
+    def lgettext(self, message):
+        return None
+
+    def ngettext(self, msgid1, msgid2, n):
+        return None
+
+    def lngettext(self, msgid1, msgid2, n):
+        return None
+
+    def ugettext(self, message):
+        return None
+
+    def ungettext(self, msgid1, msgid2, n):
+        return None
+
+
+
 class MessageOutput:
     def __init__(self, with_translations = 0):
         self.messages = []
@@ -223,10 +244,33 @@ def getTranslation(text, spacepreserve = 0):
         return text
     file = open(mofile, "rb")
     if file:
+        myfallback = NoneTranslations()
         gt = gettext.GNUTranslations(file)
+        gt.add_fallback(myfallback)
         if gt:
-            return gt.ugettext(text.decode('utf-8'))
+            res = gt.ugettext(text.decode('utf-8'))
+            return res
+
     return text
+
+def myAttributeSerialize(node):
+    result = ''
+    if node.children:
+        child = node.children
+        while child:
+            if child.type=='text':
+                result += doc.encodeEntitiesReentrant(child.content)
+            elif child.type=='entity_ref':
+                if not expand_entities:
+                    result += '&' + child.name + ';'
+                else:
+                    result += child.content.decode('utf-8')
+            else:
+                result += myAttributeSerialize(child)
+            child = child.next
+    else:
+        result = node.serialize('utf-8')
+    return result
 
 def startTagForNode(node):
     if not node:
@@ -241,7 +285,7 @@ def startTagForNode(node):
                     nsprop = p.ns().name + ":" + p.name
                 except:
                     nsprop = p.name
-                params += " %s=\"%s\"" % (nsprop, p.doc.encodeEntitiesReentrant(p.content))
+                params += " %s=\"%s\"" % (nsprop, myAttributeSerialize(p))
     return result+params
         
 def endTagForNode(node):
@@ -342,6 +386,7 @@ def replaceNodeContentsWithText(node,text):
             return
 
         newelem = newnode.getRootElement()
+
         if newelem and newelem.children:
             free = node.children
             while free:
@@ -425,17 +470,23 @@ def processElementTag(node, replacements, restart = 0):
             translation = getTranslation(outtxt, isSpacePreserveNode(node))
         else:
             translation = outtxt
+
         starttag = startTagForNode(node)
         endtag = endTagForNode(node)
 
-        if restart or worthOutputting(node):
+        worth = worthOutputting(node)
+        if not translation:
+            translation = outtxt.decode('utf-8')
+            if worth and mark_untranslated: node.setLang('C')
+
+        if restart or worth:
             i = 0
             while i < len(myrepl):
                 replacement = '<%s>%s</%s>' % (myrepl[i][0], myrepl[i][3], myrepl[i][2])
                 i += 1
                 translation = translation.replace('<placeholder-%d/>' % (i), replacement)
 
-            if worthOutputting(node):
+            if worth:
                 if mode == 'merge':
                     replaceNodeContentsWithText(node, translation)
                 else:
@@ -521,9 +572,10 @@ def read_ignoredtags(filelist):
 
 def tryToUpdate(allargs, lang):
     # Remove "-u" and "--update-translation"
+    print >>sys.stderr, "OVDI!"
     command = allargs[0]
     args = allargs[1:]
-    opts, args = getopt.getopt(args, 'avhmket:o:p:u:',
+    opts, args = getopt.getopt(args, 'avhm:ket:o:p:u:',
                                ['automatic-tags','version', 'help', 'keep-entities', 'extract-all-entities', 'merge', 'translation=',
                                 'output=', 'po-file=', 'update-translation=' ])
     for opt, arg in opts:
@@ -604,6 +656,7 @@ translationlanguage = ''
 mode = 'pot' # 'pot' or 'merge'
 automatic = 0
 expand_entities = 1
+mark_untranslated = 0
 expand_all_entities = 0
 
 output  = '-' # this means to stdout
@@ -629,7 +682,10 @@ OPTIONS may be some of:
     -r    --reuse=FILE         Specify translated XML file with the same structure
     -t    --translation=FILE   Specify MO file containing translation, and merge
     -u    --update-translation=LANG.po   Updates a PO file using msgmerge program
+
     -l    --language=LANG      Set language of the translation to LANG
+          --mark-untranslated  Set 'xml:lang="C"' on untranslated tags
+
     -v    --version            Output version of the xml2po program
 
     -h    --help               Output this message
@@ -651,7 +707,7 @@ if len(sys.argv) < 2: usage()
 args = sys.argv[1:]
 try: opts, args = getopt.getopt(args, 'avhkem:t:o:p:u:r:l:',
                            ['automatic-tags','version', 'help', 'keep-entities', 'expand-all-entities', 'mode=', 'translation=',
-                            'output=', 'po-file=', 'update-translation=', 'reuse=', 'language=' ])
+                            'output=', 'po-file=', 'update-translation=', 'reuse=', 'language=', 'mark-untranslated' ])
 except getopt.GetoptError: usage(True)
 
 for opt, arg in opts:
@@ -661,6 +717,8 @@ for opt, arg in opts:
         automatic = 1
     elif opt in ('-k', '--keep-entities'):
         expand_entities = 0
+    elif opt in ('--mark-untranslated',):
+        mark_untranslated = 1
     elif opt in ('-e', '--expand-all-entities'):
         expand_all_entities = 1
     elif opt in ('-l', '--language'):
