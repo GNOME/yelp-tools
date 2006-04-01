@@ -1,5 +1,11 @@
 2006-04-01  Danilo Šegan  <danilo@gnome.org>
 
+	* test.py (SIMPLETESTS): Added ubuntu-mode.
+	* ubuntu-mode.xml, ubuntu-mode.pot, ubuntu-mode.po, 
+	ubuntu-mode.xml.out: Added test case for Ubuntu mode.
+
+2006-04-01  Danilo Šegan  <danilo@gnome.org>
+
 	* adjacent-ents.xml, adjacent-ents.xml.out, adjacent-ents.pot, 
 	adjacent-ents.po: 
 	* test.py (SIMPLETESTS): 

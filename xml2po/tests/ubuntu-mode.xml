@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" 
+	"http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY % globalent SYSTEM "../../libs/global.ent">
+%globalent;
+<!ENTITY % cdo-C SYSTEM "../../libs/cdo-C.ent">
+%cdo-C;
+<!ENTITY language "C">
+]>
+<article>
+	<title>Ubuntu Documentation</title>
+		<para>Welcome to the Ubuntu Documentation Website, for <emphasis role="bold">Ubuntu &distro-rev;</emphasis>, <emphasis>&distro-version;</emphasis>!</para>
+		<para>This site is where you can find the official documentation developed and maintained by the Ubuntu Documentation Project. The following guides are available:</para>
+		<itemizedlist>
+			<listitem>
+                		<para><emphasis role="bold">Ubuntu Desktop Guide</emphasis> - <ulink url="ubuntu/desktopguide/&language;/index.html">HTML</ulink>, <ulink url="pdf/ubuntu/&language;/desktopguide.pdf">PDF</ulink></para>
+			</listitem>
+			<listitem>
+                		<para><emphasis role="bold">Kubuntu Desktop Guide</emphasis> - <ulink url="kubuntu/desktopguide/&language;/index.html">HTML</ulink>, <ulink url="pdf/kubuntu/&language;/desktopguide.pdf">PDF</ulink></para>
+			</listitem>
+			<listitem>
+                		<para><emphasis role="bold">Server Guide</emphasis> - <ulink url="ubuntu/serverguide/&language;/index.html">HTML</ulink>, <ulink url="pdf/ubuntu/&language;/serverguide.pdf">PDF</ulink></para>
+			</listitem>
+			<listitem>
+                		<para><emphasis role="bold">Packaging Guide</emphasis> - <ulink url="ubuntu/packagingguide/&language;/index.html">HTML</ulink>, <ulink url="pdf/ubuntu/&language;/packagingguide.pdf">PDF</ulink></para>
+			</listitem>
+		</itemizedlist>
+		<para>Find out more about Ubuntu and Kubuntu from the following documents:</para>
+		<itemizedlist>
+			<listitem>
+				<para><emphasis role="bold">Ubuntu</emphasis> - <ulink url="ubuntu/about-ubuntu/&language;/index.html">About Ubuntu</ulink>, <ulink url="ubuntu/release-notes/&language;/index.html">Ubuntu Release Notes</ulink></para>
+			</listitem>
+			<listitem>
+				<para><emphasis role="bold">Kubuntu</emphasis> - <ulink url="kubuntu/about-kubuntu/&language;/index.html">About Kubuntu</ulink>, <ulink url="kubuntu/release-notes/&language;/index.html">Kubuntu Release Notes</ulink></para>
+			</listitem>
+		</itemizedlist>
+		<para>If you can't find what you are looking for here, try the excellent source of community contributed documentation on the <ulink url="https://wiki.ubuntu.com/UserDocumentation">Ubuntu wiki</ulink>.</para>
+</article>
