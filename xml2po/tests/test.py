@@ -9,6 +9,7 @@ SIMPLETESTS = { 'deep-finals.xml' : {},
                 'footnotes.xml': {},
                 'keepents.xml': { "options" : "-k" },
                 'adjacent-ents.xml': { "options" : "-k" },
+                'ubuntu-mode.xml': { "options" : "-m ubuntu -k -l sr" },
                 }
 
 OTHERTESTS = [ ('relnotes', 'test.sh') ]
@@ -22,10 +23,14 @@ if len(sys.argv) > 1:
         for opt in sys.argv[2:]:
             myopts += " " + opt
     output = input.replace(".xml", ".xml.out")
-    ret = os.system("../xml2po %s %s | sed 's/\"POT-Creation-Date: .*$/\"POT-Creation-Date: \\\\n\"/' | diff -u %s -" % (myopts, input, pot))
+    fullcommand = "../xml2po %s %s | sed 's/\"POT-Creation-Date: .*$/\"POT-Creation-Date: \\\\n\"/' | diff -u %s -" % (myopts, input, pot)
+    #print >>sys.stderr, fullcommand
+    ret = os.system(fullcommand)
     if ret:
         print "Problem: extraction from '%s'" % (input)
-    ret = os.system("../xml2po -p %s %s %s | diff -u %s -" % (po, myopts, input, output))
+    fullcommand = "../xml2po -p %s %s %s | diff -u %s -" % (po, myopts, input, output)
+    #print >>sys.stderr, fullcommand
+    ret = os.system(fullcommand)
     if ret:
         print "Problem: merging translation into '%s'" % (input)
 else:
