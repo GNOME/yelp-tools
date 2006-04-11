@@ -159,7 +159,7 @@ class docbookXmlMode:
         
         if translators == self.getStringForTranslators():
             return
-        else:
+        elif translators:
             # Now, lets find 'articleinfo' (it can be something else, but this goes along with 'article')
             ai = self._find_articleinfo(root)
             if not ai:
