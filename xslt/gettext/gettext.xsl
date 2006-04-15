@@ -744,10 +744,10 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                     ($lang_language = 'wa') ">
       <xsl:choose>
         <xsl:when test="$number &gt; 1">
-          <xsl:text>0</xsl:text>
+          <xsl:text>1</xsl:text>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:text>1</xsl:text>
+          <xsl:text>0</xsl:text>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:when>
