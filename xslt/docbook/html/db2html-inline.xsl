@@ -72,37 +72,32 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <xsl:param name="sans" select="false()"/>
 
   <span class="{local-name(.)}">
+    <xsl:if test="$bold or $italic or $mono or $underline or $sans">
+      <xsl:variable name="style">
+        <xsl:if test="$bold">
+          <xsl:text>font-weight: bold; </xsl:text>
+        </xsl:if>
+        <xsl:if test="$italic">
+          <xsl:text>font-style: italic; </xsl:text>
+        </xsl:if>
+        <xsl:if test="$underline">
+          <xsl:text>text-decoration: underline; </xsl:text>
+        </xsl:if>
+        <xsl:choose>
+          <xsl:when test="$mono">
+            <xsl:text>font-family: monospace; </xsl:text>
+          </xsl:when>
+          <xsl:when test="$sans">
+            <xsl:text>font-family: sans-serif; </xsl:text>
+          </xsl:when>
+        </xsl:choose>
+      </xsl:variable>
+      <xsl:attribute name="style">
+        <xsl:value-of select="$style"/>
+      </xsl:attribute>
+    </xsl:if>
     <xsl:call-template name="db2html.anchor"/>
-    <xsl:choose>
-      <xsl:when test="$bold or $italic or $mono or $underline or $sans">
-        <xsl:variable name="style">
-          <xsl:if test="$bold">
-            <xsl:text>font-weight: bold; </xsl:text>
-          </xsl:if>
-          <xsl:if test="$italic">
-            <xsl:text>font-style: italic; </xsl:text>
-          </xsl:if>
-          <xsl:if test="$underline">
-            <xsl:text>text-decoration: underline; </xsl:text>
-          </xsl:if>
-          <xsl:choose>
-            <xsl:when test="$mono">
-              <xsl:text>font-family: monospace; </xsl:text>
-            </xsl:when>
-            <xsl:when test="$sans">
-              <xsl:text>font-family: sans-serif; </xsl:text>
-            </xsl:when>
-          </xsl:choose>
-        </xsl:variable>
-        <xsl:attribute name="style">
-          <xsl:value-of select="$style"/>
-        </xsl:attribute>
-        <xsl:apply-templates/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:apply-templates/>
-      </xsl:otherwise>
-    </xsl:choose>
+    <xsl:apply-templates/>
   </span>
 </xsl:template>
 

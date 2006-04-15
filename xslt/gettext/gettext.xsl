@@ -231,8 +231,9 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
       <xsl:with-param name="lang_charset"  select="$lang_charset"/>
     </xsl:call-template>
   </xsl:param>
-  <xsl:param name="role"/>
   <xsl:param name="node" select="."/>
+  <xsl:param name="role"/>
+  <xsl:param name="string"/>
   <xsl:param name="format" select="false()"/>
 
   <xsl:for-each select="$l10n">
@@ -251,8 +252,9 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                                                      '@', $lang_variant,
                                                      '.', $lang_charset))"/>
           <xsl:with-param name="form" select="$form"/>
-          <xsl:with-param name="role" select="$role"/>
           <xsl:with-param name="node" select="$node"/>
+          <xsl:with-param name="role" select="$role"/>
+          <xsl:with-param name="string" select="$string"/>
           <xsl:with-param name="format" select="$format"/>
         </xsl:call-template>
       </xsl:when>
@@ -268,8 +270,9 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                                      $lang_language, '_', $lang_region,
                                                      '@', $lang_variant))"/>
           <xsl:with-param name="form" select="$form"/>
-          <xsl:with-param name="role" select="$role"/>
           <xsl:with-param name="node" select="$node"/>
+          <xsl:with-param name="role" select="$role"/>
+          <xsl:with-param name="string" select="$string"/>
           <xsl:with-param name="format" select="$format"/>
         </xsl:call-template>
       </xsl:when>
@@ -285,8 +288,9 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                                      $lang_language, '@', $lang_variant,
                                                      '.', $lang_charset))"/>
           <xsl:with-param name="form" select="$form"/>
-          <xsl:with-param name="role" select="$role"/>
           <xsl:with-param name="node" select="$node"/>
+          <xsl:with-param name="role" select="$role"/>
+          <xsl:with-param name="string" select="$string"/>
           <xsl:with-param name="format" select="$format"/>
         </xsl:call-template>
       </xsl:when>
@@ -300,8 +304,9 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
            select="key('msg', concat($msgid, '__LC__',
                                      $lang_language, '@', $lang_variant))"/>
           <xsl:with-param name="form" select="$form"/>
-          <xsl:with-param name="role" select="$role"/>
           <xsl:with-param name="node" select="$node"/>
+          <xsl:with-param name="role" select="$role"/>
+          <xsl:with-param name="string" select="$string"/>
           <xsl:with-param name="format" select="$format"/>
         </xsl:call-template>
       </xsl:when>
@@ -317,8 +322,9 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                                      $lang_language, '_', $lang_region,
                                                      '.', $lang_charset))"/>
           <xsl:with-param name="form" select="$form"/>
-          <xsl:with-param name="role" select="$role"/>
           <xsl:with-param name="node" select="$node"/>
+          <xsl:with-param name="role" select="$role"/>
+          <xsl:with-param name="string" select="$string"/>
           <xsl:with-param name="format" select="$format"/>
         </xsl:call-template>
       </xsl:when>
@@ -332,8 +338,9 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
            select="key('msg', concat($msgid, '__LC__',
                                      $lang_language, '_', $lang_region))"/>
           <xsl:with-param name="form" select="$form"/>
-          <xsl:with-param name="role" select="$role"/>
           <xsl:with-param name="node" select="$node"/>
+          <xsl:with-param name="role" select="$role"/>
+          <xsl:with-param name="string" select="$string"/>
           <xsl:with-param name="format" select="$format"/>
         </xsl:call-template>
       </xsl:when>
@@ -347,8 +354,9 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
            select="key('msg', concat($msgid, '__LC__',
                                      $lang_language, '.', $lang_charset))"/>
           <xsl:with-param name="form" select="$form"/>
-          <xsl:with-param name="role" select="$role"/>
           <xsl:with-param name="node" select="$node"/>
+          <xsl:with-param name="role" select="$role"/>
+          <xsl:with-param name="string" select="$string"/>
           <xsl:with-param name="format" select="$format"/>
         </xsl:call-template>
       </xsl:when>
@@ -359,8 +367,9 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
            name="msg"
            select="key('msg', concat($msgid, '__LC__', $lang_language))"/>
           <xsl:with-param name="form" select="$form"/>
-          <xsl:with-param name="role" select="$role"/>
           <xsl:with-param name="node" select="$node"/>
+          <xsl:with-param name="role" select="$role"/>
+          <xsl:with-param name="string" select="$string"/>
           <xsl:with-param name="format" select="$format"/>
         </xsl:call-template>
       </xsl:when>
@@ -370,8 +379,9 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
           <xsl:with-param
            name="msg" select="key('msg', concat($msgid, '__LC__C'))"/>
           <xsl:with-param name="form" select="$form"/>
-          <xsl:with-param name="role" select="$role"/>
           <xsl:with-param name="node" select="$node"/>
+          <xsl:with-param name="role" select="$role"/>
+          <xsl:with-param name="string" select="$string"/>
           <xsl:with-param name="format" select="$format"/>
         </xsl:call-template>
       </xsl:when>
@@ -381,8 +391,9 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
           <xsl:with-param
            name="msg" select="key('msg', concat($msgid, '__LC__'))"/>
           <xsl:with-param name="form" select="$form"/>
-          <xsl:with-param name="role" select="$role"/>
           <xsl:with-param name="node" select="$node"/>
+          <xsl:with-param name="role" select="$role"/>
+          <xsl:with-param name="string" select="$string"/>
           <xsl:with-param name="format" select="$format"/>
         </xsl:call-template>
       </xsl:when>
@@ -401,14 +412,17 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <xsl:template name="l10n.gettext.msg" doc:private="true">
   <xsl:param name="msg"/>
   <xsl:param name="form"/>
-  <xsl:param name="role"/>
   <xsl:param name="node" select="."/>
+  <xsl:param name="role"/>
+  <xsl:param name="string"/>
   <xsl:param name="format" select="false()"/>
   <xsl:choose>
     <xsl:when test="not($msg/msg:msgstr)">
       <xsl:call-template name="l10n.gettext.msgstr">
         <xsl:with-param name="msgstr" select="$msg"/>
         <xsl:with-param name="node" select="$node"/>
+        <xsl:with-param name="role" select="$role"/>
+        <xsl:with-param name="string" select="$string"/>
         <xsl:with-param name="format" select="$format"/>
       </xsl:call-template>
     </xsl:when>
@@ -423,6 +437,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                 <xsl:with-param name="msgstr"
                                 select="msgstr_form[@role = $role][1]"/>
                 <xsl:with-param name="node" select="$node"/>
+                <xsl:with-param name="role" select="$role"/>
+                <xsl:with-param name="string" select="$string"/>
                 <xsl:with-param name="format" select="$format"/>
               </xsl:call-template>
             </xsl:when>
@@ -431,6 +447,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                 <xsl:with-param name="msgstr"
                                 select="msgstr_form[not(@role)][1]"/>
                 <xsl:with-param name="node" select="$node"/>
+                <xsl:with-param name="role" select="$role"/>
+                <xsl:with-param name="string" select="$string"/>
                 <xsl:with-param name="format" select="$format"/>
               </xsl:call-template>
             </xsl:when>
@@ -439,6 +457,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                 <xsl:with-param name="msgstr"
                                 select="msgstr_form[1]"/>
                 <xsl:with-param name="node" select="$node"/>
+                <xsl:with-param name="role" select="$role"/>
+                <xsl:with-param name="string" select="$string"/>
                 <xsl:with-param name="format" select="$format"/>
               </xsl:call-template>
             </xsl:otherwise>
@@ -451,6 +471,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                 <xsl:with-param name="msgstr"
                                 select="$msg/msg:msgstr[@role = $role][1]"/>
                 <xsl:with-param name="node" select="$node"/>
+                <xsl:with-param name="role" select="$role"/>
+                <xsl:with-param name="string" select="$string"/>
                 <xsl:with-param name="format" select="$format"/>
               </xsl:call-template>
             </xsl:when>
@@ -459,6 +481,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                 <xsl:with-param name="msgstr"
                                 select="$msg/msg:msgstr[not(@role)][1]"/>
                 <xsl:with-param name="node" select="$node"/>
+                <xsl:with-param name="role" select="$role"/>
+                <xsl:with-param name="string" select="$string"/>
                 <xsl:with-param name="format" select="$format"/>
               </xsl:call-template>
             </xsl:when>
@@ -467,6 +491,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                 <xsl:with-param name="msgstr"
                                 select="$msg/msg:msgstr[1]"/>
                 <xsl:with-param name="node" select="$node"/>
+                <xsl:with-param name="role" select="$role"/>
+                <xsl:with-param name="string" select="$string"/>
                 <xsl:with-param name="format" select="$format"/>
               </xsl:call-template>
             </xsl:otherwise>
@@ -481,6 +507,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
             <xsl:with-param name="msgstr"
                             select="$msg/msg:msgstr[@form = $form][1]"/>
             <xsl:with-param name="node" select="$node"/>
+            <xsl:with-param name="role" select="$role"/>
+            <xsl:with-param name="string" select="$string"/>
             <xsl:with-param name="format" select="$format"/>
           </xsl:call-template>
         </xsl:when>
@@ -489,6 +517,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
             <xsl:with-param name="msgstr"
                             select="$msg/msg:msgstr[not(@form)][1]"/>
             <xsl:with-param name="node" select="$node"/>
+            <xsl:with-param name="role" select="$role"/>
+            <xsl:with-param name="string" select="$string"/>
             <xsl:with-param name="format" select="$format"/>
           </xsl:call-template>
         </xsl:when>
@@ -496,6 +526,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
           <xsl:call-template name="l10n.gettext.msgstr">
             <xsl:with-param name="msgstr" select="$msg/msg:msgstr[1]"/>
             <xsl:with-param name="node" select="$node"/>
+            <xsl:with-param name="role" select="$role"/>
+            <xsl:with-param name="string" select="$string"/>
             <xsl:with-param name="format" select="$format"/>
           </xsl:call-template>
         </xsl:otherwise>
@@ -508,6 +540,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
             <xsl:with-param name="msgstr"
                             select="$msg/msg:msgstr[@role = $role][1]"/>
             <xsl:with-param name="node" select="$node"/>
+            <xsl:with-param name="role" select="$role"/>
+            <xsl:with-param name="string" select="$string"/>
             <xsl:with-param name="format" select="$format"/>
           </xsl:call-template>
         </xsl:when>
@@ -516,6 +550,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
             <xsl:with-param name="msgstr"
                             select="$msg/msg:msgstr[not(@role)][1]"/>
             <xsl:with-param name="node" select="$node"/>
+            <xsl:with-param name="role" select="$role"/>
+            <xsl:with-param name="string" select="$string"/>
             <xsl:with-param name="format" select="$format"/>
           </xsl:call-template>
         </xsl:when>
@@ -523,6 +559,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
           <xsl:call-template name="l10n.gettext.msgstr">
             <xsl:with-param name="msgstr" select="$msg/msg:msgstr[1]"/>
             <xsl:with-param name="node" select="$node"/>
+            <xsl:with-param name="role" select="$role"/>
+            <xsl:with-param name="string" select="$string"/>
             <xsl:with-param name="format" select="$format"/>
           </xsl:call-template>
         </xsl:otherwise>
@@ -532,6 +570,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
       <xsl:call-template name="l10n.gettext.msgstr">
         <xsl:with-param name="msgstr" select="$msg/msg:msgstr[1]"/>
         <xsl:with-param name="node" select="$node"/>
+        <xsl:with-param name="role" select="$role"/>
+        <xsl:with-param name="string" select="$string"/>
         <xsl:with-param name="format" select="$format"/>
       </xsl:call-template>
     </xsl:otherwise>
@@ -541,11 +581,15 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <xsl:template name="l10n.gettext.msgstr" doc:private="true">
   <xsl:param name="msgstr"/>
   <xsl:param name="node" select="."/>
+  <xsl:param name="role"/>
+  <xsl:param name="string"/>
   <xsl:param name="format" select="false()"/>
   <xsl:choose>
     <xsl:when test="$format">
       <xsl:apply-templates mode="l10n.format.mode" select="$msgstr/node()">
         <xsl:with-param name="node" select="$node"/>
+        <xsl:with-param name="role" select="$role"/>
+        <xsl:with-param name="string" select="$string"/>
       </xsl:apply-templates>
     </xsl:when>
     <xsl:otherwise>
@@ -1001,6 +1045,11 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <xsl:template mode="l10n.format.mode" match="msg:node">
   <xsl:param name="node"/>
   <xsl:apply-templates select="$node/node()"/>
+</xsl:template>
+
+<xsl:template mode="l10n.format.mode" match="msg:string">
+  <xsl:param name="string"/>
+  <xsl:value-of select="$string"/>
 </xsl:template>
 
 </xsl:stylesheet>

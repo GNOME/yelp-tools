@@ -747,20 +747,19 @@
   Special elements in the message will be replaced with the
   appropriate content, as follows:
 
-  node - The contents of the email element, which should be the
-         linked-to email address
+  string - The linked-to email address
 
   These should be written as empty XML elements.  Due to limitations
   in intltool, I can't write XML content in translator comments.  To
-  insert the node, simply write left angle bracket, node, slash,
-  right angle bracket.
+  insert the email address, simply write left angle bracket, string,
+  slash, right angle bracket.
 
   Additionally, format messages can use the i, b, and tt markup tags
   to mark text as italic, bold, and monospace.
   -->  
   <_msg>
     <msgid>email.tooltip</msgid>
-    <msgstr>Send email to ‘<node/>’.</msgstr>
+    <msgstr>Send email to ‘<string/>’.</msgstr>
   </_msg>
 </msgset>
 

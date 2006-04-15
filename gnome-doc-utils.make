@@ -225,54 +225,17 @@ _DOC_OMF_HTML = $(if $(_DOC_OMF_IN),						\
 
 $(_DOC_OMF_HTML) : $(_DOC_OMF_IN)
 $(_DOC_OMF_HTML) : $(DOC_MODULE)-html-%.omf : %/$(DOC_MODULE).xml
-	xsltproc -o $@ $(call db2omf_args,$@,$<,'html')
+	xsltproc -o $@ $(call db2omf_args,$@,$<,'xhtml')
 
 ## @ _DOC_OMF_ALL
 ## All OMF output files to be built
 # FIXME
 _DOC_OMF_ALL =									\
-	$(if $(findstring docbook,$(_DOC_REAL_FORMATS)),$(_DOC_OMF_DB))		\
-	$(if $(findstring html,$(_DOC_REAL_FORMATS)),$(_DOC_OMF_HTML))
+	$(if $(filter docbook,$(_DOC_REAL_FORMATS)),$(_DOC_OMF_DB))		\
+	$(if $(filter html HTML,$(_DOC_REAL_FORMATS)),$(_DOC_OMF_HTML))
 
 .PHONY: omf
 omf: $(_DOC_OMF_ALL)
-
-
-################################################################################
-## @@ Rules for Desktop Entry Files
-
-## @ _DOC_DSK_IN
-## The desktop entry input file
-_DOC_DSK_IN = $(if $(DOC_MODULE),$(wildcard $(srcdir)/$(DOC_MODULE).desktop.in))
-
-## @ _DOC_DSK_DB
-## The desktop entry files for DocBook output
-_DOC_DSK_DB = $(if $(_DOC_DSK_IN),						\
-	$(foreach lc,C $(DOC_LINGUAS),$(DOC_MODULE).db.$(lc).desktop))
-
-# FIXME
-$(_DOC_DSK_DB) : $(_DOC_DSK_IN)
-$(_DOC_DSK_DB) : $(DOC_MODULE).db.%.desktop : %/$(DOC_MODULE).xml
-	cp $(_DOC_DSK_IN) $@
-
-## @ _DOC_DSK_HTML
-## The desktop entry files for HTML output
-_DOC_DSK_HTML = $(if $(_DOC_DSK_IN),						\
-	$(foreach lc,C $(DOC_LINGUAS),$(DOC_MODULE).html.$(lc).desktop))
-
-$(_DOC_DSK_HTML) : $(_DOC_DSK_IN)
-$(_DOC_DSK_HTML) : $(DOC_MODULE).html.%.desktop : %/$(DOC_MODULE).xml
-	cp $(_DOC_DSK_IN) $@
-
-## @ _DOC_DSK_ALL
-## All desktop entry output files to be built
-# FIXME
-_DOC_DSK_ALL =									\
-	$(if $(findstring docbook,$(_DOC_REAL_FORMATS)),$(_DOC_DSK_DB))		\
-	$(if $(findstring html,$(_DOC_REAL_FORMATS)),$(_DOC_DSK_HTML))
-
-.PHONY: dsk
-dsk: $(_DOC_DSK_ALL)
 
 
 ################################################################################
@@ -373,9 +336,11 @@ _DOC_C_FIGURES = $(if $(DOC_FIGURES),					\
 ## @ _DOC_C_HTML
 ## All HTML documentation in the C locale
 # FIXME: probably have to shell escape to determine the file names
-_DOC_C_HTML = $(shell xsltproc --xinclude 				\
-	--stringparam db.chunk.basename "$(DOC_MODULE)"			\
-	$(_chunks) "C/$(DOC_MODULE).xml")
+_DOC_C_HTML = $(foreach f,						\
+	$(shell xsltproc --xinclude 					\
+	  --stringparam db.chunk.basename "$(DOC_MODULE)"		\
+	  $(_chunks) "C/$(DOC_MODULE).xml"),				\
+	C/$(f).xhtml)
 
 ###############################################################################
 ## @@ Other Locale Documentation
@@ -423,7 +388,7 @@ _DOC_LC_HTML =								\
 _DOC_LC_DOCS =								\
 	$(_DOC_LC_MODULES)	$(_DOC_LC_INCLUDES)			\
 	$(_RNGDOC_LC_DOCS)	$(_XSLDOC_LC_DOCS)			\
-	$(if $(findstring html,$(_DOC_REAL_FORMATS)),$(_DOC_LC_HTML))
+	$(if $(filter html HTML,$(_DOC_REAL_FORMATS)),$(_DOC_LC_HTML))
 
 ## @ _DOC_LC_FIGURES
 ## All figures and other external data in all other locales
@@ -492,13 +457,13 @@ $(_DOC_POT): $(_DOC_C_DOCS_NOENT)
 
 ## @ _DOC_HTML_ALL
 ## All HTML documentation, only if it's built
-_DOC_HTML_ALL = $(if $(findstring html,$(_DOC_REAL_FORMATS)), \
+_DOC_HTML_ALL = $(if $(filter html HTML,$(_DOC_REAL_FORMATS)), \
 	$(_DOC_C_HTML) $(_DOC_LC_HTML))
 
-_DOC_HTML_TOPS = $(foreach lc,C $(DOC_LINGUAS),$(lc)/$(DOC_MODULE).html)
+_DOC_HTML_TOPS = $(foreach lc,C $(DOC_LINGUAS),$(lc)/$(DOC_MODULE).xhtml)
 
 $(_DOC_HTML_TOPS): $(_DOC_C_DOCS) $(_DOC_LC_DOCS)
-	xsltproc -o $@ --xinclude --param db.chunk.chunk_top "false()" --stringparam db.chunk.basename "$(DOC_MODULE)" --stringparam db.chunk.extension ".html" $(_db2html) $(patsubst %.html,%.xml,$@)
+	xsltproc -o $@ --xinclude --param db.chunk.chunk_top "false()" --stringparam db.chunk.basename "$(DOC_MODULE)" --stringparam db.chunk.extension ".xhtml" $(_db2html) $(patsubst %.xhtml,%.xml,$@)
 
 
 ################################################################################

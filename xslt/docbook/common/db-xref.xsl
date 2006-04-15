@@ -39,18 +39,10 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <xsl:choose>
     <xsl:when test="starts-with($url, 'mailto:')">
       <xsl:variable name="addy" select="substring-after($url, 'mailto:')"/>
-      <xsl:call-template name="format.tooltip.mailto">
-        <xsl:with-param name="node" select="$node"/>
-        <xsl:with-param name="address">
-          <xsl:choose>
-            <xsl:when test="contains($addy, '?')">
-              <xsl:value-of select="substring-before($addy, '?')"/>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:value-of select="$addy"/>
-            </xsl:otherwise>
-          </xsl:choose>
-        </xsl:with-param>
+      <xsl:call-template name="l10n.gettext">
+        <xsl:with-param name="msgid" select="'email.tooltip'"/>
+        <xsl:with-param name="string" select="$addy"/>
+        <xsl:with-param name="format" select="true()"/>
       </xsl:call-template>
     </xsl:when>
     <xsl:otherwise>
