@@ -2,10 +2,8 @@
 # translation of gnome-doc-utils.HEAD.po to
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
-#
-# Valeri Chitaladze, 2006.
-# რუსუდან ცისკრელი <tsiskreli@gmail.com>, 2006.
-# Vladimer Sichinava <alinux@siena.linux.it>, 2006.
+# Valeri Chitaladze <chitaladze@gmail.com>
+
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils\n"
