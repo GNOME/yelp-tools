@@ -1,20 +1,23 @@
 # Czech translation for gnome-doc-utils.
 # Copyright (C) 2004, 2005, 2006 gnome-doc-utils' COPYRIGHT HOLDER
 # Copyright (C) 2004, 2005, 2006 Miloslav Trmac <mitr@volny.cz>
+# Copyright (C) 2006 Lukas Novotny <lukasnov@cvs.gnome.org>
 # This file is distributed under the same license as the gnome-doc-utils package.
 # Miloslav Trmac <mitr@volny.cz>, 2004, 2005, 2006.
-#
+# Lukas Novotny <lukasnov@cvs.gnome.org>, 2006.
+# 
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-02-09 23:53+0100\n"
-"PO-Revision-Date: 2006-02-13 04:47+0100\n"
-"Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
+"POT-Creation-Date: 2006-04-21 21:25+0200\n"
+"PO-Revision-Date: 2006-04-21 22:32+0200\n"
+"Last-Translator: Lukas Novotny <lukasnov@cvs.gnome.org>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
+"Content-Transfer-Encoding: 8bit"
 
 #.
 #. This is used a simple list item seperator in places where simple
@@ -78,14 +81,14 @@ msgstr "<msgstr>A</msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:56
-#, fuzzy
 msgid ""
 "<msgid>appendix.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
 "msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Appendix "
 "<number/></msgstr>"
 msgstr ""
-"<msgstr role='header'><number/>.&#x2003;</msgstr> <msgstr role='li'><number/"
-">.&#x2002;</msgstr> <msgstr>Příloha <number/></msgstr>"
+" <msgstr role='header'><number/>.&#x2003;</msgstr> "
+"<msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Příloha "
+"<number/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -183,11 +186,10 @@ msgstr "<msgstr>Příloha <number/> ― <title/></msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:145
-#, fuzzy
 msgid ""
 "<msgid>biblioentry.tooltip</msgid> <msgstr>View the bibliography entry "
 "<label/>.</msgstr>"
-msgstr "<msgstr>Přečíst definici ‚<glossterm/>’.</msgstr>"
+msgstr " <msgstr>Zobrazit záznam bibliografie <label/>.</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -223,9 +225,8 @@ msgstr "<msgstr>Přečíst definici ‚<glossterm/>’.</msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:179
-#, fuzzy
 msgid "<msgid>bibliography.xref</msgid> <msgstr><title/></msgstr>"
-msgstr "<msgstr><title/></msgstr>"
+msgstr " <msgstr><title/></msgstr>"
 
 #.
 #. The number formatter used for book numbers.  This can be one of
@@ -330,14 +331,13 @@ msgstr "<msgstr>1</msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:273
-#, fuzzy
 msgid ""
 "<msgid>chapter.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
 "msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Chapter "
 "<number/></msgstr>"
 msgstr ""
-"<msgstr role='header'><number/>.&#x2003;</msgstr> <msgstr role='li'><number/"
-">.&#x2002;</msgstr> <msgstr>Kapitola <number/></msgstr>"
+" <msgstr role='header'><number/>.&#x2003;</msgstr> <msgstr role='li'>"
+"<number/>.&#x2002;</msgstr> <msgstr>Kapitola <number/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -440,12 +440,11 @@ msgstr "<msgstr>Kapitola <number/> ― <title/></msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:367
-#, fuzzy
 msgid ""
 "<msgid>citetitle.format</msgid> <msgstr role='article'>“<node/>”</msgstr> "
 "<msgstr><i><node/></i></msgstr>"
 msgstr ""
-"<msgstr role='article'>„<node/>”</msgstr> <msgstr><i><node/></i></msgstr>"
+" <msgstr role='article'>“<node/>”</msgstr> <msgstr><i><node/></i></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -527,15 +526,14 @@ msgstr "<msgstr>1</msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:441
-#, fuzzy
 msgid ""
 "<msgid>example.label</msgid> <msgstr role='header'><i>Example <number/></"
 "i>&#x2003;</msgstr> <msgstr role='li'>Example <number/>&#x2002;</msgstr> "
 "<msgstr>Example <number/></msgstr>"
 msgstr ""
-"<msgstr role='header'><i>Příklad <number/></i>&#x2003;</msgstr> <msgstr "
-"role='li'>Příklad <number/>&#x2002;</msgstr> <msgstr>Příklad <number/></"
-"msgstr>"
+" <msgstr role='header'><i>Příklad <number/></i>&#x2003;</msgstr>"
+" <msgstr role='li'>Příklad <number/>&#x2002;</msgstr>"
+" <msgstr>Příklad <number/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -660,15 +658,14 @@ msgstr "<msgstr>1</msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:555
-#, fuzzy
 msgid ""
 "<msgid>figure.label</msgid> <msgstr role='header'><i>Figure <number/></"
 "i>&#x2003;</msgstr> <msgstr role='li'>Figure <number/>&#x2002;</msgstr> "
 "<msgstr>Figure <number/></msgstr>"
 msgstr ""
-"<msgstr role='header'><i>Příklad <number/></i>&#x2003;</msgstr> <msgstr "
-"role='li'>Příklad <number/>&#x2002;</msgstr> <msgstr>Příklad <number/></"
-"msgstr>"
+" <msgstr role='header'><i>Obrázek <number/></i>&#x2003;</msgstr>"
+" <msgstr role='li'>Obrázek <number/>&#x2002;</msgstr>"
+" <msgstr>Obrázek <number/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -839,12 +836,11 @@ msgstr "<msgstr>Přečíst definici ‚<glossterm/>’.</msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:710
-#, fuzzy
 msgid ""
 "<msgid>glossentry.xref</msgid> <msgstr role='glosssee'><glossterm/></msgstr> "
 "<msgstr>‘<glossterm/>’</msgstr>"
 msgstr ""
-"<msgstr role='glosssee'><glossterm/></msgstr> <msgstr>‚<glossterm/>’</msgstr>"
+" <msgstr role='glosssee'><glossterm/></msgstr> <msgstr>‘<glossterm/>’</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1006,13 +1002,13 @@ msgstr "<msgstr>I</msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:857
-#, fuzzy
 msgid ""
 "<msgid>part.label</msgid> <msgstr role='header'><number/>.&#x2003;</msgstr> "
 "<msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Part <number/></msgstr>"
 msgstr ""
-"<msgstr role='header'><number/>.&#x2003;</msgstr> <msgstr role='li'><number/"
-">.&#x2002;</msgstr> <msgstr>Část <number/></msgstr>"
+" <msgstr role='header'><number/>.&#x2003;</msgstr>"
+" <msgstr role='li'><number/>.&#x2002;</msgstr>"
+" <msgstr>Část <number/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1083,9 +1079,8 @@ msgstr "<msgstr>Část <number/> ― <title/></msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:923
-#, fuzzy
 msgid "<msgid>preface.xref</msgid> <msgstr><title/></msgstr>"
-msgstr "<msgstr><title/></msgstr>"
+msgstr " <msgstr><title/></msgstr>"
 
 #.
 #. The number formatter used for question numbers.  This can be one of
@@ -1136,14 +1131,14 @@ msgstr "<msgstr>1</msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:969
-#, fuzzy
 msgid ""
 "<msgid>question.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
 "msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Question "
 "<number/></msgstr>"
 msgstr ""
-"<msgstr role='header'><number/>.&#x2003;</msgstr> <msgstr role='li'><number/"
-">.&#x2002;</msgstr> <msgstr>Otázka <number/></msgstr>"
+" <msgstr role='header'><number/>.&#x2003;</msgstr>"
+" <msgstr·role='li'><number/>.&#x2002;</msgstr>"
+" <msgstr>Otázka <number/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1212,11 +1207,11 @@ msgstr "<msgstr>Otázka <number/></msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1033
-#, fuzzy
 msgid ""
 "<msgid>quote.format</msgid> <msgstr role='inner'>‘<node/>’</msgstr> "
 "<msgstr>“<node/>”</msgstr>"
-msgstr "<msgstr role='inner'>‚<node/>’</msgstr> <msgstr>„<node/>”</msgstr>"
+msgstr ""
+" <msgstr role='inner'>‘<node/>’</msgstr> <msgstr>“<node/>”</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1301,14 +1296,14 @@ msgstr "<msgstr>1</msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1110
-#, fuzzy
 msgid ""
 "<msgid>refsection.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
 "msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Section "
 "<number/></msgstr>"
 msgstr ""
-"<msgstr role='header'><number/>.&#x2003;</msgstr> <msgstr role='li'><number/"
-">.&#x2002;</msgstr> <msgstr>Oddíl <number/></msgstr>"
+" <msgstr role='header'><number/>.&#x2003;</msgstr>"
+" <msgstr role='li'><number/>.&#x2002;</msgstr>"
+" <msgstr>Oddíl <number/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1435,14 +1430,14 @@ msgstr "<msgstr>1</msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1225
-#, fuzzy
 msgid ""
 "<msgid>section.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
 "msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Section "
 "<number/></msgstr>"
 msgstr ""
-"<msgstr role='header'><number/>.&#x2003;</msgstr> <msgstr role='li'><number/"
-">.&#x2002;</msgstr> <msgstr>Oddíl <number/></msgstr>"
+" <msgstr role='header'><number/>.&#x2003;</msgstr>"
+" <msgstr role='li'><number/>.&#x2002;</msgstr>"
+" <msgstr>Oddíl <number/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1569,15 +1564,14 @@ msgstr "<msgstr>1</msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1340
-#, fuzzy
 msgid ""
 "<msgid>table.label</msgid> <msgstr role='header'><i>Table <number/></"
 "i>&#x2003;</msgstr> <msgstr role='li'>Table <number/>&#x2002;</msgstr> "
 "<msgstr>Table <number/></msgstr>"
 msgstr ""
-"<msgstr role='header'><i>Tabulka <number/></i>&#x2003;</msgstr> <msgstr "
-"role='li'>Tabulka <number/>&#x2002;</msgstr> <msgstr>Tabulka <number/></"
-"msgstr>"
+" <msgstr role='header'><i>Tabulka <number/></i>&#x2003;</msgstr> "
+"<msgstr role='li'>Tabulka <number/>&#x2002;</msgstr>·"
+"<msgstr>Tabulka <number/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1652,40 +1646,33 @@ msgstr "<msgstr>Tabulka <number/></msgstr>"
 
 #. Used as a header before a list of authors.
 #: ../xslt/gettext/l10n.xml.in.h:1407
-#, fuzzy
 msgid "<msgstr form='0'>Author</msgstr> <msgstr form='1'>Authors</msgstr>"
-msgstr ""
-"<msgstr form='0'>Autor</msgstr> <msgstr form='1'>Autoři</msgstr> <msgstr "
-"form='2'>Autoři</msgstr>"
+msgstr "<msgstr form='0'>Autor</msgstr> <msgstr form='1'>Autoři</msgstr> <msgstr form='2'>Autoři</msgstr>"
 
 #. Used as a header before a list of collaborators.
 #: ../xslt/gettext/l10n.xml.in.h:1409
-#, fuzzy
 msgid ""
 "<msgstr form='0'>Collaborator</msgstr> <msgstr form='1'>Collaborators</"
 "msgstr>"
 msgstr ""
-"<msgstr form='0'>Spolupracovník</msgstr> <msgstr form='1'>Spolupracovníci</"
-"msgstr> <msgstr form='2'>Spolupracovníci</msgstr>"
+"<msgstr form='0'>Spolupracovník</msgstr>"
+" <msgstr form='1'>Spolupracovníci</msgstr>"
+" <msgstr form='2'>Spolupracovníci</msgstr>"
 
 #. Used as a header before a list of copyrights.
 #: ../xslt/gettext/l10n.xml.in.h:1411
-#, fuzzy
 msgid ""
 "<msgstr form='0'>Copyright</msgstr> <msgstr form='1'>Copyrights</msgstr>"
-msgstr "Copyright"
+msgstr ""
+"·<msgstr form='1'>Copyright</msgstr> <msgstr form='1'>Copyright</msgstr> <msgstr form='2'>Copyright</msgstr>"
 
 #. Used as a header before a list of editors.
 #: ../xslt/gettext/l10n.xml.in.h:1413
-#, fuzzy
 msgid "<msgstr form='0'>Editor</msgstr> <msgstr form='1'>Editors</msgstr>"
-msgstr ""
-"<msgstr form='0'>Redaktor</msgstr> <msgstr form='1'>Redaktoři</msgstr> "
-"<msgstr form='2'>Redaktoři</msgstr>"
+msgstr "<msgstr form='0'>Editor</msgstr> <msgstr form='1'>Editoři</msgstr> <msgstr form='2'>Editoři</msgstr>"
 
 #. Used as a header before a list of contributors.
 #: ../xslt/gettext/l10n.xml.in.h:1415
-#, fuzzy
 msgid ""
 "<msgstr form='0'>Other Contributor</msgstr> <msgstr form='1'>Other "
 "Contributors</msgstr>"
@@ -1695,21 +1682,17 @@ msgstr ""
 
 #. Used as a header before a list of publishers.
 #: ../xslt/gettext/l10n.xml.in.h:1417
-#, fuzzy
 msgid ""
 "<msgstr form='0'>Publisher</msgstr> <msgstr form='1'>Publishers</msgstr>"
 msgstr ""
-"<msgstr form='0'>Vydavatel</msgstr> <msgstr form='1'>Vydavatelé</msgstr> "
-"<msgstr form='2'>Vydavatelé</msgstr>"
+"<msgstr form='0'>Vydavatel</msgstr> <msgstr form='1'>Vydavatelé</msgstr> <msgstr form='2'>Vydavatelé</msgstr>"
 
 #. Used as a header before a list of translators.
 #: ../xslt/gettext/l10n.xml.in.h:1419
-#, fuzzy
 msgid ""
 "<msgstr form='0'>Translator</msgstr> <msgstr form='1'>Translators</msgstr>"
 msgstr ""
-"<msgstr form='0'>Redaktor</msgstr> <msgstr form='1'>Redaktoři</msgstr> "
-"<msgstr form='2'>Redaktoři</msgstr>"
+"<msgstr form='0'>Překladatel</msgstr> <msgstr form='1'>Překladatelé</msgstr> <msgstr form='1'>Překladatelé</msgstr>"
 
 #.
 #. http://www.docbook.org/tdg/en/html/qandaentry.html
@@ -1910,3 +1893,4 @@ msgstr "Varování"
 #: ../xslt/gettext/l10n.xml.in.h:1550
 msgid "default:LTR"
 msgstr "default:LTR"
+
