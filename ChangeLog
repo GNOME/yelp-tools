@@ -1,3 +1,10 @@
+2006-04-24  Sven Herzberg  <herzi@gnome-de.org>
+
+	* Makefile.am: install new files
+	* template-document.xml,
+	* template.make,
+	* template.omf.in: added template files (fixes bug 170483)
+
 2006-04-18  Vladimer Sichinava  <alinux@siena.linux.it>
 
         * configure.in: Added "ka" (Georgian) to ALL_LINGUAS

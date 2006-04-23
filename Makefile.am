@@ -19,6 +19,11 @@ share_DATA = gnome-doc-utils.make
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = gnome-doc-utils.pc
 
+pkgdata_DATA=\
+	template.omf.in \
+	template.make \
+	template-document.xml
+
 bin_SCRIPTS = gnome-doc-prepare
 endif
 
@@ -29,6 +34,7 @@ EXTRA_DIST = 						\
 	$(aclocal_DATA)					\
 	$(share_DATA)					\
 	$(pkgconfig_DATA)				\
+	$(pkgdata_DATA)					\
 	COPYING.GPL					\
 	COPYING.LGPL					\
 	bootstrap.make					\
