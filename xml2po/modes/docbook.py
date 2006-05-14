@@ -178,7 +178,7 @@ class docbookXmlMode:
                     else:
                         ai.addChild(copy)
                     if match.group(3):
-                        copy.newChild(None, "year", match.group(3))
+                        copy.newChild(None, "year", match.group(3).encode('utf-8'))
                     if match.group(1) and match.group(2):
                         holder = match.group(1)+"(%s)" % match.group(2)
                     elif match.group(1):
