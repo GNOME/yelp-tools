@@ -1,5 +1,10 @@
 2006-05-29  Shaun McCance  <shaunm@gnome.org>
 
+	* gnome-doc-utils.make:
+	- Added support for the LINGUAS environment variable
+
+2006-05-29  Shaun McCance  <shaunm@gnome.org>
+
 	* gnome-doc-utils.m4:
 	- Removed the code to copy gnome-doc-utils.make in; use gnome-doc-prepare
 

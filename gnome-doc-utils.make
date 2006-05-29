@@ -106,6 +106,9 @@ _DOC_REAL_FORMATS = $(if $(DOC_USER_FORMATS),$(DOC_USER_FORMATS),$(DOC_FORMATS))
 ## @ DOC_LINGUAS
 ## The languages this document is translated into
 DOC_LINGUAS ?=
+_DOC_REAL_LINGUAS = $(if $(filter environment,$(origin LINGUAS)),		\
+	$(filter $(LINGUAS),$(DOC_LINGUAS)),					\
+	$(DOC_LINGUAS))
 
 ## @ RNGDOC_DIRS
 ## The directories containing RNG files to be documented with rngdoc
@@ -212,7 +215,7 @@ _DOC_OMF_IN = $(if $(DOC_MODULE),$(wildcard $(srcdir)/$(DOC_MODULE).omf.in))
 ## @ _DOC_OMF_DB
 ## The OMF files for DocBook output
 _DOC_OMF_DB = $(if $(_DOC_OMF_IN),						\
-	$(foreach lc,C $(DOC_LINGUAS),$(DOC_MODULE)-$(lc).omf))
+	$(foreach lc,C $(_DOC_REAL_LINGUAS),$(DOC_MODULE)-$(lc).omf))
 
 $(_DOC_OMF_DB) : $(_DOC_OMF_IN)
 $(_DOC_OMF_DB) : $(DOC_MODULE)-%.omf : %/$(DOC_MODULE).xml
@@ -221,7 +224,7 @@ $(_DOC_OMF_DB) : $(DOC_MODULE)-%.omf : %/$(DOC_MODULE).xml
 ## @ _DOC_OMF_HTML
 ## The OMF files for HTML output
 _DOC_OMF_HTML = $(if $(_DOC_OMF_IN),						\
-	$(foreach lc,C $(DOC_LINGUAS),$(DOC_MODULE)-html-$(lc).omf))
+	$(foreach lc,C $(_DOC_REAL_LINGUAS),$(DOC_MODULE)-html-$(lc).omf))
 
 $(_DOC_OMF_HTML) : $(_DOC_OMF_IN)
 $(_DOC_OMF_HTML) : $(DOC_MODULE)-html-%.omf : %/$(DOC_MODULE).xml
@@ -251,7 +254,7 @@ _CVSIGNORE_C = $(if $(DOC_MODULE), C/.cvsignore)
 
 ## @ _CVSIGNORE_LC
 ## The .cvsignore files in other locale directories
-_CVSIGNORE_LC = $(if $(DOC_MODULE),$(foreach lc,$(DOC_LINGUAS),$(lc)/.cvsignore))
+_CVSIGNORE_LC = $(if $(DOC_MODULE),$(foreach lc,$(_DOC_REAL_LINGUAS),$(lc)/.cvsignore))
 
 ## @ _CVSIGNORE_TOP_FILES
 ## The list of files to be listed in the top-level .cvsignore file
@@ -347,56 +350,56 @@ _DOC_C_HTML = $(foreach f,						\
 
 ## @ _DOC_POFILES
 ## The .po files used for translating the document
-_DOC_POFILES = $(if $(DOC_MODULE),					\
-	$(foreach lc,$(DOC_LINGUAS),$(lc)/$(lc).po))
+_DOC_POFILES = $(if $(DOC_MODULE),						\
+	$(foreach lc,$(_DOC_REAL_LINGUAS),$(lc)/$(lc).po))
 
 .PHONY: po
 po: $(_DOC_POFILES)
 
 ## @ _DOC_LC_MODULES
 ## The top-level documentation files in all other locales
-_DOC_LC_MODULES = $(if $(DOC_MODULE),					\
-	$(foreach lc,$(DOC_LINGUAS),$(lc)/$(DOC_MODULE).xml))
+_DOC_LC_MODULES = $(if $(DOC_MODULE),						\
+	$(foreach lc,$(_DOC_REAL_LINGUAS),$(lc)/$(DOC_MODULE).xml))
 
 ## @ _DOC_LC_XINCLUDES
 ## Files included with XInclude in all other locales
-_DOC_LC_INCLUDES =							\
-	$(foreach lc,$(DOC_LINGUAS),$(foreach inc,$(_DOC_C_INCLUDES),	\
+_DOC_LC_INCLUDES =								\
+	$(foreach lc,$(_DOC_REAL_LINGUAS),$(foreach inc,$(_DOC_C_INCLUDES),	\
 		$(lc)/$(notdir $(inc)) ))
 
 ## @ _RNGDOC_LC_DOCS
 ## The generated rngdoc documentation in all other locales
-_RNGDOC_LC_DOCS =							\
-	$(foreach lc,$(DOC_LINGUAS),$(foreach doc,$(_RNGDOC_C_DOCS),	\
+_RNGDOC_LC_DOCS =								\
+	$(foreach lc,$(_DOC_REAL_LINGUAS),$(foreach doc,$(_RNGDOC_C_DOCS),	\
 		$(lc)/$(notdir $(doc)) ))
 
 ## @ _XSLDOC_LC_DOCS
 ## The generated xsldoc documentation in all other locales
-_XSLDOC_LC_DOCS =							\
-	$(foreach lc,$(DOC_LINGUAS),$(foreach doc,$(_XSLDOC_C_DOCS),	\
+_XSLDOC_LC_DOCS =								\
+	$(foreach lc,$(_DOC_REAL_LINGUAS),$(foreach doc,$(_XSLDOC_C_DOCS),	\
 		$(lc)/$(notdir $(doc)) ))
 
 ## @ _DOC_LC_HTML
 ## All HTML documentation in all other locales
 # FIXME: probably have to shell escape to determine the file names
-_DOC_LC_HTML =								\
-	$(foreach lc,$(DOC_LINGUAS),$(foreach doc,$(_DOC_C_HTML),	\
+_DOC_LC_HTML =									\
+	$(foreach lc,$(_DOC_REAL_LINGUAS),$(foreach doc,$(_DOC_C_HTML),		\
 		$(lc)/$(notdir $(doc)) ))
 
 ## @ _DOC_LC_DOCS
 ## All documentation files in all other locales
-_DOC_LC_DOCS =								\
-	$(_DOC_LC_MODULES)	$(_DOC_LC_INCLUDES)			\
-	$(_RNGDOC_LC_DOCS)	$(_XSLDOC_LC_DOCS)			\
+_DOC_LC_DOCS =									\
+	$(_DOC_LC_MODULES)	$(_DOC_LC_INCLUDES)				\
+	$(_RNGDOC_LC_DOCS)	$(_XSLDOC_LC_DOCS)				\
 	$(if $(filter html HTML,$(_DOC_REAL_FORMATS)),$(_DOC_LC_HTML))
 
 ## @ _DOC_LC_FIGURES
 ## All figures and other external data in all other locales
-_DOC_LC_FIGURES = $(foreach lc,$(DOC_LINGUAS),				\
+_DOC_LC_FIGURES = $(foreach lc,$(_DOC_REAL_LINGUAS),				\
 	$(patsubst C/%,$(lc)/%,$(_DOC_C_FIGURES)) )
 
-_DOC_SRC_FIGURES =							\
-	$(foreach fig,$(_DOC_C_FIGURES), $(foreach lc,C $(DOC_LINGUAS),	\
+_DOC_SRC_FIGURES =								\
+	$(foreach fig,$(_DOC_C_FIGURES), $(foreach lc,C $(_DOC_REAL_LINGUAS),	\
 		$(wildcard $(srcdir)/$(lc)/$(patsubst C/%,%,$(fig))) ))
 
 $(_DOC_POFILES):
@@ -460,7 +463,7 @@ $(_DOC_POT): $(_DOC_C_DOCS_NOENT)
 _DOC_HTML_ALL = $(if $(filter html HTML,$(_DOC_REAL_FORMATS)), \
 	$(_DOC_C_HTML) $(_DOC_LC_HTML))
 
-_DOC_HTML_TOPS = $(foreach lc,C $(DOC_LINGUAS),$(lc)/$(DOC_MODULE).xhtml)
+_DOC_HTML_TOPS = $(foreach lc,C $(_DOC_REAL_LINGUAS),$(lc)/$(DOC_MODULE).xhtml)
 
 $(_DOC_HTML_TOPS): $(_DOC_C_DOCS) $(_DOC_LC_DOCS)
 	xsltproc -o $@ --xinclude --param db.chunk.chunk_top "false()" --stringparam db.chunk.basename "$(DOC_MODULE)" --stringparam db.chunk.extension ".xhtml" $(_db2html) $(patsubst %.xhtml,%.xml,$@)
@@ -494,14 +497,14 @@ clean-doc-lc:
 	    rm -f "$$po"; \
 	  fi; \
 	done
-	@for lc in C $(DOC_LINGUAS); do \
+	@for lc in C $(_DOC_REAL_LINGUAS); do \
 	  if test -f "$$lc/.xml2po.mo"; then \
 	    echo "rm -f $$lc/.xml2po.mo"; \
 	    rm -f "$$lc/.xml2po.mo"; \
 	  fi; \
 	done
 clean-doc-dir:
-	@for lc in C $(DOC_LINGUAS); do \
+	@for lc in C $(_DOC_REAL_LINGUAS); do \
 	  for dir in `find $$lc -depth -type d`; do \
 	    if ! test $$dir -ef $(srcdir)/$$dir; then \
 	      echo "rmdir $$dir"; \
@@ -514,7 +517,7 @@ _clean_rngdoc = $(if $(RNGDOC_DIRS),clean-doc-rngdoc)
 _clean_xsldoc = $(if $(XSLDOC_DIRS),clean-doc-xsldoc)
 _clean_omf = $(if $(_DOC_OMF_IN),clean-doc-omf)
 _clean_dsk = $(if $(_DOC_DSK_IN),clean-doc-dsk)
-_clean_lc  = $(if $(DOC_LINGUAS),clean-doc-lc)
+_clean_lc  = $(if $(_DOC_REAL_LINGUAS),clean-doc-lc)
 _clean_dir = $(if $(DOC_MODULE),clean-doc-dir)
 
 clean-local:						\
@@ -543,7 +546,7 @@ doc-dist-hook: 					\
 #	$(if $(_DOC_DSK_IN),dist-doc-dsk)
 
 dist-doc-docs: $(_DOC_C_DOCS) $(_DOC_LC_DOCS) $(_DOC_POFILES)
-	@for lc in C $(DOC_LINGUAS); do \
+	@for lc in C $(_DOC_REAL_LINGUAS); do \
 	  echo " $(mkinstalldirs) $(distdir)/$$lc"; \
 	  $(mkinstalldirs) "$(distdir)/$$lc"; \
 	done
@@ -586,7 +589,7 @@ check:							\
 	$(if $(_DOC_OMF_IN),check-doc-omf)
 
 check-doc-docs: $(_DOC_C_DOCS) $(_DOC_LC_DOCS)
-	@for lc in C $(DOC_LINGUAS); do \
+	@for lc in C $(_DOC_REAL_LINGUAS); do \
 	  if test -f "$$lc"; \
 	    then d=; \
 	    xmlpath="$$lc"; \
@@ -614,7 +617,7 @@ install-data-local:					\
 #	$(if $(_DOC_DSK_IN),install-doc-dsk)
 
 install-doc-docs:
-	@for lc in C $(DOC_LINGUAS); do \
+	@for lc in C $(_DOC_REAL_LINGUAS); do \
 	  echo "$(mkinstalldirs) $(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$lc"; \
 	  $(mkinstalldirs) $(DESTDIR)$(HELP_DIR)/$(DOC_MODULE)/$$lc; \
 	done
@@ -626,7 +629,7 @@ install-doc-docs:
 
 install-doc-figs:
 	@list='$(patsubst C/%,%,$(_DOC_C_FIGURES))'; for fig in $$list; do \
-	  for lc in C $(DOC_LINGUAS); do \
+	  for lc in C $(_DOC_REAL_LINGUAS); do \
 	    if test -f "$$lc/$$fig"; then \
 	      figfile="$$lc/$$fig"; \
 	    elif test -f "$(srcdir)/$$lc/$$fig"; then \
