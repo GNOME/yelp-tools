@@ -1,3 +1,44 @@
+Changes in 0.7.1:
+-----------------
+
+* build: Added support for the LINGUAS environment variable  (Shaun McCance)
+* build: Removed the code to copy gnome-doc-utils.make in  (Shaun McCance)
+* build: Some fixes for HTML generation  (Shaun McCance)
+* build: Added the long-missing template document (Sven Herzberg)
+* xml2po: Treat year as utf-8 as well  (Danilo Šegan)
+* xml2po: Check if "translator-credits" is translated  (Danilo Šegan)
+* xml2po: Updated test cases  (Danilo Šegan)
+* xml2po: Added Ubuntu mode supporting &language;  (Danilo Šegan)
+* xml2po: Mark non-translated passages with @lang; #172459  (Danilo Šegan)
+* xml2po: Added entity-non-expanding serialization  (Danilo Šegan)
+* xml2po: Fixed attribute handling; #317110  (Danilo Šegan)
+* xml2po: Improved fix for #336765  (Danilo Šegan)
+* xml2po: Don't remove blank nodes followed by entities; #317502  (Danilo Šegan)
+* xml2po: Integrate DTD when keeping entities; #336765  (Danilo Šegan)
+* xml2po: Ignore blank nodes; #172784  (Danilo Šegan)
+* xslt: Fixed plurals for fr, wa, nso; bug #338641  (Shaun McCance)
+* xslt: Don't put content before attributes  (Shaun McCance)
+* Updated translations:
+  bg      (Alexander Shopov)
+  ca      (Josep Puigdemont Casamajó)
+  cs      (Lukas Novotny)
+  cy      (Rhys Jones)
+  dz      (Pema Geyleg)
+  es      (Francisco Javier F. Serrador)
+  et      (Ivar Smolin)
+  fi      (Ilkka Tuohela)
+  gl      (Ignacio Casal Quinteiro)
+  gu      (Ankit Patel)
+  ka      (Vladimer Sichinava)
+  nb      (Kjartan Maraas)
+  no      (Kjartan Maraas)
+  ro      (Dan Damian)
+  sv      (Daniel Nylander)
+  th      (Theppitak Karoonboonyanan)
+  vi      (Clytie Siddall)
+  zh_HK   (Chao-Hsiung Liao)
+  zh_TW   (Chao-Hsiung Liao)
+
 Changes in 0.6.0:
 -----------------
 
