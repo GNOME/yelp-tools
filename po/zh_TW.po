@@ -1,16 +1,16 @@
-# Chinese(Taiwan) translation of gnome-doc-utils
+# Chinese (Taiwan) translation of gnome-doc-utils
 # Copyright (C) 2005-06 Free Software Foundation, Inc.
 # Woodman Tuen <wmtuen@gmail.com>, 2005-2006.
 # 
 # 
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-doc-utils 2.14\n"
+"Project-Id-Version: gnome-doc-utils 0.7.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-14 06:14+0800\n"
-"PO-Revision-Date: 2006-04-17 12:36+0800\n"
+"POT-Creation-Date: 2006-07-07 07:22+0200\n"
+"PO-Revision-Date: 2006-07-05 13:54+0800\n"
 "Last-Translator: Woodman Tuen <wmtuen@gmail.com>\n"
-"Language-Team: Chinese(Taiwan) <community@linuxhall.or>\n"
+"Language-Team: Chinese (Taiwan) <community@linuxhall.or>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -471,10 +471,9 @@ msgstr ""
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:391
-#, fuzzy
 msgid ""
 "<msgid>email.tooltip</msgid> <msgstr>Send email to ‘<string/>’.</msgstr>"
-msgstr "<msgid>email.tooltip</msgid> <msgstr>發送電郵給‘<node/>’.</msgstr>"
+msgstr "<msgid>email.tooltip</msgid> <msgstr>發送電郵給‘<string/>’.</msgstr>"
 
 #.
 #. The number formatter used for example numbers.  This can be one of
