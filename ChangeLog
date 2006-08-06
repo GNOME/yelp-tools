@@ -1,3 +1,7 @@
+2006-08-06  Ani Peter  <peter.ani@gmail.com>
+
+	* configure.in: Added Malayalam (ml) to ALL_LINGUAS
+
 2006-08-01  Sanlig Badral  <badral@openmn.org>
 
 	* configure.in: Added mn (Mongolian) to ALL_LINGUAS. 
