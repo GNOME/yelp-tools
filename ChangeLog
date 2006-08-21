@@ -1,3 +1,8 @@
+2006-08-21  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/xsldoc/xsldoc.xsl:
+	- Use an XSLT namespace alias for XInclude output
+
 2006-08-13  Subhransu Behera  <arya_subhransu@yahoo.co.in>
 
 	* configure.in: Added Oriya (or) to ALL_LINGUAS.
