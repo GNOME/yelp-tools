@@ -1,3 +1,7 @@
+2006-08-22  Inaki Larranaga  <dooteo@euskalgnu.org>
+
+	* configure.in: Added "eu" (Basque) to ALL_LINGUAS.
+
 2006-08-22  Matic Žgur  <mr.zgur@gmail.com>
 
 	* configure.in: Added Slovenian (sl) to ALL_LINGUAS.
