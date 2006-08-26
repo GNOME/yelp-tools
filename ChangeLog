@@ -1,3 +1,8 @@
+2006-08-26  Thierry Randrianiriana  <randrianiriana@gmail.com>
+
+	* configure.in: Added Malagasy 'mg' to ALL_LINGUAS.
+	* po/mg.po: Added Malagasy translation.
+
 2006-08-22  Inaki Larranaga  <dooteo@euskalgnu.org>
 
 	* configure.in: Added "eu" (Basque) to ALL_LINGUAS.
@@ -27,7 +32,7 @@
 
 2006-08-01  Sanlig Badral  <badral@openmn.org>
 
-	* configure.in: Added mn (Mongolian) to ALL_LINGUAS. 
+	* configure.in: Added mn (Mongolian) to ALL_LINGUAS.
 
 2006-07-03  Runa Bhattacharjee <runabh@gmail.com>
 
@@ -224,7 +229,7 @@
 2006-01-14  Chao-Hsiung Liao  <j_h_liau@yahoo.com.tw>
 
 	* configure.in: Add "zh_HK" to ALL_LINGUAS.
-	
+
 2006-01-07  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/gettext/l10n.xml.in:
@@ -353,7 +358,7 @@
 
 2005-10-01  Crispin Flowerday  <gnome@flowerday.cx>
 
-	* configure.in: Up version number to 0.5.1 
+	* configure.in: Up version number to 0.5.1
 	(requested by shaunm)
 
 2005-09-28  Shaun McCance  <shaunm@gnome.org>
