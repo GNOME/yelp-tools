@@ -1,3 +1,30 @@
+Changes in 0.8.0:
+-----------------
+* Use an XSLT namespace alias for XInclude output
+* Updated translations:
+  bn      (Jamil Ahmed)
+  bn_IN   (Runa Bhattacharjee)
+  de      (Hendrik Richter)
+  el      (Kostas Papadimas)
+  es      (Francisco Javier F. Serrador)
+  eu      (Inaki Larranaga)
+  hi      (Rajesh Ranjan)
+  hu      (Gabor Kelemen)
+  id      (Ahmad Riza H Nst)
+  ja      (Satoru SATOH)
+  lt      (Gintautas Miliauskas)
+  mg      (Thierry Randrianiriana)
+  mr      (Rahul Bhalrao)
+  or      (Subhransu Behera)
+  pt      (Duarte Loreto)
+  pt_BR   (Leonardo Ferreira Fontenelle)
+  ru      (Leonid Kanter)
+  sl      (Matic Žgur)
+  ug      (Gheyret T.Kenji)
+  uk      (Maxim Dziumanenko)
+  zh_CN   (Funda Wang)
+  (38/61 languages with 100% translation)
+
 Changes in 0.7.2:
 -----------------
 * Updated translations:
