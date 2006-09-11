@@ -118,7 +118,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
       <xsl:call-template name="l10n.number.alphabetic">
         <xsl:with-param name="value" select="$value"/>
         <xsl:with-param name="alphabet"
-                        select="'กขคงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรฤลฦวศษสหฬอฮ'"/>
+                        select="'กขคงจฉชซฌญฎฏฐฑฒณดตถทธนบปผฝพฟภมยรลวศษสหฬอฮ'"/>
       </xsl:call-template>
     </xsl:when>
     <xsl:when test="$format='decimal-thai'">
