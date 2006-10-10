@@ -73,32 +73,31 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <xsl:choose>
     <xsl:when test="$style = 'KR'">
       <xsl:for-each select="void | varargs | paramdef/parameter">
-	<xsl:if test="position() != 1">
-	  <xsl:text>, </xsl:text>
-	</xsl:if>
-	<xsl:apply-templates select="."/>
+        <xsl:if test="position() != 1">
+          <xsl:text>, </xsl:text>
+        </xsl:if>
+        <xsl:apply-templates select="."/>
       </xsl:for-each>
       <xsl:text>)</xsl:text>
       <xsl:apply-templates select="funcdef/following-sibling::modifier"/>
       <xsl:text>;</xsl:text>
       <xsl:for-each select="paramdef">
-	<xsl:text>&#x000A;    </xsl:text>
-	<xsl:apply-templates select="."/>
-	<xsl:text>;</xsl:text>
+        <xsl:text>&#x000A;    </xsl:text>
+        <xsl:apply-templates select="."/>
+        <xsl:text>;</xsl:text>
       </xsl:for-each>
     </xsl:when>
     <!-- ANSI is the default -->
     <xsl:otherwise>
       <xsl:variable name="indent"
-		    select="2 + string-length(
-		                  funcdef |
-		                  funcdef/preceding-sibling::modifier)"/>
+                    select="2 + string-length(funcdef |
+                            funcdef/preceding-sibling::modifier)"/>
       <xsl:for-each select="void | varargs | paramdef">
-	<xsl:if test="position() != 1">
-	  <xsl:text>,&#x000A;</xsl:text>
-	  <xsl:value-of select="str:padding($indent)"/>
-	</xsl:if>
-	<xsl:apply-templates select="."/>
+        <xsl:if test="position() != 1">
+          <xsl:text>,&#x000A;</xsl:text>
+          <xsl:value-of select="str:padding($indent)"/>
+        </xsl:if>
+        <xsl:apply-templates select="."/>
       </xsl:for-each>
       <xsl:text>)</xsl:text>
       <xsl:apply-templates select="funcdef/following-sibling::modifier"/>
@@ -112,11 +111,11 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <xsl:param name="style">
     <xsl:choose>
       <xsl:when test="processing-instruction('db2html.funcsynopsis.style')">
-	<xsl:value-of
-	 select="processing-instruction('db2html.funcsynopsis.style')"/>
+        <xsl:value-of
+         select="processing-instruction('db2html.funcsynopsis.style')"/>
       </xsl:when>
       <xsl:otherwise>
-	<xsl:value-of select="$db2html.funcsynopsis.style"/>
+        <xsl:value-of select="$db2html.funcsynopsis.style"/>
       </xsl:otherwise>
     </xsl:choose>
   </xsl:param>

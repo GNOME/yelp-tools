@@ -33,6 +33,7 @@ AM_GLIB_GNU_GETTEXT
 
 AC_OUTPUT([
 Makefile
+gnome-doc-html
 gnome-doc-prepare
 gnome-doc-utils.pc
 doc/Makefile

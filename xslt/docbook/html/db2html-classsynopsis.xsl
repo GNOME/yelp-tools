@@ -79,7 +79,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
           <xsl:apply-templates mode="db2html.class.cpp.mode" select="."/>
         </xsl:when>
         <xsl:when test="$language = 'python'">
-          <xsl:apply-templates mode="db2html.class.cpp.mode" select="."/>
+          <xsl:apply-templates mode="db2html.class.python.mode" select="."/>
         </xsl:when>
         <xsl:otherwise>
           <xsl:message>

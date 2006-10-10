@@ -24,7 +24,7 @@ pkgdata_DATA=\
 	template.make \
 	template-document.xml
 
-bin_SCRIPTS = gnome-doc-prepare
+bin_SCRIPTS = gnome-doc-prepare gnome-doc-html
 endif
 
 # doc must go last

@@ -28,48 +28,33 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <!-- == db2html.imagedata ================================================== -->
 
 <xsl:template name="db2html.imagedata">
+  <xsl:param name="node" select="."/>
   <img>
     <xsl:attribute name="src">
-      <xsl:choose>
-        <xsl:when test="@fileref">
-          <!-- FIXME: do this less stupidly, or not at all -->
-          <xsl:choose>
-            <xsl:when test="
-                      @format = 'PNG' and
-                        (substring(@fileref, string-length(@fileref) - 3)
-                          != '.png')">
-              <xsl:value-of select="concat(@fileref, '.png')"/>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:value-of select="@fileref"/>
-            </xsl:otherwise>
-          </xsl:choose>
-        </xsl:when>
-        <xsl:when test="@entityref">
-          <xsl:value-of select="unparsed-entity-uri(@entityref)"/>
-        </xsl:when>
-      </xsl:choose>
+      <xsl:call-template name="db2html.imagedata.src">
+        <xsl:with-param name="node" select="$node"/>
+      </xsl:call-template>
     </xsl:attribute>
     <xsl:choose>
-      <xsl:when test="@scale">
+      <xsl:when test="$node/@scale">
         <xsl:attribute name="width">
-          <xsl:value-of select="concat(@scale, '%')"/>
+          <xsl:value-of select="concat($node/@scale, '%')"/>
         </xsl:attribute>
       </xsl:when>
-      <xsl:when test="@width">
+      <xsl:when test="$node/@width">
         <xsl:attribute name="width">
-          <xsl:value-of select="@width"/>
+          <xsl:value-of select="$node/@width"/>
         </xsl:attribute>
-        <xsl:if test="@height">
+        <xsl:if test="$node/@height">
           <xsl:attribute name="height">
-            <xsl:value-of select="@height"/>
+            <xsl:value-of select="$node/@height"/>
           </xsl:attribute>
         </xsl:if>
       </xsl:when>
     </xsl:choose>
-    <xsl:if test="@align">
+    <xsl:if test="$node/@align">
       <xsl:attribute name="align">
-        <xsl:value-of select="@align"/>
+        <xsl:value-of select="$node/@align"/>
       </xsl:attribute>
     </xsl:if>
 <!-- FIXME
@@ -84,30 +69,56 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
+<!-- == db2html.imagedata.src ============================================== -->
+
+<xsl:template name="db2html.imagedata.src">
+  <xsl:param name="node" select="."/>
+  <xsl:choose>
+    <xsl:when test="$node/@fileref">
+      <!-- FIXME: do this less stupidly, or not at all -->
+      <xsl:choose>
+        <xsl:when test="$node/@format = 'PNG' and
+                        (substring($node/@fileref, string-length($node/@fileref) - 3)
+                          != '.png')">
+          <xsl:value-of select="concat($node/@fileref, '.png')"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="$node/@fileref"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:when>
+    <xsl:when test="$node/@entityref">
+      <xsl:value-of select="unparsed-entity-uri($node/@entityref)"/>
+    </xsl:when>
+  </xsl:choose>
+</xsl:template>
+
+
 <!-- == db2html.mediaobject ================================================ -->
 
 <xsl:template name="db2html.mediaobject">
+  <xsl:param name="node" select="."/>
   <xsl:choose>
 <!-- FIXME
     <xsl:when test="$text_only">
       <xsl:apply-templates select="textobject[1]"/>
     </xsl:when>
 -->
-    <xsl:when test="imageobject[imagedata/@format = 'PNG']">
+    <xsl:when test="$node/imageobject[imagedata/@format = 'PNG']">
       <xsl:apply-templates
-       select="imageobject[imagedata/@format = 'PNG'][1]">
-        <xsl:with-param name="textobject" select="textobject[1]"/>
+       select="$node/imageobject[imagedata/@format = 'PNG'][1]">
+        <xsl:with-param name="textobject" select="$node/textobject[1]"/>
       </xsl:apply-templates>
     </xsl:when>
-    <xsl:when test="imageobjectco[imageobject/imagedata/@format = 'PNG']">
+    <xsl:when test="$node/imageobjectco[imageobject/imagedata/@format = 'PNG']">
       <xsl:apply-templates
-       select="imageobjectco[imageobject/imagedata/@format = 'PNG'][1]">
-        <xsl:with-param name="textobject" select="textobject[1]"/>
+       select="$node/imageobjectco[imageobject/imagedata/@format = 'PNG'][1]">
+        <xsl:with-param name="textobject" select="$node/textobject[1]"/>
       </xsl:apply-templates>
     </xsl:when>
     <xsl:otherwise>
-      <xsl:apply-templates select="(imageobject | imageobjectco)[1]">
-        <xsl:with-param name="textobject" select="textobject[1]"/>
+      <xsl:apply-templates select="($node/imageobject | $node/imageobjectco)[1]">
+        <xsl:with-param name="textobject" select="$node/textobject[1]"/>
       </xsl:apply-templates>
     </xsl:otherwise>
   </xsl:choose>

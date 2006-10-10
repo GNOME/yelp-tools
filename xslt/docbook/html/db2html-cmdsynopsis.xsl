@@ -14,7 +14,7 @@
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.cmdsynopsis.sepchar</name>
   <purpose>
-    The default value for the <parameter>sepchar</parameter> paramter
+    The default value for the <parameter>sepchar</parameter> parameter
   </purpose>
 </parameter>
 
@@ -26,7 +26,7 @@
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.arg.choice</name>
   <purpose>
-    The default value of the <parameter>choice</parameter> paramter
+    The default value of the <parameter>choice</parameter> parameter
     for <xmltag>arg</xmltag> elements
   </purpose>
 </parameter>
@@ -39,7 +39,7 @@
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.arg.rep</name>
   <purpose>
-    The default value of the <parameter>rep</parameter> paramter
+    The default value of the <parameter>rep</parameter> parameter
     for <xmltag>arg</xmltag> elements
   </purpose>
 </parameter>
@@ -52,7 +52,7 @@
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.group.choice</name>
   <purpose>
-    The default value of the <parameter>choice</parameter> paramter
+    The default value of the <parameter>choice</parameter> parameter
     for <xmltag>group</xmltag> elements
   </purpose>
 </parameter>
@@ -65,7 +65,7 @@
 <parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
   <name>db2html.group.rep</name>
   <purpose>
-    The default value of the <parameter>rep</parameter> paramter
+    The default value of the <parameter>rep</parameter> parameter
     for <xmltag>group</xmltag> elements
   </purpose>
 </parameter>

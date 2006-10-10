@@ -1,3 +1,25 @@
+2006-10-09  Shaun McCance  <shaunm@gnome.org>
+
+	* Makefile.am:
+	* configure.in:
+	* gnome-doc-html:
+	- Added gnome-doc-html, no-fuss script to convert DocBook to HTML
+
+	* xslt/docbook/html/db2html-classsynopsis.xsl:
+	- Fixed type: python mode was calling cpp mode
+
+	* xslt/docbook/html/db2html-cmdsynopsis.xsl:
+	- Fixed documentation typos: s/paramter/parameter/
+
+	* xslt/docbook/html/db2html-funcsynopsis.xsl:
+	- Whitespace
+
+	* xslt/docbook/html/db2html-media.xsl:
+	* xslt/docbook/utils/Makefile.am:
+	* xslt/docbook/utils/figures.xsl:
+	- Split out db2html.imagedata.src to give figures.xsl
+	- Added figures.xsl util to list the actual media files used
+
 2006-09-11  Theppitak Karoonboonyanan  <thep@linux.thai.net>
 
 	* xslt/gettext/l10n-numbers.xsl:
