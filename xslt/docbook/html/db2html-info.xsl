@@ -56,7 +56,9 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:param>
   <html>
     <head>
-      <xsl:call-template name="db2html.css"/>
+      <xsl:call-template name="db2html.css">
+        <xsl:with-param name="css_file" select="false()"/>
+      </xsl:call-template>
     </head>
     <body>
       <div class="body">

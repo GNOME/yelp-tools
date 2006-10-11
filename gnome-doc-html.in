@@ -37,12 +37,12 @@ function error {
     echo "$progname: $1" 1>&2;
     exit 1;
 }
-# FIXME: chunk depth
 function print_help {
     echo "Usage: $progname [OPTIONS] FILE"
     echo "Convert FILE into HTML."
     echo ""
     echo "Basic Output Control:"
+    echo "  -c, --css-file=FILE             file to output CSS to"
     echo "  -d, --chunk-depth=INT           how deep sections should be chunked"
     echo "  -e, --extension=EXT             the extension to append to output files"
     echo "  -n, --no-figures                do not copy figures into the output directory"
@@ -58,9 +58,9 @@ function print_help {
     echo "                                  elements, either 'KR' or 'ANSI'"
     echo ""
     echo "Miscellaneous:"
-    echo "  -v, --verbose               print all the commands executed"
-    echo "  -V, --version               print version information and exit"
-    echo "  -h, --help                  display this help and exit"
+    echo "  -v, --verbose                   print all the commands executed"
+    echo "  -V, --version                   print version information and exit"
+    echo "  -h, --help                      display this help and exit"
 }
 function echo_verbose {
     if [ "x$doc_verbose" == "x1" ]; then echo $1; fi
@@ -77,6 +77,7 @@ function mkdir_p {
 }
 
 longopts='
+  -lcss-file:
   -lchunk-depth:
   -lextension:
   -lno-figures
@@ -90,12 +91,14 @@ longopts='
   -lversion
   -lhelp
 '
-options=`getopt -qn$progname $longopts -- d:e:o:nvVh "$@"`
+options=`getopt -qn$progname $longopts -- c:d:e:o:nvVh "$@"`
 if [ "$?" != "0" ]; then print_help 1>&2; exit 1; fi
 
 eval set -- "$options";
 while [ "$1" != "--" ]; do
     case "$1" in
+	-c | --css-file)
+	    doc_css_file="$2";;
 	-d | --chunk-depth)
 	    doc_chunk_depth="$2";;
 	-e | --extension)
@@ -173,6 +176,9 @@ params="$params --stringparam db.chunk.basename \"$doc_outbase\""
 params="$params --stringparam db.chunk.extension \"$doc_extension\""
 if [ "x$doc_chunk_depth" != "x" ]; then
     params="$params --param db.chunk.max_depth $doc_chunk_depth"
+fi
+if [ "x$doc_css_file" != "x" ]; then
+    params="$params --stringparam db2html.css.file \"$doc_css_file\""
 fi
 if [ "x$doc_admon_graphics_path" != "x" ]; then
     params="$params --stringparam db2html.admon.graphics_path"

@@ -18,11 +18,25 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
-                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:exsl="http://exslt.org/common"
                 exclude-result-prefixes="doc"
+                extension-element-prefixes="exsl"
+                xmlns="http://www.w3.org/1999/xhtml"
                 version="1.0">
 
 <doc:title>CSS</doc:title>
+
+
+<!-- == db2html.css.file =================================================== -->
+
+<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
+  <name>db2html.css.file</name>
+  <purpose>
+    The file to output CSS to.  If blank, CSS is embedded in the HTML.
+  </purpose>
+</parameter>
+
+<xsl:param name="db2html.css.file" select="''"/>
 
 
 <!-- == db2html.css ======================================================== -->
@@ -32,64 +46,81 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </template>
 
 <xsl:template name="db2html.css">
-  <style>
-    <xsl:call-template name="db2html.footnote.css"/>
-    <xsl:call-template name="db2html.admon.css"/>
-    <xsl:call-template name="db2html.autotoc.css"/>
-    <xsl:call-template name="db2html.bibliography.css"/>
-    <xsl:call-template name="db2html.block.css"/>
-    <xsl:call-template name="db2html.callout.css"/>
-    <xsl:call-template name="db2html.cmdsynopsis.css"/>
-    <xsl:call-template name="db2html.list.css"/>
-    <xsl:call-template name="db2html.qanda.css"/>
-    <xsl:call-template name="db2html.refentry.css"/>
-    <xsl:call-template name="db2html.table.css"/>
-    <xsl:call-template name="db2html.title.css"/>
-    <xsl:text>
-    body {
-      margin: 0px;
-      direction: </xsl:text>
-      <xsl:call-template name="l10n.direction"/><xsl:text>;
-    }
-    div[class ~= "body"] {
-      padding: 12px;
-    }
-    div[class ~= "navbar"] {
-      margin-left: 12px;
-      margin-right: 12px;
-      margin-bottom: 12px;
-      padding: 6px;
-      border: solid 1px;
-    }
-    div[class ~= "navbar-prev"] {
-      margin: 0px;
-      padding: 0px;
-      float: left;
-    }
-    div[class ~= "navbar-prev-sans-next"] {
-      float: none;
-    }
-    div[class ~= "navbar-next"] {
-      margin: 0px;
-      padding: 0px;
-      text-align: right;
-    }
-    div {
-      margin-top: 0em;  margin-bottom: 0em;
-      padding-top: 0em; padding-bottom: 0em;
-    }
-    p {
-      margin-top: 0em;  margin-bottom: 0em;
-      padding-top: 0em; padding-bottom: 0em;
-    }
-    div + * { margin-top: 1em; }
-    p   + * { margin-top: 1em; }
-    p &gt; div { margin-top: 1em; margin-bottom: 1em; }
-    p &gt; div + div { margin-top: 0em; }
-    p { text-align: justify; }
-    </xsl:text>
-    <xsl:call-template name="db2html.css.custom"/>
-  </style>
+  <xsl:param name="css_file" select="true()"/>
+  <xsl:choose>
+    <xsl:when test="$db2html.css.file != ''">
+      <xsl:if test="$css_file">
+        <exsl:document href="{$db2html.css.file}" method="text">
+          <xsl:call-template name="db2html.css.content"/>
+        </exsl:document>
+      </xsl:if>
+      <link rel="stylesheet" type="text/css" href="{$db2html.css.file}"/>
+    </xsl:when>
+    <xsl:otherwise>
+      <style type="text/css">
+        <xsl:call-template name="db2html.css.content"/>
+      </style>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+<xsl:template name="db2html.css.content">
+  <xsl:call-template name="db2html.footnote.css"/>
+  <xsl:call-template name="db2html.admon.css"/>
+  <xsl:call-template name="db2html.autotoc.css"/>
+  <xsl:call-template name="db2html.bibliography.css"/>
+  <xsl:call-template name="db2html.block.css"/>
+  <xsl:call-template name="db2html.callout.css"/>
+  <xsl:call-template name="db2html.cmdsynopsis.css"/>
+  <xsl:call-template name="db2html.list.css"/>
+  <xsl:call-template name="db2html.qanda.css"/>
+  <xsl:call-template name="db2html.refentry.css"/>
+  <xsl:call-template name="db2html.table.css"/>
+  <xsl:call-template name="db2html.title.css"/>
+  <xsl:text>
+  body {
+    margin: 0px;
+    direction: </xsl:text>
+    <xsl:call-template name="l10n.direction"/><xsl:text>;
+  }
+  div[class ~= "body"] {
+    padding: 12px;
+  }
+  div[class ~= "navbar"] {
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-bottom: 12px;
+    padding: 6px;
+    border: solid 1px;
+  }
+  div[class ~= "navbar-prev"] {
+    margin: 0px;
+    padding: 0px;
+    float: left;
+  }
+  div[class ~= "navbar-prev-sans-next"] {
+    float: none;
+  }
+  div[class ~= "navbar-next"] {
+    margin: 0px;
+    padding: 0px;
+    text-align: right;
+  }
+  div {
+    margin-top: 0em;  margin-bottom: 0em;
+    padding-top: 0em; padding-bottom: 0em;
+  }
+  p {
+    margin-top: 0em;  margin-bottom: 0em;
+    padding-top: 0em; padding-bottom: 0em;
+  }
+  div + * { margin-top: 1em; }
+  p   + * { margin-top: 1em; }
+  p &gt; div { margin-top: 1em; margin-bottom: 1em; }
+  p &gt; div + div { margin-top: 0em; }
+  p { text-align: justify; }
+  </xsl:text>
+  <xsl:call-template name="db2html.css.custom"/>
 </xsl:template>
 
 <xsl:template name="db2html.css.custom"/>
