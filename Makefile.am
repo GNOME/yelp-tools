@@ -16,9 +16,6 @@ aclocal_DATA = gnome-doc-utils.m4
 sharedir = $(datadir)/gnome-doc-utils
 share_DATA = gnome-doc-utils.make
 
-pkgconfigdir = $(libdir)/pkgconfig
-pkgconfig_DATA = gnome-doc-utils.pc
-
 pkgdata_DATA=\
 	template.omf.in \
 	template.make \
@@ -26,6 +23,9 @@ pkgdata_DATA=\
 
 bin_SCRIPTS = gnome-doc-prepare gnome-doc-html
 endif
+
+pkgconfigdir = $(libdir)/pkgconfig
+pkgconfig_DATA = gnome-doc-utils.pc
 
 # doc must go last
 SUBDIRS = po xslt $(xml2po_SUBDIRS) doc

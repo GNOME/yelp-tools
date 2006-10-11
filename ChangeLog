@@ -1,3 +1,10 @@
+2006-10-11  Mariano Suárez-Alvarez  <msuarezalvarez@arnet.com.ar>
+
+	* Makefile.am: install the .pc file even if the build utils are not
+	enabled. Bug #355553.
+	* xslt/xsldoc/xsldoc.xsl: add xi and fxi to exclude-result-prefixes,
+	so that we don't get spurious xmlns attributes all over the place.
+
 2006-10-09  Shaun McCance  <shaunm@gnome.org>
 
 	* Makefile.am:

@@ -20,7 +20,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                 xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
                 xmlns:fxi="faux://www.w3.org/2001/XInclude"
                 xmlns:xi="http://www.w3.org/2001/XInclude"
-                exclude-result-prefixes="doc"
+                exclude-result-prefixes="doc fxi xi"
                 version="1.0">
 
 <xsl:namespace-alias stylesheet-prefix="fxi" result-prefix="xi"/>
