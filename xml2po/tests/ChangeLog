@@ -1,3 +1,7 @@
+2006-10-20  Danilo Šegan  <danilo@gnome.org>
+
+	* test.py: Added PYTHONPATH to commands.
+
 2006-04-01  Danilo Šegan  <danilo@gnome.org>
 
 	* test.py (SIMPLETESTS): Added ubuntu-mode.

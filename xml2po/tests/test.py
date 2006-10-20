@@ -23,12 +23,12 @@ if len(sys.argv) > 1:
         for opt in sys.argv[2:]:
             myopts += " " + opt
     output = input.replace(".xml", ".xml.out")
-    fullcommand = "../xml2po %s %s | sed 's/\"POT-Creation-Date: .*$/\"POT-Creation-Date: \\\\n\"/' | diff -u %s -" % (myopts, input, pot)
+    fullcommand = "PYTHONPATH=../modes ../xml2po %s %s | sed 's/\"POT-Creation-Date: .*$/\"POT-Creation-Date: \\\\n\"/' | diff -u %s -" % (myopts, input, pot)
     #print >>sys.stderr, fullcommand
     ret = os.system(fullcommand)
     if ret:
         print "Problem: extraction from '%s'" % (input)
-    fullcommand = "../xml2po -p %s %s %s | diff -u %s -" % (po, myopts, input, output)
+    fullcommand = "PYTHONPATH=../modes ../xml2po -p %s %s %s | diff -u %s -" % (po, myopts, input, output)
     #print >>sys.stderr, fullcommand
     ret = os.system(fullcommand)
     if ret:
@@ -42,6 +42,6 @@ else:
             print "WARNING: Test %s failed." % (t)
     
     for t in OTHERTESTS:
-        if os.system("cd %s && ./%s" % (t[0], t[1])):
+        if os.system("cd %s && PYTHONPATH=../../modes ./%s" % (t[0], t[1])):
             print "WARNING: Test %s failed." % (t[0])
     
