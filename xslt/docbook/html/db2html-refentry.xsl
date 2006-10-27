@@ -17,35 +17,37 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
                 xmlns="http://www.w3.org/1999/xhtml"
-                exclude-result-prefixes="doc"
                 version="1.0">
 
-<doc:title>Reference Pages</doc:title>
+<!--!!==========================================================================
+DocBook to HTML - Reference Pages
+
+REMARK: Describe this module. Talk about refenty and friends
+-->
 
 
-<!-- == db2html.refentry.css =============================================== -->
+<!--**==========================================================================
+db2html.refentry.css
+Outputs CSS that controls the appearance of reference page elements
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.refentry.css</name>
-  <purpose>
-    Create CSS for the refentry elements
-  </purpose>
-</template>
-
+REMARK: Describe this template
+-->
 <xsl:template name="db2html.refentry.css">
-  <xsl:text>
-    div[class~="refentry"] h2[class~="refentry"] {
-      border: none;
-      margin-top: 1em;
-    }
-    div[class~="refentry"] + div[class~="refentry"] {
-      border-top: dashed black 1px;
-    }
-  </xsl:text>
+<xsl:text>
+div.refentry h2.refentry {
+  border: none;
+  margin-top: 1em;
+}
+div.refentry + div.refentry {
+<!-- FIXME: this is ugly -->
+  border-top: dashed black 1px;
+}
+</xsl:text>
 </xsl:template>
 
+
+<!-- == Matched Templates == -->
 
 <!-- = manvolnum = -->
 <xsl:template match="manvolnum">
@@ -55,7 +57,6 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     <xsl:with-param name="format" select="true()"/>
   </xsl:call-template>
 </xsl:template>
-
 
 <!-- = refentry = -->
 <xsl:template match="refentry">
@@ -244,7 +245,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </div>
 </xsl:template>
 
-<!-- = title = -->
+<!-- = refsect*/title = -->
 <xsl:template match="refsect1/title | refsect2/title   |
                      refsect3/title | refsection/title ">
   <xsl:param name="referent" select=".."/>

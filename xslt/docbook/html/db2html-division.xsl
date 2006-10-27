@@ -17,41 +17,25 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
                 xmlns="http://www.w3.org/1999/xhtml"
-                exclude-result-prefixes="doc"
                 version="1.0">
 
-<doc:title>Division Elements</doc:title>
+<!--!!==========================================================================
+DocBook to HTML - Division Elements
+
+REMARK: Describe this module
+-->
 
 
-<!-- == db2html.division.html ============================================== -->
+<!--**==========================================================================
+db2html.division.html
+Renders a complete HTML page for a division element
+$node: The element to create an HTML page for
+$info: The info child element of ${node}
+$depth_of_chunk: The depth of the containing chunk in the document
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.division.html</name>
-  <purpose>
-    Render a complete HTML page for a division element
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The element for which to create an HTML page
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>info</name>
-    <purpose>
-      The info child element
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>depth_of_chunk</name>
-    <purpose>
-      The depth of the containing chunk in the document
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Put in a word about the chunk flow; talk about what templates get called
+-->
 <xsl:template name="db2html.division.html">
   <xsl:param name="node" select="."/>
   <xsl:param name="info"/>
@@ -181,13 +165,22 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2html.division.head.extra ======================================== -->
+<!--**==========================================================================
+db2html.division.head.extra
+FIXME
+:Stub: true
 
+REMARK: Describe this stub template.
+-->
 <xsl:template name="db2html.division.head.extra"/>
 
 
-<!-- == db2html.division.top =============================================== -->
+<!--**==========================================================================
+db2html.division.top
+FIXME
 
+REMARK: Describe this template
+-->
 <xsl:template name="db2html.division.top">
   <xsl:param name="node"/>
   <xsl:param name="info"/>
@@ -226,8 +219,12 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2html.division.bottom ============================================ -->
+<!--**==========================================================================
+db2html.division.bottom
+FIXME
 
+REMARK: Describe this template
+-->
 <xsl:template name="db2html.division.bottom">
   <xsl:param name="node"/>
   <xsl:param name="info"/>
@@ -275,75 +272,22 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2html.division.div =============================================== -->
+<!--**==========================================================================
+db2html.division.div
+Renders the content of a division element, chunking children if necessary
+$node: The element to render the content of
+$info: The info child element of ${node}
+$title_content: The title for divisions lacking a #{title} tag
+$entries: The entry-style child elements
+$divisions: The division-level child elements
+$depth_in_chunk: The depth of ${node} in the containing chunk
+$depth_of_chunk: The depth of the containing chunk in the document
+$chunk_divisions: Whether to create new documents for ${divisions}
+$chunk_info: Whether to create a new document for a title page
+$autotoc_depth: How deep to create contents listings of ${divisions}
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.division.div</name>
-  <purpose>
-    Render the content of a division element, chunking children if necessary
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The node to render the content of
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>title_content</name>
-    <purpose>
-      The title, for divisions lacking a <sgmltag>title</sgmltag> element
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>info</name>
-    <purpose>
-      The info child element
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>entries</name>
-    <purpose>
-      The entry-style child elements
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>divisions</name>
-    <purpose>
-      The division-level child elements
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>depth_in_chunk</name>
-    <purpose>
-      The depth of the element in the containing chunk
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>depth_of_chunk</name>
-    <purpose>
-      The depth of the containing chunk in the document
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>chunk_divisions</name>
-    <purpose>
-      Whether to generate new documents for <parameter>divisions</parameter>
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>chunk_info</name>
-    <purpose>
-      Whether to generate a new document for a titlepage
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>autotoc_depth</name>
-    <purpose>
-      How deep to create a contents listing of <parameter>divisions</parameter>
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Talk about some of the parameters
+-->
 <xsl:template name="db2html.division.div">
   <xsl:param name="node" select="."/>
   <xsl:param name="title_content"/>
@@ -441,8 +385,12 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2html.division.navbar ============================================ -->
+<!--**==========================================================================
+db2html.division.navbar
+FIXME
 
+REMARK: Document this template
+-->
 <xsl:template name="db2html.division.navbar">
   <xsl:param name="node"/>
   <xsl:param name="info"/>
@@ -557,9 +505,13 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db.chunk.content.mode ============================================== -->
+<!--%%==========================================================================
+db.chunk.content.mode
+FIXME
+$depth_of_chunk: The depth of the containing chunk in the document
 
-<!-- = * = -->
+REMARK: Document this mode
+-->
 <xsl:template mode="db.chunk.content.mode" match="*">
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
@@ -569,7 +521,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = appendix = -->
+<!-- = appendix % db.chunk.content.mode = -->
 <xsl:template mode="db.chunk.content.mode" match="appendix">
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
@@ -580,7 +532,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = article = -->
+<!-- = article % db.chunk.content.mode = -->
 <xsl:template mode="db.chunk.content.mode" match="article">
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
@@ -591,7 +543,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = bibliography = -->
+<!-- = bibliography % db.chunk.content.mode = -->
 <xsl:template mode="db.chunk.content.mode" match="bibliography">
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
@@ -602,7 +554,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = book = -->
+<!-- = book % db.chunk.content.mode = -->
 <xsl:template mode="db.chunk.content.mode" match="book">
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
@@ -613,7 +565,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = chapter = -->
+<!-- = chapter % db.chunk.content.mode = -->
 <xsl:template mode="db.chunk.content.mode" match="chapter">
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
@@ -624,7 +576,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = glossary = -->
+<!-- = glossary % db.chunk.content.mode = -->
 <xsl:template mode="db.chunk.content.mode" match="glossary">
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
@@ -635,7 +587,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = part = -->
+<!-- = part % db.chunk.content.mode = -->
 <xsl:template mode="db.chunk.content.mode" match="part">
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
@@ -646,7 +598,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = preface = -->
+<!-- = preface % db.chunk.content.mode = -->
 <xsl:template mode="db.chunk.content.mode" match="preface">
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
@@ -657,7 +609,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = sect1 = -->
+<!-- = sect1 % db.chunk.content.mode = -->
 <xsl:template mode="db.chunk.content.mode" match="sect1">
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
@@ -668,7 +620,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = sect2 = -->
+<!-- = sect2 % db.chunk.content.mode = -->
 <xsl:template mode="db.chunk.content.mode" match="sect2">
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
@@ -679,7 +631,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = sect3 = -->
+<!-- = sect3 % db.chunk.content.mode = -->
 <xsl:template mode="db.chunk.content.mode" match="sect3">
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
@@ -690,7 +642,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = sect4 = -->
+<!-- = sect4 % db.chunk.content.mode = -->
 <xsl:template mode="db.chunk.content.mode" match="sect4">
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
@@ -701,7 +653,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = sect5 = -->
+<!-- = sect5 % db.chunk.content.mode = -->
 <xsl:template mode="db.chunk.content.mode" match="sect5">
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
@@ -712,7 +664,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = section = -->
+<!-- = section % db.chunk.content.mode = -->
 <xsl:template mode="db.chunk.content.mode" match="section">
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
@@ -724,7 +676,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == Matched Templates ================================================== -->
+<!-- == Matched Templates == -->
 
 <!-- = appendix = -->
 <xsl:template match="appendix">

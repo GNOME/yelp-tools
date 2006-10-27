@@ -17,130 +17,97 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-		xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
-		exclude-result-prefixes="doc"
                 version="1.0">
 
 <xsl:output method="xml" encoding="utf-8" indent="yes"/>
 
 <xsl:include href="../common/db-common.xsl"/>
 
-<doc:title>DocBook to ScrollKeeper OMF</doc:title>
+<!--!!==========================================================================
+DocBook to ScrollKeeper OMF
+-->
 
 
-<!-- == db2omf.basename ==================================================== -->
+<!--@@==========================================================================
+db2omf.basename
+The basename of the referenced document
 
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.basename</name>
-  <purpose>
-    The basename of the referenced document
-  </purpose>
-</parameter>
-
+REMARK: Document what a basename is
+-->
 <xsl:param name="db2omf.basename"/>
 
 
-<!-- == db2omf.format ====================================================== -->
+<!--@@==========================================================================
+db2omf.format
+The format of the referenced document
 
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.format</name>
-  <purpose>
-    The format of the referenced document
-  </purpose>
-</parameter>
-
+REMARK: Document this
+-->
 <xsl:param name="db2omf.format"/>
 
 
-<!-- == db2omf.mime ======================================================== -->
+<!--@@==========================================================================
+db2omf.mime
+The MIME type of the referenced document
 
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.mime</name>
-  <purpose>
-    The MIME type of the referenced document, docbook or html
-  </purpose>
-</parameter>
-
+REMARK: Document this
+-->
 <xsl:param name="db2omf.mime" select="'text/xml'"/>
 
 
-<!-- == db2omf.dtd ========================================================= -->
+<!--@@==========================================================================
+db2omf.dtd
+The FPI of the DocBook version used
 
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.dtd</name>
-  <purpose>
-    The FPI of the DocBook version used
-  </purpose>
-</parameter>
-
+REMARK: Document this
+-->
 <xsl:param name="db2omf.dtd"/>
 
 
-<!-- == db2omf.lang ======================================================== -->
+<!--@@==========================================================================
+db2omf.lang
+The written language of the referenced document
 
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.lang</name>
-  <purpose>
-    The written language of the referenced document
-  </purpose>
-</parameter>
-
+REMARK: Document this
+-->
 <xsl:param name="db2omf.lang" select="/*/@lang | /*/@xml:lang"/>
 
 
-<!-- == db2omf.omf_dir ===================================================== -->
+<!--@@==========================================================================
+db2omf.omf_dir
+The top-level ScrollKeeper OMF directory
 
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.omf_dir</name>
-  <purpose>
-    The top-level ScrollKeeper OMF directory
-  </purpose>
-</parameter>
-
+REMARK: Document this
+-->
 <xsl:param name="db2omf.omf_dir"/>
 
 
-<!-- == db2omf.help_dir ==================================================== -->
+<!--@@==========================================================================
+db2omf.help_dir
+The top-level directory where documentation is installed
 
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.help_dir</name>
-  <purpose>
-    The top-level directory where documentation is installed
-  </purpose>
-</parameter>
-
+REMARK: Document this
+-->
 <xsl:param name="db2omf.help_dir"/>
 
 
-<!-- == db2omf.omf_in ====================================================== -->
+<!--@@==========================================================================
+db2omf.omf_in
+Path to the OMF input file containing common fields
 
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.omf_in</name>
-  <purpose>
-    Path to the .omf.in file containing common fields
-  </purpose>
-</parameter>
-
+REMARK: Document this
+-->
 <xsl:param name="db2omf.omf_in"/>
-
 <xsl:variable name="omf_in" select="document($db2omf.omf_in)"/>
 
 
-<!-- == db2omf.omf ========================================================= -->
+<!--**==========================================================================
+db2omf.omf
+Generates the top-level #{omf} and all its children
+$info: The info element containing metadata
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.omf</name>
-  <purpose>
-    Generate the top-level <xmltag>omf</xmltag> and all its children
-  </purpose>
-  <parameter>
-    <name>info</name>
-    <purpose>
-      The info element containing metadata
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Document this
+-->
 <xsl:template name="db2omf.omf" match="/*">
   <xsl:param name="info"
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
@@ -194,21 +161,13 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2omf.omf.creator ================================================= -->
+<!--**==========================================================================
+db2omf.omf.creator
+Generates all the #{creator} elements for an OMF file
+$info: The info element containing metadata
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.omf.creator</name>
-  <purpose>
-    Generate all <xmltag>creator</xmltag> elements
-  </purpose>
-  <parameter>
-    <name>info</name>
-    <purpose>
-      The info element containing metadata
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Document this
+-->
 <xsl:template name="db2omf.omf.creator">
   <xsl:param name="info"
              select="*[substring(local-name(.), string-length(local-name(.)) - 3)
@@ -247,21 +206,13 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2omf.omf.maintainer ============================================== -->
+<!--**==========================================================================
+db2omf.omf.maintainer
+Generates all the #{maintainer} elements for an OMF file
+$info: The info element containing metadata
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.omf.maintainer</name>
-  <purpose>
-    Generate all <xmltag>maintainer</xmltag> elements
-  </purpose>
-  <parameter>
-    <name>info</name>
-    <purpose>
-      The info element containing metadata
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Document this
+-->
 <xsl:template name="db2omf.omf.maintainer">
   <xsl:param name="info"
              select="*[substring(local-name(.), string-length(local-name(.)) - 3)
@@ -313,21 +264,13 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2omf.omf.contributor ============================================= -->
+<!--**==========================================================================
+db2omf.omf.contributor
+Generates all the #{contributor} elements for an OMF file
+$info: The info element containing metadata
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.omf.contributor</name>
-  <purpose>
-    Generate all <xmltag>contributor</xmltag> elements
-  </purpose>
-  <parameter>
-    <name>info</name>
-    <purpose>
-      The info element containing metadata
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Document this
+-->
 <xsl:template name="db2omf.omf.contributor">
   <xsl:param name="info"
              select="*[substring(local-name(.), string-length(local-name(.)) - 3)
@@ -361,21 +304,13 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2omf.omf.title =================================================== -->
+<!--**==========================================================================
+db2omf.omf.title
+Generates the #{title} element for an OMF file
+$info: The info element containing metadata
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.omf.title</name>
-  <purpose>
-    Generate the <xmltag>title</xmltag> element
-  </purpose>
-  <parameter>
-    <name>info</name>
-    <purpose>
-      The info element containing metadata
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Document this
+-->
 <xsl:template name="db2omf.omf.title">
   <xsl:param name="info"
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
@@ -392,21 +327,13 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2omf.omf.date ==================================================== -->
+<!--**==========================================================================
+db2omf.omf.date
+Generates the #{date} element for an OMF file
+$info: The info element containing metadata
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.omf.date</name>
-  <purpose>
-    Generate the <xmltag>date</xmltag> element
-  </purpose>
-  <parameter>
-    <name>info</name>
-    <purpose>
-      The info element containing metadata
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Document this
+-->
 <xsl:template name="db2omf.omf.date">
   <xsl:param name="info"
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
@@ -423,21 +350,13 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2omf.omf.version ================================================= -->
+<!--**==========================================================================
+db2omf.omf.version
+Generates the #{version} element for an OMF file
+$info: The info element containing metadata
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.omf.version</name>
-  <purpose>
-    Generate the <xmltag>version</xmltag> element
-  </purpose>
-  <parameter>
-    <name>info</name>
-    <purpose>
-      The info element containing metadata
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Document this
+-->
 <xsl:template name="db2omf.omf.version">
   <xsl:param name="info"
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
@@ -470,21 +389,13 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2omf.omf.subject ================================================= -->
+<!--**==========================================================================
+db2omf.omf.subject
+Generates the #{subject} element for an OMF file
+$info: The info element containing metadata
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.omf.subject</name>
-  <purpose>
-    Generate the <xmltag>subject</xmltag> element
-  </purpose>
-  <parameter>
-    <name>info</name>
-    <purpose>
-      The info element containing metadata
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Document this
+-->
 <xsl:template name="db2omf.omf.subject">
   <xsl:param name="info"
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
@@ -500,21 +411,13 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2omf.omf.description ============================================= -->
+<!--**==========================================================================
+db2omf.omf.description
+Generates the #{description} element for an OMF file
+$info: The info element containing metadata
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.omf.description</name>
-  <purpose>
-    Generate the <xmltag>description</xmltag> element
-  </purpose>
-  <parameter>
-    <name>info</name>
-    <purpose>
-      The info element containing metadata
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Document this
+-->
 <xsl:template name="db2omf.omf.description">
   <xsl:param name="info"
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
@@ -532,21 +435,13 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2omf.omf.type ==================================================== -->
+<!--**==========================================================================
+db2omf.omf.type
+Generates the #{type} element for an OMF file
+$info: The info element containing metadata
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.omf.type</name>
-  <purpose>
-    Generate the <xmltag>type</xmltag> element
-  </purpose>
-  <parameter>
-    <name>info</name>
-    <purpose>
-      The info element containing metadata
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Document this
+-->
 <xsl:template name="db2omf.omf.type">
   <xsl:param name="info"
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
@@ -564,21 +459,13 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2omf.omf.format ================================================== -->
+<!--**==========================================================================
+db2omf.omf.format
+Generates the #{format} element for an OMF file
+$info: The info element containing metadata
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.omf.format</name>
-  <purpose>
-    Generate the <xmltag>format</xmltag> element
-  </purpose>
-  <parameter>
-    <name>info</name>
-    <purpose>
-      The info element containing metadata
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Document this
+-->
 <xsl:template name="db2omf.omf.format">
   <xsl:param name="info"
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
@@ -612,21 +499,13 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2omf.omf.identifier ============================================== -->
+<!--**==========================================================================
+db2omf.omf.identifier
+Generates the #{identifier} element for an OMF file
+$info: The info element containing metadata
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.omf.identifier</name>
-  <purpose>
-    Generate the <xmltag>identifier</xmltag> element
-  </purpose>
-  <parameter>
-    <name>info</name>
-    <purpose>
-      The info element containing metadata
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Document this
+-->
 <xsl:template name="db2omf.omf.identifier">
   <xsl:param name="info"
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
@@ -666,21 +545,13 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2omf.omf.language ================================================ -->
+<!--**==========================================================================
+db2omf.omf.language
+Generates the #{language} element for an OMF file
+$info: The info element containing metadata
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.omf.language</name>
-  <purpose>
-    Generate the <xmltag>language</xmltag> element
-  </purpose>
-  <parameter>
-    <name>info</name>
-    <purpose>
-      The info element containing metadata
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Document this
+-->
 <xsl:template name="db2omf.omf.language">
   <xsl:param name="info"
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
@@ -689,21 +560,13 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2omf.omf.relation ================================================ -->
+<!--**==========================================================================
+db2omf.omf.relation
+Generates the #{relation} element for an OMF file
+$info: The info element containing metadata
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.omf.relation</name>
-  <purpose>
-    Generate the <xmltag>relation</xmltag> element
-  </purpose>
-  <parameter>
-    <name>info</name>
-    <purpose>
-      The info element containing metadata
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Document this
+-->
 <xsl:template name="db2omf.omf.relation">
   <xsl:param name="info"
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
@@ -719,21 +582,13 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2omf.omf.rights ================================================== -->
+<!--**==========================================================================
+db2omf.omf.rights
+Generates the #{rights} element for an OMF file
+$info: The info element containing metadata
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2omf.omf.rights</name>
-  <purpose>
-    Generate the <xmltag>rights</xmltag> element
-  </purpose>
-  <parameter>
-    <name>info</name>
-    <purpose>
-      The info element containing metadata
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Document this
+-->
 <xsl:template name="db2omf.omf.rights">
   <xsl:param name="info"
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)

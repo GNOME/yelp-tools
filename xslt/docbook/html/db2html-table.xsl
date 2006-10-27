@@ -17,84 +17,464 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
                 xmlns="http://www.w3.org/1999/xhtml"
-                exclude-result-prefixes="doc"
                 version="1.0">
 
-<doc:title>Tables</doc:title>
+<!--!!==========================================================================
+DocBook to HTML - Tables
+
+REMARK: This needs lots of talk about CALS
+-->
 
 
-<!-- == db2html.table.rule_color =========================================== -->
+<!--@@==========================================================================
+db2html.table.rule_color
+The color used for alternating-color rules on table rows
 
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.table.rule_color</name>
-  <purpose>
-    The color used for alternating-color rules on table rows
-  </purpose>
-</parameter>
-
+REMARK: Describe this param
+-->
 <xsl:param name="db2html.table.rule_color" select="'#F0F0F0'"/>
 
 
-<!-- == Quick Matchers ===================================================== -->
+<!--**==========================================================================
+db2html.table.css
+Outputs CSS that controls the appearance of table elements
 
-<xsl:template match="entry/para[
-              not(preceding-sibling::* or following-sibling::*)]">
-  <xsl:call-template name="db2html.inline"/>
-</xsl:template>
-
-
-<!-- == db2html.table.css ================================================== -->
-
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.table.css</name>
-  <purpose>
-    Create CSS for the table elements
-  </purpose>
-</template>
-
+REMARK: Describe this template
+-->
 <xsl:template name="db2html.table.css">
-  <xsl:text>
-    table {
-      border-collapse: collapse;
-      border: solid 1px;
-      -moz-border-radius: 5px;
-    }
-  </xsl:text>
-  <xsl:if test="$db2html.table.rule_color">
-    <xsl:text>tr[class~="odd"] { background-color: </xsl:text>
-    <xsl:value-of select="$db2html.table.rule_color"/>
-    <xsl:text> }</xsl:text>
-  </xsl:if>
-  <xsl:text>
-    td {
-      padding-left: 0.83em;
-      padding-right: 0.83em;
-      padding-top: 4px;
-      padding-bottom: 4px;
-    }
-    th { padding-left: 0.8em; padding-right: 0.83em; }
-    thead {
-      border-top: solid 2px;
-      border-bottom: solid 2px;
-    }
-    tfoot {
-      border-top: solid 2px;
-      border-bottom: solid 2px;
-    }
-    td + td {
-      border-left: solid 1px;
-    }
-    tbody {
-      border: solid 1px;
-      -moz-border-radius: 5px;
-    }
-  </xsl:text>
+<xsl:text>
+table {
+  border-collapse: collapse;
+  border: solid 1px;
+  -moz-border-radius: 5px;
+}
+</xsl:text>
+<xsl:if test="$db2html.table.rule_color">
+  <xsl:text>tr.odd { background-color: </xsl:text>
+  <xsl:value-of select="$db2html.table.rule_color"/>
+  <xsl:text> }</xsl:text>
+</xsl:if><xsl:text>
+td { padding: 4px 0.83em 4px 0.83em; }
+th { padding-left: 0.8em; padding-right: 0.83em; }
+thead {
+  border-top: solid 2px;
+  border-bottom: solid 2px;
+}
+tfoot {
+  border-top: solid 2px;
+  border-bottom: solid 2px;
+}
+td + td {
+  border-left: solid 1px;
+}
+tbody {
+  border: solid 1px;
+  -moz-border-radius: 5px;
+}
+</xsl:text>
 </xsl:template>
 
 
-<!-- == Matched Templates ================================================== -->
+<!--**==========================================================================
+db2html.entry.colnum
+Calculates the column number for an #{entry} element
+$colspecs: The #{colspec} elements currently in scope
+$spanspecs: The #{spanspec} elements currently in scope
+$entry: The #{entry} element to process
+$colnum: The default column number, as passed by the preceding sibling
+
+REMARK: This template needs to be explained in detail, but I forgot how it works.
+-->
+<xsl:template name="db2html.entry.colnum">
+  <xsl:param name="colspecs"/>
+  <xsl:param name="spanspecs"/>
+  <xsl:param name="entry" select="."/>
+  <xsl:param name="colnum" select="0"/>
+  <xsl:choose>
+    <xsl:when test="$entry/@spanname">
+      <xsl:variable name="spanspec"
+                    select="$spanspecs[@spanname = $entry/@spanname]"/>
+      <xsl:variable name="colspec"
+                    select="$colspecs[@colname = $spanspec/@namest]"/>
+      <xsl:call-template name="db2html.colspec.colnum">
+        <xsl:with-param name="colspecs" select="$colspecs"/>
+        <xsl:with-param name="spanspecs" select="$spanspecs"/>
+        <xsl:with-param name="colspec" select="$colspec"/>
+      </xsl:call-template>
+    </xsl:when>
+    <xsl:when test="$entry/@colname">
+      <xsl:variable name="colspec"
+                    select="$colspecs[@colname = $entry/@colname]"/>
+      <xsl:call-template name="db2html.colspec.colnum">
+        <xsl:with-param name="colspecs" select="$colspecs"/>
+        <xsl:with-param name="spanspecs" select="$spanspecs"/>
+        <xsl:with-param name="colspec" select="$colspec"/>
+      </xsl:call-template>
+    </xsl:when>
+    <xsl:when test="$entry/@namest">
+      <xsl:variable name="colspec"
+                    select="$colspecs[@colname = $entry/@namest]"/>
+      <xsl:call-template name="db2html.colspec.colnum">
+        <xsl:with-param name="colspecs" select="$colspecs"/>
+        <xsl:with-param name="spanspecs" select="$spanspecs"/>
+        <xsl:with-param name="colspec" select="$colspec"/>
+      </xsl:call-template>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:value-of select="$colnum"/>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+
+<!--**==========================================================================
+db2html.colspec.colnum
+Calculates the column number for a #{colspec} element
+$colspecs: The #{colspec} elements currently in scope
+$spanspecs: The #{spanspec} elements currently in scope
+$colspec: The #{colspec} element to process
+
+REMARK: This template needs to be explained in detail, but I forgot how it works.
+-->
+<xsl:template name="db2html.colspec.colnum">
+  <xsl:param name="colspecs"/>
+  <xsl:param name="spanspecs"/>
+  <xsl:param name="colspec" select="."/>
+  <xsl:choose>
+    <xsl:when test="$colspec/@colnum">
+      <xsl:value-of select="$colspec/@colnum"/>
+    </xsl:when>
+    <xsl:when test="$colspec/preceding-sibling::colspec">
+      <xsl:variable name="prec.colspec.colnum">
+        <xsl:call-template name="db2html.colspec.colnum">
+          <xsl:with-param name="colspecs"  select="$colspecs"/>
+          <xsl:with-param name="spanspecs" select="$spanspecs"/>
+          <xsl:with-param name="colspec"
+                          select="$colspec/preceding-sibling::colspec[1]"/>
+        </xsl:call-template>
+      </xsl:variable>
+      <xsl:value-of select="$prec.colspec.colnum + 1"/>
+    </xsl:when>
+    <xsl:otherwise>1</xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+
+<!--**==========================================================================
+db2html.entry.colspan
+Calculates the #{colspan} for an #{entry} element
+$colspecs: The #{colspec} elements currently in scope
+$spanspecs: The #{spanspec} elements currently in scope
+$entry: The #{entry} element to process
+
+REMARK: This template needs to be explained in detail, but I forgot how it works.
+-->
+<xsl:template name="db2html.entry.colspan">
+  <xsl:param name="colspecs"/>
+  <xsl:param name="spanspecs"/>
+  <xsl:param name="entry" select="."/>
+  <xsl:variable name="namest">
+    <xsl:choose>
+      <xsl:when test="$entry/@spanname">
+        <xsl:value-of
+         select="$spanspecs[@spanname = $entry/@spanname]/@namest"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$entry/@namest"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+  <xsl:variable name="nameend">
+    <xsl:choose>
+      <xsl:when test="$entry/@spanname">
+        <xsl:value-of
+         select="$spanspecs[@spanname = $entry/@spanname]/@nameend"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$entry/@nameend"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+  <xsl:variable name="colnumst">
+    <xsl:call-template name="db2html.colspec.colnum">
+      <xsl:with-param name="colspecs"  select="$colspecs"/>
+      <xsl:with-param name="spanspecs" select="$spanspecs"/>
+      <xsl:with-param name="colspec"   select="$colspecs[@colname = $namest]"/>
+    </xsl:call-template>
+  </xsl:variable>
+  <xsl:variable name="colnumend">
+    <xsl:call-template name="db2html.colspec.colnum">
+      <xsl:with-param name="colspecs"  select="$colspecs"/>
+      <xsl:with-param name="spanspecs" select="$spanspecs"/>
+      <xsl:with-param name="colspec"   select="$colspecs[@colname = $nameend]"/>
+    </xsl:call-template>
+  </xsl:variable>
+  <xsl:choose>
+    <xsl:when test="$namest = '' or $nameend = ''">1</xsl:when>
+    <xsl:when test="$colnumend &gt; $colnumst">
+      <xsl:value-of select="$colnumend - $colnumst + 1"/>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:value-of select="$colnumst - $colnumend + 1"/>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+
+<!--**==========================================================================
+db2html.entry.style
+Generates the #{style} attribute for an #{entry} element
+$colspecs: The #{colspec} elements currently in scope
+$spanspecs: The #{spanspec} elements currently in scope
+
+REMARK: This template needs to be explained in detail, but I forgot how it works.
+-->
+<xsl:template name="db2html.entry.style">
+  <!-- FIXME: we should pass in the entry node -->
+  <xsl:param name="colspecs"/>
+  <xsl:param name="spanspecs"/>
+  <xsl:param name="colsep" select="false()"/>
+  <xsl:param name="rowsep" select="false()"/>
+  <xsl:if test="(following-sibling::*) and (
+          (@colsep = '1') or
+          ($colspecs[@colname = current()/@colname]/@colsep = '1')    or
+          ($colspecs[@colname = current()/@nameend]/@colsep = '1')    or
+          ($spanspecs[@spanname = current()/@spanname]/@colsep = '1') or
+          ($colsep = '1' and (
+            (@colsep != '0') or
+            ($colspecs[@colname = current()/@colname]/@colsep != '0')    or
+            ($colspecs[@colname = current()/@nameend]/@colsep != '0')    or
+            ($spanspecs[@spanname = current()/@spanname]/@colsep != '0')
+          )) )">
+    <xsl:text>border-right: outset 1px; </xsl:text>
+  </xsl:if>
+  <xsl:if test="(../following-sibling::*) and (
+          (@rowsep = '1') or
+          ($colspecs[@colname = current()/@colname]/@rowsep = '1')    or
+          ($colspecs[@colname = current()/@namest]/@rowsep = '1')     or
+          ($spanspecs[@spanname = current()/@spanname]/@rowsep = '1') or
+          ($rowsep = '1' and (
+            (@rowsep != '0') or
+            ($colspecs[@colname = current()/@colname]/@rowsep != '0') or
+            ($colspecs[@colname = current()/@namest]/@rowsep != '0') or
+            ($spanspecs[@spanname = current()/@spanname]/@rowsep != '0')
+          )) )">
+    <xsl:text>border-bottom: outset 1px; </xsl:text>
+  </xsl:if>
+  <xsl:choose>
+    <xsl:when test="@align">
+      <xsl:text>text-align: </xsl:text>
+      <xsl:value-of select="@align"/>
+      <xsl:text>; </xsl:text>
+    </xsl:when>
+    <xsl:when test="$colspecs[@colname = current()/@colname]/@align">
+      <xsl:text>text-align: </xsl:text>
+      <xsl:value-of
+       select="$colspecs[@colname = current()/@colname]/@align"/>
+      <xsl:text>; </xsl:text>
+    </xsl:when>
+    <xsl:when test="$colspecs[@colname = current()/@namest]/@align">
+      <xsl:text>text-align: </xsl:text>
+      <xsl:value-of
+       select="$colspecs[@colname = current()/@namest]/@align"/>
+      <xsl:text>; </xsl:text>
+    </xsl:when>
+    <xsl:when test="$spanspecs[@spanname = current()/@spanname]/@align">
+      <xsl:text>text-align: </xsl:text>
+      <xsl:value-of
+       select="$spanspecs[@spanname = current()/@spanname]/@align"/>
+      <xsl:text>; </xsl:text>
+    </xsl:when>
+    <xsl:when test="../../../@align">
+      <xsl:text>text-align: </xsl:text>
+      <xsl:value-of select="../../../@align"/>
+      <xsl:text>; </xsl:text>
+    </xsl:when>
+  </xsl:choose>
+  <xsl:choose>
+    <xsl:when test="@valign">
+      <xsl:text>vertical-align: </xsl:text>
+      <xsl:value-of select="@valign"/>
+      <xsl:text>; </xsl:text>
+    </xsl:when>
+    <xsl:when test="$colspecs[@colname = current()/@colname]/@valign">
+      <xsl:text>vertical-align: </xsl:text>
+      <xsl:value-of
+       select="$colspecs[@colname = current()/@colname]/@valign"/>
+      <xsl:text>; </xsl:text>
+    </xsl:when>
+    <xsl:when test="$colspecs[@colname = current()/@namest]/@valign">
+      <xsl:text>vertical-align: </xsl:text>
+      <xsl:value-of
+       select="$colspecs[@colname = current()/@namest]/@valign"/>
+      <xsl:text>; </xsl:text>
+    </xsl:when>
+    <xsl:when test="$spanspecs[@spanname = current()/@spanname]/@valign">
+      <xsl:text>vertical-align: </xsl:text>
+      <xsl:value-of
+       select="$spanspecs[@spanname = current()/@spanname]/@valign"/>
+      <xsl:text>; </xsl:text>
+    </xsl:when>
+    <xsl:when test="../@valign">
+      <xsl:text>vertical-align: </xsl:text>
+      <xsl:value-of select="../@valign"/>
+      <xsl:text>; </xsl:text>
+    </xsl:when>
+    <xsl:when test="../../@valign">
+      <xsl:text>vertical-align: </xsl:text>
+      <xsl:value-of select="../../@valign"/>
+      <xsl:text>; </xsl:text>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:text>vertical-align: top; </xsl:text>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+
+<!--**==========================================================================
+db2html.spanstr
+FIXME
+
+REMARK: This template needs to be explained in detail, but I forgot how it works.
+-->
+<xsl:template name="db2html.spanstr">
+  <xsl:param name="colspecs"/>
+  <xsl:param name="spanspecs"/>
+  <xsl:param name="spanstr"/>
+  <xsl:param name="row"    select="."/>
+  <xsl:param name="entry"  select="$row/*[1]"/>
+  <xsl:param name="colnum" select="1"/>
+  <xsl:param name="entry.colnum">
+    <xsl:call-template name="db2html.entry.colnum">
+      <xsl:with-param name="colspecs"  select="$colspecs"/>
+      <xsl:with-param name="spanspecs" select="$spanspecs"/>
+      <xsl:with-param name="entry"     select="$entry"/>
+    </xsl:call-template>
+  </xsl:param>
+  <xsl:param name="entry.colspan">
+    <xsl:choose>
+      <xsl:when test="$entry/@spanname or $entry/@namest">
+        <xsl:call-template name="db2html.entry.colspan">
+          <xsl:with-param name="colspecs"  select="$colspecs"/>
+          <xsl:with-param name="spanspecs" select="$spanspecs"/>
+          <xsl:with-param name="entry"     select="$entry"/>
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:otherwise>1</xsl:otherwise>
+    </xsl:choose>
+  </xsl:param>
+  <xsl:variable name="following.spanstr">
+    <xsl:call-template name="db2html.spanstr.pop">
+      <xsl:with-param name="colspecs"  select="$colspecs"/>
+      <xsl:with-param name="spanspecs" select="$spanspecs"/>
+      <xsl:with-param name="colspan"   select="$entry.colspan"/>
+      <xsl:with-param name="spanstr"   select="$spanstr"/>
+    </xsl:call-template>
+  </xsl:variable>
+  <xsl:choose>
+    <xsl:when test="$spanstr != '' and not(starts-with($spanstr, '0:'))">
+      <xsl:value-of select="substring-before($spanstr, ':') - 1"/>
+      <xsl:text>:</xsl:text>
+      <xsl:call-template name="db2html.spanstr">
+        <xsl:with-param name="colspecs"  select="$colspecs"/>
+        <xsl:with-param name="spanspecs" select="$spanspecs"/>
+        <xsl:with-param name="spanstr"   select="substring-after($spanstr, ':')"/>
+        <xsl:with-param name="row"       select="$row"/>
+        <xsl:with-param name="entry"     select="$entry"/>
+        <xsl:with-param name="colnum"    select="$colnum + 1"/>
+        <xsl:with-param name="entry.colnum"  select="$entry.colnum"/>
+        <xsl:with-param name="entry.colspan" select="$entry.colspan"/>
+      </xsl:call-template>
+    </xsl:when>
+    <xsl:when test="$entry.colnum &gt; $colnum">
+      <xsl:text>0:</xsl:text>
+      <xsl:call-template name="db2html.spanstr">
+        <xsl:with-param name="colspecs"  select="$colspecs"/>
+        <xsl:with-param name="spanspecs" select="$spanspecs"/>
+        <xsl:with-param name="spanstr"   select="$following.spanstr"/>
+        <xsl:with-param name="row"       select="$row"/>
+        <xsl:with-param name="entry"     select="$entry"/>
+        <xsl:with-param name="colnum"    select="$colnum + $entry.colspan"/>
+        <xsl:with-param name="entry.colnum"  select="$entry.colnum"/>
+        <xsl:with-param name="entry.colspan" select="$entry.colspan"/>
+      </xsl:call-template>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:call-template name="copy-string">
+        <xsl:with-param name="count" select="$entry.colspan"/>
+        <xsl:with-param name="string">
+          <xsl:choose>
+            <xsl:when test="$entry/@morerows">
+              <xsl:value-of select="$entry/@morerows"/>
+            </xsl:when>
+            <xsl:otherwise>0</xsl:otherwise>
+          </xsl:choose>
+          <xsl:text>:</xsl:text>
+        </xsl:with-param>
+      </xsl:call-template>
+      <xsl:if test="$entry/following-sibling::*">
+        <xsl:call-template name="db2html.spanstr">
+          <xsl:with-param name="colspecs"  select="$colspecs"/>
+          <xsl:with-param name="spanspecs" select="$spanspecs"/>
+          <xsl:with-param name="spanstr"   select="$following.spanstr"/>
+          <xsl:with-param name="row"       select="$row"/>
+          <xsl:with-param name="entry"     select="$entry/following-sibling::*[1]"/>
+          <xsl:with-param name="colnum"    select="$colnum + $entry.colspan"/>
+        </xsl:call-template>
+      </xsl:if>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+
+<!--**==========================================================================
+db2html.spanstr.pop
+Calculates the remaining spans after an #{entry} element
+$colspecs: The #{colspec} elements currently in scope
+$spanspecs: The #{spanspec} elements currently in scope
+$colspan: The number of columns to pop
+$spanstr: The string representation of the column spans
+
+REMARK: This template needs to be explained in detail, but I forgot how it works.
+-->
+<xsl:template name="db2html.spanstr.pop">
+  <xsl:param name="colspecs"/>
+  <xsl:param name="spanspecs"/>
+  <xsl:param name="colspan" select="1"/>
+  <xsl:param name="spanstr" select="''"/>
+  <xsl:choose>
+    <xsl:when test="$colspan &gt; 0">
+      <xsl:call-template name="db2html.spanstr.pop">
+        <xsl:with-param name="colspecs"  select="$colspecs"/>
+        <xsl:with-param name="spanspecs" select="$spanspecs"/>
+        <xsl:with-param name="colspan"   select="$colspan - 1"/>
+        <xsl:with-param name="spanstr"   select="substring-after($spanstr, ':')"/>
+      </xsl:call-template>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:value-of select="$spanstr"/>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+
+<!--#* copy-string -->
+<xsl:template name="copy-string">
+  <xsl:param name="count" select="1"/>
+  <xsl:param name="string"/>
+  <xsl:if test="$count &gt; 0">
+    <xsl:value-of select="$string"/>
+    <xsl:call-template name="copy-string">
+      <xsl:with-param name="count" select="$count - 1"/>
+      <xsl:with-param name="string" select="$string"/>
+    </xsl:call-template>
+  </xsl:if>
+</xsl:template>
+
+
+<!-- == Matched Templates == -->
 
 <!-- = entry | entrytbl = -->
 <xsl:template match="entry | entrytbl">
@@ -423,496 +803,13 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:element>
 </xsl:template>
 
-
-<!-- == Here Be Dragons ==================================================== -->
-
-
-<!-- == db2html.entry.colnum =============================================== -->
-
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.entry.colnum</name>
-  <purpose>
-    Calculate the column number for an <xmltag>entry</xmltag> element
-  </purpose>
-  <parameter>
-    <name>colspecs</name>
-    <purpose>
-      The <xmltag>colspec</xmltag> elements in scope
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>spanspecs</name>
-    <purpose>
-      The <xmltag>spanspec</xmltag> elements in scope
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>entry</name>
-    <purpose>
-      The <xmltag>entry</xmltag> element to process
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>col</name>
-    <purpose>
-      The default column number as passed by the preceding sibling
-    </purpose>
-  </parameter>
-</template>
-
-<xsl:template name="db2html.entry.colnum">
-  <xsl:param name="colspecs"/>
-  <xsl:param name="spanspecs"/>
-  <xsl:param name="entry" select="."/>
-  <xsl:param name="colnum" select="0"/>
-  <xsl:choose>
-    <xsl:when test="$entry/@spanname">
-      <xsl:variable name="spanspec"
-                    select="$spanspecs[@spanname = $entry/@spanname]"/>
-      <xsl:variable name="colspec"
-                    select="$colspecs[@colname = $spanspec/@namest]"/>
-      <xsl:call-template name="db2html.colspec.colnum">
-        <xsl:with-param name="colspecs" select="$colspecs"/>
-        <xsl:with-param name="spanspecs" select="$spanspecs"/>
-        <xsl:with-param name="colspec" select="$colspec"/>
-      </xsl:call-template>
-    </xsl:when>
-    <xsl:when test="$entry/@colname">
-      <xsl:variable name="colspec"
-                    select="$colspecs[@colname = $entry/@colname]"/>
-      <xsl:call-template name="db2html.colspec.colnum">
-        <xsl:with-param name="colspecs" select="$colspecs"/>
-        <xsl:with-param name="spanspecs" select="$spanspecs"/>
-        <xsl:with-param name="colspec" select="$colspec"/>
-      </xsl:call-template>
-    </xsl:when>
-    <xsl:when test="$entry/@namest">
-      <xsl:variable name="colspec"
-                    select="$colspecs[@colname = $entry/@namest]"/>
-      <xsl:call-template name="db2html.colspec.colnum">
-        <xsl:with-param name="colspecs" select="$colspecs"/>
-        <xsl:with-param name="spanspecs" select="$spanspecs"/>
-        <xsl:with-param name="colspec" select="$colspec"/>
-      </xsl:call-template>
-    </xsl:when>
-    <xsl:otherwise>
-      <xsl:value-of select="$colnum"/>
-    </xsl:otherwise>
-  </xsl:choose>
-</xsl:template>
-
-
-<!-- == db2html.colspec.colnum ============================================= -->
-
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.colspec.colnum</name>
-  <purpose>
-    Calculate the column number for a <xmltag>colspec</xmltag> element
-  </purpose>
-  <parameter>
-    <name>colspecs</name>
-    <purpose>
-      The <xmltag>colspec</xmltag> elements in scope
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>spanspecs</name>
-    <purpose>
-      The <xmltag>spanspec</xmltag> elements in scope
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>colspec</name>
-    <purpose>
-      The <xmltag>colspec</xmltag> element to process
-    </purpose>
-  </parameter>
-</template>
-
-<xsl:template name="db2html.colspec.colnum">
-  <xsl:param name="colspecs"/>
-  <xsl:param name="spanspecs"/>
-  <xsl:param name="colspec" select="."/>
-  <xsl:choose>
-    <xsl:when test="$colspec/@colnum">
-      <xsl:value-of select="$colspec/@colnum"/>
-    </xsl:when>
-    <xsl:when test="$colspec/preceding-sibling::colspec">
-      <xsl:variable name="prec.colspec.colnum">
-        <xsl:call-template name="db2html.colspec.colnum">
-          <xsl:with-param name="colspecs"  select="$colspecs"/>
-          <xsl:with-param name="spanspecs" select="$spanspecs"/>
-          <xsl:with-param name="colspec"
-                          select="$colspec/preceding-sibling::colspec[1]"/>
-        </xsl:call-template>
-      </xsl:variable>
-      <xsl:value-of select="$prec.colspec.colnum + 1"/>
-    </xsl:when>
-    <xsl:otherwise>1</xsl:otherwise>
-  </xsl:choose>
-</xsl:template>
-
-
-<!-- == db2html.colspec.colspan ============================================ -->
-
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.entry.colspan</name>
-  <purpose>
-    Calculate the <xmltag role="attribute">colspan</xmltag> for an
-    <xmltag>entry</xmltag> element
-  </purpose>
-  <parameter>
-    <name>colspecs</name>
-    <purpose>
-      The <xmltag>colspec</xmltag> elements in scope
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>spanspecs</name>
-    <purpose>
-      The <xmltag>spanspec</xmltag> elements in scope
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>entry</name>
-    <purpose>
-      The <xmltag>entry</xmltag> element to process
-    </purpose>
-  </parameter>
-</template>
-
-<xsl:template name="db2html.entry.colspan">
-  <xsl:param name="colspecs"/>
-  <xsl:param name="spanspecs"/>
-  <xsl:param name="entry" select="."/>
-  <xsl:variable name="namest">
-    <xsl:choose>
-      <xsl:when test="$entry/@spanname">
-        <xsl:value-of
-         select="$spanspecs[@spanname = $entry/@spanname]/@namest"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:value-of select="$entry/@namest"/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:variable>
-  <xsl:variable name="nameend">
-    <xsl:choose>
-      <xsl:when test="$entry/@spanname">
-        <xsl:value-of
-         select="$spanspecs[@spanname = $entry/@spanname]/@nameend"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:value-of select="$entry/@nameend"/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:variable>
-  <xsl:variable name="colnumst">
-    <xsl:call-template name="db2html.colspec.colnum">
-      <xsl:with-param name="colspecs"  select="$colspecs"/>
-      <xsl:with-param name="spanspecs" select="$spanspecs"/>
-      <xsl:with-param name="colspec"   select="$colspecs[@colname = $namest]"/>
-    </xsl:call-template>
-  </xsl:variable>
-  <xsl:variable name="colnumend">
-    <xsl:call-template name="db2html.colspec.colnum">
-      <xsl:with-param name="colspecs"  select="$colspecs"/>
-      <xsl:with-param name="spanspecs" select="$spanspecs"/>
-      <xsl:with-param name="colspec"   select="$colspecs[@colname = $nameend]"/>
-    </xsl:call-template>
-  </xsl:variable>
-  <xsl:choose>
-    <xsl:when test="$namest = '' or $nameend = ''">1</xsl:when>
-    <xsl:when test="$colnumend &gt; $colnumst">
-      <xsl:value-of select="$colnumend - $colnumst + 1"/>
-    </xsl:when>
-    <xsl:otherwise>
-      <xsl:value-of select="$colnumst - $colnumend + 1"/>
-    </xsl:otherwise>
-  </xsl:choose>
-</xsl:template>
-
-
-<!-- == db2html.entry.style ================================================ -->
-
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.entry.style</name>
-  <purpose>
-    Generate the <xmltag role="attribute">style</xmltag> attribute for an
-    <xmltag>entry</xmltag> element
-  </purpose>
-  <parameter>
-    <name>colspecs</name>
-    <purpose>
-      The <xmltag>colspec</xmltag> elements in scope
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>spanspecs</name>
-    <purpose>
-      The <xmltag>spanspec</xmltag> elements in scope
-    </purpose>
-  </parameter>
-</template>
-
-<xsl:template name="db2html.entry.style">
-  <xsl:param name="colspecs"/>
-  <xsl:param name="spanspecs"/>
-  <xsl:param name="colsep" select="false()"/>
-  <xsl:param name="rowsep" select="false()"/>
-  <xsl:if test="(following-sibling::*) and (
-          (@colsep = '1') or
-          ($colspecs[@colname = current()/@colname]/@colsep = '1')    or
-          ($colspecs[@colname = current()/@nameend]/@colsep = '1')    or
-          ($spanspecs[@spanname = current()/@spanname]/@colsep = '1') or
-          ($colsep = '1' and (
-            (@colsep != '0') or
-            ($colspecs[@colname = current()/@colname]/@colsep != '0')    or
-            ($colspecs[@colname = current()/@nameend]/@colsep != '0')    or
-            ($spanspecs[@spanname = current()/@spanname]/@colsep != '0')
-          )) )">
-    <xsl:text>border-right: outset 1px; </xsl:text>
-  </xsl:if>
-  <xsl:if test="(../following-sibling::*) and (
-          (@rowsep = '1') or
-          ($colspecs[@colname = current()/@colname]/@rowsep = '1')    or
-          ($colspecs[@colname = current()/@namest]/@rowsep = '1')     or
-          ($spanspecs[@spanname = current()/@spanname]/@rowsep = '1') or
-          ($rowsep = '1' and (
-            (@rowsep != '0') or
-            ($colspecs[@colname = current()/@colname]/@rowsep != '0') or
-            ($colspecs[@colname = current()/@namest]/@rowsep != '0') or
-            ($spanspecs[@spanname = current()/@spanname]/@rowsep != '0')
-          )) )">
-    <xsl:text>border-bottom: outset 1px; </xsl:text>
-  </xsl:if>
-  <xsl:choose>
-    <xsl:when test="@align">
-      <xsl:text>text-align: </xsl:text>
-      <xsl:value-of select="@align"/>
-      <xsl:text>; </xsl:text>
-    </xsl:when>
-    <xsl:when test="$colspecs[@colname = current()/@colname]/@align">
-      <xsl:text>text-align: </xsl:text>
-      <xsl:value-of
-       select="$colspecs[@colname = current()/@colname]/@align"/>
-      <xsl:text>; </xsl:text>
-    </xsl:when>
-    <xsl:when test="$colspecs[@colname = current()/@namest]/@align">
-      <xsl:text>text-align: </xsl:text>
-      <xsl:value-of
-       select="$colspecs[@colname = current()/@namest]/@align"/>
-      <xsl:text>; </xsl:text>
-    </xsl:when>
-    <xsl:when test="$spanspecs[@spanname = current()/@spanname]/@align">
-      <xsl:text>text-align: </xsl:text>
-      <xsl:value-of
-       select="$spanspecs[@spanname = current()/@spanname]/@align"/>
-      <xsl:text>; </xsl:text>
-    </xsl:when>
-    <xsl:when test="../../../@align">
-      <xsl:text>text-align: </xsl:text>
-      <xsl:value-of select="../../../@align"/>
-      <xsl:text>; </xsl:text>
-    </xsl:when>
-  </xsl:choose>
-  <xsl:choose>
-    <xsl:when test="@valign">
-      <xsl:text>vertical-align: </xsl:text>
-      <xsl:value-of select="@valign"/>
-      <xsl:text>; </xsl:text>
-    </xsl:when>
-    <xsl:when test="$colspecs[@colname = current()/@colname]/@valign">
-      <xsl:text>vertical-align: </xsl:text>
-      <xsl:value-of
-       select="$colspecs[@colname = current()/@colname]/@valign"/>
-      <xsl:text>; </xsl:text>
-    </xsl:when>
-    <xsl:when test="$colspecs[@colname = current()/@namest]/@valign">
-      <xsl:text>vertical-align: </xsl:text>
-      <xsl:value-of
-       select="$colspecs[@colname = current()/@namest]/@valign"/>
-      <xsl:text>; </xsl:text>
-    </xsl:when>
-    <xsl:when test="$spanspecs[@spanname = current()/@spanname]/@valign">
-      <xsl:text>vertical-align: </xsl:text>
-      <xsl:value-of
-       select="$spanspecs[@spanname = current()/@spanname]/@valign"/>
-      <xsl:text>; </xsl:text>
-    </xsl:when>
-    <xsl:when test="../@valign">
-      <xsl:text>vertical-align: </xsl:text>
-      <xsl:value-of select="../@valign"/>
-      <xsl:text>; </xsl:text>
-    </xsl:when>
-    <xsl:when test="../../@valign">
-      <xsl:text>vertical-align: </xsl:text>
-      <xsl:value-of select="../../@valign"/>
-      <xsl:text>; </xsl:text>
-    </xsl:when>
-    <xsl:otherwise>
-      <xsl:text>vertical-align: top; </xsl:text>
-    </xsl:otherwise>
-  </xsl:choose>
-</xsl:template>
-
-
-<!-- == db2html.spanstr ==================================================== -->
-
-<xsl:template name="db2html.spanstr">
-  <xsl:param name="colspecs"/>
-  <xsl:param name="spanspecs"/>
-  <xsl:param name="spanstr"/>
-  <xsl:param name="row"    select="."/>
-  <xsl:param name="entry"  select="$row/*[1]"/>
-  <xsl:param name="colnum" select="1"/>
-  <xsl:param name="entry.colnum">
-    <xsl:call-template name="db2html.entry.colnum">
-      <xsl:with-param name="colspecs"  select="$colspecs"/>
-      <xsl:with-param name="spanspecs" select="$spanspecs"/>
-      <xsl:with-param name="entry"     select="$entry"/>
-    </xsl:call-template>
-  </xsl:param>
-  <xsl:param name="entry.colspan">
-    <xsl:choose>
-      <xsl:when test="$entry/@spanname or $entry/@namest">
-        <xsl:call-template name="db2html.entry.colspan">
-          <xsl:with-param name="colspecs"  select="$colspecs"/>
-          <xsl:with-param name="spanspecs" select="$spanspecs"/>
-          <xsl:with-param name="entry"     select="$entry"/>
-        </xsl:call-template>
-      </xsl:when>
-      <xsl:otherwise>1</xsl:otherwise>
-    </xsl:choose>
-  </xsl:param>
-  <xsl:variable name="following.spanstr">
-    <xsl:call-template name="db2html.spanstr.pop">
-      <xsl:with-param name="colspecs"  select="$colspecs"/>
-      <xsl:with-param name="spanspecs" select="$spanspecs"/>
-      <xsl:with-param name="colspan"   select="$entry.colspan"/>
-      <xsl:with-param name="spanstr"   select="$spanstr"/>
-    </xsl:call-template>
-  </xsl:variable>
-  <xsl:choose>
-    <xsl:when test="$spanstr != '' and not(starts-with($spanstr, '0:'))">
-      <xsl:value-of select="substring-before($spanstr, ':') - 1"/>
-      <xsl:text>:</xsl:text>
-      <xsl:call-template name="db2html.spanstr">
-        <xsl:with-param name="colspecs"  select="$colspecs"/>
-        <xsl:with-param name="spanspecs" select="$spanspecs"/>
-        <xsl:with-param name="spanstr"   select="substring-after($spanstr, ':')"/>
-        <xsl:with-param name="row"       select="$row"/>
-        <xsl:with-param name="entry"     select="$entry"/>
-        <xsl:with-param name="colnum"    select="$colnum + 1"/>
-        <xsl:with-param name="entry.colnum"  select="$entry.colnum"/>
-        <xsl:with-param name="entry.colspan" select="$entry.colspan"/>
-      </xsl:call-template>
-    </xsl:when>
-    <xsl:when test="$entry.colnum &gt; $colnum">
-      <xsl:text>0:</xsl:text>
-      <xsl:call-template name="db2html.spanstr">
-        <xsl:with-param name="colspecs"  select="$colspecs"/>
-        <xsl:with-param name="spanspecs" select="$spanspecs"/>
-        <xsl:with-param name="spanstr"   select="$following.spanstr"/>
-        <xsl:with-param name="row"       select="$row"/>
-        <xsl:with-param name="entry"     select="$entry"/>
-        <xsl:with-param name="colnum"    select="$colnum + $entry.colspan"/>
-        <xsl:with-param name="entry.colnum"  select="$entry.colnum"/>
-        <xsl:with-param name="entry.colspan" select="$entry.colspan"/>
-      </xsl:call-template>
-    </xsl:when>
-    <xsl:otherwise>
-      <xsl:call-template name="copy-string">
-        <xsl:with-param name="count" select="$entry.colspan"/>
-        <xsl:with-param name="string">
-          <xsl:choose>
-            <xsl:when test="$entry/@morerows">
-              <xsl:value-of select="$entry/@morerows"/>
-            </xsl:when>
-            <xsl:otherwise>0</xsl:otherwise>
-          </xsl:choose>
-          <xsl:text>:</xsl:text>
-        </xsl:with-param>
-      </xsl:call-template>
-      <xsl:if test="$entry/following-sibling::*">
-        <xsl:call-template name="db2html.spanstr">
-          <xsl:with-param name="colspecs"  select="$colspecs"/>
-          <xsl:with-param name="spanspecs" select="$spanspecs"/>
-          <xsl:with-param name="spanstr"   select="$following.spanstr"/>
-          <xsl:with-param name="row"       select="$row"/>
-          <xsl:with-param name="entry"     select="$entry/following-sibling::*[1]"/>
-          <xsl:with-param name="colnum"    select="$colnum + $entry.colspan"/>
-        </xsl:call-template>
-      </xsl:if>
-    </xsl:otherwise>
-  </xsl:choose>
-</xsl:template>
-
-
-<!-- == db2html.spanstr.pop ================================================ -->
-
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.spanstr.pop</name>
-  <purpose>
-    Calculate the remaining spans after an <xmltag>entry</xmltag> element
-  </purpose>
-  <parameter>
-    <name>colspecs</name>
-    <purpose>
-      The <xmltag>colspec</xmltag> elements in scope
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>spanspecs</name>
-    <purpose>
-      The <xmltag>spanspec</xmltag> elements in scope
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>colspan</name>
-    <purpose>
-      The number of columns to pop
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>spans</name>
-    <purpose>
-      The string representation of the column spans
-    </purpose>
-  </parameter>
-</template>
-
-<xsl:template name="db2html.spanstr.pop">
-  <xsl:param name="colspecs"/>
-  <xsl:param name="spanspecs"/>
-  <xsl:param name="colspan" select="1"/>
-  <xsl:param name="spanstr" select="''"/>
-  <xsl:choose>
-    <xsl:when test="$colspan &gt; 0">
-      <xsl:call-template name="db2html.spanstr.pop">
-        <xsl:with-param name="colspecs"  select="$colspecs"/>
-        <xsl:with-param name="spanspecs" select="$spanspecs"/>
-        <xsl:with-param name="colspan"   select="$colspan - 1"/>
-        <xsl:with-param name="spanstr"   select="substring-after($spanstr, ':')"/>
-      </xsl:call-template>
-    </xsl:when>
-    <xsl:otherwise>
-      <xsl:value-of select="$spanstr"/>
-    </xsl:otherwise>
-  </xsl:choose>
-</xsl:template>
-
-
-<xsl:template name="copy-string">
-  <xsl:param name="count" select="1"/>
-  <xsl:param name="string"/>
-  <xsl:if test="$count &gt; 0">
-    <xsl:value-of select="$string"/>
-    <xsl:call-template name="copy-string">
-      <xsl:with-param name="count" select="$count - 1"/>
-      <xsl:with-param name="string" select="$string"/>
-    </xsl:call-template>
-  </xsl:if>
+<!--
+This template strips the p tag around single-paragraph table cells to avoid
+introducing extra spacing.
+-->
+<xsl:template match="entry/para[
+              not(preceding-sibling::* or following-sibling::*)]">
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 </xsl:stylesheet>

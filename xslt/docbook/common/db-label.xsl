@@ -17,50 +17,35 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
                 xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n"
-                exclude-result-prefixes="doc"
                 version="1.0">
 
-<doc:title>Automatic Labels</doc:title>
+<!--!!==========================================================================
+DocBook Labels
+
+REMARK: Explain labels
+-->
 
 
-<!-- == db.label =========================================================== -->
+<!--**==========================================================================
+db.label
+Generates the label for an element
+$node: The node to generate a label for
+$role: The role of the label, as passed to the format template
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db.label</name>
-  <purpose>
-    Generate the label for an element
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The element for which to generate a label
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>role</name>
-    <purpose>
-      The role of the label, as passed to the format templates
-    </purpose>
-  </parameter>
-  <para>
-    This template generates the label used for some sectioning and
-    block-level elements.  For instance, this would generate strings
-    such as Section 14.3 or Table 5-2.  The template simply applies
-    the mode <mode>db.label.mode</mode> to the element.  To change
-    the behavior of a particular type of element, you should always
-    override the mode template for that type of element.
-  </para>
-  <para>
-    Overriding the <template>db.label</template> template should only
-    be done if you wish to change the labelling mechanism completely, or
-    you wish to wrap the labelling mechanism (for instance, with a caching
-    extension).  Do not override this template to suppress label prefixes
-    in titles.
-  </para>
-</template>
+This template generates the label used for some sectioning and block-level
+elements.  For instance, this would generate strings such as Section 14.3
+or Table 5-2.  The template simply applies the mode %{db.label.mode} to the
+element.  To change the behavior of a particular type of element, you should
+always override the mode template for that element.
 
+Overriding the *{db.label} template should only be done if you wish to change
+the labelling mechanism completely, or if you wish to wrap the labelling
+mechanism (for instance, with a caching extension).  Do not override this
+template to suppress label prefixes in titles.
+
+REMARK: Do not, but instead?
+-->
 <xsl:template name="db.label">
   <xsl:param name="node" select="."/>
   <xsl:param name="role"/>
@@ -77,14 +62,15 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db.label.mode ====================================================== -->
+<!--%%==========================================================================
+db.label.mode
+$role: The role of the label, as passed to the format template
+FIXME
 
-<mode xmlns="http://www.gnome.org/~shaunm/xsldoc">
-<name>db.label.mode</name>
-<FIXME/>
-</mode>
+REMARK: Document this mode, and the role param
+-->
 
-<!-- = question = -->
+<!-- = db.label.mode % answer = -->
 <xsl:template mode="db.label.mode" match="answer">
   <xsl:param name="role"/>
   <xsl:variable name="qandaset" select="ancestor::qandaset[1]"/>
@@ -95,7 +81,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:if>
 </xsl:template>
 
-<!-- = appendix = -->
+<!-- = db.label.mode % appendix = -->
 <xsl:template mode="db.label.mode" match="appendix">
   <xsl:param name="role"/>
   <xsl:call-template name="l10n.gettext">
@@ -106,10 +92,10 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = bibliography = -->
+<!-- = db.label.mode % bibliography = -->
 <xsl:template mode="db.label.mode" match="bibliography"/>
 
-<!-- = biblioentry | bibliomixed = -->
+<!-- = db.label.mode % biblioentry | bibliomixed = -->
 <xsl:template mode="db.label.mode" match="biblioentry | bibliomixed">
   <xsl:if test="*[1]/self::abbrev | @xreflabel | @id">
     <!-- FIXME: I18N -->
@@ -129,7 +115,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:if>
 </xsl:template>
 
-<!-- = book = -->
+<!-- = db.label.mode % book = -->
 <xsl:template mode="db.label.mode" match="book">
   <xsl:param name="role"/>
   <xsl:call-template name="l10n.gettext">
@@ -140,7 +126,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = chapter = -->
+<!-- = db.label.mode % chapter = -->
 <xsl:template mode="db.label.mode" match="chapter">
   <xsl:param name="role"/>
   <xsl:call-template name="l10n.gettext">
@@ -151,7 +137,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = example = -->
+<!-- = db.label.mode % example = -->
 <xsl:template mode="db.label.mode" match="example">
   <xsl:param name="role"/>
   <xsl:call-template name="l10n.gettext">
@@ -162,7 +148,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = figure = -->
+<!-- = db.label.mode % figure = -->
 <xsl:template mode="db.label.mode" match="figure">
   <xsl:param name="role"/>
   <xsl:call-template name="l10n.gettext">
@@ -173,10 +159,10 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = glossary = -->
+<!-- = db.label.mode % glossary = -->
 <xsl:template mode="db.label.mode" match="glossary"/>
 
-<!-- = part = -->
+<!-- = db.label.mode % part = -->
 <xsl:template mode="db.label.mode" match="part">
   <xsl:param name="role"/>
   <xsl:call-template name="l10n.gettext">
@@ -187,10 +173,10 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = preface = -->
+<!-- = db.label.mode % preface = -->
 <xsl:template mode="db.label.mode" match="preface"/>
 
-<!-- = question = -->
+<!-- = db.label.mode % question = -->
 <xsl:template mode="db.label.mode" match="question">
   <xsl:param name="role"/>
   <xsl:variable name="qandaset" select="ancestor::qandaset[1]"/>
@@ -215,7 +201,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
-<!-- = refsection = -->
+<!-- = db.label.mode % refsection = -->
 <xsl:template mode="db.label.mode" match="
               refsection | refsect1 | refsect2 | refsect3">
   <xsl:param name="role"/>
@@ -227,7 +213,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = section = -->
+<!-- = db.label.mode % section = -->
 <xsl:template mode="db.label.mode" match="
               section | sect1 | sect2 | sect3 | sect4 | sect5 | simplesect">
   <xsl:param name="role"/>
@@ -239,7 +225,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = table = -->
+<!-- = db.label.mode % table = -->
 <xsl:template mode="db.label.mode" match="table">
   <xsl:param name="role"/>
   <xsl:call-template name="l10n.gettext">
@@ -251,6 +237,19 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 <!-- FIXME -->
+<xsl:template mode="db.label.mode" match="synopfragment">
+  <xsl:param name="role"/>
+  <xsl:text>(</xsl:text>
+  <xsl:call-template name="db.number"/>
+  <xsl:text>)</xsl:text>
+</xsl:template>
+
+<xsl:template mode="db.label.mode" match="title | subtitle">
+  <xsl:param name="role"/>
+  <xsl:call-template name="db.label">
+    <xsl:with-param name="node" select=".."/>
+  </xsl:call-template>
+</xsl:template>
 
 <xsl:template mode="db.label.mode" match="
               article  |
@@ -264,20 +263,6 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <xsl:call-template name="db.label.number"/>
 -->
 <xsl:call-template name="db.title"/>
-</xsl:template>
-
-<xsl:template mode="db.label.mode" match="synopfragment">
-  <xsl:param name="role"/>
-  <xsl:text>(</xsl:text>
-  <xsl:call-template name="db.number"/>
-  <xsl:text>)</xsl:text>
-</xsl:template>
-
-<xsl:template mode="db.label.mode" match="title | subtitle">
-  <xsl:param name="role"/>
-  <xsl:call-template name="db.label">
-    <xsl:with-param name="node" select=".."/>
-  </xsl:call-template>
 </xsl:template>
 
 <xsl:template mode="db.label.mode" match="
@@ -299,48 +284,34 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <xsl:template mode="db.label.mode" match="*"/>
 
 
-<!-- == db.number ========================================================== -->
+<!--**==========================================================================
+db.number
+Generates the number portion of a label
+$node: The element to generate a number for
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db.number</name>
-  <purpose>
-    Generate the number portion of a label
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The element for which to generate a number
-    </purpose>
-  </parameter>
-  <para>
-    This template generates the number portion of the label used for some
-    sectioning and block-level elements.  The template simply applies the
-    mode <mode>db.number.mode</mode> to the element.  To change
-    the behavior of a particular type of element, you should always
-    override the mode template for that type of element.
-  </para>
-  <para>
-    Overriding the <template>db.number</template> template should
-    only be done if you wish to change the numbering mechanism completely,
-    or you wish to wrap the numbering mechanism (for example, with a caching
-    extension).
-  </para>
-</template>
+This template generates the number portion of the label used for some sectioning
+and block-level elements.  The template simply applies the mode %{db.number.mode}
+to the element.  To change the behavior of a particular type of element, you
+should always override the mode template for that type of element.
 
+Overriding the *{db.number} template should only be done if you wish to change
+the numbering mechanism completely, or you wish to wrap the numbering mechanism
+(for example, with a caching extension).
+-->
 <xsl:template name="db.number">
   <xsl:param name="node" select="."/>
   <xsl:apply-templates mode="db.number.mode" select="$node"/>
 </xsl:template>
 
 
-<!-- == db.number.mode ===================================================== -->
+<!--%%==========================================================================
+db.number.mode
+FIXME
 
-<mode xmlns="http://www.gnome.org/~shaunm/xsldoc">>
-<name>db.number.mode</name>
-<FIXME/>
-</mode>
+REMARK: Document this mode
+-->
 
-<!-- = appendix = -->
+<!-- = db.number.mode % appendix = -->
 <xsl:template mode="db.number.mode" match="appendix">
   <xsl:choose>
     <xsl:when test="parent::part">
@@ -356,12 +327,12 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
-<!-- = book = -->
+<!-- = db.number.mode % book = -->
 <xsl:template mode="db.number.mode" match="book">
   <xsl:call-template name="db.digit"/>
 </xsl:template>
 
-<!-- = chapter = -->
+<!-- = db.number.mode % chapter = -->
 <xsl:template mode="db.number.mode" match="chapter">
   <xsl:choose>
     <xsl:when test="parent::part">
@@ -377,7 +348,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
-<!-- = example = -->
+<!-- = db.number.mode % example = -->
 <xsl:template mode="db.number.mode" match="example">
   <xsl:choose>
     <xsl:when test="ancestor::appendix or ancestor::chapter">
@@ -393,7 +364,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
-<!-- = figure = -->
+<!-- = db.number.mode % figure = -->
 <xsl:template mode="db.number.mode" match="figure">
   <xsl:choose>
     <xsl:when test="ancestor::appendix or ancestor::chapter">
@@ -409,13 +380,13 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
-<!-- = footnote = -->
+<!-- = db.number.mode % footnote = -->
 <xsl:template mode="db.number.mode" match="footnote">
-  <xsl:param name="depth_in_chunk">
+  <xsl:variable name="depth_in_chunk">
     <xsl:call-template name="db.chunk.depth-in-chunk">
       <xsl:with-param name="node" select="."/>
     </xsl:call-template>
-  </xsl:param>
+  </xsl:variable>
   <xsl:variable name="notes" select="preceding::footnote"/>
   <xsl:choose>
     <xsl:when test="count($notes) != 0">
@@ -432,7 +403,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
-<xsl:template name="db.number.footnote.tally" doc:private="true">
+<!--#* db.number.footnote.tally -->
+<xsl:template name="db.number.footnote.tally">
   <xsl:param name="chunk"/>
   <xsl:param name="notes"/>
   <xsl:param name="pos"/>
@@ -460,23 +432,23 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
-<!-- = glossary = -->
+<!-- = db.number.mode % glossary = -->
 <xsl:template mode="db.number.mode" match="glossary"/>
 
-<!-- = part = -->
+<!-- = db.number.mode % part = -->
 <xsl:template mode="db.number.mode" match="part">
   <xsl:call-template name="db.digit"/>
 </xsl:template>
 
-<!-- = preface = -->
+<!-- = db.number.mode % preface = -->
 <xsl:template mode="db.number.mode" match="preface"/>
 
-<!-- = question = -->
+<!-- = db.number.mode % question = -->
 <xsl:template mode="db.number.mode" match="question">
   <xsl:call-template name="db.digit"/>
 </xsl:template>
 
-<!-- = refsection = -->
+<!-- = db.number.mode % refsection = -->
 <xsl:template mode="db.number.mode" match="
               refsection | refsect1 | refsect2 | refsect3">
   <xsl:choose>
@@ -493,7 +465,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
-<!-- = section = -->
+<!-- = db.number.mode % section = -->
 <xsl:template mode="db.number.mode" match="
               section | sect1 | sect2 | sect3 | sect4 | sect5 | simplesect">
   <xsl:choose>
@@ -513,7 +485,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
-<!-- = table = -->
+<!-- = db.number.mode % table = -->
 <xsl:template mode="db.number.mode" match="table">
   <xsl:choose>
     <xsl:when test="ancestor::appendix or ancestor::chapter">
@@ -534,7 +506,6 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <xsl:template mode="db.number.mode" match="answer">
   <!-- FIXME -->
 </xsl:template>
-
 
 <xsl:template mode="db.number.mode" match="article">
   <xsl:number format="I" value="
@@ -569,14 +540,19 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db.digit =========================================================== -->
+<!--**==========================================================================
+db.digit
+FIXME
 
+REMARK: Document this template
+-->
 <xsl:template name="db.digit">
   <xsl:param name="node" select="."/>
   <xsl:apply-templates mode="db.digit.mode" select="$node"/>
 </xsl:template>
 
-<xsl:template name="db.digit.format" doc:private="true">
+<!--#* db.digit.format -->
+<xsl:template name="db.digit.format">
   <xsl:param name="digit"/>
   <xsl:param name="format"/>
   <xsl:choose>
@@ -606,9 +582,14 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db.digit.mode ====================================================== -->
+<!--%%==========================================================================
+db.digit.mode
+FIXME
 
-<!-- = appendix = -->
+REMARK: Document this mode.  Rename to db.number.digit.mode?
+-->
+
+<!-- = db.digit.mode % appendix = -->
 <xsl:template mode="db.digit.mode" match="appendix">
   <xsl:call-template name="db.digit.format">
     <!-- FIXME: use xsl:number -->
@@ -623,7 +604,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = book = -->
+<!-- = db.digit.mode % book = -->
 <xsl:template mode="db.digit.mode" match="book">
   <xsl:call-template name="db.digit.format">
     <xsl:with-param name="digit" select="count(preceding-sibling::book) + 1"/>
@@ -635,7 +616,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = chapter = -->
+<!-- = db.digit.mode % chapter = -->
 <xsl:template mode="db.digit.mode" match="chapter">
   <xsl:call-template name="db.digit.format">
     <!-- FIXME: use xsl:number -->
@@ -650,7 +631,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = example = -->
+<!-- = db.digit.mode % example = -->
 <xsl:template mode="db.digit.mode" match="example">
   <xsl:call-template name="db.digit.format">
     <xsl:with-param name="digit">
@@ -664,7 +645,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = figure = -->
+<!-- = db.digit.mode % figure = -->
 <xsl:template mode="db.digit.mode" match="figure">
   <xsl:call-template name="db.digit.format">
     <xsl:with-param name="digit">
@@ -678,10 +659,10 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = glossary = -->
+<!-- = db.digit.mode % glossary = -->
 <xsl:template mode="db.digit.mode" match="glossary"/>
 
-<!-- = part = -->
+<!-- = db.digit.mode % part = -->
 <xsl:template mode="db.digit.mode" match="part">
   <xsl:call-template name="db.digit.format">
     <xsl:with-param name="digit" select="count(preceding-sibling::part) + 1"/>
@@ -693,10 +674,10 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = preface = -->
+<!-- = db.digit.mode % preface = -->
 <xsl:template mode="db.digit.mode" match="preface"/>
 
-<!-- = question = -->
+<!-- = db.digit.mode % question = -->
 <xsl:template mode="db.digit.mode" match="question">
   <xsl:call-template name="db.digit.format">
     <xsl:with-param name="digit">
@@ -710,7 +691,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = refsection = -->
+<!-- = db.digit.mode % refsection = -->
 <xsl:template mode="db.digit.mode" match="
               refsection | refsect1 | refsect2 | refsect3">
   <xsl:call-template name="db.digit.format">
@@ -726,7 +707,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = section = -->
+<!-- = db.digit.mode % section = -->
 <xsl:template mode="db.digit.mode" match="
               section | sect1 | sect2 | sect3 | sect4 | sect5 | simplesect">
   <xsl:call-template name="db.digit.format">
@@ -742,7 +723,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = table = -->
+<!-- = db.digit.mode % table = -->
 <xsl:template mode="db.digit.mode" match="table">
   <xsl:call-template name="db.digit.format">
     <xsl:with-param name="digit">
@@ -757,15 +738,19 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db.number.parent.mode ============================================== -->
+<!--%%==========================================================================
+db.number.parent.mode
+FIXME
 
+REMARK: Document this mode
+-->
 <xsl:template mode="db.number.parent.mode" match="*">
   <xsl:call-template name="db.number">
     <xsl:with-param name="node" select=".."/>
   </xsl:call-template>
 </xsl:template>
 
-<!-- = example = -->
+<!-- = db.number.parent.mode % example = -->
 <xsl:template mode="db.number.parent.mode" match="example">
   <xsl:call-template name="db.number">
     <xsl:with-param name="node"
@@ -773,7 +758,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = figure = -->
+<!-- = db.number.parent.mode % figure = -->
 <xsl:template mode="db.number.parent.mode" match="figure">
   <xsl:call-template name="db.number">
     <xsl:with-param name="node"
@@ -781,7 +766,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = table = -->
+<!-- = db.number.parent.mode % table = -->
 <xsl:template mode="db.number.parent.mode" match="table">
   <xsl:call-template name="db.number">
     <xsl:with-param name="node"
@@ -791,6 +776,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 
 <!-- == msg:* ============================================================== -->
+<!--#% l10n.format.mode -->
 
 <xsl:template mode="l10n.format.mode" match="msg:digit">
   <xsl:param name="node"/>

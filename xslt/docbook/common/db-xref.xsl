@@ -17,22 +17,19 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
-                exclude-result-prefixes="doc"
                 version="1.0">
 
-<doc:title>Common Cross Reference Utilities</doc:title>
+<!--!!==========================================================================
+DocBook Cross References
+-->
 
 
-<!-- == db.ulink.tooltip =================================================== -->
-
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db.ulink.tooltip</name>
-  <purpose>
-    Generate the tooltip for an external link
-  </purpose>
-</template>
-
+<!--**==========================================================================
+db.ulink.tooltip
+Generates the tooltip for an external link
+$node: The element to generate a tooltip for
+$url: The URL of the link, usually from the #{url} attribute
+-->
 <xsl:template name="db.ulink.tooltip">
   <xsl:param name="node" select="."/>
   <xsl:param name="url" select="$node/@url"/>
@@ -52,15 +49,16 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db.xref.content ==================================================== -->
+<!--**==========================================================================
+db.xref.content
+Generates the content of a cross reference
+$linkend: The id of the linked-to element, usually from the #{linkend} attribute
+$target: The linked-to element
+$xrefstyle: The cross reference style, usually from the #{xrefstyle} attribute
+$role: For a role-based ${xrefstyle}, the role of the cross reference
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db.xref.content</name>
-  <purpose>
-    Generate the content for a cross reference
-  </purpose>
-</template>
-
+REMARK: The xrefstyle/role stuff needs to be documented
+-->
 <xsl:template name="db.xref.content">
   <xsl:param name="linkend" select="@linkend"/>
   <xsl:param name="target" select="key('idkey', $linkend)"/>
@@ -106,9 +104,24 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db.xref.content.mode =============================================== -->
+<!--%%==========================================================================
+db.xref.content.mode
+FIXME
+$xrefstyle: The cross reference style, usually from the #{xrefstyle} attribute
+$role: For a role-based ${xrefstyle}, the role of the cross reference
 
-<!-- = appendix = -->
+REMARK: Document this mode
+-->
+<xsl:template mode="db.xref.content.mode" match="*">
+  <xsl:message>
+    <xsl:text>No cross reference formatter found for </xsl:text>
+    <xsl:value-of select="local-name(.)"/>
+    <xsl:text> elements</xsl:text>
+  </xsl:message>
+  <xsl:call-template name="db.title"/>
+</xsl:template>
+
+<!-- = db.xref.content.mode % appendix = -->
 <xsl:template mode="db.xref.content.mode" match="appendix">
   <xsl:param name="xrefstyle"/>
   <xsl:param name="role" select="substring-after($xrefstyle, 'role:')"/>
@@ -120,14 +133,14 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = biblioentry = -->
+<!-- = db.xref.content.mode % biblioentry = -->
 <xsl:template mode="db.xref.content.mode" match="biblioentry">
   <xsl:call-template name="db.label">
     <xsl:with-param name="node" select="."/>
   </xsl:call-template>
 </xsl:template>
 
-<!-- = bibliography = -->
+<!-- = db.xref.content.mode % bibliography = -->
 <xsl:template mode="db.xref.content.mode" match="bibliography">
   <xsl:param name="xrefstyle"/>
   <xsl:param name="role" select="substring-after($xrefstyle, 'role:')"/>
@@ -139,14 +152,14 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = bibliomixed = -->
+<!-- = db.xref.content.mode % bibliomixed = -->
 <xsl:template mode="db.xref.content.mode" match="bibliomixed">
   <xsl:call-template name="db.label">
     <xsl:with-param name="node" select="."/>
   </xsl:call-template>
 </xsl:template>
 
-<!-- = book = -->
+<!-- = db.xref.content.mode % book = -->
 <xsl:template mode="db.xref.content.mode" match="book">
   <xsl:param name="xrefstyle"/>
   <xsl:param name="role" select="substring-after($xrefstyle, 'role:')"/>
@@ -158,7 +171,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = chapter = -->
+<!-- = db.xref.content.mode % chapter = -->
 <xsl:template mode="db.xref.content.mode" match="chapter">
   <xsl:param name="xrefstyle"/>
   <xsl:param name="role" select="substring-after($xrefstyle, 'role:')"/>
@@ -170,7 +183,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = example = -->
+<!-- = db.xref.content.mode % example = -->
 <xsl:template mode="db.xref.content.mode" match="example">
   <xsl:param name="xrefstyle"/>
   <xsl:param name="role" select="substring-after($xrefstyle, 'role:')"/>
@@ -182,7 +195,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = figure = -->
+<!-- = db.xref.content.mode % figure = -->
 <xsl:template mode="db.xref.content.mode" match="figure">
   <xsl:param name="xrefstyle"/>
   <xsl:param name="role" select="substring-after($xrefstyle, 'role:')"/>
@@ -194,7 +207,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = glossary = -->
+<!-- = db.xref.content.mode % glossary = -->
 <xsl:template mode="db.xref.content.mode" match="glossary">
   <xsl:param name="xrefstyle"/>
   <xsl:param name="role" select="substring-after($xrefstyle, 'role:')"/>
@@ -206,7 +219,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = glossentry = -->
+<!-- = db.xref.content.mode % glossentry = -->
 <xsl:template mode="db.xref.content.mode" match="glossentry">
   <xsl:param name="xrefstyle"/>
   <xsl:param name="role" select="substring-after($xrefstyle, 'role:')"/>
@@ -218,7 +231,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = part = -->
+<!-- = db.xref.content.mode % part = -->
 <xsl:template mode="db.xref.content.mode" match="part">
   <xsl:param name="xrefstyle"/>
   <xsl:param name="role" select="substring-after($xrefstyle, 'role:')"/>
@@ -230,7 +243,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = preface = -->
+<!-- = db.xref.content.mode % preface = -->
 <xsl:template mode="db.xref.content.mode" match="preface">
   <xsl:param name="xrefstyle"/>
   <xsl:param name="role" select="substring-after($xrefstyle, 'role:')"/>
@@ -242,7 +255,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = qandaentry = -->
+<!-- = db.xref.content.mode % qandaentry = -->
 <xsl:template mode="db.xref.content.mode" match="qandaentry">
   <xsl:param name="xrefstyle"/>
   <xsl:param name="role" select="substring-after($xrefstyle, 'role:')"/>
@@ -252,7 +265,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:apply-templates>
 </xsl:template>
 
-<!-- = question = -->
+<!-- = db.xref.content.mode % question = -->
 <xsl:template mode="db.xref.content.mode" match="question">
   <xsl:param name="xrefstyle"/>
   <xsl:param name="role" select="substring-after($xrefstyle, 'role:')"/>
@@ -264,7 +277,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = refentry = -->
+<!-- = db.xref.content.mode % refentry = -->
 <xsl:template mode="db.xref.content.mode" match="refentry">
   <xsl:param name="xrefstyle"/>
   <xsl:param name="role" select="substring-after($xrefstyle, 'role:')"/>
@@ -276,7 +289,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = refsection = -->
+<!-- = db.xref.content.mode % refsection = -->
 <xsl:template mode="db.xref.content.mode" match="
               refsection | refsect1 | refsect2 | refsect3">
   <xsl:param name="xrefstyle"/>
@@ -289,7 +302,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = section = -->
+<!-- = db.xref.content.mode % section = -->
 <xsl:template mode="db.xref.content.mode" match="
               section | sect1 | sect2 | sect3 | sect4 | sect5 | simplesect">
   <xsl:param name="xrefstyle"/>
@@ -302,7 +315,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = table = -->
+<!-- = db.xref.content.mode % table = -->
 <xsl:template mode="db.xref.content.mode" match="table">
   <xsl:param name="xrefstyle"/>
   <xsl:param name="role" select="substring-after($xrefstyle, 'role:')"/>
@@ -314,45 +327,16 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = * = -->
-<xsl:template mode="db.xref.content.mode" match="*">
-  <xsl:message>
-    <xsl:text>No cross reference formatter found for </xsl:text>
-    <xsl:value-of select="local-name(.)"/>
-    <xsl:text> elements</xsl:text>
-  </xsl:message>
-  <xsl:call-template name="db.title"/>
-</xsl:template>
 
+<!--**==========================================================================
+db.xref.target
+Generates the target identifier of a cross reference
+$linkend: The id of the linked-to element, usually from the #{linkend} attribute
+$target: The linked-to element
+$is_chunk: Whether ${target} is known to be a chunked element
 
-<!-- == db.xref.target ===================================================== -->
-
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db.xref.target</name>
-  <purpose>
-    Generate the target for a cross reference
-  </purpose>
-  <parameter>
-    <name>linkend</name>
-    <purpose>
-      The <sgmltag class="attribute">id</sgmltag> of the target element
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>target</name>
-    <purpose>
-      The target element
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>is_chunk</name>
-    <purpose>
-      Whether the <parameter>target</parameter> node
-      is known to be a chunked node
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Talk about how this works with chunking
+-->
 <xsl:template name="db.xref.target">
   <xsl:param name="linkend" select="@linkend"/>
   <xsl:param name="target" select="key('idkey', $linkend)"/>
@@ -388,15 +372,14 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db.xref.tooltip ==================================================== -->
+<!--**==========================================================================
+db.xref.tooltip
+Generates the tooltip for a cross reference
+$linkend: The id of the linked-to element, usually from the #{linkend} attribute
+$target: The linked-to element
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db.xref.tooltip</name>
-  <purpose>
-    Generate the tooltip for a cross reference
-  </purpose>
-</template>
-
+REMARK: Document this
+-->
 <xsl:template name="db.xref.tooltip">
   <xsl:param name="linkend" select="@linkend"/>
   <xsl:param name="target" select="key('idkey', $linkend)"/>
@@ -404,14 +387,19 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db.xref.tooltip.mode =============================================== -->
+<!--%%==========================================================================
+db.xref.tooltip.mode
+FIXME
 
+REMARK: Document this
+-->
 <xsl:template mode="db.xref.tooltip.mode" match="*">
   <xsl:call-template name="db.title">
     <xsl:with-param name="node" select="."/>
   </xsl:call-template>
 </xsl:template>
 
+<!-- = db.xref.tooltip.mode % biblioentry | bibliomixed = -->
 <xsl:template mode="db.xref.tooltip.mode" match="biblioentry | bibliomixed">
   <xsl:call-template name="l10n.gettext">
     <xsl:with-param name="msgid" select="'biblioentry.tooltip'"/>
@@ -420,6 +408,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
+<!-- = db.xref.tooltip.mode % glossentry = -->
 <xsl:template mode="db.xref.tooltip.mode" match="glossentry">
   <xsl:call-template name="l10n.gettext">
     <xsl:with-param name="msgid" select="'glossentry.tooltip'"/>

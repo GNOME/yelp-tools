@@ -1,5 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!-- -*- indent-tabs-mode: nil -*- -->
+<?xml version="1.0" encoding="UTF-8"?><!-- -*- indent-tabs-mode: nil -*- -->
+<?db.chunk.max_depth 2?>
+<?yelp:chunk-depth 2?>
 <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
 "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
 <article id="index" lang="en">
@@ -192,14 +193,47 @@
     <literal>id</literal> attribute on each chunked element.</para>
   </section>
 
-  <include href="db2html.xml" xmlns="http://www.w3.org/2001/XInclude"/>
-  <include href="db-chunk.xml" xmlns="http://www.w3.org/2001/XInclude"/>
-  <include href="db-common.xml" xmlns="http://www.w3.org/2001/XInclude"/>
-  <include href="db-label.xml" xmlns="http://www.w3.org/2001/XInclude"/>
-  <include href="db-title.xml" xmlns="http://www.w3.org/2001/XInclude"/>
-  <include href="db-xref.xml" xmlns="http://www.w3.org/2001/XInclude"/>
-  <include href="db2omf.xml" xmlns="http://www.w3.org/2001/XInclude"/>
-  <include href="gettext.xml" xmlns="http://www.w3.org/2001/XInclude"/>
   <include href="translating.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+  <section id="reference">
+    <title>Stylesheet Reference</title>
+
+    <!--BEGIN-->
+    <include href="db-chunk.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+    <include href="db-common.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+    <include href="db-label.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+    <include href="db-title.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+    <include href="db-xref.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+    <include href="db2html.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+    <include href="db2html-admon.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+    <include href="db2html-autotoc.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+    <include href="db2html-bibliography.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+    <include href="db2html-block.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+    <include href="db2html-callout.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+    <include href="db2html-classsynopsis.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+    <include href="db2html-cmdsynopsis.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+    <include href="db2html-css.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+    <include href="db2html-division.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+    <include href="db2html-ebnf.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+    <include href="db2html-footnote.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+    <include href="db2html-funcsynopsis.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+    <include href="db2html-info.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+    <include href="db2html-inline.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+    <include href="db2html-l10n.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+    <include href="db2html-list.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+    <include href="db2html-media.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+    <include href="db2html-qanda.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+    <include href="db2html-refentry.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+    <include href="db2html-table.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+    <include href="db2html-title.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+    <include href="db2html-xref.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+    <include href="db2omf.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+
+    <include href="gettext.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+    <include href="l10n-numbers.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+    <!--END-->
+  </section>
 
 </article>

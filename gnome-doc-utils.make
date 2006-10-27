@@ -110,14 +110,6 @@ _DOC_REAL_LINGUAS = $(if $(filter environment,$(origin LINGUAS)),		\
 	$(filter $(LINGUAS),$(DOC_LINGUAS)),					\
 	$(DOC_LINGUAS))
 
-## @ RNGDOC_DIRS
-## The directories containing RNG files to be documented with rngdoc
-RNGDOC_DIRS ?=
-
-## @ XSLDOC_DIRS
-## The directories containing XSLT files to be documented with xsldoc
-XSLDOC_DIRS ?=
-
 
 ################################################################################
 ## Variables for Bootstrapping
@@ -126,71 +118,11 @@ _xml2po ?= `which xml2po`
 
 _db2html ?= `$(PKG_CONFIG) --variable db2html gnome-doc-utils`
 _db2omf  ?= `$(PKG_CONFIG) --variable db2omf gnome-doc-utils`
-_rngdoc  ?= `$(PKG_CONFIG) --variable rngdoc gnome-doc-utils`
-_xsldoc  ?= `$(PKG_CONFIG) --variable xsldoc gnome-doc-utils`
 _chunks  ?= `$(PKG_CONFIG) --variable xmldir gnome-doc-utils`/gnome/xslt/docbook/utils/chunks.xsl
 _credits ?= `$(PKG_CONFIG) --variable xmldir gnome-doc-utils`/gnome/xslt/docbook/utils/credits.xsl
 _ids ?= `$(PKG_CONFIG) --variable xmldir gnome-doc-utils`/gnome/xslt/docbook/utils/ids.xsl
 
 _sklocalstatedir ?= `scrollkeeper-config --pkglocalstatedir`
-
-
-################################################################################
-## @@ Rules for rngdoc
-
-rngdoc_args =									\
-	--stringparam rngdoc.id							\
-	$(shell echo $(basename $(notdir $(1))) | sed -e 's/[^A-Za-z0-9_-]/_/g')\
-	$(_rngdoc) $(filter %/$(basename $(notdir $(1))).rng,$(_RNGDOC_RNGS))
-
-## @ _RNGDOC_RNGS
-## The actual RNG files for which to generate documentation with rngdoc
-_RNGDOC_RNGS = $(sort $(patsubst ./%, %, $(foreach dir,$(RNGDOC_DIRS),		\
-	$(wildcard $(dir)/*.rng) $(wildcard $(srcdir)/$(dir)/*.rng))))
-
-## @ _RNGDOC_C_DOCS
-## The generated rngdoc documentation in the C locale
-_RNGDOC_C_DOCS = $(foreach rng,$(_RNGDOC_RNGS), C/$(basename $(notdir $(rng))).xml)
-
-# FIXME: Fix the dependancies
-$(_RNGDOC_C_DOCS) : $(_RNGDOC_RNGS)
-	if ! test -d $(dir $@); then mkdir $(dir $@); fi;
-	xsltproc $(call rngdoc_args,$@,$<) | xmllint --c14n - > $@.tmp && \
-	  cp $@.tmp $@ && rm -f $@.tmp
-
-.PHONY: rngdoc
-rngdoc: $(_RNGDOC_C_DOCS)
-
-
-################################################################################
-## @@ Rules for xsldoc
-
-# FIXME: _XSLDOC_XSLS is getting dupes with relative/absolute in some
-# cases.  Right now, I'm just taking the first, but that's just a bad
-# work-around.  Fix the real problem.
-xsldoc_args =									\
-	--stringparam xsldoc.id							\
-	$(shell echo $(basename $(notdir $(1))) | sed -e 's/[^A-Za-z0-9_-]/_/g')\
-	$(_xsldoc)								\
-	$(word 1,$(filter %/$(basename $(notdir $(1))).xsl,$(_XSLDOC_XSLS)))
-
-## @ _XSLDOC_XSLS
-## The actual XSLT files for which to generate documentation with xsldoc
-_XSLDOC_XSLS = $(sort $(patsubst ./%, %, $(foreach dir,$(XSLDOC_DIRS),		\
-	$(wildcard $(dir)/*.xsl) $(wildcard $(srcdir)/$(dir)/*.xsl))))
-
-## @ _XSLDOC_C_DOCS
-## The generated xsldoc documentation in the C locale
-_XSLDOC_C_DOCS = $(foreach xsl,$(_XSLDOC_XSLS), C/$(basename $(notdir $(xsl))).xml)
-
-# FIXME: Fix the dependancies
-$(_XSLDOC_C_DOCS) : $(_XSLDOC_XSLS)
-	if ! test -d $(dir $@); then mkdir $(dir $@); fi;
-	xsltproc $(call xsldoc_args,$@,$<) | xmllint --c14n - > $@.tmp && \
-	  cp $@.tmp $@ && rm -f $@.tmp
-
-.PHONY: xsldoc
-xsldoc: $(_XSLDOC_C_DOCS)
 
 
 ################################################################################
@@ -242,66 +174,6 @@ omf: $(_DOC_OMF_ALL)
 
 
 ################################################################################
-## @@ Rules for .cvsignore Files
-
-## @ _CVSIGNORE_TOP
-## The .cvsignore file in the top directory
-_CVSIGNORE_TOP = $(if $(DOC_MODULE), .cvsignore)
-
-## @ _CVSIGNORE_C
-## The .cvsignore file in the C directory
-_CVSIGNORE_C = $(if $(DOC_MODULE), C/.cvsignore)
-
-## @ _CVSIGNORE_LC
-## The .cvsignore files in other locale directories
-_CVSIGNORE_LC = $(if $(DOC_MODULE),$(foreach lc,$(_DOC_REAL_LINGUAS),$(lc)/.cvsignore))
-
-## @ _CVSIGNORE_TOP_FILES
-## The list of files to be listed in the top-level .cvsignore file
-_CVSIGNORE_TOP_FILES = $(_DOC_OMF_ALL) $(_DOC_DSK_ALL)
-
-## @ _CVSIGNORE_C_FILES
-## The list of files to be listed in the .cvsignore file in the C directory
-_CVSIGNORE_C_FILES = $(_RNGDOC_C_DOCS) $(_XSLDOC_C_DOCS)
-
-## @ _CVSIGNORE_C_FILES
-## The list of files to be listed in the .cvsignore files in other
-## locale directories
-_CVSIGNORE_LC_FILES = $(_DOC_LC_DOCS)
-
-$(_CVSIGNORE_TOP) : $(_CVSIGNORE_TOP_FILES)
-	if ! test -f $@; then touch $@; fi
-	cat $@ > $@.tmp
-	list='$^'; for file in $$list; do \
-	  echo $$file >> $@.tmp; \
-	done
-	cat $@.tmp | sort | uniq > $@
-	rm $@.tmp
-
-$(_CVSIGNORE_C) : $(_CVSIGNORE_C_FILES)
-	if ! test -f $@; then touch $@; fi
-	cat $@ > $@.tmp
-	list='$^'; for file in $$list; do \
-	  echo $$file | sed -e 's/.*\///' >> $@.tmp; \
-	done
-	cat $@.tmp | sort | uniq > $@
-	rm $@.tmp
-
-$(_CVSIGNORE_LC) : $(_CVSIGNORE_LC_FILES)
-	if ! test -f $@; then touch $@; fi
-	cat $@ > $@.tmp
-	list='$(wildcard $(_CVSIGNORE_LC_FILES),$(dir $@)/*)'; \
-	for file in $$list; do \
-	  echo $$file | sed -e 's/.*\///' >> $@.tmp; \
-	done
-	cat $@.tmp | sort | uniq > $@
-	rm $@.tmp
-
-.PHONY: cvsignore
-cvsignore: $(_CVSIGNORE_TOP) $(_CVSIGNROE_C) $(_CVSIGNORE_LC)
-
-
-################################################################################
 ## @@ C Locale Documents
 
 ## @ _DOC_C_MODULE
@@ -320,15 +192,13 @@ _DOC_C_INCLUDES = $(foreach inc,$(DOC_INCLUDES),C/$(inc))
 ## All documentation files in the C locale
 _DOC_C_DOCS =								\
 	$(_DOC_C_ENTITIES)	$(_DOC_C_INCLUDES)			\
-	$(_RNGDOC_C_DOCS)	$(_XSLDOC_C_DOCS)			\
 	$(_DOC_C_MODULE)
 
 ## @ _DOC_C_DOCS_NOENT
 ## All documentation files in the C locale,
 ## except files included with a SYSTEM entity
 _DOC_C_DOCS_NOENT =							\
-	$(_DOC_C_MODULE)	$(_DOC_C_INCLUDES)			\
-	$(_RNGDOC_C_DOCS)	$(_XSLDOC_C_DOCS)
+	$(_DOC_C_MODULE)	$(_DOC_C_INCLUDES)
 
 ## @ _DOC_C_FIGURES
 ## All figures and other external data in the C locale
@@ -367,18 +237,6 @@ _DOC_LC_INCLUDES =								\
 	$(foreach lc,$(_DOC_REAL_LINGUAS),$(foreach inc,$(_DOC_C_INCLUDES),	\
 		$(lc)/$(notdir $(inc)) ))
 
-## @ _RNGDOC_LC_DOCS
-## The generated rngdoc documentation in all other locales
-_RNGDOC_LC_DOCS =								\
-	$(foreach lc,$(_DOC_REAL_LINGUAS),$(foreach doc,$(_RNGDOC_C_DOCS),	\
-		$(lc)/$(notdir $(doc)) ))
-
-## @ _XSLDOC_LC_DOCS
-## The generated xsldoc documentation in all other locales
-_XSLDOC_LC_DOCS =								\
-	$(foreach lc,$(_DOC_REAL_LINGUAS),$(foreach doc,$(_XSLDOC_C_DOCS),	\
-		$(lc)/$(notdir $(doc)) ))
-
 ## @ _DOC_LC_HTML
 ## All HTML documentation in all other locales
 # FIXME: probably have to shell escape to determine the file names
@@ -390,7 +248,6 @@ _DOC_LC_HTML =									\
 ## All documentation files in all other locales
 _DOC_LC_DOCS =									\
 	$(_DOC_LC_MODULES)	$(_DOC_LC_INCLUDES)				\
-	$(_RNGDOC_LC_DOCS)	$(_XSLDOC_LC_DOCS)				\
 	$(if $(filter html HTML,$(_DOC_REAL_FORMATS)),$(_DOC_LC_HTML))
 
 ## @ _DOC_LC_FIGURES
@@ -483,10 +340,8 @@ all:							\
 	$(_DOC_HTML_ALL)	$(_DOC_POFILES)
 
 
-.PHONY: clean-doc-rngdoc clean-doc-xsldoc clean-doc-omf clean-doc-dsk clean-doc-lc clean-doc-dir
+.PHONY: clean-doc-omf clean-doc-dsk clean-doc-lc clean-doc-dir
 
-clean-doc-rngdoc: ; rm -f $(_RNGDOC_C_DOCS) $(_RNGDOC_LC_DOCS)
-clean-doc-xsldoc: ; rm -f $(_XSLDOC_C_DOCS) $(_XSLDOC_LC_DOCS)
 clean-doc-omf: ; rm -f $(_DOC_OMF_DB) $(_DOC_OMF_HTML)
 clean-doc-dsk: ; rm -f $(_DOC_DSK_DB) $(_DOC_DSK_HTML)
 clean-doc-lc:
@@ -513,27 +368,21 @@ clean-doc-dir:
 	  done; \
 	done
 
-_clean_rngdoc = $(if $(RNGDOC_DIRS),clean-doc-rngdoc)
-_clean_xsldoc = $(if $(XSLDOC_DIRS),clean-doc-xsldoc)
 _clean_omf = $(if $(_DOC_OMF_IN),clean-doc-omf)
 _clean_dsk = $(if $(_DOC_DSK_IN),clean-doc-dsk)
 _clean_lc  = $(if $(_DOC_REAL_LINGUAS),clean-doc-lc)
 _clean_dir = $(if $(DOC_MODULE),clean-doc-dir)
 
 clean-local:						\
-	$(_clean_rngdoc)	$(_clean_xsldoc)	\
 	$(_clean_omf)		$(_clean_dsk)		\
 	$(_clean_lc)		$(_clean_dir)
 distclean-local:					\
-	$(_clean_rngdoc)	$(_clean_xsldoc)	\
 	$(_clean_omf)		$(_clean_dsk)		\
 	$(_clean_lc)		$(_clean_dir)
 mostlyclean-local:					\
-	$(_clean_rngdoc)	$(_clean_xsldoc)	\
 	$(_clean_omf)		$(_clean_dsk)		\
 	$(_clean_lc)		$(_clean_dir)
 maintainer-clean-local:					\
-	$(_clean_rngdoc)	$(_clean_xsldoc)	\
 	$(_clean_omf)		$(_clean_dsk)		\
 	$(_clean_lc)		$(_clean_dir)
 

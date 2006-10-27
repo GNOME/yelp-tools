@@ -17,23 +17,23 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
                 xmlns:exsl="http://exslt.org/common"
-                exclude-result-prefixes="doc"
                 extension-element-prefixes="exsl"
                 version="1.0">
 
-<doc:title>Chunking</doc:title>
+<!--!!==========================================================================
+DocBook Chunking
 
-<!-- == db.chunk.chunks ==================================================== -->
+REMARK: Describe this module
+-->
 
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db.chunk.chunks</name>
-  <purpose>
-    A space-seperated list of the names of elements that should be chunked
-  </purpose>
-</parameter>
 
+<!--@@==========================================================================
+db.chunk.chunks
+A space-seperated list of the names of elements that should be chunked
+
+REMARK: This parameter sucks
+-->
 <xsl:param name="db.chunk.chunks" select="
            'appendix    article     bibliography  book       chapter
             colophon    dedication  glossary      glossdiv   index
@@ -43,27 +43,21 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <xsl:variable name="db.chunk.chunks_" select="concat(' ', $db.chunk.chunks, ' ')"/>
 
 
-<!-- == db.chunk.chunk_top ================================================= -->
+<!--@@==========================================================================
+db.chunk.chunk_top
+Whether the top-level chunk should be output with the chunking mechanism
 
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db.chunk.chunk_top</name>
-  <purpose>
-    Whether the top-level chunk should be output with the chunking mechanism
-  </purpose>
-</parameter>
-
+REMARK: Describe what this does
+-->
 <xsl:param name="db.chunk.chunk_top" select="false()"/>
 
 
-<!-- == db.chunk.max_depth ================================================= -->
+<!--@@==========================================================================
+db.chunk.max_depth
+The maximum depth for chunking sections
 
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db.chunk.max_depth</name>
-  <purpose>
-    The maximum depth for chunking sections
-  </purpose>
-</parameter>
-
+REMARK: Describe what this does
+-->
 <xsl:param name="db.chunk.max_depth">
   <xsl:choose>
     <xsl:when test="number(processing-instruction('db.chunk.max_depth'))">
@@ -80,52 +74,39 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:param>
 
 
-<!-- == db.chunk.basename ================================================== -->
+<!--@@==========================================================================
+db.chunk.basename
+The base filename of the output file, without an extension
 
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db.chunk.basename</name>
-  <purpose>
-    The base filename of the output file, without an extension
-  </purpose>
-</parameter>
-
+REMARK: Describe what this does
+-->
 <xsl:param name="db.chunk.basename" select="/*/@id"/>
 
 
-<!-- == db.chunk.extension ================================================= -->
+<!--@@==========================================================================
+db.chunk.extension
+The default file extension for new output documents
 
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db.chunk.extension</name>
-  <purpose>
-    The default file extension for new output documents
-  </purpose>
-</parameter>
-
+REMARK: Describe what this does
+-->
 <xsl:param name="db.chunk.extension"/>
 
 
-<!-- == db.chunk.info_chunk ================================================ -->
+<!--@@==========================================================================
+db.chunk.info_chunk
+Whether to create a chunk for the titlepage
 
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db.chunk.info_chunk</name>
-  <purpose>
-    Whether to create a chunk for the titlepage
-  </purpose>
-</parameter>
-
-<xsl:param name="db.chunk.info_chunk"
-           select="$db.chunk.max_depth != 0"/>
+REMARK: Describe what this does
+-->
+<xsl:param name="db.chunk.info_chunk" select="$db.chunk.max_depth != 0"/>
 
 
-<!-- == db.chunk.info_basename ============================================= -->
+<!--@@==========================================================================
+db.chunk.info_basename
+The base filename for the titlepage
 
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db.chunk.info_basename</name>
-  <purpose>
-    The base filename for the titlepage
-  </purpose>
-</parameter>
-
+REMARK: Describe what this does
+-->
 <xsl:param name="db.chunk.info_basename">
   <xsl:choose>
     <xsl:when test="$db.chunk.basename">
@@ -135,47 +116,22 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:param>
 
-<!-- == db.chunk =========================================================== -->
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db.chunk</name>
-  <purpose>
-    Create a new output document
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The source element for the output document
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>template</name>
-    <purpose>
-      The named template to call to create the document
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>href</name>
-    <purpose>
-      The name of the file for the new document
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>depth_of_chunk</name>
-    <purpose>
-      The depth of new output document
-    </purpose>
-  </parameter>
-  <para>
-    The <template>db.chunk</template> template creates a new output
-    document using the <xmltag>exsl:document</xmltag> extension element.
-    This template calls <template>db.chunk.content</template> to create
-    the content of the document, passing through all parameters.  This
-    allows you to override the chunking mechanism without having to
-    duplicate the content-generation code.
-  </para>
-</template>
+<!--**==========================================================================
+db.chunk
+Creates a new page of output
+$node: The source element for the output page
+$template: The named template to call to create the page
+$href: The name of the file for the output page
+$depth_of_chunk: The depth of this chunk in the document
 
+REMARK: We need a lot more explanation about chunk flow
+
+The *{db.chunk} template creates a new output document using the #{exsl:document}
+extension element.  This template calls *{db.chunk.content} to create the content
+of the document, passing through all parameters.  This allows you to override the
+chunking mechanism without having to duplicate the content-generation code.
+-->
 <xsl:template name="db.chunk">
   <xsl:param name="node" select="."/>
   <xsl:param name="template"/>
@@ -211,43 +167,21 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db.chunk.content =================================================== -->
+<!--**==========================================================================
+db.chunk.content
+Creates the content of a new page of output
+$node: The source element for the output page
+$template: The named template to call to create the page
+$depth_of_chunk: The depth of this chunk in the document
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db.chunk.content</name>
-  <purpose>
-    Create the content of a new output document
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The source element for the content
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>template</name>
-    <purpose>
-      The named template to call to create the content
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>depth_of_chunk</name>
-    <purpose>
-      The depth of new output document
-    </purpose>
-  </parameter>
-  <para>
-    The <template>db.chunk.content</template> creates the actual content
-    of a new output document.  It should generally only be called by
-    <template>db.chunk</template>.
-  </para>
-  <para>
-    This template will always pass the <parameter>depth_in_chunk</parameter>
-    and <parameter>depth_of_chunk</parameter> parameters with appropriate
-    values to the templates it calls.
-  </para>
-</template>
+REMARK: We need a lot more explanation about chunk flow
 
+The *{db.chunk.content} template creates the actual content of a new output page.
+It should generally only be called by *{db.chunk}.
+
+This template will always pass the ${depth_in_chunk} and ${depth_of_chunk}
+parameters with appropriate values to the templates it calls.
+-->
 <xsl:template name="db.chunk.content">
   <xsl:param name="node" select="."/>
   <xsl:param name="template"/>
@@ -273,27 +207,14 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db.chunk.children ================================================== -->
+<!--**==========================================================================
+db.chunk.children
+Creates new output pages for the children of an element
+$node: The parent element whose children will be chunked
+$depth_of_chunk: The depth of ${node} in the document
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db.chunk.children</name>
-  <purpose>
-    Create new documents for the children of an element
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The parent element
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>depth_of_chunk</name>
-    <purpose>
-      The depth of the parent element
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: We need a lot more explanation about chunk flow
+-->
 <xsl:template name="db.chunk.children">
   <xsl:param name="node" select="."/>
   <xsl:param name="depth_of_chunk">
@@ -326,49 +247,41 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db.chunk.depth-in-chunk ============================================ -->
+<!--**==========================================================================
+db.chunk.depth-in-chunk
+Determines the depth of an element in the containing chunk
+$node: The element to determine the depth of
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db.chunk.depth-in-chunk</name>
-  <purpose>
-    Determine the depth of an element in the containing chunk
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The element for which to determine the depth
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Explain how this works
+-->
 <xsl:template name="db.chunk.depth-in-chunk">
   <xsl:param name="node" select="."/>
   <xsl:variable name="divs"
                 select="
-count(                          $node/ancestor-or-self::appendix     ) + 
-count(                          $node/ancestor-or-self::article      ) + 
-count(                          $node/ancestor-or-self::bibliography ) + 
-count(                          $node/ancestor-or-self::book         ) + 
-count(                          $node/ancestor-or-self::chapter      ) + 
-count(                          $node/ancestor-or-self::colophon     ) + 
-count(                          $node/ancestor-or-self::dedication   ) + 
-count(                          $node/ancestor-or-self::glossary     ) + 
-count(                          $node/ancestor-or-self::glossdiv     ) + 
-count(                          $node/ancestor-or-self::index        ) + 
-count(                          $node/ancestor-or-self::lot          ) + 
-count(                          $node/ancestor-or-self::part         ) + 
-count(                          $node/ancestor-or-self::preface      ) + 
-count(                          $node/ancestor-or-self::refentry     ) + 
-count(                          $node/ancestor-or-self::reference    ) + 
-count(                          $node/ancestor-or-self::sect1        ) + 
-count(                          $node/ancestor-or-self::sect2        ) + 
-count(                          $node/ancestor-or-self::sect3        ) + 
-count(                          $node/ancestor-or-self::sect4        ) + 
-count(                          $node/ancestor-or-self::sect5        ) + 
-count(                          $node/ancestor-or-self::section      ) + 
-count(                          $node/ancestor-or-self::setindex     ) + 
-count(                          $node/ancestor-or-self::simplesect   ) + 
-count(                          $node/ancestor-or-self::toc          )"/>
+                        count($node/ancestor-or-self::appendix     ) + 
+                        count($node/ancestor-or-self::article      ) + 
+                        count($node/ancestor-or-self::bibliography ) + 
+                        count($node/ancestor-or-self::book         ) + 
+                        count($node/ancestor-or-self::chapter      ) + 
+                        count($node/ancestor-or-self::colophon     ) + 
+                        count($node/ancestor-or-self::dedication   ) + 
+                        count($node/ancestor-or-self::glossary     ) + 
+                        count($node/ancestor-or-self::glossdiv     ) + 
+                        count($node/ancestor-or-self::index        ) + 
+                        count($node/ancestor-or-self::lot          ) + 
+                        count($node/ancestor-or-self::part         ) + 
+                        count($node/ancestor-or-self::preface      ) + 
+                        count($node/ancestor-or-self::refentry     ) + 
+                        count($node/ancestor-or-self::reference    ) + 
+                        count($node/ancestor-or-self::sect1        ) + 
+                        count($node/ancestor-or-self::sect2        ) + 
+                        count($node/ancestor-or-self::sect3        ) + 
+                        count($node/ancestor-or-self::sect4        ) + 
+                        count($node/ancestor-or-self::sect5        ) + 
+                        count($node/ancestor-or-self::section      ) + 
+                        count($node/ancestor-or-self::setindex     ) + 
+                        count($node/ancestor-or-self::simplesect   ) + 
+                        count($node/ancestor-or-self::toc          )"/>
 <!--
   <xsl:variable name="divs"
                 select="count($node/ancestor-or-self::*[
@@ -402,21 +315,13 @@ count(                          $node/ancestor-or-self::toc          )"/>
 </xsl:template>
 
 
-<!-- == db.chunk.depth-of-chunk ============================================ -->
+<!--**==========================================================================
+db.chunk.depth-of-chunk
+Determines the depth of teh containing chunk in the document
+$node: The element to determine the depth of
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db.chunk.depth-of-chunk</name>
-  <purpose>
-    Determine the depth of the containing chunk in the document
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The element for which to determine the depth
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Explain how this works
+-->
 <xsl:template name="db.chunk.depth-of-chunk">
   <xsl:param name="node" select="."/>
   <xsl:variable name="divs"
@@ -450,33 +355,15 @@ count(                          $node/ancestor-or-self::toc          )"/>
 </xsl:template>
 
 
-<!-- == db.chunk.chunk-id ================================================== -->
+<!--**==========================================================================
+db.chunk.chunk-id
+Determines the id of the chunk that contains an element
+$id: The id of the element to determine the chunk id of
+$node: The element to determine the chunk id of
+$depth_in_chunk: The depth of ${node} in the containing chunk
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db.chunk.chunk-id</name>
-  <purpose>
-    Determine the id of the containing chunk of an element
-  </purpose>
-  <parameter>
-    <name>id</name>
-    <purpose>
-      The id of the element for which to find the containing chunk id
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The element for which to find the containing chunk id
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>depth_in_chunk</name>
-    <purpose>
-      The depth of <parameter>node</parameter> in the containing chunk
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Explain how this works
+-->
 <xsl:template name="db.chunk.chunk-id">
   <xsl:param name="id" select="@id"/>
   <xsl:param name="node" select="key('idkey', $id)"/>
@@ -489,39 +376,16 @@ count(                          $node/ancestor-or-self::toc          )"/>
 </xsl:template>
 
 
-<!-- == db.chunk.chunk-id.axis ============================================= -->
+<!--**==========================================================================
+db.chunk.chunk-id.axis
+Determines the id of the first chunk along a specified axis
+$node: The base element
+$node: The axis along which to find the first chunk
+$depth_in_chunk: The depth of ${node} in the containing chunk
+$depth_of_chunk: The depth of the containing chunk in the document
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db.chunk.chunk-id.axis</name>
-  <purpose>
-    Determine the id of the first chunk along a specified axis
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The base element
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>axis</name>
-    <purpose>
-      The axis along which to find the first chunk
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>depth_in_chunk</name>
-    <purpose>
-      The depth of <parameter>node</parameter> in the containing chunk
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>depth_of_chunk</name>
-    <purpose>
-      The depth of the containing chunk in the document
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Explain how this works, and what the axes are
+-->
 <xsl:template name="db.chunk.chunk-id.axis">
   <xsl:param name="node" select="."/>
   <xsl:param name="axis"/>
@@ -642,7 +506,7 @@ count(                          $node/ancestor-or-self::toc          )"/>
 </xsl:template>
 
 
-<!-- == Matched Templates ================================================== -->
+<!-- == Matched Templates == -->
 
 <xsl:template match="/">
   <xsl:choose>

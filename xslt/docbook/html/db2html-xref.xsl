@@ -17,40 +17,39 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
                 xmlns="http://www.w3.org/1999/xhtml"
-                exclude-result-prefixes="doc"
                 version="1.0">
 
-<doc:title>Links and Cross References</doc:title>
+<!--!!==========================================================================
+DocBook to HTML - Links and Cross References
+
+REMARK: Describe this module
+-->
 
 
-<!-- == db2html.anchor ===================================================== -->
+<!--**==========================================================================
+db2html.anchor
+Generates an anchor point for an element
+$node: The element to generate an anchor for
+$name: The text to use for the #{name} attribute
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.anchor</name>
-  <purpose>
-    Generate an anchor point for an element
-  </purpose>
-</template>
-
-<xsl:template name="db2html.anchor">
+REMARK: Describe this template
+-->
+<xsl:template name="db2html.anchor" match="anchor">
   <xsl:param name="node" select="."/>
   <xsl:param name="name" select="$node/@id"/>
-  <xsl:if test="$name">
-    <a name="{$name}"/>
-  </xsl:if>
+  <xsl:if test="$name"><a name="{$name}"/></xsl:if>
 </xsl:template>
 
 
-<!-- == Matched Templates ================================================== -->
+<!--**==========================================================================
+db2html.link
+Generates a hyperlink from a #{link} element
+$linkend: The id of the element being linked to
+$target: The element being linked to
 
-<!-- = anchor = -->
-<xsl:template match="anchor">
-  <xsl:call-template name="db2html.anchor"/>
-</xsl:template>
-
-<!-- = link = -->
+REMARK: Describe this template
+-->
 <xsl:template name="db2html.link" match="link">
   <xsl:param name="linkend" select="@linkend"/>
   <xsl:param name="target" select="key('idkey', $linkend)"/>
@@ -77,13 +76,15 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </a>
 </xsl:template>
 
-<!-- 
-<xsl:template match="olink">
-<xsl:call-template name="FIXME"/>
-</xsl:template>
--->
 
-<!-- = ulink = -->
+<!--**==========================================================================
+db2html.ulink
+Generates a hyperlink from a #{ulink} element
+$url: The URL to link to
+$content: Optional content to use for the text of the link
+
+REMARK: Describe this template
+-->
 <xsl:template name="db2html.ulink" match="ulink">
   <xsl:param name="url" select="@url"/>
   <xsl:param name="content" select="false()"/>
@@ -105,7 +106,18 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </a>
 </xsl:template>
 
-<!-- = xref = -->
+
+<!--**==========================================================================
+db2html.xref
+Generates a hyperlink from an #{xref} element
+$linkend: The id of the element being linked to
+$target: The element being linked to
+$endterm: The id of an element whose contents will be used for the link text
+$xrefstyle: The style of cross reference text to use
+$content: Optional content to use for the text of the link
+
+REMARK: Describe this template
+-->
 <xsl:template name="db2html.xref" match="xref">
   <xsl:param name="linkend"   select="@linkend"/>
   <xsl:param name="target"    select="key('idkey', $linkend)"/>

@@ -17,26 +17,25 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-		xmlns:str="http://exslt.org/strings"
-		xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
+                xmlns:str="http://exslt.org/strings"
                 xmlns="http://www.w3.org/1999/xhtml"
-		extension-element-prefixes="str"
-		exclude-result-prefixes="doc"
+                extension-element-prefixes="str"
                 version="1.0">
 
-<doc:title>Function Synopses</doc:title>
+<!--!!==========================================================================
+DocBook to HTML - Function Synopses
+
+REMARK: Describe this module
+-->
 
 
-<!-- == db2html.funcsynopsis.style ========================================= -->
+<!--@@==========================================================================
+db2html.funcsynopsis.style
+How to render #{funcsynopsis} elements
 
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.funcsynopsis.style</name>
-  <purpose>
-    How to render <xmltag>funcsynopsis</xmltag> elements, either
-    <constant>'KR'</constant> or <constant>'ANSI'</constant>
-  </purpose>
-</parameter>
-
+This parameter controls the indentation style used to render #{funcsynopsis}
+elements.  Supported values are #{'KR'} and #{'ANSI'}.
+-->
 <xsl:param name="db2html.funcsynopsis.style">
   <xsl:choose>
     <xsl:when test="processing-instruction('db2html.funcsynopsis.style')">
@@ -50,7 +49,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:param>
 
 
-<!-- == Matched Templates ================================================== -->
+<!-- == Matched Templates == -->
 
 <!-- = funcdef = -->
 <xsl:template match="funcdef">

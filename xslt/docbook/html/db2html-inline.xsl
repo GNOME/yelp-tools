@@ -17,61 +17,38 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
                 xmlns="http://www.w3.org/1999/xhtml"
-                exclude-result-prefixes="doc"
                 version="1.0">
 
-<doc:title>Inline Elements</doc:title>
+<!--!!==========================================================================
+DocBook to HTML - Inline Elements
+
+REMARK: Describe this module
+-->
 
 
-<!-- == db2html.inline ===================================================== -->
+<!--**==========================================================================
+db2html.inline
+Renders an inline element
+$node: The element to render
+$bold: Whether to render the element in bold face
+$italic: Whether to render the element in italics
+$underline: Whether to underline the element
+$mono: Whether to render the element in a monospace font
+$sans: Whether to render the element in a sans-serif font
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.inline</name>
-  <purpose>
-    Process an inline element
-  </purpose>
-  <parameter>
-    <name>bold</name>
-    <purpose>
-      Whether to render the element bold
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>italic</name>
-    <purpose>
-      Whether to render the element in italics
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>underline</name>
-    <purpose>
-      Whether to underline the element
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>mono</name>
-    <purpose>
-      Whether to render the element in monospace
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>sans</name>
-    <purpose>
-      Whether to render the element in sans-serif
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Document this template
+-->
 <xsl:template name="db2html.inline">
+  <xsl:param name="node" select="."/>
   <xsl:param name="bold" select="false()"/>
   <xsl:param name="italic" select="false()"/>
   <xsl:param name="underline" select="false()"/>
   <xsl:param name="mono" select="false()"/>
   <xsl:param name="sans" select="false()"/>
 
-  <span class="{local-name(.)}">
+  <!-- FIXME: do CSS classes, rather than inline styles -->
+  <span class="{local-name($node)}">
     <xsl:if test="$bold or $italic or $mono or $underline or $sans">
       <xsl:variable name="style">
         <xsl:if test="$bold">
@@ -96,13 +73,15 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
         <xsl:value-of select="$style"/>
       </xsl:attribute>
     </xsl:if>
-    <xsl:call-template name="db2html.anchor"/>
-    <xsl:apply-templates/>
+    <xsl:call-template name="db2html.anchor">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:call-template>
+    <xsl:apply-templates select="$node/node()"/>
   </span>
 </xsl:template>
 
 
-<!-- == Matched Templates ================================================== -->
+<!-- == Matched Templates == -->
 
 <!-- = abbrev = -->
 <xsl:template match="abbrev">

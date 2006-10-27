@@ -17,77 +17,71 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-		xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
                 xmlns="http://www.w3.org/1999/xhtml"
-		exclude-result-prefixes="doc"
-		version="1.0">
+                version="1.0">
 
-<doc:title>Admonitions</doc:title>
+<!--!!==========================================================================
+DocBook to HTML - Admonitions
+
+This module handles DocBook's admonition elements.  Admonitions are used to set
+off small blocks of text which provide auxiliary information to the reader.
+DocBook's admonitions come in five flavors: #{caution}, #{important}, #{note},
+#{tip}, and #{warning}.
+
+Admontions are wrapped in colored blocks with leading icons.  Each admonition
+has its own icon, the base name of which is exactly the name of the admonition
+element.  You can control where these icons are located and what their file
+extensions are.
+-->
 
 
-<!-- == db2html.admon.border_color ========================================= -->
+<!--@@==========================================================================
+db2html.admon.border_color
+The color of the border around admonition elements
 
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.admon.border_color</name>
-  <purpose>
-    The color of the border around admonition elements
-  </purpose>
-</parameter>
-
+REMARK: Describe this parameter
+-->
 <xsl:param name="db2html.admon.border_color" select="'#D1940C'"/>
 
 
-<!-- == db2html.admon.graphics_path ======================================== -->
+<!--@@==========================================================================
+db2html.admon.graphics_path
+The path to admonition graphics
 
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.admon.graphics_path</name>
-  <purpose>
-    The path to admonition graphics
-  </purpose>
-</parameter>
-
+This path is inserted into the HTML output, so it may be a fully-qualified URL.
+-->
 <xsl:param name="db2html.admon.graphics_path"/>
 
 
-<!-- == db2html.admon.graphics_size ======================================== -->
+<!--@@==========================================================================
+db2html.admon.graphics_size
+The size of admonition graphics in pixels
 
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.admon.graphics_size</name>
-  <purpose>
-    The size of admonition graphics, in pixels
-  </purpose>
-</parameter>
-
+As well as allowing the width and height to be specified in the HTML, various
+offsets are also computed from the size of the admonition icons.  Admonition
+icons are assumed to be square, so the size refers to the lenght in one
+dimension.
+-->
 <xsl:param name="db2html.admon.graphics_size" select="48"/>
 
 
-<!-- == db2html.admon.graphics_extension =================================== -->
+<!--@@==========================================================================
+db2html.admon.graphics_extension
+The file extension for admonition icons
 
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.admon.graphics_extension</name>
-  <purpose>
-    The file extension for admonition graphics
-  </purpose>
-</parameter>
-
+This is appended to the name of the admonition (one of #{caution}, #{important},
+#{note}, #{tip}, or #{warning}) to produce the file name of the icon.
+-->
 <xsl:param name="db2html.admon.graphics_extension" select="'.png'"/>
 
 
-<!-- == db2html.admon ====================================================== -->
+<!--**==========================================================================
+db2html.admon
+Renders an admonition element into HTML
+$node: The element to render
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.admon</name>
-  <purpose>
-    Render admonition elements
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The element for which to render an admonition
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Describe this template.
+-->
 <xsl:template name="db2html.admon">
   <xsl:param name="node" select="."/>
   <div class="admonition block-indent {local-name(.)}">
@@ -96,61 +90,55 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2html.admon.css ================================================ -->
+<!--**==========================================================================
+db2html.admon.css
+Outputs CSS that controls the appearance of admonition elements
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.admon.css</name>
-  <purpose>
-    Create CSS for the admonition elements
-  </purpose>
-</template>
-
+REMARK: Describe this template.
+-->
 <xsl:template name="db2html.admon.css">
-  <xsl:text>
-    div[class~="caution"] {
-      background-image: url("</xsl:text>
-      <xsl:value-of select="$db2html.admon.graphics_path"/>
-      <xsl:text>caution</xsl:text>
-      <xsl:value-of select="$db2html.admon.graphics_extension"/><xsl:text>");
-    }
-    div[class~="important"] {
-      background-image: url("</xsl:text>
-      <xsl:value-of select="$db2html.admon.graphics_path"/>
-      <xsl:text>important</xsl:text>
-      <xsl:value-of select="$db2html.admon.graphics_extension"/><xsl:text>");
-    }
-    div[class~="note"] {
-      background-image: url("</xsl:text>
-      <xsl:value-of select="$db2html.admon.graphics_path"/>
-      <xsl:text>note</xsl:text>
-      <xsl:value-of select="$db2html.admon.graphics_extension"/><xsl:text>");
-    }
-    div[class~="tip"] {
-      background-image: url("</xsl:text>
-      <xsl:value-of select="$db2html.admon.graphics_path"/>
-      <xsl:text>tip</xsl:text>
-      <xsl:value-of select="$db2html.admon.graphics_extension"/><xsl:text>");
-    }
-    div[class~="warning"] {
-      background-image: url("</xsl:text>
-      <xsl:value-of select="$db2html.admon.graphics_path"/>
-      <xsl:text>warning</xsl:text>
-      <xsl:value-of select="$db2html.admon.graphics_extension"/><xsl:text>");
-    }
-    div[class~="admonition"] {
-      padding-top: 4px;
-      padding-bottom: 4px;
-      padding-left: </xsl:text>
-      <xsl:value-of select="$db2html.admon.graphics_size + 8"/><xsl:text>px;
-      padding-right: 8px;
-      min-height: </xsl:text>
-      <xsl:value-of select="$db2html.admon.graphics_size + 4"/><xsl:text>px;
-      border: dotted </xsl:text>
-      <xsl:value-of select="$db2html.admon.border_color"/><xsl:text> 1px;
-      background-position: 4px 4px;
-      background-repeat: no-repeat;
-    }
-  </xsl:text>
+<xsl:text>
+div.admonition {
+  padding: 4px 8px 4px </xsl:text>
+  <xsl:value-of select="$db2html.admon.graphics_size + 8"/><xsl:text>px;
+  min-height: </xsl:text>
+  <xsl:value-of select="$db2html.admon.graphics_size + 4"/><xsl:text>px;
+  border: solid 1px </xsl:text>
+  <xsl:value-of select="$db2html.admon.border_color"/><xsl:text>;
+  background-position: 4px 4px;
+  background-repeat: no-repeat;
+}
+div.caution {
+  background-image: url("</xsl:text>
+  <xsl:value-of select="$db2html.admon.graphics_path"/>
+  <xsl:text>caution</xsl:text>
+  <xsl:value-of select="$db2html.admon.graphics_extension"/><xsl:text>");
+}
+div.important {
+  background-image: url("</xsl:text>
+  <xsl:value-of select="$db2html.admon.graphics_path"/>
+  <xsl:text>important</xsl:text>
+  <xsl:value-of select="$db2html.admon.graphics_extension"/><xsl:text>");
+}
+div.note {
+  background-image: url("</xsl:text>
+  <xsl:value-of select="$db2html.admon.graphics_path"/>
+  <xsl:text>note</xsl:text>
+  <xsl:value-of select="$db2html.admon.graphics_extension"/><xsl:text>");
+}
+div.tip {
+  background-image: url("</xsl:text>
+  <xsl:value-of select="$db2html.admon.graphics_path"/>
+  <xsl:text>tip</xsl:text>
+  <xsl:value-of select="$db2html.admon.graphics_extension"/><xsl:text>");
+}
+div.warning {
+  background-image: url("</xsl:text>
+  <xsl:value-of select="$db2html.admon.graphics_path"/>
+  <xsl:text>warning</xsl:text>
+  <xsl:value-of select="$db2html.admon.graphics_extension"/><xsl:text>");
+}
+</xsl:text>
 </xsl:template>
 
 

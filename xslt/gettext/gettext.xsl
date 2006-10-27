@@ -17,27 +17,22 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-		xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
                 xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n"
-		exclude-result-prefixes="doc"
                 version="1.0">
+
+<!--!!==========================================================================
+Localized Strings
+-->
 
 <xsl:variable name="l10n" select="document('l10n.xml')"/>
 <xsl:key name="msg" match="msg:msgset/msg:msg"
          use="concat(../msg:msgid, '__LC__', @xml:lang)"/>
 
-<doc:title>Gettext</doc:title>
 
-
-<!-- == l10n.locale ======================================================== -->
-
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>l10n.locale</name>
-  <purpose>
-    The top-level locale of the document
-  </purpose>
-</parameter>
-
+<!--@@==========================================================================
+l10n.locale
+The top-level locale of the document
+-->
 <xsl:param name="l10n.locale">
   <xsl:choose>
     <xsl:when test="/*/@xml:lang">
@@ -50,15 +45,10 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:param>
 
 
-<!-- == l10n.language ====================================================== -->
-
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>l10n.language</name>
-  <purpose>
-    The language part of the top-level locale of the document
-  </purpose>
-</parameter>
-
+<!--@@==========================================================================
+l10n.language
+The language part of the top-level locale of the document
+-->
 <xsl:param name="l10n.language">
   <xsl:choose>
     <xsl:when test="contains($l10n.locale, '_')">
@@ -77,15 +67,10 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:param>
 
 
-<!-- == l10n.region ======================================================== -->
-
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>l10n.region</name>
-  <purpose>
-    The region part of the top-level locale of the document
-  </purpose>
-</parameter>
-
+<!--@@==========================================================================
+l10n.region
+The region part of the top-level locale of the document
+-->
 <xsl:param name="l10n.region">
   <xsl:variable name="aft" select="substring-after($l10n.locale, '_')"/>
   <xsl:choose>
@@ -102,15 +87,10 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:param>
 
 
-<!-- == l10n.variant ======================================================= -->
-
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>l10n.variant</name>
-  <purpose>
-    The variant part of the top-level locale of the document
-  </purpose>
-</parameter>
-
+<!--@@==========================================================================
+l10n.variant
+The variant part of the top-level locale of the document
+-->
 <xsl:param name="l10n.variant">
   <xsl:variable name="aft" select="substring-after($l10n.locale, '@')"/>
   <xsl:choose>
@@ -124,15 +104,10 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:param>
 
 
-<!-- == l10n.charset ======================================================= -->
-
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>l10n.charset</name>
-  <purpose>
-    The charset part of the top-level locale of the document
-  </purpose>
-</parameter>
-
+<!--@@==========================================================================
+l10n.charset
+The charset part of the top-level locale of the document
+-->
 <xsl:param name="l10n.charset">
   <xsl:if test="contains($l10n.locale, '.')">
     <xsl:value-of select="substring-after($l10n.locale, '.')"/>
@@ -140,63 +115,20 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:param>
 
 
-<!-- == l10n.gettext ======================================================= -->
+<!--**==========================================================================
+l10n.gettext
+Looks up the translation for a string
+$msgid: The id of the string to look up, often the string in the C locale
+$lang: The locale to use when looking up the translated string
+$lang_language: The language portion of the ${lang}
+$lang_region: The region portion of ${lang}
+$lang_variant: The variant portion of ${lang}
+$lang_charset: The charset portion of ${lang}
+$number: The cardinality for plural-form lookups
+$form: The form name for plural-form lookups
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>l10n.gettext</name>
-  <purpose>
-    Look up a translated string
-  </purpose>
-  <parameter>
-    <name>msgid</name>
-    <purpose>
-      The id of the string to look up, usually the string in the C locale
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>lang</name>
-    <purpose>
-      The locale to use when looking up the translated string
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>lang_language</name>
-    <purpose>
-      The language portion of the locale to use
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>lang_region</name>
-    <purpose>
-      The region portion of the locale to use
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>lang_variant</name>
-    <purpose>
-      The variant portion of the locale to use
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>lang_charset</name>
-    <purpose>
-      The charset portion of the locale to use
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>number</name>
-    <purpose>
-      The cardinality for plural-form lookups
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>form</name>
-    <purpose>
-      The form name for plural-form lookups
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Lots of documentation is needed
+-->
 <xsl:template name="l10n.gettext">
   <xsl:param name="msgid"/>
   <xsl:param name="lang" select="ancestor-or-self::*[@lang][1]/@lang"/>
@@ -409,7 +341,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:for-each>
 </xsl:template>
 
-<xsl:template name="l10n.gettext.msg" doc:private="true">
+<!--#* l10n.gettext.msg -->
+<xsl:template name="l10n.gettext.msg">
   <xsl:param name="msg"/>
   <xsl:param name="form"/>
   <xsl:param name="node" select="."/>
@@ -578,7 +511,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
-<xsl:template name="l10n.gettext.msgstr" doc:private="true">
+<!--#* l10n.gettext.msgstr -->
+<xsl:template name="l10n.gettext.msgstr">
   <xsl:param name="msgstr"/>
   <xsl:param name="node" select="."/>
   <xsl:param name="role"/>
@@ -588,7 +522,6 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     <xsl:when test="$format">
       <xsl:apply-templates mode="l10n.format.mode" select="$msgstr/node()">
         <xsl:with-param name="node" select="$node"/>
-        <xsl:with-param name="role" select="$role"/>
         <xsl:with-param name="string" select="$string"/>
       </xsl:apply-templates>
     </xsl:when>
@@ -599,51 +532,18 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == l10n.plural.form =================================================== -->
+<!--**==========================================================================
+l10n.plural.form
+Extracts he plural form string for a given cardinality
+$number: The cardinality of the plural form
+$lang: The locale to use when looking up the translated string
+$lang_language: The language portion of the ${lang}
+$lang_region: The region portion of ${lang}
+$lang_variant: The variant portion of ${lang}
+$lang_charset: The charset portion of ${lang}
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>l10n.plural.form</name>
-  <purpose>
-    Extract the plural form string for a cardinality
-  </purpose>
-  <parameter>
-    <name>number</name>
-    <purpose>
-      The cardinality of plural form
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>lang</name>
-    <purpose>
-      The locale to use when looking up the translated string
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>lang_language</name>
-    <purpose>
-      The language portion of the locale to use
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>lang_region</name>
-    <purpose>
-      The region portion of the locale to use
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>lang_variant</name>
-    <purpose>
-      The variant portion of the locale to use
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>lang_charset</name>
-    <purpose>
-      The charset portion of the locale to use
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Lots of documentation is needed
+-->
 <xsl:template name="l10n.plural.form">
   <xsl:param name="number" select="1"/>
   <xsl:param name="lang" select="$l10n.locale"/>
@@ -704,6 +604,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
         </xsl:otherwise>
       </xsl:choose>
     </xsl:when>
+
     <!-- == be bs cs ru sr uk == -->
     <xsl:when test="($lang_language = 'be') or ($lang_language = 'bs') or
                     ($lang_language = 'cs') or ($lang_language = 'ru') or
@@ -721,6 +622,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
         </xsl:otherwise>
       </xsl:choose>
     </xsl:when>
+
     <!-- == cy == -->
     <xsl:when test="$lang_language = 'cy'">
       <xsl:choose>
@@ -732,6 +634,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
         </xsl:otherwise>
       </xsl:choose>
     </xsl:when>
+
     <!-- == fa hu ja ko th tr vi zh == -->
     <xsl:when test="($lang_language = 'fa') or ($lang_language = 'hu') or
                     ($lang_language = 'ja') or ($lang_language = 'ko') or
@@ -739,6 +642,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                     ($lang_language = 'vi') or ($lang_language = 'zh') ">
       <xsl:text>0</xsl:text>
     </xsl:when>
+
     <!-- == fr nso wa == -->
     <xsl:when test="($lang_language = 'fr') or ($lang_language = 'nso') or
                     ($lang_language = 'wa') ">
@@ -751,6 +655,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
         </xsl:otherwise>
       </xsl:choose>
     </xsl:when>
+
     <!-- == ga == -->
     <xsl:when test="$lang_language = 'ga'">
       <xsl:choose>
@@ -765,6 +670,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
         </xsl:otherwise>
       </xsl:choose>
     </xsl:when>
+
     <!-- == sk == -->
     <xsl:when test="$lang_language = 'sk'">
       <xsl:choose>
@@ -779,6 +685,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
         </xsl:otherwise>
       </xsl:choose>
     </xsl:when>
+
     <!-- == sl == -->
     <xsl:when test="$lang_language = 'sl'">
       <xsl:choose>
@@ -796,6 +703,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
         </xsl:otherwise>
       </xsl:choose>
     </xsl:when>
+
     <!-- == C == -->
     <xsl:otherwise>
       <xsl:choose>
@@ -811,45 +719,17 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == l10n.direction ===================================================== -->
+<!--**==========================================================================
+l10n.direction
+Determines the text direction for the language of the document
+$lang: The locale to use to determine the text direction
+$lang_language: The language portion of the ${lang}
+$lang_region: The region portion of ${lang}
+$lang_variant: The variant portion of ${lang}
+$lang_charset: The charset portion of ${lang}
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>l10n.direction</name>
-  <purpose>
-    Determine the text direction for the language of the document
-  </purpose>
-  <parameter>
-    <name>lang</name>
-    <purpose>
-      The locale to use when determining the direction
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>lang_language</name>
-    <purpose>
-      The language portion of the locale to use
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>lang_region</name>
-    <purpose>
-      The region portion of the locale to use
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>lang_variant</name>
-    <purpose>
-      The variant portion of the locale to use
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>lang_charset</name>
-    <purpose>
-      The charset portion of the locale to use
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Lots of documentation is needed
+-->
 <xsl:template name="l10n.direction">
   <xsl:param name="lang" select="$l10n.locale"/>
   <xsl:param name="lang_language">
@@ -893,21 +773,13 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == l10n.language =============================================== -->
+<!--**==========================================================================
+l10n.language
+Extracts the langauge portion of a locale
+$lang: The locale to extract the language from
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>l10n.language</name>
-  <purpose>
-    Extract the language part of a locale
-  </purpose>
-  <parameter>
-    <name>lang</name>
-    <purpose>
-      The locale string from which to extract the language string
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Lots of documentation is needed
+-->
 <xsl:template name="l10n.language">
   <xsl:param name="lang" select="ancestor-or-self::*[@lang][1]/@lang"/>
   <xsl:choose>
@@ -930,21 +802,13 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == l10n.region ======================================================== -->
+<!--**==========================================================================
+l10n.region
+Extracts the region portion of a locale
+$lang: The locale to extract the region from
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>l10n.region</name>
-  <purpose>
-    Extract the region part of a locale
-  </purpose>
-  <parameter>
-    <name>lang</name>
-    <purpose>
-      The locale string from which to extract the region string
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Lots of documentation is needed
+-->
 <xsl:template name="l10n.region">
   <xsl:param name="lang" select="ancestor-or-self::*[@lang][1]/@lang"/>
   <xsl:choose>
@@ -969,21 +833,13 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == l10n.variant ======================================================= -->
+<!--**==========================================================================
+l10n.variant
+Extracts the variant portion of a locale
+$lang: The locale to extract the variant from
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>l10n.variant</name>
-  <purpose>
-    Extract the variant part of a locale
-  </purpose>
-  <parameter>
-    <name>lang</name>
-    <purpose>
-      The locale string from which to extract the variant string
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Lots of documentation is needed
+-->
 <xsl:template name="l10n.variant">
   <xsl:param name="lang" select="ancestor-or-self::*[@lang][1]/@lang"/>
   <xsl:choose>
@@ -1005,21 +861,13 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == l10n.charset ======================================================= -->
+<!--**==========================================================================
+l10n.charset
+Extracts the charset portion of a locale
+$lang: The locale to extract the charset from
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>l10n.charset</name>
-  <purpose>
-    Extract the charset part of a locale
-  </purpose>
-  <parameter>
-    <name>lang</name>
-    <purpose>
-      The locale string from which to extract the charset string
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Lots of documentation is needed
+-->
 <xsl:template name="l10n.charset">
   <xsl:param name="lang" select="ancestor-or-self::*[@lang][1]/@lang"/>
   <xsl:choose>
@@ -1033,8 +881,14 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == l10n.format.mode == -->
+<!--%%==========================================================================
+l10n.format.mode
+FIXME
+$node: The node being processed in the original document
+$string: String content to use for certain message format nodes
 
+REMARK: Lots and lots of documentation is needed
+-->
 <xsl:template mode="l10n.format.mode" match="*">
   <xsl:param name="node"/>
   <xsl:apply-templates mode="l10n.format.mode">
@@ -1042,11 +896,13 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:apply-templates>
 </xsl:template>
 
+<!-- = l10n.format.mode % msg:node = -->
 <xsl:template mode="l10n.format.mode" match="msg:node">
   <xsl:param name="node"/>
   <xsl:apply-templates select="$node/node()"/>
 </xsl:template>
 
+<!-- = l10n.format.mode % msg:string = -->
 <xsl:template mode="l10n.format.mode" match="msg:string">
   <xsl:param name="string"/>
   <xsl:value-of select="$string"/>

@@ -17,84 +17,62 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
                 xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n"
                 xmlns="http://www.w3.org/1999/xhtml"
-                exclude-result-prefixes="doc"
+                exclude-result-prefixes="msg"
                 version="1.0">
 
-<doc:title>Block-Level Elements</doc:title>
+<!--!!==========================================================================
+DocBook to HTML - Block Elements
+
+REMARK: Describe this module
+-->
 
 
-<!-- == db2html.programlisting.background_color ============================ -->
+<!--@@==========================================================================
+db2html.programlisting.background_color
+The background color for #{programlisting} elements
 
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.programlisting.background_color</name>
-  <purpose>
-    The background color for <sgmltag>programlisting</sgmltag> elements
-  </purpose>
-</parameter>
-
+REMARK: Describe this param
+-->
 <xsl:param name="db2html.programlisting.background_color" select="'#EEEEEE'"/>
 
 
-<!-- == db2html.programlisting.border_color ================================ -->
+<!--@@==========================================================================
+db2html.programlisting.border_color
+The border color for #{programlisting} elements
 
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.programlisting.border_color</name>
-  <purpose>
-    The border color for <sgmltag>programlisting</sgmltag> elements
-  </purpose>
-</parameter>
-
+REMARK: Describe this param
+-->
 <xsl:param name="db2html.programlisting.border_color" select="'#DDDDDD'"/>
 
 
-<!-- == db2html.screen.background_color ==================================== -->
+<!--@@==========================================================================
+db2html.screen.background_color
+The background color for #{screen} elements
 
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.screen.background_color</name>
-  <purpose>
-    The background color for <sgmltag>screen</sgmltag> elements
-  </purpose>
-</parameter>
-
+REMARK: Describe this param
+-->
 <xsl:param name="db2html.screen.background_color" select="'#EEEEEE'"/>
 
 
-<!-- == db2html.screen.border_color ======================================== -->
+<!--@@==========================================================================
+db2html.screen.border_color
+The border color for #{screen} elements
 
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.screen.border_color</name>
-  <purpose>
-    The border color for <sgmltag>screen</sgmltag> elements
-  </purpose>
-</parameter>
-
+REMARK: Describe this param
+-->
 <xsl:param name="db2html.screen.border_color" select="'#DDDDDD'"/>
 
 
-<!-- == db2html.block ====================================================== -->
+<!--**==========================================================================
+db2html.block
+FIXME
+$indent: Whether this block should be indented
+$verbatim: Whether to maintain whitespace as written
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.block</name>
-  <purpose>
-    Format a block-level element
-  </purpose>
-  <parameter>
-    <name>indent</name>
-    <purpose>
-      Whether this block should be indented
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>verbatim</name>
-    <purpose>
-      Whether to maintain whitespace verbatim
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Describe this template
+-->
 <xsl:template name="db2html.block">
   <xsl:param name="indent" select="false()"/>
   <xsl:param name="verbatim" select="false()"/>
@@ -114,15 +92,12 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2html.blockquote ================================================= -->
+<!--**==========================================================================
+db2html.blockquote
+FIXME
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.blockquote</name>
-  <purpose>
-    Render a blockquote for an element
-  </purpose>
-</template>
-
+REMARK: Describe this template.
+-->
 <xsl:template name="db2html.blockquote">
   <div class="{local-name(.)} block-indent">
     <xsl:apply-templates select="title"/>
@@ -135,15 +110,12 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2html.para ======================================================= -->
+<!--**==========================================================================
+db2html.para
+FIXME
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.para</name>
-  <purpose>
-    Format an element as a paragraph
-  </purpose>
-</template>
-
+REMARK: Describe this template
+-->
 <xsl:template name="db2html.para">
   <p class="{local-name(.)}">
     <xsl:call-template name="db2html.anchor"/>
@@ -152,21 +124,13 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2html.pre ======================================================== -->
+<!--**==========================================================================
+db2html.pre
+FIXME
+$indent: Whether this block should be indented
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.pre</name>
-  <purpose>
-    Format an element in a <xmltag>pre</xmltag> tag
-  </purpose>
-  <parameter>
-    <name>indent</name>
-    <purpose>
-      Whether this block should be indented
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Describe this template
+-->
 <xsl:template name="db2html.pre">
   <xsl:param name="indent" select="false()"/>
   <!-- FIXME:
@@ -185,7 +149,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     </xsl:attribute>
     <xsl:call-template name="db2html.anchor"/>
     <xsl:if test="@linenumbering = 'numbered'">
-      <pre class="linenumbering" style="float: left; text-align: right;"><xsl:call-template name="db.linenumbering"/></pre>
+      <pre class="linenumbering"><xsl:call-template name="db.linenumbering"/></pre>
     </xsl:if>
     <pre class="{local-name(.)}">
       <!-- Strip off a leading newline -->
@@ -218,89 +182,75 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2html.block.css ================================================== -->
+<!--**==========================================================================
+db2html.block.css
+Outputs CSS that controls the appearance of block-level elements
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.block.css</name>
-  <purpose>
-    Create CSS for the block elements
-  </purpose>
-</template>
-
+REMARK: Describe this template
+-->
 <xsl:template name="db2html.block.css">
-  <xsl:text>
-    *[class~="block-indent"] {
-      margin-left: 1.72em;
-      margin-right: 1em;
-    }
-    *[class~="block-indent"] *[class~="block-indent"] {
-      margin-left: 0em;
-      margin-right: 0em;
-    }
-    *[class~="block-verbatim"] {
-      white-space: pre;
-    }
-    pre[class~="programlisting"] {
-      padding: 6px;
-      -moz-border-radius: 8px;
-      overflow: auto;</xsl:text>
-      <xsl:if test="string($db2html.programlisting.background_color) != ''">
-        <xsl:text>background-color: </xsl:text>
-        <xsl:value-of select="$db2html.programlisting.background_color"/>
-      </xsl:if>
-      <xsl:text>;</xsl:text>
-      <xsl:if test="string($db2html.programlisting.border_color) != ''">
-        <xsl:text>border: solid 1px </xsl:text>
-        <xsl:value-of select="$db2html.programlisting.border_color"/>
-      </xsl:if>
-      <xsl:text>
-    }
-    pre[class~="screen"] {
-      padding: 6px;
-      -moz-border-radius: 8px;
-      overflow: auto;</xsl:text>
-      <xsl:if test="string($db2html.screen.background_color) != ''">
-        <xsl:text>background-color: </xsl:text>
-        <xsl:value-of select="$db2html.screen.background_color"/>
-      </xsl:if>
-      <xsl:text>;</xsl:text>
-      <xsl:if test="string($db2html.screen.border_color) != ''">
-        <xsl:text>border: solid 1px </xsl:text>
-        <xsl:value-of select="$db2html.screen.border_color"/>
-      </xsl:if>
-      <xsl:text>
-    }
-    pre[class~="synopsis"] {
-      overflow: auto;
-    }
-    pre[class~="linenumbering"] {
-      <!-- This margin is important to get the line numbering
-      to line up vertically with the content. -->
-      padding-top: 6px;
-      padding-bottom: 6px;
-      -moz-border-radius: 8px;
-      border: solid 1px black;
-      margin-top: 0px;
-      margin-left: 0.83em;
-      background-color: black;
-      color: white;
-      -moz-opacity: .3;
-      padding-right: 0.4em;
-      padding-left: 0.4em;
-    }
-    dt[class~="glossterm"] { margin-left: 0em; }
-    dd + dt[class~="glossterm"] { margin-top: 2em; }
-    dd[class~="glossdef"]
-      { margin-top: 1em; margin-left: 2em; margin-right: 1em; }
-    dd[class~="glosssee"]
-      { margin-top: 1em; margin-left: 2em; margin-right: 1em; }
-    dd[class~="glossseealso"]
-      { margin-top: 1em; margin-left: 2em; margin-right: 1em; }
+<xsl:text>
+.block-indent { margin-left: 1.72em; margin-right: 1em; }
+.block-indent .block-indent { margin-left: 0em; margin-right: 0em; }
+.block-verbatim { white-space: pre; }
+pre.programlisting {
+  padding: 6px;
+  -moz-border-radius: 8px;
+  overflow: auto;
   </xsl:text>
+  <xsl:if test="string($db2html.programlisting.background_color) != ''">
+    <xsl:text>background-color: </xsl:text>
+    <xsl:value-of select="$db2html.programlisting.background_color"/>
+  </xsl:if>
+  <xsl:text>;
+  </xsl:text>
+  <xsl:if test="string($db2html.programlisting.border_color) != ''">
+    <xsl:text>border: solid 1px </xsl:text>
+    <xsl:value-of select="$db2html.programlisting.border_color"/>
+  </xsl:if>
+  <xsl:text>;
+}
+pre.screen {
+  padding: 6px;
+  -moz-border-radius: 8px;
+  overflow: auto;
+  </xsl:text>
+  <xsl:if test="string($db2html.screen.background_color) != ''">
+    <xsl:text>background-color: </xsl:text>
+    <xsl:value-of select="$db2html.screen.background_color"/>
+  </xsl:if>
+  <xsl:text>;
+  </xsl:text>
+  <xsl:if test="string($db2html.screen.border_color) != ''">
+    <xsl:text>border: solid 1px </xsl:text>
+    <xsl:value-of select="$db2html.screen.border_color"/>
+  </xsl:if>
+  <xsl:text>;
+}
+pre.synopsis { overflow: auto; }
+pre.linenumbering {
+  <!-- The margin is important to get the line numbering
+  to line up vertically with the content. -->
+  margin-top: 0px;
+  margin-left: 0.83em;
+  padding: 6px 0.4em 6px 0.4em;
+  border: solid 1px black;
+  -moz-border-radius: 8px;
+  background-color: black;
+  color: white;
+  -moz-opacity: .3;
+  float: left;
+  text-align: right;
+}
+dt.glossterm { margin-left: 0em; }
+dd + dt.glossterm { margin-top: 2em; }
+dd.glossdef, dd.glosssee, dd.glossseealso
+  { margin-top: 1em; margin-left: 2em; margin-right: 1em; }
+</xsl:text>
 </xsl:template>
 
 
-<!-- Matched Templates ===================================================== -->
+<!-- == Matched Templates == -->
 
 <!-- = abstract = -->
 <xsl:template match="abstract">
@@ -392,6 +342,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </dd>
 </xsl:template>
 
+<!--#% l10n.format.mode -->
 <xsl:template mode="l10n.format.mode" match="msg:glosssee">
   <xsl:param name="node"/>
   <xsl:for-each select="$node |

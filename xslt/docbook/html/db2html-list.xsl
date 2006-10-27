@@ -17,78 +17,84 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
                 xmlns="http://www.w3.org/1999/xhtml"
-                exclude-result-prefixes="doc"
                 version="1.0">
 
-<doc:title>Lists</doc:title>
+<!--!!==========================================================================
+DocBook to HTML - Lists
+
+REMARK: Describe this module
+-->
 
 
-<!-- == db2html.list.border_color ========================================== -->
+<!--@@==========================================================================
+db2html.list.border_color
+The color of the border around list elements
 
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.list.border_color</name>
-  <purpose>
-    The color of the border around list elements
-  </purpose>
-</parameter>
-
+REMARK: Describe this param
+-->
 <xsl:param name="db2html.list.border_color" select="'black'"/>
 
 
-<!-- == db2html.list.css =================================================== -->
+<!--**==========================================================================
+db2html.orderedlist.start
+Determines the number to use for the first #{listitem} in an #{orderedlist}
+$node: The #{orderedlist} element to use
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.list.css</name>
-  <purpose>
-    Create CSS for the list elements
-  </purpose>
-</template>
-
-<xsl:template name="db2html.list.css">
-  <xsl:text>
-    div[class~="list"] { margin-left: 0px; padding: 0px; margin-bottom: 1em; }
-    div[class~="list"] dl dt { margin-left: 0em; }
-    div[class~="list"] dl dd + dt { margin-top: 1em; }
-    div[class~="list"] dl dd {
-      margin-top: 0.69em;
-      margin-left: 1.72em;
-      margin-right: 1em;
-    }
-    div[class~="list"] ul { margin-left: 1.72em; padding-left: 0em; }
-    div[class~="list"] ol { margin-left: 1.72em; padding-left: 0em; }
-    div[class~="list"] ul li { margin-right: 1em; padding: 0em; }
-    div[class~="list"] ol li { margin-right: 1em; padding: 0em; }
-    div[class~="list"] li + li { margin-top: 0.69em; }
-    div[class~="simplelist"] &gt; table { border: none; }
-  </xsl:text>
-</xsl:template>
-
-
-<!-- == Quick Matchers ===================================================== -->
-
-<!--
-Not doing this for varlistentry/listitem because it adds a non-negligable
-amount of processing time for non-trivial documents.  The default CSS for
-dd elements has a negative top margin.
+REMARK: Give a good explanation talking about #{continuation}.  This template
+determines the number to use for the first #{listitem} in an #{orderedlist}.
 -->
-<xsl:template match="itemizedlist/listitem/para[
-              not(preceding-sibling::* or following-sibling::*)  and
-              not(../preceding-sibling::listitem[count(*) != 1]) and
-              not(../following-sibling::listitem[count(*) != 1]) ]">
-  <xsl:call-template name="db2html.inline"/>
-</xsl:template>
-<xsl:template match="orderedlist/listitem/para[
-              not(preceding-sibling::* or following-sibling::*)  and
-              not(../preceding-sibling::listitem[count(*) != 1]) and
-              not(../following-sibling::listitem[count(*) != 1]) ]">
-  <xsl:call-template name="db2html.inline"/>
+<xsl:template name="db2html.orderedlist.start">
+  <xsl:param name="node" select="."/>
+  <xsl:choose>
+    <xsl:when test="@continutation != 'continues'">1</xsl:when>
+    <xsl:otherwise>
+      <xsl:variable name="prevlist"
+                    select="preceding::orderedlist[1]"/>
+      <xsl:choose>
+        <xsl:when test="count($prevlist) = 0">1</xsl:when>
+        <xsl:otherwise>
+          <xsl:variable name="prevlength" select="count($prevlist/listitem)"/>
+          <xsl:variable name="prevstart">
+            <xsl:call-template name="db2html.orderedlist.start">
+              <xsl:with-param name="node" select="$prevlist"/>
+            </xsl:call-template>
+          </xsl:variable>
+          <xsl:value-of select="$prevstart + $prevlength"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
 
-<!-- ======================================================================= -->
-<!-- == itemizedlist ======================================================= -->
+<!--**==========================================================================
+db2html.list.css
+Outputs CSS that controls the appearance of list elements
+
+REMARK: Describe this template
+-->
+<xsl:template name="db2html.list.css">
+<xsl:text>
+div.list { margin-left: 0px; margin-bottom: 1em; padding: 0px; }
+div.list dl dt { margin-left: 0em; }
+div.list dl dd + dt { margin-top: 1em; }
+div.list dl dd {
+  margin-top: 0.69em;
+  margin-left: 1.72em;
+  margin-right: 1em;
+}
+div.list ul { margin-left: 1.72em; padding-left: 0em; }
+div.list ol { margin-left: 1.72em; padding-left: 0em; }
+div.list ul li { margin-right: 1em; padding: 0em; }
+div.list ol li { margin-right: 1em; padding: 0em; }
+div.list li + li { margin-top: 0.69em; }
+div.simplelist &gt; table { border: none; }
+</xsl:text>
+</xsl:template>
+
+
+<!-- == Matched Templates == -->
 
 <!-- = itemizedlist = -->
 <xsl:template match="itemizedlist">
@@ -136,56 +142,18 @@ dd elements has a negative top margin.
   </li>
 </xsl:template>
 
-
-<!-- ======================================================================= -->
-<!-- == orderedlist ======================================================== -->
-
-
-<!-- == db2html.orderedlist.start ========================================== -->
-
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.orderedlist.start</name>
-  <purpose>
-    Determine the starting number for an ordered list
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The <xmltag>orderedlist</xmltag> element
-    </purpose>
-  </parameter>
-</template>
-
-<xsl:template name="orderedlist.start">
-  <xsl:param name="node" select="."/>
-  <xsl:choose>
-    <xsl:when test="@continutation != 'continues'">1</xsl:when>
-    <xsl:otherwise>
-      <xsl:variable name="prevlist"
-                    select="preceding::orderedlist[1]"/>
-      <xsl:choose>
-        <xsl:when test="count($prevlist) = 0">1</xsl:when>
-        <xsl:otherwise>
-          <xsl:variable name="prevlength" select="count($prevlist/listitem)"/>
-          <xsl:variable name="prevstart">
-            <xsl:call-template name="orderedlist.start">
-              <xsl:with-param name="node" select="$prevlist"/>
-            </xsl:call-template>
-          </xsl:variable>
-          <xsl:value-of select="$prevstart + $prevlength"/>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:otherwise>
-  </xsl:choose>
+<!-- = member = -->
+<xsl:template match="member">
+  <!-- Do something trivial, and rely on simplelist to do the rest -->
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
-
 
 <!-- = orderedlist = -->
 <xsl:template match="orderedlist">
   <xsl:variable name="start">
     <xsl:choose>
       <xsl:when test="@continuation = 'continues'">
-        <xsl:call-template name="orderedlist.start"/>
+        <xsl:call-template name="db2html.orderedlist.start"/>
       </xsl:when>
       <xsl:otherwise>1</xsl:otherwise>
     </xsl:choose>
@@ -238,10 +206,6 @@ dd elements has a negative top margin.
   </li>
 </xsl:template>
 
-
-<!-- ======================================================================= -->
-<!-- == procedure ========================================================== -->
-
 <!-- = procedure = -->
 <xsl:template match="procedure">
   <div class="list">
@@ -264,46 +228,18 @@ dd elements has a negative top margin.
   </div>
 </xsl:template>
 
-<!-- FIXME: Do something with @performance -->
-
-<!-- = step = -->
-<xsl:template match="step">
-  <li>
-    <xsl:apply-templates/>
-  </li>
-</xsl:template>
-
-<!-- = substeps = -->
-<xsl:template match="substeps">
-  <xsl:variable name="depth" select="count(ancestor::substeps)"/>
-  <div class="substeps">
-    <xsl:call-template name="db2html.anchor"/>
-    <ol>
-      <xsl:attribute name="type">
-        <xsl:choose>
-          <xsl:when test="$depth mod 3 = 0">a</xsl:when>
-          <xsl:when test="$depth mod 3 = 1">i</xsl:when>
-          <xsl:when test="$depth mod 3 = 2">1</xsl:when>
-        </xsl:choose>
+<!-- = seg = -->
+<xsl:template match="seg">
+  <xsl:variable name="position" select="count(preceding-sibling::seg) + 1"/>
+  <p>
+    <xsl:if test="$position = 1">
+      <xsl:attribute name="class">
+        <xsl:text>segfirst</xsl:text>
       </xsl:attribute>
-      <xsl:apply-templates/>
-    </ol>
-  </div>
-</xsl:template>
-
-
-<!-- ======================================================================= -->
-<!-- == segmentedlist ====================================================== -->
-
-<!-- FIXME: Implement tabular segmentedlists -->
-
-<!-- = segmentedlist = -->
-<xsl:template match="segmentedlist">
-  <div class="segmentedlist">
-    <xsl:call-template name="db2html.anchor"/>
-    <xsl:apply-templates select="title"/>
-    <xsl:apply-templates select="seglistitem"/>
-  </div>
+    </xsl:if>
+    <xsl:apply-templates select="../../segtitle[position() = $position]"/>
+    <xsl:apply-templates/>
+  </p>
 </xsl:template>
 
 <!-- = seglistitem = -->
@@ -326,6 +262,16 @@ dd elements has a negative top margin.
   </div>
 </xsl:template>
 
+<!-- FIXME: Implement tabular segmentedlists -->
+<!-- = segmentedlist = -->
+<xsl:template match="segmentedlist">
+  <div class="segmentedlist">
+    <xsl:call-template name="db2html.anchor"/>
+    <xsl:apply-templates select="title"/>
+    <xsl:apply-templates select="seglistitem"/>
+  </div>
+</xsl:template>
+
 <!-- = segtitle = -->
 <xsl:template match="segtitle">
   <b>
@@ -334,23 +280,7 @@ dd elements has a negative top margin.
   </b>
 </xsl:template>
 
-<!-- = seg = -->
-<xsl:template match="seg">
-  <xsl:variable name="position" select="count(preceding-sibling::seg) + 1"/>
-  <p>
-    <xsl:if test="$position = 1">
-      <xsl:attribute name="class">
-        <xsl:text>segfirst</xsl:text>
-      </xsl:attribute>
-    </xsl:if>
-    <xsl:apply-templates select="../../segtitle[position() = $position]"/>
-    <xsl:apply-templates/>
-  </p>
-</xsl:template>
-
-<!-- ======================================================================= -->
-<!-- == simplelist ========================================================= -->
-
+<!-- = simplelist = -->
 <xsl:template match="simplelist">
   <xsl:variable name="columns">
     <xsl:choose>
@@ -424,15 +354,41 @@ dd elements has a negative top margin.
   </xsl:choose>
 </xsl:template>
 
-<!-- = member = -->
-<xsl:template match="member">
-  <!-- Do something trivial, and rely on simplelist to do the rest -->
-  <xsl:call-template name="db2html.inline"/>
+<!-- FIXME: Do something with @performance -->
+<!-- = step = -->
+<xsl:template match="step">
+  <li>
+    <xsl:apply-templates/>
+  </li>
 </xsl:template>
 
-<!-- ======================================================================= -->
-<!-- == variablelist ======================================================= -->
+<!-- FIXME: Do something with @performance -->
+<!-- = substeps = -->
+<xsl:template match="substeps">
+  <xsl:variable name="depth" select="count(ancestor::substeps)"/>
+  <div class="substeps">
+    <xsl:call-template name="db2html.anchor"/>
+    <ol>
+      <xsl:attribute name="type">
+        <xsl:choose>
+          <xsl:when test="$depth mod 3 = 0">a</xsl:when>
+          <xsl:when test="$depth mod 3 = 1">i</xsl:when>
+          <xsl:when test="$depth mod 3 = 2">1</xsl:when>
+        </xsl:choose>
+      </xsl:attribute>
+      <xsl:apply-templates/>
+    </ol>
+  </div>
+</xsl:template>
 
+<!-- = term = -->
+<xsl:template match="term">
+  <xsl:call-template name="db2html.inline">
+    <xsl:with-param name="bold" select="@role = 'bold'"/>
+  </xsl:call-template>
+</xsl:template>
+
+<!-- = variablelist = -->
 <xsl:template match="variablelist">
   <div class="list">
     <div class="variablelist">
@@ -445,6 +401,7 @@ dd elements has a negative top margin.
   </div>
 </xsl:template>
 
+<!-- = varlistentry = -->
 <xsl:template match="varlistentry">
   <dt>
     <xsl:call-template name="db2html.anchor"/>
@@ -458,6 +415,7 @@ dd elements has a negative top margin.
   <xsl:apply-templates select="listitem"/>
 </xsl:template>
 
+<!-- = varlistentry/listitem = -->
 <xsl:template match="varlistentry/listitem">
   <dd>
     <xsl:call-template name="db2html.anchor"/>
@@ -465,10 +423,25 @@ dd elements has a negative top margin.
   </dd>
 </xsl:template>
 
-<xsl:template match="term">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="bold" select="@role = 'bold'"/>
-  </xsl:call-template>
+
+<!--
+These templates strip the p tag around single-paragraph list items to avoid
+introducing extra spacing.  We don't do this for list items in varlistentry
+elements because it adds a non-negligable amount of processing time for
+non-trivial documents.  The default CSS for dd elements has a negative top
+margin instead.
+-->
+<xsl:template match="itemizedlist/listitem/para[
+              not(preceding-sibling::* or following-sibling::*)  and
+              not(../preceding-sibling::listitem[count(*) != 1]) and
+              not(../following-sibling::listitem[count(*) != 1]) ]">
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+<xsl:template match="orderedlist/listitem/para[
+              not(preceding-sibling::* or following-sibling::*)  and
+              not(../preceding-sibling::listitem[count(*) != 1]) and
+              not(../following-sibling::listitem[count(*) != 1]) ]">
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 </xsl:stylesheet>

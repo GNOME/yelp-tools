@@ -17,40 +17,40 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
                 xmlns="http://www.w3.org/1999/xhtml"
-                exclude-result-prefixes="doc"
                 version="1.0">
 
-<doc:title>Question and Answer Sets</doc:title>
+<!--!!==========================================================================
+DocBook to HTML - Question and Answer Sets
+
+REMARK: Describe this module
+-->
 
 
-<!-- == db2html.qanda.css ================================================== -->
+<!--**==========================================================================
+db2html.qanda.css
+Outputs CSS that controls the appearance of question and answer elements
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.qanda.css</name>
-  <purpose>
-    Create CSS for the qanda elements
-  </purpose>
-</template>
-
+REMARK: Describe this template
+-->
 <xsl:template name="db2html.qanda.css">
-  <xsl:text>
-    dt[class~="question"] { margin-left: 0em; }
-    dt[class~="question"] div[class~="label"] { float: left; }
-    dd + dt[class~="question"] { margin-top: 1em; }
-    dd[class~="answer"] {
-      margin-top: 1em;
-      margin-left: 2em;
-      margin-right: 1em;
-    }
-    dd[class~="answer"] div[class~="label"] { float: left; }
-  </xsl:text>
+<xsl:text>
+dt.question { margin-left: 0em; }
+dt.question div.label { float: left; }
+dd + dt.question { margin-top: 1em; }
+dd.answer {
+  margin-top: 1em;
+  margin-left: 2em;
+  margin-right: 1em;
+}
+dd.answer div.label { float: left; }
+</xsl:text>
 </xsl:template>
 
 
-<!-- == Matched Templates ================================================== -->
+<!-- == Matched Templates == -->
 
+<!-- = answer = -->
 <xsl:template match="answer">
   <dd class="answer">
     <div class="label">
@@ -62,6 +62,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </dd>
 </xsl:template>
 
+<!-- = qandadiv = -->
 <xsl:template match="qandadiv">
   <xsl:param name="depth_in_chunk">
     <xsl:call-template name="db.chunk.depth-in-chunk"/>
@@ -81,10 +82,12 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
+<!-- = entry = -->
 <xsl:template match="qandaentry">
   <xsl:apply-templates/>
 </xsl:template>
 
+<!-- = qandaset = -->
 <xsl:template match="qandaset">
   <xsl:param name="depth_in_chunk">
     <xsl:call-template name="db.chunk.depth-in-chunk"/>
@@ -104,6 +107,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
+<!-- = question = -->
 <xsl:template match="question">
   <dt class="question">
     <div class="label">

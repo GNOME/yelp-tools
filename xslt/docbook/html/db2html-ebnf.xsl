@@ -17,12 +17,14 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-		xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
                 xmlns="http://www.w3.org/1999/xhtml"
-		exclude-result-prefixes="doc"
                 version="1.0">
 
-<doc:title>EBNF Elements</doc:title>
+<!--!!==========================================================================
+DocBook to HTML - EBNF Elements
+
+REMARK: Describe this module
+-->
 
 
 <!-- == Matched Templates == -->

@@ -17,30 +17,29 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
                 xmlns="http://www.w3.org/1999/xhtml"
-                exclude-result-prefixes="doc"
                 version="1.0">
 
-<doc:title>Bibliographies</doc:title>
+<!--!!==========================================================================
+DocBook to HTML - Bibliographies
+
+REMARK: Describe this module
+-->
 
 
-<!-- == db2html.bibliography.css =============================================== -->
-
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.bibliography.css</name>
-  <purpose>
-    Create CSS for the bibliography elements
-  </purpose>
-</template>
-
+<!--** =========================================================================
+db2html.bibliography.css
+Outputs CSS that controls the appearance of bibliograpies
+-->
 <xsl:template name="db2html.bibliography.css">
-  <xsl:text>
-    * + div[class~="biblioentry"] { margin-top: 1.2em; }
-    * + div[class~="bibliomixed"] { margin-top: 1.2em; }
-  </xsl:text>
+<xsl:text>
+* + div.biblioentry { margin-top: 1.2em; }
+* + div.bibliomixed { margin-top: 1.2em; }
+</xsl:text>
 </xsl:template>
 
+
+<!-- == Matched Templates == -->
 
 <!-- = bibliography = -->
 <xsl:template match="bibliography">
@@ -168,116 +167,5 @@ elemets to be inline elements, so we special-case them here.
     <xsl:with-param name="italic" select="true()"/>
   </xsl:call-template>
 </xsl:template>
-
-<!-- = refname = -->
-<!--
-<xsl:template match="refname">
-  <xsl:call-template name="db2html.inline"/>
-</xsl:template>
--->
-
-<!-- = refnamediv = -->
-<!--
-<xsl:template match="refnamediv">
-  <div class="refnamediv">
-    <xsl:call-template name="db2html.anchor"/>
-    <xsl:for-each select="refname">
-      <xsl:if test="position() != 1">
-        <xsl:text>, </xsl:text>
-      </xsl:if>
-      <xsl:apply-templates select="."/>
-    </xsl:for-each>
-    <xsl:text> — </xsl:text>
-    <xsl:apply-templates select="refpurpose"/>
-  </div>
-</xsl:template>
--->
-
-<!-- = refsection = -->
-<!--
-<xsl:template match="refsection">
-  <xsl:param name="depth_in_chunk">
-    <xsl:call-template name="db.chunk.depth-in-chunk"/>
-  </xsl:param>
-  <xsl:param name="depth_of_chunk">
-    <xsl:call-template name="db.chunk.depth-of-chunk"/>
-  </xsl:param>
-  <xsl:call-template name="db2html.division.div">
-    <xsl:with-param name="divisions" select="refsection"/>
-    <xsl:with-param name="info" select="refsectioninfo"/>
-    <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
-    <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
-    <xsl:with-param name="chunk_divisions" select="false()"/>
-  </xsl:call-template>
-</xsl:template>
--->
-
-<!-- = refsynopsisdiv = -->
-<!--
-<xsl:template match="refsynopsisdiv">
-  <xsl:param name="depth_in_chunk">
-    <xsl:call-template name="db.chunk.depth-in-chunk"/>
-  </xsl:param>
-  <xsl:param name="depth_of_chunk">
-    <xsl:call-template name="db.chunk.depth-of-chunk"/>
-  </xsl:param>
-  <div class="refsynopsisdiv">
-    <xsl:call-template name="db2html.anchor"/>
-    <xsl:if test="not(title)">
-      <xsl:call-template name="db2html.title.header">
-        <xsl:with-param name="node" select="."/>
-        <xsl:with-param name="referent" select="."/>
-        <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
-        <xsl:with-param name="referent_depth_in_chunk" select="$depth_in_chunk"/>
-        <xsl:with-param name="generate_label" select="false()"/>
-        <xsl:with-param name="title_content">
-          <xsl:call-template name="l10n.gettext">
-            <xsl:with-param name="msgid" select="'Synopsis'"/>
-          </xsl:call-template>
-        </xsl:with-param>
-      </xsl:call-template>
-    </xsl:if>
-    <xsl:apply-templates>
-      <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
-    </xsl:apply-templates>
-  </div>
-</xsl:template>
--->
-
-<!-- = title = -->
-<!--
-<xsl:template match="refsect1/title | refsect2/title   |
-                     refsect3/title | refsection/title ">
-  <xsl:param name="referent" select=".."/>
-  <xsl:param name="depth_in_chunk">
-    <xsl:call-template name="db.chunk.depth-in-chunk"/>
-  </xsl:param>
-  <xsl:param name="referent_depth_in_chunk">
-    <xsl:choose>
-      <xsl:when test="$referent = .">
-        <xsl:value-of select="$depth_in_chunk"/>
-      </xsl:when>
-      <xsl:when test="ancestor::* = $referent">
-        <xsl:value-of select="$depth_in_chunk -
-                      (count(ancestor::*) - count($referent/ancestor::*)) "/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:call-template name="db.chunk.depth-in-chunk">
-          <xsl:with-param name="node" select="$referent"/>
-        </xsl:call-template>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:param>
-  <xsl:param name="depth_of_chunk">
-    <xsl:call-template name="db.chunk.depth-of-chunk"/>
-  </xsl:param>
-  <xsl:call-template name="db2html.title.header">
-    <xsl:with-param name="referent" select="$referent"/>
-    <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
-    <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
-    <xsl:with-param name="generate_label" select="false()"/>
-  </xsl:call-template>
-</xsl:template>
--->
 
 </xsl:stylesheet>

@@ -17,16 +17,29 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
                 xmlns="http://www.w3.org/1999/xhtml"
-                exclude-result-prefixes="doc"
                 version="1.0">
 
-<doc:title>Images and Other Media</doc:title>
+<!--!!==========================================================================
+DocBook to HTML - Images and Media
+
+REMARK: Describe this module
+-->
 
 
-<!-- == db2html.imagedata ================================================== -->
+<!--**==========================================================================
+db2html.imagedata
+Renders an #{imagedata} element into an #{img} element
+$node: The element to render
 
+This template creates an #{img} element in the HTML output.  This named template
+is called not only for #{imagedata} elements, but also for #{graphic} and
+#{inlinegraphic} elements.  Note that #{graphic} and #{inlinegraphic} are
+deprecated and should not be used in any newly-written DocBook files.  Use
+#{mediaobject} instead.
+
+REMARK: calls db2html.imagedata.src, how other attrs are gotten
+-->
 <xsl:template name="db2html.imagedata">
   <xsl:param name="node" select="."/>
   <img>
@@ -69,8 +82,14 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2html.imagedata.src ============================================== -->
+<!--**==========================================================================
+db2html.imagedata.src
+Outputs the content of the #{src} attribute for an #{img} element
+$node: The element to render
 
+This template is called by *{db2html.imagedata.src} for the content of the
+#{src} attribute of an #{img} element.
+-->
 <xsl:template name="db2html.imagedata.src">
   <xsl:param name="node" select="."/>
   <xsl:choose>
@@ -94,8 +113,18 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2html.mediaobject ================================================ -->
+<!--**==========================================================================
+db2html.mediaobject
+Outputs HTML for a #{mediaobject} element
+$node: The element to render
 
+This template processes a #{mediaobject} element and outputs the appropriate
+HTML.  DocBook allows multiple objects to be listed in a #{mediaobject} element.
+Processing tools are expected to choose the earliest suitable object.  Currently,
+this template only chooses the first suitable #{imageobject} element.  Support
+for #{videobject} and #{audioobject} should be added in future versions, as well
+as a text-only mode.
+-->
 <xsl:template name="db2html.mediaobject">
   <xsl:param name="node" select="."/>
   <xsl:choose>
@@ -125,7 +154,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == Matched Templates ================================================== -->
+<!-- == Matched Templates == -->
 
 <!-- = graphic = -->
 <xsl:template match="graphic">
@@ -134,23 +163,6 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     <xsl:call-template name="db2html.imagedata"/>
   </div>
 </xsl:template>
-
-<!--
-<xsl:template match="graphicco">
-	<xsl:param name="textobject" select="false()"/>
-	<xsl:call-template name="db2html.anchor"/>
-	<xsl:apply-templates select="graphic">
-		<xsl:with-param name="textobject" select="$textobject"/>
-	</xsl:apply-templates>
-	<xsl:apply-templates select="calloutlist"/>
-</xsl:template>
-
-<xsl:template match="audiodata">
-</xsl:template>
-
-<xsl:template match="audioobject">
-</xsl:template>
--->
 
 <!-- = imagedata = -->
 <xsl:template match="imagedata">
@@ -161,17 +173,6 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <xsl:template match="imageobject">
   <xsl:apply-templates select="imagedata"/>
 </xsl:template>
-
-<!--
-<xsl:template match="imageobjectco">
-	<xsl:param name="textobject" select="false()"/>
-	<xsl:call-template name="db2html.anchor"/>
-	<xsl:apply-templates select="imageobject">
-		<xsl:with-param name="textobject" select="$textobject"/>
-	</xsl:apply-templates>
-	<xsl:apply-templates select="calloutlist"/>
-</xsl:template>
--->
 
 <!-- = inlinegraphic = -->
 <xsl:template match="inlinegraphic">
@@ -198,32 +199,9 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </div>
 </xsl:template>
 
-<!--
-<xsl:template match="mediaobjectco">
-	<div class="{name(.)}">
-		<xsl:call-template name="db2html.anchor"/>
-		<xsl:call-template name="mediaobject"/>
-	</div>
-</xsl:template>
--->
-
 <!-- = screenshot = -->
 <xsl:template match="screenshot">
   <xsl:call-template name="db2html.block"/>
 </xsl:template>
-
-<!--
-<xsl:template match="textdata">
-</xsl:template>
-
-<xsl:template match="textobject">
-</xsl:template>
-
-<xsl:template match="videodata">
-</xsl:template>
-
-<xsl:template match="videoobject">
-</xsl:template>
--->
 
 </xsl:stylesheet>

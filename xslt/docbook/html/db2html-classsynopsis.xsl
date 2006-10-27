@@ -17,30 +17,27 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
                 xmlns="http://www.w3.org/1999/xhtml"
-                exclude-result-prefixes="doc"
                 version="1.0">
 
-<doc:title>Class Synopses</doc:title>
+<!--!!==========================================================================
+DocBook to HTML - Class Synopses
 
-
-<!-- == Variables ========================================================== -->
-<!-- == (possible candidates for params) == -->
+REMARK: Describe this module.  Implmentation note: for C++, we expect the first
+modifier to be the visibility
+-->
 
 <xsl:variable name="cpp.tab" select="'&#160;&#160;&#160;&#160;'"/>
 <xsl:variable name="python.tab" select="'&#160;&#160;&#160;&#160;'"/>
 
 
-<!-- == db2html.classsynopsis.language ===================================== -->
+<!-- FIXME: document PI -->
+<!--@@==========================================================================
+db2html.classsynopsis.language
+The default programming language used to format #{classsynopsis} elements
 
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.classsynopsis.language</name>
-  <purpose>
-    The default language for <xmltag>classsynopsis</xmltag> elements
-  </purpose>
-</parameter>
-
+REMARK: Describe this param
+-->
 <xsl:param name="db2html.classsynopsis.language">
   <xsl:choose>
     <xsl:when test="processing-instruction('db2html.classsynopsis.language')">
@@ -54,13 +51,13 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:param>
 
 
-<!-- == Matched Templates ================================================== -->
+<!-- == Matched Templates == -->
 
 <!-- = *synopsis = -->
 <xsl:template match="
               classsynopsis  | constructorsynopsis | fieldsynopsis |
               methodsynopsis | destructorsynopsis  ">
-  <xsl:param name="language">
+  <xsl:variable name="language">
     <xsl:choose>
       <xsl:when test="@language">
         <xsl:value-of select="@language"/>
@@ -69,7 +66,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
         <xsl:value-of select="$db2html.classsynopsis.language"/>
       </xsl:otherwise>
     </xsl:choose>
-  </xsl:param>
+  </xsl:variable>
 
   <div class="{local-name(.)}">
     <xsl:call-template name="db2html.anchor"/>
@@ -78,9 +75,11 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
         <xsl:when test="$language = 'cpp'">
           <xsl:apply-templates mode="db2html.class.cpp.mode" select="."/>
         </xsl:when>
+        <!--
         <xsl:when test="$language = 'python'">
           <xsl:apply-templates mode="db2html.class.python.mode" select="."/>
         </xsl:when>
+        -->
         <xsl:otherwise>
           <xsl:message>
             <xsl:text>No information about the language '</xsl:text>
@@ -154,10 +153,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </span>
 </xsl:template>
 
-
-<!-- == class.cpp.modifier ================================================= -->
-
-<xsl:template name="class.cpp.modifier" doc:private="true">
+<!--#* class.cpp.modifier -->
+<xsl:template name="class.cpp.modifier">
   <!-- For C++, we expect the first modifier to be the visibility -->
   <xsl:if test="../self::classsynopsis">
     <xsl:variable name="prec" select="
@@ -176,26 +173,28 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2html.class.cpp.mode ============================================= -->
+<!--%%==========================================================================
+db2html.class.cpp.mode
 
+REMARK: Describe this mode
+-->
 <xsl:template mode="db2html.class.cpp.mode" match="*">
+  <!-- Most stuff just gets processed as normal -->
   <xsl:apply-templates select="."/>
 </xsl:template>
 
-<!-- = classsynopsis =
-element classsynopsis {
-  common.attrib, role.attrib,
-  attribute language { "cpp" }?,
-  attribute class { "class" }?,
-  ooclass+,
-  (classsynopsisinfo   |
-   constructorsynopsis |
-   destructorsynopsis  |
-   fieldsynopsis       |
-   methodsynopsis      )
-}
--->
+<!-- = classsynopsis % db2html.class.cpp.mode = -->
 <xsl:template mode="db2html.class.cpp.mode" match="classsynopsis">
+  <!-- classsynopsis = element classsynopsis {
+         common.attrib, role.attrib,
+         attribute language { "cpp" }?,
+         attribute class { "class" }?,
+         ooclass+,
+         (classsynopsisinfo  | constructorsynopsis |
+          destructorsynopsis | fieldsynopsis       |
+          methodsynopsis     )
+       }
+  -->
   <xsl:if test="@class = 'class' or not(@class)">
     <span class="ooclass">
       <xsl:for-each select="ooclass[1]/modifier">
@@ -227,16 +226,16 @@ element classsynopsis {
   </xsl:if>
 </xsl:template>
 
-<!-- = constructorsynopsis =
-element constructorsynopsis {
-  common.attrib, role.attrib,
-  attribute language { "cpp" }?,
-  modifier+,
-  methodname?,
-  (methodparam+ | void?)
-}
--->
+<!-- = constructorsynopsis % db2html.class.cpp.mode = -->
 <xsl:template mode="db2html.class.cpp.mode" match="constructorsynopsis">
+  <!-- constructorsynopsis = element constructorsynopsis {
+         common.attrib, role.attrib,
+         attribute language { "cpp" }?,
+         modifier+,
+         methodname?,
+         (methodparam+ | void?)
+       }
+  -->
   <xsl:call-template name="class.cpp.modifier"/>
   <xsl:value-of select="$cpp.tab"/>
   <xsl:for-each select="modifier[position() != 1]">
@@ -268,16 +267,16 @@ element constructorsynopsis {
   <xsl:text>);&#x000A;</xsl:text>
 </xsl:template>
 
-<!-- = destructorsynopsis =
-element destructorsynopsis {
-  common.attrib, role.attrib,
-  attribute language { "cpp" }?,
-  modifier+,
-  methodname?,
-  (methodparam+ | void?)
-}
--->
+<!-- = destructorsynopsis % db2html.class.cpp.mode = -->
 <xsl:template mode="db2html.class.cpp.mode" match="destructorsynopsis">
+  <!-- destructorsynopsis = element destructorsynopsis {
+         common.attrib, role.attrib,
+         attribute language { "cpp" }?,
+         modifier+,
+         methodname?,
+         (methodparam+ | void?)
+       }
+  -->
   <xsl:call-template name="class.cpp.modifier"/>
   <xsl:value-of select="$cpp.tab"/>
   <xsl:for-each select="modifier[position() != 1]">
@@ -311,17 +310,17 @@ element destructorsynopsis {
   <xsl:text>);&#x000A;</xsl:text>
 </xsl:template>
 
-<!-- = fieldsynopsis =
-element fieldsynopsis {
-  common.attrib, role.attrib,
-  attribute language { "cpp" }?,
-  modifier+,
-  type,
-  varname,
-  initializer?
-}
--->
+<!-- = fieldsynopsis % db2html.class.cpp.mode = -->
 <xsl:template mode="db2html.class.cpp.mode" match="fieldsynopsis">
+  <!-- fieldsynopsis = element fieldsynopsis {
+         common.attrib, role.attrib,
+         attribute language { "cpp" }?,
+         modifier+,
+         type,
+         varname,
+         initializer?
+       }
+  -->
   <xsl:call-template name="class.cpp.modifier"/>
   <xsl:value-of select="$cpp.tab"/>
   <xsl:for-each select="modifier[position() != 1]">
@@ -347,7 +346,7 @@ element fieldsynopsis {
   <xsl:text>;&#x000A;</xsl:text>
 </xsl:template>
 
-<!-- = methodparam = -->
+<!-- = methodparam % db2html.class.cpp.mode = -->
 <xsl:template mode="db2html.class.cpp.mode" match="methodparam">
   <span class="methodparam">
     <xsl:for-each select="*">
@@ -359,17 +358,17 @@ element fieldsynopsis {
   </span>
 </xsl:template>
 
-<!-- = methodsynopsis =
-element methodsynopsis {
-  common.attrib, role.attrib,
-  attribute language { "cpp" }?,
-  modifier+,
-  (type | void),
-  methodname,
-  (methodparam+ | void?)
-}
--->
+<!-- = methodsynopsis % db2html.class.cpp.mode = -->
 <xsl:template mode="db2html.class.cpp.mode" match="methodsynopsis">
+  <!-- methodsynopsis = element methodsynopsis {
+         common.attrib, role.attrib,
+         attribute language { "cpp" }?,
+         modifier+,
+         (type | void),
+         methodname,
+         (methodparam+ | void?)
+       }
+  -->
   <xsl:call-template name="class.cpp.modifier"/>
   <xsl:value-of select="$cpp.tab"/>
   <!-- Parens for document order -->
@@ -396,13 +395,17 @@ element methodsynopsis {
 </xsl:template>
 
 
-<!-- == db2html.class.python.mode ========================================== -->
+<!--%%==========================================================================
+db2html.class.python.mode
 
+REMARK: Describe this mode
+-->
 <xsl:template mode="db2html.class.python.mode" match="*">
+  <!-- Most stuff just gets processed as normal -->
   <xsl:apply-templates select="."/>
 </xsl:template>
 
-<!-- = classsynopsis = -->
+<!-- = classsynopsis % db2html.class.python.mode = -->
 <!--
 <xsl:template mode="db2html.class.python.mode" match="classsynopsis">
   <xsl:if test="@class = 'class' or not(@class)">
@@ -437,7 +440,7 @@ element methodsynopsis {
 </xsl:template>
 -->
 
-<!-- = constructorsynopsis = -->
+<!-- = constructorsynopsis % db2html.class.python.mode = -->
 <!--
 <xsl:template mode="db2html.class.python.mode" match="constructorsynopsis">
   <xsl:call-template name="class.python.modifier"/>
@@ -472,7 +475,7 @@ element methodsynopsis {
 </xsl:template>
 -->
 
-<!-- = destructorsynopsis = -->
+<!-- = destructorsynopsis % db2html.class.python.mode = -->
 <!--
 <xsl:template mode="db2html.class.python.mode" match="destructorsynopsis">
   <xsl:call-template name="class.python.modifier"/>
@@ -508,7 +511,7 @@ element methodsynopsis {
 </xsl:template>
 -->
 
-<!-- = fieldsynopsis = -->
+<!-- = fieldsynopsis % db2html.class.python.mode = -->
 <!--
 <xsl:template mode="db2html.class.python.mode" match="fieldsynopsis">
   <xsl:call-template name="class.python.modifier"/>
@@ -537,7 +540,7 @@ element methodsynopsis {
 </xsl:template>
 -->
 
-<!-- = methodparam = -->
+<!-- = methodparam % db2html.class.python.mode = -->
 <!--
 <xsl:template mode="db2html.class.python.mode" match="methodparam">
   <span class="methodparam">
@@ -551,7 +554,7 @@ element methodsynopsis {
 </xsl:template>
 -->
 
-<!-- = methodsynopsis = -->
+<!-- = methodsynopsis % db2html.class.python.mode = -->
 <!--
 <xsl:template mode="db2html.class.python.mode" match="methodsynopsis">
   <xsl:call-template name="class.python.modifier"/>

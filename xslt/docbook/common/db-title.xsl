@@ -17,100 +17,60 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
                 xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n"
-                exclude-result-prefixes="doc"
                 version="1.0">
 
-<doc:title>Common Utilities for Titles</doc:title>
+<!--!!==========================================================================
+DocBook Titles
+-->
 
 
-<!-- == db.title =========================================================== -->
+<!--**==========================================================================
+db.title
+Processes the title of an element
+$node: The element to process the title of
 
-<xsl:template mode="l10n.format.mode" match="msg:title">
-  <xsl:param name="node"/>
-  <xsl:call-template name="db.title">
-    <xsl:with-param name="node" select="$node"/>
-  </xsl:call-template>
-</xsl:template>
-
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db.title</name>
-  <purpose>
-    Process the title of an element
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The element for which to process the title
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Describe this, and how format templates and markup play in
+-->
 <xsl:template name="db.title">
   <xsl:param name="node" select="."/>
   <xsl:apply-templates mode="db.title.mode" select="$node"/>
 </xsl:template>
 
 
-<!-- == db.titleabbrev ===================================================== -->
+<!--**==========================================================================
+db.titleabbrev
+Processes the abbreviated title of an element
+$node: The element to process the abbreviated title of
 
-<xsl:template mode="l10n.format.mode" match="msg:titleabbrev">
-  <xsl:param name="node"/>
-  <xsl:call-template name="db.titleabbrev">
-    <xsl:with-param name="node" select="$node"/>
-  </xsl:call-template>
-</xsl:template>
-
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db.titleabbrev</name>
-  <purpose>
-    Process the abbreviated title of an element
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The element for which to process the abbreviated title
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Describe this, and how format templates and markup play in,
+and fallback to db.title
+-->
 <xsl:template name="db.titleabbrev">
   <xsl:param name="node" select="."/>
   <xsl:apply-templates mode="db.titleabbrev.mode" select="$node"/>
 </xsl:template>
 
 
-<!-- == db.subtitle ======================================================== -->
+<!--**==========================================================================
+db.subtitle
+Processes the subtitle of an element
+$node: The element to process the subtitle of
 
-<xsl:template mode="l10n.format.mode" match="msg:subtitle">
-  <xsl:param name="node"/>
-  <xsl:call-template name="db.subtitle">
-    <xsl:with-param name="node" select="$node"/>
-  </xsl:call-template>
-</xsl:template>
-
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db.subtitle</name>
-  <purpose>
-    Process the subtitle of an element
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The element for which to process the subtitle
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Describe this, and how format templates and markup play in
+-->
 <xsl:template name="db.subtitle">
   <xsl:param name="node" select="."/>
   <xsl:apply-templates mode="db.subtitle.mode" select="$node"/>
 </xsl:template>
 
 
-<!-- == db.title.mode ====================================================== -->
+<!--%%==========================================================================
+db.title.mode
+FIXME
 
+REMARK: Describe this mode
+-->
 <xsl:template mode="db.title.mode" match="*">
   <xsl:choose>
     <xsl:when test="title">
@@ -125,6 +85,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.title.mode % appendix = -->
 <xsl:template mode="db.title.mode" match="appendix">
   <xsl:choose>
     <xsl:when test="title">
@@ -136,6 +97,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.title.mode % article = -->
 <xsl:template mode="db.title.mode" match="article">
   <xsl:choose>
     <xsl:when test="title">
@@ -147,6 +109,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.title.mode % bibliography = -->
 <xsl:template mode="db.title.mode" match="bibliography">
   <xsl:choose>
     <xsl:when test="title">
@@ -163,6 +126,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.title.mode % book = -->
 <xsl:template mode="db.title.mode" match="book">
   <xsl:choose>
     <xsl:when test="title">
@@ -174,6 +138,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.title.mode % chapter = -->
 <xsl:template mode="db.title.mode" match="chapter">
   <xsl:choose>
     <xsl:when test="title">
@@ -185,6 +150,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.title.mode % glossary = -->
 <xsl:template mode="db.title.mode" match="glossary">
   <xsl:choose>
     <xsl:when test="title">
@@ -196,6 +162,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.title.mode % index = -->
 <xsl:template mode="db.title.mode" match="index">
   <xsl:choose>
     <xsl:when test="title">
@@ -207,6 +174,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.title.mode % part = -->
 <xsl:template mode="db.title.mode" match="part">
   <xsl:choose>
     <xsl:when test="title">
@@ -218,6 +186,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.title.mode % preface = -->
 <xsl:template mode="db.title.mode" match="preface">
   <xsl:choose>
     <xsl:when test="title">
@@ -229,6 +198,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.title.mode % refentry = -->
 <xsl:template mode="db.title.mode" match="refentry">
   <xsl:choose>
     <xsl:when test="refmeta/refentrytitle">
@@ -249,6 +219,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.title.mode % reference = -->
 <xsl:template mode="db.title.mode" match="reference">
   <xsl:choose>
     <xsl:when test="title">
@@ -260,6 +231,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.title.mode % refsect1 = -->
 <xsl:template mode="db.title.mode" match="refsect1">
   <xsl:choose>
     <xsl:when test="title">
@@ -271,6 +243,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.title.mode % refsect2 = -->
 <xsl:template mode="db.title.mode" match="refsect2">
   <xsl:choose>
     <xsl:when test="title">
@@ -282,6 +255,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.title.mode % refsect3 = -->
 <xsl:template mode="db.title.mode" match="refsect3">
   <xsl:choose>
     <xsl:when test="title">
@@ -293,6 +267,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.title.mode % refsection = -->
 <xsl:template mode="db.title.mode" match="refsection">
   <xsl:choose>
     <xsl:when test="title">
@@ -304,6 +279,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.title.mode % refsynopsisdiv = -->
 <xsl:template mode="db.title.mode" match="refsynopsisdiv">
   <xsl:choose>
     <xsl:when test="title">
@@ -315,6 +291,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.title.mode % sect1 = -->
 <xsl:template mode="db.title.mode" match="sect1">
   <xsl:choose>
     <xsl:when test="title">
@@ -326,6 +303,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.title.mode % sect2 = -->
 <xsl:template mode="db.title.mode" match="sect2">
   <xsl:choose>
     <xsl:when test="title">
@@ -337,6 +315,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.title.mode % sect3 = -->
 <xsl:template mode="db.title.mode" match="sect3">
   <xsl:choose>
     <xsl:when test="title">
@@ -348,6 +327,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.title.mode % sect4 = -->
 <xsl:template mode="db.title.mode" match="sect4">
   <xsl:choose>
     <xsl:when test="title">
@@ -359,6 +339,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.title.mode % sect5 = -->
 <xsl:template mode="db.title.mode" match="sect5">
   <xsl:choose>
     <xsl:when test="title">
@@ -370,6 +351,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.title.mode % section = -->
 <xsl:template mode="db.title.mode" match="section">
   <xsl:choose>
     <xsl:when test="title">
@@ -381,6 +363,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.title.mode % set = -->
 <xsl:template mode="db.title.mode" match="set">
   <xsl:choose>
     <xsl:when test="title">
@@ -392,6 +375,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.title.mode % setindex = -->
 <xsl:template mode="db.title.mode" match="setindex">
   <xsl:choose>
     <xsl:when test="title">
@@ -403,6 +387,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.title.mode % sidebar = -->
 <xsl:template mode="db.title.mode" match="sidebar">
   <xsl:choose>
     <xsl:when test="title">
@@ -415,8 +400,12 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db.titleabbrev.mode ================================================ -->
+<!--%%==========================================================================
+db.titleabbrev.mode
+FIXME
 
+REMARK: Describe this mode
+-->
 <xsl:template mode="db.titleabbrev.mode" match="*">
   <xsl:choose>
     <xsl:when test="titleabbrev">
@@ -440,6 +429,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.titleabbrev.mode % appendix = -->
 <xsl:template mode="db.titleabbrev.mode" match="appendix">
   <xsl:choose>
     <xsl:when test="titleabbrev">
@@ -457,6 +447,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.titleabbrev.mode % article = -->
 <xsl:template mode="db.titleabbrev.mode" match="article">
   <xsl:choose>
     <xsl:when test="titleabbrev">
@@ -474,6 +465,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.titleabbrev.mode % bibliography = -->
 <xsl:template mode="db.titleabbrev.mode" match="bibliography">
   <xsl:choose>
     <xsl:when test="titleabbrev">
@@ -496,6 +488,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.titleabbrev.mode % book = -->
 <xsl:template mode="db.titleabbrev.mode" match="book">
   <xsl:choose>
     <xsl:when test="titleabbrev">
@@ -513,6 +506,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.titleabbrev.mode % chapter = -->
 <xsl:template mode="db.titleabbrev.mode" match="chapter">
   <xsl:choose>
     <xsl:when test="titleabbrev">
@@ -530,6 +524,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.titleabbrev.mode % glossary = -->
 <xsl:template mode="db.titleabbrev.mode" match="glossary">
   <xsl:choose>
     <xsl:when test="titleabbrev">
@@ -547,6 +542,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.titleabbrev.mode % index = -->
 <xsl:template mode="db.titleabbrev.mode" match="index">
   <xsl:choose>
     <xsl:when test="titleabbrev">
@@ -564,6 +560,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.titleabbrev.mode % part = -->
 <xsl:template mode="db.titleabbrev.mode" match="part">
   <xsl:choose>
     <xsl:when test="titleabbrev">
@@ -581,6 +578,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.titleabbrev.mode % preface = -->
 <xsl:template mode="db.titleabbrev.mode" match="preface">
   <xsl:choose>
     <xsl:when test="titleabbrev">
@@ -598,23 +596,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
-<xsl:template mode="db.titleabbrev.mode" match="preface">
-  <xsl:choose>
-    <xsl:when test="titleabbrev">
-      <xsl:apply-templates select="titleabbrev/node()"/>
-    </xsl:when>
-    <xsl:when test="prefaceinfo/titleabbrev">
-      <xsl:apply-templates select="prefaceinfo/titleabbrev/node()"/>
-    </xsl:when>
-    <xsl:when test="title">
-      <xsl:apply-templates select="title/node()"/>
-    </xsl:when>
-    <xsl:when test="prefaceinfo/title">
-      <xsl:apply-templates select="prefaceinfo/title/node()"/>
-    </xsl:when>
-  </xsl:choose>
-</xsl:template>
-
+<!-- = db.titleabbrev.mode % refentry = -->
 <xsl:template mode="db.titleabbrev.mode" match="refentry">
   <xsl:choose>
     <xsl:when test="refentryinfo/titleabbrev">
@@ -638,6 +620,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.titleabbrev.mode % reference = -->
 <xsl:template mode="db.titleabbrev.mode" match="reference">
   <xsl:choose>
     <xsl:when test="titleabbrev">
@@ -655,6 +638,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.titleabbrev.mode % refsect1 = -->
 <xsl:template mode="db.titleabbrev.mode" match="refsect1">
   <xsl:choose>
     <xsl:when test="titleabbrev">
@@ -672,6 +656,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.titleabbrev.mode % refsect2 = -->
 <xsl:template mode="db.titleabbrev.mode" match="refsect2">
   <xsl:choose>
     <xsl:when test="titleabbrev">
@@ -689,6 +674,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.titleabbrev.mode % refsect3 = -->
 <xsl:template mode="db.titleabbrev.mode" match="refsect3">
   <xsl:choose>
     <xsl:when test="titleabbrev">
@@ -706,6 +692,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.titleabbrev.mode % refsection = -->
 <xsl:template mode="db.titleabbrev.mode" match="refsection">
   <xsl:choose>
     <xsl:when test="titleabbrev">
@@ -723,6 +710,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.titleabbrev.mode % refsynopsisdiv = -->
 <xsl:template mode="db.titleabbrev.mode" match="refsynopsisdiv">
   <xsl:choose>
     <xsl:when test="titleabbrev">
@@ -740,6 +728,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.titleabbrev.mode % sect1 = -->
 <xsl:template mode="db.titleabbrev.mode" match="sect1">
   <xsl:choose>
     <xsl:when test="titleabbrev">
@@ -757,6 +746,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.titleabbrev.mode % sect2 = -->
 <xsl:template mode="db.titleabbrev.mode" match="sect2">
   <xsl:choose>
     <xsl:when test="titleabbrev">
@@ -774,6 +764,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.titleabbrev.mode % sect3 = -->
 <xsl:template mode="db.titleabbrev.mode" match="sect3">
   <xsl:choose>
     <xsl:when test="titleabbrev">
@@ -791,6 +782,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.titleabbrev.mode % sect4 = -->
 <xsl:template mode="db.titleabbrev.mode" match="sect4">
   <xsl:choose>
     <xsl:when test="titleabbrev">
@@ -808,6 +800,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.titleabbrev.mode % sect5 = -->
 <xsl:template mode="db.titleabbrev.mode" match="sect5">
   <xsl:choose>
     <xsl:when test="titleabbrev">
@@ -825,6 +818,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.titleabbrev.mode % section = -->
 <xsl:template mode="db.titleabbrev.mode" match="section">
   <xsl:choose>
     <xsl:when test="titleabbrev">
@@ -842,6 +836,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.titleabbrev.mode % set = -->
 <xsl:template mode="db.titleabbrev.mode" match="set">
   <xsl:choose>
     <xsl:when test="titleabbrev">
@@ -859,6 +854,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.titleabbrev.mode % setindex = -->
 <xsl:template mode="db.titleabbrev.mode" match="setindex">
   <xsl:choose>
     <xsl:when test="titleabbrev">
@@ -876,6 +872,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.titleabbrev.mode % sidebar = -->
 <xsl:template mode="db.titleabbrev.mode" match="sidebar">
   <xsl:choose>
     <xsl:when test="titleabbrev">
@@ -894,8 +891,12 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db.subtitle.mode =================================================== -->
+<!--%%==========================================================================
+db.subtitle.mode
+FIXME
 
+REMARK: Describe this mode
+-->
 <xsl:template mode="db.subtitle.mode" match="*">
   <xsl:choose>
     <xsl:when test="subtitle">
@@ -910,6 +911,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.subtitle.mode % appendix = -->
 <xsl:template mode="db.subtitle.mode" match="appendix">
   <xsl:choose>
     <xsl:when test="subtitle">
@@ -921,6 +923,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.subtitle.mode % article = -->
 <xsl:template mode="db.subtitle.mode" match="article">
   <xsl:choose>
     <xsl:when test="subtitle">
@@ -932,6 +935,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.subtitle.mode % bibliography = -->
 <xsl:template mode="db.subtitle.mode" match="bibliography">
   <xsl:choose>
     <xsl:when test="subtitle">
@@ -943,6 +947,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.subtitle.mode % book = -->
 <xsl:template mode="db.subtitle.mode" match="book">
   <xsl:choose>
     <xsl:when test="subtitle">
@@ -954,6 +959,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.subtitle.mode % chapter = -->
 <xsl:template mode="db.subtitle.mode" match="chapter">
   <xsl:choose>
     <xsl:when test="subtitle">
@@ -965,6 +971,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.subtitle.mode % glossary = -->
 <xsl:template mode="db.subtitle.mode" match="glossary">
   <xsl:choose>
     <xsl:when test="subtitle">
@@ -976,6 +983,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.subtitle.mode % index = -->
 <xsl:template mode="db.subtitle.mode" match="index">
   <xsl:choose>
     <xsl:when test="subtitle">
@@ -987,6 +995,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.subtitle.mode % part = -->
 <xsl:template mode="db.subtitle.mode" match="part">
   <xsl:choose>
     <xsl:when test="subtitle">
@@ -998,6 +1007,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.subtitle.mode % preface = -->
 <xsl:template mode="db.subtitle.mode" match="preface">
   <xsl:choose>
     <xsl:when test="subtitle">
@@ -1009,12 +1019,14 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.subtitle.mode % refentry = -->
 <xsl:template mode="db.subtitle.mode" match="refentry">
   <xsl:if test="refentryinfo/subtitle">
     <xsl:apply-templates select="refentryinfo/subtitle/node()"/>
   </xsl:if>
 </xsl:template>
 
+<!-- = db.subtitle.mode % reference = -->
 <xsl:template mode="db.subtitle.mode" match="reference">
   <xsl:choose>
     <xsl:when test="subtitle">
@@ -1026,6 +1038,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.subtitle.mode % refsect1 = -->
 <xsl:template mode="db.subtitle.mode" match="refsect1">
   <xsl:choose>
     <xsl:when test="subtitle">
@@ -1037,6 +1050,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.subtitle.mode % refsect2 = -->
 <xsl:template mode="db.subtitle.mode" match="refsect2">
   <xsl:choose>
     <xsl:when test="subtitle">
@@ -1048,6 +1062,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.subtitle.mode % refsect3 = -->
 <xsl:template mode="db.subtitle.mode" match="refsect3">
   <xsl:choose>
     <xsl:when test="subtitle">
@@ -1059,6 +1074,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.subtitle.mode % refsection = -->
 <xsl:template mode="db.subtitle.mode" match="refsection">
   <xsl:choose>
     <xsl:when test="subtitle">
@@ -1070,6 +1086,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.subtitle.mode % refsynopsisdiv = -->
 <xsl:template mode="db.subtitle.mode" match="refsynopsisdiv">
   <xsl:choose>
     <xsl:when test="subtitle">
@@ -1081,6 +1098,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.subtitle.mode % sect1 = -->
 <xsl:template mode="db.subtitle.mode" match="sect1">
   <xsl:choose>
     <xsl:when test="subtitle">
@@ -1092,6 +1110,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.subtitle.mode % sect2 = -->
 <xsl:template mode="db.subtitle.mode" match="sect2">
   <xsl:choose>
     <xsl:when test="subtitle">
@@ -1103,6 +1122,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.subtitle.mode % sect3 = -->
 <xsl:template mode="db.subtitle.mode" match="sect3">
   <xsl:choose>
     <xsl:when test="subtitle">
@@ -1114,6 +1134,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.subtitle.mode % sect4 = -->
 <xsl:template mode="db.subtitle.mode" match="sect4">
   <xsl:choose>
     <xsl:when test="subtitle">
@@ -1125,6 +1146,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.subtitle.mode % sect5 = -->
 <xsl:template mode="db.subtitle.mode" match="sect5">
   <xsl:choose>
     <xsl:when test="subtitle">
@@ -1136,6 +1158,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.subtitle.mode % section = -->
 <xsl:template mode="db.subtitle.mode" match="section">
   <xsl:choose>
     <xsl:when test="subtitle">
@@ -1147,6 +1170,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.subtitle.mode % set = -->
 <xsl:template mode="db.subtitle.mode" match="set">
   <xsl:choose>
     <xsl:when test="subtitle">
@@ -1158,6 +1182,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.subtitle.mode % setindex = -->
 <xsl:template mode="db.subtitle.mode" match="setindex">
   <xsl:choose>
     <xsl:when test="subtitle">
@@ -1169,10 +1194,36 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.subtitle.mode % sidebar = -->
 <xsl:template mode="db.subtitle.mode" match="sidebar">
   <xsl:if test="sidebarinfo/subtitle">
     <xsl:apply-templates select="sidebarinfo/subtitle/node()"/>
   </xsl:if>
+</xsl:template>
+
+
+<!-- == msg:* ============================================================== -->
+<!--#% l10n.format.mode -->
+
+<xsl:template mode="l10n.format.mode" match="msg:title">
+  <xsl:param name="node"/>
+  <xsl:call-template name="db.title">
+    <xsl:with-param name="node" select="$node"/>
+  </xsl:call-template>
+</xsl:template>
+
+<xsl:template mode="l10n.format.mode" match="msg:titleabbrev">
+  <xsl:param name="node"/>
+  <xsl:call-template name="db.titleabbrev">
+    <xsl:with-param name="node" select="$node"/>
+  </xsl:call-template>
+</xsl:template>
+
+<xsl:template mode="l10n.format.mode" match="msg:subtitle">
+  <xsl:param name="node"/>
+  <xsl:call-template name="db.subtitle">
+    <xsl:with-param name="node" select="$node"/>
+  </xsl:call-template>
 </xsl:template>
 
 </xsl:stylesheet>

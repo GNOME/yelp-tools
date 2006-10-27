@@ -17,30 +17,24 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
-                exclude-result-prefixes="doc"
                 version="1.0">
 
-<doc:title>Common DocBook Templates</doc:title>
+<!--!!==========================================================================
+DocBook Common
+
+REMARK: Describe this
+-->
 
 <xsl:key name="idkey" match="*" use="@id"/>
 
 
-<!-- == db.dingbat ========================================================= -->
+<!--**==========================================================================
+db.dingbat
+Outputs a character from a character name, possibly localized
+$dingbat: The name of the character
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db.dingbat</name>
-  <purpose>
-    Render a character from a logical name, possibly localized
-  </purpose>
-  <parameter>
-    <name>dingbat</name>
-    <purpose>
-      The logical name of the character
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Document the dingbats.  "Logical name" sounds dumb
+-->
 <xsl:template name="db.dingbat">
   <xsl:param name="dingbat"/>
   <xsl:choose>
@@ -64,26 +58,14 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db.linenumbering =================================================== -->
+<!--**==========================================================================
+db.linenumbering
+Numbers each line in a verbatim environment
+$node: The verbatim element to create the line numbering for
+$number: The starting line number
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db.linenumbering</name>
-  <purpose>
-    Number each line in a verbatim environment
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The verbatim element for which create line numbering
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>number</name>
-    <purpose>
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Document this template
+-->
 <xsl:template name="db.linenumbering">
   <xsl:param name="node" select="."/>
   <xsl:param name="number" select="1"/>
@@ -123,7 +105,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<xsl:template name="db.linenumbering.substr" doc:private="true">
+<!--#* db.linenumbering.substr -->
+<xsl:template name="db.linenumbering.substr">
   <xsl:param name="substr"/>
   <xsl:param name="number"/>
   <xsl:choose>
@@ -143,28 +126,15 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
-<!-- == db.personname ====================================================== -->
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db.personname</name>
-  <purpose>
-    Render the name of a person
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The element containing <xmltag>firstname</xmltag>,
-      <xmltag>surname</xmltag>, etc.
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>lang</name>
-    <purpose>
-      The language to use for the rules of constructing a name
-    </purpose>
-  </parameter>
-</template>
+<!--**==========================================================================
+db.personname
+Outputs the name of a person
+$node: The element containing tags such as #{firstname} and #{surname}
+$lang: The language rules to use to construct the name
 
+REMARK: Document this template
+-->
 <xsl:template name="db.personname">
   <xsl:param name="node" select="."/>
   <xsl:param name="lang" select="ancestor-or-self::*[@lang][1]/@lang"/>

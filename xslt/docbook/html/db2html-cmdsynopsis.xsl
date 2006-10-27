@@ -1,95 +1,92 @@
-<?xml version='1.0' encoding='utf-8'?><!-- -*- indent-tabs-mode: nil -*- -->
+<?xml version='1.0' encoding='UTF-8'?><!-- -*- indent-tabs-mode: nil -*- -->
+<!--
+This program is free software; you can redistribute it and/or modify it under
+the terms of the GNU Lesser General Public License as published by the Free
+Software Foundation; either version 2 of the License, or (at your option) any
+later version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT
+ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
+details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with this program; see the file COPYING.LGPL.  If not, write to the
+Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
+02111-1307, USA.
+-->
+
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
                 xmlns="http://www.w3.org/1999/xhtml"
-                exclude-result-prefixes="doc"
                 version="1.0">
 
-<doc:title>Command Synopses</doc:title>
+<!--!!==========================================================================
+DocBook to HTML - Command Synopses
+
+REMARK: Describe this module
+-->
 
 
-<!-- == db2html.cmdsynopsis.sepchar ======================================== -->
+<!--@@==========================================================================
+db2html.cmdsynopsis.sepchar
+The default value for the #{sepchar} parameter
 
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.cmdsynopsis.sepchar</name>
-  <purpose>
-    The default value for the <parameter>sepchar</parameter> parameter
-  </purpose>
-</parameter>
-
+REMARK: Describe this param
+-->
 <xsl:param name="db2html.cmdsynopsis.sepchar" select="' '"/>
 
 
-<!-- == db2html.arg.choice ================================================= -->
+<!--@@==========================================================================
+db2html.arg.choice
+The default value of the #{choice} parameter for #{arg} elements
 
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.arg.choice</name>
-  <purpose>
-    The default value of the <parameter>choice</parameter> parameter
-    for <xmltag>arg</xmltag> elements
-  </purpose>
-</parameter>
-
+REMARK: Describe this param
+-->
 <xsl:param name="db2html.arg.choice" select="'opt'"/>
 
 
-<!-- == db2html.arg.rep ==================================================== -->
+<!--@@==========================================================================
+db2html.arg.rep
+The default value of the #{rep} parameter for #{arg} elements
 
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.arg.rep</name>
-  <purpose>
-    The default value of the <parameter>rep</parameter> parameter
-    for <xmltag>arg</xmltag> elements
-  </purpose>
-</parameter>
-
+REMARK: Describe this param
+-->
 <xsl:param name="db2html.arg.rep" select="'norepeat'"/>
 
 
-<!-- == db2html.group.choice =============================================== -->
+<!--@@==========================================================================
+db2html.group.choice
+The default value of the #{choice} parameter for #{group} elements
 
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.group.choice</name>
-  <purpose>
-    The default value of the <parameter>choice</parameter> parameter
-    for <xmltag>group</xmltag> elements
-  </purpose>
-</parameter>
-
+REMARK: Describe this param
+-->
 <xsl:param name="db2html.group.choice" select="'opt'"/>
 
 
-<!-- == db2html.group.rep ================================================== -->
+<!--@@==========================================================================
+db2html.group.rep
+The default value of the #{rep} parameter for #{group} elements
 
-<parameter xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.group.rep</name>
-  <purpose>
-    The default value of the <parameter>rep</parameter> parameter
-    for <xmltag>group</xmltag> elements
-  </purpose>
-</parameter>
-
+REMARK: Describe this param
+-->
 <xsl:param name="db2html.group.rep" select="'norepeat'"/>
 
 
-<!-- == db2html.cmdsynopsis.css ============================================ -->
+<!--**==========================================================================
+db2html.cmdsynopsis.css
+Outputs CSS that controls the appearance of command synopsi elements
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.cmdsynopsis.css</name>
-  <purpose>
-    Create CSS for the command synopsis elements
-  </purpose>
-</template>
-
+REMARK: Describe this template
+-->
 <xsl:template name="db2html.cmdsynopsis.css">
-  <xsl:text>
-    div[class~="cmdsynopsis"] { font-family: monospace; }
-  </xsl:text>
+<xsl:text>
+div.cmdsynopsis { font-family: monospace; }
+</xsl:text>
 </xsl:template>
 
 
-<!-- = Matched Templates =================================================== -->
+<!-- == Matched Templates == -->
 
 <!-- = arg = -->
 <xsl:template match="arg">

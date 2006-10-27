@@ -17,36 +17,30 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
                 xmlns="http://www.w3.org/1999/xhtml"
-                exclude-result-prefixes="doc"
                 version="1.0">
 
-<doc:title>Footnotes</doc:title>
+<!--!!==========================================================================
+DocBook to HTML - Footnotes
+
+FIXME: Describe this module
+-->
 
 
-<!-- == db2html.footnote.ref =============================================== -->
+<!--**==========================================================================
+db2html.footnote.ref
+Generates a superscript link to a footnote
+$node: The #{footnote} element to process
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.footnote.ref</name>
-  <purpose>
-    Generate a superscript with the footnote number and link
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The footnote to process
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Describe this template
+-->
 <xsl:template name="db2html.footnote.ref">
   <xsl:param name="node" select="."/>
   <xsl:variable name="anchor">
     <xsl:text>-noteref-</xsl:text>
     <xsl:choose>
       <xsl:when test="$node/@id">
-	<xsl:value-of select="$node/@id"/>
+        <xsl:value-of select="$node/@id"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:value-of select="generate-id($node)"/>
@@ -57,7 +51,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     <xsl:text>#</xsl:text>
     <xsl:choose>
       <xsl:when test="$node/@id">
-	<xsl:value-of select="$node/@id"/>
+        <xsl:value-of select="$node/@id"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:text>-note-</xsl:text>
@@ -76,27 +70,19 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2html.footnote.note ============================================== -->
+<!--**==========================================================================
+db2html.footnote.note
+Generates a footnote
+$node: The #{footnote} element to process
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.footnote.note</name>
-  <purpose>
-    Generate a footnote
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The footnote to process
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Describe this template
+-->
 <xsl:template name="db2html.footnote.note">
   <xsl:param name="node" select="."/>
   <xsl:variable name="anchor">
     <xsl:choose>
       <xsl:when test="$node/@id">
-	<xsl:value-of select="$node/@id"/>
+        <xsl:value-of select="$node/@id"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:text>-note-</xsl:text>
@@ -109,7 +95,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     <xsl:text>-noteref-</xsl:text>
     <xsl:choose>
       <xsl:when test="$node/@id">
-	<xsl:value-of select="$node/@id"/>
+        <xsl:value-of select="$node/@id"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:value-of select="generate-id($node)"/>
@@ -130,27 +116,14 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2html.footnote.footer ============================================ -->
+<!--**==========================================================================
+db2html.footnote.footer
+Generates a foot containing all the footnotes in the chunk
+$node: The division element containing footnotes
+$depth_of_chunk: The depth of the containing chunk in the document
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.footnote.footer</name>
-  <purpose>
-    Generate a footer containing all the footnotes in the chunk
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The node to process
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>depth_of_chunk</name>
-    <purpose>
-      The depth of the containing chunk in the document
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Describe this template
+-->
 <xsl:template name="db2html.footnote.footer">
   <xsl:param name="node" select="."/>
   <xsl:param name="depth_of_chunk">
@@ -168,7 +141,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:if>
 </xsl:template>
 
-<xsl:template name="db2html.footnote.footer.sibling" doc:private="true">
+<!--#* db2html.footnote.footer.sibling -->
+<xsl:template name="db2html.footnote.footer.sibling">
   <xsl:param name="node"/>
   <xsl:param name="depth_of_chunk"/>
   <xsl:param name="notes"/>
@@ -217,43 +191,25 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2html.footnote.css ================================================= -->
+<!--**==========================================================================
+db2html.footnote.css
+Outputs CSS that controls the appearance of footnotes
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.footnote.css</name>
-  <purpose>
-    Create CSS for the footnote elements
-  </purpose>
-</template>
-
+REMARK: Describe this template
+-->
 <xsl:template name="db2html.footnote.css">
-  <xsl:text>
-    div[class~="footnotes"] {
-      font-style: italic;
-      font-size: 0.8em;
-    }
-    div[class~="footnote"] {
-      margin-top: 1.44em;
-    }
-    span[class~="footnote-number"] {
-      display: inline;
-      padding-right: 0.83em;
-    }
-    span[class~="footnote-number"] + p {
-      display: inline;
-    }
-    a[class~="footnote"] {
-      text-decoration: none;
-      font-size: 0.8em;
-    }
-    a[class~="footnote-ref"] {
-      text-decoration: none;
-    }
-  </xsl:text>
+<xsl:text>
+div.footnotes { font-style: italic; font-size: 0.8em; }
+div.footnote { margin-top: 1.44em; }
+span.footnote-number { display: inline; padding-right: 0.83em; }
+span.footnote-number + p { display: inline; }
+a.footnote { text-decoration: none; font-size: 0.8em; }
+a.footnote-ref { text-decoration: none; }
+</xsl:text>
 </xsl:template>
 
 
-<!-- == Matched Templates ================================================== -->
+<!-- == Matched Templates == -->
 
 <!-- = footnote = -->
 <xsl:template match="footnote">

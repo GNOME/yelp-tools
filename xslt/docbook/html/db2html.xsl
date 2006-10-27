@@ -17,92 +17,47 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-		xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
                 xmlns="http://www.w3.org/1999/xhtml"
-		exclude-result-prefixes="doc"
                 version="1.0">
+
 <xsl:import href="../../gettext/gettext.xsl"/>
 
-<doc:title>DocBook to HTML conversion</doc:title>
+<!--!!==========================================================================
+DocBook to HTML
+-->
 
-<!-- Setting parameters for included stylesheets -->
-<xsl:param name="db.chunk.extension" select="'.xhtml'" doc:private="true"/>
+<!--#@ db.chunk.extension -->
+<xsl:param name="db.chunk.extension" select="'.xhtml'"/>
 
-<xsl:include href="../common/db-chunk.xsl"   doc:summary="true"/>
-<xsl:include href="../common/db-common.xsl"  doc:summary="true"/>
-<xsl:include href="../common/db-label.xsl"   doc:summary="true"/>
-<xsl:include href="../common/db-title.xsl"   doc:summary="true"/>
-<xsl:include href="../common/db-xref.xsl"    doc:summary="true"/>
+<xsl:include href="../common/db-chunk.xsl"/>
+<xsl:include href="../common/db-common.xsl"/>
+<xsl:include href="../common/db-label.xsl"/>
+<xsl:include href="../common/db-title.xsl"/>
+<xsl:include href="../common/db-xref.xsl"/>
 
-<xsl:include href="db2html-admon.xsl"
-             doc:summary="true"
-             doc:include="true"/>
-<xsl:include href="db2html-autotoc.xsl"
-             doc:summary="true"
-             doc:include="true"/>
-<xsl:include href="db2html-bibliography.xsl"
-             doc:summary="true"
-             doc:include="true"/>
-<xsl:include href="db2html-block.xsl"
-             doc:summary="true"
-             doc:include="true"/>
-<xsl:include href="db2html-callout.xsl"
-             doc:summary="true"
-             doc:include="true"/>
-<xsl:include href="db2html-classsynopsis.xsl"
-             doc:summary="true"
-             doc:include="true"/>
-<xsl:include href="db2html-cmdsynopsis.xsl"
-             doc:summary="true"
-             doc:include="true"/>
-<xsl:include href="db2html-css.xsl"
-             doc:summary="true"
-             doc:include="true"/>
-<xsl:include href="db2html-division.xsl"
-             doc:summary="true"
-             doc:include="true"/>
-<xsl:include href="db2html-ebnf.xsl"
-             doc:summary="true"
-             doc:include="true"/>
-<xsl:include href="db2html-funcsynopsis.xsl"
-             doc:summary="true"
-             doc:include="true"/>
-<xsl:include href="db2html-info.xsl"
-             doc:summary="true"
-             doc:include="true"/>
-<xsl:include href="db2html-inline.xsl"
-             doc:summary="true"
-             doc:include="true"/>
-<xsl:include href="db2html-l10n.xsl"
-             doc:summary="true"
-             doc:include="true"/>
-<xsl:include href="db2html-media.xsl"
-             doc:summary="true"
-             doc:include="true"/>
-<xsl:include href="db2html-list.xsl"
-             doc:summary="true"
-             doc:include="true"/>
-<xsl:include href="db2html-qanda.xsl"
-             doc:summary="true"
-             doc:include="true"/>
-<xsl:include href="db2html-refentry.xsl"
-             doc:summary="true"
-             doc:include="true"/>
-<xsl:include href="db2html-suppressed.xsl"
-             doc:summary="true"
-             doc:include="true"/>
-<xsl:include href="db2html-table.xsl"
-             doc:summary="true"
-             doc:include="true"/>
-<xsl:include href="db2html-title.xsl"
-             doc:summary="true"
-             doc:include="true"/>
-<xsl:include href="db2html-xref.xsl"
-             doc:summary="true"
-             doc:include="true"/>
-<xsl:include href="db2html-footnote.xsl"
-             doc:summary="true"
-             doc:include="true"/>
+<xsl:include href="db2html-admon.xsl"/>
+<xsl:include href="db2html-autotoc.xsl"/>
+<xsl:include href="db2html-bibliography.xsl"/>
+<xsl:include href="db2html-block.xsl"/>
+<xsl:include href="db2html-callout.xsl"/>
+<xsl:include href="db2html-classsynopsis.xsl"/>
+<xsl:include href="db2html-cmdsynopsis.xsl"/>
+<xsl:include href="db2html-css.xsl"/>
+<xsl:include href="db2html-division.xsl"/>
+<xsl:include href="db2html-ebnf.xsl"/>
+<xsl:include href="db2html-funcsynopsis.xsl"/>
+<xsl:include href="db2html-info.xsl"/>
+<xsl:include href="db2html-inline.xsl"/>
+<xsl:include href="db2html-l10n.xsl"/>
+<xsl:include href="db2html-media.xsl"/>
+<xsl:include href="db2html-list.xsl"/>
+<xsl:include href="db2html-qanda.xsl"/>
+<xsl:include href="db2html-refentry.xsl"/>
+<xsl:include href="db2html-suppressed.xsl"/>
+<xsl:include href="db2html-table.xsl"/>
+<xsl:include href="db2html-title.xsl"/>
+<xsl:include href="db2html-xref.xsl"/>
+<xsl:include href="db2html-footnote.xsl"/>
 
 <xsl:template match="*">
   <xsl:message>

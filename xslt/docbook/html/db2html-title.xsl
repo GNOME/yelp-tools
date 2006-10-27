@@ -17,65 +17,48 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-		xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
                 xmlns="http://www.w3.org/1999/xhtml"
-		exclude-result-prefixes="doc"
-		version="1.0">
+                version="1.0">
 
-<doc:title>Titles and Subtitles</doc:title>
+<!--!!==========================================================================
+DocBook to HTML - Titles and Subtitles
+
+REMARK: Describe this module
+-->
 
 
-<!-- == db2html.title.css ================================================== -->
+<!--**==========================================================================
+db2html.title.css
+Outputs CSS that controls the appearance of titles
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.title.css</name>
-  <purpose>
-    Create CSS for the title elements
-  </purpose>
-</template>
-
+REMARK: Describe this template
+-->
 <xsl:template name="db2html.title.css">
-  <xsl:text>
-    h1 { font-size: 1.72em; margin-top: 0em; }
-    h2 { font-size: 1.44em; }
-    h2[class~="title"] { margin-top: 1.72em; border-bottom: solid 1px; }
-
-    h3                      { font-size: 1.2em; }
-    h3[class~="title"]      { margin-top: 1.72em; }
-    h3 span[class~="title"] { border-bottom: solid 1px; }
-
-    h4                      { font-size: 1.0em; }
-    h4[class~="title"]      { margin-top: 1.44em; }
-    h4 span[class~="title"] { border-bottom: solid 1px; }
-
-    h5 { font-size: 1em; margin-top: 1em; }
-    h6 { font-size: 1em; margin-top: 1em; }
-    h7 { font-size: 1em; margin-top: 1em; }
-  </xsl:text>
+<xsl:text>
+h1 { font-size: 1.72em; margin-top: 0em; }
+h2 { font-size: 1.44em; }
+h2.title { margin-top: 1.72em; border-bottom: solid 1px; }
+h3 { font-size: 1.2em; }
+h3.title { margin-top: 1.72em; }
+h3 span.title { border-bottom: solid 1px; }
+h4 { font-size: 1.0em; }
+h4.title { margin-top: 1.44em; }
+h4 span.title { border-bottom: solid 1px; }
+h5 { font-size: 1em; margin-top: 1em; }
+h6 { font-size: 1em; margin-top: 1em; }
+h7 { font-size: 1em; margin-top: 1em; }
+</xsl:text>
 </xsl:template>
 
 
-<!-- == db2html.title.label ================================================ -->
+<!--**==========================================================================
+db2html.title.label
+Generates the label for a title
+$node: The element to generate a label for
+$depth_in_chunk: The depth of ${node} in the containing chunk
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.title.label</name>
-  <purpose>
-    Generate the label for a title
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The element for which to generate a label
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>depth_in_chunk</name>
-    <purpose>
-      The depth of <parameter>node</parameter> in the containing chunk
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Talk about what a label is
+-->
 <xsl:template name="db2html.title.label">
   <xsl:param name="node" select="."/>
   <xsl:param name="depth_in_chunk">
@@ -93,27 +76,14 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2html.title.block ================================================ -->
+<!--**==========================================================================
+db2html.title.block
+Generates a labeled block title
+$node: The element to generate a title for
+$referent: The element that ${node} is a title for
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.title.block</name>
-  <purpose>
-    Generate a labelled block title
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The title element for which to generate a title
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>referent</name>
-    <purpose>
-      The element for which this is the title
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Talk about the different kinds of title blocks
+-->
 <xsl:template name="db2html.title.block">
   <xsl:param name="node" select="."/>
   <xsl:param name="referent" select="$node/.."/>
@@ -131,27 +101,14 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2html.title.simple =============================================== -->
+<!--**==========================================================================
+db2html.title.simple
+Generates a simple, unlabeled title
+$node: The element to generate a title for
+$referent: The element that ${node} is a title for
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.title.simple</name>
-  <purpose>
-    Generate a simple unlabelled title
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The title element for which to generate a title
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>referent</name>
-    <purpose>
-      The element for which this is the title
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Talk about the different kinds of title blocks
+-->
 <xsl:template name="db2html.title.simple">
   <xsl:param name="node" select="."/>
   <xsl:param name="referent" select="$node/.."/>
@@ -168,57 +125,19 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2html.title.header =============================================== -->
+<!--**==========================================================================
+db2html.title.header
+Generates a header-level title
+$node: The element to generate a title for
+$referent: The element that ${node} is a title for
+$depth_in_chunk: The depth of ${node} in the containing chunk
+$referent_depth_in_chunk: The depth of ${referent} in the containing chunk
+$depth_of_chunk: The depth of the containing chunk in the document
+$generate_label: Whether to generate a label in the title
+$title_content: An optional string containing the title
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.title.header</name>
-  <purpose>
-    Generate a header-level title
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The title element for which to generate a title
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>referent</name>
-    <purpose>
-      The element for which this is the title
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>depth_in_chunk</name>
-    <purpose>
-      The depth of <parameter>node</parameter> in the containing chunk
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>referent_depth_in_chunk</name>
-    <purpose>
-      The depth of <parameter>referent</parameter> in the containing chunk
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>depth_of_chunk</name>
-    <purpose>
-      The depth of the containing chunk in the document
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>generate_label</name>
-    <purpose>
-      Whether to generate a label in the title
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>title_content</name>
-    <purpose>
-      The title, for divisions lacking a <sgmltag>title</sgmltag> element
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Talk about the different kinds of title blocks
+-->
 <xsl:template name="db2html.title.header">
   <xsl:param name="node" select="."/>
   <xsl:param name="referent" select="$node/.."/>
@@ -280,45 +199,17 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2html.subtitle.header ============================================ -->
+<!--**==========================================================================
+db2html.subtitle.header
+Generates a header-level subtitle
+$node: The element to generate a subtitle for
+$referent: The element that ${node} is a subtitle for
+$depth_in_chunk: The depth of ${node} in the containing chunk
+$referent_depth_in_chunk: The depth of ${referent} in the containing chunk
+$subtitle_content: An optional string containing the subtitle
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.subtitle.header</name>
-  <purpose>
-    Generate a header-level subtitle
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The subtitle element for which to generate a subtitle
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>referent</name>
-    <purpose>
-      The element for which this is the subtitle
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>depth_in_chunk</name>
-    <purpose>
-      The depth of <parameter>node</parameter> in the containing chunk
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>referent_depth_in_chunk</name>
-    <purpose>
-      The depth of <parameter>referent</parameter> in the containing chunk
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>subtitle_content</name>
-    <purpose>
-      The subtitle, for divisions lacking a <sgmltag>subtitle</sgmltag> element
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Talk about the different kinds of title blocks
+-->
 <xsl:template name="db2html.subtitle.header">
   <xsl:param name="node" select="."/>
   <xsl:param name="referent" select="$node/.."/>
@@ -367,7 +258,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == Matched Templates ================================================== -->
+<!-- == Matched Templates == -->
 
 <!-- = title = -->
 <xsl:template match="title">

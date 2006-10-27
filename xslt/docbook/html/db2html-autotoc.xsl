@@ -17,75 +17,27 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
                 xmlns="http://www.w3.org/1999/xhtml"
-                exclude-result-prefixes="doc"
                 version="1.0">
 
-<doc:title>Automatic Tables of Contents</doc:title>
+<!--!!==========================================================================
+DocBook to HTML - Tables of Contents
+
+REMARK: Write some intro material here
+-->
 
 
-<!-- == db2html.autotoc.css ================================================ -->
+<!--**==========================================================================
+db2html.autotoc
+Creates a table of contents for a given element
+$node: The element to create a table of contents for
+$info: The info child element of ${node}
+$divisions: The division-level child elements of ${node}
+$toc_depth: How deep to create entries in the table of contents
+$depth_of_chunk: The depth of the containing chunk in the document
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.autotoc.css</name>
-  <purpose>
-    Create CSS for tables of contents
-  </purpose>
-</template>
-
-<xsl:template name="db2html.autotoc.css">
-  <xsl:text>
-    div[class~="autotoc"] { margin-left: 2em; padding: 0em; }
-    div[class~="autotoc"] ul { margin-left: 0em; padding-left: 0em; }
-    div[class~="autotoc"] ul li {
-      margin-right: 0em;
-      padding: 0em;
-      list-style-type: none;
-    }
-  </xsl:text>
-</xsl:template>
-
-
-<!-- == db2html.autotoc ==================================================== -->
-
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.autotoc.flat</name>
-  <purpose>
-    Create a table of contents
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The node for which to create a table of contents
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>info</name>
-    <purpose>
-      The info child element of <parameter>node</parameter>
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>divisions</name>
-    <purpose>
-      The division-level child elements of <parameter>node</parameter>
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>toc_depth</name>
-    <purpose>
-      How deep to create table of content entries
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>depth_of_chunk</name>
-    <purpose>
-      The depth of the containing chunk in the document
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Extra explanation of the parameters would be good
+-->
 <xsl:template name="db2html.autotoc">
   <xsl:param name="node" select="."/>
   <xsl:param name="info"/>
@@ -107,8 +59,28 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2html.autotoc.mode =============================================== -->
+<!--**==========================================================================
+db2html.autotoc.css
+Outputs CSS that controls the appearance of tables of contents
+-->
+<xsl:template name="db2html.autotoc.css">
+<xsl:text>
+div.autotoc { margin-left: 2em; padding: 0em; }
+div.autotoc ul { margin-left: 0em; padding-left: 0em; }
+div.autotoc ul li {
+  margin-right: 0em; padding: 0em;
+  list-style-type: none;
+}
+</xsl:text>
+</xsl:template>
 
+<!--%%==========================================================================
+db2html.autotoc.mode
+FIXME
+$toc_depth: How deep to create entries in the table of contents
+
+REMARK: Describe this mode
+-->
 <xsl:template mode="db2html.autotoc.mode" match="*">
   <xsl:param name="toc_depth" select="0"/>
   <li>
@@ -134,7 +106,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </li>
 </xsl:template>
 
-<!-- = refentry = -->
+<!-- = refentry % db2html.autotoc.mode = -->
 <xsl:template mode="db2html.autotoc.mode" match="refentry">
   <xsl:param name="toc_depth" select="0"/>
   <li>

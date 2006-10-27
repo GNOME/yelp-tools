@@ -17,39 +17,26 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-		xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
                 xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n"
                 xmlns:math="http://exslt.org/math"
-		exclude-result-prefixes="doc"
                 extension-element-prefixes="math"
                 version="1.0">
 
-<doc:title>Localized Numbers</doc:title>
+<!--!!==========================================================================
+Localized Numbers
+-->
 
 <xsl:include href="gettext.xsl"/>
 
 
-<!-- == l10n.number ======================================================== -->
+<!--**==========================================================================
+l10n.number
+Formats a number according to a localized numbering system
+$value: The numeric value of the number to format
+$format: The numbering system to use
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>l10n.number</name>
-  <purpose>
-    Format a number according to a localized numbering system
-  </purpose>
-  <parameter>
-    <name>value</name>
-    <purpose>
-      The numeric value of the number to format
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>format</name>
-    <purpose>
-      The identifier of the numbering system to use
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Talk about numbering systems
+-->
 <xsl:template name="l10n.number">
   <xsl:param name="value"/>
   <xsl:param name="format"/>
@@ -131,27 +118,14 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == l10n.number.alphabetic ============================================= -->
+<!--**==========================================================================
+l10n.number.alphabetic
+Formats a number using an alphabetic numbering system
+$value: The numeric value of the number to format
+$alphabet: A string containing the characters of the alphabet to use
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>l10n.number.alphabetic</name>
-  <purpose>
-    Format a number using an alphabet
-  </purpose>
-  <parameter>
-    <name>value</name>
-    <purpose>
-      The numeric value of the number to format
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>alphabet</name>
-    <purpose>
-      A string containing the alphabet to use
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Talk about alphabetic numbering systems
+-->
 <xsl:template name="l10n.number.alphabetic">
   <xsl:param name="value"/>
   <xsl:param name="alphabet"/>
@@ -183,27 +157,14 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == l10n.number.numeric ================================================ -->
+<!--**==========================================================================
+l10n.number.numeric
+Formats a number using a numeric numbering system with any radix
+$value: The numeric value of the number to format
+$digits: A string containing the digits to use, starting with zero
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>l10n.number.numeric</name>
-  <purpose>
-    Format a number using a numeric system with any radix
-  </purpose>
-  <parameter>
-    <name>value</name>
-    <purpose>
-      The numeric value of the number to format
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>digits</name>
-    <purpose>
-      A string containing the digits to use, starting with zero
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Talk about numeric numbering systems
+-->
 <xsl:template name="l10n.number.numeric">
   <xsl:param name="value"/>
   <xsl:param name="digits"/>
@@ -231,27 +192,15 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == l10n.number.cjk-ideographic ======================================== -->
+<!--**==========================================================================
+l10n.number.cjk-ideographic
+Formats a number using a CJK ideographic system
+$value: The numeric value of the number to format
+$format: Which ideographic system to use
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>l10n.number.cjk-ideographic</name>
-  <purpose>
-    Format a number using a CJK ideographic system
-  </purpose>
-  <parameter>
-    <name>value</name>
-    <purpose>
-      The numeric value of the number to format
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>format</name>
-    <purpose>
-      Which format to use
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Talk about CJK ideographic numbering systems.  Valid values of ${format}
+are #{cjk-japanese}, #{cjk-chinese-simp}, and #{cjk-chinese-trad}.
+-->
 <xsl:template name="l10n.number.cjk-ideographic">
   <xsl:param name="value"/>
   <xsl:param name="format"/>
@@ -262,7 +211,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<xsl:template name="l10n.number.cjk-ideographic.private" doc:private="true">
+<!--#* l10n.number.cjk-ideographic.private -->
+<xsl:template name="l10n.number.cjk-ideographic.private">
   <xsl:param name="value"/>
   <xsl:param name="format"/>
   <xsl:param name="level" select="0"/>
@@ -333,28 +283,15 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == l10n.number.ionic ================================================== -->
+<!--**==========================================================================
+l10n.number.ionic
+Formats a number using the Ionic numeral system
+$value: The numeric value of the number to format
+$format: Which format to use
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>l10n.number.ionic</name>
-  <purpose>
-    Format a number using the Ionic numeral system
-  </purpose>
-  <parameter>
-    <name>value</name>
-    <purpose>
-      The numeric value of the number to format
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>format</name>
-    <purpose>
-      Which format to use
-    </purpose>
-  </parameter>
-  <para>See <ulink url="http://en.wikipedia.org/wiki/Greek_numerals"/>.</para>
-</template>
-
+REMARK: Talk about the Ionic numeral system.  Talk about ${format}
+See #{http://en.wikipedia.org/wiki/Greek_numerals}.
+-->
 <xsl:template name="l10n.number.ionic">
   <xsl:param name="value"/>
   <xsl:param name="format" select="'ionic-lower'"/>
@@ -373,7 +310,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:choose>
 </xsl:template>
 
-<xsl:template name="l10n.number.ionic.private" doc:private="true">
+<!--#* l10n.number.ionic.private -->
+<xsl:template name="l10n.number.ionic.private">
   <xsl:param name="value"/>
   <xsl:param name="format" select="'ionic-lower'"/>
   <xsl:param name="level" select="1"/>

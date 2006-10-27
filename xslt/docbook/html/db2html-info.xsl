@@ -17,35 +17,24 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:doc="http://www.gnome.org/~shaunm/xsldoc"
                 xmlns="http://www.w3.org/1999/xhtml"
-                exclude-result-prefixes="doc"
                 version="1.0">
 
-<doc:title>Titlepages</doc:title>
+<!--!!==========================================================================
+DocBook to HTML - Title Pages
+
+REMARK: Describe this module
+-->
 
 
-<!-- == db2html.info ======================================================= -->
+<!--**==========================================================================
+db2html.info
+Renders the titlepage of a division element
+$node: The division element to generate a title page for
+$info: The info child element of ${node}
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.info</name>
-  <purpose>
-    Render the titlepage of a block-level element
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The element for which to generate a titlepage
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>info</name>
-    <purpose>
-      The info element containing metadata
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Describe this template
+-->
 <xsl:template name="db2html.info">
   <xsl:param name="node" select="."/>
   <xsl:param name="info"/>
@@ -111,27 +100,14 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2html.info.title ================================================= -->
+<!--**==========================================================================
+db2html.info.title
+Outputs the title of a title page
+$node: The division element for which a title page is being generated
+$info: The info child element of ${node}
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.info.title</name>
-  <purpose>
-    Render the title of a titlepage
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The element for which a titlepage is being generated
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>info</name>
-    <purpose>
-      The info element containing metadata
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Describe this template
+-->
 <xsl:template name="db2html.info.title">
   <xsl:param name="node" select="."/>
   <xsl:param name="info" select="'FIXME'"/>
@@ -152,27 +128,14 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2html.info.subtitle ============================================== -->
+<!--**==========================================================================
+db2html.info.subtitle
+Outputs the subtitle of a title page
+$node: The division element for which a title page is being generated
+$info: The info child element of ${node}
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.info.subtitle</name>
-  <purpose>
-    Render the subtitle of a titlepage
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The element for which a titlepage is being generated
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>info</name>
-    <purpose>
-      The info element containing metadata
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Describe this template
+-->
 <xsl:template name="db2html.info.subtitle">
   <xsl:param name="node" select="."/>
   <xsl:param name="info" select="'FIXME'"/>
@@ -193,27 +156,14 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2html.info.authors =============================================== -->
+<!--**==========================================================================
+db2html.info.authors
+Creates the author credits in a title page
+$node: The division element for which a title page is being generated
+$info: The info child element of ${node}
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.info.authors</name>
-  <purpose>
-    Render the author credits in a titlepage
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The element for which a titlepage is being generated
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>info</name>
-    <purpose>
-      The info element containing metadata
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Describe this template
+-->
 <xsl:template name="db2html.info.authors">
   <xsl:param name="node" select="."/>
   <xsl:param name="info" select="'FIXME'"/>
@@ -236,27 +186,14 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2html.info.editors =============================================== -->
+<!--**==========================================================================
+db2html.info.editors
+Creates the editor credits in a title page
+$node: The division element for which a title page is being generated
+$info: The info child element of ${node}
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.info.editors</name>
-  <purpose>
-    Render the editor credits in a titlepage
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The element for which a titlepage is being generated
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>info</name>
-    <purpose>
-      The info element containing metadata
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Describe this template
+-->
 <xsl:template name="db2html.info.editors">
   <xsl:param name="node" select="."/>
   <xsl:param name="info" select="'FIXME'"/>
@@ -278,27 +215,14 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2html.info.collabs =============================================== -->
+<!--**==========================================================================
+db2html.info.collabs
+Creates the collaborator credits in a title page
+$node: The division element for which a title page is being generated
+$info: The info child element of ${node}
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.info.collabs</name>
-  <purpose>
-    Render the collaborator credits in a titlepage
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The element for which a titlepage is being generated
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>info</name>
-    <purpose>
-      The info element containing metadata
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Describe this template
+-->
 <xsl:template name="db2html.info.collabs">
   <xsl:param name="node" select="."/>
   <xsl:param name="info" select="'FIXME'"/>
@@ -320,27 +244,14 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2html.info.translators =========================================== -->
+<!--**==========================================================================
+db2html.info.translators
+Creates the translator credits in a title page
+$node: The division element for which a title page is being generated
+$info: The info child element of ${node}
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.info.translators</name>
-  <purpose>
-    Render the translator credits in a titlepage
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The element for which a titlepage is being generated
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>info</name>
-    <purpose>
-      The info element containing metadata
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Describe this template
+-->
 <xsl:template name="db2html.info.translators">
   <xsl:param name="node" select="."/>
   <xsl:param name="info" select="'FIXME'"/>
@@ -365,27 +276,14 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2html.info.publishers ============================================ -->
+<!--**==========================================================================
+db2html.info.publishers
+Creates the publisher credits in a title page
+$node: The division element for which a title page is being generated
+$info: The info child element of ${node}
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.info.publishers</name>
-  <purpose>
-    Render the publisher credits in a titlepage
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The element for which a titlepage is being generated
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>info</name>
-    <purpose>
-      The info element containing metadata
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Describe this template
+-->
 <xsl:template name="db2html.info.publishers">
   <xsl:param name="node" select="."/>
   <xsl:param name="info" select="'FIXME'"/>
@@ -406,27 +304,14 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2html.info.othercredits ========================================== -->
+<!--**==========================================================================
+db2html.info.othercredits
+Creates all other credits in a title page
+$node: The division element for which a title page is being generated
+$info: The info child element of ${node}
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.info.othercredits</name>
-  <purpose>
-    Render all other credits in a titlepage
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The element for which a titlepage is being generated
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>info</name>
-    <purpose>
-      The info element containing metadata
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Describe this template
+-->
 <xsl:template name="db2html.info.othercredits">
   <xsl:param name="node" select="."/>
   <xsl:param name="info" select="'FIXME'"/>
@@ -452,27 +337,14 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db2html.info.copyrights ============================================ -->
+<!--**==========================================================================
+db2html.info.copyrights
+Creates the copyright statements in a title page
+$node: The division element for which a title page is being generated
+$info: The info child element of ${node}
 
-<template xmlns="http://www.gnome.org/~shaunm/xsldoc">
-  <name>db2html.info.copyrights</name>
-  <purpose>
-    Render the copyrights in a titlepage
-  </purpose>
-  <parameter>
-    <name>node</name>
-    <purpose>
-      The element for which a titlepage is being generated
-    </purpose>
-  </parameter>
-  <parameter>
-    <name>info</name>
-    <purpose>
-      The info element containing metadata
-    </purpose>
-  </parameter>
-</template>
-
+REMARK: Describe this template
+-->
 <xsl:template name="db2html.info.copyrights">
   <xsl:param name="node" select="."/>
   <xsl:param name="info" select="'FIXME'"/>
@@ -493,26 +365,14 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == Matched Templates == -->
+<!--%%==========================================================================
+db2html.info.mode
+FIXME
 
-<!-- = authorblurb/title = -->
-<xsl:template match="authorblurb/title">
-  <xsl:call-template name="db2html.title.simple"/>
-</xsl:template>
+REMARK: Describe this mode.
+-->
 
-<!-- = legalnotice/title = -->
-<xsl:template match="legalnotice/title">
-  <h2>
-    <xsl:apply-templates/>
-  </h2>
-</xsl:template>
-
-<!-- = personblurb/title = -->
-<xsl:template match="personblurb/title">
-  <xsl:call-template name="db2html.title.simple"/>
-</xsl:template>
-
-<!-- = db2html.info.mode == affiliation = -->
+<!-- = affiliation % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="affiliation">
   <dd class="affiliation">
     <i>
@@ -525,7 +385,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </dd>
 </xsl:template>
 
-<!-- = db2html.info.mode == author = -->
+<!-- = author % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="author">
   <dt class="author">
     <xsl:variable name="node" select="(. | personname)[last()]"/>
@@ -541,19 +401,19 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                        select="authorblurb | personblurb"/>
 </xsl:template>
 
-<!-- = db2html.info.mode == authorgroup = -->
+<!-- = authorgroup % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="authorgroup">
   <!-- This should never happen.  We include it for clarity in the reports. -->
 </xsl:template>
 
-<!-- = db2html.info.mode == authorblurb = -->
+<!-- = authorblurb % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="authorblurb">
   <dd class="authorblurb">
     <xsl:apply-templates/>
   </dd>
 </xsl:template>
 
-<!-- = db2html.info.mode == collab = -->
+<!-- = collab % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="collab">
   <dt class="collab">
     <xsl:apply-templates mode="db2html.info.mode" select="collabname"/>
@@ -562,14 +422,14 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                        select="affiliation[orgname]"/>
 </xsl:template>
 
-<!-- = db2html.info.mode == collabname = -->
+<!-- = collabname % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="collabname">
   <span class="collabname">
     <xsl:apply-templates/>
   </span>
 </xsl:template>
 
-<!-- = db2html.info.mode == corpauthor = -->
+<!-- = corpauthor % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="corpauthor">
   <dt class="corpauthor">
     <!-- Can occur outside db2html.info.mode, so apply those templates -->
@@ -577,7 +437,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </dt>
 </xsl:template>
 
-<!-- = db2html.info.mode == corpcredit = -->
+<!-- = corpcredit % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="corpname">
   <dt>
     <xsl:attribute name="class">
@@ -595,7 +455,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </dt>
 </xsl:template>
 
-<!-- = db2html.info.mode == copyright = -->
+<!-- = copyright % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="copyright">
   <dt class="copyright">
     <xsl:call-template name="l10n.gettext">
@@ -618,12 +478,12 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </dt>
 </xsl:template>
 
-<!-- = db2html.info.mode == editor = -->
+<!-- = editor % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="date">
   <xsl:apply-templates select="."/>
 </xsl:template>
 
-<!-- = db2html.info.mode == editor = -->
+<!-- = editor % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="editor">
   <dt class="editor">
     <xsl:variable name="node" select="(. | personname)[last()]"/>
@@ -639,7 +499,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                        select="authorblurb | personblurb"/>
 </xsl:template>
 
-<!-- = db2html.info.mode == email = -->
+<!-- = email % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="email">
   <dd class="affiliation">
     <i>
@@ -653,14 +513,14 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </dd>
 </xsl:template>
 
-<!-- = db2html.info.mode == holder = -->
+<!-- = holder % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="holder">
   <span class="holder">
     <xsl:apply-templates/>
   </span>
 </xsl:template>
 
-<!-- = db2html.info.mode == legalnotice = -->
+<!-- = legalnotice % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="legalnotice">
   <div class="legalnotice">
     <xsl:call-template name="db2html.anchor"/>
@@ -675,13 +535,13 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </div>
 </xsl:template>
 
-<!-- = db2html.info.mode == orgname = -->
+<!-- = orgname % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="orgname">
   <!-- Can occur outside db2html.info.mode, so apply those templates -->
   <xsl:apply-templates select="."/>
 </xsl:template>
 
-<!-- = db2html.info.mode == othercredit = -->
+<!-- = othercredit % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="othercredit">
   <dt>
     <xsl:attribute name="class">
@@ -707,33 +567,33 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                        select="authorblurb | personblurb"/>
 </xsl:template>
 
-<!-- = db2html.info.mode == personblurb = -->
+<!-- = personblurb % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="personblurb">
   <dd class="personblurb">
     <xsl:apply-templates/>
   </dd>
 </xsl:template>
 
-<!-- = db2html.info.mode == publisher = -->
+<!-- = publisher % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="publisher">
   <dt class="publisher">
     <xsl:apply-templates mode="db2html.info.mode"/>
   </dt>
 </xsl:template>
 
-<!-- = db2html.info.mode == publishername = -->
+<!-- = publishername % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="publishername">
   <span class="publishername">
     <xsl:apply-templates/>
   </span>
 </xsl:template>
 
-<!-- = db2html.info.mode == revdescription = -->
+<!-- = revdescription % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="revdescription">
   <xsl:call-template name="db2html.block"/>
 </xsl:template>
 
-<!-- = db2html.info.mode == revhistory = -->
+<!-- = revhistory % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="revhistory">
   <div class="revhistory">
     <xsl:call-template name="db2html.anchor"/>
@@ -746,7 +606,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </div>
 </xsl:template>
 
-<!-- = db2html.info.mode == revision = -->
+<!-- = revision % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="revision">
   <div class="revision">
     <xsl:apply-templates mode="db2html.info.mode" select="date"/>
@@ -790,17 +650,17 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </div>
 </xsl:template>
 
-<!-- = db2html.info.mode == revnumber = -->
+<!-- = revnumber % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="revnumber">
   <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
-<!-- = db2html.info.mode == revremark = -->
+<!-- = revremark % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="revremark">
   <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
-<!-- = db2html.info.mode == year = -->
+<!-- = year % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="year">
   <span class="year">
     <xsl:apply-templates/>
@@ -808,12 +668,11 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 </xsl:template>
 
 
-<!-- == db.chunk.info.content.mode ========================================= -->
 
-<!-- = * = -->
+<!--#% db.chunk.info.content.mode ========================================== -->
 <xsl:template mode="db.chunk.info.content.mode" match="*"/>
 
-<!-- = appendix = -->
+<!-- = appendix % db.chunk.info.content.mode = -->
 <xsl:template mode="db.chunk.info.content.mode" match="appendix">
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
@@ -824,7 +683,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = article = -->
+<!-- = article % db.chunk.info.content.mode = -->
 <xsl:template mode="db.chunk.info.content.mode" match="article">
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
@@ -835,7 +694,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = book = -->
+<!-- = book % db.chunk.info.content.mode = -->
 <xsl:template mode="db.chunk.info.content.mode" match="book">
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
@@ -846,7 +705,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = chapter = -->
+<!-- = chapter % db.chunk.info.content.mode = -->
 <xsl:template mode="db.chunk.info.content.mode" match="chapter">
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
@@ -857,7 +716,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = glossary = -->
+<!-- = glossary % db.chunk.info.content.mode = -->
 <xsl:template mode="db.chunk.info.content.mode" match="glossary">
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
@@ -868,7 +727,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = part = -->
+<!-- = part % db.chunk.info.content.mode = -->
 <xsl:template mode="db.chunk.info.content.mode" match="part">
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
@@ -879,7 +738,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = preface = -->
+<!-- = preface % db.chunk.info.content.mode = -->
 <xsl:template mode="db.chunk.info.content.mode" match="preface">
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
@@ -890,7 +749,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = sect1 = -->
+<!-- = sect1 % db.chunk.info.content.mode = -->
 <xsl:template mode="db.chunk.info.content.mode" match="sect1">
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
@@ -901,7 +760,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = sect2 = -->
+<!-- = sect2 % db.chunk.info.content.mode = -->
 <xsl:template mode="db.chunk.info.content.mode" match="sect2">
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
@@ -912,7 +771,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = sect3 = -->
+<!-- = sect3 % db.chunk.info.content.mode = -->
 <xsl:template mode="db.chunk.info.content.mode" match="sect3">
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
@@ -923,7 +782,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = sect4 = -->
+<!-- = sect4 % db.chunk.info.content.mode = -->
 <xsl:template mode="db.chunk.info.content.mode" match="sect4">
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
@@ -934,7 +793,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = sect5 = -->
+<!-- = sect5 % db.chunk.info.content.mode = -->
 <xsl:template mode="db.chunk.info.content.mode" match="sect5">
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
@@ -945,7 +804,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </xsl:call-template>
 </xsl:template>
 
-<!-- = section = -->
+<!-- = section % db.chunk.info.content.mode = -->
 <xsl:template mode="db.chunk.info.content.mode" match="section">
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
@@ -954,6 +813,26 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     <xsl:with-param name="info" select="sectioninfo"/>
     <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
   </xsl:call-template>
+</xsl:template>
+
+
+<!-- == Matched Templates == -->
+
+<!-- = authorblurb/title = -->
+<xsl:template match="authorblurb/title">
+  <xsl:call-template name="db2html.title.simple"/>
+</xsl:template>
+
+<!-- = legalnotice/title = -->
+<xsl:template match="legalnotice/title">
+  <h2>
+    <xsl:apply-templates/>
+  </h2>
+</xsl:template>
+
+<!-- = personblurb/title = -->
+<xsl:template match="personblurb/title">
+  <xsl:call-template name="db2html.title.simple"/>
 </xsl:template>
 
 </xsl:stylesheet>
