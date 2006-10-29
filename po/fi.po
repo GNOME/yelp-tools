@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-04-16 10:33+0300\n"
-"PO-Revision-Date: 2006-04-16 10:35+0300\n"
+"POT-Creation-Date: 2006-10-29 16:44+0300\n"
+"PO-Revision-Date: 2006-10-29 16:43+0300\n"
 "Last-Translator: Ilkka Tuohela <hile@iki.fi>\n"
 "Language-Team: Finnish <gnome-fi-laatu@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -475,8 +475,8 @@ msgstr ""
 msgid ""
 "<msgid>email.tooltip</msgid> <msgstr>Send email to ‘<string/>’.</msgstr>"
 msgstr ""
-"<msgid>email.tooltip</msgid> "
-"<msgstr>Lähetä sähköpostia osoitteeseen \"<string/>\".</msgstr>"
+"<msgid>email.tooltip</msgid> <msgstr>Lähetä sähköpostia osoitteeseen "
+"\"<string/>\".</msgstr>"
 
 #.
 #. The number formatter used for example numbers.  This can be one of
@@ -1809,7 +1809,7 @@ msgstr "Hakemisto"
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1487
 msgid "Legal Notice"
-msgstr "Ehtoilmoitus"
+msgstr "Oikeudellinen ilmoitus"
 
 #.
 #. http://www.docbook.org/tdg/en/html/refnamediv.html
