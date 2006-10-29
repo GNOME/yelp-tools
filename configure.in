@@ -51,5 +51,4 @@ xslt/docbook/html/Makefile
 xslt/docbook/omf/Makefile
 xslt/docbook/utils/Makefile
 xslt/gettext/Makefile
-xslt/xsldoc/Makefile
 ])

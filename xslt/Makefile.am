@@ -1,2 +1,1 @@
-SUBDIRS = gettext docbook xsldoc # gettext needs to be first
-
+SUBDIRS = gettext docbook # gettext needs to be first

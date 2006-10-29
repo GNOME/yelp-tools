@@ -1,3 +1,54 @@
+2006-10-29  Shaun McCance  <shaunm@gnome.org>
+
+	* configure.in:
+	* xslt/Makefile.am:
+	* xslt/rngdoc:
+	* xslt/xsldoc:
+	- Actually removing xsldoc and rngdoc
+
+2006-10-27  Shaun McCance  <shaunm@gnome.org>
+
+	* gnome-doc-utils.make:
+	- Removed xsldoc and rngdoc facilities
+	- Also removed the automatic .cvsignore stuff
+
+	* doc/xslt/Makefile.am:
+	* doc/xslt/C/gnome-doc-xslt.xml:
+	- New one shot comment-based XSLT documentation system
+
+	* xslt/docbook/common/db-chunk.xsl:
+	* xslt/docbook/common/db-common.xsl:
+	* xslt/docbook/common/db-label.xsl:
+	* xslt/docbook/common/db-title.xsl:
+	* xslt/docbook/common/db-xref.xsl:
+	* xslt/docbook/html/db2html.xsl:
+	* xslt/docbook/html/db2html-admon.xsl:
+	* xslt/docbook/html/db2html-autotoc.xsl:
+	* xslt/docbook/html/db2html-bibliography.xsl:
+	* xslt/docbook/html/db2html-block.xsl:
+	* xslt/docbook/html/db2html-callout.xsl:
+	* xslt/docbook/html/db2html-classsynopsis.xsl:
+	* xslt/docbook/html/db2html-cmdsynopsis.xsl:
+	* xslt/docbook/html/db2html-css.xsl:
+	* xslt/docbook/html/db2html-division.xsl:
+	* xslt/docbook/html/db2html-ebnf.xsl:
+	* xslt/docbook/html/db2html-footnote.xsl:
+	* xslt/docbook/html/db2html-funcsynopsis.xsl:
+	* xslt/docbook/html/db2html-info.xsl:
+	* xslt/docbook/html/db2html-inline.xsl:
+	* xslt/docbook/html/db2html-l10n.xsl:
+	* xslt/docbook/html/db2html-list.xsl:
+	* xslt/docbook/html/db2html-media.xsl:
+	* xslt/docbook/html/db2html-qanda.xsl:
+	* xslt/docbook/html/db2html-refentry.xsl:
+	* xslt/docbook/html/db2html-table.xsl:
+	* xslt/docbook/html/db2html-title.xsl:
+	* xslt/docbook/html/db2html-xref.xsl:
+	* xslt/docbook/omf/db2omf.xsl:
+	* xslt/gettext/gettext.xsl:
+	* xslt/gettext/l10n-numbers.xsl:
+	- Converted documentation to comment-based system
+
 2006-10-11  Mariano Suárez-Alvarez  <msuarezalvarez@arnet.com.ar>
 
 	* Makefile.am: install the .pc file even if the build utils are not
