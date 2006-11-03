@@ -53,26 +53,34 @@
 # intended for public consumption outside gnome-doc-utils
 #
 # Note that we need to add a special character for processing instructions.
-function runline (line, arr, id, name, fmt) {
-  if (match(line, /^(.*)([\*\$\@\%\!\#]\{[^\}]*\})(.*)$/, arr)) {
-    name = substr(arr[2], 3, length(arr[2]) - 3);
+function runline (line, ix, jx, pre, aft, char, name, id, fmt) {
+  ix = match(line, /[\*\$\@\%\!\#]\{[^\}]*\}/)
+  if (ix > 0) {
+    jx = ix + index(substr(line, ix), "}");
+    pre = substr(line, 1, ix - 1);
+    aft = substr(line, jx);
+    char = substr(line, ix, 1);
+    name = substr(line, ix + 2, jx - ix - 3);
     id = name;
     while (sub(/[\.-]/, "_", id));
-    if (substr(arr[2], 1, 1) == "*")
+    if (char == "!")
+      fmt = "<filename><link linkend='S__%s'>%s</link></filename>";
+    else if (char == "*")
       fmt = "<function><link linkend='T__%s'>%s</link></function>";
-    if (substr(arr[2], 1, 1) == "%")
+    else if (char == "%")
       fmt = "<function><link linkend='M__%s'>%s</link></function>";
-    else if (substr(arr[2], 1, 1) == "@") 
+    else if (char == "@") 
       fmt = "<parameter><link linkend='P__%s'>%s</link></parameter>";
-    else if (substr(arr[2], 1, 1) == "$") 
+    else if (char == "$") 
       fmt = "<parameter>"name"</parameter>";
-    # FIXME: add more ! and #
+    else if (char == "#")
+      fmt = "<literal>"name"</literal>";
     else
       fmt = name;
     return sprintf("%s%s%s",
-		   runline(arr[1]),
+		   runline(pre),
 		   sprintf(fmt, id, name),
-		   runline(arr[3]) );
+		   runline(aft) );
   } else {
     return line;
   }

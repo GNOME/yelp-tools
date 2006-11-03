@@ -1,3 +1,8 @@
+2006-11-03  Shaun McCance  <shaunm@gnome.org>
+
+	* doc/xslt/xsldoc.awk:
+	- Removed gawk extensions, bug #366203
+
 2006-10-29  Shaun McCance  <shaunm@gnome.org>
 
 	* configure.in:
