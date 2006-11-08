@@ -1,5 +1,10 @@
 2006-11-08  Shaun McCance  <shaunm@gnome.org>
 
+	* doc/gnome-doc-make/Makefile.am:
+	- Use $(AWK) instead of awk, #358161 (James Andrewartha)
+
+2006-11-08  Shaun McCance  <shaunm@gnome.org>
+
 	* gnome-doc-prepare.in:
 	- Don't use non-portable test, bug #362505 (Thomas Klausner)
 

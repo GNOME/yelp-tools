@@ -6,6 +6,6 @@ DOC_MODULE = gnome-doc-make
 DOC_INCLUDES = legal.xml make-ref.xml
 
 $(srcdir)/C/make-ref.xml: $(top_srcdir)/gnome-doc-utils.make
-	awk -f $(srcdir)/gnome-doc-make.awk $< > $@
+	$(AWK) -f $(srcdir)/gnome-doc-make.awk $< > $@
 
 EXTRA_DIST = gnome-doc-make.awk
