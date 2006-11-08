@@ -139,7 +139,7 @@ EOF
     ;;
 
   *)
-    if [ "x$docname" == "xyes" ]
+    if [ "x$docname" = "xyes" ]
     then
       newdocument="$arg" 
       docname=no
