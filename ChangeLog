@@ -1,5 +1,10 @@
 2006-11-08  Shaun McCance  <shaunm@gnome.org>
 
+	* Makefile.am:
+	- Added ACLOCAL_AMFLAGS for autoreconf, per #355521
+
+2006-11-08  Shaun McCance  <shaunm@gnome.org>
+
 	* doc/gnome-doc-make/Makefile.am:
 	- Use $(AWK) instead of awk, #358161 (James Andrewartha)
 

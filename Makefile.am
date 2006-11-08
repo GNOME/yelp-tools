@@ -30,6 +30,8 @@ pkgconfig_DATA = gnome-doc-utils.pc
 # doc must go last
 SUBDIRS = po xslt $(xml2po_SUBDIRS) doc
 
+ACLOCAL_AMFLAGS=-I .
+
 EXTRA_DIST = 						\
 	$(aclocal_DATA)					\
 	$(share_DATA)					\
