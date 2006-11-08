@@ -1,3 +1,12 @@
+2006-11-08  Shaun McCance  <shaunm@gnome.org>
+
+	* gnome-doc-utils.make:
+	- Remove OMF files if they weren't created correctly
+
+	* xslt/docbook/omf/db2omf.xsl:
+	- Don't allow invalid category codes, bug #319705
+	- Changes warnings to errors; the vacation is over
+
 2006-11-03  Shaun McCance  <shaunm@gnome.org>
 
 	* doc/xslt/xsldoc.awk:

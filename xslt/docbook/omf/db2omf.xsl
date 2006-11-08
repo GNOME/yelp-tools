@@ -101,6 +101,16 @@ REMARK: Document this
 <xsl:variable name="omf_in" select="document($db2omf.omf_in)"/>
 
 
+<!--@@==========================================================================
+db2omf.scrollkeeper_cl
+The path to the installed scrollkeeper_cl.xml file
+
+REMARK: Document what this is for
+-->
+<xsl:param name="db2omf.scrollkeeper_cl"/>
+<xsl:variable name="sk_cl" select="document($db2omf.scrollkeeper_cl)"/>
+
+
 <!--**==========================================================================
 db2omf.omf
 Generates the top-level #{omf} and all its children
@@ -176,7 +186,7 @@ REMARK: Document this
                 select="$info/author     | $info/authorgroup/author    |
                         $info/corpauthor | $info/authorgroup/corpauthor"/>
   <xsl:if test="not($creators)">
-    <xsl:message>
+    <xsl:message terminate="yes">
       <xsl:text>db2omf: Missing author element</xsl:text>
     </xsl:message>
   </xsl:if>
@@ -225,7 +235,7 @@ REMARK: Document this
                         $info/publisher[@role='maintainer']     |
                         $info/authorgroup/*[@role='maintainer'] "/>
   <xsl:if test="not($maintainers)">
-    <xsl:message>
+    <xsl:message terminate="yes">
       <xsl:text>db2omf: Missing element with role maintainer</xsl:text>
     </xsl:message>
   </xsl:if>
@@ -317,7 +327,7 @@ REMARK: Document this
 		       = 'info']"/>
   <xsl:variable name="title" select="($info/title | title)[1]"/>
   <xsl:if test="not($title)">
-    <xsl:message>
+    <xsl:message terminate="yes">
       <xsl:text>db2omf: Missing title element</xsl:text>
     </xsl:message>
   </xsl:if>
@@ -340,7 +350,7 @@ REMARK: Document this
 		       = 'info']"/>
   <xsl:variable name="date" select="$info/revhistory/revision[last()]/date"/>
   <xsl:if test="not($date)">
-    <xsl:message>
+    <xsl:message terminate="yes">
       <xsl:text>db2omf: Missing revision element in revhistory</xsl:text>
     </xsl:message>
   </xsl:if>
@@ -366,12 +376,12 @@ REMARK: Document this
   <xsl:variable name="date"
 		select="$info/revhistory/revision[last()]/date"/>
   <xsl:if test="not($revnumber)">
-    <xsl:message>
+    <xsl:message terminate="yes">
       <xsl:text>db2omf: Missing revnumber element in revhistory</xsl:text>
     </xsl:message>
   </xsl:if>
   <xsl:if test="not($date)">
-    <xsl:message>
+    <xsl:message terminate="yes">
       <xsl:text>db2omf: Missing date element in revhistory</xsl:text>
     </xsl:message>
   </xsl:if>
@@ -402,11 +412,22 @@ REMARK: Document this
 		       = 'info']"/>
   <xsl:variable name="subject" select="$omf_in/omf/resource/subject"/>
   <xsl:if test="not($subject)">
-    <xsl:message>
+    <xsl:message terminate="yes">
       <xsl:text>db2omf: Missing subject in </xsl:text>
       <xsl:value-of select="$db2omf.omf_in"/>
     </xsl:message>
   </xsl:if>
+  <xsl:for-each select="$subject">
+    <xsl:variable name="code" select="translate(@category, '|', '')"/>
+    <xsl:if test="not($sk_cl//sect[@categorycode = $code])">
+      <xsl:message terminate="yes">
+        <xsl:text>db2omf: Invalid subject code "</xsl:text>
+        <xsl:value-of select="@category"/>
+        <xsl:text>" in </xsl:text>
+        <xsl:value-of select="$db2omf.omf_in"/>
+      </xsl:message>
+    </xsl:if>
+  </xsl:for-each>
   <xsl:copy-of select="$subject"/>
 </xsl:template>
 
@@ -424,7 +445,7 @@ REMARK: Document this
 		       = 'info']"/>
   <xsl:variable name="description" select="$info/abstract[@role = 'description']"/>
   <xsl:if test="not($description)">
-    <xsl:message>
+    <xsl:message terminate="yes">
       <xsl:text>db2omf: Missing abstract element with role description</xsl:text>
     </xsl:message>
   </xsl:if>
@@ -448,7 +469,7 @@ REMARK: Document this
 		       = 'info']"/>
   <xsl:variable name="type" select="$omf_in/omf/resource/type"/>
   <xsl:if test="not($type)">
-    <xsl:message>
+    <xsl:message terminate="yes">
       <xsl:text>db2omf: Missing type in </xsl:text>
       <xsl:value-of select="$db2omf.omf_in"/>
     </xsl:message>
@@ -489,7 +510,7 @@ REMARK: Document this
         -->
       </xsl:when>
       <xsl:otherwise>
-        <xsl:message>
+        <xsl:message terminate="yes">
           <xsl:text>db2omf: Unknown value of db2omf.mime: </xsl:text>
           <xsl:value-of select="$db2omf.mime"/>
         </xsl:message>
@@ -534,7 +555,7 @@ REMARK: Document this
           <xsl:text>.html</xsl:text>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:message>
+          <xsl:message terminate="yes">
             <xsl:text>db2omf: Unknown value of db2omf.format: </xsl:text>
             <xsl:value-of select="$db2omf.format"/>
           </xsl:message>
@@ -573,7 +594,7 @@ REMARK: Document this
 		       = 'info']"/>
   <xsl:variable name="relation" select="$omf_in/omf/resource/relation"/>
   <xsl:if test="not($relation)">
-    <xsl:message>
+    <xsl:message terminate="yes">
       <xsl:text>db2omf: Missing relation in </xsl:text>
       <xsl:value-of select="$db2omf.omf_in"/>
     </xsl:message>
@@ -595,7 +616,7 @@ REMARK: Document this
 		       = 'info']"/>
   <xsl:variable name="rights" select="$omf_in/omf/resource/rights"/>
   <xsl:if test="not($rights)">
-    <xsl:message>
+    <xsl:message terminate="yes">
       <xsl:text>db2omf: Missing rights in </xsl:text>
       <xsl:value-of select="$db2omf.omf_in"/>
     </xsl:message>

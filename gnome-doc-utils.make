@@ -122,6 +122,7 @@ _chunks  ?= `$(PKG_CONFIG) --variable xmldir gnome-doc-utils`/gnome/xslt/docbook
 _credits ?= `$(PKG_CONFIG) --variable xmldir gnome-doc-utils`/gnome/xslt/docbook/utils/credits.xsl
 _ids ?= `$(PKG_CONFIG) --variable xmldir gnome-doc-utils`/gnome/xslt/docbook/utils/ids.xsl
 
+_skpkgdatadir ?= `scrollkeeper-config --pkgdatadir`
 _sklocalstatedir ?= `scrollkeeper-config --pkglocalstatedir`
 
 
@@ -138,6 +139,8 @@ db2omf_args =									\
 	--stringparam db2omf.omf_dir "$(OMF_DIR)"				\
 	--stringparam db2omf.help_dir "$(HELP_DIR)"				\
 	--stringparam db2omf.omf_in "`pwd`/$(_DOC_OMF_IN)"			\
+	--stringparam db2omf.scrollkeeper_cl					\
+	"$(_skpkgdatadir)/Templates/C/scrollkeeper_cl.xml"			\
 	$(_db2omf) $(2)
 
 ## @ _DOC_OMF_IN
@@ -151,7 +154,7 @@ _DOC_OMF_DB = $(if $(_DOC_OMF_IN),						\
 
 $(_DOC_OMF_DB) : $(_DOC_OMF_IN)
 $(_DOC_OMF_DB) : $(DOC_MODULE)-%.omf : %/$(DOC_MODULE).xml
-	xsltproc -o $@ $(call db2omf_args,$@,$<,'docbook')
+	if ! xsltproc -o $@ $(call db2omf_args,$@,$<,'docbook'); then rm -f "$@"; fi;
 
 ## @ _DOC_OMF_HTML
 ## The OMF files for HTML output
@@ -160,7 +163,7 @@ _DOC_OMF_HTML = $(if $(_DOC_OMF_IN),						\
 
 $(_DOC_OMF_HTML) : $(_DOC_OMF_IN)
 $(_DOC_OMF_HTML) : $(DOC_MODULE)-html-%.omf : %/$(DOC_MODULE).xml
-	xsltproc -o $@ $(call db2omf_args,$@,$<,'xhtml')
+	if ! xsltproc -o $@ $(call db2omf_args,$@,$<,'xhtml'); then rm -f "$@"; fi;
 
 ## @ _DOC_OMF_ALL
 ## All OMF output files to be built
