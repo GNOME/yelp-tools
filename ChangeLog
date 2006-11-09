@@ -1,3 +1,8 @@
+2006-11-09  Shaun McCance  <shaunm@gnome.org>
+
+	* gnome-doc-utils.make:
+	- Make db2omf errors actually exit with a non-zero error code
+
 2006-11-08  Shaun McCance  <shaunm@gnome.org>
 
 	* Makefile.am:

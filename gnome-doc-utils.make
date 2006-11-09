@@ -154,7 +154,7 @@ _DOC_OMF_DB = $(if $(_DOC_OMF_IN),						\
 
 $(_DOC_OMF_DB) : $(_DOC_OMF_IN)
 $(_DOC_OMF_DB) : $(DOC_MODULE)-%.omf : %/$(DOC_MODULE).xml
-	if ! xsltproc -o $@ $(call db2omf_args,$@,$<,'docbook'); then rm -f "$@"; fi;
+	xsltproc -o $@ $(call db2omf_args,$@,$<,'docbook') || { rm -f "$@"; exit 1; }
 
 ## @ _DOC_OMF_HTML
 ## The OMF files for HTML output
@@ -163,7 +163,7 @@ _DOC_OMF_HTML = $(if $(_DOC_OMF_IN),						\
 
 $(_DOC_OMF_HTML) : $(_DOC_OMF_IN)
 $(_DOC_OMF_HTML) : $(DOC_MODULE)-html-%.omf : %/$(DOC_MODULE).xml
-	if ! xsltproc -o $@ $(call db2omf_args,$@,$<,'xhtml'); then rm -f "$@"; fi;
+	xsltproc -o $@ $(call db2omf_args,$@,$<,'xhtml') || { rm -f "$@"; exit 1; }
 
 ## @ _DOC_OMF_ALL
 ## All OMF output files to be built
