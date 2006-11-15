@@ -1,6 +1,12 @@
 2006-11-15  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/omf/db2omf.xsl:
+	- Allow pubdate and edition to replace revhistory stuff
+	- Provide better error messages
+
+2006-11-15  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/omf/db2omf.xsl:
 	- Allow pubdate instead of revision for OMF's date element
 
 2006-11-10  Shaun McCance  <shaunm@gnome.org>

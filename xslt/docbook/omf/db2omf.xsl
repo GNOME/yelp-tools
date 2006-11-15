@@ -187,7 +187,10 @@ REMARK: Document this
                         $info/corpauthor | $info/authorgroup/corpauthor"/>
   <xsl:if test="not($creators)">
     <xsl:message terminate="yes">
-      <xsl:text>db2omf: Missing author element</xsl:text>
+      <xsl:text>db2omf: Could not construct the OMF creator element.&#x000A;</xsl:text>
+      <xsl:text>  Add an author element to </xsl:text>
+      <xsl:value-of select="$db2omf.basename"/>
+      <xsl:text>.xml.</xsl:text>
     </xsl:message>
   </xsl:if>
   <xsl:for-each select="$creators">
@@ -236,7 +239,11 @@ REMARK: Document this
                         $info/authorgroup/*[@role='maintainer'] "/>
   <xsl:if test="not($maintainers)">
     <xsl:message terminate="yes">
-      <xsl:text>db2omf: Missing element with role maintainer</xsl:text>
+      <xsl:text>db2omf: Could not construct the OMF maintainer element.&#x000A;</xsl:text>
+      <xsl:text>  Add an author, corpauthor, editor, othercredit, or publisher&#x000A;</xsl:text>
+      <xsl:text>  element with the role attribute set to "maintainer" to </xsl:text>
+      <xsl:value-of select="$db2omf.basename"/>
+      <xsl:text>.xml.</xsl:text>
     </xsl:message>
   </xsl:if>
   <xsl:for-each select="$maintainers">
@@ -328,7 +335,10 @@ REMARK: Document this
   <xsl:variable name="title" select="($info/title | title)[1]"/>
   <xsl:if test="not($title)">
     <xsl:message terminate="yes">
-      <xsl:text>db2omf: Missing title element</xsl:text>
+      <xsl:text>db2omf: Could not construct the OMF title element.&#x000A;</xsl:text>
+      <xsl:text>  Add a title element to </xsl:text>
+      <xsl:value-of select="$db2omf.basename"/>
+      <xsl:text>.xml.</xsl:text>
     </xsl:message>
   </xsl:if>
   <title>
@@ -348,22 +358,26 @@ REMARK: Document this
   <xsl:param name="info"
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
 		       = 'info']"/>
-  <xsl:variable name="pubdate" select="$info/pubdate[1]"/>
-  <xsl:variable name="revdate" select="$info/revhistory/revision[last()]/date"/>
+  <xsl:variable name="revision"
+                select="$info/revhistory/revision[revnumber and date]"/>
   <xsl:choose>
-    <xsl:when test="$pubdate">
+    <xsl:when test="$revision">
       <date>
-        <xsl:value-of select="$pubdate"/>
+        <xsl:value-of select="$revision[last()]/date"/>
       </date>
     </xsl:when>
-    <xsl:when test="$revdate">
+    <xsl:when test="$info/pubdate">
       <date>
-        <xsl:value-of select="$revdate"/>
+        <xsl:value-of select="$info/pubdate[1]"/>
       </date>
     </xsl:when>
     <xsl:otherwise>
       <xsl:message terminate="yes">
-        <xsl:text>db2omf: Missing either pubdate element or revision element in revhistory</xsl:text>
+        <xsl:text>db2omf: Could not construct the OMF date element.&#x000A;</xsl:text>
+        <xsl:text>  Add either a revision element with revnumber and date,&#x000A;</xsl:text>
+        <xsl:text>  or a date element to </xsl:text>
+        <xsl:value-of select="$db2omf.basename"/>
+        <xsl:text>.xml.</xsl:text>
       </xsl:message>
     </xsl:otherwise>
   </xsl:choose>
@@ -375,37 +389,47 @@ db2omf.omf.version
 Generates the #{version} element for an OMF file
 $info: The info element containing metadata
 
-REMARK: Document this
+REMARK: Document this, add the @description attr of version
 -->
 <xsl:template name="db2omf.omf.version">
   <xsl:param name="info"
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
 		       = 'info']"/>
-  <xsl:variable name="revnumber"
-		select="$info/revhistory/revision[last()]/revnumber"/>
-  <xsl:variable name="date"
-		select="$info/revhistory/revision[last()]/date"/>
-  <xsl:if test="not($revnumber)">
-    <xsl:message terminate="yes">
-      <xsl:text>db2omf: Missing revnumber element in revhistory</xsl:text>
-    </xsl:message>
-  </xsl:if>
-  <xsl:if test="not($date)">
-    <xsl:message terminate="yes">
-      <xsl:text>db2omf: Missing date element in revhistory</xsl:text>
-    </xsl:message>
-  </xsl:if>
-  <version>
-    <xsl:attribute name="identifier">
-      <xsl:value-of select="$revnumber"/>
-    </xsl:attribute>
-    <xsl:attribute name="date">
-      <xsl:value-of select="$date"/>
-    </xsl:attribute>
-    <!-- FIXME:
-    <xsl:attribute name="description"/>
-    -->
-  </version>
+  <xsl:variable name="revision"
+                select="$info/revhistory/revision[revnumber and date]"/>
+  <xsl:choose>
+    <xsl:when test="$revision">
+      <xsl:variable name="revnumber" select="$revision[last()]/revnumber"/>
+      <xsl:variable name="date" select="$revision[last()]/date"/>
+      <version>
+        <xsl:attribute name="identifier">
+          <xsl:value-of select="$revnumber"/>
+        </xsl:attribute>
+        <xsl:attribute name="date">
+          <xsl:value-of select="$date"/>
+        </xsl:attribute>
+      </version>
+    </xsl:when>
+    <xsl:when test="$info/edition and $info/pubdate">
+      <version>
+        <xsl:attribute name="identifier">
+          <xsl:value-of select="$info/edition[1]"/>
+        </xsl:attribute>
+        <xsl:attribute name="date">
+          <xsl:value-of select="$info/pubdate[1]"/>
+        </xsl:attribute>
+      </version>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:message terminate="yes">
+        <xsl:text>db2omf: Could not construct the OMF version element.&#x000A;</xsl:text>
+        <xsl:text>  Add either a revision element with revnumber and date,&#x000A;</xsl:text>
+        <xsl:text>  or date and edition elements to </xsl:text>
+        <xsl:value-of select="$db2omf.basename"/>
+        <xsl:text>.xml.</xsl:text>
+      </xsl:message>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
 
@@ -423,8 +447,10 @@ REMARK: Document this
   <xsl:variable name="subject" select="$omf_in/omf/resource/subject"/>
   <xsl:if test="not($subject)">
     <xsl:message terminate="yes">
-      <xsl:text>db2omf: Missing subject in </xsl:text>
+      <xsl:text>db2omf: Could not construct the OMF subject element.&#x000A;</xsl:text>
+      <xsl:text>  Add either a subject element to </xsl:text>
       <xsl:value-of select="$db2omf.omf_in"/>
+      <xsl:text>.</xsl:text>
     </xsl:message>
   </xsl:if>
   <xsl:for-each select="$subject">
@@ -435,6 +461,7 @@ REMARK: Document this
         <xsl:value-of select="@category"/>
         <xsl:text>" in </xsl:text>
         <xsl:value-of select="$db2omf.omf_in"/>
+      <xsl:text>.</xsl:text>
       </xsl:message>
     </xsl:if>
   </xsl:for-each>
@@ -456,7 +483,11 @@ REMARK: Document this
   <xsl:variable name="description" select="$info/abstract[@role = 'description']"/>
   <xsl:if test="not($description)">
     <xsl:message terminate="yes">
-      <xsl:text>db2omf: Missing abstract element with role description</xsl:text>
+      <xsl:text>db2omf: Could not construct the OMF description element.&#x000A;</xsl:text>
+      <xsl:text>  Add an abstract with the role attribute set to "description"&#x000A;</xsl:text>
+      <xsl:text>  to </xsl:text>
+      <xsl:value-of select="$db2omf.basename"/>
+      <xsl:text>.xml.</xsl:text>
     </xsl:message>
   </xsl:if>
   <description>
@@ -480,8 +511,10 @@ REMARK: Document this
   <xsl:variable name="type" select="$omf_in/omf/resource/type"/>
   <xsl:if test="not($type)">
     <xsl:message terminate="yes">
-      <xsl:text>db2omf: Missing type in </xsl:text>
+      <xsl:text>db2omf: Could not construct the OMF type element.&#x000A;</xsl:text>
+      <xsl:text>  Add a type element to </xsl:text>
       <xsl:value-of select="$db2omf.omf_in"/>
+      <xsl:text>.</xsl:text>
     </xsl:message>
   </xsl:if>
   <type>
@@ -521,8 +554,9 @@ REMARK: Document this
       </xsl:when>
       <xsl:otherwise>
         <xsl:message terminate="yes">
-          <xsl:text>db2omf: Unknown value of db2omf.mime: </xsl:text>
+          <xsl:text>db2omf: Unknown value of db2omf.mime: "</xsl:text>
           <xsl:value-of select="$db2omf.mime"/>
+          <xsl:text>".</xsl:text>
         </xsl:message>
       </xsl:otherwise>
     </xsl:choose>
@@ -566,8 +600,9 @@ REMARK: Document this
         </xsl:when>
         <xsl:otherwise>
           <xsl:message terminate="yes">
-            <xsl:text>db2omf: Unknown value of db2omf.format: </xsl:text>
+            <xsl:text>db2omf: Unknown value of db2omf.format: "</xsl:text>
             <xsl:value-of select="$db2omf.format"/>
+            <xsl:text>".</xsl:text>
           </xsl:message>
         </xsl:otherwise>
       </xsl:choose>
@@ -605,8 +640,10 @@ REMARK: Document this
   <xsl:variable name="relation" select="$omf_in/omf/resource/relation"/>
   <xsl:if test="not($relation)">
     <xsl:message terminate="yes">
-      <xsl:text>db2omf: Missing relation in </xsl:text>
+      <xsl:text>db2omf: Could not construct the OMF relation element.&#x000A;</xsl:text>
+      <xsl:text>  Add a relation element to </xsl:text>
       <xsl:value-of select="$db2omf.omf_in"/>
+      <xsl:text>.</xsl:text>
     </xsl:message>
   </xsl:if>
   <xsl:copy-of select="$relation"/>
@@ -627,8 +664,10 @@ REMARK: Document this
   <xsl:variable name="rights" select="$omf_in/omf/resource/rights"/>
   <xsl:if test="not($rights)">
     <xsl:message terminate="yes">
-      <xsl:text>db2omf: Missing rights in </xsl:text>
+      <xsl:text>db2omf: Could not construct the OMF rights element.&#x000A;</xsl:text>
+      <xsl:text>  Add a rights element to </xsl:text>
       <xsl:value-of select="$db2omf.omf_in"/>
+      <xsl:text>.</xsl:text>
     </xsl:message>
   </xsl:if>
   <xsl:copy-of select="$rights"/>
