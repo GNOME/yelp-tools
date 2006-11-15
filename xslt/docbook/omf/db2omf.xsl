@@ -348,15 +348,25 @@ REMARK: Document this
   <xsl:param name="info"
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
 		       = 'info']"/>
-  <xsl:variable name="date" select="$info/revhistory/revision[last()]/date"/>
-  <xsl:if test="not($date)">
-    <xsl:message terminate="yes">
-      <xsl:text>db2omf: Missing revision element in revhistory</xsl:text>
-    </xsl:message>
-  </xsl:if>
-  <date>
-    <xsl:value-of select="$date"/>
-  </date>
+  <xsl:variable name="pubdate" select="$info/pubdate[1]"/>
+  <xsl:variable name="revdate" select="$info/revhistory/revision[last()]/date"/>
+  <xsl:choose>
+    <xsl:when test="$pubdate">
+      <date>
+        <xsl:value-of select="$pubdate"/>
+      </date>
+    </xsl:when>
+    <xsl:when test="$revdate">
+      <date>
+        <xsl:value-of select="$revdate"/>
+      </date>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:message terminate="yes">
+        <xsl:text>db2omf: Missing either pubdate element or revision element in revhistory</xsl:text>
+      </xsl:message>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
 
