@@ -1,5 +1,10 @@
 2006-11-16  Shaun McCance  <shaunm@gnome.org>
 
+	* autogen.sh:
+	- Copy gdu.m4 here, not to the non-existant m4 directory
+
+2006-11-16  Shaun McCance  <shaunm@gnome.org>
+
 	* Makefile.am:
 	* autogen.sh:
 	* configure.in:
