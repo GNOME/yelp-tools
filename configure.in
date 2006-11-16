@@ -5,7 +5,7 @@ AM_INIT_AUTOMAKE
 AC_PROG_INTLTOOL
 AM_GLIB_GNU_GETTEXT
 
-GNOME_DOC_INIT
+GNOME_DOC_DEFINES
 
 AC_ARG_ENABLE([build-utils],
 	AC_HELP_STRING([--enable-build-utils],
@@ -40,6 +40,7 @@ doc/Makefile
 doc/gnome-doc-make/Makefile
 doc/xslt/Makefile
 po/Makefile.in
+tools/Makefile
 xslt/Makefile
 xml2po/Makefile
 xml2po/xml2po.pc

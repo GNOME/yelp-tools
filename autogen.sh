@@ -23,7 +23,6 @@ which gnome-autogen.sh || {
 ACLOCAL_FLAGS="-I . $ACLOCAL_FLAGS"
 export ACLOCAL_FLAGS
 
-REQUIRED_AUTOMAKE_VERSION=1.6
-export REQUIRED_AUTOMAKE_VERSION
-
-USE_GNOME2_MACROS=1 . $srcdir/gnome-autogen.sh
+cp $srcdir/tools/gnome-doc-utils.m4 m4/gnome-doc-utils.m4
+cp $srcdir/tools/gnome-doc-utils.make gnome-doc-utils.make
+REQUIRED_AUTOMAKE_VERSION=1.6 USE_GNOME2_MACROS=1 . gnome-autogen.sh

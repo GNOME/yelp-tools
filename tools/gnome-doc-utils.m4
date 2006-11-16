@@ -1,17 +1,9 @@
 dnl GNOME_DOC_INIT([MINIMUM-VERSION])
 
-AC_DEFUN([GNOME_DOC_INIT],
+dnl Do not call GNOME_DOC_DEFINES directly.  It is split out from
+dnl GNOME_DOC_INIT to allow gnome-doc-utils to bootstrap off itself.
+AC_DEFUN([GNOME_DOC_DEFINES],
 [
-dnl Only apply the version check if we're not configuring ourselves!
-if test "x$PACKAGE" != "xgnome-doc-utils"; then
-  GDU_REQUIRED_VERSION=0.3.2
-  if test -n "$1"; then
-    GDU_REQUIRED_VERSION=$1
-  fi
-
-  PKG_CHECK_MODULES([GDU_MODULE_VERSION_CHECK],[gnome-doc-utils >= $GDU_REQUIRED_VERSION])
-fi
-
 AC_ARG_WITH([help-dir],
   AC_HELP_STRING([--with-help-dir=DIR], [path to help docs]),,
   [with_help_dir='${datadir}/gnome/help'])
@@ -36,4 +28,16 @@ AC_ARG_ENABLE([scrollkeeper],
 	enable_scrollkeeper=yes)
 AM_CONDITIONAL(ENABLE_SK, test "x$enable_scrollkeeper" = "xyes")
 
+])
+
+AC_DEFUN([GNOME_DOC_INIT],
+[
+GDU_REQUIRED_VERSION=0.3.2
+if test -n "$1"; then
+  GDU_REQUIRED_VERSION=$1
+fi
+
+PKG_CHECK_MODULES([GDU_MODULE_VERSION_CHECK],[gnome-doc-utils >= $GDU_REQUIRED_VERSION])
+
+GNOME_DOC_DEFINES
 ])

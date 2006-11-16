@@ -1,3 +1,17 @@
+2006-11-16  Shaun McCance  <shaunm@gnome.org>
+
+	* Makefile.am:
+	* autogen.sh:
+	* configure.in:
+	* gnome-doc-utils.m4:
+	* gnome-doc-utils.make
+	* tools/Makefile.am:
+	* tools/gnome-doc-utils.m4:
+	* tools/gnome-doc-utils.make
+	- Moving gdu.m4 and gdu.make to tools, should fix #324603
+	- Added GNOME_DOC_DEFINES to M4 for cleaner bootstrapping, allowing:
+	- Now using the system-installed gnome-autogen.sh, fixing #340128
+
 2006-11-15  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/omf/db2omf.xsl:
