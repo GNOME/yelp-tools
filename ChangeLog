@@ -1,10 +1,17 @@
+2006-11-26  Shaun McCance  <shaunm@gnome.org>
+
+	* doc/xslt/Makefile.am:
+	- Removed gawk extensions, #378739
+	- Fixed non-portable sed expression, #378763
+	- Added xsldoc-generated files to clean-local
+
 2006-11-21  Joachim Noreiko  <jnoreiko@yahoo.com>
 
-  * data/templates/gnome-app-template.xml:
-  * data/templates/legal.xml:  
-  - First draft of an application manual template, based on 
-    http://developer.gnome.org/projects/gdp/templates.html
-    Legal.xml is just the standard legal.xml we already use.
+	* data/templates/gnome-app-template.xml:
+	* data/templates/legal.xml:  
+	- First draft of an application manual template, based on 
+	  http://developer.gnome.org/projects/gdp/templates.html
+	   Legal.xml is just the standard legal.xml we already use.
 
 2006-11-16  Shaun McCance  <shaunm@gnome.org>
 
