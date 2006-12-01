@@ -1,9 +1,21 @@
+if ENABLE_BUILD_UTILS
+
 aclocaldir = $(datadir)/aclocal
 aclocal_DATA = gnome-doc-utils.m4
 
 sharedir = $(datadir)/gnome-doc-utils
 share_DATA = gnome-doc-utils.make
 
-EXTRA_DIST = 						\
-	$(aclocal_DATA)					\
-	$(share_DATA)
+bin_SCRIPTS = gnome-doc-prepare gnome-doc-html
+
+endif
+
+pkgconfigdir = $(libdir)/pkgconfig
+pkgconfig_DATA = gnome-doc-utils.pc
+
+EXTRA_DIST =			\
+	gnome-doc-html.in	\
+	gnome-doc-prepare.in	\
+	gnome-doc-utils.m4	\
+	gnome-doc-utils.make	\
+	gnome-doc-utils.pc.in

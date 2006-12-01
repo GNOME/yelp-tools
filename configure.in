@@ -33,14 +33,14 @@ AM_GLIB_GNU_GETTEXT
 
 AC_OUTPUT([
 Makefile
-gnome-doc-html
-gnome-doc-prepare
-gnome-doc-utils.pc
 doc/Makefile
 doc/gnome-doc-make/Makefile
 doc/xslt/Makefile
 po/Makefile.in
 tools/Makefile
+tools/gnome-doc-html
+tools/gnome-doc-prepare
+tools/gnome-doc-utils.pc
 xslt/Makefile
 xml2po/Makefile
 xml2po/xml2po.pc
