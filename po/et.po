@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: gnome-doc-utils HEAD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-10-26 16:00+0200\n"
-"PO-Revision-Date: 2006-10-26 23:35+0300\n"
+"PO-Revision-Date: 2006-11-30 23:41+0200\n"
 "Last-Translator: Ivar Smolin <okul@linux.ee>\n"
 "Language-Team: Estonian <gnome-et@linux.ee>\n"
 "MIME-Version: 1.0\n"
@@ -885,6 +885,7 @@ msgstr ""
 #: ../xslt/gettext/l10n.xml.in.h:743
 msgid "<msgid>glosssee.format</msgid> <msgstr>See <glosssee/>.</msgstr>"
 msgstr ""
+"<msgid>glosssee.format</msgid> <msgstr>Vaata <glosssee/>.</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -924,6 +925,7 @@ msgstr ""
 msgid ""
 "<msgid>glossseealso.format</msgid> <msgstr>See also <glosssee/>.</msgstr>"
 msgstr ""
+"<msgid>glossseealso.format</msgid> <msgstr>Vaata ka <glosssee/>.</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
