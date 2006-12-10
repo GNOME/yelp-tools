@@ -1,7 +1,13 @@
+2006-12-10  Joachim Noreiko  <jnoreiko@yahoo.com>
+
+	* data/templates/gnome-applet-template.xml:
+	- First draft of an applet manual template, based on 
+	  http://developer.gnome.org/projects/gdp/templates.html
+	  
 2006-12-09  Joachim Noreiko  <jnoreiko@yahoo.com>
 
 	* data/templates/gnome-app-template.xml:
-    Fixed a few old links and quaint verbiage
+  - Fixed a few old links and quaint verbiage
 
 2006-11-26  Shaun McCance  <shaunm@gnome.org>
 
