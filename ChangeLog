@@ -3,6 +3,8 @@
 	* data/templates/gnome-applet-template.xml:
 	- First draft of an applet manual template, based on 
 	  http://developer.gnome.org/projects/gdp/templates.html
+	- made all ids consistenly "myapplet-" (figures were "applet-")
+	- changed screenshot to informalfigure, as 'Figure 1' is overkill
 	  
 2006-12-09  Joachim Noreiko  <jnoreiko@yahoo.com>
 

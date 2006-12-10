@@ -36,8 +36,9 @@
 <!-- =============Document Header ============================= -->
 
 <article id="index" lang="en">
-<!-- please do not change the id; for translations, change lang to -->
-<!-- appropriate code -->
+<!-- do not change this id, but replace id="myapplet-" throughout -->
+
+
   <articleinfo> 
 	  <title>&applet; Applet Manual</title> 
 
@@ -140,8 +141,7 @@
     <!-- You should start the Introduction with a screenshot of the applet in a panel -->
 
     <!-- ==== Figure ============================================= -->
-    <figure id="applet-fig"> 
-    <title>&applet; Applet</title> 
+    <informalfigure id="myapplet-fig"> 
     <screenshot> 
       <mediaobject> 
     	 <imageobject><imagedata fileref="figures/myapplet_applet.png"
@@ -159,7 +159,7 @@
     	 </textobject> 
       </mediaobject> 
     </screenshot> 
-    </figure> 
+    </informalfigure> 
     <!-- ==== End of Figure ======================================= -->
 
     <para>
@@ -241,7 +241,7 @@ and insert the character into a text
 				  following figure. 
               <!-- ==== Figure ============================================= -->
 
-				  <figure id="applet-fig2"> 
+				  <figure id="myapplet-fig2"> 
 					 <title>Character Group Associated With the A Key</title> 
 					 <screenshot> 
 						<mediaobject> 
@@ -274,7 +274,7 @@ and insert the character into a text
 		  each section in the chart. The character groups that are associated with each
 		  keyboard character are shown in the other columns. </para>
       <!-- ==== Figure ============================================= -->
-		<figure id="applet-fig3"> 
+		<figure id="myapplet-fig3"> 
 		  <title>Character Groups Associated With Keyboard Keys</title> 
 		  <screenshot> 
 			 <mediaobject> 
