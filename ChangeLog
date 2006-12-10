@@ -5,6 +5,7 @@
 	  http://developer.gnome.org/projects/gdp/templates.html
 	- made all ids consistenly "myapplet-" (figures were "applet-")
 	- changed screenshot to informalfigure, as 'Figure 1' is overkill
+	- explicit 'on adding &applet; to a panel' in link to User Guide
 	  
 2006-12-09  Joachim Noreiko  <jnoreiko@yahoo.com>
 

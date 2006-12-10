@@ -181,7 +181,7 @@
       </listitem>
     </orderedlist>
     <para>
-    For more information on this, see the <ulink url="ghelp:user-guide?panels-addobject" type="help">GNOME User Guide</ulink>.
+    For more information on adding &applet; to a panel, see the <ulink url="ghelp:user-guide?panels-addobject" type="help">GNOME User Guide</ulink>.
      </para> 
   </sect1>
 
