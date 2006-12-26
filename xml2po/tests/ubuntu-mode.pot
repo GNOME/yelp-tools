@@ -22,19 +22,19 @@ msgid "This site is where you can find the official documentation developed and 
 msgstr ""
 
 #: ubuntu-mode.xml:16(para) 
-msgid "<emphasis role=\"bold\">Ubuntu Desktop Guide</emphasis> - <ulink url=\"ubuntu/desktopguide/C/index.html\">HTML</ulink>, <ulink url=\"pdf/ubuntu/C/desktopguide.pdf\">PDF</ulink>"
+msgid "<emphasis role=\"bold\">Ubuntu Desktop Guide</emphasis> - <ulink url=\"ubuntu/desktopguide/&language;/index.html\">HTML</ulink>, <ulink url=\"pdf/ubuntu/&language;/desktopguide.pdf\">PDF</ulink>"
 msgstr ""
 
 #: ubuntu-mode.xml:19(para) 
-msgid "<emphasis role=\"bold\">Kubuntu Desktop Guide</emphasis> - <ulink url=\"kubuntu/desktopguide/C/index.html\">HTML</ulink>, <ulink url=\"pdf/kubuntu/C/desktopguide.pdf\">PDF</ulink>"
+msgid "<emphasis role=\"bold\">Kubuntu Desktop Guide</emphasis> - <ulink url=\"kubuntu/desktopguide/&language;/index.html\">HTML</ulink>, <ulink url=\"pdf/kubuntu/&language;/desktopguide.pdf\">PDF</ulink>"
 msgstr ""
 
 #: ubuntu-mode.xml:22(para) 
-msgid "<emphasis role=\"bold\">Server Guide</emphasis> - <ulink url=\"ubuntu/serverguide/C/index.html\">HTML</ulink>, <ulink url=\"pdf/ubuntu/C/serverguide.pdf\">PDF</ulink>"
+msgid "<emphasis role=\"bold\">Server Guide</emphasis> - <ulink url=\"ubuntu/serverguide/&language;/index.html\">HTML</ulink>, <ulink url=\"pdf/ubuntu/&language;/serverguide.pdf\">PDF</ulink>"
 msgstr ""
 
 #: ubuntu-mode.xml:25(para) 
-msgid "<emphasis role=\"bold\">Packaging Guide</emphasis> - <ulink url=\"ubuntu/packagingguide/C/index.html\">HTML</ulink>, <ulink url=\"pdf/ubuntu/C/packagingguide.pdf\">PDF</ulink>"
+msgid "<emphasis role=\"bold\">Packaging Guide</emphasis> - <ulink url=\"ubuntu/packagingguide/&language;/index.html\">HTML</ulink>, <ulink url=\"pdf/ubuntu/&language;/packagingguide.pdf\">PDF</ulink>"
 msgstr ""
 
 #: ubuntu-mode.xml:28(para) 
@@ -42,11 +42,11 @@ msgid "Find out more about Ubuntu and Kubuntu from the following documents:"
 msgstr ""
 
 #: ubuntu-mode.xml:31(para) 
-msgid "<emphasis role=\"bold\">Ubuntu</emphasis> - <ulink url=\"ubuntu/about-ubuntu/C/index.html\">About Ubuntu</ulink>, <ulink url=\"ubuntu/release-notes/C/index.html\">Ubuntu Release Notes</ulink>"
+msgid "<emphasis role=\"bold\">Ubuntu</emphasis> - <ulink url=\"ubuntu/about-ubuntu/&language;/index.html\">About Ubuntu</ulink>, <ulink url=\"ubuntu/release-notes/&language;/index.html\">Ubuntu Release Notes</ulink>"
 msgstr ""
 
 #: ubuntu-mode.xml:34(para) 
-msgid "<emphasis role=\"bold\">Kubuntu</emphasis> - <ulink url=\"kubuntu/about-kubuntu/C/index.html\">About Kubuntu</ulink>, <ulink url=\"kubuntu/release-notes/C/index.html\">Kubuntu Release Notes</ulink>"
+msgid "<emphasis role=\"bold\">Kubuntu</emphasis> - <ulink url=\"kubuntu/about-kubuntu/&language;/index.html\">About Kubuntu</ulink>, <ulink url=\"kubuntu/release-notes/&language;/index.html\">Kubuntu Release Notes</ulink>"
 msgstr ""
 
 #: ubuntu-mode.xml:37(para) 

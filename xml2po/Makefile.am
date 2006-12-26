@@ -10,7 +10,7 @@ pkgconfig_DATA = xml2po.pc
 
 man_MANS = xml2po.1
 
-xml2po: xml2po.py configure.ac
+xml2po: xml2po.py
 	sed -e "s/^VERSION =.*/VERSION = \"@VERSION@\"/" \
 	    -e "s+^submodes_path =.*+submodes_path = \"$(commondir)\"+" \
 	    -e "s+^#!.*python.*+#!$(PYTHON)+" \

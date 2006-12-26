@@ -1,5 +1,6 @@
 #!/usr/bin/python -u
-# Copyright (c) 2004 Danilo Segan <danilo@kvota.net>.
+# -*- encoding: utf-8 -*-
+# Copyright (c) 2004, 2005, 2006 Danilo Šegan <danilo@gnome.org>.
 #
 # This file is part of xml2po.
 #
@@ -133,6 +134,8 @@ msgstr ""
             if self.do_translations:
                 if len(self.translations)>0:
                     translation = self.translations.pop(0)
+            if translation == k:
+                translation = ""
             out.write("msgstr \"%s\"\n\n" % (translation))
 
 

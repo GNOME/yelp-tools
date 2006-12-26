@@ -2,7 +2,7 @@
 <!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
 <!ENTITY % globalent SYSTEM "../../libs/global.ent">
 <!ENTITY % cdo-C SYSTEM "../../libs/cdo-C.ent">
-<!ENTITY language "C">
+<!ENTITY language "sr">
 ]>
 <article lang="sr">
 	<title>Убунту документација</title>
