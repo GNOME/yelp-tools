@@ -406,9 +406,11 @@ def replaceNodeContentsWithText(node,text):
 
 def autoNodeIsFinal(node):
     """Returns 1 if node is text node, contains non-whitespace text nodes or entities."""
-    final = 0
+    if node.name in ignored_tags:
+        return 0
     if node.isText() and node.content.strip()!='':
         return 1
+    final = 0
     child = node.children
     while child:
         if child.type in ['text'] and  child.content.strip()!='':
