@@ -410,9 +410,13 @@ def replaceNodeContentsWithText(node,text):
 
 def autoNodeIsFinal(node):
     """Returns 1 if node is text node, contains non-whitespace text nodes or entities."""
+    if hasattr(node, '__autofinal__'):
+        return node.__autofinal__
     if node.name in ignored_tags:
+        node.__autofinal__ = 0
         return 0
     if node.isText() and node.content.strip()!='':
+        node.__autofinal__ = 1
         return 1
     final = 0
     child = node.children
@@ -422,6 +426,7 @@ def autoNodeIsFinal(node):
             break
         child = child.next
 
+    node.__autofinal__ = final
     return final
 
 
@@ -431,6 +436,10 @@ def worthOutputting(node, noauto = 0):
     Node is "worth outputting", if none of the parents
     isFinalNode, and it contains non-blank text and entities.
     """
+    if noauto and hasattr(node, '__worth__'):
+        return node.__worth__
+    elif not noauto and hasattr(node, '__autoworth__'):
+        return node.__autoworth__
     worth = 1
     parent = node.parent
     final = isFinalNode(node) and node.name not in ignored_tags
@@ -442,12 +451,15 @@ def worthOutputting(node, noauto = 0):
             break
         parent = parent.parent
     if not worth:
+        node.__worth__ = 0
         return 0
 
     if noauto:
+        node.__worth__ = worth
         return worth
     else:
-        return autoNodeIsFinal(node)
+        node.__autoworth__ = autoNodeIsFinal(node)
+        return node.__autoworth__
 
 def processAttribute(node, attr):
     if not node or not attr or not worthOutputting(node=node, noauto=1):
