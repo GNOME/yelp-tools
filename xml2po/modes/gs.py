@@ -1,4 +1,4 @@
-# Copyright (c) 2004 Danilo Segan <danilo@kvota.net>.
+# Copyright (c) 2004, 2005, 2006 Danilo Segan <danilo@gnome.org>.
 #
 # This file is part of xml2po.
 #
@@ -32,6 +32,10 @@ class gsXmlMode:
 
     def getSpacePreserveTags(self):
         "Returns array of tags in which spaces are to be preserved."
+        return []
+
+    def getTreatedAttributes(self):
+        "Returns array of tag attributes which content is to be translated"
         return []
 
     def preProcessXml(self, doc, msg):

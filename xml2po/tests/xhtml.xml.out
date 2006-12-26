@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>Пример XHTML стране</title></head>
+<body>
+<p>Ово је само пример.</p>
+
+<!-- Here both title and alt attributes should be extracted. -->
+<img title="Дивна слика" alt="Слика ничега" src="nothing.png" />
+
+<!-- Here nothing but a paragraph should be extracted. -->
+<p>Довољно за пробу, ако питате <a href="mailto:danilo" title="Данила">мене лично</a>.</p>
+</body>
+</html>

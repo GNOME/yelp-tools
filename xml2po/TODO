@@ -26,9 +26,6 @@ TODO:
  o pipe the constructed .po file thru 'msgcat'; msgcat is meant as a .po
    file normalization tool. [Karl]
 
- o add support for translating attributes (eg. imagine "title"            [??]
-   attribute in IMG tag in XHTML) -- this should be easy enough
-
  o support several different doctypes in the same run                     [??]
    eg. a mathml, docbook, documents all translated with one run
 
@@ -38,6 +35,9 @@ TODO:
 
 
 DONE:
+
+ o [2006-12-26] add support for translating attributes (eg. imagine "title"
+   attribute in IMG tag in XHTML) -- this should be easy enough
 
  o [BUG FIXED with at least libxml2 2.6.21] 
    Merging with "-k" (keep-entities) option doesn't work correctly 

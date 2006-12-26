@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright (c) 2004 Danilo Segan <danilo@kvota.net>.
+# Copyright (c) 2004, 2005, 2006 Danilo Segan <danilo@gnome.org>.
 #
 # This file is part of xml2po.
 #
@@ -49,7 +49,7 @@ class docbookXmlMode:
                       'segmentedlist', 'simplelist', 'calloutlist', 'varlistentry' ]
         self.objects = [ 'figure', 'textobject', 'imageobject', 'mediaobject',
                          'screenshot' ]
-        
+
     def getIgnoredTags(self):
         "Returns array of tags to be ignored."
         return  self.objects + self.lists
@@ -72,6 +72,10 @@ class docbookXmlMode:
             'synopsis',
             'userinput'
             ]
+
+    def getTreatedAttributes(self):
+        "Returns array of tag attributes which content is to be translated"
+        return []
 
     def getStringForTranslators(self):
         """Returns string which will be used to credit translators."""

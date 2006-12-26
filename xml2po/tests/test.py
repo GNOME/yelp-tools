@@ -10,6 +10,7 @@ SIMPLETESTS = { 'deep-finals.xml' : {},
                 'keepents.xml': { "options" : "-k" },
                 'adjacent-ents.xml': { "options" : "-k" },
                 'ubuntu-mode.xml': { "options" : "-m ubuntu -k -l sr" },
+                'xhtml.xml': { "options" : "-m xhtml" },
                 }
 
 OTHERTESTS = [ ('relnotes', 'test.sh') ]

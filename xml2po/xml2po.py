@@ -119,7 +119,7 @@ msgstr ""
 
     def outputAll(self, out):
         self.outputHeader(out)
-        
+
         for k in self.messages:
             if k in self.comments:
                 out.write("#. %s\n" % (self.comments[k].replace("\n","\n#. ")))
@@ -195,7 +195,7 @@ def normalizeString(text, ignorewhitespace = 1):
 
     result = re.sub('^ ','', result)
     result = re.sub(' $','', result)
-    
+
     return result
 
 def stringForEntity(node):
@@ -286,14 +286,14 @@ def startTagForNode(node):
                     nsprop = p.name
                 params += " %s=\"%s\"" % (nsprop, myAttributeSerialize(p))
     return result+params
-        
+
 def endTagForNode(node):
     if not node:
         return 0
 
     result = node.name
     return result
-        
+
 def isFinalNode(node):
     if automatic:
         auto = autoNodeIsFinal(node)
@@ -353,6 +353,9 @@ def getCommentForNode(node):
     else:
         return None
 
+def replaceAttributeContentsWithText(node,text):
+    node.setContent(text)
+
 def replaceNodeContentsWithText(node,text):
     """Replaces all subnodes of a node with contents of text treated as XML."""
 
@@ -367,7 +370,7 @@ def replaceNodeContentsWithText(node,text):
             tmp = tmp + dtd.serialize('utf-8')
         except libxml2.treeError:
             pass
-            
+
         content = '<%s>%s</%s>' % (starttag, text, endtag)
         tmp = tmp + content.encode('utf-8')
 
@@ -398,6 +401,7 @@ def replaceNodeContentsWithText(node,text):
                 next = node.next
                 node.replaceNode(newelem.copyNodeList())
                 node.next = next
+
         else:
             # In practice, this happens with tags such as "<para>    </para>" (only whitespace in between)
             pass
@@ -421,7 +425,7 @@ def autoNodeIsFinal(node):
     return final
 
 
-def worthOutputting(node):
+def worthOutputting(node, noauto = 0):
     """Returns 1 if node is "worth outputting", otherwise 0.
 
     Node is "worth outputting", if none of the parents
@@ -440,11 +444,32 @@ def worthOutputting(node):
     if not worth:
         return 0
 
-    return autoNodeIsFinal(node)
-    
+    if noauto:
+        return worth
+    else:
+        return autoNodeIsFinal(node)
+
+def processAttribute(node, attr):
+    if not node or not attr or not worthOutputting(node=node, noauto=1):
+        return
+
+    outtxt = attr.content
+    if mode=='merge':
+        translation = getTranslation(outtxt, 0)
+        replaceAttributeContentsWithText(attr, translation.encode('utf-8'))
+    else:
+        msg.outputMessage(outtxt, node.lineNo(),  "", 0,
+                          node.name + ":" + attr.name)
+
 def processElementTag(node, replacements, restart = 0):
     """Process node with node.type == 'element'."""
     if node.type == 'element':
+        # Translate attributes if needed
+        if node.properties and len(treated_attributes):
+            for p in node.properties:
+                if p.name in treated_attributes:
+                    processAttribute(node, p)
+
         outtxt = ''
         if restart:
             myrepl = []
@@ -553,7 +578,7 @@ def doSerialize(node):
             child = child.next
         return outtxt
 
-    
+
 def read_finaltags(filelist):
     if CurrentXmlMode:
         return CurrentXmlMode.getFinalTags()
@@ -570,6 +595,13 @@ def read_ignoredtags(filelist):
         defaults = ['itemizedlist', 'orderedlist', 'variablelist',
                     'varlistentry' ]
         return defaults
+
+def read_treatedattributes(filelist):
+    if CurrentXmlMode:
+        return CurrentXmlMode.getTreatedAttributes()
+    else:
+        return []
+
 
 def tryToUpdate(allargs, lang):
     # Remove "-u" and "--update-translation"
@@ -777,6 +809,7 @@ if mofile:
 
 ultimate_tags = read_finaltags(ultimate)
 ignored_tags = read_ignoredtags(ignored)
+treated_attributes = read_treatedattributes(ignored)
 
 # I'm not particularly happy about making any of these global,
 # but I don't want to bother too much with it right now

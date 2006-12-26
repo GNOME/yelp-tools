@@ -1,5 +1,10 @@
 2006-12-26  Danilo Šegan  <danilo@gnome.org>
 
+	* test.py: Added xhtml test.
+	* xhtml.xml, xhtml.pot, xhtml.po, xhtml.xml.out: Add XHTML mode test.
+
+2006-12-26  Danilo Šegan  <danilo@gnome.org>
+
 	* reuse/reuse.xml: Add uncalled reuse test (call with
 	"../../xml2po -r reuse.xml.out reuse.xml" to check that msgid
 	"Introduction" is untranslated in output).

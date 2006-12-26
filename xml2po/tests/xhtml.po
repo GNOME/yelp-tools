@@ -1,0 +1,32 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: xhtml test\n"
+"POT-Creation-Date: 2006-12-26 20:18+0100\n"
+"PO-Revision-Date: 2006-12-26 20:19+0100\n"
+"Last-Translator: Данило Шеган\n"
+"Language-Team: Српски\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: xhtml.xml:5(title) 
+msgid "Sample XHTML page"
+msgstr "Пример XHTML стране"
+
+#: xhtml.xml:7(p) 
+msgid "This is just an example."
+msgstr "Ово је само пример."
+
+#: xhtml.xml:10(img:title) 
+msgid "Lovely image"
+msgstr "Дивна слика"
+
+#: xhtml.xml:10(img:alt) 
+msgid "Image of nothing"
+msgstr "Слика ничега"
+
+#. Here nothing but a paragraph should be extracted.
+#: xhtml.xml:13(p) 
+msgid "Enough for a test, if you ask <a href=\"mailto:danilo\" title=\"Danilo\">me personally</a>."
+msgstr "Довољно за пробу, ако питате <a href=\"mailto:danilo\" title=\"Данила\">мене лично</a>."
+
