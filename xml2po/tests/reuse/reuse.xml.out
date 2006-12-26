@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE article PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN" "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY legal SYSTEM "legal.xml">
+<!ENTITY appversion "2.1.6">
+<!ENTITY manversion "2.1.0">
+<!ENTITY date "May 2002">
+<!ENTITY app "Bug Buddy">
+]>
+<article lang="sr">
+  <sect1 id="intro">
+	<title>Introduction</title> 
+
+	<para><application>Брат буба</application> је алат који ће вас провести кроз пријаву грешке што је то могуће лакше. Ствари можете изменити на сваком кораку, а затим или послати, сачувати или одбацити добијени извештај. Овај документ описује издање 2.1.6 <application>Брата буба</application>: приметите да је оно знатно измењено у односу на ранија издања.</para>
+	
+	<note>
+	  <title>Много измена у Брату буба</title>
+	  <para><application>Брат буба</application> је недавно претрпео велики број измена.</para>
+	  <para>Систем за лов на бубе у Гному се премешта са оног заснованог на е-пошти (какав је био изворно) на систему <ulink url="http://bugzilla.gnome.org/" type="http">Бубаждаји</ulink> заснованом на вебу. Разлог овоме је жеља да се ефикасније барата са грешкама.  Ово значи да је <application>Брат буба</application> сада значајно измењен ради подршке Бубаждаји. Изглед и структура су и даље веома слични, али важно је знати да сада податке размењује са бубаждајама.  Пријаве ће ићи у стари систем за праћење грешака у Гному једино ако бубаждаја не садржи категорију за грешку.</para>
+	  <para>Ово такође значи да је за сада <application>Брат буба</application> остао без могућности слања пријава грешака у системе за праћење у КДЕ-у и Дебијану. Приметите да и даље можете сачувати извештаје у датотеци и затим сами је послати. <figure id="rnscreenshot-applet-modem">
+                <title>Ново управљачко програмче за модем</title>
+                  <screenshot>
+                    <mediaobject>
+                      <imageobject><imagedata fileref="figure-applet-modem.png" format="PNG"/>
+                      </imageobject>
+                    <textobject><phrase>Ново управљачко програмче за модем</phrase></textobject>
+                  </mediaobject>
+                </screenshot>
+              </figure></para>
+	</note>
+	
+	<para><application>Брат буба</application> се може покренути на више начина: <itemizedlist>
+	  <listitem>
+		<para>Отворите <guimenu>главни мени Гнома</guimenu> и изаберите <menuchoice><guimenu>Програми</guimenu><guisubmenu>Програмирање</guisubmenu><guimenuitem>Пријава грешака</guimenuitem></menuchoice> .</para>
+	  </listitem>
+	  
+	  <listitem>
+		<para>Покрените <command>bug-buddy</command> у терминалу као што је <application>Гномов терминал</application> или <application>xterm</application>.</para>
+	  </listitem>
+	  
+	  <listitem>
+		<para>Ако користите <application>Наутилуса</application> можете двокликнути вашим мишем на датотеку меморије да га покренете.</para>
+	  </listitem>
+	  
+	  <listitem>
+		<para>Када програм из Гнома гадно прсне, приказује се <guilabel>прозорче за прсотине</guilabel>. Ако је <application>Брат буба</application> присутан на систему, онда је једна од могућности у прозорчету да пријавите грешку.  Избор тога ће вас одвести у следеће прозорче које даље детаље о програму који је прснуо. Продужавање одавде ће покренути <application>Брата буба</application>.</para>
+	  </listitem>
+	</itemizedlist></para>
+	<para><application>Брат буба</application> је добро структуиран програм. На сваком кораку можете продужити даље, или се вратити назад и исправити претходно унете детаље, или можете кликнути на <guibutton>дугме за помоћ</guibutton> да прикажете овај документ.</para>
+  </sect1>
+
+</article>
