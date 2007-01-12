@@ -1,4 +1,4 @@
-include $(top_srcdir)/gnome-doc-utils.make
+include $(top_srcdir)/tools/gnome-doc-utils.make
 include $(top_srcdir)/bootstrap.make
 dist-hook: doc-dist-hook
 
