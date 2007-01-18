@@ -37,7 +37,10 @@
 <!-- =============Document Header ============================= -->
 <article id="index" lang="en">
   <articleinfo> 
-    <title>&app; Manual</title>       
+    <title>&app; Manual</title>
+    <abstract role="description">
+      <para>&app; is ... <!-- insert brief description -->.</para>
+    </abstract>         
 
     <copyright> 
       <year>2006</year> 
