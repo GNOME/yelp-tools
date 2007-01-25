@@ -1,3 +1,9 @@
+2007-01-25  Christian Persch  <chpe@svn.gnome.org>
+
+	* tools/gnome-doc-utils.m4:
+	- Provide a 3-argument variant of GNOME_DOC_INIT, to use if you don't
+	want missing gdu be fatal. Bug #392424, also fixes bug #350441.
+
 2007-01-18  Joachim Noreiko  <jnoreiko@yahoo.com>
 
 	* data/templates/gnome-app-template.xml:
