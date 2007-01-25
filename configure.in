@@ -2,9 +2,6 @@ AC_INIT([gnome-doc-utils], [0.8.0],
         [http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-doc-utils])
 AM_INIT_AUTOMAKE
 
-IT_PROG_INTLTOOL([0.35.0])
-AM_GLIB_GNU_GETTEXT
-
 GNOME_DOC_DEFINES
 
 AC_ARG_ENABLE([build-utils],
@@ -27,8 +24,7 @@ GETTEXT_PACKAGE=gnome-doc-utils
 AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE")
 
-ALL_LINGUAS="ar bg bn bn_IN ca cs cy da de dz el en_CA en_GB es et eu fi fr gl gu he hi hu id it ja ka ko lt lv mg mk ml mn mr nb ne nl or pa pt pt_BR ro ru rw sk sl sq sr sr@Latn sv ta th tr ug uk vi wa zh_CN zh_HK zh_TW"
-
+IT_PROG_INTLTOOL([0.35.0])
 AM_GLIB_GNU_GETTEXT
 
 AC_OUTPUT([
