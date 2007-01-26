@@ -20,7 +20,6 @@ EXTRA_DIST = 						\
 	COPYING.LGPL					\
 	bootstrap.make					\
 	gnome-doc-utils.m4				\
-	gnome-doc-utils.make				\
 	intltool-extract.in  				\
 	intltool-merge.in    				\
 	intltool-update.in
