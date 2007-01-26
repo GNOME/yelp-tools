@@ -1,3 +1,45 @@
+Changes in 0.9.1:
+-----------------
+** general:
+ * Fixed various circular dependency problems (Christian Persch)
+ * Use po/LINGUAS [#337987]  (Brian Pepple)
+ * Added documentation templates  (Joachim Noreiko)
+ * Removed some GNUisms [#378739 #378763 #366203]  (Shaun McCance)
+ * New bootstrapping mechanism, using gnome-common [#340128]  (Shaun McCance)
+ * Added ACLOCAL_AMFLAGS for autoreconf [#355521]  (dmacks)
+ * Use $(AWK) instead of awk [#358161]  (James Andrewartha) 
+ * Fixed non-portable test expression [#362505]  (Thomas Klausner)
+ * Removed the never-really-worked xsldoc and rngdoc  (Shaun McCance)
+ * Install the .pc file when build utils are disabled [#355553]  (Mariano Suárez-Alvarez)
+** xml2po:
+ * Updates to tests  (Danilo Šegan)
+ * Added some caching of values  (Danilo Šegan)
+ * Added an XHTML mode  (Claude Paroz, Danilo Šegan)
+ * Really ignore ignored tags [#378073]  (Danilo Šegan)
+ * Ignore untranslated message in reuse mode [#381607]  (Danilo Šegan)
+ * Speed improvements [#363451]  (Alexander Nedotsukov)
+** tools:
+ * Added gnome-doc-tool for processing documentation  (Shaun McCance)
+ * Provide a 3-argument variant of GNOME_DOC_INIT [#392424 #350441]  (Christian Persch)
+** xslt:
+ * Allow pubdate and edition instead of revision in db2omf  (Shaun McCance)
+ * Added an explicit check for scrollkeeper_cl.xml in db2omf  (Shaun McCance)
+ * Made all db2omf errors error out, for great justice  (Shaun McCance)
+ * Check for invalid category codes in db2omf  (Shaun McCance)
+ * Added new inline documentation to XSLT  (Shaun McCance)
+ * Added xi and fxi to exclude-result-prefixes  (Mariano Suárez-Alvarez)
+ * Python classsynopsis elements no longer act like C++  (Shaun McCance)
+ * Fixed some documentation typos  (Shaun McCance)
+ * Added a utility XSLT file to list media files  (Shaun McCance)
+ * Removed excessive alpha-thai elements [#323249]  (Theppitak Karoonboonyanan)
+** Updated translations:
+   ar     (Djihed Afifi)
+   en_GB  (David Lodge)
+   et     (Ivar Smolin)
+   fi     (Ilkka Tuohela)
+   he     (Yaniv Abir)
+   it     (Luca Ferretti)
+
 Changes in 0.8.0:
 -----------------
 * Use an XSLT namespace alias for XInclude output

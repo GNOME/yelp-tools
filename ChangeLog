@@ -1,5 +1,11 @@
 2007-01-26  Shaun McCance  <shaunm@gnome.org>
 
+	* configure.in:
+	* NEWS:
+	- Version 0.9.1
+
+2007-01-26  Shaun McCance  <shaunm@gnome.org>
+
 	* tools/gnome-doc-tool.in:
 	- Fixed help message for html command
 
