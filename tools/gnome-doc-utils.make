@@ -59,13 +59,19 @@ $(DOC_H_FILE): $(DOC_H_DOCS);
 	done;
 	cp $@.tmp $@ && rm -f $@.tmp
 
+dist-check-gdu:
+if !HAVE_GNOME_DOC_UTILS
+	@echo "*** GNOME Doc Utils must be installed in order to make dist"
+	@false
+endif
+
 .PHONY: dist-doc-header
 dist-doc-header: $(DOC_H_FILE)
 	@if test -f "$(DOC_H_FILE)"; then d=; else d="$(srcdir)/"; fi; \
 	echo "$(INSTALL_DATA) $${d}$(DOC_H_FILE) $(distdir)/$(DOC_H_FILE)"; \
 	$(INSTALL_DATA) "$${d}$(DOC_H_FILE)" "$(distdir)/$(DOC_H_FILE)";
 
-doc-dist-hook: $(if $(DOC_H_FILE),dist-doc-header)
+doc-dist-hook: dist-check-gdu $(if $(DOC_H_FILE),dist-doc-header)
 
 .PHONY: clean-doc-header
 _clean_doc_header = $(if $(DOC_H_FILE),clean-doc-header)

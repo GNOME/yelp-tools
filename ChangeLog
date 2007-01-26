@@ -1,5 +1,12 @@
 2007-01-25  Christian Persch  <chpe@svn.gnome.org>
 
+	* configure.in:
+	* tools/gnome-doc-utils.m4:
+	* tools/gnome-doc-utils.make: Make make dist fail when gdu isn't
+	present. Bug #400705.
+
+2007-01-25  Christian Persch  <chpe@svn.gnome.org>
+
 	* configure.in: Actually remove the ALL_LINGUAS line too.
 
 2006-04-15  Brian Pepple  <bdpepple@gmail.com>
