@@ -51,7 +51,7 @@ EOF
 
 function print_help_html {
     cat <<EOF
-Usage: $progname <COMMAND> [OPTIONS] FILE
+Usage: $progname html [OPTIONS] FILE
 Convert FILE into HTML.
 
 Basic Output Control:
