@@ -35,7 +35,7 @@ doc/gnome-doc-make/Makefile
 doc/xslt/Makefile
 po/Makefile.in
 tools/Makefile
-tools/gnome-doc-html
+tools/gnome-doc-tool
 tools/gnome-doc-prepare
 tools/gnome-doc-utils.pc
 xslt/Makefile

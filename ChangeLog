@@ -1,3 +1,11 @@
+2007-01-26  Shaun McCance  <shaunm@gnome.org>
+
+	* configure.in:
+	* tools/gnome-doc-html.in:
+	* tools/gnome-doc-tool.in:
+	* tools/Makefile.am:
+	- Moved gnome-doc-html to gnome-doc-tool, new subcommand syntax
+
 2007-01-26  Christian Persch  <chpe@svn.gnome.org>
 
 	* Makefile.am: Fix distcheck.

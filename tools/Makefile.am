@@ -6,7 +6,7 @@ aclocal_DATA = gnome-doc-utils.m4
 sharedir = $(datadir)/gnome-doc-utils
 share_DATA = gnome-doc-utils.make
 
-bin_SCRIPTS = gnome-doc-prepare gnome-doc-html
+bin_SCRIPTS = gnome-doc-prepare gnome-doc-tool
 
 endif
 
@@ -14,7 +14,7 @@ pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = gnome-doc-utils.pc
 
 EXTRA_DIST =			\
-	gnome-doc-html.in	\
+	gnome-doc-tool.in	\
 	gnome-doc-prepare.in	\
 	gnome-doc-utils.m4	\
 	gnome-doc-utils.make	\
