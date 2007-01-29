@@ -1,5 +1,11 @@
 2007-01-29  Shaun McCance  <shaunm@gnome.org>
 
+	* configure.in:
+	* NEWS:
+	- Version 0.9.2
+
+2007-01-29  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/docbook/omf/db2omf.xsl:
 	- Do not do SK category code checks if the param is not passed [#402159]
 
