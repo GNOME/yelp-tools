@@ -107,8 +107,7 @@ The path to the installed scrollkeeper_cl.xml file
 
 REMARK: Document what this is for
 -->
-<xsl:param name="db2omf.scrollkeeper_cl"/>
-<xsl:variable name="sk_cl" select="document($db2omf.scrollkeeper_cl)"/>
+<xsl:param name="db2omf.scrollkeeper_cl" select="false()"/>
 
 
 <!--**==========================================================================
@@ -453,18 +452,21 @@ REMARK: Document this
       <xsl:text>.</xsl:text>
     </xsl:message>
   </xsl:if>
-  <xsl:for-each select="$subject">
-    <xsl:variable name="code" select="translate(@category, '|', '')"/>
-    <xsl:if test="not($sk_cl//sect[@categorycode = $code])">
-      <xsl:message terminate="yes">
-        <xsl:text>db2omf: Invalid subject code "</xsl:text>
-        <xsl:value-of select="@category"/>
-        <xsl:text>" in </xsl:text>
-        <xsl:value-of select="$db2omf.omf_in"/>
-      <xsl:text>.</xsl:text>
-      </xsl:message>
-    </xsl:if>
-  </xsl:for-each>
+  <xsl:if test="$db2omf.scrollkeeper_cl">
+    <xsl:variable name="sk_cl" select="document($db2omf.scrollkeeper_cl)"/>
+    <xsl:for-each select="$subject">
+      <xsl:variable name="code" select="translate(@category, '|', '')"/>
+      <xsl:if test="not($sk_cl//sect[@categorycode = $code])">
+        <xsl:message terminate="yes">
+          <xsl:text>db2omf: Invalid subject code "</xsl:text>
+          <xsl:value-of select="@category"/>
+          <xsl:text>" in </xsl:text>
+          <xsl:value-of select="$db2omf.omf_in"/>
+          <xsl:text>.</xsl:text>
+        </xsl:message>
+      </xsl:if>
+    </xsl:for-each>
+  </xsl:if>
   <xsl:copy-of select="$subject"/>
 </xsl:template>
 
