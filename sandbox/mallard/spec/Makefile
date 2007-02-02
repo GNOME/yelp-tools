@@ -1,8 +1,8 @@
 .PHONY: check-validate check-links
 
 check-validate:
-	@(cd ../rnc/ && $(MAKE) mallard.rnc)
-	xmllint --noout --relaxng ../rnc/mallard.rng *.xml
+	@(cd ../rng/ && $(MAKE) mallard.rnc)
+	xmllint --noout --relaxng ../rng/mallard.rng *.xml
 
 check-links:
 	@files=$$(for file in *.xml; do \

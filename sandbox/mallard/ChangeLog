@@ -1,5 +1,10 @@
 2007-02-02  Shaun McCance  <shaunm@gnome.org>
 
+	* spec/Makefile:
+	- Changed rnc to rng
+
+2007-02-02  Shaun McCance  <shaunm@gnome.org>
+
 	* html/Makefile:
 	- Adding Makefile to build html versions
 
