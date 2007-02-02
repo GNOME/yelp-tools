@@ -1,3 +1,12 @@
+2007-02-02  Shaun McCance  <shaunm@gnome.org>
+
+	* doc/Makefile.am:
+	* doc/*:
+	* rng/*:
+	* configure.in:
+	* Makefile.am:
+	- Out with the old, prepare for the new
+
 2004-04-05  Shaun McCance  <shaunm@gnome.org>
 
 	* Makefile.am:
