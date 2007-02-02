@@ -1,0 +1,63 @@
+<topic xmlns="http://www.gnome.org/~shaunm/mallard"
+       id="mal_block_code">
+<info>
+  <link type="guide" xref="mal_block#simple"/>
+  <link type="guide" xref="mal_inline"/>
+</info>
+
+<title>Code Snippets</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_code_block = element code {
+  <link xref="mal_attr">mal_attr_common</link>,
+  attribute mime { text },
+  <link xref="mal_inline">mal_inline</link>+
+}</code></synopsis>
+
+<synopsis><code>
+mal_code_inline = element code {
+  <link xref="mal_attr">mal_attr_common</link>,
+  attribute mime { text },
+  <link xref="mal_inline">mal_inline_simple</link>+
+}</code></synopsis>
+
+<comment>
+  <cite><name>Shaun McCance</name><date>2006-12-08</date></cite>
+  <p>Add intro material.</p>
+</comment>
+
+
+<!-- BEGIN examples -->
+<section id="examples" status="tentative">
+  <title>Examples</title>
+  <comment>
+    <cite><name>Shaun McCance</name><date>2007-01-25</date></cite>
+    <p>Add examples.</p>
+  </comment>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing" status="tentative">
+  <title>Processing Expectations</title>
+  <comment>
+    <cite><name>Shaun McCance</name><date>2007-01-25</date></cite>
+    <p>Add processing expectations.  For block, strip leading/trailing
+    newline.  Do not strip leading indentation.</p>
+  </comment>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN docbook -->
+<section id="docbook" status="tentative">
+  <title>Comparison to DocBook</title>
+  <comment>
+    <cite><name>Shaun McCance</name><date>2007-01-25</date></cite>
+    <p>Add: code, class*, func*, programlisting</p>
+  </comment>
+</section>
+<!-- END docbook -->
+
+</topic>

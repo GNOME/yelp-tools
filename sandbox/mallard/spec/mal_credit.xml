@@ -1,0 +1,23 @@
+<topic xmlns="http://www.gnome.org/~shaunm/mallard"
+       id="mal_credit">
+<info>
+  <link type="guide" xref="mal_TODO"/>
+</info>
+
+<title>Credits</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_credit = element credit {
+  attribute type { "author" | "editor" | "collaborator" | "translator" },
+  ( <link xref="mal_name">mal_name</link>   &amp;
+    <link xref="mal_date">mal_date</link>?  &amp;
+    <link xref="mal_email">mal_email</link>? )
+}
+</code></synopsis>
+
+<comment>
+  <cite><name>Shaun McCance</name><date>2007-01-22</date></cite>
+  <p>Add examples, processing expectations</p>
+</comment>
+
+</topic>

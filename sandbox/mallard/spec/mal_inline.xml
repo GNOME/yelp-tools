@@ -1,0 +1,47 @@
+<guide xmlns="http://www.gnome.org/~shaunm/mallard"
+       id="mal_inline">
+<info>
+</info>
+
+<title>Inline Elements</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_inline = (
+  <link xref="mal_app">mal_app</link>           |
+  <link xref="mal_cmd">mal_cmd</link>           |
+  <link xref="mal_code">mal_code_inline</link>   |
+  <link xref="mal_date">mal_date</link>          |
+  <link xref="mal_em">mal_em</link>            |
+  <link xref="mal_email">mal_email</link>         |
+  <link xref="mal_file">mal_file</link>          |
+  <link xref="mal_gui">mal_gui</link>           |
+  <link xref="mal_input">mal_input</link>         |
+  <link xref="mal_key">mal_key</link>           |
+  <link xref="mal_link">mal_link</link>          |
+  <link xref="mal_media">mal_media</link>         |
+  <link xref="mal_name">mal_name</link>          |
+  <link xref="mal_output">mal_output</link>        |
+  <link xref="mal_quote">mal_quote_inline</link>  |
+  <link xref="mal_sys">mal_sys</link>           |
+  <link xref="#simple">mal_inline_simple</link> )
+</code></synopsis>
+
+<comment>
+  <cite><name>Shaun McCance</name><date>2006-11-16</date></cite>
+  <p>Add some intro text</p>
+</comment>
+
+
+<!-- BEGIN simple -->
+<section id="simple">
+<title>Simple Inline</title>
+
+<synopsis><code>mal_inline_simple = (
+  <link xref="mal_var">mal_var</link> |
+  text    )
+</code></synopsis>
+
+</section>
+<!-- END simple -->
+
+</guide>

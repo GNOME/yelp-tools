@@ -1,0 +1,21 @@
+<topic xmlns="http://www.gnome.org/~shaunm/mallard"
+       id="mal_topic">
+<info>
+</info>
+
+<title>Topic Pages</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_topic = element topic {
+  <link xref="mal_info">mal_info_topic</link>?,
+  <link xref="mal_title">mal_title</link>,
+  <link xref="mal_block">mal_block</link>+,
+  <link xref="mal_section">mal_section_topic</link>*
+}</code></synopsis>
+
+<comment>
+  <cite><name>Shaun McCance</name><date>2007-01-30</date></cite>
+  <p>Add some intro text, examples, processing expectations.</p>
+</comment>
+
+</topic>

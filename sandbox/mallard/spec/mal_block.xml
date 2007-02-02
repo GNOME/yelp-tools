@@ -1,0 +1,45 @@
+<guide xmlns="http://www.gnome.org/~shaunm/mallard"
+       id="mal_block">
+<info>
+</info>
+
+<title>Block Elements</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block = (
+  <link xref="mal_comment">mal_comment</link>      |
+  <link xref="mal_figure">mal_figure</link>       |
+  <link xref="mal_list">mal_list</link>         |
+  <link xref="mal_note">mal_note</link>         |
+  <link xref="mal_synopsis">mal_synopsis</link>     |
+  <link xref="#simple">mal_block_simple</link> )
+</code></synopsis>
+
+<comment>
+  <cite><name>Shaun McCance</name><date>2006-11-16</date></cite>
+  <p>Add some intro text</p>
+</comment>
+
+
+<!-- BEGIN simple -->
+<section id="simple">
+<title>Simple Block Elements</title>
+
+<synopsis><code>mal_block_simple = (
+  <link xref="mal_code">mal_code_block</link> |
+  <link xref="mal_p">mal_p</link>          |
+  <link xref="mal_screen">mal_screen</link>     )
+</code></synopsis>
+
+</section>
+<!-- END simple -->
+
+
+<!-- BEGIN containers -->
+<section id="containers">
+<title>Block Container Elements</title>
+
+</section>
+<!-- END containers -->
+
+</guide>

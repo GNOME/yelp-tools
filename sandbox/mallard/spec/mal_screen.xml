@@ -1,0 +1,21 @@
+<topic xmlns="http://www.gnome.org/~shaunm/mallard"
+       id="mal_block_code">
+<info>
+  <link type="guide" xref="mal_block#simple"/>
+</info>
+
+<title>Screens</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_screen = element screen {
+  <link xref="mal_attr">mal_attr_common</link>,
+  <link xref="mal_inline">mal_inline</link>+
+}
+</code></synopsis>
+
+<comment>
+  <cite><name>Shaun McCance</name><date>2006-12-08</date></cite>
+  <p>Add intro, examples, and processing expectations.</p>
+</comment>
+
+</topic>

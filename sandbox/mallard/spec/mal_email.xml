@@ -1,0 +1,20 @@
+<topic xmlns="http://www.gnome.org/~shaunm/mallard"
+       id="mal_email">
+<info>
+  <link type="guide" xref="mal_inline"/>
+</info>
+
+<title>Email Address</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_email = element email {
+  <link xref="mal_inline#simple">mal_inline_simple</link>+
+}
+</code></synopsis>
+
+<comment>
+  <cite><name>Shaun McCance</name><date>2007-01-30</date></cite>
+  <p>Add examples, processing expectations</p>
+</comment>
+
+</topic>

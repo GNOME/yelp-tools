@@ -1,0 +1,70 @@
+<topic xmlns="http://www.gnome.org/~shaunm/mallard"
+       id="mal_list">
+<info>
+  <link type="guide" xref="mal_block#containers"/>
+</info>
+
+<title>Lists</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_list = (
+  <link xref="#bullet">mal_list_bullet</link>     |
+  <link xref="#numbered">mal_list_numbered</link>   |
+  <link xref="#definition">mal_list_definition</link> )
+</code></synopsis>
+
+<comment>
+  <cite><name>Shaun McCance</name><date>2007-01-30</date></cite>
+  <p>Add explanation, examples, processing expectations</p>
+</comment>
+
+
+<!-- BEGIN bullet -->
+<section id="bullet">
+<title>Bullet Lists</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_list_bullet = element_list {
+  attribute type { "bullet" } ?,
+  attribute style { text } ?,
+  element item {
+    <link xref="mal_block#simple">mal_block_simple</link> +
+  } +
+}</code></synopsis>
+</section>
+<!-- END bullet -->
+
+
+<!-- BEGIN numbered -->
+<section id="numberd">
+<title>Numbered Lists</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_list_numbered = element_list {
+  attribute type { "numbered" },
+  attribute style { text } ?,
+  element item {
+    <link xref="mal_block#simple">mal_block_simple</link> +
+  } +
+}</code></synopsis>
+</section>
+<!-- END numbered -->
+
+
+<!-- BEGIN definition -->
+<section id="definition">
+<title>Definition Lists</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_list_definition = element_list {
+  attribute type { "definition" },
+  attribute style { text } ?,
+  element item {
+    <link xref="mal_title">mal_title</link> +,
+    <link xref="mal_block#simple">mal_block_simple</link> +
+  } +
+}</code></synopsis>
+</section>
+<!-- END definition -->
+
+</topic>

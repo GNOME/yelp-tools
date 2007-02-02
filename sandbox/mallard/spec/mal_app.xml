@@ -1,0 +1,20 @@
+<topic xmlns="http://www.gnome.org/~shaunm/mallard"
+       id="mal_app">
+<info>
+  <link type="guide" xref="mal_inline"/>
+</info>
+
+<title>Application Names</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_app = element app {
+  <link xref="mal_inline#simple">mal_inline_simple</link>+
+}
+</code></synopsis>
+
+<comment>
+  <cite><name>Shaun McCance</name><date>2007-01-30</date></cite>
+  <p>Add examples, processing expectations</p>
+</comment>
+
+</topic>
