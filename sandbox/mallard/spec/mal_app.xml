@@ -2,6 +2,10 @@
        id="mal_app">
 <info>
   <link type="guide" xref="mal_inline"/>
+  <version number="0.1" date="2007-02-08" status="review"/>
+  <credit type="author" name="Shaun McCance" email="shaunm@gnome.org"/>
+  <copyright year="2007" name="Shaun McCance"/>
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
 </info>
 
 <title>Application Names</title>
@@ -12,9 +16,34 @@ mal_app = element app {
 }
 </code></synopsis>
 
-<comment>
-  <cite><name>Shaun McCance</name><date>2007-01-30</date></cite>
-  <p>Add examples, processing expectations</p>
-</comment>
+<p>The <code>app</code> element marks the human-readable name of an
+application.  It should not be used to mark the name of the command
+used to run an application; use <code xref="mal_cmd">cmd</code> for
+this purpose instead.</p>
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>Application names are usually nouns, and are often a common word
+  or phrase that are indicative of their functionality.  Frequently,
+  they are simply the name of what the application is.  In English and
+  many other languages, the use of an application name in a sentence
+  may sound like the author has simply mistakenly omitted an article
+  if the application name is not understood to be a title.</p>
+
+  <p>For example, the calculator application that comes with GNOME is
+  called <app>Calculator</app>.  If an author were to write <quote>To
+  start <app>Calculator</app>…</quote>, then a reader may confuse this
+  for <quote>To start the calculator…</quote> with an error.  This is
+  even more pronounced in language like German, where nouns are always
+  capitalized.</p>
+
+  <p>For this reason, it is recommended that application names marked
+  with the <code>app</code> element are rendered in italics are using
+  some other font variation.</p>
+</section>
+<!-- END processing -->
 
 </topic>

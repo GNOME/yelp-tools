@@ -1,3 +1,17 @@
-@status on guide, topic, section
+intro text:
+	- what it is
+	- what it isn't
+	- in what elements it's used
+	- what content is valid
 
+sections:
+	- examples
+	- processing expectations
+	- html comparison
+	- docbook comparison
 
+display environments:
+	- rich display
+	- terminal
+	- print
+	- aural

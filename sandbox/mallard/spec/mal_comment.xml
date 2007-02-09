@@ -37,11 +37,11 @@ attribute.  Writers are highly encouraged to provide a <code xref="mal_date">mal
 -->
 
 <comment>
-  <cite><name>Shaun McCance</name><date>2006-11-16</date></cite>
+  <cite name="Shaun McCance" date="2006-11-16"/>
   <p>Add examples, processing expectations</p>
 
   <comment>
-    <cite><name>Shaun McCance</name><date>2007-01-23</date></cite>
+    <cite name="Shaun McCance" date="2007-01-23"/>
     <p>This is a test of nested comments.</p>
   </comment>
 </comment>

@@ -106,8 +106,13 @@ REMARK: Describe this template
 -->
 <xsl:template name="mal2html.inline.css">
 <xsl:text>
-span.app { color: red; }
-span.cmd { font-family: monospace; }
+span.app { font-style: italic; }
+span.cmd {
+  font-family: monospace;
+  background-color: #f0f0f0;
+  padding-left: 0.2em;
+  padding-right: 0.4em;
+}
 span.code { font-family: monospace; }
 span.em { font-style: italic; }
 span.email { color: red; }

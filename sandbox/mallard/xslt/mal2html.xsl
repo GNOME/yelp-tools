@@ -32,6 +32,9 @@ REMARK: Describe this module
 <xsl:include href="mal2html-block.xsl"/>
 <xsl:include href="mal2html-css.xsl"/>
 <xsl:include href="mal2html-inline.xsl"/>
+<xsl:include href="mal2html-media.xsl"/>
+
+<xsl:include href="util.xsl"/>
 
 <xsl:param name="mal.extension" select="'.xhtml'"/>
 

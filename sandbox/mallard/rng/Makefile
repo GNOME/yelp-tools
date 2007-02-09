@@ -6,4 +6,5 @@ mallard.rnc: $(wildcard ../spec/*.xml)
 	done > mallard.rnc
 
 mallard.rng: mallard.rnc rnc2rng.awk
-	awk -f rnc2rng.awk mallard.rnc | xmllint --format - > mallard.rng
+	awk -f rnc2rng.awk mallard.rnc > $@.tmp || ( rm -f $@.tmp && exit 1 )
+	xmllint --format $@.tmp > $@ || ( rm -f $@.tmp && exit 1 )

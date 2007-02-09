@@ -1,2 +1,32 @@
 <topic xmlns="http://www.gnome.org/~shaunm/mallard">
+<info>
+  <version number="0.1" date="2007-02-08" status="draft"/>
+  <credit type="author" name="Shaun McCance" email="shaunm@gnome.org"/>
+  <copyright year="2007" name="Shaun McCance"/>
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+</info>
+
+<title>Citations</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_cite = element cite {
+  attribute name { text },
+  attribute date { xsd:date }?
+}
+</code></synopsis>
+
+<comment>
+  <cite name="Shaun McCance" date="2007-02-08"/>
+  <p>Possibly add source for block quote citations.</p>
+</comment>
+
+<p>The <code>cite</code> element provides information about the source of a
+<code xref="mal_quote">quote</code> or a <code xref="mal_comment">comment</code>
+element.</p>
+
+<comment>
+  <cite name="Shaun McCance" date="2007-02-08"/>
+  <p>Add examples, processing expectations.</p>
+</comment>
+
 </topic>

@@ -8,13 +8,20 @@
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_gui = element gui {
-  <link xref="mal_inline#simple">mal_inline_simple</link>+
+  attribute type { "check" | "radio" | "menuitem" }?,
+  ( mal_gui +           |
+    <link xref="mal_inline#simple">mal_inline_simple</link> + )
 }
 </code></synopsis>
 
 <comment>
-  <cite><name>Shaun McCance</name><date>2007-01-30</date></cite>
+  <cite name="Shaun McCance" date="2007-01-30"/>
   <p>Add examples, processing expectations</p>
+</comment>
+
+<comment>
+  <cite name="Shaun McCance" date="2007-02-07"/>
+  <p>Fix the content model, make type correspond to gui/inline content.</p>
 </comment>
 
 </topic>

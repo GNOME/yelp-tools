@@ -1,0 +1,19 @@
+<topic xmlns="http://www.gnome.org/~shaunm/mallard"
+       id="mal_list_tree">
+<info>
+  <link type="guide" xref="mal_list"/>
+</info>
+
+<title>Tree Lists</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_list_tree = element_list {
+  attribute type { "tree" },
+  attribute style { text } ?,
+  element item {
+    <link xref="mal_inline">mal_inline</link> +,
+    mal_list_tree ?
+  } +,
+}</code></synopsis>
+
+</topic>

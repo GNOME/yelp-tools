@@ -1,3 +1,63 @@
+2007-02-09  Shaun McCance  <shaunm@gnome.org>
+
+	* html/Makefile
+	- Copy figures over
+
+	* html/mallard-icon-code.png:
+	- Added block code watermark from the BeanStalk mockups
+
+	* rng/Makefile:
+	- Don't leave an empty mallard.rng around when it can't be built
+
+	* spec/mal_list.xml:
+	* spec/mal_list_bullet.xml:
+	* spec/mal_list_definition.xml:
+	* spec/mal_list_numbered.xml:
+	* spec/mal_list_tree.xml:
+	- Starting to hash out the list types
+
+	* spec/TODO:
+	* spec/legal.xml:
+	* spec/mal_app.xml:
+	* spec/mal_block.xml:
+	* spec/mal_caption.xml:
+	* spec/mal_cite.xml:
+	* spec/mal_cmd.xml:
+	* spec/mal_comment.xml:
+	* spec/mal_credit.xml:
+	* spec/mal_gui.xml:
+	* spec/mal_info.xml:
+	* spec/mal_inline.xml:
+	* spec/mal_license.xml:
+	* spec/mal_synopsis.xml:
+	* spec/mal_topic.xml:
+	- Added content
+
+	* spec/Makefile:
+	- Exclude legal from the pages to check
+	- Added status-report target
+
+	* xslt/mal2html-inline.xsl:
+	- Some styling work
+
+	* xslt/mal2html-media.xsl:
+	- Partial support for block images
+
+	* xslt/util.xsl:
+	- Utility template to strip leading/trailing newlines
+
+	* xslt/mal2html.xsl:
+	- Include mal2html-media.xsl and util.xsl
+
+	* xslt/mal-link.xsl:
+	- Put in FIXME text for non-yet-complete automatic link content
+
+	* xslt/mal2html-block.xsl:
+	- Some styling work
+	- Added figure and caption support
+	- Made the code template use util.strip_newlines
+	- Implemented new attribute form of of caption
+
 2007-02-02  Shaun McCance  <shaunm@gnome.org>
 
 	* spec/Makefile:

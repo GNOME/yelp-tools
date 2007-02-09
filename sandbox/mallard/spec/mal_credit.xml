@@ -8,10 +8,10 @@
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_credit = element credit {
-  attribute type { "author" | "editor" | "collaborator" | "translator" },
-  ( <link xref="mal_name">mal_name</link>   &amp;
-    <link xref="mal_date">mal_date</link>?  &amp;
-    <link xref="mal_email">mal_email</link>? )
+  attribute type { "author" | "editor" | "collaborator" | "translator" | "publisher" },
+  attribute name { text },
+  attribute date { xsd:date } ?,
+  attribute email { text } ?
 }
 </code></synopsis>
 

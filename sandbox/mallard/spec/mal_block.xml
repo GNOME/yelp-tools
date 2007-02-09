@@ -16,7 +16,7 @@ mal_block = (
 </code></synopsis>
 
 <comment>
-  <cite><name>Shaun McCance</name><date>2006-11-16</date></cite>
+  <cite name="Shaun McCance" date="2006-11-16"/>
   <p>Add some intro text</p>
 </comment>
 

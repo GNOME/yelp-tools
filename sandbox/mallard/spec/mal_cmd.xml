@@ -2,6 +2,11 @@
        id="mal_cmd">
 <info>
   <link type="guide" xref="mal_inline"/>
+  <link type="seealso" xref="mal_screen"/>
+  <version number="0.1" date="2007-02-05" status="draft"/>
+  <credit type="author" name="Shaun McCance" email="shaunm@gnome.org"/>
+  <copyright year="2007" name="Shaun McCance"/>
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
 </info>
 
 <title>Commands</title>
@@ -12,9 +17,53 @@ mal_cmd = element cmd {
 }
 </code></synopsis>
 
-<comment>
-  <cite><name>Shaun McCance</name><date>2007-01-30</date></cite>
-  <p>Add examples, processing expectations</p>
-</comment>
+<p>The <code>cmd</code> element marks the command used to run a program.
+It should not be used to mark the human-readable name of an application;
+use <code xref="mal_app">app</code> for this purpose instead.</p>
+
+<p>The <code>cmd</code> element may be used to mark the entire command,
+including all arguments.  Mallard does not contain elements to mark the
+arguments specifically, as there is rarely a need to distinguish them
+typographically.  The <code xref="mal_var">var</code> element may be
+used inside a <code>cmd</code> element to indicate text that should be
+replaced by the user.</p>
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <section>
+    <title>Basic Use</title>
+    <code><![CDATA[
+<p>To start <app>Totem Movie Player</app>, enter <cmd>totem</cmd> at the
+command line.</p>
+]]></code>
+    <p>To start <app>Totem Movie Player</app>, enter <cmd>totem</cmd> at the
+    command line.</p>
+  </section>
+
+  <section>
+    <title>Using <code>var</code></title>
+    <code><![CDATA[
+<p>To view a file in <app>Totem Movie Player</app>, enter <cmd>totem <var>file</var></cmd>
+at the command line, replacing <var>file</var> with the name of the file.</p>
+]]></code>
+    <p>To view a file in <app>Totem Movie Player</app>, enter <cmd>totem <var>file</var></cmd>
+    at the command line, replacing <var>file</var> with the name of the file.</p>
+  </section>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+  <comment>
+    <cite name="Shaun McCance" date="2007-02-06"/>
+    <p>Add processing expectations.</p>
+  </comment>
+</section>
+<!-- END processing -->
 
 </topic>

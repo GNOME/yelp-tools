@@ -33,7 +33,7 @@ $xref: FIXME
 <xsl:template name="mal.link.content">
   <xsl:param name="node" select="."/>
   <xsl:param name="xref" select="$node/@xref"/>
-  <!-- FIXME -->
+  <xsl:text>FIXME</xsl:text>
 </xsl:template>
 
 
