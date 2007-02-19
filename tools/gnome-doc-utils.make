@@ -116,6 +116,8 @@ _DOC_REAL_LINGUAS = $(if $(filter environment,$(origin LINGUAS)),		\
 	$(filter $(LINGUAS),$(DOC_LINGUAS)),					\
 	$(DOC_LINGUAS))
 
+_DOC_ABS_SRCDIR = @abs_srcdir@
+
 
 ################################################################################
 ## Variables for Bootstrapping
@@ -151,7 +153,7 @@ db2omf_args =									\
 
 ## @ _DOC_OMF_IN
 ## The OMF input file
-_DOC_OMF_IN = $(if $(DOC_MODULE),$(abspath $(wildcard $(srcdir)/$(DOC_MODULE).omf.in)))
+_DOC_OMF_IN = $(if $(DOC_MODULE),$(wildcard $(_DOC_ABS_SRCDIR)/$(DOC_MODULE).omf.in))
 
 ## @ _DOC_OMF_DB
 ## The OMF files for DocBook output
@@ -287,11 +289,7 @@ $(_DOC_POFILES):
 	fi;
 	@docs=; \
 	list='$(_DOC_C_DOCS_NOENT)'; for doc in $$list; do \
-	  if test -f $$doc; then \
-	    docs="$$docs ../$$doc"; \
-	  else \
-	    docs="$$docs ../$(srcdir)/$$doc"; \
-	  fi; \
+	  docs="$$docs $(_DOC_ABS_SRCDIR)/$$doc"; \
 	done; \
 	if ! test -f $@; then \
 	  echo "(cd $(dir $@) && \
@@ -312,8 +310,7 @@ $(_DOC_POFILES):
 $(_DOC_LC_DOCS) : $(_DOC_POFILES)
 $(_DOC_LC_DOCS) : $(_DOC_C_DOCS)
 	if ! test -d $(dir $@); then mkdir $(dir $@); fi
-	case "$(srcdir)" in /*) sd="$(srcdir)";; *) sd="../$(srcdir)";;	esac; \
-	if [ -f "C/$(notdir $@)" ]; then d="../"; else d="$$sd/"; fi; \
+	if [ -f "C/$(notdir $@)" ]; then d="../"; else d="$(_DOC_ABS_SRCDIR)/"; fi; \
 	(cd $(dir $@) && \
 	  $(_xml2po) -e -p \
 	    "$${d}$(dir $@)$(patsubst %/$(notdir $@),%,$@).po" \

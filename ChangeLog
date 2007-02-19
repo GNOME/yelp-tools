@@ -1,5 +1,10 @@
 2007-02-19  Shaun McCance  <shaunm@gnome.org>
 
+	* tools/gnome-doc-utils.make:
+	- Use abs_srcdir to remove some relative path stupidity [#409341]
+
+2007-02-19  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/docbook/omf/db2omf.xsl:
 	- Fixed type in error message
 
