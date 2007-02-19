@@ -1,17 +1,20 @@
 intro text:
-	- what it is
-	- what it isn't
-	- in what elements it's used
-	- what content is valid
+- what it is
+- what it isn't
+- in what elements it's used
+- what content is valid, if simple
 
 sections:
-	- examples
-	- processing expectations
-	- html comparison
-	- docbook comparison
+- content: Content
+- attributes: Attributes
+- examples: Examples
+- design: Design Notes
+- processing: Processing Expectations
+- html: Comparison to HTML
+- docbook: Comparison to DocBook
 
 display environments:
-	- rich display
-	- terminal
-	- print
-	- aural
+- rich display
+- terminal
+- print
+- aural

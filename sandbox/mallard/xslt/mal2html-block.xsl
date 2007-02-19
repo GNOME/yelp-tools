@@ -50,29 +50,27 @@ div.section div.section div.section { margin-top: 1.44em; }
 pre.code {
   background: url(mallard-icon-code.png) no-repeat top right;
   border: solid 2px #eeeeec;
-  padding: 1em;
+  padding: 0.5em 1em 0.5em 1em;
 }
 div.comment {
   margin-left: 1.72em;
-  padding: 0 1em 1em 1em;
-  background-color: #f0dddd;
+  padding: 0.5em 1em 0.5em 1em;
   border: solid 2px #f08d8d;
 }
-div.comment div.cite { font-style: italic; }
-div.comment div.titlecite { margin-top: 0; }
+div.comment div.cite { margin-top: 0; font-style: italic; }
 
 div.figure {
   color: #2e3436;
   background-color: #eeeeec;
   border: solid 1px #888a85;
   margin-left: 1.72em;
-  padding: 4px 4px 4px 4px;
+  padding: 4px;
 }
 div.figure-contents {
   color: #000000;
   background-color: #ffffff;
   border: solid 1px #888a85;
-  padding: 0 1em 1em 1em;
+  padding: 0.5em 1em 0.5em 1em;
   margin: 0;
   text-align: center;
 }
@@ -81,10 +79,15 @@ div.figure div.caption { margin: 4px 0 0 0; }
 
 div.synopsis {
   color: #2e3436;
+<!--
   background-color: #fffcd9;
   border-top: solid 2px #a8a68f;
   border-bottom: solid 2px #a8a68f;
-  padding: 0 1em 1em 1em;
+-->
+  background-color: #eeeeec;
+  border-top: solid 2px #729fcf;
+  border-bottom: solid 2px #729fcf;
+  padding: 0.5em 1em 0.5em 1em;
 }
 div.synopsis pre.code {
   background: none;
@@ -93,7 +96,7 @@ div.synopsis pre.code {
 }
 div.title {
   font-size: 1.2em;
-  margin-top: 0.83em;
+  margin-top: 0;
   font-weight: bold;
 }
 </xsl:text>
@@ -114,6 +117,11 @@ div.title {
   <xsl:variable name="first" select="node()[1]/self::text()"/>
   <xsl:variable name="last" select="node()[last()]/self::text()"/>
   <pre class="code">
+    <xsl:if test="not(preceding-sibling::*)">
+      <xsl:attribute name="class">
+        <xsl:text>first-child</xsl:text>
+      </xsl:attribute>
+    </xsl:if>
     <xsl:if test="$first">
       <xsl:call-template name="util.strip_newlines">
         <xsl:with-param name="string" select="$first"/>
@@ -136,6 +144,11 @@ div.title {
 <!-- = comment = -->
 <xsl:template mode="mal2html.block.mode" match="mal:comment">
   <div class="comment">
+    <xsl:if test="not(preceding-sibling::*)">
+      <xsl:attribute name="class">
+        <xsl:text>first-child</xsl:text>
+      </xsl:attribute>
+    </xsl:if>
     <xsl:apply-templates mode="mal2html.block.mode"/>
   </div>
 </xsl:template>
@@ -150,12 +163,6 @@ div.title {
 <!-- = comment/cite = -->
 <xsl:template mode="mal2html.block.mode" match="mal:comment/mal:cite">
   <div class="cite">
-    <xsl:attribute name="class">
-      <xsl:text>cite</xsl:text>
-      <xsl:if test="preceding-sibling::*[1]/self::mal:title">
-        <xsl:text> titlecite</xsl:text>
-      </xsl:if>
-    </xsl:attribute>
     <!-- FIXME: i18n -->
     <xsl:choose>
       <xsl:when test="@name and @date">
@@ -175,6 +182,11 @@ div.title {
 <!-- = figure = -->
 <xsl:template mode="mal2html.block.mode" match="mal:figure">
   <div class="figure">
+    <xsl:if test="not(preceding-sibling::*)">
+      <xsl:attribute name="class">
+        <xsl:text>first-child</xsl:text>
+      </xsl:attribute>
+    </xsl:if>
     <xsl:apply-templates mode="mal2html.block.mode" select="mal:title"/>
     <div class="figure-contents">
       <xsl:apply-templates mode="mal2html.block.mode"
@@ -197,6 +209,11 @@ div.title {
 <!-- = p = -->
 <xsl:template mode="mal2html.block.mode" match="mal:p">
   <p class="p">
+    <xsl:if test="not(preceding-sibling::*)">
+      <xsl:attribute name="class">
+        <xsl:text>first-child</xsl:text>
+      </xsl:attribute>
+    </xsl:if>
     <xsl:apply-templates mode="mal2html.inline.mode"/>
   </p>
 </xsl:template>
@@ -204,6 +221,11 @@ div.title {
 <!-- = synopsis = -->
 <xsl:template mode="mal2html.block.mode" match="mal:synopsis">
   <div class="synopsis">
+    <xsl:if test="not(preceding-sibling::*)">
+      <xsl:attribute name="class">
+        <xsl:text>first-child</xsl:text>
+      </xsl:attribute>
+    </xsl:if>
     <xsl:apply-templates mode="mal2html.block.mode"/>
   </div>
 </xsl:template>

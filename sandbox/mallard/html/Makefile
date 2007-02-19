@@ -1,19 +1,23 @@
-pages=$(patsubst %.xml,%.xhtml, $(notdir $(wildcard ../spec/*.xml)))
+specs=$(filter-out ../spec/legal.xml, $(wildcard ../spec/*.xml))
+pages=$(patsubst %.xml,%.xhtml, $(notdir $(specs)))
 
 all: $(pages) figures mallard.cache
 
 mallard.cache : $(wildcard ../xslt/*.xsl)
-	echo '<cache xmlns="http://www.gnome.org/~shaunm/mallard">' >> $@.tmp
-	for file in $(wildcard ../spec/*.xml); do \
-	  xsltproc ../xslt/mal2cache.xsl $$file >> $@.tmp; \
+	echo '<cache xmlns="http://www.gnome.org/~shaunm/mallard">' > $@.in
+	for file in $(specs); do \
+	  echo "<page href='$$file'/>" >> $@.in; \
 	done
-	echo '</cache>' >> $@.tmp
-	mv $@.tmp $@
+	echo '</cache>' >> $@.in
+	xsltproc ../xslt/mal2cache.xsl $@.in | xmllint --format - > $@
+	rm $@.in
 
 $(pages) : mallard.cache
 $(pages) : $(wildcard ../xslt/*.xsl)
 $(pages) : %.xhtml : ../spec/%.xml
-	xsltproc -o $@ ../xslt/mal2html.xsl $<
+	xsltproc -o $@ \
+	  --stringparam mal.cache_file `pwd`/mallard.cache \
+	  ../xslt/mal2html.xsl $<
 
 figures:
 	if [ ! -d figures ]; then mkdir figures; fi

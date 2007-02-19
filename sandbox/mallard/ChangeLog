@@ -1,3 +1,32 @@
+2007-02-19  Shaun McCance  <shaunm@gnome.org>
+
+	* spec/mal_list_tree.xml:
+	- Changed RNG for tree lists
+
+	* spec/mal_table.xml:
+	* spec/mal_caption.xml:
+	- Added tons of table stuff, tons more to go
+
+	* spec/TODO:
+	- More outline sketches about the structure of spec pages
+
+	* spec/mal_app.xml:
+	- Fixed typo
+
+	* html/Makefile:
+	* xslt/mal2cache.xsl:
+	- Got a basically functional cache
+
+	* xslt/mal2html.xsl:
+	- Reworked top-level templates a bit
+
+	* xslt/mal2html-block.xsl:
+	- Style tweaks
+	- Use a first-child class on blocks, to avoid CSS :first-child
+
+	* xslt/mal2html-css.xsl:
+	- More style tweaks, include table and list CSS
+
 2007-02-09  Shaun McCance  <shaunm@gnome.org>
 
 	* html/Makefile

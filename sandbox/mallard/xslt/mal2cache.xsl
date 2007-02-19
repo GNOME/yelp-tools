@@ -18,32 +18,65 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <xsl:stylesheet xmlns:xsl='http://www.w3.org/1999/XSL/Transform'
                 xmlns:mal='http://www.gnome.org/~shaunm/mallard'
+                xmlns='http://www.gnome.org/~shaunm/mallard'
                 version='1.0'>
 
 <xsl:output omit-xml-declaration="yes"/>
 
-<xsl:template match='mal:guide'>
-  <mal:guide id='{@id}'><mal:info>
-    <xsl:copy-of select='mal:info/*'/>
-  </mal:info>
-  <xsl:apply-templates select='mal:section'/>
-  </mal:guide>
+<xsl:template match='/mal:cache'>
+  <cache>
+    <xsl:for-each select="mal:page">
+      <xsl:apply-templates select="document(@href)/*">
+        <xsl:with-param name="href" select="@href"/>
+      </xsl:apply-templates>
+    </xsl:for-each>
+  </cache>
 </xsl:template>
 
-<xsl:template match='mal:topic'>
-  <mal:topic id='{@id}'><mal:info>
-    <xsl:copy-of select='mal:info/*'/>
-  </mal:info>
-  <xsl:apply-templates select='mal:section'/>
-  </mal:topic>
+<xsl:template match="mal:topic">
+  <xsl:param name="href"/>
+  <topic>
+    <xsl:attribute name="id">
+      <xsl:value-of select="@id"/>
+    </xsl:attribute>
+    <xsl:attribute name="href">
+      <xsl:value-of select="$href"/>
+    </xsl:attribute>
+    <xsl:apply-templates/>
+  </topic>
 </xsl:template>
 
-<xsl:template match='mal:section'>
-  <mal:section id='{@id}'><mal:info>
-    <xsl:copy-of select='mal:info/*'/>
-  </mal:info>
-  <xsl:apply-templates select='mal:section'/>
-  </mal:section>
+<xsl:template match="mal:guide">
+  <xsl:param name="href"/>
+  <guide>
+    <xsl:attribute name="id">
+      <xsl:value-of select="@id"/>
+    </xsl:attribute>
+    <xsl:attribute name="href">
+      <xsl:value-of select="$href"/>
+    </xsl:attribute>
+    <xsl:apply-templates/>
+  </guide>
 </xsl:template>
+
+<xsl:template match="mal:section">
+  <section>
+    <xsl:if test="@id">
+      <xsl:attribute name="id">
+        <xsl:value-of select="@id"/>
+      </xsl:attribute>
+    </xsl:if>
+  </section>
+</xsl:template>
+
+<xsl:template match="mal:title">
+  <xsl:copy-of select="."/>
+</xsl:template>
+
+<xsl:template match="mal:info">
+  <xsl:copy-of select="."/>
+</xsl:template>
+
+<xsl:template match="node() | text()"/>
 
 </xsl:stylesheet>

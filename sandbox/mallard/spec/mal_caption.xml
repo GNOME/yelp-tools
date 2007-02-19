@@ -20,6 +20,11 @@ a short textual description of the contents of the figure, often an
 image.  Captions are simple block elements that can contain all
 general <link xref="mal_inline">inline content</link>.</p>
 
+<comment>
+  <cite name="Shaun McCance" date="2007-02-02"/>
+  <p>also appears in table</p>
+</comment>
+
 
 <!-- BEGIN examples -->
 <section id="examples">
