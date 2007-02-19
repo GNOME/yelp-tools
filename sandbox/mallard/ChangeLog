@@ -1,5 +1,13 @@
 2007-02-19  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/mal2html.xsl:
+	- Started getting guide links from the cache
+
+	* spec/mal_code.xml:
+	- The id is mal_code, not mal_block_code
+
+2007-02-19  Shaun McCance  <shaunm@gnome.org>
+
 	* spec/mal_list_tree.xml:
 	- Changed RNG for tree lists
 

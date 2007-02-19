@@ -1,5 +1,5 @@
 <topic xmlns="http://www.gnome.org/~shaunm/mallard"
-       id="mal_block_code">
+       id="mal_code">
 <info>
   <link type="guide" xref="mal_block#simple"/>
   <link type="guide" xref="mal_inline"/>

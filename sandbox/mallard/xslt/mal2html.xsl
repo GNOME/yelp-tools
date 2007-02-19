@@ -41,9 +41,10 @@ REMARK: Describe this module
 <xsl:param name="mal.extension" select="'.xhtml'"/>
 <xsl:param name="mal.cache_file"/>
 <xsl:variable name="cache" select="document($mal.cache_file)"/>
-<xsl:key name="cache_page" match="$cache//mal:guide | $cache//mal:topic" use="@id"/>
-<xsl:key name="cache_sect" match="$cache//mal:section"
-         use="concat((ancestor::mal:guide | ancesotr::mal:topic)[1]/@id, '#', @id)"/>
+<xsl:key name="cache_key" match="*[@id]"
+         use="concat(
+              (ancestor-or-self::mal:guide | ancestor-or-self::mal:topic)[last()]/@id,
+              '#', @id)"/>
 
 <xsl:template match="/">
   <html>
@@ -66,19 +67,27 @@ REMARK: Describe this module
   <xsl:apply-templates mode="mal2html.block.mode"
                        select="*[not(self::mal:section)]"/>
   <xsl:for-each select="mal:info/mal:link[@type = 'page']">
-    <xsl:choose>
-      <xsl:when test="not(@xref)"/>
-      <xsl:when test="contains(@xref, '#')">
-        <div>
-          <xsl:value-of select="key('cache_sect', @xref)/mal:title"/>
-        </div>
-      </xsl:when>
-      <xsl:otherwise>
-        <div>
-          <xsl:value-of select="key('cache_page', @xref)/mal:title"/>
-        </div>
-      </xsl:otherwise>
-    </xsl:choose>
+    <xsl:variable name="id">
+      <xsl:choose>
+        <xsl:when test="contains(@xref, '#')">
+          <xsl:value-of select="@xref"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="concat(@xref, '#', @xref)"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <div>
+      <xsl:for-each select="$cache/mal:cache">
+        <xsl:apply-templates select="key('cache_key', $id)/mal:title/node()"/>
+      </xsl:for-each>
+    </div>
+  </xsl:for-each>
+  <xsl:variable name="id" select="@id"/>
+  <xsl:for-each select="$cache/*/*[mal:info/mal:link[@type = 'guide'][@xref = $id]]">
+    <div>
+      <xsl:apply-templates select="mal:title/node()"/>
+    </div>
   </xsl:for-each>
   <xsl:apply-templates select="mal:section"/>
 </xsl:template>
