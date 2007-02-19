@@ -108,7 +108,6 @@ function DO_html {
     ';
     options=`getopt -qn$progname $longopts -- c:d:e:o:nvVh "$@"`
     if [ "$?" != "0" ]; then print_help_html 1>&2; exit 1; fi
-    echo "$options"
     eval set -- "$options";
     while [ "$1" != "--" ]; do
 	case "$1" in

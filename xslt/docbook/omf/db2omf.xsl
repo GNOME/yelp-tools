@@ -447,7 +447,7 @@ REMARK: Document this
   <xsl:if test="not($subject)">
     <xsl:message terminate="yes">
       <xsl:text>db2omf: Could not construct the OMF subject element.&#x000A;</xsl:text>
-      <xsl:text>  Add either a subject element to </xsl:text>
+      <xsl:text>  Add a subject element to </xsl:text>
       <xsl:value-of select="$db2omf.omf_in"/>
       <xsl:text>.</xsl:text>
     </xsl:message>

@@ -1,3 +1,14 @@
+2007-02-19  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/omf/db2omf.xsl:
+	- Fixed type in error message
+
+	* tools/gnome-doc-utils.make:\
+	- Don't unilaterally stick `pwd` onto $(_DOC_OMF_IN) [#169324]
+
+	* tools/gnome-doc-tool.in:
+	- Removed an echo I'd left in from testing
+
 2007-01-29  Shaun McCance  <shaunm@gnome.org>
 
 	* configure.in:

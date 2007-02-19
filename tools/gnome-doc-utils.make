@@ -145,13 +145,13 @@ db2omf_args =									\
 	--stringparam db2omf.lang $(notdir $(patsubst %/$(notdir $(2)),%,$(2)))	\
 	--stringparam db2omf.omf_dir "$(OMF_DIR)"				\
 	--stringparam db2omf.help_dir "$(HELP_DIR)"				\
-	--stringparam db2omf.omf_in "`pwd`/$(_DOC_OMF_IN)"			\
+	--stringparam db2omf.omf_in "$(_DOC_OMF_IN)"				\
 	--stringparam db2omf.scrollkeeper_cl "$(_skcontentslist)"		\
 	$(_db2omf) $(2)
 
 ## @ _DOC_OMF_IN
 ## The OMF input file
-_DOC_OMF_IN = $(if $(DOC_MODULE),$(wildcard $(srcdir)/$(DOC_MODULE).omf.in))
+_DOC_OMF_IN = $(if $(DOC_MODULE),$(abspath $(wildcard $(srcdir)/$(DOC_MODULE).omf.in)))
 
 ## @ _DOC_OMF_DB
 ## The OMF files for DocBook output
