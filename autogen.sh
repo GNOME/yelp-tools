@@ -3,6 +3,7 @@
 
 srcdir=`dirname $0`
 test -z "$srcdir" && srcdir=.
+abs_srcdir=`(cd $srcdir && pwd)`
 
 PKG_NAME="gnome-doc-utils"
 
@@ -19,10 +20,7 @@ which gnome-autogen.sh || {
     exit 1
 }
 
-# Bootstrap off the local gnome-doc-utils.m4
-ACLOCAL_FLAGS="-I . $ACLOCAL_FLAGS"
-export ACLOCAL_FLAGS
-
-cp $srcdir/tools/gnome-doc-utils.m4 gnome-doc-utils.m4
+# tools/ has gnome-doc-utils.m4 which is necessary to bootstrap g-d-u
+ACLOCAL_FLAGS="$ACLOCAL_FLAGS -I $abs_srcdir/tools"
 
 REQUIRED_AUTOMAKE_VERSION=1.9 USE_GNOME2_MACROS=1 . gnome-autogen.sh
