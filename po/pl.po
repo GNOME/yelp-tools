@@ -1,7 +1,12 @@
 # translation of gnome-doc-utils-2-14.po to Polish
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Copyright (C) 2005-2007 THE PACKAGE COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-#
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+# Aktualną wersję tego pliku możesz odnaleźć w repozytorium svn.aviary.pl
+# Jeśli masz jakiekolwiek uwagi odnoszące się do tłumaczenia lub chcesz
+# pomóc w jego rozwijaniu i pielęgnowaniu, napisz do nas na adres:
+# gnome-l10n@lists.aviary.pl
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 # Stanisław Małolepszy <smalolepszy@aviary.pl>, 2006.
 msgid ""
 msgstr ""
