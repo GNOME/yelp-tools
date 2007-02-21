@@ -41,7 +41,7 @@ msgstr ", "
 #.
 #: ../xslt/gettext/l10n.xml.in.h:22
 msgid "<msgid>appendix.digit</msgid> <msgstr>A</msgstr>"
-msgstr "<msgid>appendix.digit</msgid> <msgstr>A</msgstr>"
+msgstr "<msgid>appendix.digit</msgid> <msgstr>I</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -187,7 +187,7 @@ msgid ""
 "<msgid>biblioentry.tooltip</msgid> <msgstr>View the bibliography entry "
 "<label/>.</msgstr>"
 msgstr ""
-"<msgid>biblioentry.tooltip</msgid> <msgstr>Дивіться елемент бібліографії "
+"<msgid>biblioentry.tooltip</msgid> <msgstr>Дивіться додатковий документ "
 "<label/>.</msgstr>"
 
 #.
@@ -336,8 +336,8 @@ msgid ""
 "<number/></msgstr>"
 msgstr ""
 "<msgid>chapter.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
-"msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Chapter "
-"<number/></msgstr>"
+"msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Глава <number/"
+"></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -410,7 +410,7 @@ msgstr "<msgid>chapter.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 msgid ""
 "<msgid>chapter.xref</msgid> <msgstr>Chapter <number/> ― <title/></msgstr>"
 msgstr ""
-"<msgid>chapter.xref</msgid> <msgstr>Chapter <number/> ― <title/></msgstr>"
+"<msgid>chapter.xref</msgid> <msgstr>Глава <number/> ― <title/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -445,7 +445,7 @@ msgid ""
 "<msgid>citetitle.format</msgid> <msgstr role='article'>“<node/>”</msgstr> "
 "<msgstr><i><node/></i></msgstr>"
 msgstr ""
-"<msgid>citetitle.format</msgid> <msgstr role='article'>“<node/>”</msgstr> "
+"<msgid>citetitle.format</msgid> <msgstr role='article'>\"<node/>\"</msgstr> "
 "<msgstr><i><node/></i></msgstr>"
 
 #.
@@ -475,7 +475,7 @@ msgstr ""
 msgid ""
 "<msgid>email.tooltip</msgid> <msgstr>Send email to ‘<string/>’.</msgstr>"
 msgstr ""
-"<msgid>email.tooltip</msgid> <msgstr>Надсилати пошту до ‘<string/>’.</msgstr>"
+"<msgid>email.tooltip</msgid> <msgstr>Надсилати пошту адресату ‘<string/>’.</msgstr>"
 
 #.
 #. The number formatter used for example numbers.  This can be one of
@@ -806,8 +806,8 @@ msgid ""
 "<msgid>glossentry.tooltip</msgid> <msgstr>Read the definition for "
 "‘<glossterm/>’.</msgstr>"
 msgstr ""
-"<msgid>glossentry.tooltip</msgid> <msgstr>Читайте визначення ‘<glossterm/>’."
-"</msgstr>"
+"<msgid>glossentry.tooltip</msgid> <msgstr>Читайте визначення \"<glossterm/>"
+"\".</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1745,7 +1745,7 @@ msgstr "Приналежність"
 #. Used as a title for a bibliography.
 #: ../xslt/gettext/l10n.xml.in.h:1442
 msgid "Bibliography"
-msgstr "Бібліографія"
+msgstr "Додаткові документи"
 
 #.
 #. http://www.docbook.org/tdg/en/html/caution.html
@@ -1761,7 +1761,7 @@ msgstr "Застереження"
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1452
 msgid "Colophon"
-msgstr "Кінцівка"
+msgstr "Післямова"
 
 #.
 #. http://www.docbook.org/tdg/en/html/dedication.html
@@ -1790,7 +1790,7 @@ msgstr "Ел.пошта"
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1472
 msgid "Glossary"
-msgstr "Глосарій"
+msgstr "Словник термінів"
 
 #.
 #. http://www.docbook.org/tdg/en/html/important.html
@@ -1814,7 +1814,7 @@ msgstr "Покажчик"
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1487
 msgid "Legal Notice"
-msgstr "Юридична примітка"
+msgstr "Юридичний статус"
 
 #.
 #. http://www.docbook.org/tdg/en/html/refnamediv.html
@@ -1859,7 +1859,7 @@ msgstr "З:&#x2003;"
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1517
 msgid "Revision History"
-msgstr "Історія переробок"
+msgstr "Історія створення"
 
 #.
 #. Used for the <see> element.
