@@ -1,3 +1,9 @@
+2007-03-02  Danilo Šegan  <danilo@gnome.org>
+
+	* Fix #413602: Use mfile variable name instead of file, thus
+	overwriting file() call used later.
+	Patch by Eduardo Habkost <ehabkost@raisama.net>.
+
 2006-12-26  Danilo Šegan  <danilo@gnome.org>
 
 	* xml2po.py (autoNodeIsFinal): Cache autoNodeIsFinal value.

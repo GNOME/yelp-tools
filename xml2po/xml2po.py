@@ -812,9 +812,9 @@ if mode=='merge' and mofile=='':
 
 if mofile:
     try:
-        file = open(mofile, "rb")
+        mfile = open(mofile, "rb")
 
-        gt = gettext.GNUTranslations(file)
+        gt = gettext.GNUTranslations(mfile)
         gt.add_fallback(NoneTranslations())
     except:
         print >> sys.stderr, "Can't open MO file '%s'." % (mofile)
