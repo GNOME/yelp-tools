@@ -1,3 +1,57 @@
+2007-03-02  Shaun McCance  <shaunm@gnome.org>
+
+	* spec/10minutes.xml:
+	* spec/explore.xml:
+	* spec/principle-guide.xml:
+	* spec/principle-justenough.xml:
+	* spec/principle-redundancy.xml:
+	* spec/principles.xml:
+	- Adding stubs for design principles and explantory content
+
+	* spec/*.xml:
+	- Adding version information and stub content to all pages
+
+	* spec/mallard.xml:
+	* spec/spec.xml:
+	* spec/spec_info.xml:
+	* spec/spec_pages.xml:
+	- Adding some guide pages
+
+	* spec/figures/mallard.png:
+	- Adding Drake
+
+	* spec/TODO:
+	- Adding 'Best Practices' to section list
+
+	* xslt/mal2html.xsl:
+	* xslt/mal2html-page.xsl:
+	- Better page handling, page and guide links added
+
+	* xslt/theme.xml:
+	* xslt/theme.xsl:
+	- New module for themeable colors and icons
+
+	* xslt/mal2cache.xsl:
+	- Ensure info elements are always created
+
+	* xslt/mal-link.xsl:
+	- Ensure link content is correct for sections
+
+	* xslt/mal2html-table.xsl:
+	- Partial table support
+
+	* xslt/mal2html-css.xsl:
+	- Moved page CSS to mal2html-page.xsl
+
+	* xslt/mal2html-block.xsl:
+	- Using new themeable colors
+
+	* xslt/mal2html-list.xsl:
+	- Partial support for tree lists
+
+	* html/Makefile:
+	- Make targets depend on the XSLT
+
 2007-02-19  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/mal2html.xsl:

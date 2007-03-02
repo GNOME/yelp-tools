@@ -1,0 +1,14 @@
+<guide xmlns="http://www.gnome.org/~shaunm/mallard"
+       id="spec">
+<info>
+  <version number="0.1" date="2007-02-21" status="stub"/>
+</info>
+
+<title>Specification</title>
+
+<comment>
+  <cite name="Shaun McCance" date="2007-02-20"/>
+  <p>Add some intro text</p>
+</comment>
+
+</guide>

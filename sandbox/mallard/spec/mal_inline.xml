@@ -1,6 +1,8 @@
 <guide xmlns="http://www.gnome.org/~shaunm/mallard"
        id="mal_inline">
 <info>
+  <link type="guide" xref="spec"/>
+  <version number="0.1" date="2007-02-21" status="incomplete"/>
 </info>
 
 <title>Inline Elements</title>
@@ -20,25 +22,13 @@ mal_inline = (
   <link xref="mal_output">mal_output</link>        |
   <link xref="mal_quote">mal_quote_inline</link>  |
   <link xref="mal_sys">mal_sys</link>           |
-  <link xref="#simple">mal_inline_simple</link> )
+  mal_inline_simple )
+mal_inline_simple = ( <link xref="mal_var">mal_var</link> | text )
 </code></synopsis>
 
 <comment>
   <cite name="Shaun McCance" date="2006-11-16"/>
   <p>Add some intro text</p>
 </comment>
-
-
-<!-- BEGIN simple -->
-<section id="simple">
-<title>Simple Inline</title>
-
-<synopsis><code>mal_inline_simple = (
-  <link xref="mal_var">mal_var</link> |
-  text    )
-</code></synopsis>
-
-</section>
-<!-- END simple -->
 
 </guide>

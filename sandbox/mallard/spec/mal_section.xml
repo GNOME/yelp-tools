@@ -1,2 +1,10 @@
-<topic xmlns="http://www.gnome.org/~shaunm/mallard">
+<topic xmlns="http://www.gnome.org/~shaunm/mallard"
+       id="mal_section">
+<info>
+  <link type="guide" xref="spec_pages" weight="-1"/>
+  <version number="0.1" date="2007-02-22" status="stub"/>
+</info>
+
+<title>Sections</title>
+
 </topic>

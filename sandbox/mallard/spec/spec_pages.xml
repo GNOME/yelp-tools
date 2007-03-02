@@ -1,0 +1,15 @@
+<guide xmlns="http://www.gnome.org/~shaunm/mallard"
+       id="spec_pages">
+<info>
+  <link type="guide" xref="spec" weight="1"/>
+  <version number="0.1" date="2007-02-22" status="stub"/>
+</info>
+
+<title>Page Elements</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+default namespace = "http://www.gnome.org/~shaunm/mallard"
+start = (mal_guide | mal_topic)
+</code></synopsis>
+
+</guide>

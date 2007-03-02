@@ -1,0 +1,18 @@
+<guide xmlns="http://www.gnome.org/~shaunm/mallard"
+       id="mallard">
+<info>
+  <link type="page" xref="10minutes"/>
+  <link type="page" xref="explore"/>
+  <link type="page" xref="principles"/>
+  <link type="page" xref="spec"/>
+  <version number="0.1" date="2007-02-22" status="stub"/>
+</info>
+
+<title>Mallard</title>
+
+<comment>
+  <cite name="Shaun McCance" date="2007-02-20"/>
+  <p>Add some intro text</p>
+</comment>
+
+</guide>

@@ -1,14 +1,18 @@
 <topic xmlns="http://www.gnome.org/~shaunm/mallard"
        id="mal_credit">
 <info>
-  <link type="guide" xref="mal_TODO"/>
+  <link type="guide" xref="spec_info"/>
+  <version number="0.1" date="2007-02-22" status="stub"/>
 </info>
 
 <title>Credits</title>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_credit = element credit {
-  attribute type { "author" | "editor" | "collaborator" | "translator" | "publisher" },
+  attribute type {
+    "author"     | "editor"       |
+    "maintainer" | "collaborator" |
+    "translator" | "publisher"    },
   attribute name { text },
   attribute date { xsd:date } ?,
   attribute email { text } ?

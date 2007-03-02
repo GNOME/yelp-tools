@@ -3,7 +3,7 @@
 <info>
   <link type="guide" xref="mal_inline"/>
   <link type="seealso" xref="mal_screen"/>
-  <version number="0.1" date="2007-02-05" status="draft"/>
+  <version number="0.1" date="2007-02-05" status="incomplete"/>
   <credit type="author" name="Shaun McCance" email="shaunm@gnome.org"/>
   <copyright year="2007" name="Shaun McCance"/>
   <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
@@ -36,8 +36,8 @@ replaced by the user.</p>
   <section>
     <title>Basic Use</title>
     <code><![CDATA[
-<p>To start <app>Totem Movie Player</app>, enter <cmd>totem</cmd> at the
-command line.</p>
+<p>To start <app>Totem Movie Player</app>, enter <cmd>totem</cmd> at
+the command line.</p>
 ]]></code>
     <p>To start <app>Totem Movie Player</app>, enter <cmd>totem</cmd> at the
     command line.</p>
@@ -46,8 +46,9 @@ command line.</p>
   <section>
     <title>Using <code>var</code></title>
     <code><![CDATA[
-<p>To view a file in <app>Totem Movie Player</app>, enter <cmd>totem <var>file</var></cmd>
-at the command line, replacing <var>file</var> with the name of the file.</p>
+<p>To view a file in <app>Totem Movie Player</app>, enter <cmd>totem
+<var>file</var></cmd> at the command line, replacing <var>file</var>
+with the name of the file.</p>
 ]]></code>
     <p>To view a file in <app>Totem Movie Player</app>, enter <cmd>totem <var>file</var></cmd>
     at the command line, replacing <var>file</var> with the name of the file.</p>

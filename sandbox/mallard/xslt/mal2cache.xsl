@@ -42,6 +42,12 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     <xsl:attribute name="href">
       <xsl:value-of select="$href"/>
     </xsl:attribute>
+    <xsl:if test="not(mal:info)">
+      <xsl:call-template name="info">
+        <xsl:with-param name="info" select="mal:info"/>
+        <xsl:with-param name="node" select="."/>
+      </xsl:call-template>
+    </xsl:if>
     <xsl:apply-templates/>
   </topic>
 </xsl:template>
@@ -55,6 +61,12 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
     <xsl:attribute name="href">
       <xsl:value-of select="$href"/>
     </xsl:attribute>
+    <xsl:if test="not(mal:info)">
+      <xsl:call-template name="info">
+        <xsl:with-param name="info" select="mal:info"/>
+        <xsl:with-param name="node" select="."/>
+      </xsl:call-template>
+    </xsl:if>
     <xsl:apply-templates/>
   </guide>
 </xsl:template>
@@ -66,6 +78,13 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
         <xsl:value-of select="@id"/>
       </xsl:attribute>
     </xsl:if>
+    <xsl:if test="not(mal:info)">
+      <xsl:call-template name="info">
+        <xsl:with-param name="info" select="mal:info"/>
+        <xsl:with-param name="node" select="."/>
+      </xsl:call-template>
+    </xsl:if>
+    <xsl:apply-templates/>
   </section>
 </xsl:template>
 
@@ -73,8 +92,38 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <xsl:copy-of select="."/>
 </xsl:template>
 
-<xsl:template match="mal:info">
-  <xsl:copy-of select="."/>
+<xsl:template name="info" match="mal:info">
+  <xsl:param name="info" select="."/>
+  <xsl:param name="node" select="$info/.."/>
+  <info>
+    <xsl:if test="not($info/mal:title[@type = 'link'])">
+      <title type="link">
+        <xsl:copy-of select="$node/mal:title/node()"/>
+      </title>
+    </xsl:if>
+    <xsl:if test="not($info/mal:title[@type = 'sort'])">
+      <title type="sort">
+        <xsl:choose>
+          <xsl:when test="$info/mal:title[@type = 'link']">
+            <xsl:copy-of select="$info/mal:title[@type = 'link'][1]/node()"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:copy-of select="$node/mal:title/node()"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </title>
+    </xsl:if>
+    <xsl:for-each select="$info/*">
+      <xsl:choose>
+        <xsl:when test="self::mal:link[@type = 'guide' and not(@weight)]">
+          <link type="guide" xref="{@xref}" weight="0"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:copy-of select="."/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:for-each>
+  </info>
 </xsl:template>
 
 <xsl:template match="node() | text()"/>

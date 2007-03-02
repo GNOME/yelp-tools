@@ -3,6 +3,7 @@
 <info>
   <link type="guide" xref="mal_block#simple"/>
   <link type="guide" xref="mal_inline"/>
+  <version number="0.1" date="2007-02-21" status="stub"/>
 </info>
 
 <title>Code Snippets</title>
@@ -22,7 +23,7 @@ mal_code_inline = element code {
 }</code></synopsis>
 
 <comment>
-  <cite><name>Shaun McCance</name><date>2006-12-08</date></cite>
+  <cite name="Shaun McCance" date="2006-12-08"/>
   <p>Add intro material.</p>
 </comment>
 
@@ -31,7 +32,7 @@ mal_code_inline = element code {
 <section id="examples" status="tentative">
   <title>Examples</title>
   <comment>
-    <cite><name>Shaun McCance</name><date>2007-01-25</date></cite>
+    <cite name="Shaun McCance" date="2007-01-25"/>
     <p>Add examples.</p>
   </comment>
 </section>
@@ -42,7 +43,7 @@ mal_code_inline = element code {
 <section id="processing" status="tentative">
   <title>Processing Expectations</title>
   <comment>
-    <cite><name>Shaun McCance</name><date>2007-01-25</date></cite>
+    <cite name="Shaun McCance" date="2007-01-25"/>
     <p>Add processing expectations.  For block, strip leading/trailing
     newline.  Do not strip leading indentation.</p>
   </comment>
@@ -54,7 +55,7 @@ mal_code_inline = element code {
 <section id="docbook" status="tentative">
   <title>Comparison to DocBook</title>
   <comment>
-    <cite><name>Shaun McCance</name><date>2007-01-25</date></cite>
+    <cite name="Shaun McCance" date="2007-01-25"/>
     <p>Add: code, class*, func*, programlisting</p>
   </comment>
 </section>

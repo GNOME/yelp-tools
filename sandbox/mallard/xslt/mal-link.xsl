@@ -17,6 +17,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:mal="http://www.gnome.org/~shaunm/mallard"
                 version="1.0">
 
 <!--!!==========================================================================
@@ -33,7 +34,22 @@ $xref: FIXME
 <xsl:template name="mal.link.content">
   <xsl:param name="node" select="."/>
   <xsl:param name="xref" select="$node/@xref"/>
-  <xsl:text>FIXME</xsl:text>
+  <xsl:variable name="linkid">
+    <xsl:choose>
+      <xsl:when test="contains($xref, '#')">
+        <xsl:value-of select="$xref"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="concat($xref, '#', $xref)"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+  <xsl:for-each select="$cache">
+    <!-- FIXME: if empty -->
+    <xsl:apply-templates mode="mal2html.inline.mode"
+                         select="key('cache_key', $linkid)
+                                 /mal:info/mal:title[@type = 'link']/node()"/>
+  </xsl:for-each>
 </xsl:template>
 
 

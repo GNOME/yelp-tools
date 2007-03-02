@@ -34,8 +34,10 @@ REMARK: Describe this module
 <xsl:include href="mal2html-inline.xsl"/>
 <xsl:include href="mal2html-list.xsl"/>
 <xsl:include href="mal2html-media.xsl"/>
+<xsl:include href="mal2html-page.xsl"/>
 <xsl:include href="mal2html-table.xsl"/>
 
+<xsl:include href="theme.xsl"/>
 <xsl:include href="util.xsl"/>
 
 <xsl:param name="mal.extension" select="'.xhtml'"/>
@@ -46,76 +48,7 @@ REMARK: Describe this module
               (ancestor-or-self::mal:guide | ancestor-or-self::mal:topic)[last()]/@id,
               '#', @id)"/>
 
-<xsl:template match="/">
-  <html>
-    <head>
-      <title>
-        <xsl:value-of select="/*/mal:title"/>
-      </title>
-      <xsl:call-template name="mal2html.css"/>
-    </head>
-    <body>
-      <div class="body">
-        <xsl:apply-templates/>
-      </div>
-    </body>
-  </html>
-</xsl:template>
-
-<!-- = guide = -->
-<xsl:template match="mal:guide">
-  <xsl:apply-templates mode="mal2html.block.mode"
-                       select="*[not(self::mal:section)]"/>
-  <xsl:for-each select="mal:info/mal:link[@type = 'page']">
-    <xsl:variable name="id">
-      <xsl:choose>
-        <xsl:when test="contains(@xref, '#')">
-          <xsl:value-of select="@xref"/>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:value-of select="concat(@xref, '#', @xref)"/>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:variable>
-    <div>
-      <xsl:for-each select="$cache/mal:cache">
-        <xsl:apply-templates select="key('cache_key', $id)/mal:title/node()"/>
-      </xsl:for-each>
-    </div>
-  </xsl:for-each>
-  <xsl:variable name="id" select="@id"/>
-  <xsl:for-each select="$cache/*/*[mal:info/mal:link[@type = 'guide'][@xref = $id]]">
-    <div>
-      <xsl:apply-templates select="mal:title/node()"/>
-    </div>
-  </xsl:for-each>
-  <xsl:apply-templates select="mal:section"/>
-</xsl:template>
-
-<!-- = topic = -->
-<xsl:template match="mal:topic">
-  <xsl:apply-templates mode="mal2html.block.mode"
-                       select="*[not(self::mal:section)]"/>
-  <xsl:apply-templates select="mal:section"/>
-</xsl:template>
-
-<!-- = section = -->
-<xsl:template match="mal:section">
-  <div class="section" id="{@id}">
-    <xsl:apply-templates mode="mal2html.block.mode"/>
-  </div>
-</xsl:template>
-
-<!-- = title = -->
-<xsl:template mode="mal2html.block.mode" match="mal:title">
-  <xsl:variable name="depth"
-                select="count(ancestor::mal:section) + 1"/>
-  <xsl:element name="{concat('h', $depth)}">
-    <xsl:apply-templates mode="mal2html.inline.mode"/>
-  </xsl:element>
-</xsl:template>
-
-
+<!-- FIXME -->
 <xsl:template match="*">
   <xsl:message>
     <xsl:text>Unmatched element: </xsl:text>

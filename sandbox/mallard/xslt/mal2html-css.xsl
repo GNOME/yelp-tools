@@ -84,25 +84,13 @@ by extension stylesheets to extend or override the CSS.
   <xsl:call-template name="mal2html.block.css"/>
   <xsl:call-template name="mal2html.inline.css"/>
   <xsl:call-template name="mal2html.list.css"/>
+  <xsl:call-template name="mal2html.page.css"/>
   <xsl:call-template name="mal2html.table.css"/>
 <xsl:text>
-html { height: 100%; }
-body {
-  margin: 0px;
-  direction: </xsl:text><xsl:call-template name="l10n.direction"/><xsl:text>;
-  background-color: #eeeeec;
-  padding: 12px;
-  min-height: 100%;
-}
-div.body {
-  margin: 0;
-  padding: 12px;
-  border: solid 1px #babdb6;
-  max-width: 60em;
-  background-color: #ffffff;
-}
 div, pre, p { margin: 1em 0 0 0; padding: 0; }
 .first-child { margin-top: 0; }
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
 </xsl:text>
 <xsl:call-template name="mal2html.css.custom"/>
 </xsl:template>

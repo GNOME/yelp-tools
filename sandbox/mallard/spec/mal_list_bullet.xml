@@ -2,6 +2,7 @@
        id="mal_list_bullet">
 <info>
   <link type="guide" xref="mal_list"/>
+  <version number="0.1" date="2007-02-21" status="stub"/>
 </info>
 
 <title>Bullet Lists</title>

@@ -1,2 +1,13 @@
-<topic xmlns="http://www.gnome.org/~shaunm/mallard">
+<topic xmlns="http://www.gnome.org/~shaunm/mallard"
+       id="mal_copyright">
+<info>
+  <version number="0.1" date="2007-02-23" status="stub"/>
+  <credit type="author" name="Shaun McCance" email="shaunm@gnome.org"/>
+  <copyright year="2007" name="Shaun McCance"/>
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+  <link type="guide" xref="spec_info"/>
+</info>
+
+<title>Copyright Information</title>
+
 </topic>

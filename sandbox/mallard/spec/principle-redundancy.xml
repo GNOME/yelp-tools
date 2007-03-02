@@ -1,0 +1,11 @@
+<topic xmlns="http://www.gnome.org/~shaunm/mallard"
+       id="principle-redundancy">
+<info>
+  <version number="0.1" date="2007-02-26" status="stub"/>
+  <link type="guide" xref="principles#writer"/>
+  <desc>Avoid forcing writers to write the same thing twice</desc>
+</info>
+
+<title>Reduce Redundancy</title>
+
+</topic>

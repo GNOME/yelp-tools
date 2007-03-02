@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- -*- indent-tabs-mode: nil -*- -->
+<theme xmlns="http://www.gnome.org/~shaunm/gnome-doc-utils/theme">
+
+  <color id="background"    value="#ffffff"/>
+  <color id="link"          value="#1f5b99"/>
+  <color id="link-visited"  value="#991f73"/>
+  <color id="text"          value="#000000"/>
+  <color id="text-light"    value="#4f4f4f"/>
+
+  <color id="blue-light"    value="#edf4fa"/>
+  <color id="blue-medium"   value="#bbdbfa"/>
+  <color id="blue-dark"     value="#96c7fa"/>
+
+  <color id="gray-light"    value="#f7f7f5"/>
+  <color id="gray-medium"   value="#e0e0df"/>
+  <color id="gray-dark"     value="#cfcfcd"/>
+
+  <color id="red-light"     value="#faeded"/>
+  <color id="red-medium"    value="#fac8c8"/>
+  <color id="red-dark"      value="#faa2a2"/>
+
+  <color id="yellow-light"  value="#faf8ed"/>
+  <color id="yellow-medium" value="#f1f2c8"/>
+  <color id="yellow-dark"   value="#fae57d"/>
+
+  <!-- notes/admonitions -->
+  <icon id="bug"       width="48" height="48" src=""/>
+  <icon id="caution"   width="48" height="48" src=""/>
+  <icon id="important" width="48" height="48" src=""/>
+  <icon id="note"      width="48" height="48" src=""/>
+  <icon id="tip"       width="48" height="48" src=""/>
+  <icon id="warning"   width="48" height="48" src=""/>
+
+  <!-- status information -->
+  <icon id="status-stub"       width="16" height="16" src=""/>
+  <icon id="status-draft"      width="16" height="16" src=""/>
+  <icon id="status-incomplete" width="16" height="16" src=""/>
+  <icon id="status-review"     width="16" height="16" src=""/>
+
+  <!-- watermarks -->
+  <icon id="watermark-code"       src=""/>
+  <icon id="watermark-quote-00AB" src=""/>
+  <icon id="watermark-quote-00BB" src=""/>
+  <icon id="watermark-quote-201C" src=""/>
+  <icon id="watermark-quote-201D" src=""/>
+  <icon id="watermark-quote-201E" src=""/>
+  <icon id="waterkmark-screen"    src=""/>
+
+</theme>
