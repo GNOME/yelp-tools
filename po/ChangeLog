@@ -1,3 +1,8 @@
+2007-03-08  Leonardo Ferreira Fontenelle  <leonardof@svn.gnome.org>
+
+	* pt_BR.po: Fixed Brazilian Portuguese translation. Closes
+	bug #416174. Thanks to Shaun McCance by noticing it!
+
 2007-02-27  Gintautas Miliauskas  <gintas@akl.lt>
 
 	* lt.po: Updated Lithuanian translation.
