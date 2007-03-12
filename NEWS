@@ -1,3 +1,19 @@
+Changes in 0.10.0:
+------------------
+** general:
+ * Fixed buildir/srcdir issue with autogen, #409292 (Loïc Minier)
+** tools:
+ * Fixed some brokenness with relative paths, #409341 (Loïc Minier)
+ * Fixed some brokenness with absolute patsh, #169324 (Shaun McCance)
+** xml2po:
+ * Fixed bug #413602 (Eduardo Habkost)
+** Updated translations:
+   it     (Luca Ferretti)
+   lt     (Gintautas Miliauskas)
+   pl     (GNOME PL Team)
+   pt_BR  (Leonardo Ferreira Fontenelle)
+   uk     (Maxim Dziumanenko)
+
 Changes in 0.9.2:
 -----------------
 * Skip SK category code checks if the param is not passed [#402159]
