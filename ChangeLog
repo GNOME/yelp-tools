@@ -1,5 +1,10 @@
 2007-03-12  Shaun McCance  <shaunm@gnome.org>
 
+	* autogen.sh:
+	- Fix bootstrapping issue, #416933 (Elijah Newren)
+
+2007-03-12  Shaun McCance  <shaunm@gnome.org>
+
 	* configure.in:
 	* NEWS:
 	- Version 0.10.0

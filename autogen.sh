@@ -21,6 +21,6 @@ which gnome-autogen.sh || {
 }
 
 # tools/ has gnome-doc-utils.m4 which is necessary to bootstrap g-d-u
-ACLOCAL_FLAGS="$ACLOCAL_FLAGS -I $abs_srcdir/tools"
+ACLOCAL_FLAGS="-I $abs_srcdir/tools $ACLOCAL_FLAGS"
 
 REQUIRED_AUTOMAKE_VERSION=1.9 USE_GNOME2_MACROS=1 . gnome-autogen.sh
