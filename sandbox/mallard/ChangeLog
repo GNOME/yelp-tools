@@ -1,3 +1,33 @@
+2007-03-14  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/mal2html-page.xsl:
+	- Updated guide and seealso links
+
+	* xslt/mal2html-block.xsl:
+	* xslt/mal2html-css.xsl:
+	* xslt/theme.xml:
+	- Some color and style adjustments
+
+	* spec/mal_app.xml:
+	* spec/mal_cmd.xml:
+	* spec/mal_code.xml:
+	* spec/mal_em.xml:
+	* spec/mal_file.xml:
+	* spec/mal_gui.xml:
+	* spec/mal_input.xml:
+	* spec/mal_key.xml:
+	* spec/mal_link.xml:
+	* spec/mal_output.xml:
+	* spec/mal_quote.xml:
+	* spec/mal_sys.xml:
+	* spec/mal_var.xml:
+	- Ubiquitous linking
+
+	* spec/mallard.xml:
+	* spec/mal_p.xml:
+	* spec/mal_table.xml:
+	- Minor corrections
+
 2007-03-02  Shaun McCance  <shaunm@gnome.org>
 
 	* spec/10minutes.xml:

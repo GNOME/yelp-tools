@@ -60,7 +60,7 @@ REMARK: Describe this template
   <xsl:variable name="id">
     <xsl:choose>
       <xsl:when test="$node/self::mal:section">
-        <xsl:value-of select="concat(ancestor::mal:topic[1]/@id, '#', @id)"/>
+        <xsl:value-of select="concat((ancestor::mal:guide[1] | ancestor::mal:topic[1])[1]/@id, '#', @id)"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:value-of select="@id"/>
@@ -71,11 +71,9 @@ REMARK: Describe this template
   <xsl:variable name="pagelinks"
                 select="$cache//*[mal:info/mal:link[@type = 'page'][@xref = $id]]"/>
   <xsl:variable name="guidelinks"
-                select="mal:info/mal:link[@type = 'guide']"/>
+                select="$node/mal:info/mal:link[@type = 'guide']"/>
   <xsl:if test="$pagelinks or $guidelinks">
-    <div class="guidelinks">
-      <!-- FIXME: i18n and text sucks -->
-      <div class="title">More About</div>
+    <ul class="guidelinks">
       <xsl:for-each select="$pagelinks">
         <xsl:variable name="position">
           <xsl:choose>
@@ -129,7 +127,7 @@ REMARK: Describe this template
           </xsl:call-template>
         </xsl:for-each>
       </xsl:for-each>
-    </div>
+    </ul>
   </xsl:if>
   <!-- END guidelinks -->
 </xsl:template>
@@ -160,7 +158,7 @@ REMARK: Describe this template
       </xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
-  <div>
+  <li>
     <xsl:attribute name="class">
       <xsl:text>guidelink</xsl:text>
       <xsl:choose>
@@ -186,7 +184,7 @@ REMARK: Describe this template
         <xsl:with-param name="xref" select="$xref"/>
       </xsl:call-template>
     </a>
-  </div>
+  </li>
 </xsl:template>
 
 
@@ -313,46 +311,214 @@ REMARK: Describe this template
       </xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
-  <div>
-    <xsl:attribute name="class">
-      <xsl:text>pagelink</xsl:text>
-      <xsl:choose>
-        <xsl:when test="$position = 'only'">
-          <xsl:text> pagelink-only</xsl:text>
-        </xsl:when>
-        <xsl:when test="$position = 'first'">
-          <xsl:text> pagelink-first</xsl:text>
-        </xsl:when>
-        <xsl:when test="$position = 'last'">
-          <xsl:text> pagelink-last</xsl:text>
-        </xsl:when>
-      </xsl:choose>
+  <a>
+    <xsl:attribute name="href">
+      <xsl:call-template name="mal.link.target">
+        <xsl:with-param name="xref" select="$xref"/>
+      </xsl:call-template>
     </xsl:attribute>
-    <!-- FIXME: call a common linkifier? -->
-    <div class="title">
-      <a>
-        <xsl:attribute name="href">
-          <xsl:call-template name="mal.link.target">
-            <xsl:with-param name="xref" select="$xref"/>
-          </xsl:call-template>
-        </xsl:attribute>
+    <div>
+      <xsl:attribute name="class">
+        <xsl:text>pagelink</xsl:text>
+        <xsl:choose>
+          <xsl:when test="$position = 'only'">
+            <xsl:text> pagelink-only</xsl:text>
+          </xsl:when>
+          <xsl:when test="$position = 'first'">
+            <xsl:text> pagelink-first</xsl:text>
+          </xsl:when>
+          <xsl:when test="$position = 'last'">
+            <xsl:text> pagelink-last</xsl:text>
+          </xsl:when>
+        </xsl:choose>
+      </xsl:attribute>
+      <!-- FIXME: call a common linkifier? -->
+      <div class="title">
         <xsl:call-template name="mal.link.content">
           <xsl:with-param name="node" select="."/>
           <xsl:with-param name="xref" select="$xref"/>
         </xsl:call-template>
-      </a>
+      </div>
+      <xsl:for-each select="$cache">
+        <xsl:variable name="desc"
+                      select="key('cache_key', $linkid)/mal:info/mal:desc[1]"/>
+        <xsl:if test="$desc">
+          <div class="desc">
+            <!-- FIXME: should desc contain inline or block? -->
+            <xsl:apply-templates mode="mal2html.inline.mode" select="$desc/node()"/>
+          </div>
+        </xsl:if>
+      </xsl:for-each>
     </div>
-    <xsl:for-each select="$cache">
-      <xsl:variable name="desc"
-                    select="key('cache_key', $linkid)/mal:info/mal:desc[1]"/>
-      <xsl:if test="$desc">
-        <div class="desc">
-          <!-- FIXME: should desc contain inline or block? -->
-          <xsl:apply-templates mode="mal2html.inline.mode" select="$desc/node()"/>
-        </div>
-      </xsl:if>
-    </xsl:for-each>
+  </a>
+</xsl:template>
+
+
+<!--**==========================================================================
+mal2html.page.seealsolinks
+Outputs the automatic seealso links from a page related pages
+$node: The #{topic} or #{section} element containing the links
+
+REMARK: Describe this template
+-->
+<xsl:template name="mal2html.page.seealsolinks">
+  <xsl:param name="node" select="."/>
+  <xsl:variable name="id">
+    <xsl:choose>
+      <xsl:when test="$node/self::mal:section">
+        <xsl:value-of select="concat(ancestor::mal:topic[1]/@id, '#', @id)"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="@id"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+  <!-- FIXME: // is slow -->
+  <xsl:variable name="inlinks"
+                select="$cache//*[mal:info/mal:link[@type = 'seealso'][@xref = $id]]"/>
+  <xsl:variable name="outlinks"
+                select="$node/mal:info/mal:link[@type = 'seealso']"/>
+  <xsl:if test="$inlinks or $outlinks">
+    <div class="seealsolinks">
+      <!-- FIXME: i18n -->
+      <div class="title">See Also</div>
+      <xsl:for-each select="$inlinks">
+        <xsl:call-template name="mal2html.page.seealsolink">
+          <xsl:with-param name="node" select="$node"/>
+          <xsl:with-param name="page" select="."/>
+          <xsl:with-param name="position">
+            <xsl:choose>
+              <xsl:when test="last() = 1 and count($outlinks) = 0">
+                <xsl:text>only</xsl:text>
+              </xsl:when>
+              <xsl:when test="position() = 1">
+                <xsl:text>first</xsl:text>
+              </xsl:when>
+              <xsl:when test="position() = last() and count($outlinks) = 0">
+                <xsl:text>last</xsl:text>
+              </xsl:when>
+            </xsl:choose>
+          </xsl:with-param>
+        </xsl:call-template>
+      </xsl:for-each>
+      <xsl:for-each select="$outlinks">
+        <xsl:variable name="linkid">
+          <xsl:choose>
+            <xsl:when test="contains(@xref, '#')">
+              <xsl:value-of select="@xref"/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="concat(@xref, '#', @xref)"/>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:variable>
+        <xsl:variable name="position">
+          <xsl:choose>
+            <xsl:when test="last() = 1 and count($inlinks) = 0">
+              <xsl:text>only</xsl:text>
+            </xsl:when>
+            <xsl:when test="position() = 1 and count($inlinks) = 0">
+              <xsl:text>first</xsl:text>
+            </xsl:when>
+            <xsl:when test="position() = last()">
+              <xsl:text>last</xsl:text>
+            </xsl:when>
+          </xsl:choose>
+        </xsl:variable>
+        <xsl:for-each select="$cache">
+          <xsl:call-template name="mal2html.page.seealsolink">
+            <xsl:with-param name="node" select="$node"/>
+            <xsl:with-param name="page" select="key('cache_key', $linkid)"/>
+            <xsl:with-param name="position" select="$position"/>
+          </xsl:call-template>
+        </xsl:for-each>
+      </xsl:for-each>
+    </div>
+  </xsl:if>
+  <!-- END guidelinks -->
+</xsl:template>
+
+
+<!--**==========================================================================
+mal2html.page.seealsolink
+Outputs an automatic link block for a seealso link
+$node: The #{topic} or #{section} element containing the link
+$page: The element from the cache file of the page being linked to
+$position: The position of this link in the list, either 'first', 'last', or ''
+
+REMARK: Describe this template
+-->
+<xsl:template name="mal2html.page.seealsolink">
+  <xsl:param name="node" select="."/>
+  <xsl:param name="page"/>
+  <xsl:param name="position"/>
+  <xsl:variable name="xref">
+    <xsl:choose>
+      <xsl:when test="$page/self::mal:section">
+        <xsl:value-of select="($page/ancestor::mal:guide | $page/ancestor::mal:topic)[1]/@id"/>
+        <xsl:text>#</xsl:text>
+        <xsl:value-of select="$page/@id"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$page/@id"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+  <div>
+    <xsl:attribute name="class">
+      <xsl:text>seealsolink</xsl:text>
+      <xsl:choose>
+        <xsl:when test="$position = 'only'">
+          <xsl:text> seealsolink-only</xsl:text>
+        </xsl:when>
+        <xsl:when test="$position = 'first'">
+          <xsl:text> seealsolink-first</xsl:text>
+        </xsl:when>
+        <xsl:when test="$position = 'last'">
+          <xsl:text> seealsolink-last</xsl:text>
+        </xsl:when>
+      </xsl:choose>
+    </xsl:attribute>
+    <a>
+      <xsl:attribute name="href">
+        <xsl:call-template name="mal.link.target">
+          <xsl:with-param name="xref" select="$xref"/>
+        </xsl:call-template>
+      </xsl:attribute>
+      <xsl:call-template name="mal.link.content">
+        <xsl:with-param name="node" select="."/>
+        <xsl:with-param name="xref" select="$xref"/>
+      </xsl:call-template>
+    </a>
   </div>
+</xsl:template>
+
+
+<!--**==========================================================================
+mal2html.page.sidebar
+Outputs the sidebar for a structural element
+$node: A #{topic}, #{guide}, or #{section} element
+
+REMARK: Describe this template
+-->
+<xsl:template name="mal2html.page.sidebar">
+  <xsl:param name="node" select="."/>
+  <xsl:variable name="guidelinks">
+    <xsl:call-template name="mal2html.page.guidelinks">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:call-template>
+  </xsl:variable>
+  <xsl:variable name="seealsolinks">
+    <xsl:call-template name="mal2html.page.seealsolinks">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:call-template>
+  </xsl:variable>
+  <xsl:if test="$guidelinks or $seealsolinks">
+    <div class="sidebar">
+      <xsl:copy-of select="$guidelinks"/>
+      <xsl:copy-of select="$seealsolinks"/>
+    </div>
+  </xsl:if>
 </xsl:template>
 
 
@@ -366,11 +532,11 @@ REMARK: Describe this template
 <xsl:text>
 html { height: 100%; }
 body {
-  margin: 0px;
   direction: </xsl:text><xsl:call-template name="l10n.direction"/><xsl:text>;
+  margin: 0px;
   background-color: </xsl:text>
   <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'gray-light'"/>
+    <xsl:with-param name="id" select="'gray-background'"/>
   </xsl:call-template>
   <xsl:text>;
   padding: 12px;
@@ -389,12 +555,12 @@ div.version {
   max-width: 60em;
   border: solid 1px </xsl:text>
   <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'gray-dark'"/>
+    <xsl:with-param name="id" select="'gray-border'"/>
   </xsl:call-template>
   <xsl:text>;
   background-color: </xsl:text>
   <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'yellow-light'"/>
+    <xsl:with-param name="id" select="'yellow-background'"/>
   </xsl:call-template>
   <xsl:text>;
 }
@@ -408,7 +574,7 @@ div.body {
   min-height: 20em;
   border: solid 1px </xsl:text>
   <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'gray-medium'"/>
+    <xsl:with-param name="id" select="'gray-border'"/>
   </xsl:call-template>
   <xsl:text>;
   background-color: </xsl:text>
@@ -425,14 +591,35 @@ div.copyrights {
   </xsl:call-template>
   <xsl:text>;
 }
-div.pagelinks {
-  margin-left: 1em;
+div.section { margin-top: 2em; clear: both; }
+div.section div.section { margin-top: 1.72em; margin-left: 1.72em; }
+div.section div.section div.section { margin-top: 1.44em; }
+div.header {
+  margin: 0;
+  color: </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'text-light'"/>
+  </xsl:call-template>
+  <xsl:text>;
+  border-bottom: solid 1px </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'gray-border'"/>
+  </xsl:call-template>
+  <xsl:text>;
 }
-div.pagelink-first, div.pagelink-only {
-  margin-top: 0;
-}
+div.section div.section div.header { border: none; }
+h1, h2, h3, h4, h5, h6, h7 { margin: 0; }
+h1.title { font-size: 1.72em; }
+h2.title { font-size: 1.44em; }
+h3.title { font-size: 1.2em; }
+h4.title { font-size: 1em; }
+h5.title { font-size: 1em; }
+h6.title { font-size: 1em; }
+h7.title { font-size: 1em; }
+
 div.pagelink div.title {
   font-size: 1em;
+  color: inherit;
 }
 div.pagelink div.desc {
   margin-top: 0.2em;
@@ -442,27 +629,66 @@ div.pagelink div.desc {
   </xsl:call-template>
   <xsl:text>;
 }
-div.guidelinks {
-  float: right;
-  width: 10em;
-  margin-top: -1px;
-  padding: 0.5em 1em 0.5em 0.5em;
+div.pagelink {
+  margin: 0;
+  padding: 0.5em;
   border: solid 1px </xsl:text>
   <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'gray-medium'"/>
+    <xsl:with-param name="id" select="'background'"/>
+  </xsl:call-template>
+  <xsl:text>;
+}
+div.pagelink:hover {
+  border-color: </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'blue-medium'"/>
   </xsl:call-template>
   <xsl:text>;
   background-color: </xsl:text>
   <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'gray-light'"/>
+    <xsl:with-param name="id" select="'blue-light'"/>
   </xsl:call-template>
   <xsl:text>;
 }
-div.guidelinks div.title {
-  font-size: 1em;
-}
-div.guidelink {
+div.sidebar { margin: 0; }
+ul.guidelinks {
+  display: block;
   margin: 0;
+  text-align: right;
+}
+li.guidelink { display: inline; }
+li.guidelink::before {
+  content: ' • ';
+  color: </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'gray-dark'"/>
+  </xsl:call-template>
+  <xsl:text>;
+}
+li.guidelink-first::before, li.guidelink-only::before {
+  content: '';
+}
+
+
+div.sidebar div.title {
+  font-size: 1em;
+  font-weight: normal;
+  display: inline;
+}
+div.seealsolinks { margin: 0; }
+div.seealsolink {
+  display: inline;
+}
+div.seealsolink::before {
+  content: ' • ';
+  color: </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'gray-dark'"/>
+  </xsl:call-template>
+  <xsl:text>;
+}
+div.seealsolink-first::before, div.seealsolink-only::before {
+  content: ' : ';
 }
 </xsl:text>
 </xsl:template>
@@ -539,9 +765,11 @@ div.guidelink {
 
 <!-- = guide = -->
 <xsl:template match="mal:guide">
-  <xsl:apply-templates mode="mal2html.block.mode"
-                       select="mal:title | mal:subtitle"/>
-  <xsl:call-template name="mal2html.page.guidelinks"/>
+  <div class="header">
+    <xsl:apply-templates mode="mal2html.block.mode"
+                         select="mal:title | mal:subtitle"/>
+  </div>
+  <xsl:call-template name="mal2html.page.sidebar"/>
   <div class="contents">
     <xsl:apply-templates
         mode="mal2html.block.mode"
@@ -553,9 +781,11 @@ div.guidelink {
 
 <!-- = topic = -->
 <xsl:template match="mal:topic">
-  <xsl:apply-templates mode="mal2html.block.mode"
-                       select="mal:title | mal:subtitle"/>
-  <xsl:call-template name="mal2html.page.guidelinks"/>
+  <div class="header">
+    <xsl:apply-templates mode="mal2html.block.mode"
+                         select="mal:title | mal:subtitle"/>
+  </div>
+  <xsl:call-template name="mal2html.page.sidebar"/>
   <div class="contents">
     <xsl:apply-templates
         mode="mal2html.block.mode"
@@ -567,9 +797,11 @@ div.guidelink {
 <!-- = section = -->
 <xsl:template match="mal:section">
   <div class="section" id="{@id}">
-    <xsl:apply-templates mode="mal2html.block.mode"
-                         select="mal:title | mal:subtitle"/>
-    <xsl:call-template name="mal2html.page.guidelinks"/>
+    <div class="header">
+      <xsl:apply-templates mode="mal2html.block.mode"
+                           select="mal:title | mal:subtitle"/>
+    </div>
+    <xsl:call-template name="mal2html.page.sidebar"/>
     <div class="contents">
       <xsl:apply-templates
           mode="mal2html.block.mode"

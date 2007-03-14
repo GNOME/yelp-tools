@@ -18,7 +18,7 @@ element.  The <code>p</code> element creates a paragraph in the formatted
 outout.</p>
 
 <comment>
-  <cite><name>Shaun McCance</name><date>2007-01-25</date></cite>
+  <cite name="Shaun McCance" date="2007-01-25"/>
   <p>Add some more description.</p>
 </comment>
 
@@ -27,7 +27,7 @@ outout.</p>
 <section id="examples" status="tentative">
   <title>Examples</title>
   <comment>
-    <cite><name>Shaun McCance</name><date>2007-01-25</date></cite>
+    <cite name="Shaun McCance" date="2007-01-25"/>
     <p>Add examples.</p>
   </comment>
 </section>
@@ -38,7 +38,7 @@ outout.</p>
 <section id="processing" status="tentative">
   <title>Processing Expectations</title>
   <comment>
-    <cite><name>Shaun McCance</name><date>2007-01-25</date></cite>
+    <cite name="Shaun McCance" date="2007-01-25"/>
     <p>Add processing expectations.  Very basic.  Mention margins and
     indentation as means of demarkating paragraphs.  Explicitly mention
     the no-block-nesting thing.</p>

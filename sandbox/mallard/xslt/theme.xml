@@ -2,26 +2,20 @@
 <theme xmlns="http://www.gnome.org/~shaunm/gnome-doc-utils/theme">
 
   <color id="background"    value="#ffffff"/>
-  <color id="link"          value="#1f5b99"/>
-  <color id="link-visited"  value="#991f73"/>
+  <color id="link"          value="#1f609f"/>
+  <color id="link-visited"  value="#9f1f6f"/>
   <color id="text"          value="#000000"/>
-  <color id="text-light"    value="#4f4f4f"/>
+  <color id="text-light"    value="#3f3f3f"/>
 
-  <color id="blue-light"    value="#edf4fa"/>
-  <color id="blue-medium"   value="#bbdbfa"/>
-  <color id="blue-dark"     value="#96c7fa"/>
+  <color id="blue-background"   value="#f0f9ff"/>
+  <color id="blue-border"       value="#c0c9ff"/>
+  <color id="gray-background"   value="#f9f9f6"/>
+  <color id="gray-border"       value="#e0e0df"/>
+  <color id="red-background"    value="#fff0f0"/>
+  <color id="red-border"        value="#ffc0c0"/>
+  <color id="yellow-background" value="#fffff0"/>
+  <color id="yellow-border"     value="#ffffc0"/>
 
-  <color id="gray-light"    value="#f7f7f5"/>
-  <color id="gray-medium"   value="#e0e0df"/>
-  <color id="gray-dark"     value="#cfcfcd"/>
-
-  <color id="red-light"     value="#faeded"/>
-  <color id="red-medium"    value="#fac8c8"/>
-  <color id="red-dark"      value="#faa2a2"/>
-
-  <color id="yellow-light"  value="#faf8ed"/>
-  <color id="yellow-medium" value="#f1f2c8"/>
-  <color id="yellow-dark"   value="#fae57d"/>
 
   <!-- notes/admonitions -->
   <icon id="bug"       width="48" height="48" src=""/>

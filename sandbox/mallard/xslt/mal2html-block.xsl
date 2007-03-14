@@ -36,32 +36,14 @@ REMARK: Describe this template
 -->
 <xsl:template name="mal2html.block.css">
 <xsl:text>
-h1.title, h2.title, h3.title, h4.title, h5.title, h6.title, h7.title, div.title {
+div.title {
   color: </xsl:text>
   <xsl:call-template name="theme.get_color">
     <xsl:with-param name="id" select="'text-light'"/>
   </xsl:call-template>
   <xsl:text>;
-  margin: 0;
+  font-weight: bold;
 }
-h1.title, h2.title {
-  border-bottom: solid 1px </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'gray-medium'"/>
-  </xsl:call-template>
-  <xsl:text>;
-}
-h1.title { font-size: 1.72em; }
-h2.title { font-size: 1.44em; }
-h3.title { font-size: 1.2em; }
-h4.title { font-size: 1em; }
-h5.title { font-size: 1em; }
-h6.title { font-size: 1em; }
-h7.title { font-size: 1em; }
-div.title { font-weight: bold; }
-div.section { margin-top: 2em; clear: both; }
-div.section div.section { margin-top: 1.72em; margin-left: 1.72em; }
-div.section div.section div.section { margin-top: 1.44em; }
 pre.code {
   <!-- FIXME: theme -->
   background: url(mallard-icon-code.png) no-repeat top right;
@@ -73,18 +55,20 @@ pre.code {
   padding: 0.5em 1em 0.5em 1em;
 }
 div.comment {
-  margin-left: 1.72em;
-  padding: 0.5em 1em 0.5em 1em;
+  padding: 0.5em;
   border: solid 2px </xsl:text>
   <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'red-dark'"/>
+    <xsl:with-param name="id" select="'red-border'"/>
   </xsl:call-template>
   <xsl:text>;
   background-color: </xsl:text>
   <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'red-light'"/>
+    <xsl:with-param name="id" select="'red-background'"/>
   </xsl:call-template>
   <xsl:text>;
+}
+div.comment div.comment {
+  margin: 1em 0 0 1em;
 }
 div.comment div.cite { margin: 0; font-style: italic; }
 
@@ -96,12 +80,12 @@ div.figure {
   <xsl:text>;
   border: solid 1px </xsl:text>
   <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'gray-dark'"/>
+    <xsl:with-param name="id" select="'gray-border'"/>
   </xsl:call-template>
   <xsl:text>;
   background-color: </xsl:text>
   <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'gray-medium'"/>
+    <xsl:with-param name="id" select="'gray-background'"/>
   </xsl:call-template>
   <xsl:text>;
   margin-left: 1.72em;
@@ -115,7 +99,7 @@ div.figure-contents {
   <xsl:text>;
   border: solid 1px </xsl:text>
   <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'gray-dark'"/>
+    <xsl:with-param name="id" select="'gray-border'"/>
   </xsl:call-template>
   <xsl:text>;
   background-color: </xsl:text>
@@ -135,12 +119,12 @@ div.synopsis {
   border-bottom: solid 2px;
   border-color: </xsl:text>
   <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'blue-dark'"/>
+    <xsl:with-param name="id" select="'blue-border'"/>
   </xsl:call-template>
   <xsl:text>;
   background-color: </xsl:text>
   <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'gray-light'"/>
+    <xsl:with-param name="id" select="'gray-background'"/>
   </xsl:call-template>
   <xsl:text>;
   padding: 0.5em 1em 0.5em 1em;

@@ -89,7 +89,21 @@ by extension stylesheets to extend or override the CSS.
 <xsl:text>
 div, pre, p { margin: 1em 0 0 0; padding: 0; }
 .first-child { margin-top: 0; }
-a { text-decoration: none; }
+a {
+  text-decoration: none;
+  color: </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'link'"/>
+  </xsl:call-template>
+  <xsl:text>;
+}
+a:visited {
+  color: </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'link-visited'"/>
+  </xsl:call-template>
+  <xsl:text>;
+}
 a:hover { text-decoration: underline; }
 </xsl:text>
 <xsl:call-template name="mal2html.css.custom"/>

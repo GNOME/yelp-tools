@@ -2,6 +2,7 @@
        id="mal_app">
 <info>
   <link type="guide" xref="mal_inline"/>
+  <link type="seealso" xref="mal_link#ubiquitous"/>
   <version number="0.1" date="2007-02-08" status="review"/>
   <credit type="author" name="Shaun McCance" email="shaunm@gnome.org"/>
   <copyright year="2007" name="Shaun McCance"/>
@@ -12,6 +13,7 @@
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_app = element app {
+  <link xref="mal_link#ubiquitous">mal_link_attr</link>?,
   <link xref="mal_inline#simple">mal_inline_simple</link>+
 }
 </code></synopsis>

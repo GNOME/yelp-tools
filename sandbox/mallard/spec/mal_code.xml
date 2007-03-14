@@ -3,6 +3,7 @@
 <info>
   <link type="guide" xref="mal_block#simple"/>
   <link type="guide" xref="mal_inline"/>
+  <link type="seealso" xref="mal_link#ubiquitous"/>
   <version number="0.1" date="2007-02-21" status="stub"/>
 </info>
 
@@ -10,15 +11,14 @@
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_code_block = element code {
-  <link xref="mal_attr">mal_attr_common</link>,
   attribute mime { text },
   <link xref="mal_inline">mal_inline</link>+
 }</code></synopsis>
 
 <synopsis><code>
 mal_code_inline = element code {
-  <link xref="mal_attr">mal_attr_common</link>,
   attribute mime { text },
+  <link xref="mal_link#ubiquitous">mal_link_attr</link>?,
   <link xref="mal_inline">mal_inline_simple</link>+
 }</code></synopsis>
 
