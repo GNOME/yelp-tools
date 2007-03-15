@@ -1,4 +1,4 @@
-<topic xmlns="http://www.gnome.org/~shaunm/mallard"
+<page xmlns="http://www.gnome.org/~shaunm/mallard"
        id="mal_quote">
 <info>
   <link type="guide" xref="mal_inline"/>
@@ -14,4 +14,4 @@
   <p>style="epipgraph"</p>
 </comment>
 
-</topic>
+</page>

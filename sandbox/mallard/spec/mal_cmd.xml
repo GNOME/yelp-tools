@@ -1,4 +1,4 @@
-<topic xmlns="http://www.gnome.org/~shaunm/mallard"
+<page xmlns="http://www.gnome.org/~shaunm/mallard"
        id="mal_cmd">
 <info>
   <link type="guide" xref="mal_inline"/>
@@ -69,4 +69,4 @@ with the name of the file.</p>
 </section>
 <!-- END processing -->
 
-</topic>
+</page>

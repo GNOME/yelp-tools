@@ -1,4 +1,4 @@
-<topic xmlns="http://www.gnome.org/~shaunm/mallard"
+<page xmlns="http://www.gnome.org/~shaunm/mallard"
        id="mal_media">
 <info>
   <link type="guide" xref="mal_inline"/>
@@ -8,4 +8,4 @@
 
 <title>Multimedia Objects</title>
 
-</topic>
+</page>

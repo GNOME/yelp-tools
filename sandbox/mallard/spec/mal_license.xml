@@ -1,4 +1,4 @@
-<topic xmlns="http://www.gnome.org/~shaunm/mallard"
+<page xmlns="http://www.gnome.org/~shaunm/mallard"
        id="mal_license">
 <info>
   <link type="guide" xref="spec_info"/>
@@ -7,4 +7,4 @@
 
 <title>License Information</title>
 
-</topic>
+</page>

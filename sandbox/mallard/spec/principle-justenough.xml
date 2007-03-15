@@ -1,4 +1,4 @@
-<topic xmlns="http://www.gnome.org/~shaunm/mallard"
+<page xmlns="http://www.gnome.org/~shaunm/mallard"
        id="principle-justenough">
 <info>
   <version number="0.1" date="2007-02-26" status="stub"/>
@@ -9,4 +9,4 @@
 
 <title>Just Enough Markup</title>
 
-</topic>
+</page>

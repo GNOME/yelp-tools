@@ -1,4 +1,4 @@
-<topic xmlns="http://www.gnome.org/~shaunm/mallard"
+<page xmlns="http://www.gnome.org/~shaunm/mallard"
        id="mal_list_definition">
 <info>
   <link type="guide" xref="mal_list"/>
@@ -18,4 +18,4 @@ mal_list_definition = element_list {
   } +
 }</code></synopsis>
 
-</topic>
+</page>

@@ -1,4 +1,4 @@
-<topic xmlns="http://www.gnome.org/~shaunm/mallard"
+<page xmlns="http://www.gnome.org/~shaunm/mallard"
        id="mal_credit">
 <info>
   <link type="guide" xref="spec_info"/>
@@ -24,4 +24,4 @@ mal_credit = element credit {
   <p>Add examples, processing expectations</p>
 </comment>
 
-</topic>
+</page>

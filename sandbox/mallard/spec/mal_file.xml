@@ -1,4 +1,4 @@
-<topic xmlns="http://www.gnome.org/~shaunm/mallard"
+<page xmlns="http://www.gnome.org/~shaunm/mallard"
        id="mal_file">
 <info>
   <link type="guide" xref="mal_inline"/>
@@ -20,4 +20,4 @@ mal_file = element file {
   <p>Add examples, processing expectations</p>
 </comment>
 
-</topic>
+</page>

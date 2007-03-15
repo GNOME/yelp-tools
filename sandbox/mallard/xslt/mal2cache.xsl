@@ -33,15 +33,20 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   </cache>
 </xsl:template>
 
-<xsl:template match="mal:topic">
+<xsl:template match="mal:page">
   <xsl:param name="href"/>
-  <topic>
+  <page>
     <xsl:attribute name="id">
       <xsl:value-of select="@id"/>
     </xsl:attribute>
     <xsl:attribute name="href">
       <xsl:value-of select="$href"/>
     </xsl:attribute>
+    <xsl:if test="@type">
+      <xsl:attribute name="type">
+        <xsl:value-of select="@type"/>
+      </xsl:attribute>
+    </xsl:if>
     <xsl:if test="not(mal:info)">
       <xsl:call-template name="info">
         <xsl:with-param name="info" select="mal:info"/>
@@ -49,26 +54,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
       </xsl:call-template>
     </xsl:if>
     <xsl:apply-templates/>
-  </topic>
-</xsl:template>
-
-<xsl:template match="mal:guide">
-  <xsl:param name="href"/>
-  <guide>
-    <xsl:attribute name="id">
-      <xsl:value-of select="@id"/>
-    </xsl:attribute>
-    <xsl:attribute name="href">
-      <xsl:value-of select="$href"/>
-    </xsl:attribute>
-    <xsl:if test="not(mal:info)">
-      <xsl:call-template name="info">
-        <xsl:with-param name="info" select="mal:info"/>
-        <xsl:with-param name="node" select="."/>
-      </xsl:call-template>
-    </xsl:if>
-    <xsl:apply-templates/>
-  </guide>
+  </page>
 </xsl:template>
 
 <xsl:template match="mal:section">

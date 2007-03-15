@@ -1,4 +1,4 @@
-<topic xmlns="http://www.gnome.org/~shaunm/mallard"
+<page xmlns="http://www.gnome.org/~shaunm/mallard"
        id="mal_p">
 <info>
   <link type="guide" xref="mal_block#simple"/>
@@ -60,4 +60,4 @@ outout.</p>
 </section>
 <!-- END docbook -->
 
-</topic>
+</page>

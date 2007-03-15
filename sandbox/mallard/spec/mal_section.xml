@@ -1,4 +1,4 @@
-<topic xmlns="http://www.gnome.org/~shaunm/mallard"
+<page xmlns="http://www.gnome.org/~shaunm/mallard"
        id="mal_section">
 <info>
   <link type="guide" xref="spec_pages" weight="-1"/>
@@ -7,4 +7,4 @@
 
 <title>Sections</title>
 
-</topic>
+</page>

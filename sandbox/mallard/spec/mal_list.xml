@@ -1,5 +1,6 @@
-<guide xmlns="http://www.gnome.org/~shaunm/mallard"
-       id="mal_list">
+<page xmlns="http://www.gnome.org/~shaunm/mallard"
+      type="guide"
+      id="mal_list">
 <info>
   <link type="guide" xref="mal_block#containers"/>
   <version number="0.1" date="2007-02-21" status="stub"/>
@@ -25,4 +26,4 @@ mal_list = (
   <p>Unmarked lists and segmented lists</p>
 </comment>
 
-</guide>
+</page>

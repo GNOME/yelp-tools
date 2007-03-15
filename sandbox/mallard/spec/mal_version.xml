@@ -1,5 +1,5 @@
-<topic xmlns="http://www.gnome.org/~shaunm/mallard"
-       id="mal_version">
+<page xmlns="http://www.gnome.org/~shaunm/mallard"
+      id="mal_version">
 <info>
   <link type="guide" xref="spec_info"/>
   <version number="0.1" date="2007-02-22" status="stub"/>
@@ -17,4 +17,4 @@ mal_version = element version {
 }
 </code></synopsis>
 
-</topic>
+</page>

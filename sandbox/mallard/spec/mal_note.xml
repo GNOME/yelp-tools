@@ -1,4 +1,4 @@
-<topic xmlns="http://www.gnome.org/~shaunm/mallard"
+<page xmlns="http://www.gnome.org/~shaunm/mallard"
        id="mal_note">
 <info>
   <link type="guide" xref="mal_block#containers"/>
@@ -7,4 +7,4 @@
 
 <title>Notes</title>
 
-</topic>
+</page>

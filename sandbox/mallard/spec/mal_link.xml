@@ -1,4 +1,4 @@
-<topic xmlns="http://www.gnome.org/~shaunm/mallard"
+<page xmlns="http://www.gnome.org/~shaunm/mallard"
        id="mal_link">
 <info>
   <link type="guide" xref="mal_inline"/>
@@ -31,4 +31,4 @@ mal_link_attr = (
 </section>
 <!-- END ubiquitous -->
 
-</topic>
+</page>

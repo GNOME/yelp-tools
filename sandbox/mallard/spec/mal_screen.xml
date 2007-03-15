@@ -1,4 +1,4 @@
-<topic xmlns="http://www.gnome.org/~shaunm/mallard"
+<page xmlns="http://www.gnome.org/~shaunm/mallard"
        id="mal_screen">
 <info>
   <link type="guide" xref="mal_block#simple"/>
@@ -19,4 +19,4 @@ mal_screen = element screen {
   <p>Add intro, examples, and processing expectations.</p>
 </comment>
 
-</topic>
+</page>

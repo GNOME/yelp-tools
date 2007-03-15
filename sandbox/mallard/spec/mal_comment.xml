@@ -1,4 +1,4 @@
-<topic xmlns="http://www.gnome.org/~shaunm/mallard"
+<page xmlns="http://www.gnome.org/~shaunm/mallard"
        id="mal_comment">
 <info>
   <link type="guide" xref="mal_block#containers"/>
@@ -47,4 +47,4 @@ attribute.  Writers are highly encouraged to provide a <code xref="mal_date">mal
   </comment>
 </comment>
 
-</topic>
+</page>

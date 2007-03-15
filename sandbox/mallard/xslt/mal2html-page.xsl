@@ -31,7 +31,7 @@ REMARK: Describe this module
 <!--**==========================================================================
 mal2html.page.copyright
 Outputs the copyright notice at the bottom of a page
-$node: The top-level #{topic} or #{guide} element
+$node: The top-level #{page} element
 
 REMARK: Describe this template
 -->
@@ -51,7 +51,7 @@ REMARK: Describe this template
 <!--**==========================================================================
 mal2html.page.guidelinks
 Outputs the automatic links from a page to guide pages and sections
-$node: The #{topic}, #{guide}, or #{section} element containing the links
+$node: The #{page} or #{section} element containing the links
 
 REMARK: Describe this template
 -->
@@ -60,7 +60,7 @@ REMARK: Describe this template
   <xsl:variable name="id">
     <xsl:choose>
       <xsl:when test="$node/self::mal:section">
-        <xsl:value-of select="concat((ancestor::mal:guide[1] | ancestor::mal:topic[1])[1]/@id, '#', @id)"/>
+        <xsl:value-of select="concat(ancestor::mal:page[1]/@id, '#', @id)"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:value-of select="@id"/>
@@ -129,14 +129,13 @@ REMARK: Describe this template
       </xsl:for-each>
     </ul>
   </xsl:if>
-  <!-- END guidelinks -->
 </xsl:template>
 
 
 <!--**==========================================================================
 mal2html.page.guidelink
 Outputs an automatic link block from a page or section to a guide
-$node: The #{topic}, #{guide}, or #{section} element containing the link
+$node: The #{page} or #{section} element containing the link
 $page: The element from the cache file of the page being linked to
 $position: The position of this link in the list, either 'first', 'last', or ''
 
@@ -149,7 +148,7 @@ REMARK: Describe this template
   <xsl:variable name="xref">
     <xsl:choose>
       <xsl:when test="$page/self::mal:section">
-        <xsl:value-of select="($page/ancestor::mal:guide | $page/ancestor::mal:topic)[1]/@id"/>
+        <xsl:value-of select="$page/ancestor::mal:page[1]/@id"/>
         <xsl:text>#</xsl:text>
         <xsl:value-of select="$page/@id"/>
       </xsl:when>
@@ -191,7 +190,7 @@ REMARK: Describe this template
 <!--**==========================================================================
 mal2html.page.pagelinks
 Outputs the automatic links from a guide page or guide section
-$node: The #{guide} or #{section} element containing the links
+$node: The #{page} or #{section} element containing the links
 
 REMARK: Describe this template
 -->
@@ -200,7 +199,7 @@ REMARK: Describe this template
   <xsl:variable name="id">
     <xsl:choose>
       <xsl:when test="$node/self::mal:section">
-        <xsl:value-of select="concat(ancestor::mal:guide[1]/@id, '#', @id)"/>
+        <xsl:value-of select="concat(ancestor::mal:page[1]/@id, '#', @id)"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:value-of select="@id"/>
@@ -292,7 +291,7 @@ REMARK: Describe this template
   <xsl:variable name="xref">
     <xsl:choose>
       <xsl:when test="$page/self::mal:section">
-        <xsl:value-of select="($page/ancestor::mal:guide | $page/ancestor::mal:topic)[1]/@id"/>
+        <xsl:value-of select="$page/ancestor::mal:page[1]/@id"/>
         <xsl:text>#</xsl:text>
         <xsl:value-of select="$page/@id"/>
       </xsl:when>
@@ -366,7 +365,7 @@ REMARK: Describe this template
   <xsl:variable name="id">
     <xsl:choose>
       <xsl:when test="$node/self::mal:section">
-        <xsl:value-of select="concat(ancestor::mal:topic[1]/@id, '#', @id)"/>
+        <xsl:value-of select="concat(ancestor::mal:page[1]/@id, '#', @id)"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:value-of select="@id"/>
@@ -455,7 +454,7 @@ REMARK: Describe this template
   <xsl:variable name="xref">
     <xsl:choose>
       <xsl:when test="$page/self::mal:section">
-        <xsl:value-of select="($page/ancestor::mal:guide | $page/ancestor::mal:topic)[1]/@id"/>
+        <xsl:value-of select="$page/ancestor::mal:page[1]/@id"/>
         <xsl:text>#</xsl:text>
         <xsl:value-of select="$page/@id"/>
       </xsl:when>
@@ -491,34 +490,6 @@ REMARK: Describe this template
       </xsl:call-template>
     </a>
   </div>
-</xsl:template>
-
-
-<!--**==========================================================================
-mal2html.page.sidebar
-Outputs the sidebar for a structural element
-$node: A #{topic}, #{guide}, or #{section} element
-
-REMARK: Describe this template
--->
-<xsl:template name="mal2html.page.sidebar">
-  <xsl:param name="node" select="."/>
-  <xsl:variable name="guidelinks">
-    <xsl:call-template name="mal2html.page.guidelinks">
-      <xsl:with-param name="node" select="$node"/>
-    </xsl:call-template>
-  </xsl:variable>
-  <xsl:variable name="seealsolinks">
-    <xsl:call-template name="mal2html.page.seealsolinks">
-      <xsl:with-param name="node" select="$node"/>
-    </xsl:call-template>
-  </xsl:variable>
-  <xsl:if test="$guidelinks or $seealsolinks">
-    <div class="sidebar">
-      <xsl:copy-of select="$guidelinks"/>
-      <xsl:copy-of select="$seealsolinks"/>
-    </div>
-  </xsl:if>
 </xsl:template>
 
 
@@ -650,7 +621,6 @@ div.pagelink:hover {
   </xsl:call-template>
   <xsl:text>;
 }
-div.sidebar { margin: 0; }
 ul.guidelinks {
   display: block;
   margin: 0;
@@ -667,13 +637,6 @@ li.guidelink::before {
 }
 li.guidelink-first::before, li.guidelink-only::before {
   content: '';
-}
-
-
-div.sidebar div.title {
-  font-size: 1em;
-  font-weight: normal;
-  display: inline;
 }
 div.seealsolinks { margin: 0; }
 div.seealsolink {
@@ -700,7 +663,7 @@ div.seealsolink-first::before, div.seealsolink-only::before {
 <xsl:template match="/">
   <!-- FIXME: find a way to just select the version element -->
   <xsl:variable name="date">
-    <xsl:for-each select="*/mal:info/mal:version">
+    <xsl:for-each select="mal:page/mal:info/mal:version">
       <xsl:sort select="@date" data-type="text" order="descending"/>
       <xsl:if test="position() = 1">
         <xsl:value-of select="@date"/>
@@ -708,11 +671,11 @@ div.seealsolink-first::before, div.seealsolink-only::before {
     </xsl:for-each>
   </xsl:variable>
   <xsl:variable name="version"
-                select="*/mal:info/mal:version[@date = $date][last()]"/>
+                select="mal:page/mal:info/mal:version[@date = $date][last()]"/>
   <html>
     <head>
       <title>
-        <xsl:value-of select="/*/mal:title"/>
+        <xsl:value-of select="mal:page/mal:title"/>
       </title>
       <xsl:call-template name="mal2html.css"/>
     </head>
@@ -754,42 +717,34 @@ div.seealsolink-first::before, div.seealsolink-only::before {
         </div>
       </xsl:if>
       <div class="body">
-        <xsl:apply-templates/>
+        <xsl:apply-templates select="mal:page"/>
       </div>
       <xsl:call-template name="db2html.page.copyrights">
-        <xsl:with-param name="node" select="mal:topic | mal:guide"/>
+        <xsl:with-param name="node" select="mal:page"/>
       </xsl:call-template>
     </body>
   </html>
 </xsl:template>
 
 <!-- = guide = -->
-<xsl:template match="mal:guide">
+<xsl:template match="mal:page">
   <div class="header">
     <xsl:apply-templates mode="mal2html.block.mode"
                          select="mal:title | mal:subtitle"/>
   </div>
-  <xsl:call-template name="mal2html.page.sidebar"/>
+  <xsl:call-template name="mal2html.page.guidelinks">
+    <xsl:with-param name="node" select="."/>
+  </xsl:call-template>
+  <xsl:call-template name="mal2html.page.seealsolinks">
+    <xsl:with-param name="node" select="."/>
+  </xsl:call-template>
   <div class="contents">
     <xsl:apply-templates
         mode="mal2html.block.mode"
         select="*[not(self::mal:section | self::mal:title | self::mal:subtitle)]"/>
-    <xsl:call-template name="mal2html.page.pagelinks"/>
-  </div>
-  <xsl:apply-templates select="mal:section"/>
-</xsl:template>
-
-<!-- = topic = -->
-<xsl:template match="mal:topic">
-  <div class="header">
-    <xsl:apply-templates mode="mal2html.block.mode"
-                         select="mal:title | mal:subtitle"/>
-  </div>
-  <xsl:call-template name="mal2html.page.sidebar"/>
-  <div class="contents">
-    <xsl:apply-templates
-        mode="mal2html.block.mode"
-        select="*[not(self::mal:section | self::mal:title | self::mal:subtitle)]"/>
+    <xsl:if test="@type = 'guide'">
+      <xsl:call-template name="mal2html.page.pagelinks"/>
+    </xsl:if>
   </div>
   <xsl:apply-templates select="mal:section"/>
 </xsl:template>
@@ -801,12 +756,17 @@ div.seealsolink-first::before, div.seealsolink-only::before {
       <xsl:apply-templates mode="mal2html.block.mode"
                            select="mal:title | mal:subtitle"/>
     </div>
-    <xsl:call-template name="mal2html.page.sidebar"/>
+    <xsl:call-template name="mal2html.page.guidelinks">
+      <xsl:with-param name="node" select="."/>
+    </xsl:call-template>
+    <xsl:call-template name="mal2html.page.seealsolinks">
+      <xsl:with-param name="node" select="."/>
+    </xsl:call-template>
     <div class="contents">
       <xsl:apply-templates
           mode="mal2html.block.mode"
           select="*[not(self::mal:section | self::mal:title | self::mal:subtitle)]"/>
-      <xsl:if test="ancestor::mal:guide">
+      <xsl:if test="/mal:page/@type = 'guide'">
         <xsl:call-template name="mal2html.page.pagelinks"/>
       </xsl:if>
     </div>

@@ -1,5 +1,6 @@
-<guide xmlns="http://www.gnome.org/~shaunm/mallard"
-       id="mallard">
+<page xmlns="http://www.gnome.org/~shaunm/mallard"
+      type="guide"
+      id="mallard">
 <info>
   <link type="page" xref="10minutes"/>
   <link type="page" xref="explore"/>
@@ -16,4 +17,4 @@
   <p>Add some intro text</p>
 </comment>
 
-</guide>
+</page>

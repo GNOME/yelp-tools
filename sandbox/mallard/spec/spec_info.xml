@@ -1,5 +1,6 @@
-<guide xmlns="http://www.gnome.org/~shaunm/mallard"
-       id="spec_info">
+<page xmlns="http://www.gnome.org/~shaunm/mallard"
+      type="guide"
+      id="spec_info">
 <info>
   <link type="guide" xref="spec" weight="-1"/>
   <version number="0.1" date="2007-02-22" status="stub"/>
@@ -7,4 +8,4 @@
 
 <title>Information Elements</title>
 
-</guide>
+</page>

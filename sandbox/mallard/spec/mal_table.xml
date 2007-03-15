@@ -1,5 +1,5 @@
-<topic xmlns="http://www.gnome.org/~shaunm/mallard"
-       id="mal_table">
+<page xmlns="http://www.gnome.org/~shaunm/mallard"
+      id="mal_table">
 <info>
   <link type="guide" xref="mal_block#containers"/>
 </info>
@@ -776,4 +776,4 @@ mal_table = element table {
 </section>
 <!-- END docbook -->
 
-</topic>
+</page>

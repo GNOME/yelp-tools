@@ -1,5 +1,5 @@
-<topic xmlns="http://www.gnome.org/~shaunm/mallard"
-       id="mal_gui">
+<page xmlns="http://www.gnome.org/~shaunm/mallard"
+      id="mal_gui">
 <info>
   <link type="guide" xref="mal_inline"/>
   <link type="seealso" xref="mal_link#ubiquitous"/>
@@ -27,4 +27,4 @@ mal_gui = element gui {
   <p>Fix the content model, make type correspond to gui/inline content.</p>
 </comment>
 
-</topic>
+</page>

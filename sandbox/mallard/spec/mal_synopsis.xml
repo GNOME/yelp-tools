@@ -1,4 +1,4 @@
-<topic xmlns="http://www.gnome.org/~shaunm/mallard"
+<page xmlns="http://www.gnome.org/~shaunm/mallard"
        id="mal_synopsis">
 <info>
   <link type="guide" xref="mal_block#containers"/>
@@ -40,4 +40,4 @@ control element.</p>
   title using font variations or other stylistic means.</p>
 </section>
 
-</topic>
+</page>
