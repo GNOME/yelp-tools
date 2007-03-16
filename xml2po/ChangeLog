@@ -1,3 +1,9 @@
+2007-03-16  Loïc Minier  <lminier@svn.gnome.org>
+
+	* Makefile.am:
+	Display xsltproc invocation, honor its exit status, and pull the
+	source from srcdir; this might expose some bugs; bug #169324.
+
 2007-03-02  Danilo Šegan  <danilo@gnome.org>
 
 	* Fix #413602: Use mfile variable name instead of file, thus

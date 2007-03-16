@@ -21,7 +21,7 @@ $(srcdir)/README: README.in
 	sed -e "s/\@VERSION\@/@VERSION@/g" < README.in > README
 
 xml2po.1: xml2po.1.xml
-	-@(xsltproc --nonet xml2po.1.xml)
+	xsltproc --nonet $(srcdir)/xml2po.1.xml
 
 publish: dist
 	scp @PACKAGE@-@VERSION@.tar.gz danilo@kvota.net:/home/danilo/kvota.net/hacks/xml2po
