@@ -86,6 +86,12 @@ function runline (line) {
 	tmp = tmp "</attribute>";
 	stack[--stack_i] = tmp;
       }
+      else if (stack[stack_i - 1] == "<list>") {
+	tmp = stack[stack_i - 1] "\n";
+	tmp = tmp stack[stack_i] "\n";
+	tmp = tmp "</list>";
+	stack[--stack_i] = tmp;
+      }
     }
     if (paren_i == 0) {
       mode = "top";
@@ -139,11 +145,36 @@ function runline (line) {
     stack[++stack_i] = sprintf("<attribute name=\"%s\">", name);
     runline(aft);
   }
+  else if (substr(line, 1, 5) == "list ") {
+    aft = substr(line, 5);
+    sub(/^ */, "", aft);
+    stack[++stack_i] = "<list>";
+    runline(aft);
+  }
   else if (match(line, /^text[^[:alpha:]]/)) {
     stack[++stack_i] = "<text/>";
     runline(substr(line, 5));
   }
-  else if (match(line, /^[[:alpha:]]/)) {
+  else if (substr(line, 1, 18) == "default namespace ") {
+    print "default namespace appeared out of context on line " FNR | "cat 1>&2";
+    error = 1;
+    exit 1
+  }
+  else if (substr(line, 1, 6) == "start ") {
+    print "start appeared out of context on line " FNR | "cat 1>&2";
+    error = 1;
+    exit 1
+  }
+  else if (match(line, /^xsd:[[:alpha:]_]/)) {
+    name = substr(line, 1);
+    sub(/^xsd:/, "", name);
+    sub(/[^[:alpha:]_]+.*/, "", name);
+    aft = substr(line, length(name) + 5);
+    stack[++stack_i] = sprintf("<data type=\"%s\" datatypeLibrary=\"http://www.w3.org/2001/XMLSchema-datatypes\"/>",
+			      name);
+    runline(aft);
+  }
+  else if (match(line, /^[[:alpha:]_]/)) {
     name = substr(line, 1);
     sub(/[^[:alpha:]_]+.*/, "", name);
     aft = substr(line, length(name) + 1);
