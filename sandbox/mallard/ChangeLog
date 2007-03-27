@@ -1,6 +1,11 @@
 2007-03-27  Shaun McCance  <shaunm@gnome.org>
 
 	* rng/rnc2rng.awk:
+	- Some awks don't understand [[:alpha:]]
+
+2007-03-27  Shaun McCance  <shaunm@gnome.org>
+
+	* rng/rnc2rng.awk:
 	- Handle xsd: data types and list constructions
 
 2007-03-15  Shaun McCance  <shaunm@gnome.org>

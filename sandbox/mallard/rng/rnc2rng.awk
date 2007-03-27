@@ -131,7 +131,7 @@ function runline (line) {
     aft = substr(line, 8);
     sub(/^ */, "", aft);
     name = aft;
-    sub(/[^[:alpha:]_]+.*/, "", name);
+    sub(/[^A-Za-z_]+.*/, "", name);
     aft = substr(aft, length(name) + 1);
     stack[++stack_i] = sprintf("<element name=\"%s\">", name);
     runline(aft);
@@ -140,7 +140,7 @@ function runline (line) {
     aft = substr(line, 10);
     sub(/^ */, "", aft);
     name = aft;
-    sub(/[^[:alpha:]_]+.*/, "", name);
+    sub(/[^A-Za-z_]+.*/, "", name);
     aft = substr(aft, length(name) + 1);
     stack[++stack_i] = sprintf("<attribute name=\"%s\">", name);
     runline(aft);
@@ -151,7 +151,7 @@ function runline (line) {
     stack[++stack_i] = "<list>";
     runline(aft);
   }
-  else if (match(line, /^text[^[:alpha:]]/)) {
+  else if (match(line, /^text[^A-Za-z]/)) {
     stack[++stack_i] = "<text/>";
     runline(substr(line, 5));
   }
@@ -165,18 +165,18 @@ function runline (line) {
     error = 1;
     exit 1
   }
-  else if (match(line, /^xsd:[[:alpha:]_]/)) {
+  else if (match(line, /^xsd:[A-Za-z_]/)) {
     name = substr(line, 1);
     sub(/^xsd:/, "", name);
-    sub(/[^[:alpha:]_]+.*/, "", name);
+    sub(/[^A-Za-z_]+.*/, "", name);
     aft = substr(line, length(name) + 5);
     stack[++stack_i] = sprintf("<data type=\"%s\" datatypeLibrary=\"http://www.w3.org/2001/XMLSchema-datatypes\"/>",
 			      name);
     runline(aft);
   }
-  else if (match(line, /^[[:alpha:]_]/)) {
+  else if (match(line, /^[A-Za-z_]/)) {
     name = substr(line, 1);
-    sub(/[^[:alpha:]_]+.*/, "", name);
+    sub(/[^A-Za-z_]+.*/, "", name);
     aft = substr(line, length(name) + 1);
     stack[++stack_i] = sprintf("<ref name=\"%s\"/>", name);
     runline(aft);
