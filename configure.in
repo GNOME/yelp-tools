@@ -2,6 +2,18 @@ AC_INIT([gnome-doc-utils], [0.10.1],
         [http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-doc-utils])
 AM_INIT_AUTOMAKE([1.9 no-dist-gzip dist-bzip2])
 
+dnl  In the interest of portability, we don't use GNU awk extensions,
+dnl  even though they rule.  To prevent accidental use and subsequent
+dnl  bug reports after busted tarballs were shipped, we use -W compat
+dnl  whenever our awk is gawk.
+AC_PROG_AWK
+if test x$AWK = xgawk; then
+   GDU_AWK='gawk -W compat';
+else
+   GDU_AWK=$AWK;
+fi
+AC_SUBST(GDU_AWK)
+
 gdu_cv_have_gdu=yes
 GNOME_DOC_DEFINES
 

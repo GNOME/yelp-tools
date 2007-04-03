@@ -15,7 +15,7 @@ xsldoc_docs = $(patsubst %, C/%.xml, $(xsldoc_base))
 
 all: $(xsldoc_docs)
 $(xsldoc_docs): $(xsldoc_xsls) xsldoc.awk xsldoc.xsl
-	$(AWK) -W compat -f "$(srcdir)/xsldoc.awk" "$(filter %/$(basename $(notdir $@)).xsl,$(xsldoc_xsls))" | xsltproc -o "$@" --stringparam basename "$(basename $(notdir $@))" --stringparam xsl_file "$(filter %/$(basename $(notdir $@)).xsl,$(xsldoc_xsls))" "$(srcdir)/xsldoc.xsl" -
+	$(GDU_AWK) -f "$(srcdir)/xsldoc.awk" "$(filter %/$(basename $(notdir $@)).xsl,$(xsldoc_xsls))" | xsltproc -o "$@" --stringparam basename "$(basename $(notdir $@))" --stringparam xsl_file "$(filter %/$(basename $(notdir $@)).xsl,$(xsldoc_xsls))" "$(srcdir)/xsldoc.xsl" -
 
 gnome_doc_xslt_awk='\
 /<\!--BEGIN-->/ { inc=1; }\
@@ -32,7 +32,7 @@ inc {\
 .PHONY: gnome-doc-xslt-check
 all: gnome-doc-xslt-check
 gnome-doc-xslt-check:
-	@incs=`$(AWK) -W compat $(gnome_doc_xslt_awk) "$(srcdir)/C/gnome-doc-xslt.xml" | sort`; \
+	@incs=`$(GDU_AWK) $(gnome_doc_xslt_awk) "$(srcdir)/C/gnome-doc-xslt.xml" | sort`; \
 	xmls=`echo $(xsldoc_base) | tr '\ ' '\n' | sort`; \
 	if [ "$$incs" != "$$xmls" ]; then \
 	  echo "gnome-doc-xslt.xml does not include all reference pages" 1>&2; \
