@@ -1,5 +1,11 @@
 2007-04-09  Shaun McCance  <shaunm@gnome.org>
 
+	* configure.in:
+	* NEWS:
+	- Version 0.10.3
+
+2007-04-09  Shaun McCance  <shaunm@gnome.org>
+
 	* tools/gnome-doc-utils.make:
 	- Fix error on category code check with --disable-scrollkeeper (#427939)
 
