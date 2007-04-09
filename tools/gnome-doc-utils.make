@@ -131,6 +131,7 @@ _credits ?= `$(PKG_CONFIG) --variable xmldir gnome-doc-utils`/gnome/xslt/docbook
 _ids ?= `$(PKG_CONFIG) --variable xmldir gnome-doc-utils`/gnome/xslt/docbook/utils/ids.xsl
 
 if ENABLE_SK
+_ENABLE_SK = true
 _skpkgdatadir ?= `scrollkeeper-config --pkgdatadir`
 _sklocalstatedir ?= `scrollkeeper-config --pkglocalstatedir`
 _skcontentslist ?= $(_skpkgdatadir)/Templates/C/scrollkeeper_cl.xml
@@ -150,7 +151,8 @@ db2omf_args =									\
 	--stringparam db2omf.omf_dir "$(OMF_DIR)"				\
 	--stringparam db2omf.help_dir "$(HELP_DIR)"				\
 	--stringparam db2omf.omf_in "$(_DOC_OMF_IN)"				\
-	--stringparam db2omf.scrollkeeper_cl "$(_skcontentslist)"		\
+	$(if $(_ENABLE_SK),							\
+	  --stringparam db2omf.scrollkeeper_cl "$(_skcontentslist)")		\
 	$(_db2omf) $(2)
 
 ## @ _DOC_OMF_IN
@@ -164,7 +166,7 @@ _DOC_OMF_DB = $(if $(_DOC_OMF_IN),						\
 
 $(_DOC_OMF_DB) : $(_DOC_OMF_IN)
 $(_DOC_OMF_DB) : $(DOC_MODULE)-%.omf : %/$(DOC_MODULE).xml
-	@test -f "$(_skcontentslist)" || {					\
+	@test "x$(_ENABLE_SK)" != "xtrue" -o -f "$(_skcontentslist)" || {	\
 	  echo "The file '$(_skcontentslist)' does not exist." >&2;		\
 	  echo "Please check your ScrollKeeper installation." >&2;		\
 	  exit 1; }
@@ -177,10 +179,12 @@ _DOC_OMF_HTML = $(if $(_DOC_OMF_IN),						\
 
 $(_DOC_OMF_HTML) : $(_DOC_OMF_IN)
 $(_DOC_OMF_HTML) : $(DOC_MODULE)-html-%.omf : %/$(DOC_MODULE).xml
-	@test -f "$(_skcontentslist)" || {					\
+if ENABLE_SK
+	@test "x$(_ENABLE_SK)" != "xtrue" -o -f "$(_skcontentslist)" || {	\
 	  echo "The file '$(_skcontentslist)' does not exist" >&2;		\
 	  echo "Please check your ScrollKeeper installation." >&2;		\
 	  exit 1; }
+endif
 	xsltproc -o $@ $(call db2omf_args,$@,$<,'xhtml') || { rm -f "$@"; exit 1; }
 
 ## @ _DOC_OMF_ALL
@@ -343,12 +347,6 @@ $(_DOC_HTML_TOPS): $(_DOC_C_DOCS) $(_DOC_LC_DOCS)
 
 
 ################################################################################
-
-if ENABLE_SK
-_ENABLE_SK = true
-else
-_ENABLE_SK = false
-endif
 
 all:							\
 	$(_DOC_C_DOCS)		$(_DOC_LC_DOCS)		\
