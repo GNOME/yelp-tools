@@ -1,3 +1,16 @@
+Changes in 0.10.2:
+------------------
+** general:
+ * Use gawk -W compat whenever $(AWK) is gawk (Shaun McCance)
+** tools:
+ * Don's call ScrollKeeper when it's not installed; bug #410715 (Shaun McCance)
+** xml2po:
+ * Display xsltproc invocation, honor its exit status, and pull
+   the source from srcdir; bug #169324 (Danilo Šegan)
+** Updated translations:
+   gl   (Ignacio Casal Quinteiro)
+   sq   (Laurent Dhima)
+
 Changes in 0.10.1:
 ------------------
 * Fixed a bootstrapping issue, #416933 (Elijah Newren)
