@@ -440,6 +440,11 @@ dd.glossdef, dd.glosssee, dd.glossseealso
 <xsl:template match="informalfigure">
   <xsl:call-template name="db2html.block">
     <xsl:with-param name="indent" select="true()"/>
+    <xsl:with-param name="formal" select="true()"/>
+    <!-- When a figure contains only a single mediaobject, it eats the caption -->
+    <xsl:with-param name="caption"
+                    select="*[not(self::blockinfo) and not(self::title) and not(self::titleabbrev)]
+                             [last() = 1]/self::mediaobject/caption"/>
   </xsl:call-template>
 </xsl:template>
 

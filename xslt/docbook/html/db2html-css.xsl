@@ -203,12 +203,27 @@ td.navbar-next {
 }
 
 div.autotoc {
+  <!-- FIXME: hack -->
+  display: table;
+  margin-top: 1em;
   <!-- FIXME: rtl -->
   margin-left: 1.72em;
-  padding: 0;
+  padding: 0.5em 1em 0.5em 1em;
+  background-color: </xsl:text>
+    <xsl:value-of select="$theme.color.blue_background"/><xsl:text>;
+  border: solid 1px </xsl:text>
+    <xsl:value-of select="$theme.color.blue_border"/><xsl:text>;
 }
 div.autotoc ul { margin: 0; padding: 0; }
 div.autotoc li { list-style-type: none; }
+div.autotoc div.autotoc-title { margin-bottom: 0.5em; }
+div.autotoc div.autotoc {
+  border: none;
+  padding: 0;
+  margin-top: 0;
+  margin-bottom: 0.5em;
+}
+div.autotoc div.autotoc div.autotoc { margin-bottom: 0; }
 
 div.sidebar {
   <!-- FIXME: rtl -->
@@ -224,7 +239,13 @@ div.sidenav {
   border: solid 1px </xsl:text>
     <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
 }
-div.sidenav div.autotoc { margin: 0; }
+div.sidenav div.autotoc {
+  background-color: </xsl:text>
+    <xsl:value-of select="$theme.color.background"/><xsl:text>;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
 div.sidenav div.autotoc div.autotoc { margin-top: 0.5em; }
 div.sidenav div.autotoc div.autotoc li { margin-bottom: 0.5em; }
 div.sidenav div.autotoc div.autotoc div.autotoc {
@@ -235,6 +256,7 @@ div.sidenav div.autotoc div.autotoc div.autotoc {
 div.sidenav div.autotoc div.autotoc div.autotoc li { margin-bottom: 0; }
 
 div.blockquote {
+  <!-- FIXME: i18n -->
   background-image: url('../../../data/icons/yelp-watermark-blockquote-201C.png');
   background-repeat: no-repeat;
   <!-- FIXME: rtl -->
@@ -261,14 +283,17 @@ div.epigraph {
   color: </xsl:text>
     <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
 }
-div.figure {
+div.figure, div.informalfigure {
+  <!-- FIXME: hack -->
+  display: table;
   padding: 0.5em;
   background-color: </xsl:text>
-    <xsl:value-of select="$theme.color.blue_background"/><xsl:text>;
+    <xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
   border: solid 1px </xsl:text>
-    <xsl:value-of select="$theme.color.blue_border"/><xsl:text>;
+    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
 }
-div.figure-inner {
+div.figure-inner, div.informalfigure-inner {
+  padding: 0.5em;
   background-color: </xsl:text>
     <xsl:value-of select="$theme.color.background"/><xsl:text>;
   border: solid 1px </xsl:text>
@@ -279,7 +304,6 @@ div.caption {
 }
 pre.programlisting {
   padding: 0.5em;
-  overflow: auto;
   <!-- FIXME: watermark -->
   background-color: </xsl:text>
     <xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
@@ -288,23 +312,25 @@ pre.programlisting {
 }
 pre.screen {
   padding: 0.5em;
-  overflow: auto;
   <!-- FIXME: watermark -->
   background-color: </xsl:text>
     <xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
   border: solid 1px </xsl:text>
     <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
 }
-pre.synopsis { overflow: auto; }
+pre.screen .prompt {
+  color: </xsl:text>
+    <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
+}
 pre.linenumbering {
   <!-- The margin is important to get the line numbering
   to line up vertically with the content. -->
   margin-top: 0;
-  <!-- FIXME: rtl -->
-  margin-left: 0.83em;
-  padding: 1em 0.4em 1em 0.4em;
+  padding: 0.5em;
   border: solid 1px </xsl:text>
     <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
+  <!-- FIXME: rtl -->
+  border-right: none;
   background-color: </xsl:text>
     <xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
   color: </xsl:text>

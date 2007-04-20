@@ -1,5 +1,19 @@
 2007-04-20  Shaun McCance  <shaunm@gnome.org>
 
+	* test/testbook/testbook.xml:
+	- Added informalfigure formalpara literallayout programlisting screen
+
+	* xslt/docbook/html/db2html-autotoc.xsl:
+	* xslt/docbook/html/db2html-block.xsl:
+	* xslt/docbook/html/db2html-css.xsl:
+	* xslt/docbook/html/db2html-division.xsl:
+	* xslt/docbook/html/db2html-media.xsl:
+	* xslt/docbook/html/db2html-table.xsl:
+	* xslt/gettext/l10n.xml.in:
+	- Some autotoc and figure work
+
+2007-04-20  Shaun McCance  <shaunm@gnome.org>
+
 	* test/testbook/Makefile:
 	* test/testbook/testbook.xml:
 	- Adding a simple test book

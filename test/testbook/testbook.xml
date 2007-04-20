@@ -183,6 +183,16 @@ $(_DOC_LC_DOCS) : $(_DOC_C_DOCS)
       reader</ulink></para></caption>
     </mediaobject>
   </figure>
+  <informalfigure>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="http://www.gnome.org/projects/orca/images/orca2-sm.jpg"/>
+      </imageobject>
+      <caption><para>The mascot for the <ulink
+      url="http://www.gnome.org/projects/orca/index.html">Orca screen
+      reader</ulink></para></caption>
+    </mediaobject>
+  </informalfigure>
 
   <para>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed risus dui,
   faucibus at, blandit eu, congue in, sem. Suspendisse nec mi. Sed vel augue.
@@ -226,14 +236,136 @@ USA</address>
     things are done for me against my will.</para>
   </blockquote>
 
+  <formalpara>
+    <title>Formal Paragraph</title>
+    <para>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed risus dui,
+    faucibus at, blandit eu, congue in, sem. Suspendisse nec mi. Sed vel augue.
+    Cras egestas. Vivamus nisi. Fusce neque. Aenean posuere, orci non lacinia
+    consectetuer, neque libero semper metus, ut ullamcorper eros lorem at tellus.
+    Ut ante tellus, iaculis at, tincidunt quis, ultrices at, ligula. Pellentesque
+    porttitor condimentum nulla.</para>
+  </formalpara>
+
+  <para>Next we have a <sgmltag>literallayout</sgmltag> element:</para>
+
+  <literallayout>This is a line.
+This is another line.
+  This line is indented.</literallayout>
+
+  <section id="programlisting">
+  <title>Program Listings</title>
+
+  <para>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed risus dui,
+  faucibus at, blandit eu, congue in, sem. Suspendisse nec mi. Sed vel augue.
+  Cras egestas. Vivamus nisi. Fusce neque. Aenean posuere, orci non lacinia
+  consectetuer, neque libero semper metus, ut ullamcorper eros lorem at tellus.
+  Ut ante tellus, iaculis at, tincidunt quis, ultrices at, ligula. Pellentesque
+  porttitor condimentum nulla.</para>
+
+  <programlisting><![CDATA[
+function runline (line, ix, jx, pre, aft, char, name, id, fmt) {
+  ix = match(line, /[\*\$\@\%\!\#]\{[^\}]*\}/)
+  if (ix > 0) {
+    jx = ix + index(substr(line, ix), "}");
+    pre = substr(line, 1, ix - 1);
+    aft = substr(line, jx);
+    char = substr(line, ix, 1);
+    name = substr(line, ix + 2, jx - ix - 3);
+    id = name;
+    while (sub(/[\.-]/, "_", id));
+    if (char == "!")
+      fmt = "<filename><link linkend='S__%s'>%s</link></filename>";
+    else if (char == "*")
+      fmt = "<function><link linkend='T__%s'>%s</link></function>";
+    else if (char == "%")
+      fmt = "<function><link linkend='M__%s'>%s</link></function>";
+    else if (char == "@") 
+      fmt = "<parameter><link linkend='P__%s'>%s</link></parameter>";
+    else if (char == "$") 
+      fmt = "<parameter>"name"</parameter>";
+    else if (char == "#")
+      fmt = "<literal>"name"</literal>";
+    else
+      fmt = name;
+    return sprintf("%s%s%s",
+		   runline(pre),
+		   sprintf(fmt, id, name),
+		   runline(aft) );
+  } else {
+    return line;
+  }
+}
+]]></programlisting>
+
+  <para>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed risus dui,
+  faucibus at, blandit eu, congue in, sem. Suspendisse nec mi. Sed vel augue.
+  Cras egestas. Vivamus nisi. Fusce neque. Aenean posuere, orci non lacinia
+  consectetuer, neque libero semper metus, ut ullamcorper eros lorem at tellus.
+  Ut ante tellus, iaculis at, tincidunt quis, ultrices at, ligula. Pellentesque
+  porttitor condimentum nulla.</para>
+
+  <programlisting linenumbering="numbered"><![CDATA[
+function runline (line, ix, jx, pre, aft, char, name, id, fmt) {
+  ix = match(line, /[\*\$\@\%\!\#]\{[^\}]*\}/)
+  if (ix > 0) {
+    jx = ix + index(substr(line, ix), "}");
+    pre = substr(line, 1, ix - 1);
+    aft = substr(line, jx);
+    char = substr(line, ix, 1);
+    name = substr(line, ix + 2, jx - ix - 3);
+    id = name;
+    while (sub(/[\.-]/, "_", id));
+    if (char == "!")
+      fmt = "<filename><link linkend='S__%s'>%s</link></filename>";
+    else if (char == "*")
+      fmt = "<function><link linkend='T__%s'>%s</link></function>";
+    else if (char == "%")
+      fmt = "<function><link linkend='M__%s'>%s</link></function>";
+    else if (char == "@") 
+      fmt = "<parameter><link linkend='P__%s'>%s</link></parameter>";
+    else if (char == "$") 
+      fmt = "<parameter>"name"</parameter>";
+    else if (char == "#")
+      fmt = "<literal>"name"</literal>";
+    else
+      fmt = name;
+    return sprintf("%s%s%s",
+		   runline(pre),
+		   sprintf(fmt, id, name),
+		   runline(aft) );
+  } else {
+    return line;
+  }
+}
+]]></programlisting>
+  </section>
+
+  <section id="screen">
+  <title>Screens</title>
+
+  <para>This <sgmltag>screen</sgmltag> element has <sgmltag>prompt</sgmltag>,
+  <sgmltag>userinput</sgmltag>, and <sgmltag>computeroutput</sgmltag> elements.</para>
+
+  <screen><prompt>[shaunm@verso testbook] </prompt><userinput>make</userinput>
+<computeroutput><![CDATA[if [ ! -d html ]; then mkdir html; fi
+rm -f html/*.*
+xsltproc --timing --nonet --xinclude -o html/ \
+        --param db.chunk.chunk_top 1 \
+        --stringparam theme.icon.admon.path "../../../data/icons/" \
+        --stringparam theme.icon.nav.previous "../../../data/icons/nav-previous.png" \
+        --stringparam theme.icon.nav.next "../../../data/icons/nav-next.png" \
+        ../../xslt/docbook/html/db2html.xsl \
+        testbook.xml
+Parsing stylesheet ../../xslt/docbook/html/db2html.xsl took 0 ms
+Parsing document testbook.xml took 51 ms
+XInclude processing testbook.xml took 0 ms
+Running stylesheet and saving result took 144 ms
+]]></computeroutput></screen>
+
+  </section>
+
 <!-- FIXME:
-example
-figure (caption)
-formalpara
 glossary stuff
-highlights
-literallayout
-programlisting
 screen
 synopsis
 -->

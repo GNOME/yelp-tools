@@ -46,6 +46,8 @@ REMARK: Describe this template
 <xsl:text>
 table {
   border-collapse: collapse;
+}
+table.table {
   border: solid 1px;
   -moz-border-radius: 5px;
 }

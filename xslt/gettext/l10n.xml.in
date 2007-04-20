@@ -94,6 +94,11 @@
   </_msg>
 </msgset>
 <msgset>
+  <msgid>Contents</msgid>
+  <!-- Used as the title of the listing of subsections -->
+  <_msg>Contents</_msg>
+</msgset>
+<msgset>
   <msgid>Copyright</msgid>
   <!-- Used as a header before a list of copyrights. -->
   <_msg>

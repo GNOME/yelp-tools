@@ -32,6 +32,7 @@ REMARK: Write some intro material here
 db2html.autotoc
 Creates a table of contents for a given element
 $node: The element to create a table of contents for
+$title: Whether to give the contents list a title
 $selected: A currently-selected page
 $divisions: The division-level child elements of ${node}
 $labels: Whether to generate labels
@@ -41,25 +42,33 @@ REMARK: Extra explanation of the parameters would be good
 -->
 <xsl:template name="db2html.autotoc">
   <xsl:param name="node" select="."/>
+  <xsl:param name="title" select="false()"/>
   <xsl:param name="selected" select="false()"/>
   <xsl:param name="divisions"/>
   <xsl:param name="toc_depth" select="1"/>
   <xsl:param name="labels" select="true()"/>
   <xsl:param name="titleabbrev" select="false()"/>
-  <div class="autotoc">
-    <ul>
-      <xsl:for-each select="$divisions">
-        <xsl:if test="($selected = false()) or ($node = $selected/ancestor-or-self::*)">
+  <xsl:if test="($selected = false()) or ($node = $selected/ancestor-or-self::*)">
+    <div class="autotoc">
+      <xsl:if test="$title">
+        <div class="title autotoc-title">
+          <xsl:call-template name="l10n.gettext">
+            <xsl:with-param name="msgid" select="'Contents'"/>
+          </xsl:call-template>
+        </div>
+      </xsl:if>
+      <ul>
+        <xsl:for-each select="$divisions">
           <xsl:apply-templates mode="db2html.autotoc.mode" select=".">
             <xsl:with-param name="selected" select="$selected"/>
             <xsl:with-param name="toc_depth" select="$toc_depth - 1"/>
             <xsl:with-param name="labels" select="$labels"/>
             <xsl:with-param name="titleabbrev" select="$titleabbrev"/>
           </xsl:apply-templates>
-        </xsl:if>
-      </xsl:for-each>
-    </ul>
-  </div>
+        </xsl:for-each>
+      </ul>
+    </div>
+  </xsl:if>
 </xsl:template>
 
 
