@@ -24,61 +24,48 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!--!!==========================================================================
 DocBook to HTML - Block Elements
+:Requires: db-common db-xref db2html-title db2html-xref l10n
 
-REMARK: Describe this module
+This module handles most simple block-level elements, turning them into the
+appropriate HTML tags.  It does not handle tables, lists, and various other
+complex block-level elements.
 -->
-
-
-<!--@@==========================================================================
-db2html.programlisting.background_color
-The background color for #{programlisting} elements
-
-REMARK: Describe this param
--->
-<xsl:param name="db2html.programlisting.background_color" select="'#EEEEEE'"/>
-
-
-<!--@@==========================================================================
-db2html.programlisting.border_color
-The border color for #{programlisting} elements
-
-REMARK: Describe this param
--->
-<xsl:param name="db2html.programlisting.border_color" select="'#DDDDDD'"/>
-
-
-<!--@@==========================================================================
-db2html.screen.background_color
-The background color for #{screen} elements
-
-REMARK: Describe this param
--->
-<xsl:param name="db2html.screen.background_color" select="'#EEEEEE'"/>
-
-
-<!--@@==========================================================================
-db2html.screen.border_color
-The border color for #{screen} elements
-
-REMARK: Describe this param
--->
-<xsl:param name="db2html.screen.border_color" select="'#DDDDDD'"/>
 
 
 <!--**==========================================================================
 db2html.block
-FIXME
+Renders a block-level element to an HTML #{div} tag
+$node: The block-level element to render
+$class: An extra string to insert in the #{class} attribute
+$first: Whether this is the first child block in the parent
 $indent: Whether this block should be indented
 $verbatim: Whether to maintain whitespace as written
+$formal: Whether this is a formal block element
+$title: When ${formal} is true, an element to use for the title
+$caption: When ${formal is true, an element to use for the caption 
 
-REMARK: Describe this template
+This template creates an HTML #{div} element for the given DocBook element.
+This template uses the parameters to construct the #{class} attribute, which
+is then used by the CSS for styling.
 -->
 <xsl:template name="db2html.block">
+  <xsl:param name="node" select="."/>
+  <xsl:param name="class" select="''"/>
+  <xsl:param name="first"
+             select="not($node/preceding-sibling::*
+                     [not(self::blockinfo) and not(self::title) and
+                      not(self::titleabbrev) and not(self::attribution) ])"/>
   <xsl:param name="indent" select="false()"/>
   <xsl:param name="verbatim" select="false()"/>
+  <xsl:param name="formal" select="false()"/>
+  <xsl:param name="title" select="$node/title"/>
+  <xsl:param name="caption" select="$node/caption"/>
   <div>
     <xsl:attribute name="class">
-      <xsl:value-of select="local-name(.)"/>
+      <xsl:value-of select="concat($class, ' block ', local-name($node))"/>
+      <xsl:if test="$first">
+        <xsl:text> block-first</xsl:text>
+      </xsl:if>
       <xsl:if test="$indent">
         <xsl:text> block-indent</xsl:text>
       </xsl:if>
@@ -86,52 +73,121 @@ REMARK: Describe this template
         <xsl:text> block-verbatim</xsl:text>
       </xsl:if>
     </xsl:attribute>
-    <xsl:call-template name="db2html.anchor"/>
-    <xsl:apply-templates/>
+    <xsl:call-template name="db2html.anchor">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:call-template>
+    <xsl:choose>
+      <xsl:when test="$formal">
+        <xsl:if test="$title">
+          <div class="block block-first title title-formal">
+            <xsl:call-template name="db2html.anchor">
+              <xsl:with-param name="node" select="$title"/>
+            </xsl:call-template>
+            <span class="label">
+              <xsl:call-template name="db.label">
+                <xsl:with-param name="node" select="$node"/>
+                <xsl:with-param name="role" select="'header'"/>
+              </xsl:call-template>
+            </span>
+            <xsl:apply-templates select="$title/node()"/>
+          </div>
+        </xsl:if>
+        <div class="{local-name($node)}-inner">
+          <xsl:apply-templates select="$node/node()[not(. = $title) and not(. = $caption)]"/>
+        </div>
+        <xsl:apply-templates select="$caption"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:apply-templates select="$node/node()"/>
+      </xsl:otherwise>
+    </xsl:choose>
   </div>
 </xsl:template>
 
 
 <!--**==========================================================================
 db2html.blockquote
-FIXME
+Renders a #{blockquote} element to HTML
+$node: The #{blockquote} element to render
+$first: Whether this is the first child block in the parent
 
-REMARK: Describe this template.
+This template creates an HTML #{blockquote} element for the given DocBook
+element.
 -->
 <xsl:template name="db2html.blockquote">
-  <div class="{local-name(.)} block-indent">
-    <xsl:apply-templates select="title"/>
-    <blockquote class="{local-name(.)}">
+  <xsl:param name="node" select="."/>
+  <xsl:param name="first"
+             select="not($node/preceding-sibling::*
+                     [not(self::blockinfo) and not(self::title) and
+                      not(self::titleabbrev) and not(self::attribution) ])"/>
+  <div>
+    <xsl:attribute name="class">
+      <xsl:value-of select="local-name($node)"/>
+      <xsl:text> block block-indent</xsl:text>
+      <xsl:if test="$first">
+        <xsl:text> block-first</xsl:text>
+      </xsl:if>
+    </xsl:attribute>
+    <xsl:call-template name="db2html.anchor">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:call-template>
+    <xsl:apply-templates select="$node/title"/>
+    <blockquote class="{local-name($node)}">
       <xsl:apply-templates
-       select="*[name(.) != 'title' and name(.) != 'attribution']"/>
+       select="$node/node()[name(.) != 'title' and name(.) != 'attribution']"/>
     </blockquote>
-    <xsl:apply-templates select="attribution"/>
+    <xsl:apply-templates select="$node/attribution"/>
   </div>
 </xsl:template>
 
 
 <!--**==========================================================================
 db2html.para
-FIXME
+Renders a block-level element as an HTML #{p} element
+$node: The block-level element to render
+$first: Whether this is the first child block in the parent
 
-REMARK: Describe this template
+This template creates an HTML #{p} element for the given DocBook element.
 -->
 <xsl:template name="db2html.para">
-  <p class="{local-name(.)}">
-    <xsl:call-template name="db2html.anchor"/>
-    <xsl:apply-templates/>
+  <xsl:param name="node" select="."/>
+  <xsl:param name="first"
+             select="not($node/preceding-sibling::*
+                     [not(self::blockinfo) and not(self::title) and
+                      not(self::titleabbrev) and not(self::attribution) ])"/>
+  <p>
+    <xsl:attribute name="class">
+      <xsl:value-of select="local-name($node)"/>
+      <xsl:text> block</xsl:text>
+      <xsl:if test="$first">
+        <xsl:text> block-first</xsl:text>
+      </xsl:if>
+    </xsl:attribute>
+    <xsl:call-template name="db2html.anchor">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:call-template>
+    <xsl:apply-templates select="$node/node()"/>
   </p>
 </xsl:template>
 
 
 <!--**==========================================================================
 db2html.pre
-FIXME
+Renders a block-level element as an HTML #{pre} element
+$node: The block-level element to render
+$first: Whether this is the first child block in the parent
 $indent: Whether this block should be indented
 
-REMARK: Describe this template
+This template creates an HTML #{pre} element for the given DocBook element.
+This template uses the parameters to construct the #{class} attribute, which
+is then used by the CSS for styling.
 -->
 <xsl:template name="db2html.pre">
+  <xsl:param name="node" select="."/>
+  <xsl:param name="first"
+             select="not($node/preceding-sibling::*
+                     [not(self::blockinfo) and not(self::title) and
+                      not(self::titleabbrev) and not(self::attribution) ])"/>
   <xsl:param name="indent" select="false()"/>
   <!-- FIXME:
   @width
@@ -142,41 +198,49 @@ REMARK: Describe this template
   -->
   <div>
     <xsl:attribute name="class">
-      <xsl:value-of select="local-name(.)"/>
+      <xsl:value-of select="local-name($node)"/>
+      <xsl:text> block</xsl:text>
       <xsl:if test="$indent">
         <xsl:text> block-indent</xsl:text>
       </xsl:if>
+      <xsl:if test="$first">
+        <xsl:text> block-first</xsl:text>
+      </xsl:if>
     </xsl:attribute>
-    <xsl:call-template name="db2html.anchor"/>
-    <xsl:if test="@linenumbering = 'numbered'">
-      <pre class="linenumbering"><xsl:call-template name="db.linenumbering"/></pre>
+    <xsl:call-template name="db2html.anchor">
+      <xsl:with-param name="node" select="$node"/>
+    </xsl:call-template>
+    <xsl:if test="$node/@linenumbering = 'numbered'">
+      <pre class="linenumbering"><xsl:call-template name="db.linenumbering">
+        <xsl:with-param name="node" select="$node"/>
+      </xsl:call-template></pre>
     </xsl:if>
-    <pre class="{local-name(.)}">
+    <pre class="{local-name($node)}">
       <!-- Strip off a leading newline -->
-      <xsl:if test="node()[1]/self::text()">
+      <xsl:if test="$node/node()[1]/self::text()">
         <xsl:choose>
           <!-- CR LF -->
-          <xsl:when test="starts-with(text()[1], '&#x000D;&#x000A;')">
-            <xsl:value-of select="substring-after(text()[1], '&#x000D;&#x000A;')"/>
+          <xsl:when test="starts-with($node/text()[1], '&#x000D;&#x000A;')">
+            <xsl:value-of select="substring-after($node/text()[1], '&#x000D;&#x000A;')"/>
           </xsl:when>
           <!-- CR -->
-          <xsl:when test="starts-with(text()[1], '&#x000D;')">
-            <xsl:value-of select="substring-after(text()[1], '&#x000D;')"/>
+          <xsl:when test="starts-with($node/text()[1], '&#x000D;')">
+            <xsl:value-of select="substring-after($node/text()[1], '&#x000D;')"/>
           </xsl:when>
           <!-- LF -->
-          <xsl:when test="starts-with(text()[1], '&#x000A;')">
-            <xsl:value-of select="substring-after(text()[1], '&#x000A;')"/>
+          <xsl:when test="starts-with($node/text()[1], '&#x000A;')">
+            <xsl:value-of select="substring-after($node/text()[1], '&#x000A;')"/>
           </xsl:when>
           <!-- NEL -->
-          <xsl:when test="starts-with(text()[1], '&#x0085;')">
-            <xsl:value-of select="substring-after(text()[1], '&#x0085;')"/>
+          <xsl:when test="starts-with($node/text()[1], '&#x0085;')">
+            <xsl:value-of select="substring-after($node/text()[1], '&#x0085;')"/>
           </xsl:when>
           <xsl:otherwise>
-            <xsl:value-of select="text()[1]"/>
+            <xsl:value-of select="$node/text()[1]"/>
           </xsl:otherwise>
         </xsl:choose>
       </xsl:if>
-      <xsl:apply-templates select="node()[not(position() = 1 and self::text())]"/>
+      <xsl:apply-templates select="$node/node()[not(position() = 1 and self::text())]"/>
     </pre>
   </div>
 </xsl:template>
@@ -190,58 +254,6 @@ REMARK: Describe this template
 -->
 <xsl:template name="db2html.block.css">
 <xsl:text>
-.block-indent { margin-left: 1.72em; margin-right: 1em; }
-.block-indent .block-indent { margin-left: 0em; margin-right: 0em; }
-.block-verbatim { white-space: pre; }
-pre.programlisting {
-  padding: 6px;
-  -moz-border-radius: 8px;
-  overflow: auto;
-  </xsl:text>
-  <xsl:if test="string($db2html.programlisting.background_color) != ''">
-    <xsl:text>background-color: </xsl:text>
-    <xsl:value-of select="$db2html.programlisting.background_color"/>
-  </xsl:if>
-  <xsl:text>;
-  </xsl:text>
-  <xsl:if test="string($db2html.programlisting.border_color) != ''">
-    <xsl:text>border: solid 1px </xsl:text>
-    <xsl:value-of select="$db2html.programlisting.border_color"/>
-  </xsl:if>
-  <xsl:text>;
-}
-pre.screen {
-  padding: 6px;
-  -moz-border-radius: 8px;
-  overflow: auto;
-  </xsl:text>
-  <xsl:if test="string($db2html.screen.background_color) != ''">
-    <xsl:text>background-color: </xsl:text>
-    <xsl:value-of select="$db2html.screen.background_color"/>
-  </xsl:if>
-  <xsl:text>;
-  </xsl:text>
-  <xsl:if test="string($db2html.screen.border_color) != ''">
-    <xsl:text>border: solid 1px </xsl:text>
-    <xsl:value-of select="$db2html.screen.border_color"/>
-  </xsl:if>
-  <xsl:text>;
-}
-pre.synopsis { overflow: auto; }
-pre.linenumbering {
-  <!-- The margin is important to get the line numbering
-  to line up vertically with the content. -->
-  margin-top: 0px;
-  margin-left: 0.83em;
-  padding: 6px 0.4em 6px 0.4em;
-  border: solid 1px black;
-  -moz-border-radius: 8px;
-  background-color: black;
-  color: white;
-  -moz-opacity: .3;
-  float: left;
-  text-align: right;
-}
 dt.glossterm { margin-left: 0em; }
 dd + dt.glossterm { margin-top: 2em; }
 dd.glossdef, dd.glosssee, dd.glossseealso
@@ -271,7 +283,9 @@ dd.glossdef, dd.glosssee, dd.glossseealso
 
 <!-- = attribution = -->
 <xsl:template match="attribution">
-  <xsl:call-template name="db2html.block"/>
+  <xsl:call-template name="db2html.block">
+    <xsl:with-param name="first" select="false()"/>
+  </xsl:call-template>
 </xsl:template>
 
 <!-- = blockquote = -->
@@ -282,6 +296,14 @@ dd.glossdef, dd.glosssee, dd.glossseealso
 <!-- = caption = -->
 <xsl:template match="caption">
   <xsl:call-template name="db2html.block"/>
+</xsl:template>
+
+<!-- = caution = -->
+<xsl:template match="caution">
+  <xsl:call-template name="db2html.block">
+    <xsl:with-param name="class" select="'admonition'"/>
+    <xsl:with-param name="indent" select="true()"/>
+  </xsl:call-template>
 </xsl:template>
 
 <!-- = epigraph = -->
@@ -298,6 +320,7 @@ dd.glossdef, dd.glosssee, dd.glossseealso
 <xsl:template match="example">
   <xsl:call-template name="db2html.block">
     <xsl:with-param name="indent" select="true()"/>
+    <xsl:with-param name="formal" select="true()"/>
   </xsl:call-template>
 </xsl:template>
 
@@ -305,6 +328,11 @@ dd.glossdef, dd.glosssee, dd.glossseealso
 <xsl:template match="figure">
   <xsl:call-template name="db2html.block">
     <xsl:with-param name="indent" select="true()"/>
+    <xsl:with-param name="formal" select="true()"/>
+    <!-- When a figure contains only a single mediaobject, it eats the caption -->
+    <xsl:with-param name="caption"
+                    select="*[not(self::blockinfo) and not(self::title) and not(self::titleabbrev)]
+                             [last() = 1]/self::mediaobject/caption"/>
   </xsl:call-template>
 </xsl:template>
 
@@ -390,6 +418,14 @@ dd.glossdef, dd.glosssee, dd.glossseealso
   <xsl:call-template name="db2html.block"/>
 </xsl:template>
 
+<!-- = important = -->
+<xsl:template match="important">
+  <xsl:call-template name="db2html.block">
+    <xsl:with-param name="class" select="'admonition'"/>
+    <xsl:with-param name="indent" select="true()"/>
+  </xsl:call-template>
+</xsl:template>
+
 <!-- = informalequation = -->
 <xsl:template match="informalequation">
   <xsl:call-template name="db2html.block"/>
@@ -411,6 +447,19 @@ dd.glossdef, dd.glosssee, dd.glossseealso
 <xsl:template match="literallayout">
   <xsl:call-template name="db2html.block">
     <xsl:with-param name="verbatim" select="true()"/>
+  </xsl:call-template>
+</xsl:template>
+
+<!-- = note = -->
+<xsl:template match="note">
+  <xsl:call-template name="db2html.block">
+    <xsl:with-param name="class">
+      <xsl:text>admonition</xsl:text>
+      <xsl:if test="@role = 'bug'">
+        <xsl:text> note-bug</xsl:text>
+      </xsl:if>
+    </xsl:with-param>
+    <xsl:with-param name="indent" select="true()"/>
   </xsl:call-template>
 </xsl:template>
 
@@ -441,6 +490,27 @@ dd.glossdef, dd.glosssee, dd.glossseealso
 <!-- = synopsis = -->
 <xsl:template match="synopsis">
   <xsl:call-template name="db2html.pre">
+    <xsl:with-param name="indent" select="true()"/>
+  </xsl:call-template>
+</xsl:template>
+
+<!-- = tip = -->
+<xsl:template match="tip">
+  <xsl:call-template name="db2html.block">
+    <xsl:with-param name="class" select="'admonition'"/>
+    <xsl:with-param name="indent" select="true()"/>
+  </xsl:call-template>
+</xsl:template>
+
+<!-- = title = -->
+<xsl:template match="title">
+  <xsl:call-template name="db2html.block"/>
+</xsl:template>
+
+<!-- = warning = -->
+<xsl:template match="warning">
+  <xsl:call-template name="db2html.block">
+    <xsl:with-param name="class" select="'admonition'"/>
     <xsl:with-param name="indent" select="true()"/>
   </xsl:call-template>
 </xsl:template>

@@ -24,6 +24,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!--!!==========================================================================
 DocBook to HTML - CSS
+:Requires: l10n theme
 
 REMARK: Describe this module
 -->
@@ -69,6 +70,7 @@ avoid creating the same file multiple times.
   </xsl:choose>
 </xsl:template>
 
+
 <!--**==========================================================================
 db2html.css.content
 Outputs the actual CSS directives
@@ -80,10 +82,284 @@ those modules.
 This template calls *{db2html.css.custom} at the end.  That template may be used
 by extension stylesheets to extend or override the CSS.
 -->
-<xsl:template name="db2html.css.content">
+<xsl:template name="db2html.css.content"><xsl:text>
+html { height: 100%; }
+body {
+  margin: 0px;
+  padding: 12px;
+  background-color: </xsl:text>
+    <xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
+  min-height: 100%;
+  direction: </xsl:text>
+    <xsl:call-template name="l10n.direction"/><xsl:text>;
+}
+div, p, pre, blockquote { margin: 0; }
+
+.block { margin-top: 1em; }
+.block .block-first { margin-top: 0; }
+<!-- FIXME: rtl -->
+.block-indent {
+  margin-left: 1.72em;
+  margin-right: 1em;
+}
+.block-indent .block-indent {
+  margin-left: 0em;
+  margin-right: 0em;
+}
+.block-verbatim { white-space: pre; }
+
+div.body {
+  padding: 1em;
+  max-width: 60em;
+  background-color: </xsl:text>
+    <xsl:value-of select="$theme.color.background"/><xsl:text>;
+  border: solid 1px </xsl:text>
+    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
+}
+div.body-sidebar {
+  <!-- FIXME: rtl -->
+  margin-right: 13em;
+}
+
+div.division div.division { margin-top: 1.72em; }
+div.division div.division div.division { margin-top: 1.44em; }
+
+div.header {
+  margin: 0;
+  color: </xsl:text>
+    <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
+  border-bottom: solid 1px </xsl:text>
+    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
+}
+h1, h2, h3, h4, h5, h6, h7 { margin: 0; padding: 0; }
+h1.title { font-size: 1.72em; }
+h2.title { font-size: 1.44em; }
+h3.title { font-size: 1.2em; }
+h4.title { font-size: 1em; }
+h5.title { font-size: 1em; }
+h6.title { font-size: 1em; }
+h7.title { font-size: 1em; }
+div.title {
+  margin-bottom: 0.2em;
+  font-weight: bold;
+  color: </xsl:text>
+    <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
+}
+div.title-formal .label {
+  font-weight: normal;
+}
+
+a {
+  color: </xsl:text>
+    <xsl:value-of select="$theme.color.link"/><xsl:text>;
+  text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+a:visited {
+  color: </xsl:text>
+    <xsl:value-of select="$theme.color.link_visited"/><xsl:text>;
+}
+
+
+ul.linktrail {
+  display: block;
+  margin: 0.2em 0 0 0;
+  text-align: right;
+}
+li.linktrail { display: inline; }
+li.linktrail::before {
+  content: '&#x00A0; /&#x00A0;&#x00A0;';
+  color: </xsl:text>
+    <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
+}
+li.linktrail-first::before, li.linktrail-only::before { content: ''; }
+
+div.navbar {
+  padding: 0.5em 1em 0.5em 1em;
+  max-width: 60em;
+  background-color: </xsl:text>
+    <xsl:value-of select="$theme.color.background"/><xsl:text>;
+  border: solid 1px </xsl:text>
+    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
+}
+div.navbar-top { margin-bottom: 1em; }
+div.navbar-bottom { margin-top: 1em; clear: both; }
+div.navbar img {
+  border: 0;
+  vertical-align: -0.4em;
+}
+table.navbar {
+  width: 100%;
+  margin: 0;
+  border: none;
+}
+table.navbar td {
+  padding: 0;
+  border: none;
+}
+td.navbar-next {
+  <!-- FIXME: rtl -->
+  text-align: right;
+}
+
+div.autotoc {
+  <!-- FIXME: rtl -->
+  margin-left: 1.72em;
+  padding: 0;
+}
+div.autotoc ul { margin: 0; padding: 0; }
+div.autotoc li { list-style-type: none; }
+
+div.sidebar {
+  <!-- FIXME: rtl -->
+  float: right;
+  padding: 0;
+  margin: 0;
+  width: 12em;
+}
+div.sidenav {
+  padding: 0.5em 1em 0.5em 1em;
+  background-color: </xsl:text>
+    <xsl:value-of select="$theme.color.background"/><xsl:text>;
+  border: solid 1px </xsl:text>
+    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
+}
+div.sidenav div.autotoc { margin: 0; }
+div.sidenav div.autotoc div.autotoc { margin-top: 0.5em; }
+div.sidenav div.autotoc div.autotoc li { margin-bottom: 0.5em; }
+div.sidenav div.autotoc div.autotoc div.autotoc {
+  <!-- FIXME: rtl -->
+  margin-left: 1em;
+  margin-top: 0;
+}
+div.sidenav div.autotoc div.autotoc div.autotoc li { margin-bottom: 0; }
+
+div.blockquote {
+  background-image: url('../../../data/icons/yelp-watermark-blockquote-201C.png');
+  background-repeat: no-repeat;
+  <!-- FIXME: rtl -->
+  background-position: top left;
+  padding: 0.5em;
+  <!-- FIXME: rtl -->
+  padding-left: 4em;
+}
+div.attribution {
+  margin-top: 0.5em;
+  color: </xsl:text>
+    <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
+}
+div.attribution::before {
+  content: '&#x2015; ';
+}
+div.epigraph {
+  <!-- FIXME: rtl -->
+  text-align: right;
+  <!-- FIXME: rtl -->
+  margin-left: 20%;
+  <!-- FIXME: rtl -->
+  margin-right: 0;
+  color: </xsl:text>
+    <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
+}
+div.figure {
+  padding: 0.5em;
+  background-color: </xsl:text>
+    <xsl:value-of select="$theme.color.blue_background"/><xsl:text>;
+  border: solid 1px </xsl:text>
+    <xsl:value-of select="$theme.color.blue_border"/><xsl:text>;
+}
+div.figure-inner {
+  background-color: </xsl:text>
+    <xsl:value-of select="$theme.color.background"/><xsl:text>;
+  border: solid 1px </xsl:text>
+    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
+}
+div.caption {
+  margin-top: 0.5em;
+}
+pre.programlisting {
+  padding: 0.5em;
+  overflow: auto;
+  <!-- FIXME: watermark -->
+  background-color: </xsl:text>
+    <xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
+  border: solid 1px </xsl:text>
+    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
+}
+pre.screen {
+  padding: 0.5em;
+  overflow: auto;
+  <!-- FIXME: watermark -->
+  background-color: </xsl:text>
+    <xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
+  border: solid 1px </xsl:text>
+    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
+}
+pre.synopsis { overflow: auto; }
+pre.linenumbering {
+  <!-- The margin is important to get the line numbering
+  to line up vertically with the content. -->
+  margin-top: 0;
+  <!-- FIXME: rtl -->
+  margin-left: 0.83em;
+  padding: 1em 0.4em 1em 0.4em;
+  border: solid 1px </xsl:text>
+    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
+  background-color: </xsl:text>
+    <xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
+  color: </xsl:text>
+    <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
+  <!-- FIXME: rtl -->
+  float: left;
+  <!-- FIXME: rtl -->
+  text-align: right;
+}
+
+div.admonition {
+  padding: 0.5em 1em 0.5em 1em;
+  <!-- FIXME: rtl -->
+  padding-left: </xsl:text>
+    <xsl:value-of select="$theme.icon.admon.size + 12"/><xsl:text>px;
+  min-height: </xsl:text>
+    <xsl:value-of select="$theme.icon.admon.size"/><xsl:text>px;
+  border: solid 1px </xsl:text>
+    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
+  background-color: </xsl:text>
+    <xsl:value-of select="$theme.color.yellow_background"/><xsl:text>;
+  <!-- FIXME: rtl -->
+  background-position: 6px 0.5em;
+  background-repeat: no-repeat;
+}
+div.caution {
+  background-image: url("</xsl:text>
+    <xsl:value-of select="$theme.icon.admon.caution"/><xsl:text>");
+}
+div.important {
+  background-image: url("</xsl:text>
+    <xsl:value-of select="$theme.icon.admon.important"/><xsl:text>");
+}
+div.note {
+  background-image: url("</xsl:text>
+    <xsl:value-of select="$theme.icon.admon.note"/><xsl:text>");
+}
+div.note-bug {
+  background-image: url("</xsl:text>
+    <xsl:value-of select="$theme.icon.admon.bug"/><xsl:text>");
+}
+div.tip {
+  background-image: url("</xsl:text>
+    <xsl:value-of select="$theme.icon.admon.tip"/><xsl:text>");
+}
+div.warning {
+  background-image: url("</xsl:text>
+    <xsl:value-of select="$theme.icon.admon.warning"/><xsl:text>");
+}
+
+
+<!-- FIXME below -->
+
+</xsl:text>
   <xsl:call-template name="db2html.footnote.css"/>
-  <xsl:call-template name="db2html.admon.css"/>
-  <xsl:call-template name="db2html.autotoc.css"/>
   <xsl:call-template name="db2html.bibliography.css"/>
   <xsl:call-template name="db2html.block.css"/>
   <xsl:call-template name="db2html.callout.css"/>
@@ -92,37 +368,9 @@ by extension stylesheets to extend or override the CSS.
   <xsl:call-template name="db2html.qanda.css"/>
   <xsl:call-template name="db2html.refentry.css"/>
   <xsl:call-template name="db2html.table.css"/>
-  <xsl:call-template name="db2html.title.css"/>
-<xsl:text>
-body {
-  margin: 0px;
-  direction: </xsl:text><xsl:call-template name="l10n.direction"/><xsl:text>;
-}
-div.body { padding: 12px; }
-div.navbar {
-  margin-left: 12px; margin-right: 12px; margin-bottom: 12px;
-  padding: 6px;
-  border: solid 1px;
-}
-div.navbar-prev { margin: 0px; padding: 0px; float: left; }
-div.navbar-prev-sans-next { float: none; }
-div.navbar-next { margin: 0px; padding: 0px; text-align: right; }
-div {
-  margin-top: 0em;  margin-bottom: 0em;
-  padding-top: 0em; padding-bottom: 0em;
-}
-p {
-  margin-top: 0em;  margin-bottom: 0em;
-  padding-top: 0em; padding-bottom: 0em;
-}
-div + * { margin-top: 1em; }
-p   + * { margin-top: 1em; }
-p &gt; div { margin-top: 1em; margin-bottom: 1em; }
-p &gt; div + div { margin-top: 0em; }
-p { text-align: justify; }
-</xsl:text>
 <xsl:call-template name="db2html.css.custom"/>
 </xsl:template>
+
 
 <!--**==========================================================================
 db2html.css.custom

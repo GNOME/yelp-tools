@@ -1,0 +1,303 @@
+<?xml version="1.0"?><!-- -*- indent-tabs-mode: nil -*- -->
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.3//EN"
+"http://www.oasis-open.org/docbook/xml/4.3/docbookx.dtd">
+<book id="index"> 
+  <title>Test Book</title> 
+  <bookinfo>
+    <abstract role="description">
+      <para>This is a description of the document.</para>
+    </abstract>
+    <copyright>
+      <year>2007</year>
+      <holder>Shaun McCance</holder>
+    </copyright>
+    <publisher role="maintainer">
+      <publishername>GNOME Documentation Project</publishername>
+    </publisher>
+    <author>
+      <firstname>Shaun</firstname>
+      <surname>McCance</surname>
+      <affiliation>
+        <orgname>GNOME Documentation Project</orgname>
+      </affiliation>
+      <email>shaunm@gnome.org</email>
+    </author>
+    <revhistory>
+      <revision>
+        <revnumber>0.1</revnumber>
+        <date>1887-02-03</date>
+        <revdescription>
+          <para role="author">Shaun McCance</para>
+          <para role="publisher">GNOME Documentation Project</para>
+        </revdescription>
+      </revision>
+      <revision>
+        <revnumber>0.2</revnumber>
+        <date>1902-03-08</date>
+        <revdescription>
+          <para role="author">Shaun McCance</para>
+          <para role="publisher">GNOME Documentation Project</para>
+        </revdescription>
+      </revision>
+    </revhistory>
+
+    <legalnotice>
+      <title>Feedback</title>
+      <para>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+      Integer lacinia.</para>
+    </legalnotice>
+  </bookinfo>
+
+<chapter id="some-blocks">
+<title>Some Block Elements</title>
+<titleabbrev>Some Blocks</titleabbrev>
+
+<para>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed risus dui,
+faucibus at, blandit eu, congue in, sem. Suspendisse nec mi. Sed vel augue.
+Cras egestas. Vivamus nisi. Fusce neque. Aenean posuere, orci non lacinia
+consectetuer, neque libero semper metus, ut ullamcorper eros lorem at tellus.
+Ut ante tellus, iaculis at, tincidunt quis, ultrices at, ligula. Pellentesque
+porttitor condimentum nulla.</para>
+
+<section id="admon">
+  <title>Admonitions</title>
+
+  <para>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed risus dui,
+  faucibus at, blandit eu, congue in, sem. Suspendisse nec mi. Sed vel augue.
+  Cras egestas. Vivamus nisi. Fusce neque. Aenean posuere, orci non lacinia
+  consectetuer, neque libero semper metus, ut ullamcorper eros lorem at tellus.
+  Ut ante tellus, iaculis at, tincidunt quis, ultrices at, ligula. Pellentesque
+  porttitor condimentum nulla.</para>
+
+  <caution>
+    <title>Beware the Title!</title>
+    <para>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed risus dui,
+    faucibus at, blandit eu, congue in, sem. Suspendisse nec mi. Sed vel augue.
+    Cras egestas. Vivamus nisi. Fusce neque. Aenean posuere, orci non lacinia
+    consectetuer, neque libero semper metus, ut ullamcorper eros lorem at tellus.
+    Ut ante tellus, iaculis at, tincidunt quis, ultrices at, ligula. Pellentesque
+    porttitor condimentum nulla.</para>
+  </caution>
+
+  <important>
+    <para>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed risus dui,
+    faucibus at, blandit eu, congue in, sem. Suspendisse nec mi. Sed vel augue.
+    Cras egestas. Vivamus nisi. Fusce neque. Aenean posuere, orci non lacinia
+    consectetuer, neque libero semper metus, ut ullamcorper eros lorem at tellus.
+    Ut ante tellus, iaculis at, tincidunt quis, ultrices at, ligula. Pellentesque
+    porttitor condimentum nulla.</para>
+  </important>
+
+  <para>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed risus dui,
+  faucibus at, blandit eu, congue in, sem. Suspendisse nec mi. Sed vel augue.
+  Cras egestas. Vivamus nisi. Fusce neque. Aenean posuere, orci non lacinia
+  consectetuer, neque libero semper metus, ut ullamcorper eros lorem at tellus.
+  Ut ante tellus, iaculis at, tincidunt quis, ultrices at, ligula. Pellentesque
+  porttitor condimentum nulla.</para>
+
+  <note>
+    <para>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed risus dui,
+    faucibus at, blandit eu, congue in, sem. Suspendisse nec mi. Sed vel augue.
+    Cras egestas. Vivamus nisi. Fusce neque. Aenean posuere, orci non lacinia
+    consectetuer, neque libero semper metus, ut ullamcorper eros lorem at tellus.
+    Ut ante tellus, iaculis at, tincidunt quis, ultrices at, ligula. Pellentesque
+    porttitor condimentum nulla.</para>
+  </note>
+
+  <para>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed risus dui,
+  faucibus at, blandit eu, congue in, sem. Suspendisse nec mi. Sed vel augue.
+  Cras egestas. Vivamus nisi. Fusce neque. Aenean posuere, orci non lacinia
+  consectetuer, neque libero semper metus, ut ullamcorper eros lorem at tellus.
+  Ut ante tellus, iaculis at, tincidunt quis, ultrices at, ligula. Pellentesque
+  porttitor condimentum nulla.</para>
+
+  <note role="bug">
+    <para>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed risus dui,
+    faucibus at, blandit eu, congue in, sem. Suspendisse nec mi. Sed vel augue.
+    Cras egestas. Vivamus nisi. Fusce neque. Aenean posuere, orci non lacinia
+    consectetuer, neque libero semper metus, ut ullamcorper eros lorem at tellus.
+    Ut ante tellus, iaculis at, tincidunt quis, ultrices at, ligula. Pellentesque
+    porttitor condimentum nulla.</para>
+  </note>
+
+  <tip>
+    <para>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed risus dui,
+    faucibus at, blandit eu, congue in, sem. Suspendisse nec mi. Sed vel augue.
+    Cras egestas. Vivamus nisi. Fusce neque. Aenean posuere, orci non lacinia
+    consectetuer, neque libero semper metus, ut ullamcorper eros lorem at tellus.
+    Ut ante tellus, iaculis at, tincidunt quis, ultrices at, ligula. Pellentesque
+    porttitor condimentum nulla.</para>
+  </tip>
+
+  <warning>
+    <para>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed risus dui,
+    faucibus at, blandit eu, congue in, sem. Suspendisse nec mi. Sed vel augue.
+    Cras egestas. Vivamus nisi. Fusce neque. Aenean posuere, orci non lacinia
+    consectetuer, neque libero semper metus, ut ullamcorper eros lorem at tellus.
+    Ut ante tellus, iaculis at, tincidunt quis, ultrices at, ligula. Pellentesque
+    porttitor condimentum nulla.</para>
+  </warning>
+
+</section> <!-- admon -->
+
+<section id="formal-block">
+  <title>Formal Blocks</title>
+
+  <para>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed risus dui,
+  faucibus at, blandit eu, congue in, sem. Suspendisse nec mi. Sed vel augue.
+  Cras egestas. Vivamus nisi. Fusce neque. Aenean posuere, orci non lacinia
+  consectetuer, neque libero semper metus, ut ullamcorper eros lorem at tellus.
+  Ut ante tellus, iaculis at, tincidunt quis, ultrices at, ligula. Pellentesque
+  porttitor condimentum nulla.</para>
+
+  <example>
+    <title>An Example</title>
+    <programlisting><![CDATA[
+$(_DOC_LC_DOCS) : $(_DOC_C_DOCS)
+    if ! test -d $(dir $@); then mkdir $(dir $@); fi
+    case "$(srcdir)" in /*) sd="$(srcdir)";; *) sd="../$(srcdir)";;esac; \
+    if [ -f "C/$(notdir $@)" ]; then d="../"; else d="$$sd/"; fi; \
+    (cd $(dir $@) && \
+      $(_xml2po) -e -p \
+          "$${d}$(dir $@)$(patsubst %/$(notdir $@),%,$@).po" \
+              "$${d}C/$(notdir $@)" > $(notdir $@).tmp && \
+                  cp $(notdir $@).tmp $(notdir $@) && rm -f $(notdir $@).tmp)
+]]></programlisting>
+  </example>
+
+  <para>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed risus dui,
+  faucibus at, blandit eu, congue in, sem. Suspendisse nec mi. Sed vel augue.
+  Cras egestas. Vivamus nisi. Fusce neque. Aenean posuere, orci non lacinia
+  consectetuer, neque libero semper metus, ut ullamcorper eros lorem at tellus.
+  Ut ante tellus, iaculis at, tincidunt quis, ultrices at, ligula. Pellentesque
+  porttitor condimentum nulla.</para>
+
+  <figure>
+    <title>A Figure</title>
+    <mediaobject>
+      <imageobject>
+        <imagedata fileref="http://www.gnome.org/projects/orca/images/orca2-sm.jpg"/>
+      </imageobject>
+      <caption><para>The mascot for the <ulink
+      url="http://www.gnome.org/projects/orca/index.html">Orca screen
+      reader</ulink></para></caption>
+    </mediaobject>
+  </figure>
+
+  <para>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed risus dui,
+  faucibus at, blandit eu, congue in, sem. Suspendisse nec mi. Sed vel augue.
+  Cras egestas. Vivamus nisi. Fusce neque. Aenean posuere, orci non lacinia
+  consectetuer, neque libero semper metus, ut ullamcorper eros lorem at tellus.
+  Ut ante tellus, iaculis at, tincidunt quis, ultrices at, ligula. Pellentesque
+  porttitor condimentum nulla.</para>
+
+</section> <!-- formal-block -->
+
+<section id="misc-block">
+  <title>Miscellaneous</title>
+
+  <epigraph>
+    <attribution>Henry Spencer</attribution>
+    <para>Those who do not understand Unix are condemned to reinvent it,
+    poorly.</para>
+  </epigraph>
+
+  <para>The above was brought to you courtesy of the <sgmltag>epigraph</sgmltag>
+  element.  Now here is an <sgmltag>address</sgmltag> element:</para>
+
+  <address>Free Software Foundation
+51 Franklin Street, Fifth Floor
+Boston, MA 02110-1301
+USA</address>
+
+  <para>Here is a <sgmltag>blockquote</sgmltag> element:</para>
+
+  <blockquote>
+    <attribution>Richard Stallman, from the <ulink
+    url="http://www.gnu.org/gnu/manifesto.html">GNU Manifeto</ulink></attribution>
+    <para>I consider that the golden rule requires that if I like a program
+    I must share it with other people who like it. Software sellers want to
+    divide the users and conquer them, making each user agree not to share
+    with others. I refuse to break solidarity with other users in this way.
+    I cannot in good conscience sign a nondisclosure agreement or a software
+    license agreement. For years I worked within the Artificial Intelligence
+    Lab to resist such tendencies and other inhospitalities, but eventually
+    they had gone too far: I could not remain in an institution where such
+    things are done for me against my will.</para>
+  </blockquote>
+
+<!-- FIXME:
+example
+figure (caption)
+formalpara
+glossary stuff
+highlights
+literallayout
+programlisting
+screen
+synopsis
+-->
+
+</section> <!-- misc-block -->
+
+</chapter> <!-- some-blocks -->
+
+<chapter id="lists">
+<title>List Elements</title>
+
+<section id="bullet-lists">
+  <title>Bullet Lists</title>
+
+  <para>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed risus dui,
+  faucibus at, blandit eu, congue in, sem. Suspendisse nec mi. Sed vel augue.
+  Cras egestas. Vivamus nisi. Fusce neque. Aenean posuere, orci non lacinia
+  consectetuer, neque libero semper metus, ut ullamcorper eros lorem at tellus.
+  Ut ante tellus, iaculis at, tincidunt quis, ultrices at, ligula. Pellentesque
+  porttitor condimentum nulla.</para>
+
+</section> <!-- bullet lists -->
+
+<section id="numbered-lists">
+  <title>Numbered Lists</title>
+
+  <para>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed risus dui,
+  faucibus at, blandit eu, congue in, sem. Suspendisse nec mi. Sed vel augue.
+  Cras egestas. Vivamus nisi. Fusce neque. Aenean posuere, orci non lacinia
+  consectetuer, neque libero semper metus, ut ullamcorper eros lorem at tellus.
+  Ut ante tellus, iaculis at, tincidunt quis, ultrices at, ligula. Pellentesque
+  porttitor condimentum nulla.</para>
+
+</section> <!-- numbered-lists -->
+
+<section id="simple-lists">
+  <title>Simple Lists</title>
+
+  <para>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed risus dui,
+  faucibus at, blandit eu, congue in, sem. Suspendisse nec mi. Sed vel augue.
+  Cras egestas. Vivamus nisi. Fusce neque. Aenean posuere, orci non lacinia
+  consectetuer, neque libero semper metus, ut ullamcorper eros lorem at tellus.
+  Ut ante tellus, iaculis at, tincidunt quis, ultrices at, ligula. Pellentesque
+  porttitor condimentum nulla.</para>
+
+</section> <!-- simple-lists -->
+
+<section id="variable-lists">
+  <title>Variable Lists</title>
+
+  <para>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed risus dui,
+  faucibus at, blandit eu, congue in, sem. Suspendisse nec mi. Sed vel augue.
+  Cras egestas. Vivamus nisi. Fusce neque. Aenean posuere, orci non lacinia
+  consectetuer, neque libero semper metus, ut ullamcorper eros lorem at tellus.
+  Ut ante tellus, iaculis at, tincidunt quis, ultrices at, ligula. Pellentesque
+  porttitor condimentum nulla.</para>
+
+</section> <!-- variable-lists -->
+
+</chapter> <!-- lists -->
+
+<chapter id="tables">
+<title>Table Elements</title>
+
+</chapter> <!-- tables -->
+    
+</book>

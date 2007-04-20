@@ -195,7 +195,12 @@ as a text-only mode.
   <div class="mediaobject">
     <xsl:call-template name="db2html.anchor"/>
     <xsl:call-template name="db2html.mediaobject"/>
-    <xsl:apply-templates select="caption"/>
+    <!-- When a figure contains only a single mediaobject, it eats the caption -->
+    <xsl:if test="not(../self::figure) or
+                  ../*[not(self::blockinfo) and not(self::title) and
+                       not(self::titleabbrev) and not(. = current()) ]">
+      <xsl:apply-templates select="caption"/>
+    </xsl:if>
   </div>
 </xsl:template>
 

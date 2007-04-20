@@ -1,3 +1,25 @@
+2007-04-20  Shaun McCance  <shaunm@gnome.org>
+
+	* test/testbook/Makefile:
+	* test/testbook/testbook.xml:
+	- Adding a simple test book
+
+	* xslt/common/theme.xsl:
+	* xslt/docbook/common/db-chunk.xsl:
+	* xslt/docbook/html/db2html-admon.xsl:
+	* xslt/docbook/html/db2html-autotoc.xsl:
+	* xslt/docbook/html/db2html-block.xsl:
+	* xslt/docbook/html/db2html-css.xsl:
+	* xslt/docbook/html/db2html-division.xsl:
+	* xslt/docbook/html/db2html-media.xsl:
+	* xslt/docbook/html/db2html-title.xsl:
+	* xslt/docbook/html/db2html.xsl:
+	- Changes to how blocks and titles work
+	- Changes to CSS interfaces
+	- Brand new theme.xsl module
+	- Implemented a TOC sidebar
+	- Various other things
+
 2007-04-09  Shaun McCance  <shaunm@gnome.org>
 
 	* configure.in:

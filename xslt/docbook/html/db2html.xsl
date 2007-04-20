@@ -29,13 +29,14 @@ DocBook to HTML
 <!--#@ db.chunk.extension -->
 <xsl:param name="db.chunk.extension" select="'.xhtml'"/>
 
+<xsl:include href="../../common/theme.xsl"/>
+
 <xsl:include href="../common/db-chunk.xsl"/>
 <xsl:include href="../common/db-common.xsl"/>
 <xsl:include href="../common/db-label.xsl"/>
 <xsl:include href="../common/db-title.xsl"/>
 <xsl:include href="../common/db-xref.xsl"/>
 
-<xsl:include href="db2html-admon.xsl"/>
 <xsl:include href="db2html-autotoc.xsl"/>
 <xsl:include href="db2html-bibliography.xsl"/>
 <xsl:include href="db2html-block.xsl"/>

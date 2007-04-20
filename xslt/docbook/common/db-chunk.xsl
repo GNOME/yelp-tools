@@ -506,6 +506,16 @@ REMARK: Explain how this works, and what the axes are
 </xsl:template>
 
 
+<!--%%==========================================================================
+db.chunk.content.mode
+Renders entire contents of the chunk
+$depth_of_chunk: The depth of the containing chunk in the document
+
+When processed in this mode, a division element should output the top-level
+markup for the output page.
+-->
+
+
 <!-- == Matched Templates == -->
 
 <xsl:template match="/">

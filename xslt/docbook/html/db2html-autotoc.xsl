@@ -22,6 +22,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!--!!==========================================================================
 DocBook to HTML - Tables of Contents
+:Requires: db-label db-xref db2html-xref
 
 REMARK: Write some intro material here
 -->
@@ -31,76 +32,92 @@ REMARK: Write some intro material here
 db2html.autotoc
 Creates a table of contents for a given element
 $node: The element to create a table of contents for
-$info: The info child element of ${node}
+$selected: A currently-selected page
 $divisions: The division-level child elements of ${node}
-$toc_depth: How deep to create entries in the table of contents
-$depth_of_chunk: The depth of the containing chunk in the document
+$labels: Whether to generate labels
+$titleabbrev: Whether to use #{titleabbrev} instead of #{title}
 
 REMARK: Extra explanation of the parameters would be good
 -->
 <xsl:template name="db2html.autotoc">
   <xsl:param name="node" select="."/>
-  <xsl:param name="info"/>
+  <xsl:param name="selected" select="false()"/>
   <xsl:param name="divisions"/>
   <xsl:param name="toc_depth" select="1"/>
-  <xsl:param name="depth_of_chunk">
-    <xsl:call-template name="db.chunk.depth-of-chunk">
-      <xsl:with-param name="node" select="$node"/>
-    </xsl:call-template>
-  </xsl:param>
-  <!-- FIXME: fix up, do stuff with $info, etc. -->
+  <xsl:param name="labels" select="true()"/>
+  <xsl:param name="titleabbrev" select="false()"/>
   <div class="autotoc">
     <ul>
-      <xsl:apply-templates mode="db2html.autotoc.mode" select="$divisions">
-        <xsl:with-param name="toc_depth" select="$toc_depth - 1"/>
-      </xsl:apply-templates>
+      <xsl:for-each select="$divisions">
+        <xsl:if test="($selected = false()) or ($node = $selected/ancestor-or-self::*)">
+          <xsl:apply-templates mode="db2html.autotoc.mode" select=".">
+            <xsl:with-param name="selected" select="$selected"/>
+            <xsl:with-param name="toc_depth" select="$toc_depth - 1"/>
+            <xsl:with-param name="labels" select="$labels"/>
+            <xsl:with-param name="titleabbrev" select="$titleabbrev"/>
+          </xsl:apply-templates>
+        </xsl:if>
+      </xsl:for-each>
     </ul>
   </div>
 </xsl:template>
 
 
-<!--**==========================================================================
-db2html.autotoc.css
-Outputs CSS that controls the appearance of tables of contents
--->
-<xsl:template name="db2html.autotoc.css">
-<xsl:text>
-div.autotoc { margin-left: 2em; padding: 0em; }
-div.autotoc ul { margin-left: 0em; padding-left: 0em; }
-div.autotoc ul li {
-  margin-right: 0em; padding: 0em;
-  list-style-type: none;
-}
-</xsl:text>
-</xsl:template>
-
 <!--%%==========================================================================
 db2html.autotoc.mode
-FIXME
+Renders a TOC entry for an element and its children
+$selected: A currently-selected page
 $toc_depth: How deep to create entries in the table of contents
+$labels: Whether to generate labels
+$titleabbrev: Whether to use #{titleabbrev} instead of #{title}
 
 REMARK: Describe this mode
 -->
 <xsl:template mode="db2html.autotoc.mode" match="*">
+  <xsl:param name="selected" select="false()"/>
   <xsl:param name="toc_depth" select="0"/>
+  <xsl:param name="labels" select="true()"/>
+  <xsl:param name="titleabbrev" select="false()"/>
+  <xsl:variable name="xrefstyle">
+    <xsl:text>role:title</xsl:text>
+    <xsl:if test="$titleabbrev">
+      <xsl:text>abbrev</xsl:text>
+    </xsl:if>
+  </xsl:variable>
   <li>
-    <span class="label">
-      <xsl:call-template name="db.label">
-        <xsl:with-param name="node" select="."/>
-        <xsl:with-param name="role" select="'li'"/>
-      </xsl:call-template>
-    </span>
-    <xsl:call-template name="db2html.xref">
-      <xsl:with-param name="linkend" select="@id"/>
-      <xsl:with-param name="target" select="."/>
-      <xsl:with-param name="xrefstyle" select="'role:title'"/>
-    </xsl:call-template>
+    <xsl:if test="$labels">
+      <span class="label">
+        <xsl:call-template name="db.label">
+          <xsl:with-param name="node" select="."/>
+          <xsl:with-param name="role" select="'li'"/>
+        </xsl:call-template>
+      </span>
+    </xsl:if>
+    <xsl:choose>
+      <xsl:when test=". = $selected">
+        <xsl:call-template name="db.xref.content">
+          <xsl:with-param name="linkend" select="@id"/>
+          <xsl:with-param name="target" select="."/>
+          <xsl:with-param name="xrefstyle" select="$xrefstyle"/>
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:call-template name="db2html.xref">
+          <xsl:with-param name="linkend" select="@id"/>
+          <xsl:with-param name="target" select="."/>
+          <xsl:with-param name="xrefstyle" select="$xrefstyle"/>
+        </xsl:call-template>
+      </xsl:otherwise>
+    </xsl:choose>
     <xsl:if test="$toc_depth &gt; 0">
       <xsl:call-template name="db2html.autotoc">
+        <xsl:with-param name="selected" select="$selected"/>
         <xsl:with-param name="toc_depth" select="$toc_depth"/>
         <xsl:with-param name="divisions"
                         select="*[contains($db.chunk.chunks_,
                                     concat(' ', local-name(.), ' '))]"/>
+        <xsl:with-param name="labels" select="$labels"/>
+        <xsl:with-param name="titleabbrev" select="$titleabbrev"/>
       </xsl:call-template>
     </xsl:if>
   </li>
@@ -108,12 +125,21 @@ REMARK: Describe this mode
 
 <!-- = refentry % db2html.autotoc.mode = -->
 <xsl:template mode="db2html.autotoc.mode" match="refentry">
+  <xsl:param name="selected" select="false()"/>
   <xsl:param name="toc_depth" select="0"/>
+  <xsl:param name="labels" select="true()"/>
+  <xsl:param name="titleabbrev" select="false()"/>
+  <xsl:variable name="xrefstyle">
+    <xsl:text>role:title</xsl:text>
+    <xsl:if test="$titleabbrev">
+      <xsl:text>abbrev</xsl:text>
+    </xsl:if>
+  </xsl:variable>
   <li>
     <xsl:call-template name="db2html.xref">
       <xsl:with-param name="linkend" select="@id"/>
       <xsl:with-param name="target" select="."/>
-      <xsl:with-param name="xrefstyle" select="'role:title'"/>
+      <xsl:with-param name="xrefstyle" select="$xrefstyle"/>
     </xsl:call-template>
     <xsl:if test="refnamediv/refpurpose">
       <!-- FIXME: I18N -->
