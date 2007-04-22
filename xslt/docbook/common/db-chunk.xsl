@@ -514,6 +514,7 @@ $depth_of_chunk: The depth of the containing chunk in the document
 When processed in this mode, a division element should output the top-level
 markup for the output page.
 -->
+<xsl:template mode="db.chunk.content.mode" match="*"/>
 
 
 <!-- == Matched Templates == -->

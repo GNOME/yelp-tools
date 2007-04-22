@@ -1,3 +1,10 @@
+2007-04-22  Shaun McCance  <shaunm@gnome.org>
+
+	* doc/xslt/C/gnome-doc-xslt.xml:
+	* xslt/docbook/common/db-chunk.xsl:
+	* xslt/docbook/html/Makefile.am:
+	- Make everything build without db2html-admon.xsl
+
 2007-04-20  Shaun McCance  <shaunm@gnome.org>
 
 	* test/testbook/testbook.xml:

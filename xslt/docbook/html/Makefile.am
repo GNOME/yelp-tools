@@ -1,7 +1,6 @@
 xsldir=$(datadir)/xml/gnome/xslt/docbook/html
 
 xsl_DATA =				\
-	db2html-admon.xsl		\
 	db2html-autotoc.xsl		\
 	db2html-bibliography.xsl	\
 	db2html-block.xsl		\
