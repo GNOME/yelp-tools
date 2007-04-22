@@ -1,3 +1,10 @@
+2007-04-22  Olav Vitters  <olav@bkor.dhs.org>
+
+	* configure.in:
+	* xslt/Makefile.am:
+	* xslt/common/Makefile.am:
+	- Add common/theme.xsl to the tarball.
+
 2007-04-22  Shaun McCance  <shaunm@gnome.org>
 
 	* doc/xslt/C/gnome-doc-xslt.xml:

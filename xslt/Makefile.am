@@ -1,1 +1,1 @@
-SUBDIRS = gettext docbook # gettext needs to be first
+SUBDIRS = gettext docbook common # gettext needs to be first

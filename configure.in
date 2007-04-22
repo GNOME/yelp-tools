@@ -55,6 +55,7 @@ xml2po/Makefile
 xml2po/xml2po.pc
 xml2po/modes/Makefile
 xml2po/examples/Makefile
+xslt/common/Makefile
 xslt/docbook/Makefile
 xslt/docbook/common/Makefile
 xslt/docbook/html/Makefile
