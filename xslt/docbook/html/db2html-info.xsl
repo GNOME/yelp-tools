@@ -28,14 +28,15 @@ REMARK: Describe this module
 
 
 <!--**==========================================================================
-db2html.info
-Renders the titlepage of a division element
+db2html.info.div
+Renders the contents of the titlepage of a division element
 $node: The division element to generate a title page for
 $info: The info child element of ${node}
+$depth_of_chunk: The depth of the containing chunk in the document
 
 REMARK: Describe this template
 -->
-<xsl:template name="db2html.info">
+<xsl:template name="db2html.info.div">
   <xsl:param name="node" select="."/>
   <xsl:param name="info"/>
   <xsl:param name="depth_of_chunk">
@@ -43,60 +44,51 @@ REMARK: Describe this template
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
   </xsl:param>
-  <html>
-    <head>
-      <xsl:call-template name="db2html.css">
-        <xsl:with-param name="css_file" select="false()"/>
+  <div class="division {local-name($info)}">
+    <xsl:call-template name="db2html.anchor">
+      <xsl:with-param name="name" select="local-name($info)"/>
+    </xsl:call-template>
+    <div class="header">
+      <xsl:call-template name="db2html.info.title">
+        <xsl:with-param name="node" select="$node"/>
+        <xsl:with-param name="info" select="$info"/>
       </xsl:call-template>
-    </head>
-    <body>
-      <div class="body">
-        <div class="{local-name($info)}">
-          <xsl:call-template name="db2html.anchor">
-            <xsl:with-param name="name" select="local-name($info)"/>
-          </xsl:call-template>
-          <xsl:call-template name="db2html.info.title">
-            <xsl:with-param name="node" select="$node"/>
-            <xsl:with-param name="info" select="$info"/>
-          </xsl:call-template>
-          <xsl:call-template name="db2html.info.subtitle">
-            <xsl:with-param name="node" select="$node"/>
-            <xsl:with-param name="info" select="$info"/>
-          </xsl:call-template>
-          <xsl:call-template name="db2html.info.authors">
-            <xsl:with-param name="node" select="$node"/>
-            <xsl:with-param name="info" select="$info"/>
-          </xsl:call-template>
-          <xsl:call-template name="db2html.info.editors">
-            <xsl:with-param name="node" select="$node"/>
-            <xsl:with-param name="info" select="$info"/>
-          </xsl:call-template>
-          <xsl:call-template name="db2html.info.collabs">
-            <xsl:with-param name="node" select="$node"/>
-            <xsl:with-param name="info" select="$info"/>
-          </xsl:call-template>
-          <xsl:call-template name="db2html.info.translators">
-            <xsl:with-param name="node" select="$node"/>
-            <xsl:with-param name="info" select="$info"/>
-          </xsl:call-template>
-          <xsl:call-template name="db2html.info.publishers">
-            <xsl:with-param name="node" select="$node"/>
-            <xsl:with-param name="info" select="$info"/>
-          </xsl:call-template>
-          <xsl:call-template name="db2html.info.othercredits">
-            <xsl:with-param name="node" select="$node"/>
-            <xsl:with-param name="info" select="$info"/>
-          </xsl:call-template>
-          <xsl:call-template name="db2html.info.copyrights">
-            <xsl:with-param name="node" select="$node"/>
-            <xsl:with-param name="info" select="$info"/>
-          </xsl:call-template>
-          <xsl:apply-templates mode="db2html.info.mode" select="$info/legalnotice"/>
-          <xsl:apply-templates mode="db2html.info.mode" select="$info/revhistory"/>
-        </div>
-      </div>
-    </body>
-  </html>
+      <xsl:call-template name="db2html.info.subtitle">
+        <xsl:with-param name="node" select="$node"/>
+        <xsl:with-param name="info" select="$info"/>
+      </xsl:call-template>
+    </div>
+    <xsl:call-template name="db2html.info.authors">
+      <xsl:with-param name="node" select="$node"/>
+      <xsl:with-param name="info" select="$info"/>
+    </xsl:call-template>
+    <xsl:call-template name="db2html.info.editors">
+      <xsl:with-param name="node" select="$node"/>
+      <xsl:with-param name="info" select="$info"/>
+    </xsl:call-template>
+    <xsl:call-template name="db2html.info.collabs">
+      <xsl:with-param name="node" select="$node"/>
+      <xsl:with-param name="info" select="$info"/>
+    </xsl:call-template>
+    <xsl:call-template name="db2html.info.translators">
+      <xsl:with-param name="node" select="$node"/>
+      <xsl:with-param name="info" select="$info"/>
+    </xsl:call-template>
+    <xsl:call-template name="db2html.info.publishers">
+      <xsl:with-param name="node" select="$node"/>
+      <xsl:with-param name="info" select="$info"/>
+    </xsl:call-template>
+    <xsl:call-template name="db2html.info.othercredits">
+      <xsl:with-param name="node" select="$node"/>
+      <xsl:with-param name="info" select="$info"/>
+    </xsl:call-template>
+    <xsl:call-template name="db2html.info.copyrights">
+      <xsl:with-param name="node" select="$node"/>
+      <xsl:with-param name="info" select="$info"/>
+    </xsl:call-template>
+    <xsl:apply-templates mode="db2html.info.mode" select="$info/legalnotice"/>
+    <xsl:apply-templates mode="db2html.info.mode" select="$info/revhistory"/>
+  </div>
 </xsl:template>
 
 
@@ -171,8 +163,8 @@ REMARK: Describe this template
                 $info/author     | $info/authorgroup/author     |
                 $info/corpauthor | $info/authorgroup/corpauthor "/>
   <xsl:if test="$authors">
-    <div>
-      <h2 class="author">
+    <div class="division">
+      <h2 class="title author">
         <xsl:call-template name="l10n.gettext">
           <xsl:with-param name="msgid" select="'Author'"/>
           <xsl:with-param name="number" select="count($authors)"/>
@@ -200,8 +192,8 @@ REMARK: Describe this template
   <xsl:variable name="editors" select="
                 $info/editor | $info/authorgroup/editor"/>
   <xsl:if test="$editors">
-    <div>
-      <h2 class="editor">
+    <div class="division">
+      <h2 class="title editor">
         <xsl:call-template name="l10n.gettext">
           <xsl:with-param name="msgid" select="'Editor'"/>
           <xsl:with-param name="number" select="count($editors)"/>
@@ -229,8 +221,8 @@ REMARK: Describe this template
   <xsl:variable name="collabs" select="
                 $info/collab | $info/authorgroup/collab"/>
   <xsl:if test="$collabs">
-    <div>
-      <h2 class="collab">
+    <div class="division">
+      <h2 class="title collab">
         <xsl:call-template name="l10n.gettext">
           <xsl:with-param name="msgid" select="'Collaborator'"/>
           <xsl:with-param name="number" select="count($collabs)"/>
@@ -261,8 +253,8 @@ REMARK: Describe this template
                 $info/authorgroup/corpcredit[@role = 'translator']   |
                 $info/authorgroup/othercredit[@role = 'translator']  "/>
   <xsl:if test="$translators">
-    <div>
-      <h2 class="translator">
+    <div class="division">
+      <h2 class="title translator">
         <xsl:call-template name="l10n.gettext">
           <xsl:with-param name="msgid" select="'Translator'"/>
           <xsl:with-param name="number" select="count($translators)"/>
@@ -289,8 +281,8 @@ REMARK: Describe this template
   <xsl:param name="info" select="'FIXME'"/>
   <xsl:variable name="publishers" select="$info/publisher"/>
   <xsl:if test="$publishers">
-    <div>
-      <h2 class="publisher">
+    <div class="division">
+      <h2 class="title publisher">
         <xsl:call-template name="l10n.gettext">
           <xsl:with-param name="msgid" select="'Publisher'"/>
           <xsl:with-param name="number" select="count($publishers)"/>
@@ -322,8 +314,8 @@ REMARK: Describe this template
                 $info/authorgroup/corpcredit[@role != 'translator']  |
                 $info/authorgroup/othercredit[@role != 'translator'] "/>
   <xsl:if test="$othercredits">
-    <div>
-      <h2 class="othercredit">
+    <div class="division">
+      <h2 class="title othercredit">
         <xsl:call-template name="l10n.gettext">
           <xsl:with-param name="msgid" select="'Other Contributor'"/>
           <xsl:with-param name="number" select="count($othercredits)"/>
@@ -350,8 +342,8 @@ REMARK: Describe this template
   <xsl:param name="info" select="'FIXME'"/>
   <xsl:variable name="copyrights" select="$info/copyright"/>
   <xsl:if test="$copyrights">
-    <div>
-      <h2 class="copyright">
+    <div class="division">
+      <h2 class="title copyright">
         <xsl:call-template name="l10n.gettext">
           <xsl:with-param name="msgid" select="'Copyright'"/>
           <xsl:with-param name="number" select="count($copyrights)"/>
@@ -522,10 +514,10 @@ REMARK: Describe this mode.
 
 <!-- = legalnotice % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="legalnotice">
-  <div class="legalnotice">
+  <div class="division legalnotice">
     <xsl:call-template name="db2html.anchor"/>
     <xsl:if test="not(title)">
-      <h2>
+      <h2 class="title legalnotice">
         <xsl:call-template name="l10n.gettext">
           <xsl:with-param name="msgid" select="'Legal Notice'"/>
         </xsl:call-template>
@@ -595,9 +587,9 @@ REMARK: Describe this mode.
 
 <!-- = revhistory % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="revhistory">
-  <div class="revhistory">
+  <div class="division revhistory">
     <xsl:call-template name="db2html.anchor"/>
-    <h2>
+    <h2 class="title revhistory">
       <xsl:call-template name="l10n.gettext">
         <xsl:with-param name="msgid" select="'Revision History'"/>
       </xsl:call-template>
@@ -674,165 +666,129 @@ REMARK: Describe this mode.
 
 <!-- = appendix % db.chunk.info.content.mode = -->
 <xsl:template mode="db.chunk.info.content.mode" match="appendix">
-  <xsl:param name="depth_of_chunk">
-    <xsl:call-template name="db.chunk.depth-of-chunk"/>
-  </xsl:param>
-  <xsl:call-template name="db2html.info">
+  <xsl:call-template name="db2html.division.html">
+    <xsl:with-param name="node" select="."/>
     <xsl:with-param name="info" select="appendixinfo"/>
-    <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+    <xsl:with-param name="template" select="'info'"/>
   </xsl:call-template>
 </xsl:template>
 
 <!-- = article % db.chunk.info.content.mode = -->
 <xsl:template mode="db.chunk.info.content.mode" match="article">
-  <xsl:param name="depth_of_chunk">
-    <xsl:call-template name="db.chunk.depth-of-chunk"/>
-  </xsl:param>
-  <xsl:call-template name="db2html.info">
+  <xsl:call-template name="db2html.division.html">
+    <xsl:with-param name="node" select="."/>
     <xsl:with-param name="info" select="articleinfo"/>
-    <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+    <xsl:with-param name="template" select="'info'"/>
   </xsl:call-template>
 </xsl:template>
 
 <!-- = book % db.chunk.info.content.mode = -->
 <xsl:template mode="db.chunk.info.content.mode" match="book">
-  <xsl:param name="depth_of_chunk">
-    <xsl:call-template name="db.chunk.depth-of-chunk"/>
-  </xsl:param>
-  <xsl:call-template name="db2html.info">
+  <xsl:call-template name="db2html.division.html">
+    <xsl:with-param name="node" select="."/>
     <xsl:with-param name="info" select="bookinfo"/>
-    <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+    <xsl:with-param name="template" select="'info'"/>
+    <xsl:with-param name="prev_id" select="''"/>
+    <xsl:with-param name="next_id" select="@id"/>
   </xsl:call-template>
 </xsl:template>
 
 <!-- = chapter % db.chunk.info.content.mode = -->
 <xsl:template mode="db.chunk.info.content.mode" match="chapter">
-  <xsl:param name="depth_of_chunk">
-    <xsl:call-template name="db.chunk.depth-of-chunk"/>
-  </xsl:param>
-  <xsl:call-template name="db2html.info">
+  <xsl:call-template name="db2html.division.html">
+    <xsl:with-param name="node" select="."/>
     <xsl:with-param name="info" select="chapterinfo"/>
-    <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+    <xsl:with-param name="template" select="'info'"/>
   </xsl:call-template>
 </xsl:template>
 
 <!-- = glossary % db.chunk.info.content.mode = -->
 <xsl:template mode="db.chunk.info.content.mode" match="glossary">
-  <xsl:param name="depth_of_chunk">
-    <xsl:call-template name="db.chunk.depth-of-chunk"/>
-  </xsl:param>
-  <xsl:call-template name="db2html.info">
+  <xsl:call-template name="db2html.division.html">
+    <xsl:with-param name="node" select="."/>
     <xsl:with-param name="info" select="glossaryinfo"/>
-    <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+    <xsl:with-param name="template" select="'info'"/>
   </xsl:call-template>
 </xsl:template>
 
 <!-- = part % db.chunk.info.content.mode = -->
 <xsl:template mode="db.chunk.info.content.mode" match="part">
-  <xsl:param name="depth_of_chunk">
-    <xsl:call-template name="db.chunk.depth-of-chunk"/>
-  </xsl:param>
-  <xsl:call-template name="db2html.info">
+  <xsl:call-template name="db2html.division.html">
+    <xsl:with-param name="node" select="."/>
     <xsl:with-param name="info" select="partinfo"/>
-    <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+    <xsl:with-param name="template" select="'info'"/>
   </xsl:call-template>
 </xsl:template>
 
 <!-- = preface % db.chunk.info.content.mode = -->
 <xsl:template mode="db.chunk.info.content.mode" match="preface">
-  <xsl:param name="depth_of_chunk">
-    <xsl:call-template name="db.chunk.depth-of-chunk"/>
-  </xsl:param>
-  <xsl:call-template name="db2html.info">
+  <xsl:call-template name="db2html.division.html">
+    <xsl:with-param name="node" select="."/>
     <xsl:with-param name="info" select="prefaceinfo"/>
-    <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+    <xsl:with-param name="template" select="'info'"/>
   </xsl:call-template>
 </xsl:template>
 
 <!-- = sect1 % db.chunk.info.content.mode = -->
 <xsl:template mode="db.chunk.info.content.mode" match="sect1">
-  <xsl:param name="depth_of_chunk">
-    <xsl:call-template name="db.chunk.depth-of-chunk"/>
-  </xsl:param>
-  <xsl:call-template name="db2html.info">
+  <xsl:call-template name="db2html.division.html">
+    <xsl:with-param name="node" select="."/>
     <xsl:with-param name="info" select="sect1info"/>
-    <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+    <xsl:with-param name="template" select="'info'"/>
   </xsl:call-template>
 </xsl:template>
 
 <!-- = sect2 % db.chunk.info.content.mode = -->
 <xsl:template mode="db.chunk.info.content.mode" match="sect2">
-  <xsl:param name="depth_of_chunk">
-    <xsl:call-template name="db.chunk.depth-of-chunk"/>
-  </xsl:param>
-  <xsl:call-template name="db2html.info">
+  <xsl:call-template name="db2html.division.html">
+    <xsl:with-param name="node" select="."/>
     <xsl:with-param name="info" select="sect2info"/>
-    <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+    <xsl:with-param name="template" select="'info'"/>
   </xsl:call-template>
 </xsl:template>
 
 <!-- = sect3 % db.chunk.info.content.mode = -->
 <xsl:template mode="db.chunk.info.content.mode" match="sect3">
-  <xsl:param name="depth_of_chunk">
-    <xsl:call-template name="db.chunk.depth-of-chunk"/>
-  </xsl:param>
-  <xsl:call-template name="db2html.info">
+  <xsl:call-template name="db2html.division.html">
+    <xsl:with-param name="node" select="."/>
     <xsl:with-param name="info" select="sect3info"/>
-    <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+    <xsl:with-param name="template" select="'info'"/>
   </xsl:call-template>
 </xsl:template>
 
 <!-- = sect4 % db.chunk.info.content.mode = -->
 <xsl:template mode="db.chunk.info.content.mode" match="sect4">
-  <xsl:param name="depth_of_chunk">
-    <xsl:call-template name="db.chunk.depth-of-chunk"/>
-  </xsl:param>
-  <xsl:call-template name="db2html.info">
+  <xsl:call-template name="db2html.division.html">
+    <xsl:with-param name="node" select="."/>
     <xsl:with-param name="info" select="sect4info"/>
-    <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+    <xsl:with-param name="template" select="'info'"/>
   </xsl:call-template>
 </xsl:template>
 
 <!-- = sect5 % db.chunk.info.content.mode = -->
 <xsl:template mode="db.chunk.info.content.mode" match="sect5">
-  <xsl:param name="depth_of_chunk">
-    <xsl:call-template name="db.chunk.depth-of-chunk"/>
-  </xsl:param>
-  <xsl:call-template name="db2html.info">
+  <xsl:call-template name="db2html.division.html">
+    <xsl:with-param name="node" select="."/>
     <xsl:with-param name="info" select="sect5info"/>
-    <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+    <xsl:with-param name="template" select="'info'"/>
   </xsl:call-template>
 </xsl:template>
 
 <!-- = section % db.chunk.info.content.mode = -->
 <xsl:template mode="db.chunk.info.content.mode" match="section">
-  <xsl:param name="depth_of_chunk">
-    <xsl:call-template name="db.chunk.depth-of-chunk"/>
-  </xsl:param>
-  <xsl:call-template name="db2html.info">
+  <xsl:call-template name="db2html.division.html">
+    <xsl:with-param name="node" select="."/>
     <xsl:with-param name="info" select="sectioninfo"/>
-    <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+    <xsl:with-param name="template" select="'info'"/>
   </xsl:call-template>
 </xsl:template>
 
 
 <!-- == Matched Templates == -->
 
-<!-- = authorblurb/title = -->
-<xsl:template match="authorblurb/title">
-  <xsl:call-template name="db2html.title.simple"/>
-</xsl:template>
-
 <!-- = legalnotice/title = -->
 <xsl:template match="legalnotice/title">
-  <h2>
-    <xsl:apply-templates/>
-  </h2>
-</xsl:template>
-
-<!-- = personblurb/title = -->
-<xsl:template match="personblurb/title">
-  <xsl:call-template name="db2html.title.simple"/>
+  <h2 class="title legalnotice"><xsl:apply-templates/></h2>
 </xsl:template>
 
 </xsl:stylesheet>

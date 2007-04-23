@@ -233,7 +233,7 @@ div.sidebar {
   width: 12em;
 }
 div.sidenav {
-  padding: 0.5em 1em 0.5em 1em;
+  padding: 0.5em 1em 0 1em;
   background-color: </xsl:text>
     <xsl:value-of select="$theme.color.background"/><xsl:text>;
   border: solid 1px </xsl:text>
@@ -247,7 +247,7 @@ div.sidenav div.autotoc {
   margin: 0;
 }
 div.sidenav div.autotoc div.autotoc { margin-top: 0.5em; }
-div.sidenav div.autotoc div.autotoc li { margin-bottom: 0.5em; }
+div.sidenav div.autotoc li { margin-bottom: 0.5em; }
 div.sidenav div.autotoc div.autotoc div.autotoc {
   <!-- FIXME: rtl -->
   margin-left: 1em;

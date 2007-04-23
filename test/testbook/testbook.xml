@@ -430,6 +430,22 @@ synopsis
 <chapter id="tables">
 <title>Table Elements</title>
 
+<table>
+<title>A Table</title>
+<tgroup>
+  <tbody>
+    <row>
+      <entry>fe</entry>
+      <entry>fi</entry>
+    </row>
+    <row>
+      <entry>fo</entry>
+      <entry>fum</entry>
+    </row>
+  </tbody>
+</tgroup>
+</table>
+
 </chapter> <!-- tables -->
     
 </book>
