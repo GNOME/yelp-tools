@@ -170,9 +170,11 @@ REMARK: Describe this template
           <xsl:with-param name="number" select="count($authors)"/>
         </xsl:call-template>
       </h2>
-      <dl>
-        <xsl:apply-templates mode="db2html.info.mode" select="$authors"/>
-      </dl>
+      <div class="block block-first">
+        <dl>
+          <xsl:apply-templates mode="db2html.info.mode" select="$authors"/>
+        </dl>
+      </div>
     </div>
   </xsl:if>
 </xsl:template>
@@ -199,9 +201,11 @@ REMARK: Describe this template
           <xsl:with-param name="number" select="count($editors)"/>
         </xsl:call-template>
       </h2>
-      <dl>
-        <xsl:apply-templates mode="db2html.info.mode" select="$editors"/>
-      </dl>
+      <div class="block block-first">
+        <dl>
+          <xsl:apply-templates mode="db2html.info.mode" select="$editors"/>
+        </dl>
+      </div>
     </div>
   </xsl:if>
 </xsl:template>
@@ -228,9 +232,11 @@ REMARK: Describe this template
           <xsl:with-param name="number" select="count($collabs)"/>
         </xsl:call-template>
       </h2>
-      <dl>
-        <xsl:apply-templates mode="db2html.info.mode" select="$collabs"/>
-      </dl>
+      <div class="block block-first">
+        <dl>
+          <xsl:apply-templates mode="db2html.info.mode" select="$collabs"/>
+        </dl>
+      </div>
     </div>
   </xsl:if>
 </xsl:template>
@@ -260,9 +266,11 @@ REMARK: Describe this template
           <xsl:with-param name="number" select="count($translators)"/>
         </xsl:call-template>
       </h2>
-      <dl>
-        <xsl:apply-templates mode="db2html.info.mode" select="$translators"/>
-      </dl>
+      <div class="block block-first">
+        <dl>
+          <xsl:apply-templates mode="db2html.info.mode" select="$translators"/>
+        </dl>
+      </div>
     </div>
   </xsl:if>
 </xsl:template>
@@ -288,9 +296,11 @@ REMARK: Describe this template
           <xsl:with-param name="number" select="count($publishers)"/>
         </xsl:call-template>
       </h2>
-      <dl>
-        <xsl:apply-templates mode="db2html.info.mode" select="$publishers"/>
-      </dl>
+      <div class="block block-first">
+        <dl>
+          <xsl:apply-templates mode="db2html.info.mode" select="$publishers"/>
+        </dl>
+      </div>
     </div>
   </xsl:if>
 </xsl:template>
@@ -321,9 +331,11 @@ REMARK: Describe this template
           <xsl:with-param name="number" select="count($othercredits)"/>
         </xsl:call-template>
       </h2>
-      <dl>
-        <xsl:apply-templates mode="db2html.info.mode" select="$othercredits"/>
-      </dl>
+      <div class="block block-first">
+        <dl>
+          <xsl:apply-templates mode="db2html.info.mode" select="$othercredits"/>
+        </dl>
+      </div>
     </div>
   </xsl:if>
 </xsl:template>
@@ -349,9 +361,11 @@ REMARK: Describe this template
           <xsl:with-param name="number" select="count($copyrights)"/>
         </xsl:call-template>
       </h2>
-      <dl>
-        <xsl:apply-templates mode="db2html.info.mode" select="$copyrights"/>
-      </dl>
+      <div class="block block-first">
+        <dl>
+          <xsl:apply-templates mode="db2html.info.mode" select="$copyrights"/>
+        </dl>
+      </div>
     </div>
   </xsl:if>
 </xsl:template>
@@ -600,7 +614,7 @@ REMARK: Describe this mode.
 
 <!-- = revision % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="revision">
-  <div class="revision">
+  <div class="block revision">
     <xsl:apply-templates mode="db2html.info.mode" select="date"/>
     <xsl:text>: </xsl:text>
     <xsl:apply-templates mode="db2html.info.mode" select="revnumber"/>

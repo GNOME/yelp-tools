@@ -423,6 +423,33 @@ synopsis
   Ut ante tellus, iaculis at, tincidunt quis, ultrices at, ligula. Pellentesque
   porttitor condimentum nulla.</para>
 
+  <variablelist>
+    <title>A Variable List</title>
+    <varlistentry>
+      <term>Fe</term>
+      <listitem><para>Aenean adipiscing adipiscing neque. Donec viverra, pede ac
+      consequat imperdiet, arcu risus mollis neque, vitae volutpat.</para></listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Fi</term>
+      <listitem><para>Aenean adipiscing adipiscing neque. Donec viverra, pede ac
+      consequat imperdiet, arcu risus mollis neque, vitae volutpat.</para></listitem>
+    </varlistentry>
+    <varlistentry>
+      <term>Fo</term>
+      <term>Fum</term>
+      <listitem><para>Aenean adipiscing adipiscing neque. Donec viverra, pede ac
+      consequat imperdiet, arcu risus mollis neque, vitae volutpat.</para></listitem>
+    </varlistentry>
+  </variablelist>
+
+  <para>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed risus dui,
+  faucibus at, blandit eu, congue in, sem. Suspendisse nec mi. Sed vel augue.
+  Cras egestas. Vivamus nisi. Fusce neque. Aenean posuere, orci non lacinia
+  consectetuer, neque libero semper metus, ut ullamcorper eros lorem at tellus.
+  Ut ante tellus, iaculis at, tincidunt quis, ultrices at, ligula. Pellentesque
+  porttitor condimentum nulla.</para>
+
 </section> <!-- variable-lists -->
 
 </chapter> <!-- lists -->

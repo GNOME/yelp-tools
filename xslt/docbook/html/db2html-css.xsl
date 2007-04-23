@@ -131,7 +131,12 @@ div.header {
   border-bottom: solid 1px </xsl:text>
     <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
 }
-h1, h2, h3, h4, h5, h6, h7 { margin: 0; padding: 0; }
+h1, h2, h3, h4, h5, h6, h7 {
+  margin: 0;
+  padding: 0;
+  color: </xsl:text>
+    <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
+}
 h1.title { font-size: 1.72em; }
 h2.title { font-size: 1.44em; }
 h3.title { font-size: 1.2em; }
@@ -215,7 +220,7 @@ div.autotoc {
     <xsl:value-of select="$theme.color.blue_border"/><xsl:text>;
 }
 div.autotoc ul { margin: 0; padding: 0; }
-div.autotoc li { list-style-type: none; }
+div.autotoc li { list-style-type: none; margin: 0; }
 div.autotoc div.autotoc-title { margin-bottom: 0.5em; }
 div.autotoc div.autotoc {
   border: none;

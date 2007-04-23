@@ -27,15 +27,6 @@ REMARK: Describe this module
 -->
 
 
-<!--@@==========================================================================
-db2html.list.border_color
-The color of the border around list elements
-
-REMARK: Describe this param
--->
-<xsl:param name="db2html.list.border_color" select="'black'"/>
-
-
 <!--**==========================================================================
 db2html.orderedlist.start
 Determines the number to use for the first #{listitem} in an #{orderedlist}
@@ -76,19 +67,31 @@ REMARK: Describe this template
 -->
 <xsl:template name="db2html.list.css">
 <xsl:text>
-div.list { margin-left: 0px; margin-bottom: 1em; padding: 0px; }
-div.list dl dt { margin-left: 0em; }
-div.list dl dd + dt { margin-top: 1em; }
-div.list dl dd {
-  margin-top: 0.69em;
+ul, ol, dl { margin: 0; }
+li {
+  <!-- FIXME: rtl -->
   margin-left: 1.72em;
-  margin-right: 1em;
+  <!-- FIXME: rtl -->
+  padding: 0;
 }
-div.list ul { margin-left: 1.72em; padding-left: 0em; }
-div.list ol { margin-left: 1.72em; padding-left: 0em; }
-div.list ul li { margin-right: 1em; padding: 0em; }
-div.list ol li { margin-right: 1em; padding: 0em; }
+dt { margin: 0; }
+dd {
+  <!-- FIXME: rtl -->
+  margin-left: 1.72em;
+}
+div.list dd {
+  margin-top: 0.2em;
+  margin-bottom: 1em;
+}
+dt.term {
+  font-weight: bold;
+  color: </xsl:text>
+    <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
+}
+
+<!-- FIXME: no sibling selectors -->
 div.list li + li { margin-top: 0.69em; }
+<!-- FIXME: no child selectors -->
 div.simplelist &gt; table { border: none; }
 </xsl:text>
 </xsl:template>
@@ -98,7 +101,7 @@ div.simplelist &gt; table { border: none; }
 
 <!-- = itemizedlist = -->
 <xsl:template match="itemizedlist">
-  <div class="list">
+  <div class="block list">
     <div class="itemizedlist">
       <xsl:call-template name="db2html.anchor"/>
       <xsl:apply-templates select="*[name(.) != 'listitem']"/>
@@ -159,7 +162,7 @@ div.simplelist &gt; table { border: none; }
     </xsl:choose>
   </xsl:variable>
   <!-- FIXME: auto-numeration for nested lists -->
-  <div class="list">
+  <div class="block list">
     <div class="orderedlist">
       <xsl:call-template name="db2html.anchor"/>
       <xsl:apply-templates select="*[name(.) != 'listitem']"/>
@@ -208,7 +211,7 @@ div.simplelist &gt; table { border: none; }
 
 <!-- = procedure = -->
 <xsl:template match="procedure">
-  <div class="list">
+  <div class="block list">
     <div class="procedure">
       <xsl:call-template name="db2html.anchor"/>
       <xsl:apply-templates select="*[name(.) != 'step']"/>
@@ -276,6 +279,7 @@ div.simplelist &gt; table { border: none; }
 <xsl:template match="segtitle">
   <b>
     <xsl:apply-templates/>
+    <!-- FIXME: i18n -->
     <xsl:text>: </xsl:text>
   </b>
 </xsl:template>
@@ -307,7 +311,7 @@ div.simplelist &gt; table { border: none; }
       </span>
     </xsl:when>
     <xsl:when test="@type = 'horiz'">
-      <div class="list">
+      <div class="block list">
         <div class="simplelist">
           <xsl:call-template name="db2html.anchor"/>
           <table>
@@ -329,7 +333,7 @@ div.simplelist &gt; table { border: none; }
       </div>
     </xsl:when>
     <xsl:otherwise>
-      <div class="list">
+      <div class="block list">
         <div class="simplelist">
           <xsl:call-template name="db2html.anchor"/>
           <xsl:variable name="rows" select="ceiling(count(member) div $columns)"/>
@@ -383,14 +387,19 @@ div.simplelist &gt; table { border: none; }
 
 <!-- = term = -->
 <xsl:template match="term">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="bold" select="@role = 'bold'"/>
-  </xsl:call-template>
+  <dt class="term">
+    <xsl:if test="../varlistentry/@id and not(preceding-sibling::term)">
+      <xsl:call-template name="db2html.anchor">
+        <xsl:with-param name="node" select=".."/>
+      </xsl:call-template>
+    </xsl:if>
+    <xsl:apply-templates/>
+  </dt>
 </xsl:template>
 
 <!-- = variablelist = -->
 <xsl:template match="variablelist">
-  <div class="list">
+  <div class="block list">
     <div class="variablelist">
       <xsl:call-template name="db2html.anchor"/>
       <xsl:apply-templates select="*[name(.) != 'varlistentry']"/>
@@ -403,15 +412,7 @@ div.simplelist &gt; table { border: none; }
 
 <!-- = varlistentry = -->
 <xsl:template match="varlistentry">
-  <dt>
-    <xsl:call-template name="db2html.anchor"/>
-    <xsl:for-each select="term">
-      <xsl:if test="position() != 1">
-        <xsl:text>, </xsl:text>
-      </xsl:if>
-      <xsl:apply-templates select="."/>
-    </xsl:for-each>
-  </dt>
+  <xsl:apply-templates select="term"/>
   <xsl:apply-templates select="listitem"/>
 </xsl:template>
 

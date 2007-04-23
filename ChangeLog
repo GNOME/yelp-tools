@@ -1,6 +1,17 @@
 2007-04-23  Shaun McCance  <shaunm@gnome.org>
 
 	* test/testbook/testbook.xml:
+	- Added a variablelist example
+
+	* xslt/docbook/html/db2html-css.xsl:
+	* xslt/docbook/html/db2html-info.xsl:
+	* xslt/docbook/html/db2html-list.xsl:
+	- Working on list styling
+	- Making sure info pages have necessary classes
+
+2007-04-23  Shaun McCance  <shaunm@gnome.org>
+
+	* test/testbook/testbook.xml:
 	- A small table
 
 	* xslt/docbook/html/db2html-autotoc.xsl:
