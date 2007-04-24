@@ -346,6 +346,9 @@ REMARK: Talk about how this works with chunking
       <xsl:value-of
        select="concat($db.chunk.info_basename, $db.chunk.extension)"/>
     </xsl:when>
+    <xsl:when test="$target = /*">
+      <xsl:value-of select="concat($db.chunk.basename, $db.chunk.extension)"/>
+    </xsl:when>
     <xsl:when test="$is_chunk">
       <xsl:value-of select="concat($linkend, $db.chunk.extension)"/>
     </xsl:when>

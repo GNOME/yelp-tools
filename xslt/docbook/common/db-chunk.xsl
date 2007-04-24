@@ -140,6 +140,9 @@ chunking mechanism without having to duplicate the content-generation code.
       <xsl:when test="$template = 'info'">
         <xsl:value-of select="$db.chunk.info_basename"/>
       </xsl:when>
+      <xsl:when test="$node = /*">
+        <xsl:value-of select="$db.chunk.basename"/>
+      </xsl:when>
       <xsl:otherwise>
         <xsl:value-of select="$node/@id"/>
       </xsl:otherwise>
