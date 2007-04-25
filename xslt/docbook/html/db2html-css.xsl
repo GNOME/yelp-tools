@@ -87,121 +87,98 @@ html { height: 100%; }
 body {
   margin: 0px;
   padding: 12px;
-  background-color: </xsl:text>
-    <xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
+  background-color: </xsl:text><xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
   min-height: 100%;
-  direction: </xsl:text>
-    <xsl:call-template name="l10n.direction"/><xsl:text>;
+  direction: </xsl:text><xsl:call-template name="l10n.direction"/><xsl:text>;
 }
 div, p, pre, blockquote { margin: 0; }
-
-.block { margin-top: 1em; }
-.block .block-first { margin-top: 0; }
-<!-- FIXME: rtl -->
-.block-indent {
-  margin-left: 1.72em;
-  margin-right: 1em;
-}
-.block-indent .block-indent {
-  margin-left: 0em;
-  margin-right: 0em;
-}
-.block-verbatim { white-space: pre; }
-
 div.body {
   padding: 1em;
   max-width: 60em;
-  background-color: </xsl:text>
-    <xsl:value-of select="$theme.color.background"/><xsl:text>;
-  border: solid 1px </xsl:text>
-    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
+  background-color: </xsl:text><xsl:value-of select="$theme.color.background"/><xsl:text>;
+  border: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
 }
 div.body-sidebar {
   <!-- FIXME: rtl -->
   margin-right: 13em;
 }
-
 div.division div.division { margin-top: 1.72em; }
 div.division div.division div.division { margin-top: 1.44em; }
-
 div.header {
   margin: 0;
-  color: </xsl:text>
-    <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
-  border-bottom: solid 1px </xsl:text>
-    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
+  color: </xsl:text><xsl:value-of select="$theme.color.text_light"/><xsl:text>;
+  border-bottom: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
 }
 h1, h2, h3, h4, h5, h6, h7 {
-  margin: 0;
-  padding: 0;
-  color: </xsl:text>
-    <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
+  margin: 0; padding: 0;
+  color: </xsl:text><xsl:value-of select="$theme.color.text_light"/><xsl:text>;
 }
 h1.title { font-size: 1.72em; }
 h2.title { font-size: 1.44em; }
 h3.title { font-size: 1.2em; }
-h4.title { font-size: 1em; }
-h5.title { font-size: 1em; }
-h6.title { font-size: 1em; }
-h7.title { font-size: 1em; }
+h4.title, h5.title, h6.title, h7.title { font-size: 1em; }
+.block { margin-top: 1em; }
+.block .block-first { margin-top: 0; }
+.block-indent {
+  <!-- FIXME: rtl -->
+  margin-left: 1.72em;
+  <!-- FIXME: rtl -->
+  margin-right: 1em;
+}
+.block-indent .block-indent { margin-left: 0em; margin-right: 0em; }
+.block-verbatim { white-space: pre; }
 div.title {
   margin-bottom: 0.2em;
   font-weight: bold;
-  color: </xsl:text>
-    <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
+  color: </xsl:text><xsl:value-of select="$theme.color.text_light"/><xsl:text>;
 }
-div.title-formal .label {
-  font-weight: normal;
-}
-
+div.title-formal .label { font-weight: normal; }
 a {
-  color: </xsl:text>
-    <xsl:value-of select="$theme.color.link"/><xsl:text>;
+  color: </xsl:text><xsl:value-of select="$theme.color.link"/><xsl:text>;
   text-decoration: none;
 }
 a:hover { text-decoration: underline; }
-a:visited {
-  color: </xsl:text>
-    <xsl:value-of select="$theme.color.link_visited"/><xsl:text>;
+a:visited { color: </xsl:text><xsl:value-of select="$theme.color.link_visited"/><xsl:text>; }
+ul, ol, dl { margin: 0; padding: 0; }
+li {
+  margin-top: 1em;
+  <!-- FIXME: rtl -->
+  margin-left: 2.4em;
+  <!-- FIXME: rtl -->
+  padding: 0;
 }
-
-
+li.li-first { margin-top: 0; }
+dt { margin: 0; }
+dd {
+  <!-- FIXME: rtl -->
+  margin-left: 1.72em;
+}
 ul.linktrail {
   display: block;
   margin: 0.2em 0 0 0;
+  <!-- FIXME: rtl -->
   text-align: right;
 }
-li.linktrail { display: inline; }
+li.linktrail { display: inline; margin: 0; padding: 0; }
+<!-- FIXME: rtl? -->
 li.linktrail::before {
   content: '&#x00A0; /&#x00A0;&#x00A0;';
-  color: </xsl:text>
-    <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
+  color: </xsl:text><xsl:value-of select="$theme.color.text_light"/><xsl:text>;
 }
+<!-- FIXME: rtl? -->
 li.linktrail-first::before, li.linktrail-only::before { content: ''; }
 
 div.navbar {
   padding: 0.5em 1em 0.5em 1em;
   max-width: 60em;
-  background-color: </xsl:text>
-    <xsl:value-of select="$theme.color.background"/><xsl:text>;
-  border: solid 1px </xsl:text>
-    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
+  background-color: </xsl:text><xsl:value-of select="$theme.color.background"/><xsl:text>;
+  border: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
 }
 div.navbar-top { margin-bottom: 1em; }
 div.navbar-bottom { margin-top: 1em; clear: both; }
-div.navbar img {
-  border: 0;
-  vertical-align: -0.4em;
-}
-table.navbar {
-  width: 100%;
-  margin: 0;
-  border: none;
-}
-table.navbar td {
-  padding: 0;
-  border: none;
-}
+div.navbar img { border: 0; vertical-align: -0.4em; }
+table.navbar { width: 100%; margin: 0; border: none; }
+table.navbar td { padding: 0; border: none; }
 td.navbar-next {
   <!-- FIXME: rtl -->
   text-align: right;
@@ -214,42 +191,28 @@ div.autotoc {
   <!-- FIXME: rtl -->
   margin-left: 1.72em;
   padding: 0.5em 1em 0.5em 1em;
-  background-color: </xsl:text>
-    <xsl:value-of select="$theme.color.blue_background"/><xsl:text>;
-  border: solid 1px </xsl:text>
-    <xsl:value-of select="$theme.color.blue_border"/><xsl:text>;
+  background-color: </xsl:text><xsl:value-of select="$theme.color.blue_background"/><xsl:text>;
+  border: solid 1px </xsl:text><xsl:value-of select="$theme.color.blue_border"/><xsl:text>;
 }
 div.autotoc ul { margin: 0; padding: 0; }
 div.autotoc li { list-style-type: none; margin: 0; }
 div.autotoc div.autotoc-title { margin-bottom: 0.5em; }
-div.autotoc div.autotoc {
-  border: none;
-  padding: 0;
-  margin-top: 0;
-  margin-bottom: 0.5em;
-}
+div.autotoc div.autotoc { border: none; padding: 0; margin-top: 0; margin-bottom: 0.5em; }
 div.autotoc div.autotoc div.autotoc { margin-bottom: 0; }
 
 div.sidebar {
   <!-- FIXME: rtl -->
   float: right;
-  padding: 0;
-  margin: 0;
-  width: 12em;
+  padding: 0; margin: 0; width: 12em;
 }
 div.sidenav {
   padding: 0.5em 1em 0 1em;
-  background-color: </xsl:text>
-    <xsl:value-of select="$theme.color.background"/><xsl:text>;
-  border: solid 1px </xsl:text>
-    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
+  background-color: </xsl:text><xsl:value-of select="$theme.color.background"/><xsl:text>;
+  border: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
 }
 div.sidenav div.autotoc {
-  background-color: </xsl:text>
-    <xsl:value-of select="$theme.color.background"/><xsl:text>;
-  border: none;
-  padding: 0;
-  margin: 0;
+  background-color: </xsl:text><xsl:value-of select="$theme.color.background"/><xsl:text>;
+  border: none; padding: 0; margin: 0;
 }
 div.sidenav div.autotoc div.autotoc { margin-top: 0.5em; }
 div.sidenav div.autotoc li { margin-bottom: 0.5em; }
@@ -272,10 +235,10 @@ div.blockquote {
 }
 div.attribution {
   margin-top: 0.5em;
-  color: </xsl:text>
-    <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
+  color: </xsl:text><xsl:value-of select="$theme.color.text_light"/><xsl:text>;
 }
 div.attribution::before {
+  <!-- FIXME: i18n -->
   content: '&#x2015; ';
 }
 div.epigraph {
@@ -285,61 +248,66 @@ div.epigraph {
   margin-left: 20%;
   <!-- FIXME: rtl -->
   margin-right: 0;
-  color: </xsl:text>
-    <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
+  color: </xsl:text><xsl:value-of select="$theme.color.text_light"/><xsl:text>;
 }
 div.figure, div.informalfigure {
   <!-- FIXME: hack -->
   display: table;
   padding: 0.5em;
-  background-color: </xsl:text>
-    <xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
-  border: solid 1px </xsl:text>
-    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
+  background-color: </xsl:text><xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
+  border: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
 }
 div.figure-inner, div.informalfigure-inner {
   padding: 0.5em;
-  background-color: </xsl:text>
-    <xsl:value-of select="$theme.color.background"/><xsl:text>;
-  border: solid 1px </xsl:text>
-    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
+  background-color: </xsl:text><xsl:value-of select="$theme.color.background"/><xsl:text>;
+  border: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
 }
-div.caption {
-  margin-top: 0.5em;
+div.caption { margin-top: 0.5em; }
+div.list div.title span.title {
+  border-bottom: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
+}
+div.list dd { margin-top: 0.2em; margin-bottom: 1em; }
+dt.term {
+  font-weight: bold;
+  color: </xsl:text><xsl:value-of select="$theme.color.text_light"/><xsl:text>;
+}
+div.simplelist {
+  <!-- FIXME: rtl -->
+  margin-left: 1.72em;
+}
+div.simplelist table { margin-left: 0; border: none; }
+div.simplelist td {
+  padding: 0.5em;
+  border-left: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
+}
+div.simplelist td.td-first {
+  <!-- FIXME: rtl -->
+  padding-left: 0;
+  <!-- FIXME: rtl -->
+  border-left: 0;
 }
 pre.programlisting {
   padding: 0.5em;
   <!-- FIXME: watermark -->
-  background-color: </xsl:text>
-    <xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
-  border: solid 1px </xsl:text>
-    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
+  background-color: </xsl:text><xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
+  border: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
 }
 pre.screen {
   padding: 0.5em;
   <!-- FIXME: watermark -->
-  background-color: </xsl:text>
-    <xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
-  border: solid 1px </xsl:text>
-    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
+  background-color: </xsl:text><xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
+  border: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
 }
 pre.screen .prompt {
-  color: </xsl:text>
-    <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
+  color: </xsl:text><xsl:value-of select="$theme.color.text_light"/><xsl:text>;
 }
 pre.linenumbering {
-  <!-- The margin is important to get the line numbering
-  to line up vertically with the content. -->
-  margin-top: 0;
-  padding: 0.5em;
-  border: solid 1px </xsl:text>
-    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
+  margin-top: 0; padding: 0.5em;
+  border: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
   <!-- FIXME: rtl -->
   border-right: none;
-  background-color: </xsl:text>
-    <xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
-  color: </xsl:text>
-    <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
+  background-color: </xsl:text><xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
+  color: </xsl:text><xsl:value-of select="$theme.color.text_light"/><xsl:text>;
   <!-- FIXME: rtl -->
   float: left;
   <!-- FIXME: rtl -->
@@ -349,41 +317,31 @@ pre.linenumbering {
 div.admonition {
   padding: 0.5em 1em 0.5em 1em;
   <!-- FIXME: rtl -->
-  padding-left: </xsl:text>
-    <xsl:value-of select="$theme.icon.admon.size + 12"/><xsl:text>px;
-  min-height: </xsl:text>
-    <xsl:value-of select="$theme.icon.admon.size"/><xsl:text>px;
-  border: solid 1px </xsl:text>
-    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
-  background-color: </xsl:text>
-    <xsl:value-of select="$theme.color.yellow_background"/><xsl:text>;
+  padding-left: </xsl:text><xsl:value-of select="$theme.icon.admon.size + 12"/><xsl:text>px;
+  min-height: </xsl:text><xsl:value-of select="$theme.icon.admon.size"/><xsl:text>px;
+  border: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
+  background-color: </xsl:text><xsl:value-of select="$theme.color.yellow_background"/><xsl:text>;
   <!-- FIXME: rtl -->
   background-position: 6px 0.5em;
   background-repeat: no-repeat;
 }
 div.caution {
-  background-image: url("</xsl:text>
-    <xsl:value-of select="$theme.icon.admon.caution"/><xsl:text>");
+  background-image: url("</xsl:text><xsl:value-of select="$theme.icon.admon.caution"/><xsl:text>");
 }
 div.important {
-  background-image: url("</xsl:text>
-    <xsl:value-of select="$theme.icon.admon.important"/><xsl:text>");
+  background-image: url("</xsl:text><xsl:value-of select="$theme.icon.admon.important"/><xsl:text>");
 }
 div.note {
-  background-image: url("</xsl:text>
-    <xsl:value-of select="$theme.icon.admon.note"/><xsl:text>");
+  background-image: url("</xsl:text><xsl:value-of select="$theme.icon.admon.note"/><xsl:text>");
 }
 div.note-bug {
-  background-image: url("</xsl:text>
-    <xsl:value-of select="$theme.icon.admon.bug"/><xsl:text>");
+  background-image: url("</xsl:text><xsl:value-of select="$theme.icon.admon.bug"/><xsl:text>");
 }
 div.tip {
-  background-image: url("</xsl:text>
-    <xsl:value-of select="$theme.icon.admon.tip"/><xsl:text>");
+  background-image: url("</xsl:text><xsl:value-of select="$theme.icon.admon.tip"/><xsl:text>");
 }
 div.warning {
-  background-image: url("</xsl:text>
-    <xsl:value-of select="$theme.icon.admon.warning"/><xsl:text>");
+  background-image: url("</xsl:text><xsl:value-of select="$theme.icon.admon.warning"/><xsl:text>");
 }
 
 
@@ -395,7 +353,6 @@ div.warning {
   <xsl:call-template name="db2html.block.css"/>
   <xsl:call-template name="db2html.callout.css"/>
   <xsl:call-template name="db2html.cmdsynopsis.css"/>
-  <xsl:call-template name="db2html.list.css"/>
   <xsl:call-template name="db2html.qanda.css"/>
   <xsl:call-template name="db2html.refentry.css"/>
   <xsl:call-template name="db2html.table.css"/>

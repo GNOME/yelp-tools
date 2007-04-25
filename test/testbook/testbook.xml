@@ -366,7 +366,6 @@ Running stylesheet and saving result took 144 ms
 
 <!-- FIXME:
 glossary stuff
-screen
 synopsis
 -->
 
@@ -377,8 +376,8 @@ synopsis
 <chapter id="lists">
 <title>List Elements</title>
 
-<section id="bullet-lists">
-  <title>Bullet Lists</title>
+<section id="itemizedlist">
+  <title>Itemized Lists</title>
 
   <para>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed risus dui,
   faucibus at, blandit eu, congue in, sem. Suspendisse nec mi. Sed vel augue.
@@ -387,10 +386,34 @@ synopsis
   Ut ante tellus, iaculis at, tincidunt quis, ultrices at, ligula. Pellentesque
   porttitor condimentum nulla.</para>
 
-</section> <!-- bullet lists -->
+  <itemizedlist>
+    <title>An Itemized List</title>
+    <listitem><para>Aenean adipiscing adipiscing neque. Donec viverra, pede ac
+    consequat imperdiet, arcu risus mollis neque, vitae volutpat.</para></listitem>
+    <listitem><para>Aenean adipiscing adipiscing neque. Donec viverra, pede ac
+    consequat imperdiet, arcu risus mollis neque, vitae volutpat.</para></listitem>
+    <listitem>
+      <para>Vivamus fermentum orci. Nullam posuere sem ut lectus. Donec viverra
+      tristique neque. Proin ultricies bibendum enim amet.</para>
+      <para>Phasellus mattis rhoncus nibh. Nulla nec pede varius ligula posuere
+      iaculis. Sed hendrerit nunc ac nunc. Suspendisse id.</para>
+    </listitem>
+    <listitem><para>Aenean adipiscing adipiscing neque. Donec viverra, pede ac
+    consequat imperdiet, arcu risus mollis neque, vitae volutpat.</para></listitem>
+  </itemizedlist>
 
-<section id="numbered-lists">
-  <title>Numbered Lists</title>
+  <itemizedlist mark="box">
+    <title>Another Itemized List</title>
+    <listitem><para>Aenean adipiscing adipiscing neque. Donec viverra, pede ac
+    consequat imperdiet, arcu risus mollis neque, vitae volutpat.</para></listitem>
+    <listitem><para>Aenean adipiscing adipiscing neque. Donec viverra, pede ac
+    consequat imperdiet, arcu risus mollis neque, vitae volutpat.</para></listitem>
+  </itemizedlist>
+
+</section> <!-- itemizedlist -->
+
+<section id="orderedlist">
+  <title>Ordered Lists</title>
 
   <para>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed risus dui,
   faucibus at, blandit eu, congue in, sem. Suspendisse nec mi. Sed vel augue.
@@ -399,21 +422,135 @@ synopsis
   Ut ante tellus, iaculis at, tincidunt quis, ultrices at, ligula. Pellentesque
   porttitor condimentum nulla.</para>
 
-</section> <!-- numbered-lists -->
+  <orderedlist>
+    <title>An Ordered List</title>
+    <listitem><para>Aenean adipiscing adipiscing neque. Donec viverra, pede ac
+    consequat imperdiet, arcu risus mollis neque, vitae volutpat.</para></listitem>
+    <listitem><para>Aenean adipiscing adipiscing neque. Donec viverra, pede ac
+    consequat imperdiet, arcu risus mollis neque, vitae volutpat.</para></listitem>
+    <listitem>
+      <para>Vivamus fermentum orci. Nullam posuere sem ut lectus. Donec viverra
+      tristique neque. Proin ultricies bibendum enim amet.</para>
+      <para>Phasellus mattis rhoncus nibh. Nulla nec pede varius ligula posuere
+      iaculis. Sed hendrerit nunc ac nunc. Suspendisse id.</para>
+    </listitem>
+    <listitem><para>Aenean adipiscing adipiscing neque. Donec viverra, pede ac
+    consequat imperdiet, arcu risus mollis neque, vitae volutpat.</para></listitem>
+  </orderedlist>
 
-<section id="simple-lists">
+  <para>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed risus dui,
+  faucibus at, blandit eu, congue in, sem. Suspendisse nec mi. Sed vel augue.
+  Cras egestas. Vivamus nisi. Fusce neque. Aenean posuere, orci non lacinia
+  consectetuer, neque libero semper metus, ut ullamcorper eros lorem at tellus.
+  Ut ante tellus, iaculis at, tincidunt quis, ultrices at, ligula. Pellentesque
+  porttitor condimentum nulla.</para>
+
+  <orderedlist continuation="continues">
+    <title>A Continuation</title>
+    <listitem><para>Aenean adipiscing adipiscing neque. Donec viverra, pede ac
+    consequat imperdiet, arcu risus mollis neque, vitae volutpat.</para></listitem>
+    <listitem><para>Aenean adipiscing adipiscing neque. Donec viverra, pede ac
+    consequat imperdiet, arcu risus mollis neque, vitae volutpat.</para></listitem>
+  </orderedlist>
+
+  <orderedlist>
+    <title>Some Nested Lists</title>
+    <listitem>
+      <para>Aenean adipiscing adipiscing neque. Donec viverra, pede ac
+      consequat imperdiet, arcu risus mollis neque, vitae volutpat.</para>
+      <orderedlist numeration="lowerroman">
+        <listitem><para>Aenean adipiscing adipiscing neque. Donec viverra, pede ac
+        consequat imperdiet, arcu risus mollis neque, vitae volutpat.</para></listitem>
+        <listitem><para>Aenean adipiscing adipiscing neque. Donec viverra, pede ac
+        consequat imperdiet, arcu risus mollis neque, vitae volutpat.</para></listitem>
+      </orderedlist>
+    </listitem>
+    <listitem><para>Aenean adipiscing adipiscing neque. Donec viverra, pede ac
+    consequat imperdiet, arcu risus mollis neque, vitae volutpat.</para></listitem>
+    <listitem>
+      <para>Aenean adipiscing adipiscing neque. Donec viverra, pede ac
+      consequat imperdiet, arcu risus mollis neque, vitae volutpat.</para>
+      <orderedlist numeration="loweralpha">
+        <listitem><para>Aenean adipiscing adipiscing neque. Donec viverra, pede ac
+        consequat imperdiet, arcu risus mollis neque, vitae volutpat.</para></listitem>
+        <listitem><para>Aenean adipiscing adipiscing neque. Donec viverra, pede ac
+        consequat imperdiet, arcu risus mollis neque, vitae volutpat.</para></listitem>
+      </orderedlist>
+    </listitem>
+  </orderedlist>
+
+</section> <!-- orderedlist -->
+
+<section id="simplelist">
   <title>Simple Lists</title>
 
-  <para>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed risus dui,
-  faucibus at, blandit eu, congue in, sem. Suspendisse nec mi. Sed vel augue.
-  Cras egestas. Vivamus nisi. Fusce neque. Aenean posuere, orci non lacinia
-  consectetuer, neque libero semper metus, ut ullamcorper eros lorem at tellus.
-  Ut ante tellus, iaculis at, tincidunt quis, ultrices at, ligula. Pellentesque
-  porttitor condimentum nulla.</para>
+  <para>Here is an inline list:
+  <simplelist type="inline">
+    <member>Fe</member>
+    <member>Fi</member>
+    <member>Fo</member>
+    <member>Fum</member>
+  </simplelist>.</para>
 
-</section> <!-- simple-lists -->
+  <para>Here are some horizontal lists:</para>
 
-<section id="variable-lists">
+  <simplelist type="horiz" columns="1">
+    <member>Fe</member>
+    <member>Fi</member>
+    <member>Fo</member>
+    <member>Fum</member>
+  </simplelist>
+  <simplelist type="horiz" columns="2">
+    <member>Fe</member>
+    <member>Fi</member>
+    <member>Fo</member>
+    <member>Fum</member>
+  </simplelist>
+  <simplelist type="horiz" columns="3">
+    <member>Fe</member>
+    <member>Fi</member>
+    <member>Fo</member>
+    <member>Fum</member>
+  </simplelist>
+  <simplelist type="horiz" columns="3">
+    <member>Fe</member>
+    <member>Fi</member>
+    <member>Fo</member>
+    <member>Fum</member>
+    <member>Fe</member>
+    <member>Fi</member>
+    <member>Fo</member>
+    <member>Fum</member>
+  </simplelist>
+
+  <para>Here are some vertical lists:</para>
+
+  <simplelist type="vert" columns="1">
+    <member>Fe</member>
+    <member>Fi</member>
+    <member>Fo</member>
+    <member>Fum</member>
+  </simplelist>
+  <simplelist type="vert" columns="2">
+    <member>Fe</member>
+    <member>Fi</member>
+    <member>Fo</member>
+    <member>Fum</member>
+  </simplelist>
+  <simplelist type="vert" columns="3">
+    <member>Fe</member>
+    <member>Fi</member>
+    <member>Fo</member>
+    <member>Fum</member>
+    <member>Fe</member>
+    <member>Fi</member>
+    <member>Fo</member>
+    <member>Fum</member>
+  </simplelist>
+
+</section> <!-- simplelist -->
+
+<section id="variablelist">
   <title>Variable Lists</title>
 
   <para>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed risus dui,
@@ -450,7 +587,12 @@ synopsis
   Ut ante tellus, iaculis at, tincidunt quis, ultrices at, ligula. Pellentesque
   porttitor condimentum nulla.</para>
 
-</section> <!-- variable-lists -->
+</section> <!-- variablelist -->
+
+<!-- FIXME:
+segmentedlist
+procedure
+-->
 
 </chapter> <!-- lists -->
 

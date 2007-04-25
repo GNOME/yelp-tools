@@ -41,7 +41,7 @@ determines the number to use for the first #{listitem} in an #{orderedlist}.
     <xsl:when test="@continutation != 'continues'">1</xsl:when>
     <xsl:otherwise>
       <xsl:variable name="prevlist"
-                    select="preceding::orderedlist[1]"/>
+                    select="$node/preceding::orderedlist[1]"/>
       <xsl:choose>
         <xsl:when test="count($prevlist) = 0">1</xsl:when>
         <xsl:otherwise>
@@ -56,44 +56,6 @@ determines the number to use for the first #{listitem} in an #{orderedlist}.
       </xsl:choose>
     </xsl:otherwise>
   </xsl:choose>
-</xsl:template>
-
-
-<!--**==========================================================================
-db2html.list.css
-Outputs CSS that controls the appearance of list elements
-
-REMARK: Describe this template
--->
-<xsl:template name="db2html.list.css">
-<xsl:text>
-ul, ol, dl { margin: 0; }
-li {
-  <!-- FIXME: rtl -->
-  margin-left: 1.72em;
-  <!-- FIXME: rtl -->
-  padding: 0;
-}
-dt { margin: 0; }
-dd {
-  <!-- FIXME: rtl -->
-  margin-left: 1.72em;
-}
-div.list dd {
-  margin-top: 0.2em;
-  margin-bottom: 1em;
-}
-dt.term {
-  font-weight: bold;
-  color: </xsl:text>
-    <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
-}
-
-<!-- FIXME: no sibling selectors -->
-div.list li + li { margin-top: 0.69em; }
-<!-- FIXME: no child selectors -->
-div.simplelist &gt; table { border: none; }
-</xsl:text>
 </xsl:template>
 
 
@@ -129,7 +91,15 @@ div.simplelist &gt; table { border: none; }
 
 <!-- = itemizedlist/listitem = -->
 <xsl:template match="itemizedlist/listitem">
+  <xsl:variable name="first"
+             select="not(preceding-sibling::*
+                     [not(self::blockinfo) and not(self::title) and not(self::titleabbrev)])"/>
   <li>
+    <xsl:if test="$first">
+      <xsl:attribute name="class">
+        <xsl:text>li-first</xsl:text>
+      </xsl:attribute>
+    </xsl:if>
     <xsl:if test="@override">
       <xsl:attribute name="style">
         <xsl:text>list-style-type: </xsl:text>
@@ -198,7 +168,15 @@ div.simplelist &gt; table { border: none; }
 
 <!-- = orderedlist/listitem = -->
 <xsl:template match="orderedlist/listitem">
+  <xsl:variable name="first"
+             select="not(preceding-sibling::*
+                     [not(self::blockinfo) and not(self::title) and not(self::titleabbrev)])"/>
   <li>
+    <xsl:if test="$first">
+      <xsl:attribute name="class">
+        <xsl:text>li-first</xsl:text>
+      </xsl:attribute>
+    </xsl:if>
     <xsl:if test="@override">
       <xsl:attribute name="value">
         <xsl:value-of select="@override"/>
@@ -315,9 +293,9 @@ div.simplelist &gt; table { border: none; }
         <div class="simplelist">
           <xsl:call-template name="db2html.anchor"/>
           <table>
-            <xsl:for-each select="member[position() mod $columns = 1]">
+            <xsl:for-each select="member[$columns = 1 or position() mod $columns = 1]">
               <tr>
-                <td>
+                <td class="td-first">
                   <xsl:apply-templates select="."/>
                 </td>
                 <xsl:for-each select="following-sibling::member[
@@ -326,6 +304,10 @@ div.simplelist &gt; table { border: none; }
                     <xsl:apply-templates select="."/>
                   </td>
                 </xsl:for-each>
+                <xsl:variable name="fcount" select="count(following-sibling::member)"/>
+                <xsl:if test="$fcount &lt; ($columns - 1)">
+                  <td colspan="{$columns - $fcount - 1}"/>
+                </xsl:if>
               </tr>
             </xsl:for-each>
           </table>
@@ -340,7 +322,7 @@ div.simplelist &gt; table { border: none; }
           <table>
             <xsl:for-each select="member[position() &lt;= $rows]">
               <tr>
-                <td>
+                <td class="td-first">
                   <xsl:apply-templates select="."/>
                 </td>
                 <xsl:for-each select="following-sibling::member[
@@ -349,6 +331,13 @@ div.simplelist &gt; table { border: none; }
                     <xsl:apply-templates select="."/>
                   </td>
                 </xsl:for-each>
+                <xsl:if test="position() = $rows">
+                  <xsl:variable name="fcount"
+                                select="count(following-sibling::member[position() mod $rows = 0])"/>
+                  <xsl:if test="$fcount &lt; ($columns - 1)">
+                    <td colspan="{$columns - $fcount - 1}"/>
+                  </xsl:if>
+                </xsl:if>
               </tr>
             </xsl:for-each>
           </table>
@@ -361,7 +350,15 @@ div.simplelist &gt; table { border: none; }
 <!-- FIXME: Do something with @performance -->
 <!-- = step = -->
 <xsl:template match="step">
+  <xsl:variable name="first"
+             select="not(preceding-sibling::*
+                     [not(self::blockinfo) and not(self::title) and not(self::titleabbrev)])"/>
   <li>
+    <xsl:if test="$first">
+      <xsl:attribute name="class">
+        <xsl:text>li-first</xsl:text>
+      </xsl:attribute>
+    </xsl:if>
     <xsl:apply-templates/>
   </li>
 </xsl:template>

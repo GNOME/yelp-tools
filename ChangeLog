@@ -1,3 +1,11 @@
+2007-04-25  Shaun McCance  <shaunm@gnome.org>
+
+	* test/testbook/testbook.xml:
+	* xslt/docbook/html/db2html-block.xsl:
+	* xslt/docbook/html/db2html-css.xsl:
+	* xslt/docbook/html/db2html-list.xsl:
+	- More work on lists
+
 2007-04-24  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/common/db-chunk.xsl:

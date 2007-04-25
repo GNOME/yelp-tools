@@ -97,6 +97,11 @@ is then used by the CSS for styling.
         </div>
         <xsl:apply-templates select="$caption"/>
       </xsl:when>
+      <xsl:when test="$node/self::title">
+        <span class="title">
+          <xsl:apply-templates select="$node/node()"/>
+        </span>
+      </xsl:when>
       <xsl:otherwise>
         <xsl:apply-templates select="$node/node()"/>
       </xsl:otherwise>
