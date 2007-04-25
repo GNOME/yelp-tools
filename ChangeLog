@@ -1,5 +1,10 @@
 2007-04-25  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/html/db2html-autotoc.xsl:
+	- Don't exclude undefined result prefix "msg"
+
+2007-04-25  Shaun McCance  <shaunm@gnome.org>
+
 	* doc/xslt/C/gnome-doc-xslt.xml:
 	* test/testbook/Makefile:
 	* xslt/docbook/html/Makefile.am:
