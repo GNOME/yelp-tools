@@ -17,7 +17,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:html="http://www.w3.org/1999/xhtml"
+                exclude-result-prefixes="msg html"
                 version="1.0">
 
 <!--!!==========================================================================
@@ -53,17 +54,17 @@ REMARK: Extra explanation of the parameters would be good
   <xsl:param name="labels" select="true()"/>
   <xsl:param name="titleabbrev" select="false()"/>
   <xsl:if test="($selected = false()) or ($node = $selected/ancestor-or-self::*)">
-    <div class="autotoc">
+    <html:div class="autotoc">
       <xsl:if test="$show_title">
-        <div class="title autotoc-title">
+        <html:div class="title autotoc-title">
           <xsl:call-template name="l10n.gettext">
             <xsl:with-param name="msgid" select="'Contents'"/>
           </xsl:call-template>
-        </div>
+        </html:div>
       </xsl:if>
-      <ul>
+      <html:ul>
         <xsl:if test="$show_info">
-          <li>
+          <html:li>
             <xsl:choose>
               <xsl:when test="$is_info">
                 <xsl:call-template name="l10n.gettext">
@@ -71,7 +72,7 @@ REMARK: Extra explanation of the parameters would be good
                 </xsl:call-template>
               </xsl:when>
               <xsl:otherwise>
-                <a>
+                <html:a>
                   <xsl:attribute name="href">
                     <xsl:call-template name="db.xref.target">
                       <xsl:with-param name="linkend" select="$db.chunk.info_basename"/>
@@ -87,10 +88,10 @@ REMARK: Extra explanation of the parameters would be good
                     <xsl:value-of select="$text"/>
                   </xsl:attribute>
                   <xsl:value-of select="$text"/>
-                </a>
+                </html:a>
               </xsl:otherwise>
             </xsl:choose>
-          </li>
+          </html:li>
         </xsl:if>
         <xsl:for-each select="$divisions">
           <xsl:apply-templates mode="db2html.autotoc.mode" select=".">
@@ -101,8 +102,8 @@ REMARK: Extra explanation of the parameters would be good
             <xsl:with-param name="titleabbrev" select="$titleabbrev"/>
           </xsl:apply-templates>
         </xsl:for-each>
-      </ul>
-    </div>
+      </html:ul>
+    </html:div>
   </xsl:if>
 </xsl:template>
 
@@ -130,14 +131,14 @@ REMARK: Describe this mode
       <xsl:text>abbrev</xsl:text>
     </xsl:if>
   </xsl:variable>
-  <li>
+  <html:li>
     <xsl:if test="$labels">
-      <span class="label">
+      <html:span class="label">
         <xsl:call-template name="db.label">
           <xsl:with-param name="node" select="."/>
           <xsl:with-param name="role" select="'li'"/>
         </xsl:call-template>
-      </span>
+      </html:span>
     </xsl:if>
     <xsl:choose>
       <xsl:when test=". = $selected and not($is_info)">
@@ -166,7 +167,7 @@ REMARK: Describe this mode
         <xsl:with-param name="titleabbrev" select="$titleabbrev"/>
       </xsl:call-template>
     </xsl:if>
-  </li>
+  </html:li>
 </xsl:template>
 
 <!-- = refentry % db2html.autotoc.mode = -->
@@ -182,7 +183,7 @@ REMARK: Describe this mode
       <xsl:text>abbrev</xsl:text>
     </xsl:if>
   </xsl:variable>
-  <li>
+  <html:li>
     <xsl:call-template name="db2html.xref">
       <xsl:with-param name="linkend" select="@id"/>
       <xsl:with-param name="target" select="."/>
@@ -193,7 +194,7 @@ REMARK: Describe this mode
       <xsl:text> — </xsl:text>
       <xsl:apply-templates select="refnamediv/refpurpose[1]"/>
     </xsl:if>
-  </li>
+  </html:li>
 </xsl:template>
 
 </xsl:stylesheet>

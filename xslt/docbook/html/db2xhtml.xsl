@@ -17,22 +17,20 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:html="http://www.w3.org/1999/xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
                 version="1.0">
 
 <xsl:import href="../../gettext/gettext.xsl"/>
 
-<xsl:output method="html"/>
-<xsl:namespace-alias stylesheet-prefix="html" result-prefix="#default"/>
 <!--#@ db2html.namespace -->
-<xsl:param name="db2html.namespace" select="''"/>
+<xsl:param name="db2html.namespace" select="'http://www.w3.org/1999/xhtml'"/>
 
 <!--!!==========================================================================
-DocBook to HTML
+DocBook to XHTML
 -->
 
 <!--#@ db.chunk.extension -->
-<xsl:param name="db.chunk.extension" select="'.html'"/>
+<xsl:param name="db.chunk.extension" select="'.xhtml'"/>
 
 <xsl:include href="../../common/theme.xsl"/>
 

@@ -206,6 +206,7 @@
     <include href="db-xref.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 
     <include href="db2html.xml" xmlns="http://www.w3.org/2001/XInclude"/>
+    <include href="db2xhtml.xml" xmlns="http://www.w3.org/2001/XInclude"/>
     <include href="db2html-autotoc.xml" xmlns="http://www.w3.org/2001/XInclude"/>
     <include href="db2html-bibliography.xml" xmlns="http://www.w3.org/2001/XInclude"/>
     <include href="db2html-block.xml" xmlns="http://www.w3.org/2001/XInclude"/>

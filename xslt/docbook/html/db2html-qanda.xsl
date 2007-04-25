@@ -17,7 +17,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:html="http://www.w3.org/1999/xhtml"
+                exclude-result-prefixes="html"
                 version="1.0">
 
 <!--!!==========================================================================
@@ -52,14 +53,14 @@ dd.answer div.label { float: left; }
 
 <!-- = answer = -->
 <xsl:template match="answer">
-  <dd class="answer">
-    <div class="label">
+  <html:dd class="answer">
+    <html:div class="label">
       <xsl:call-template name="db.label">
         <xsl:with-param name="role" select="'header'"/>
       </xsl:call-template>
-    </div>
+    </html:div>
     <xsl:apply-templates/>
-  </dd>
+  </html:dd>
 </xsl:template>
 
 <!-- = qandadiv = -->
@@ -109,14 +110,14 @@ dd.answer div.label { float: left; }
 
 <!-- = question = -->
 <xsl:template match="question">
-  <dt class="question">
-    <div class="label">
+  <html:dt class="question">
+    <html:div class="label">
       <xsl:call-template name="db.label">
         <xsl:with-param name="role" select="'header'"/>
       </xsl:call-template>
-    </div>
+    </html:div>
     <xsl:apply-templates/>
-  </dt>
+  </html:dt>
 </xsl:template>
 
 </xsl:stylesheet>

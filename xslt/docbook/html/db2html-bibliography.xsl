@@ -17,7 +17,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:html="http://www.w3.org/1999/xhtml"
+                exclude-result-prefixes="html"
                 version="1.0">
 
 <!--!!==========================================================================
@@ -82,7 +83,7 @@ Outputs CSS that controls the appearance of bibliograpies
 
 <!-- = bibliomixed = -->
 <xsl:template match="bibliomixed">
-  <div class="bibliomixed block-indent">
+  <html:div class="bibliomixed block-indent">
     <xsl:call-template name="db2html.anchor"/>
     <xsl:choose>
       <xsl:when test="*[1]/self::abbrev">
@@ -102,7 +103,7 @@ Outputs CSS that controls the appearance of bibliograpies
         <xsl:apply-templates/>
       </xsl:otherwise>
     </xsl:choose>
-  </div>
+  </html:div>
 </xsl:template>
 
 <!-- = bibliomset = -->

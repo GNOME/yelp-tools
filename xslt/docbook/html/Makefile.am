@@ -23,7 +23,8 @@ xsl_DATA =				\
 	db2html-table.xsl		\
 	db2html-title.xsl		\
 	db2html-xref.xsl		\
-	db2html.xsl
+	db2html.xsl			\
+	db2xhtml.xsl
 
 EXTRA_DIST=$(xsl_DATA)
 

@@ -18,7 +18,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:html="http://www.w3.org/1999/xhtml"
+                exclude-result-prefixes="html"
                 version="1.0">
 
 <!--!!==========================================================================
@@ -121,7 +122,7 @@ div.cmdsynopsis { font-family: monospace; }
     </xsl:choose>
   </xsl:param>
 
-  <span class="arg-punc">
+  <html:span class="arg-punc">
     <xsl:choose>
       <xsl:when test="$choice = 'plain'"/>
       <xsl:when test="$choice = 'req'">
@@ -131,11 +132,11 @@ div.cmdsynopsis { font-family: monospace; }
         <xsl:text>[</xsl:text>
       </xsl:otherwise>
     </xsl:choose>
-    <span class="arg">
+    <html:span class="arg">
       <xsl:apply-templates>
         <xsl:with-param name="sepchar" select="$sepchar"/>
       </xsl:apply-templates>
-    </span>
+    </html:span>
     <xsl:if test="$rep = 'repeat'">
       <xsl:text>...</xsl:text>
     </xsl:if>
@@ -148,7 +149,7 @@ div.cmdsynopsis { font-family: monospace; }
         <xsl:text>]</xsl:text>
       </xsl:otherwise>
     </xsl:choose>
-  </span>
+  </html:span>
 </xsl:template>
 
 <!-- = cmdsynopsis = -->
@@ -163,7 +164,7 @@ div.cmdsynopsis { font-family: monospace; }
       </xsl:otherwise>
     </xsl:choose>
   </xsl:param>
-  <div class="cmdsynopsis">
+  <html:div class="cmdsynopsis">
     <xsl:call-template name="db2html.anchor"/>
     <xsl:for-each select="command | arg | group | sbr">
       <xsl:if test="position() != 1">
@@ -176,7 +177,7 @@ div.cmdsynopsis { font-family: monospace; }
     <xsl:apply-templates select="synopfragment">
       <xsl:with-param name="sepchar" select="$sepchar"/>
     </xsl:apply-templates>
-  </div>
+  </html:div>
 </xsl:template>
 
 <!-- = group = -->
@@ -212,7 +213,7 @@ div.cmdsynopsis { font-family: monospace; }
     </xsl:choose>
   </xsl:param>
 
-  <span class="group-punc">
+  <html:span class="group-punc">
     <xsl:choose>
       <xsl:when test="$choice = 'plain'">
         <xsl:text>(</xsl:text>
@@ -224,7 +225,7 @@ div.cmdsynopsis { font-family: monospace; }
         <xsl:text>[</xsl:text>
       </xsl:otherwise>
     </xsl:choose>
-    <span class="group">
+    <html:span class="group">
       <xsl:for-each select="*">
         <xsl:if test="local-name(.) = 'arg' and position() != 1">
           <xsl:value-of select="concat($sepchar, '|', $sepchar)"/>
@@ -233,7 +234,7 @@ div.cmdsynopsis { font-family: monospace; }
           <xsl:with-param name="sepchar" select="$sepchar"/>
         </xsl:apply-templates>
       </xsl:for-each>
-    </span>
+    </html:span>
     <xsl:choose>
       <xsl:when test="$choice = 'plain'">
         <xsl:text>)</xsl:text>
@@ -248,12 +249,12 @@ div.cmdsynopsis { font-family: monospace; }
     <xsl:if test="$rep = 'repeat'">
       <xsl:text>...</xsl:text>
     </xsl:if>
-  </span>
+  </html:span>
 </xsl:template>
 
 <!-- = sbr = -->
 <xsl:template match="sbr">
-  <br class="sbr"/>
+  <html:br class="sbr"/>
 </xsl:template>
 
 <!-- = synopfragment = -->
@@ -268,13 +269,13 @@ div.cmdsynopsis { font-family: monospace; }
       </xsl:otherwise>
     </xsl:choose>
   </xsl:param>
-  <div class="synopfragment">
+  <html:div class="synopfragment">
     <xsl:call-template name="db2html.anchor"/>
-    <i><xsl:call-template name="db.label"/></i>
+    <html:i><xsl:call-template name="db.label"/></html:i>
     <xsl:apply-templates>
       <xsl:with-param name="sepchar" select="$sepchar"/>
     </xsl:apply-templates>
-  </div>
+  </html:div>
 </xsl:template>
 
 <!-- = synopfragmentref = -->

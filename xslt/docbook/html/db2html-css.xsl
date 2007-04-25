@@ -18,8 +18,9 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:exsl="http://exslt.org/common"
-                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:html="http://www.w3.org/1999/xhtml"
                 extension-element-prefixes="exsl"
+                exclude-result-prefixes="html"
                 version="1.0">
 
 <!--!!==========================================================================
@@ -60,12 +61,12 @@ avoid creating the same file multiple times.
           <xsl:call-template name="db2html.css.content"/>
         </exsl:document>
       </xsl:if>
-      <link rel="stylesheet" type="text/css" href="{$db2html.css.file}"/>
+      <html:link rel="stylesheet" type="text/css" href="{$db2html.css.file}"/>
     </xsl:when>
     <xsl:otherwise>
-      <style type="text/css">
+      <html:style type="text/css">
         <xsl:call-template name="db2html.css.content"/>
-      </style>
+      </html:style>
     </xsl:otherwise>
   </xsl:choose>
 </xsl:template>

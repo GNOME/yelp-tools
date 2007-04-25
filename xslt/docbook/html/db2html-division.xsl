@@ -17,7 +17,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:html="http://www.w3.org/1999/xhtml"
+                exclude-result-prefixes="html"
                 version="1.0">
 
 <!--!!==========================================================================
@@ -119,18 +120,18 @@ REMARK: Put in a word about the chunk flow; talk about what templates get called
   <xsl:variable name="prev_node" select="key('idkey', $prev_id)"/>
   <xsl:variable name="next_node" select="key('idkey', $next_id)"/>
   <!-- FIXME -->
-  <html>
-    <head>
-      <title>
+  <html:html>
+    <html:head>
+      <html:title>
         <xsl:variable name="title">
           <xsl:call-template name="db.title">
             <xsl:with-param name="node" select="$node"/>
           </xsl:call-template>
         </xsl:variable>
         <xsl:value-of select="normalize-space($title)"/>
-      </title>
+      </html:title>
       <xsl:if test="string($prev_id) != ''">
-        <link rel="previous">
+        <html:link rel="previous">
           <xsl:attribute name="href">
             <xsl:call-template name="db.xref.target">
               <xsl:with-param name="linkend" select="$prev_id"/>
@@ -143,10 +144,10 @@ REMARK: Put in a word about the chunk flow; talk about what templates get called
               <xsl:with-param name="node" select="$prev_node"/>
             </xsl:call-template>
           </xsl:attribute>
-        </link>
+        </html:link>
       </xsl:if>
       <xsl:if test="string($next_id) != ''">
-        <link rel="next">
+        <html:link rel="next">
           <xsl:attribute name="href">
             <xsl:call-template name="db.xref.target">
               <xsl:with-param name="linkend" select="$next_id"/>
@@ -159,10 +160,10 @@ REMARK: Put in a word about the chunk flow; talk about what templates get called
               <xsl:with-param name="node" select="$next_node"/>
             </xsl:call-template>
           </xsl:attribute>
-        </link>
+        </html:link>
       </xsl:if>
       <xsl:if test="/*[1] != $node">
-        <link rel="top">
+        <html:link rel="top">
           <xsl:attribute name="href">
             <xsl:call-template name="db.xref.target">
               <xsl:with-param name="linkend" select="/*[1]/@id"/>
@@ -175,14 +176,14 @@ REMARK: Put in a word about the chunk flow; talk about what templates get called
               <xsl:with-param name="node" select="/*[1]"/>
             </xsl:call-template>
           </xsl:attribute>
-        </link>
+        </html:link>
       </xsl:if>
       <xsl:call-template name="db2html.css">
         <xsl:with-param name="css_file" select="$depth_of_chunk = 0"/>
       </xsl:call-template>
       <xsl:call-template name="db2html.division.head.extra"/>
-    </head>
-    <body>
+    </html:head>
+    <html:body>
       <xsl:call-template name="db2html.division.top">
         <xsl:with-param name="node" select="$node"/>
         <xsl:with-param name="info" select="$info"/>
@@ -206,7 +207,7 @@ REMARK: Put in a word about the chunk flow; talk about what templates get called
         </xsl:call-template>
       </xsl:variable>
       <xsl:copy-of select="$sidebar"/>
-      <div>
+      <html:div>
         <xsl:attribute name="class">
           <xsl:text>body</xsl:text>
           <xsl:if test="$sidebar != ''">
@@ -228,7 +229,7 @@ REMARK: Put in a word about the chunk flow; talk about what templates get called
             </xsl:apply-templates>
           </xsl:otherwise>
         </xsl:choose>
-      </div>
+      </html:div>
       <xsl:call-template name="db2html.division.bottom">
         <xsl:with-param name="node" select="$node"/>
         <xsl:with-param name="info" select="$info"/>
@@ -239,8 +240,8 @@ REMARK: Put in a word about the chunk flow; talk about what templates get called
         <xsl:with-param name="prev_node" select="$prev_node"/>
         <xsl:with-param name="next_node" select="$next_node"/>
       </xsl:call-template>
-    </body>
-  </html>
+    </html:body>
+  </html:html>
 </xsl:template>
 
 
@@ -293,7 +294,7 @@ REMARK: Talk about some of the parameters
                      ($depth_in_chunk = 0 and $info)"/>
   <xsl:param name="autotoc_depth" select="number(boolean($divisions))"/>
 
-  <div class="division {local-name($node)}">
+  <html:div class="division {local-name($node)}">
     <xsl:call-template name="db2html.anchor">
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
@@ -318,12 +319,12 @@ REMARK: Talk about some of the parameters
       <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
     </xsl:apply-templates>
     <xsl:if test="$entries">
-      <dl class="{local-name($node)}">
+      <html:dl class="{local-name($node)}">
         <xsl:apply-templates select="$entries">
           <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
           <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
         </xsl:apply-templates>
-      </dl>
+      </html:dl>
     </xsl:if>
     <xsl:if test="$autotoc_depth != 0">
       <xsl:call-template name="db2html.autotoc">
@@ -346,7 +347,7 @@ REMARK: Talk about some of the parameters
         <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
       </xsl:call-template>
     </xsl:if>
-  </div>
+  </html:div>
 </xsl:template>
 
 
@@ -403,26 +404,25 @@ REMARK: Talk about the different kinds of title blocks
     </xsl:choose>
   </xsl:variable>
 
-  <div class="header">
-    <xsl:element name="{$title_h}"
-                 namespace="http://www.w3.org/1999/xhtml">
+  <html:div class="header">
+    <xsl:element name="{$title_h}" namespace="{$db2html.namespace}">
       <xsl:attribute name="class">
         <xsl:value-of select="concat(local-name($node), ' ', local-name($title_node))"/>
       </xsl:attribute>
-      <span class="title">
+      <html:span class="title">
         <xsl:if test="$title_node">
           <xsl:call-template name="db2html.anchor">
             <xsl:with-param name="node" select="$title_node"/>
           </xsl:call-template>
         </xsl:if>
         <xsl:if test="$generate_label">
-          <span class="label">
+          <html:span class="label">
             <xsl:call-template name="db.label">
               <xsl:with-param name="node" select="$node"/>
               <xsl:with-param name="role" select="'header'"/>
               <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
             </xsl:call-template>
-          </span>
+          </html:span>
         </xsl:if>
         <xsl:choose>
           <xsl:when test="$title_content">
@@ -432,11 +432,10 @@ REMARK: Talk about the different kinds of title blocks
             <xsl:apply-templates select="$title_node/node()"/>
           </xsl:otherwise>
         </xsl:choose>
-      </span>
+      </html:span>
     </xsl:element>
     <xsl:if test="$subtitle_node or $subtitle_content">
-      <xsl:element name="{$subtitle_h}"
-                   namespace="http://www.w3.org/1999/xhtml">
+      <xsl:element name="{$subtitle_h}" namespace="{$db2html.namespace}">
         <xsl:attribute name="class">
           <xsl:value-of select="concat(local-name($node), ' ', local-name($subtitle_node))"/>
         </xsl:attribute>
@@ -450,7 +449,7 @@ REMARK: Talk about the different kinds of title blocks
         </xsl:choose>
       </xsl:element>
     </xsl:if>
-  </div>
+  </html:div>
 </xsl:template>
 
 
@@ -464,10 +463,10 @@ REMARK: Describe this
 <xsl:template name="db2html.linktrail">
   <xsl:param name="node"/>
   <xsl:if test="$node/ancestor::*">
-    <ul class="linktrail">
+    <html:ul class="linktrail">
       <!-- The parens put the nodes back in document order -->
       <xsl:for-each select="($node/ancestor::*)">
-        <li>
+        <html:li>
           <xsl:attribute name="class">
             <xsl:text>linktrail</xsl:text>
             <xsl:choose>
@@ -482,7 +481,7 @@ REMARK: Describe this
               </xsl:when>
             </xsl:choose>
           </xsl:attribute>
-          <a class="linktrail">
+          <html:a class="linktrail">
             <xsl:attribute name="href">
               <xsl:call-template name="db.xref.target">
                 <xsl:with-param name="linkend" select="@id"/>
@@ -499,10 +498,10 @@ REMARK: Describe this
             <xsl:call-template name="db.titleabbrev">
               <xsl:with-param name="node" select="."/>
             </xsl:call-template>
-          </a>
-        </li>
+          </html:a>
+        </html:li>
       </xsl:for-each>
-    </ul>
+    </html:ul>
   </xsl:if>
 </xsl:template>
 
@@ -549,12 +548,12 @@ REMARK: Document this template
   <xsl:param name="prev_node" select="key('idkey', $prev_id)"/>
   <xsl:param name="next_node" select="key('idkey', $next_id)"/>
   <xsl:param name="position" select="'top'"/>
-  <div class="navbar navbar-{$position}">
+  <html:div class="navbar navbar-{$position}">
     <!-- FIXME: rtl -->
-    <table class="navbar"><tr>
-      <td class="navbar-prev">
+    <html:table class="navbar"><html:tr>
+      <html:td class="navbar-prev">
         <xsl:if test="$prev_id != ''">
-          <a class="navbar-prev">
+          <html:a class="navbar-prev">
             <xsl:attribute name="href">
               <xsl:call-template name="db.xref.target">
                 <xsl:with-param name="linkend" select="$prev_id"/>
@@ -590,12 +589,12 @@ REMARK: Document this template
                 </xsl:call-template>
               </xsl:otherwise>
             </xsl:choose>
-          </a>
+          </html:a>
         </xsl:if>
-      </td>
-      <td class="navbar-next">
+      </html:td>
+      <html:td class="navbar-next">
         <xsl:if test="$next_id != ''">
-          <a class="navbar-prev">
+          <html:a class="navbar-next">
             <xsl:attribute name="href">
               <xsl:call-template name="db.xref.target">
                 <xsl:with-param name="linkend" select="$next_id"/>
@@ -613,14 +612,14 @@ REMARK: Document this template
             </xsl:call-template>
             <xsl:text>&#x00A0;&#x00A0;</xsl:text>
             <xsl:copy-of select="$navbar.icon.next"/>
-          </a>
+          </html:a>
         </xsl:if>
-      </td>
-    </tr></table>
-  </div>
+      </html:td>
+    </html:tr></html:table>
+  </html:div>
 </xsl:template>
 <xsl:variable name="navbar.icon.previous">
-  <img>
+  <html:img>
     <xsl:attribute name="src">
       <xsl:value-of select="$theme.icon.nav.previous"/>
     </xsl:attribute>
@@ -630,10 +629,10 @@ REMARK: Document this template
     <xsl:attribute name="width">
       <xsl:value-of select="$theme.icon.nav.size"/>
     </xsl:attribute>
-  </img>
+  </html:img>
 </xsl:variable>
 <xsl:variable name="navbar.icon.next">
-  <img>
+  <html:img>
     <xsl:attribute name="src">
       <xsl:value-of select="$theme.icon.nav.next"/>
     </xsl:attribute>
@@ -643,7 +642,7 @@ REMARK: Document this template
     <xsl:attribute name="width">
       <xsl:value-of select="$theme.icon.nav.size"/>
     </xsl:attribute>
-  </img>
+  </html:img>
 </xsl:variable>
 
 
@@ -658,7 +657,7 @@ REMARK: Document this template
 <xsl:template name="db2html.sidenav">
   <xsl:param name="node" select="."/>
   <xsl:param name="template"/>
-  <div class="sidenav">
+  <html:div class="sidenav">
     <xsl:call-template name="db2html.autotoc">
       <xsl:with-param name="node" select="/"/>
       <xsl:with-param name="show_info" select="$db.chunk.info_chunk"/>
@@ -669,7 +668,7 @@ REMARK: Document this template
       <xsl:with-param name="labels" select="false()"/>
       <xsl:with-param name="titleabbrev" select="true()"/>
     </xsl:call-template>
-  </div>
+  </html:div>
 </xsl:template>
 
 
@@ -797,12 +796,12 @@ REMARK: Describe this template
   <xsl:param name="prev_node" select="key('idkey', $prev_id)"/>
   <xsl:param name="next_node" select="key('idkey', $next_id)"/>
   <xsl:if test="$db2html.sidenav">
-    <div class="sidebar">
+    <html:div class="sidebar">
       <xsl:call-template name="db2html.sidenav">
         <xsl:with-param name="node" select="$node"/>
         <xsl:with-param name="template" select="$template"/>
       </xsl:call-template>
-    </div>
+    </html:div>
   </xsl:if>
 </xsl:template>
 

@@ -17,7 +17,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:html="http://www.w3.org/1999/xhtml"
+                exclude-result-prefixes="html"
                 version="1.0">
 
 <!--!!==========================================================================
@@ -84,9 +85,9 @@ REMARK: Describe this template
 -->
 <xsl:template name="db2html.co.dingbat">
   <xsl:param name="co" select="."/>
-  <span class="co">
+  <html:span class="co">
     <xsl:value-of select="count(preceding::co) + 1"/>
-  </span>
+  </html:span>
 </xsl:template>
 
 

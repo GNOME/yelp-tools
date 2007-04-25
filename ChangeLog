@@ -1,5 +1,35 @@
 2007-04-25  Shaun McCance  <shaunm@gnome.org>
 
+	* doc/xslt/C/gnome-doc-xslt.xml:
+	* test/testbook/Makefile:
+	* xslt/docbook/html/Makefile.am:
+	* xslt/docbook/html/db2html-autotoc.xsl:
+	* xslt/docbook/html/db2html-bibliography.xsl:
+	* xslt/docbook/html/db2html-block.xsl:
+	* xslt/docbook/html/db2html-callout.xsl:
+	* xslt/docbook/html/db2html-classsynopsis.xsl:
+	* xslt/docbook/html/db2html-cmdsynopsis.xsl:
+	* xslt/docbook/html/db2html-css.xsl:
+	* xslt/docbook/html/db2html-division.xsl:
+	* xslt/docbook/html/db2html-ebnf.xsl:
+	* xslt/docbook/html/db2html-footnote.xsl:
+	* xslt/docbook/html/db2html-funcsynopsis.xsl:
+	* xslt/docbook/html/db2html-info.xsl:
+	* xslt/docbook/html/db2html-inline.xsl:
+	* xslt/docbook/html/db2html-l10n.xsl:
+	* xslt/docbook/html/db2html-list.xsl:
+	* xslt/docbook/html/db2html-media.xsl:
+	* xslt/docbook/html/db2html-qanda.xsl:
+	* xslt/docbook/html/db2html-refentry.xsl:
+	* xslt/docbook/html/db2html-table.xsl:
+	* xslt/docbook/html/db2html-title.xsl:
+	* xslt/docbook/html/db2html-xref.xsl:
+	* xslt/docbook/html/db2html.xsl:
+	* xslt/docbook/html/db2xhtml.xsl:
+	- Output to either HTML or XHTML
+
+2007-04-25  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/docbook/html/db2html-division.xsl:
 	- Don't output an empty <ul class="linktrail"/>
 

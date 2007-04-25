@@ -17,7 +17,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:html="http://www.w3.org/1999/xhtml"
+                exclude-result-prefixes="html"
                 version="1.0">
 
 <!--!!==========================================================================
@@ -59,14 +60,14 @@ REMARK: Describe this template
       </xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
-  <a name="{$anchor}"/>
-  <sup>
-    <a class="footnote" href="{$href}">
+  <html:a name="{$anchor}"/>
+  <html:sup>
+    <html:a class="footnote" href="{$href}">
       <xsl:call-template name="db.number">
         <xsl:with-param name="node" select="$node"/>
       </xsl:call-template>
-    </a>
-  </sup>
+    </html:a>
+  </html:sup>
 </xsl:template>
 
 
@@ -102,17 +103,17 @@ REMARK: Describe this template
       </xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
-  <div class="footnote">
-    <a name="{$anchor}"/>
-    <span class="footnote-number">
-      <a class="footnote-ref" href="{$href}">
+  <html:div class="footnote">
+    <html:a name="{$anchor}"/>
+    <html:span class="footnote-number">
+      <html:a class="footnote-ref" href="{$href}">
         <xsl:call-template name="db.number">
           <xsl:with-param name="node" select="$node"/>
         </xsl:call-template>
-      </a>
-    </span>
+      </html:a>
+    </html:span>
     <xsl:apply-templates select="$node/node()"/>
-  </div>
+  </html:div>
 </xsl:template>
 
 
@@ -156,7 +157,7 @@ REMARK: Describe this template
   </xsl:variable>
   <xsl:choose>
     <xsl:when test="($depth = $depth_of_chunk) and not($div)">
-      <div class="footnotes">
+      <html:div class="footnotes">
         <xsl:call-template name="db2html.footnote.note">
           <xsl:with-param name="node" select="$this"/>
         </xsl:call-template>
@@ -169,7 +170,7 @@ REMARK: Describe this template
             <xsl:with-param name="div" select="true()"/>
           </xsl:call-template>
         </xsl:if>
-      </div>
+      </html:div>
     </xsl:when>
     <xsl:otherwise>
       <xsl:if test="$depth = $depth_of_chunk">

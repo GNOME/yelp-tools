@@ -17,7 +17,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:html="http://www.w3.org/1999/xhtml"
+                exclude-result-prefixes="html"
                 version="1.0">
 
 <!--!!==========================================================================
@@ -542,14 +543,14 @@ REMARK: This template needs to be explained in detail, but I forgot how it works
       </xsl:apply-templates>
     </xsl:when>
     <xsl:when test="$entry.colnum &gt; $colnum">
-      <td>
+      <html:td>
         <xsl:if test="$style">
           <xsl:attribute name="style">
             <xsl:value-of select="$style"/>
           </xsl:attribute>
         </xsl:if>
         <xsl:text>&#160;</xsl:text>
-      </td>
+      </html:td>
       <xsl:apply-templates select=".">
         <xsl:with-param name="colspecs"  select="$colspecs"/>
         <xsl:with-param name="spanspecs" select="$spanspecs"/>
@@ -604,7 +605,7 @@ REMARK: This template needs to be explained in detail, but I forgot how it works
           </xsl:when>
         </xsl:choose>
       </xsl:variable>
-      <xsl:element name="{$element}" namespace="http://www.w3.org/1999/xhtml">
+      <xsl:element name="{$element}" namespace="{$db2html.namespace}">
         <xsl:if test="$style != ''">
           <xsl:attribute name="style">
             <xsl:value-of select="$style"/>
@@ -651,7 +652,7 @@ REMARK: This template needs to be explained in detail, but I forgot how it works
   <xsl:param name="colsep" select="false()"/>
   <xsl:param name="rowsep" select="false()"/>
   <xsl:param name="spanstr"/>
-  <tr>
+  <html:tr>
     <xsl:if test="name(..) = 'tbody'">
       <xsl:attribute name="class">
         <xsl:choose>
@@ -668,7 +669,7 @@ REMARK: This template needs to be explained in detail, but I forgot how it works
                       (@rowsep = '1') or ((@rowsep != '0') and $rowsep)"/>
       <xsl:with-param name="spanstr" select="$spanstr"/>
     </xsl:apply-templates>
-  </tr>
+  </html:tr>
   <xsl:if test="following-sibling::row">
     <xsl:apply-templates select="following-sibling::row[1]">
       <xsl:with-param name="colspecs"  select="$colspecs"/>
@@ -688,7 +689,7 @@ REMARK: This template needs to be explained in detail, but I forgot how it works
 
 <!-- = table = -->
 <xsl:template match="table | informaltable">
-  <div class="table block-indent">
+  <html:div class="table block-indent">
     <xsl:call-template name="db2html.anchor"/>
     <xsl:apply-templates select="title"/>
     <!-- FIXME: I have no idea what I'm supposed to do with textobject -->
@@ -712,7 +713,7 @@ REMARK: This template needs to be explained in detail, but I forgot how it works
         <xsl:apply-templates select="caption"/>
       </xsl:otherwise>
     </xsl:choose>
-  </div>
+  </html:div>
 </xsl:template>
 
 <!-- = tgroup = -->
@@ -734,7 +735,7 @@ REMARK: This template needs to be explained in detail, but I forgot how it works
       <xsl:text>border-left: solid 1px; border-right: outset 1px; </xsl:text>
     </xsl:if>
   </xsl:variable>
-  <table>
+  <html:table>
     <xsl:if test="../title">
       <xsl:attribute name="summary">
         <xsl:value-of select="../title"/>
@@ -766,7 +767,7 @@ REMARK: This template needs to be explained in detail, but I forgot how it works
       <xsl:with-param name="colsep" select="@colsep = '1'"/>
       <xsl:with-param name="rowsep" select="@rowsep = '1'"/>
     </xsl:apply-templates>
-  </table>
+  </html:table>
 </xsl:template>
 
 <!-- = tbody | tfoot | thead = -->
@@ -775,7 +776,7 @@ REMARK: This template needs to be explained in detail, but I forgot how it works
   <xsl:param name="spanspecs"/>
   <xsl:param name="colsep" select="false()"/>
   <xsl:param name="rowsep" select="false()"/>
-  <xsl:element name="{local-name(.)}" namespace="http://www.w3.org/1999/xhtml">
+  <xsl:element name="{local-name(.)}" namespace="{$db2html.namespace}">
     <xsl:if test="@valign">
       <xsl:attribute name="valign">
         <xsl:value-of select="@valign"/>

@@ -17,7 +17,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:html="http://www.w3.org/1999/xhtml"
+                exclude-result-prefixes="html"
                 version="1.0">
 
 <!--!!==========================================================================
@@ -43,21 +44,21 @@ REMARK: Talk about the different kinds of title blocks
       <xsl:with-param name="node" select="$referent"/>
     </xsl:call-template>
   </xsl:variable>
-  <div class="block block-first {local-name($node)}">
-    <span class="{local-name($node)}">
+  <html:div class="block block-first {local-name($node)}">
+    <html:span class="{local-name($node)}">
       <xsl:call-template name="db2html.anchor">
         <xsl:with-param name="node" select="$node"/>
       </xsl:call-template>
-      <span class="label">
+      <html:span class="label">
         <xsl:call-template name="db.label">
           <xsl:with-param name="node" select="$referent"/>
           <xsl:with-param name="role" select="'header'"/>
           <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
         </xsl:call-template>
-      </span>
+      </html:span>
       <xsl:apply-templates select="$node/node()"/>
-    </span>
-  </div>
+    </html:span>
+  </html:div>
 </xsl:template>
 
 

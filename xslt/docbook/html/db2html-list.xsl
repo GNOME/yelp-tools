@@ -17,7 +17,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:html="http://www.w3.org/1999/xhtml"
+                exclude-result-prefixes="html"
                 version="1.0">
 
 <!--!!==========================================================================
@@ -63,11 +64,11 @@ determines the number to use for the first #{listitem} in an #{orderedlist}.
 
 <!-- = itemizedlist = -->
 <xsl:template match="itemizedlist">
-  <div class="block list">
-    <div class="itemizedlist">
+  <html:div class="block list">
+    <html:div class="itemizedlist">
       <xsl:call-template name="db2html.anchor"/>
       <xsl:apply-templates select="*[name(.) != 'listitem']"/>
-      <ul>
+      <html:ul>
         <xsl:if test="@mark">
           <xsl:attribute name="style">
             <xsl:text>list-style-type: </xsl:text>
@@ -84,9 +85,9 @@ determines the number to use for the first #{listitem} in an #{orderedlist}.
           </xsl:attribute>
         </xsl:if>
         <xsl:apply-templates select="listitem"/>
-      </ul>
-    </div>
-  </div>
+      </html:ul>
+    </html:div>
+  </html:div>
 </xsl:template>
 
 <!-- = itemizedlist/listitem = -->
@@ -94,7 +95,7 @@ determines the number to use for the first #{listitem} in an #{orderedlist}.
   <xsl:variable name="first"
              select="not(preceding-sibling::*
                      [not(self::blockinfo) and not(self::title) and not(self::titleabbrev)])"/>
-  <li>
+  <html:li>
     <xsl:if test="$first">
       <xsl:attribute name="class">
         <xsl:text>li-first</xsl:text>
@@ -112,7 +113,7 @@ determines the number to use for the first #{listitem} in an #{orderedlist}.
     </xsl:if>
     <xsl:call-template name="db2html.anchor"/>
     <xsl:apply-templates/>
-  </li>
+  </html:li>
 </xsl:template>
 
 <!-- = member = -->
@@ -132,11 +133,11 @@ determines the number to use for the first #{listitem} in an #{orderedlist}.
     </xsl:choose>
   </xsl:variable>
   <!-- FIXME: auto-numeration for nested lists -->
-  <div class="block list">
-    <div class="orderedlist">
+  <html:div class="block list">
+    <html:div class="orderedlist">
       <xsl:call-template name="db2html.anchor"/>
       <xsl:apply-templates select="*[name(.) != 'listitem']"/>
-      <ol>
+      <html:ol>
         <xsl:if test="@numeration">
           <xsl:attribute name="type">
             <xsl:choose>
@@ -161,9 +162,9 @@ determines the number to use for the first #{listitem} in an #{orderedlist}.
         </xsl:if>
         <!-- FIXME: @inheritnum -->
         <xsl:apply-templates select="listitem"/>
-      </ol>
-    </div>
-  </div>
+      </html:ol>
+    </html:div>
+  </html:div>
 </xsl:template>
 
 <!-- = orderedlist/listitem = -->
@@ -171,7 +172,7 @@ determines the number to use for the first #{listitem} in an #{orderedlist}.
   <xsl:variable name="first"
              select="not(preceding-sibling::*
                      [not(self::blockinfo) and not(self::title) and not(self::titleabbrev)])"/>
-  <li>
+  <html:li>
     <xsl:if test="$first">
       <xsl:attribute name="class">
         <xsl:text>li-first</xsl:text>
@@ -184,35 +185,35 @@ determines the number to use for the first #{listitem} in an #{orderedlist}.
     </xsl:if>
     <xsl:call-template name="db2html.anchor"/>
     <xsl:apply-templates/>
-  </li>
+  </html:li>
 </xsl:template>
 
 <!-- = procedure = -->
 <xsl:template match="procedure">
-  <div class="block list">
-    <div class="procedure">
+  <html:div class="block list">
+    <html:div class="procedure">
       <xsl:call-template name="db2html.anchor"/>
       <xsl:apply-templates select="*[name(.) != 'step']"/>
       <xsl:choose>
         <xsl:when test="count(step) = 1">
-          <ul>
+          <html:ul>
             <xsl:apply-templates select="step"/>
-          </ul>
+          </html:ul>
         </xsl:when>
         <xsl:otherwise>
-          <ol>
+          <html:ol>
             <xsl:apply-templates select="step"/>
-          </ol>
+          </html:ol>
         </xsl:otherwise>
       </xsl:choose>
-    </div>
-  </div>
+    </html:div>
+  </html:div>
 </xsl:template>
 
 <!-- = seg = -->
 <xsl:template match="seg">
   <xsl:variable name="position" select="count(preceding-sibling::seg) + 1"/>
-  <p>
+  <html:p>
     <xsl:if test="$position = 1">
       <xsl:attribute name="class">
         <xsl:text>segfirst</xsl:text>
@@ -220,14 +221,14 @@ determines the number to use for the first #{listitem} in an #{orderedlist}.
     </xsl:if>
     <xsl:apply-templates select="../../segtitle[position() = $position]"/>
     <xsl:apply-templates/>
-  </p>
+  </html:p>
 </xsl:template>
 
 <!-- = seglistitem = -->
 <xsl:template match="seglistitem">
   <xsl:param name="position" select="count(preceding-sibling::seglistitem) + 1"/>
-  <div class="seglistitem">
-    <div>
+  <html:div class="seglistitem">
+    <html:div>
       <xsl:attribute name="class">
         <xsl:choose>
           <xsl:when test="($position mod 2) = 1">
@@ -239,27 +240,28 @@ determines the number to use for the first #{listitem} in an #{orderedlist}.
         </xsl:choose>
       </xsl:attribute>
       <xsl:apply-templates/>
-    </div>
-  </div>
+    </html:div>
+  </html:div>
 </xsl:template>
 
 <!-- FIXME: Implement tabular segmentedlists -->
 <!-- = segmentedlist = -->
 <xsl:template match="segmentedlist">
-  <div class="segmentedlist">
+  <html:div class="segmentedlist">
     <xsl:call-template name="db2html.anchor"/>
     <xsl:apply-templates select="title"/>
     <xsl:apply-templates select="seglistitem"/>
-  </div>
+  </html:div>
 </xsl:template>
 
 <!-- = segtitle = -->
 <xsl:template match="segtitle">
-  <b>
+  <!-- FIXME: no style tags -->
+  <html:b>
     <xsl:apply-templates/>
     <!-- FIXME: i18n -->
     <xsl:text>: </xsl:text>
-  </b>
+  </html:b>
 </xsl:template>
 
 <!-- = simplelist = -->
@@ -276,7 +278,7 @@ determines the number to use for the first #{listitem} in an #{orderedlist}.
   </xsl:variable>
   <xsl:choose>
     <xsl:when test="@type = 'inline'">
-      <span class="simplelist">
+      <html:span class="simplelist">
         <xsl:call-template name="db2html.anchor"/>
         <xsl:for-each select="member">
           <xsl:if test="position() != 1">
@@ -286,63 +288,63 @@ determines the number to use for the first #{listitem} in an #{orderedlist}.
           </xsl:if>
           <xsl:apply-templates select="."/>
         </xsl:for-each>
-      </span>
+      </html:span>
     </xsl:when>
     <xsl:when test="@type = 'horiz'">
-      <div class="block list">
-        <div class="simplelist">
+      <html:div class="block list">
+        <html:div class="simplelist">
           <xsl:call-template name="db2html.anchor"/>
-          <table>
+          <html:table>
             <xsl:for-each select="member[$columns = 1 or position() mod $columns = 1]">
-              <tr>
-                <td class="td-first">
+              <html:tr>
+                <html:td class="td-first">
                   <xsl:apply-templates select="."/>
-                </td>
+                </html:td>
                 <xsl:for-each select="following-sibling::member[
                                         position() &lt; $columns]">
-                  <td>
+                  <html:td>
                     <xsl:apply-templates select="."/>
-                  </td>
+                  </html:td>
                 </xsl:for-each>
                 <xsl:variable name="fcount" select="count(following-sibling::member)"/>
                 <xsl:if test="$fcount &lt; ($columns - 1)">
-                  <td colspan="{$columns - $fcount - 1}"/>
+                  <html:td colspan="{$columns - $fcount - 1}"/>
                 </xsl:if>
-              </tr>
+              </html:tr>
             </xsl:for-each>
-          </table>
-        </div>
-      </div>
+          </html:table>
+        </html:div>
+      </html:div>
     </xsl:when>
     <xsl:otherwise>
-      <div class="block list">
-        <div class="simplelist">
+      <html:div class="block list">
+        <html:div class="simplelist">
           <xsl:call-template name="db2html.anchor"/>
           <xsl:variable name="rows" select="ceiling(count(member) div $columns)"/>
-          <table>
+          <html:table>
             <xsl:for-each select="member[position() &lt;= $rows]">
-              <tr>
-                <td class="td-first">
+              <html:tr>
+                <html:td class="td-first">
                   <xsl:apply-templates select="."/>
-                </td>
+                </html:td>
                 <xsl:for-each select="following-sibling::member[
                               position() mod $rows = 0]">
-                  <td>
+                  <html:td>
                     <xsl:apply-templates select="."/>
-                  </td>
+                  </html:td>
                 </xsl:for-each>
                 <xsl:if test="position() = $rows">
                   <xsl:variable name="fcount"
                                 select="count(following-sibling::member[position() mod $rows = 0])"/>
                   <xsl:if test="$fcount &lt; ($columns - 1)">
-                    <td colspan="{$columns - $fcount - 1}"/>
+                    <html:td colspan="{$columns - $fcount - 1}"/>
                   </xsl:if>
                 </xsl:if>
-              </tr>
+              </html:tr>
             </xsl:for-each>
-          </table>
-        </div>
-      </div>
+          </html:table>
+        </html:div>
+      </html:div>
     </xsl:otherwise>
   </xsl:choose>
 </xsl:template>
@@ -353,23 +355,23 @@ determines the number to use for the first #{listitem} in an #{orderedlist}.
   <xsl:variable name="first"
              select="not(preceding-sibling::*
                      [not(self::blockinfo) and not(self::title) and not(self::titleabbrev)])"/>
-  <li>
+  <html:li>
     <xsl:if test="$first">
       <xsl:attribute name="class">
         <xsl:text>li-first</xsl:text>
       </xsl:attribute>
     </xsl:if>
     <xsl:apply-templates/>
-  </li>
+  </html:li>
 </xsl:template>
 
 <!-- FIXME: Do something with @performance -->
 <!-- = substeps = -->
 <xsl:template match="substeps">
   <xsl:variable name="depth" select="count(ancestor::substeps)"/>
-  <div class="substeps">
+  <html:div class="substeps">
     <xsl:call-template name="db2html.anchor"/>
-    <ol>
+    <html:ol>
       <xsl:attribute name="type">
         <xsl:choose>
           <xsl:when test="$depth mod 3 = 0">a</xsl:when>
@@ -378,33 +380,33 @@ determines the number to use for the first #{listitem} in an #{orderedlist}.
         </xsl:choose>
       </xsl:attribute>
       <xsl:apply-templates/>
-    </ol>
-  </div>
+    </html:ol>
+  </html:div>
 </xsl:template>
 
 <!-- = term = -->
 <xsl:template match="term">
-  <dt class="term">
+  <html:dt class="term">
     <xsl:if test="../varlistentry/@id and not(preceding-sibling::term)">
       <xsl:call-template name="db2html.anchor">
         <xsl:with-param name="node" select=".."/>
       </xsl:call-template>
     </xsl:if>
     <xsl:apply-templates/>
-  </dt>
+  </html:dt>
 </xsl:template>
 
 <!-- = variablelist = -->
 <xsl:template match="variablelist">
-  <div class="block list">
-    <div class="variablelist">
+  <html:div class="block list">
+    <html:div class="variablelist">
       <xsl:call-template name="db2html.anchor"/>
       <xsl:apply-templates select="*[name(.) != 'varlistentry']"/>
-      <dl>
+      <html:dl>
         <xsl:apply-templates select="varlistentry"/>
-      </dl>
-    </div>
-  </div>
+      </html:dl>
+    </html:div>
+  </html:div>
 </xsl:template>
 
 <!-- = varlistentry = -->
@@ -415,10 +417,10 @@ determines the number to use for the first #{listitem} in an #{orderedlist}.
 
 <!-- = varlistentry/listitem = -->
 <xsl:template match="varlistentry/listitem">
-  <dd>
+  <html:dd>
     <xsl:call-template name="db2html.anchor"/>
     <xsl:apply-templates/>
-  </dd>
+  </html:dd>
 </xsl:template>
 
 
