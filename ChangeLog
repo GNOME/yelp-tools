@@ -1,5 +1,10 @@
 2007-04-25  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/html/db2html-division.xsl:
+	- Don't output an empty <ul class="linktrail"/>
+
+2007-04-25  Shaun McCance  <shaunm@gnome.org>
+
 	* test/testbook/testbook.xml:
 	* xslt/docbook/html/db2html-block.xsl:
 	* xslt/docbook/html/db2html-css.xsl:

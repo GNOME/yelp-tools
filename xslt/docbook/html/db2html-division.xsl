@@ -463,45 +463,47 @@ REMARK: Describe this
 -->
 <xsl:template name="db2html.linktrail">
   <xsl:param name="node"/>
-  <ul class="linktrail">
-    <!-- The parens put the nodes back in document order -->
-    <xsl:for-each select="($node/ancestor::*)">
-      <li>
-        <xsl:attribute name="class">
-          <xsl:text>linktrail</xsl:text>
-          <xsl:choose>
-            <xsl:when test="last() = 1">
-              <xsl:text> linktrail-only</xsl:text>
-            </xsl:when>
-            <xsl:when test="position() = 1">
-              <xsl:text> linktrail-first</xsl:text>
-            </xsl:when>
-            <xsl:when test="position() = last()">
-              <xsl:text> linktrail-last</xsl:text>
-            </xsl:when>
-          </xsl:choose>
-        </xsl:attribute>
-        <a class="linktrail">
-          <xsl:attribute name="href">
-            <xsl:call-template name="db.xref.target">
-              <xsl:with-param name="linkend" select="@id"/>
-              <xsl:with-param name="target" select="."/>
-              <xsl:with-param name="is_chunk" select="true()"/>
-            </xsl:call-template>
+  <xsl:if test="$node/ancestor::*">
+    <ul class="linktrail">
+      <!-- The parens put the nodes back in document order -->
+      <xsl:for-each select="($node/ancestor::*)">
+        <li>
+          <xsl:attribute name="class">
+            <xsl:text>linktrail</xsl:text>
+            <xsl:choose>
+              <xsl:when test="last() = 1">
+                <xsl:text> linktrail-only</xsl:text>
+              </xsl:when>
+              <xsl:when test="position() = 1">
+                <xsl:text> linktrail-first</xsl:text>
+              </xsl:when>
+              <xsl:when test="position() = last()">
+                <xsl:text> linktrail-last</xsl:text>
+              </xsl:when>
+            </xsl:choose>
           </xsl:attribute>
-          <xsl:attribute name="title">
-            <xsl:call-template name="db.xref.tooltip">
-              <xsl:with-param name="linkend" select="@id"/>
-              <xsl:with-param name="target" select="."/>
+          <a class="linktrail">
+            <xsl:attribute name="href">
+              <xsl:call-template name="db.xref.target">
+                <xsl:with-param name="linkend" select="@id"/>
+                <xsl:with-param name="target" select="."/>
+                <xsl:with-param name="is_chunk" select="true()"/>
+              </xsl:call-template>
+            </xsl:attribute>
+            <xsl:attribute name="title">
+              <xsl:call-template name="db.xref.tooltip">
+                <xsl:with-param name="linkend" select="@id"/>
+                <xsl:with-param name="target" select="."/>
+              </xsl:call-template>
+            </xsl:attribute>
+            <xsl:call-template name="db.titleabbrev">
+              <xsl:with-param name="node" select="."/>
             </xsl:call-template>
-          </xsl:attribute>
-          <xsl:call-template name="db.titleabbrev">
-            <xsl:with-param name="node" select="."/>
-          </xsl:call-template>
-        </a>
-      </li>
-    </xsl:for-each>
-  </ul>
+          </a>
+        </li>
+      </xsl:for-each>
+    </ul>
+  </xsl:if>
 </xsl:template>
 
 
