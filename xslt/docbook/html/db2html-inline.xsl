@@ -31,6 +31,7 @@ REMARK: Describe this module
 db2html.inline
 Renders an inline element
 $node: The element to render
+$children: The child elements to process
 $bold: Whether to render the element in bold face
 $italic: Whether to render the element in italics
 $underline: Whether to underline the element
@@ -41,6 +42,7 @@ REMARK: Document this template
 -->
 <xsl:template name="db2html.inline">
   <xsl:param name="node" select="."/>
+  <xsl:param name="children" select="$node/node()"/>
   <xsl:param name="bold" select="false()"/>
   <xsl:param name="italic" select="false()"/>
   <xsl:param name="underline" select="false()"/>
@@ -76,7 +78,7 @@ REMARK: Document this template
     <xsl:call-template name="db2html.anchor">
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
-    <xsl:apply-templates select="$node/node()"/>
+    <xsl:apply-templates select="$children"/>
   </span>
 </xsl:template>
 

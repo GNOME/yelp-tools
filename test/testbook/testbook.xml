@@ -916,7 +916,137 @@ porttitor condimentum nulla.</para>
 </table>
 
 </section> <!-- cals-tables-misc -->
-
 </chapter> <!-- cals-tables -->
+
+<chapter id="funcsynopsis">
+<title>Function Synopses</title>
+
+<section id="funcsynopsis-ansi">
+<title>ANSI Formatting</title>
+
+<para>Here's an example with two <sgmltag>modifier</sgmltag> elements:</para>
+<funcsynopsis>
+<?db2html.funcsynopsis.style ANSI?>
+<funcsynopsisinfo>// This is a funcsynopsisinfo</funcsynopsisinfo>
+<funcprototype>
+  <modifier>static</modifier>
+  <modifier>SILLY</modifier>
+  <funcdef><type>Foo *</type> <function>foo_list_get_nth</function></funcdef>
+  <paramdef><type>FooList *</type><parameter>list</parameter></paramdef>
+  <paramdef>int <parameter>n</parameter></paramdef>
+</funcprototype>
+</funcsynopsis>
+
+<para>This example uses <sgmltag>void</sgmltag>:</para>
+<funcsynopsis>
+<?db2html.funcsynopsis.style ANSI?>
+<funcprototype>
+  <modifier>static</modifier>
+  <funcdef>void <function>foo_noop</function></funcdef>
+  <void/>
+</funcprototype>
+</funcsynopsis>
+
+<para>This example uses <sgmltag>varargs</sgmltag>:</para>
+<funcsynopsis>
+<?db2html.funcsynopsis.style ANSI?>
+<funcprototype>
+  <modifier>static</modifier>
+  <funcdef>void <function>foo_process_args</function></funcdef>
+  <paramdef><type>Foo *</type><parameter>foo</parameter></paramdef>
+  <varargs/>
+</funcprototype>
+</funcsynopsis>
+
+<para>This example places a <sgmltag>modifier</sgmltag> after the
+<sgmltag>func</sgmltag>, for some strange reason:</para>
+<funcsynopsis>
+<?db2html.funcsynopsis.style ANSI?>
+<funcprototype>
+  <funcdef>void <function>foo_process_args</function></funcdef>
+  <paramdef><type>Foo *</type><parameter>foo</parameter></paramdef>
+  <varargs/>
+  <modifier>AFTER</modifier>
+</funcprototype>
+</funcsynopsis>
+
+<para>This example uses <sgmltag>funcparams</sgmltag>:</para>
+<funcsynopsis>
+<?db2html.funcsynopsis.style ANSI?>
+<funcprototype>
+  <funcdef>void <function>foo_list_foreach</function></funcdef>
+  <paramdef><type>FooList *</type><parameter>list</parameter></paramdef>
+  <paramdef>int (*<parameter>func</parameter>) <funcparams>Foo *, void *</funcparams></paramdef>
+  <paramdef>void *<parameter>user_data</parameter></paramdef>
+</funcprototype>
+
+</funcsynopsis>
+
+</section> <!-- funcsynopsis-ansi -->
+
+<section id="funcsynopsis-kr">
+<title>K&amp;R Formatting</title>
+
+<para>Here's an example with two <sgmltag>modifier</sgmltag> elements:</para>
+<funcsynopsis>
+<?db2html.funcsynopsis.style KR?>
+<funcsynopsisinfo>// This is a funcsynopsisinfo</funcsynopsisinfo>
+<funcprototype>
+  <modifier>static</modifier>
+  <modifier>SILLY</modifier>
+  <funcdef><type>Foo *</type> <function>foo_list_get_nth</function></funcdef>
+  <paramdef><type>FooList *</type><parameter>list</parameter></paramdef>
+  <paramdef>int <parameter>n</parameter></paramdef>
+</funcprototype>
+</funcsynopsis>
+
+<para>This example uses <sgmltag>void</sgmltag>:</para>
+<funcsynopsis>
+<?db2html.funcsynopsis.style KR?>
+<funcprototype>
+  <modifier>static</modifier>
+  <funcdef>void <function>foo_noop</function></funcdef>
+  <void/>
+</funcprototype>
+</funcsynopsis>
+
+<para>This example uses <sgmltag>varargs</sgmltag>:</para>
+<funcsynopsis>
+<?db2html.funcsynopsis.style KR?>
+<funcprototype>
+  <modifier>static</modifier>
+  <funcdef>void <function>foo_process_args</function></funcdef>
+  <paramdef><type>Foo *</type><parameter>foo</parameter></paramdef>
+  <varargs/>
+</funcprototype>
+</funcsynopsis>
+
+<para>This example places a <sgmltag>modifier</sgmltag> after the
+<sgmltag>func</sgmltag>, for some strange reason:</para>
+<funcsynopsis>
+<?db2html.funcsynopsis.style KR?>
+<funcprototype>
+  <funcdef>void <function>foo_process_args</function></funcdef>
+  <paramdef><type>Foo *</type><parameter>foo</parameter></paramdef>
+  <varargs/>
+  <modifier>AFTER</modifier>
+</funcprototype>
+</funcsynopsis>
+
+<para>This example uses <sgmltag>funcparams</sgmltag>:</para>
+<funcsynopsis>
+<?db2html.funcsynopsis.style KR?>
+<funcprototype>
+  <funcdef>void <function>foo_list_foreach</function></funcdef>
+  <paramdef><type>FooList *</type><parameter>list</parameter></paramdef>
+  <paramdef>int (*<parameter>func</parameter>) <funcparams>Foo *, void *</funcparams></paramdef>
+  <paramdef>void *<parameter>user_data</parameter></paramdef>
+</funcprototype>
+
+</funcsynopsis>
+
+</section> <!-- funcsynopsis-kr -->
+
+</chapter> <!-- funcsynopsis -->
     
 </book>

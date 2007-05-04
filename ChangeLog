@@ -1,5 +1,17 @@
 2007-05-04  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/html/db2html-table.xsl:
+	- Moved the table CSS to db2html-css.xsl
+
+	* test/testbook/testbook.xml:
+	* xslt/docbook/html/db2html-block.xsl:
+	* xslt/docbook/html/db2html-css.xsl:
+	* xslt/docbook/html/db2html-funcsynopsis.xsl:
+	* xslt/docbook/html/db2html-inline.xsl:
+	- Improvements to funcsynopsis
+
+2007-05-04  Shaun McCance  <shaunm@gnome.org>
+
 	* test/testbook/testbook.xml:
 	- More table tests
 

@@ -199,6 +199,7 @@ Renders a block-level element as an HTML #{pre} element
 $node: The block-level element to render
 $first: Whether this is the first child block in the parent
 $indent: Whether this block should be indented
+$children: The child elements to process
 
 This template creates an HTML #{pre} element for the given DocBook element.
 This template uses the parameters to construct the #{class} attribute, which
@@ -211,6 +212,7 @@ is then used by the CSS for styling.
                      [not(self::blockinfo) and not(self::title) and
                       not(self::titleabbrev) and not(self::attribution) ])"/>
   <xsl:param name="indent" select="false()"/>
+  <xsl:param name="children" select="$node/node()"/>
   <!-- FIXME:
   @width
   @language
@@ -239,7 +241,7 @@ is then used by the CSS for styling.
     </xsl:if>
     <pre class="{local-name($node)}">
       <!-- Strip off a leading newline -->
-      <xsl:if test="$node/node()[1]/self::text()">
+      <xsl:if test="$children[1]/self::text()">
         <xsl:choose>
           <!-- CR LF -->
           <xsl:when test="starts-with($node/text()[1], '&#x000D;&#x000A;')">
@@ -262,7 +264,7 @@ is then used by the CSS for styling.
           </xsl:otherwise>
         </xsl:choose>
       </xsl:if>
-      <xsl:apply-templates select="$node/node()[not(position() = 1 and self::text())]"/>
+      <xsl:apply-templates select="$children[not(position() = 1 and self::text())]"/>
     </pre>
   </div>
 </xsl:template>

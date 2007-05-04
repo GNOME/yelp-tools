@@ -92,6 +92,18 @@ body {
   direction: </xsl:text><xsl:call-template name="l10n.direction"/><xsl:text>;
 }
 div, p, pre, blockquote { margin: 0; }
+table { border-collapse: collapse; }
+td { vertical-align: top; }
+td { padding: 0.2em 0.83em 0.2em 0.83em; }
+th { padding: 0 0.83em 0 0.83em; }
+thead {
+  border-top: solid 2px;
+  border-bottom: solid 2px;
+}
+tfoot {
+  border-top: solid 2px;
+  border-bottom: solid 2px;
+}
 div.body {
   padding: 1em;
   max-width: 60em;
@@ -223,6 +235,11 @@ div.sidenav div.autotoc div.autotoc div.autotoc {
 }
 div.sidenav div.autotoc div.autotoc div.autotoc li { margin-bottom: 0; }
 
+table.table-pgwide { width: 100%; }
+tr.tr-shade { background-color: </xsl:text><xsl:value-of select="$theme.color.gray_background"/><xsl:text>; }
+td.td-colsep { border-right: solid 1px; }
+td.td-rowsep { border-bottom: solid 1px; }
+
 div.blockquote {
   <!-- FIXME: i18n -->
   background-image: url('../../../data/icons/yelp-watermark-blockquote-201C.png');
@@ -282,6 +299,12 @@ div.simplelist td.td-first {
   <!-- FIXME: rtl -->
   border-left: 0;
 }
+pre.funcsynopsis {
+  padding: 0.5em;
+  <!-- FIXME: watermark -->
+  background-color: </xsl:text><xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
+  border: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
+}
 pre.programlisting {
   padding: 0.5em;
   <!-- FIXME: watermark -->
@@ -340,7 +363,8 @@ div.warning {
   background-image: url("</xsl:text><xsl:value-of select="$theme.icon.admon.warning"/><xsl:text>");
 }
 
-
+span.parameter { font-family: monospace; }
+span.paramdef span.parameter { font-style: italic; }
 <!-- FIXME below -->
 
 </xsl:text>
@@ -351,7 +375,6 @@ div.warning {
   <xsl:call-template name="db2html.cmdsynopsis.css"/>
   <xsl:call-template name="db2html.qanda.css"/>
   <xsl:call-template name="db2html.refentry.css"/>
-  <xsl:call-template name="db2html.table.css"/>
 <xsl:call-template name="db2html.css.custom"/>
 </xsl:template>
 

@@ -34,13 +34,15 @@ db2html.funcsynopsis.style
 How to render #{funcsynopsis} elements
 
 This parameter controls the indentation style used to render #{funcsynopsis}
-elements.  Supported values are #{'KR'} and #{'ANSI'}.
+elements.  Supported values are #{'KR'} and #{'ANSI'}.  This value can also
+be set with the #{db2html.funcsynopsis.style} processing instruction at the
+top of the XML document.  The same processing instruction or inside a
+#{funcsynopsis} element will override this setting for that synopsis.
 -->
 <xsl:param name="db2html.funcsynopsis.style">
   <xsl:choose>
-    <xsl:when test="processing-instruction('db2html.funcsynopsis.style')">
-      <xsl:value-of
-       select="processing-instruction('db2html.funcsynopsis.style')"/>
+    <xsl:when test="/processing-instruction('db2html.funcsynopsis.style')">
+      <xsl:value-of select="/processing-instruction('db2html.funcsynopsis.style')"/>
     </xsl:when>
     <xsl:otherwise>
       <xsl:value-of select="'ANSI'"/>
@@ -65,20 +67,45 @@ elements.  Supported values are #{'KR'} and #{'ANSI'}.
 
 <!-- = funcprototype = -->
 <xsl:template match="funcprototype">
-  <xsl:param name="style"/>
-  <xsl:apply-templates select="funcdef/preceding-sibling::modifer"/>
+  <xsl:variable name="style">
+    <xsl:choose>
+      <xsl:when test="../processing-instruction('db2html.funcsynopsis.style')">
+        <xsl:value-of select="../processing-instruction('db2html.funcsynopsis.style')"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$db2html.funcsynopsis.style"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+  <xsl:for-each select="funcdef/preceding-sibling::modifier">
+    <xsl:apply-templates select="."/>
+    <xsl:text> </xsl:text>
+  </xsl:for-each>
   <xsl:apply-templates select="funcdef"/>
   <xsl:text> (</xsl:text>
   <xsl:choose>
     <xsl:when test="$style = 'KR'">
-      <xsl:for-each select="void | varargs | paramdef/parameter">
+      <xsl:for-each select="void | varargs | paramdef">
         <xsl:if test="position() != 1">
           <xsl:text>, </xsl:text>
         </xsl:if>
-        <xsl:apply-templates select="."/>
+        <xsl:choose>
+          <xsl:when test="self::paramdef">
+            <xsl:call-template name="db2html.inline">
+              <xsl:with-param name="node" select="."/>
+              <xsl:with-param name="children" select="parameter"/>
+            </xsl:call-template>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:apply-templates select="."/>
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:for-each>
       <xsl:text>)</xsl:text>
-      <xsl:apply-templates select="funcdef/following-sibling::modifier"/>
+      <xsl:for-each select="funcdef/following-sibling::modifier">
+        <xsl:text> </xsl:text>
+        <xsl:apply-templates select="."/>
+      </xsl:for-each>
       <xsl:text>;</xsl:text>
       <xsl:for-each select="paramdef">
         <xsl:text>&#x000A;    </xsl:text>
@@ -88,18 +115,24 @@ elements.  Supported values are #{'KR'} and #{'ANSI'}.
     </xsl:when>
     <!-- ANSI is the default -->
     <xsl:otherwise>
-      <xsl:variable name="indent"
-                    select="2 + string-length(funcdef |
-                            funcdef/preceding-sibling::modifier)"/>
+      <xsl:variable name="indent">
+        <xsl:call-template name="_db2html.funcsynopsis.pad">
+          <xsl:with-param name="nodes" select="funcdef | funcdef/preceding-sibling::modifier"/>
+        </xsl:call-template>
+        <xsl:value-of select="str:padding(count(funcdef/preceding-sibling::modifier) + 2)"/>
+      </xsl:variable>
       <xsl:for-each select="void | varargs | paramdef">
         <xsl:if test="position() != 1">
           <xsl:text>,&#x000A;</xsl:text>
-          <xsl:value-of select="str:padding($indent)"/>
+          <xsl:value-of select="$indent"/>
         </xsl:if>
         <xsl:apply-templates select="."/>
       </xsl:for-each>
       <xsl:text>)</xsl:text>
-      <xsl:apply-templates select="funcdef/following-sibling::modifier"/>
+      <xsl:for-each select="funcdef/following-sibling::modifier">
+        <xsl:text> </xsl:text>
+        <xsl:apply-templates select="."/>
+      </xsl:for-each>
       <xsl:text>;</xsl:text>
     </xsl:otherwise>
   </xsl:choose>
@@ -107,24 +140,11 @@ elements.  Supported values are #{'KR'} and #{'ANSI'}.
 
 <!-- = funcsynopsis = -->
 <xsl:template match="funcsynopsis">
-  <xsl:param name="style">
-    <xsl:choose>
-      <xsl:when test="processing-instruction('db2html.funcsynopsis.style')">
-        <xsl:value-of
-         select="processing-instruction('db2html.funcsynopsis.style')"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:value-of select="$db2html.funcsynopsis.style"/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:param>
-  <pre class="funcsynopsis">
-    <xsl:call-template name="db2html.anchor"/>
-    <!-- The select is needed to avoid extra whitespace -->
-    <xsl:apply-templates select="*">
-      <xsl:with-param name="style" select="$style"/>
-    </xsl:apply-templates>
-  </pre>
+  <xsl:call-template name="db2html.pre">
+    <xsl:with-param name="node" select="."/>
+    <xsl:with-param name="indent" select="true()"/>
+    <xsl:with-param name="children" select="*"/>
+  </xsl:call-template>
 </xsl:template>
 
 <!-- = funcsynopsisinfo = -->
@@ -147,14 +167,6 @@ elements.  Supported values are #{'KR'} and #{'ANSI'}.
   <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
-<!-- = paramdef/parameter = -->
-<xsl:template match="paramdef/parameter">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="mono" select="true()"/>
-    <xsl:with-param name="italic" select="true()"/>
-  </xsl:call-template>
-</xsl:template>
-
 <!-- = varargs = -->
 <xsl:template match="varargs">
   <xsl:text>...</xsl:text>
@@ -163,6 +175,20 @@ elements.  Supported values are #{'KR'} and #{'ANSI'}.
 <!-- = void = -->
 <xsl:template match="void">
   <xsl:text>void</xsl:text>
+</xsl:template>
+
+
+<!-- == Utility Templates == -->
+
+<!--#* _db2html.funcsynopsis.pad -->
+<xsl:template name="_db2html.funcsynopsis.pad">
+  <xsl:param name="nodes"/>
+  <xsl:value-of select="str:padding(string-length($nodes[1]))"/>
+  <xsl:if test="$nodes[position() != 1]">
+    <xsl:call-template name="_db2html.funcsynopsis.pad">
+      <xsl:with-param name="nodes" select="$nodes[position() != 1]"/>
+    </xsl:call-template>
+  </xsl:if>
 </xsl:template>
 
 </xsl:stylesheet>

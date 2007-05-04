@@ -28,44 +28,6 @@ REMARK: This needs lots of talk about CALS
 -->
 
 
-<!--@@==========================================================================
-db2html.table.rule_color
-The color used for alternating-color rules on table rows
-
-REMARK: Describe this param
--->
-<xsl:param name="db2html.table.rule_color" select="'#f6f6f6'"/>
-
-
-<!--**==========================================================================
-db2html.table.css
-Outputs CSS that controls the appearance of table elements
-
-REMARK: Describe this template
--->
-<xsl:template name="db2html.table.css">
-<xsl:text>
-table { border-collapse: collapse; }
-td { vertical-align: top; }
-td { padding: 0.2em 0.83em 0.2em 0.83em; }
-th { padding: 0 0.83em 0 0.83em; }
-thead {
-  border-top: solid 2px;
-  border-bottom: solid 2px;
-}
-tfoot {
-  border-top: solid 2px;
-  border-bottom: solid 2px;
-}
-
-table.table-pgwide { width: 100%; }
-tr.tr-shade { background-color: </xsl:text><xsl:value-of select="$theme.color.gray_background"/><xsl:text>; }
-td.td-colsep { border-right: solid 1px; }
-td.td-rowsep { border-bottom: solid 1px; }
-</xsl:text>
-</xsl:template>
-
-
 <!--**==========================================================================
 db2html.row
 Creates a #{tr} element for a #{row} element
