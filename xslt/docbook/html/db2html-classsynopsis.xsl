@@ -17,8 +17,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:html="http://www.w3.org/1999/xhtml"
-                exclude-result-prefixes="html"
+                xmlns="http://www.w3.org/1999/xhtml"
                 version="1.0">
 
 <!--!!==========================================================================
@@ -69,9 +68,9 @@ REMARK: Describe this param
     </xsl:choose>
   </xsl:variable>
 
-  <html:div class="{local-name(.)}">
+  <div class="{local-name(.)}">
     <xsl:call-template name="db2html.anchor"/>
-    <html:pre class="$language">
+    <pre class="$language">
       <xsl:choose>
         <xsl:when test="$language = 'cpp'">
           <xsl:apply-templates mode="db2html.class.cpp.mode" select="."/>
@@ -89,8 +88,8 @@ REMARK: Describe this param
           </xsl:message>
         </xsl:otherwise>
       </xsl:choose>
-    </html:pre>
-  </html:div>
+    </pre>
+  </div>
 </xsl:template>
 
 <!-- = classsynopsisinfo = -->
@@ -100,14 +99,14 @@ REMARK: Describe this param
 
 <!-- = methodparam = -->
 <xsl:template match="methodparam">
-  <html:span class="methodparam">
+  <span class="methodparam">
     <xsl:for-each select="*">
       <xsl:if test="position() != 1">
         <xsl:text> </xsl:text>
       </xsl:if>
       <xsl:apply-templates select="."/>
     </xsl:for-each>
-  </html:span>
+  </span>
 </xsl:template>
 
 <!-- = methodparam/parameter = -->
@@ -120,38 +119,38 @@ REMARK: Describe this param
 
 <!-- = ooclass = -->
 <xsl:template match="ooclass">
-  <html:span class="ooclass" style="font-family: monospace;">
+  <span class="ooclass" style="font-family: monospace;">
     <xsl:for-each select="modifier | classname">
       <xsl:if test="position() != 1">
         <xsl:text> </xsl:text>
       </xsl:if>
       <xsl:apply-templates select="."/>
     </xsl:for-each>
-  </html:span>
+  </span>
 </xsl:template>
 
 <!-- = ooexception = -->
 <xsl:template match="ooexception">
-  <html:span class="ooexception" style="font-family: monospace;">
+  <span class="ooexception" style="font-family: monospace;">
     <xsl:for-each select="modifier | exceptionname">
       <xsl:if test="position() != 1">
         <xsl:text> </xsl:text>
       </xsl:if>
       <xsl:apply-templates select="."/>
     </xsl:for-each>
-  </html:span>
+  </span>
 </xsl:template>
 
 <!-- = oointerface = -->
 <xsl:template match="oointerface">
-  <html:span class="oointerface" style="font-family: monospace;">
+  <span class="oointerface" style="font-family: monospace;">
     <xsl:for-each select="modifier | interfacename">
       <xsl:if test="position() != 1">
         <xsl:text> </xsl:text>
       </xsl:if>
       <xsl:apply-templates select="."/>
     </xsl:for-each>
-  </html:span>
+  </span>
 </xsl:template>
 
 <!--#* class.cpp.modifier -->
@@ -197,7 +196,7 @@ REMARK: Describe this mode
        }
   -->
   <xsl:if test="@class = 'class' or not(@class)">
-    <html:span class="ooclass">
+    <span class="ooclass">
       <xsl:for-each select="ooclass[1]/modifier">
         <xsl:if test="position() != 1">
           <xsl:text> </xsl:text>
@@ -207,7 +206,7 @@ REMARK: Describe this mode
       <xsl:text> class </xsl:text>
       <xsl:apply-templates mode="db2html.class.cpp.mode"
                            select="ooclass[1]/classname"/>
-    </html:span>
+    </span>
     <xsl:if test="ooclass[2]">
       <xsl:text> : </xsl:text>
       <xsl:for-each select="ooclass[position() != 1]">
@@ -253,9 +252,9 @@ REMARK: Describe this mode
       <xsl:apply-templates mode="db2html.class.cpp.mode" select="methodname"/>
     </xsl:when>
     <xsl:when test="../self::classsynopsis[ooclass]">
-      <html:span class="methodname">
+      <span class="methodname">
         <xsl:value-of select="../ooclass/classname"/>
-      </html:span>
+      </span>
     </xsl:when>
   </xsl:choose>
   <xsl:text>(</xsl:text>
@@ -294,10 +293,10 @@ REMARK: Describe this mode
       <xsl:apply-templates mode="db2html.class.cpp.mode" select="methodname"/>
     </xsl:when>
     <xsl:when test="../self::classsynopsis[ooclass]">
-      <html:span class="methodname">
+      <span class="methodname">
         <xsl:text>~</xsl:text>
         <xsl:value-of select="../ooclass/classname"/>
-      </html:span>
+      </span>
     </xsl:when>
   </xsl:choose>
   <xsl:text>(</xsl:text>
@@ -349,14 +348,14 @@ REMARK: Describe this mode
 
 <!-- = methodparam % db2html.class.cpp.mode = -->
 <xsl:template mode="db2html.class.cpp.mode" match="methodparam">
-  <html:span class="methodparam">
+  <span class="methodparam">
     <xsl:for-each select="*">
       <xsl:if test="position() != 1">
         <xsl:text> </xsl:text>
       </xsl:if>
       <xsl:apply-templates mode="db2html.class.cpp.mode" select="."/>
     </xsl:for-each>
-  </html:span>
+  </span>
 </xsl:template>
 
 <!-- = methodsynopsis % db2html.class.cpp.mode = -->
@@ -410,7 +409,7 @@ REMARK: Describe this mode
 <!--
 <xsl:template mode="db2html.class.python.mode" match="classsynopsis">
   <xsl:if test="@class = 'class' or not(@class)">
-    <html:span class="ooclass">
+    <span class="ooclass">
       <xsl:for-each select="ooclass[1]/modifier">
         <xsl:if test="position() != 1">
           <xsl:text> </xsl:text>
@@ -420,7 +419,7 @@ REMARK: Describe this mode
       <xsl:text> class </xsl:text>
       <xsl:apply-templates mode="db2html.class.python.mode"
                            select="ooclass[1]/classname"/>
-    </html:span>
+    </span>
     <xsl:if test="ooclass[2]">
       <xsl:text> : </xsl:text>
       <xsl:for-each select="ooclass[position() != 1]">
@@ -460,9 +459,9 @@ REMARK: Describe this mode
       <xsl:apply-templates mode="db2html.class.python.mode" select="methodname"/>
     </xsl:when>
     <xsl:when test="../self::classsynopsis[ooclass]">
-      <html:span class="methodname">
+      <span class="methodname">
         <xsl:value-of select="../ooclass/classname"/>
-      </html:span>
+      </span>
     </xsl:when>
   </xsl:choose>
   <xsl:text>(</xsl:text>
@@ -495,10 +494,10 @@ REMARK: Describe this mode
       <xsl:apply-templates mode="db2html.class.python.mode" select="methodname"/>
     </xsl:when>
     <xsl:when test="../self::classsynopsis[ooclass]">
-      <html:span class="methodname">
+      <span class="methodname">
         <xsl:text>~</xsl:text>
         <xsl:value-of select="../ooclass/classname"/>
-      </html:span>
+      </span>
     </xsl:when>
   </xsl:choose>
   <xsl:text>(</xsl:text>
@@ -544,14 +543,14 @@ REMARK: Describe this mode
 <!-- = methodparam % db2html.class.python.mode = -->
 <!--
 <xsl:template mode="db2html.class.python.mode" match="methodparam">
-  <html:span class="methodparam">
+  <span class="methodparam">
     <xsl:for-each select="*">
       <xsl:if test="position() != 1">
         <xsl:text> </xsl:text>
       </xsl:if>
       <xsl:apply-templates mode="db2html.class.python.mode" select="."/>
     </xsl:for-each>
-  </html:span>
+  </span>
 </xsl:template>
 -->
 

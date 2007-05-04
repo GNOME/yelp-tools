@@ -18,8 +18,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n"
-                xmlns:html="http://www.w3.org/1999/xhtml"
-                exclude-result-prefixes="msg html"
+                xmlns="http://www.w3.org/1999/xhtml"
+                exclude-result-prefixes="msg"
                 version="1.0">
 
 <!--!!==========================================================================
@@ -60,7 +60,7 @@ is then used by the CSS for styling.
   <xsl:param name="formal" select="false()"/>
   <xsl:param name="title" select="$node/title"/>
   <xsl:param name="caption" select="$node/caption"/>
-  <html:div>
+  <div>
     <xsl:attribute name="class">
       <xsl:value-of select="concat($class, ' block ', local-name($node))"/>
       <xsl:if test="$first">
@@ -79,36 +79,53 @@ is then used by the CSS for styling.
     <xsl:choose>
       <xsl:when test="$formal">
         <xsl:if test="$title">
-          <html:div class="block block-first title title-formal">
-            <xsl:call-template name="db2html.anchor">
-              <xsl:with-param name="node" select="$title"/>
-            </xsl:call-template>
-            <html:span class="label">
-              <xsl:call-template name="db.label">
-                <xsl:with-param name="node" select="$node"/>
-                <xsl:with-param name="role" select="'header'"/>
-              </xsl:call-template>
-            </html:span>
-            <xsl:apply-templates select="$title/node()"/>
-          </html:div>
+          <xsl:call-template name="db2html.block.title">
+            <xsl:with-param name="node" select="$node"/>
+            <xsl:with-param name="title" select="$title"/>
+          </xsl:call-template>
         </xsl:if>
-        <html:div class="{local-name($node)}-inner">
+        <div class="{local-name($node)}-inner">
           <xsl:apply-templates select="$node/node()[not(. = $title) and not(. = $caption)]"/>
-        </html:div>
+        </div>
         <xsl:apply-templates select="$caption"/>
       </xsl:when>
       <xsl:when test="$node/self::title">
-        <html:span class="title">
+        <span class="title">
           <xsl:apply-templates select="$node/node()"/>
-        </html:span>
+        </span>
       </xsl:when>
       <xsl:otherwise>
         <xsl:apply-templates select="$node/node()"/>
       </xsl:otherwise>
     </xsl:choose>
-  </html:div>
+  </div>
 </xsl:template>
 
+
+<!--**==========================================================================
+db2html.block.title
+Renders a formal title for a block-level element
+$node: The block-level element being processed
+$title: The element containing the title
+
+FIXME
+-->
+<xsl:template name="db2html.block.title">
+  <xsl:param name="node" select="."/>
+  <xsl:param name="title" select="$node/title"/>
+  <div class="block block-first title title-formal">
+    <xsl:call-template name="db2html.anchor">
+      <xsl:with-param name="node" select="$title"/>
+    </xsl:call-template>
+    <span class="label">
+      <xsl:call-template name="db.label">
+        <xsl:with-param name="node" select="$node"/>
+        <xsl:with-param name="role" select="'header'"/>
+      </xsl:call-template>
+    </span>
+    <xsl:apply-templates select="$title/node()"/>
+  </div>
+</xsl:template>
 
 <!--**==========================================================================
 db2html.blockquote
@@ -125,7 +142,7 @@ element.
              select="not($node/preceding-sibling::*
                      [not(self::blockinfo) and not(self::title) and
                       not(self::titleabbrev) and not(self::attribution) ])"/>
-  <html:div>
+  <div>
     <xsl:attribute name="class">
       <xsl:value-of select="local-name($node)"/>
       <xsl:text> block block-indent</xsl:text>
@@ -137,12 +154,12 @@ element.
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
     <xsl:apply-templates select="$node/title"/>
-    <html:blockquote class="{local-name($node)}">
+    <blockquote class="{local-name($node)}">
       <xsl:apply-templates
        select="$node/node()[name(.) != 'title' and name(.) != 'attribution']"/>
-    </html:blockquote>
+    </blockquote>
     <xsl:apply-templates select="$node/attribution"/>
-  </html:div>
+  </div>
 </xsl:template>
 
 
@@ -160,7 +177,7 @@ This template creates an HTML #{p} element for the given DocBook element.
              select="not($node/preceding-sibling::*
                      [not(self::blockinfo) and not(self::title) and
                       not(self::titleabbrev) and not(self::attribution) ])"/>
-  <html:p>
+  <p>
     <xsl:attribute name="class">
       <xsl:value-of select="local-name($node)"/>
       <xsl:text> block</xsl:text>
@@ -172,7 +189,7 @@ This template creates an HTML #{p} element for the given DocBook element.
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
     <xsl:apply-templates select="$node/node()"/>
-  </html:p>
+  </p>
 </xsl:template>
 
 
@@ -201,7 +218,7 @@ is then used by the CSS for styling.
   @format
   @startinglinenumber
   -->
-  <html:div>
+  <div>
     <xsl:attribute name="class">
       <xsl:value-of select="local-name($node)"/>
       <xsl:text> block</xsl:text>
@@ -216,11 +233,11 @@ is then used by the CSS for styling.
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
     <xsl:if test="$node/@linenumbering = 'numbered'">
-      <html:pre class="linenumbering"><xsl:call-template name="db.linenumbering">
+      <pre class="linenumbering"><xsl:call-template name="db.linenumbering">
         <xsl:with-param name="node" select="$node"/>
-      </xsl:call-template></html:pre>
+      </xsl:call-template></pre>
     </xsl:if>
-    <html:pre class="{local-name($node)}">
+    <pre class="{local-name($node)}">
       <!-- Strip off a leading newline -->
       <xsl:if test="$node/node()[1]/self::text()">
         <xsl:choose>
@@ -246,8 +263,8 @@ is then used by the CSS for styling.
         </xsl:choose>
       </xsl:if>
       <xsl:apply-templates select="$node/node()[not(position() = 1 and self::text())]"/>
-    </html:pre>
-  </html:div>
+    </pre>
+  </div>
 </xsl:template>
 
 
@@ -348,31 +365,31 @@ dd.glossdef, dd.glosssee, dd.glossseealso
 
 <!-- = glossdef = -->
 <xsl:template match="glossdef">
-  <html:dd class="glossdef">
+  <dd class="glossdef">
     <xsl:apply-templates select="*[local-name(.) != 'glossseealso']"/>
-  </html:dd>
+  </dd>
   <xsl:apply-templates select="glossseealso[1]"/>
 </xsl:template>
 
 <!-- = glossentry = -->
 <xsl:template match="glossentry">
-  <html:dt class="glossterm">
+  <dt class="glossterm">
     <xsl:apply-templates select="glossterm"/>
-  </html:dt>
+  </dt>
   <xsl:apply-templates select="glossdef | glosssee[1]"/>
 </xsl:template>
 
 <!-- = glosssee = -->
 <xsl:template match="glosssee | glossseealso">
-  <html:dd class="{local-name(.)}">
-    <html:p>
+  <dd class="{local-name(.)}">
+    <p>
       <xsl:call-template name="l10n.gettext">
         <xsl:with-param name="msgid" select="concat(local-name(.), '.format')"/>
         <xsl:with-param name="node" select="."/>
         <xsl:with-param name="format" select="true()"/>
       </xsl:call-template>
-    </html:p>
-  </html:dd>
+    </p>
+  </dd>
 </xsl:template>
 
 <!--#% l10n.format.mode -->
@@ -387,7 +404,7 @@ dd.glossdef, dd.glosssee, dd.glossseealso
     </xsl:if>
     <xsl:choose>
       <xsl:when test="@otherterm">
-        <html:a>
+        <a>
           <xsl:attribute name="href">
             <xsl:call-template name="db.xref.target">
               <xsl:with-param name="linkend" select="@otherterm"/>
@@ -398,7 +415,7 @@ dd.glossdef, dd.glosssee, dd.glossseealso
               <xsl:with-param name="linkend" select="@otherterm"/>
             </xsl:call-template>
           </xsl:attribute>
-        </html:a>
+        </a>
         <xsl:choose>
           <xsl:when test="normalize-space(.) != ''">
             <xsl:apply-templates/>

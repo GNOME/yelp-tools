@@ -17,8 +17,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:html="http://www.w3.org/1999/xhtml"
-                exclude-result-prefixes="html"
+                xmlns="http://www.w3.org/1999/xhtml"
                 version="1.0">
 
 <!--!!==========================================================================
@@ -43,7 +42,7 @@ REMARK: calls db2html.imagedata.src, how other attrs are gotten
 -->
 <xsl:template name="db2html.imagedata">
   <xsl:param name="node" select="."/>
-  <html:img>
+  <img>
     <xsl:attribute name="src">
       <xsl:call-template name="db2html.imagedata.src">
         <xsl:with-param name="node" select="$node"/>
@@ -79,7 +78,7 @@ REMARK: calls db2html.imagedata.src, how other attrs are gotten
     </xsl:if>
 -->
     <!-- FIXME: longdesc -->
-  </html:img>
+  </img>
 </xsl:template>
 
 
@@ -159,10 +158,10 @@ as a text-only mode.
 
 <!-- = graphic = -->
 <xsl:template match="graphic">
-  <html:div class="graphic">
+  <div class="graphic">
     <xsl:call-template name="db2html.anchor"/>
     <xsl:call-template name="db2html.imagedata"/>
-  </html:div>
+  </div>
 </xsl:template>
 
 <!-- = imagedata = -->
@@ -177,23 +176,23 @@ as a text-only mode.
 
 <!-- = inlinegraphic = -->
 <xsl:template match="inlinegraphic">
-  <html:span class="inlinegraphic">
+  <span class="inlinegraphic">
     <xsl:call-template name="db2html.anchor"/>
     <xsl:call-template name="db2html.imagedata"/>
-  </html:span>
+  </span>
 </xsl:template>
 
 <!-- = inlinemediaobject = -->
 <xsl:template match="inlinemediaobject">
-  <html:span class="inlinemediaobject">
+  <span class="inlinemediaobject">
     <xsl:call-template name="db2html.anchor"/>
     <xsl:call-template name="db2html.mediaobject"/>
-  </html:span>
+  </span>
 </xsl:template>
 
 <!-- = mediaojbect = -->
 <xsl:template match="mediaobject">
-  <html:div class="mediaobject">
+  <div class="mediaobject">
     <xsl:call-template name="db2html.anchor"/>
     <xsl:call-template name="db2html.mediaobject"/>
     <!-- When a figure contains only a single mediaobject, it eats the caption -->
@@ -202,7 +201,7 @@ as a text-only mode.
                        not(self::titleabbrev) and not(. = current()) ]">
       <xsl:apply-templates select="caption"/>
     </xsl:if>
-  </html:div>
+  </div>
 </xsl:template>
 
 <!-- = screenshot = -->

@@ -17,8 +17,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:html="http://www.w3.org/1999/xhtml"
-                exclude-result-prefixes="html"
+                xmlns="http://www.w3.org/1999/xhtml"
                 version="1.0">
 
 <!--!!==========================================================================
@@ -39,7 +38,7 @@ REMARK: Describe this template
 <xsl:template name="db2html.anchor" match="anchor">
   <xsl:param name="node" select="."/>
   <xsl:param name="name" select="$node/@id"/>
-  <xsl:if test="$name"><html:a name="{$name}"/></xsl:if>
+  <xsl:if test="$name"><a name="{$name}"/></xsl:if>
 </xsl:template>
 
 
@@ -54,7 +53,7 @@ REMARK: Describe this template
 <xsl:template name="db2html.link" match="link">
   <xsl:param name="linkend" select="@linkend"/>
   <xsl:param name="target" select="key('idkey', $linkend)"/>
-  <html:a class="link">
+  <a class="link">
     <xsl:attribute name="href">
       <xsl:call-template name="db.xref.target">
         <xsl:with-param name="linkend" select="$linkend"/>
@@ -74,7 +73,7 @@ REMARK: Describe this template
         <xsl:apply-templates select="key('idkey', @endterm)/node()"/>
       </xsl:when>
     </xsl:choose>
-  </html:a>
+  </a>
 </xsl:template>
 
 
@@ -89,7 +88,7 @@ REMARK: Describe this template
 <xsl:template name="db2html.ulink" match="ulink">
   <xsl:param name="url" select="@url"/>
   <xsl:param name="content" select="false()"/>
-  <html:a class="ulink" href="{$url}">
+  <a class="ulink" href="{$url}">
     <xsl:attribute name="title">
       <xsl:call-template name="db.ulink.tooltip"/>
     </xsl:attribute>
@@ -104,7 +103,7 @@ REMARK: Describe this template
         <xsl:value-of select="$url"/>
       </xsl:otherwise>
     </xsl:choose>
-  </html:a>
+  </a>
 </xsl:template>
 
 
@@ -125,7 +124,7 @@ REMARK: Describe this template
   <xsl:param name="endterm"   select="@endterm"/>
   <xsl:param name="xrefstyle" select="@xrefstyle"/>
   <xsl:param name="content"   select="false()"/>
-  <html:a class="xref">
+  <a class="xref">
     <xsl:attribute name="href">
       <xsl:call-template name="db.xref.target">
         <xsl:with-param name="linkend" select="$linkend"/>
@@ -153,7 +152,7 @@ REMARK: Describe this template
         </xsl:call-template>
       </xsl:otherwise>
     </xsl:choose>
-  </html:a>
+  </a>
 </xsl:template>
 
 </xsl:stylesheet>

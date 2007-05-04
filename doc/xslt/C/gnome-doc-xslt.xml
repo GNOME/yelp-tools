@@ -231,6 +231,7 @@
 
     <include href="db2omf.xml" xmlns="http://www.w3.org/2001/XInclude"/>
 
+    <include href="theme.xml" xmlns="http://www.w3.org/2001/XInclude"/>
     <include href="gettext.xml" xmlns="http://www.w3.org/2001/XInclude"/>
     <include href="l10n-numbers.xml" xmlns="http://www.w3.org/2001/XInclude"/>
     <!--END-->

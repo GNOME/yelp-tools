@@ -596,12 +596,215 @@ procedure
 
 </chapter> <!-- lists -->
 
-<chapter id="tables">
-<title>Table Elements</title>
+<chapter id="cals-tables">
+<title>CALS Tables</title>
 
-<table>
-<title>A Table</title>
-<tgroup>
+<informaltable>
+<tgroup cols="2">
+  <tbody>
+    <row><entry>fe</entry><entry>fi</entry></row>
+    <row><entry>fo</entry><entry>fum</entry></row>
+  </tbody>
+</tgroup>
+</informaltable>
+
+<para>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed risus dui,
+faucibus at, blandit eu, congue in, sem. Suspendisse nec mi. Sed vel augue.
+Cras egestas. Vivamus nisi. Fusce neque. Aenean posuere, orci non lacinia
+consectetuer, neque libero semper metus, ut ullamcorper eros lorem at tellus.
+Ut ante tellus, iaculis at, tincidunt quis, ultrices at, ligula. Pellentesque
+porttitor condimentum nulla.</para>
+
+<section id="cals-tables-span">
+<title>Spanning</title>
+
+<para>Here's some column spanning:</para>
+<informaltable frame="none">
+<tgroup cols="4" rowsep="1" colsep="1">
+  <colspec colname="one"/>
+  <colspec colname="two"/>
+  <colspec colname="three"/>
+  <colspec colname="four"/>
+  <spanspec spanname="two-four" namest="two" nameend="four"/>
+  <tbody>
+    <row>
+      <entry>one</entry>
+      <entry>two</entry>
+      <entry>three</entry>
+      <entry>four</entry>
+    </row>
+    <row>
+      <entry namest="one" nameend="two">one-two</entry>
+      <entry>three</entry>
+      <entry>four</entry>
+    </row>
+    <row>
+      <entry namest="two" nameend="three">two-three</entry>
+      <entry>four</entry>
+    </row>
+    <row>
+      <entry>one</entry>
+      <entry spanname="two-four">two-four</entry>
+    </row>
+  </tbody>
+</tgroup>
+</informaltable>
+
+<para>Here's some row spanning:</para>
+<informaltable frame="none">
+<tgroup cols="4" rowsep="1" colsep="1">
+  <tbody>
+    <row>
+      <entry morerows="1">one</entry>
+      <entry morerows="2">two</entry>
+      <entry>three</entry>
+      <entry>four</entry>
+    </row>
+    <row>
+      <entry>three</entry>
+      <entry morerows="1">four</entry>
+    </row>
+    <row>
+      <entry>one</entry>
+      <entry morerows="1">three</entry>
+    </row>
+    <row>
+      <entry>one</entry>
+      <entry>two</entry>
+      <entry>four</entry>
+    </row>
+  </tbody>
+</tgroup>
+</informaltable>
+
+<para>Here we test implicit entries:</para>
+<informaltable frame="none">
+<tgroup cols="4" rowsep="1" colsep="1">
+  <colspec colname="one"/>
+  <colspec colname="two"/>
+  <colspec colname="three"/>
+  <colspec colname="four"/>
+  <tbody>
+    <row>
+      <entry>one</entry>
+      <entry>two</entry>
+      <entry morerows="2">three</entry>
+      <entry>four</entry>
+    </row>
+    <row>
+      <entry colname="two">two</entry>
+      <entry>four</entry>
+    </row>
+    <row>
+      <entry colname="four">four</entry>
+    </row>
+    <row>
+      <entry colname="three">three</entry>
+      <entry>four</entry>
+    </row>
+    <row>
+      <entry colname="four">four</entry>
+    </row>
+  </tbody>
+</tgroup>
+</informaltable>
+
+<para>And here's some craziness to mix it all together:</para>
+<informaltable frame="none">
+<tgroup cols="5" rowsep="1" colsep="1">
+  <colspec colname="one"/>
+  <colspec colname="two"/>
+  <colspec colname="three"/>
+  <colspec colname="four"/>
+  <colspec colname="five"/>
+  <tbody>
+    <row>
+      <entry morerows="1">one</entry>
+      <entry>two</entry>
+      <entry>three</entry>
+      <entry morerows="3">four</entry>
+      <entry>five</entry>
+    </row>
+    <row>
+      <entry colname="three">three</entry>
+      <entry morerows="1">five</entry>
+    </row>
+    <row>
+      <entry>one</entry>
+      <entry namest="two" nameend="three">two-three</entry>
+    </row>
+    <row>
+      <entry>one</entry>
+      <entry namest="two" nameend="three" morerows="1">two-three</entry>
+      <entry>five</entry>
+    </row>
+    <row>
+      <entry>one</entry>
+      <entry>four</entry>
+      <entry>five</entry>
+    </row>
+  </tbody>
+</tgroup>
+</informaltable>
+
+</section> <!-- cals-tables-span -->
+
+<section id="cals-tables-sep">
+<title>Separators</title>
+
+<!-- FIXME: more -->
+<para>Here we just set <sgmltag>colsep</sgmltag> on some
+<sgmltag>entry</sgmltag> elements:</para>
+<informaltable frame="none">
+<tgroup cols="3">
+  <tbody>
+    <row>
+      <entry colsep="1">SEP</entry>
+      <entry>no</entry>
+      <entry>no</entry>
+    </row>
+    <row>
+      <entry>no</entry>
+      <entry colsep="1">SEP</entry>
+      <entry>no</entry>
+    </row>
+  </tbody>
+</tgroup>
+</informaltable>
+
+<para>Here we turn column separators on and off with
+<sgmltag>colspec</sgmltag> elements:</para>
+<informaltable frame="none">
+<tgroup cols="3" colsep="1">
+  <colspec colname="one" colsep="0"/>
+  <colspec colname="two" colsep="1"/>
+  <colspec colname="three" colsep="0"/>
+  <colspec/>
+  <tbody>
+    <row>
+      <entry>no</entry>
+      <entry colname="two">SEP</entry>
+      <entry>no</entry>
+    </row>
+    <row>
+      <entry namest="one" nameend="two">SEP</entry>
+      <entry>no</entry>
+    </row>
+    <row>
+      <entry namest="two" nameend="three">no</entry>
+    </row>
+  </tbody>
+</tgroup>
+</informaltable>
+
+</section> <!-- cals-tables-sep -->
+
+<section id="cals-tables-frames">
+<title>Frames</title>
+
+<para>This table has a top frame:</para>
+<informaltable frame="top">
+<tgroup cols="2">
   <tbody>
     <row>
       <entry>fe</entry>
@@ -613,8 +816,107 @@ procedure
     </row>
   </tbody>
 </tgroup>
+</informaltable>
+
+<para>This table has a bottom frame:</para>
+<informaltable frame="bottom">
+<tgroup cols="2">
+  <tbody>
+    <row>
+      <entry>fe</entry>
+      <entry>fi</entry>
+    </row>
+    <row>
+      <entry>fo</entry>
+      <entry>fum</entry>
+    </row>
+  </tbody>
+</tgroup>
+</informaltable>
+
+<para>This table has top and bottom frames:</para>
+<informaltable frame="topbot">
+<tgroup cols="2">
+  <tbody>
+    <row>
+      <entry>fe</entry>
+      <entry>fi</entry>
+    </row>
+    <row>
+      <entry>fo</entry>
+      <entry>fum</entry>
+    </row>
+  </tbody>
+</tgroup>
+</informaltable>
+
+<para>This table has side frames:</para>
+<informaltable frame="sides">
+<tgroup cols="2">
+  <tbody>
+    <row>
+      <entry>fe</entry>
+      <entry>fi</entry>
+    </row>
+    <row>
+      <entry>fo</entry>
+      <entry>fum</entry>
+    </row>
+  </tbody>
+</tgroup>
+</informaltable>
+
+<para>This table has no frames:</para>
+<informaltable frame="none">
+<tgroup cols="2">
+  <tbody>
+    <row>
+      <entry>fe</entry>
+      <entry>fi</entry>
+    </row>
+    <row>
+      <entry>fo</entry>
+      <entry>fum</entry>
+    </row>
+  </tbody>
+</tgroup>
+</informaltable>
+
+<para>We default to framing all sides when not specified:</para>
+<informaltable>
+<tgroup cols="2">
+  <tbody>
+    <row>
+      <entry>fe</entry>
+      <entry>fi</entry>
+    </row>
+    <row>
+      <entry>fo</entry>
+      <entry>fum</entry>
+    </row>
+  </tbody>
+</tgroup>
+</informaltable>
+
+</section> <!-- cals-tables-frames -->
+
+<section id="cals-tables-misc">
+<title>Miscellaneous</title>
+
+<table pgwide="1">
+<title>Using <sgmltag>pgwide</sgmltag></title>
+<tgroup cols="3">
+  <tbody>
+    <row><entry>fe</entry><entry>fi</entry><entry>fo</entry></row>
+    <row><entry>fum</entry><entry>fe</entry><entry>fi</entry></row>
+    <row><entry>fo</entry><entry>fum</entry><entry>fe</entry></row>
+    <row><entry>fi</entry><entry>fo</entry><entry>fum</entry></row>
+  </tbody>
+</tgroup>
 </table>
 
-</chapter> <!-- tables -->
+</section> <!-- cals-tables-misc -->
+
+</chapter> <!-- cals-tables -->
     
 </book>

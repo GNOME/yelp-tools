@@ -17,8 +17,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:html="http://www.w3.org/1999/xhtml"
-                exclude-result-prefixes="html"
+                xmlns="http://www.w3.org/1999/xhtml"
                 version="1.0">
 
 <!--!!==========================================================================
@@ -45,11 +44,11 @@ REMARK: Describe this template
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
   </xsl:param>
-  <html:div class="division {local-name($info)}">
+  <div class="division {local-name($info)}">
     <xsl:call-template name="db2html.anchor">
       <xsl:with-param name="name" select="local-name($info)"/>
     </xsl:call-template>
-    <html:div class="header">
+    <div class="header">
       <xsl:call-template name="db2html.info.title">
         <xsl:with-param name="node" select="$node"/>
         <xsl:with-param name="info" select="$info"/>
@@ -58,7 +57,7 @@ REMARK: Describe this template
         <xsl:with-param name="node" select="$node"/>
         <xsl:with-param name="info" select="$info"/>
       </xsl:call-template>
-    </html:div>
+    </div>
     <xsl:call-template name="db2html.info.authors">
       <xsl:with-param name="node" select="$node"/>
       <xsl:with-param name="info" select="$info"/>
@@ -89,7 +88,7 @@ REMARK: Describe this template
     </xsl:call-template>
     <xsl:apply-templates mode="db2html.info.mode" select="$info/legalnotice"/>
     <xsl:apply-templates mode="db2html.info.mode" select="$info/revhistory"/>
-  </html:div>
+  </div>
 </xsl:template>
 
 
@@ -106,16 +105,16 @@ REMARK: Describe this template
   <xsl:param name="info" select="'FIXME'"/>
   <xsl:choose>
     <xsl:when test="$info/title">
-      <html:h1 class="title">
+      <h1 class="title">
         <xsl:apply-templates mode="db2html.info.mode"
                              select="$info/title/node()"/>
-      </html:h1>
+      </h1>
     </xsl:when>
     <xsl:when test="$node/title">
-      <html:h1 class="title">
+      <h1 class="title">
         <xsl:apply-templates mode="db2html.info.mode"
                              select="$node/title/node()"/>
-      </html:h1>
+      </h1>
     </xsl:when>
   </xsl:choose>
 </xsl:template>
@@ -134,16 +133,16 @@ REMARK: Describe this template
   <xsl:param name="info" select="'FIXME'"/>
   <xsl:choose>
     <xsl:when test="$info/subtitle">
-      <html:h2 class="subtitle">
+      <h2 class="subtitle">
         <xsl:apply-templates mode="db2html.info.mode"
                              select="$info/subtitle/node()"/>
-      </html:h2>
+      </h2>
     </xsl:when>
     <xsl:when test="$node/subtitle">
-      <html:h2 class="subtitle">
+      <h2 class="subtitle">
         <xsl:apply-templates mode="db2html.info.mode"
                              select="$node/subtitle/node()"/>
-      </html:h2>
+      </h2>
     </xsl:when>
   </xsl:choose>
 </xsl:template>
@@ -164,19 +163,19 @@ REMARK: Describe this template
                 $info/author     | $info/authorgroup/author     |
                 $info/corpauthor | $info/authorgroup/corpauthor "/>
   <xsl:if test="$authors">
-    <html:div class="division">
-      <html:h2 class="title author">
+    <div class="division">
+      <h2 class="title author">
         <xsl:call-template name="l10n.gettext">
           <xsl:with-param name="msgid" select="'Author'"/>
           <xsl:with-param name="number" select="count($authors)"/>
         </xsl:call-template>
-      </html:h2>
-      <html:div class="block block-first">
-        <html:dl>
+      </h2>
+      <div class="block block-first">
+        <dl>
           <xsl:apply-templates mode="db2html.info.mode" select="$authors"/>
-        </html:dl>
-      </html:div>
-    </html:div>
+        </dl>
+      </div>
+    </div>
   </xsl:if>
 </xsl:template>
 
@@ -195,19 +194,19 @@ REMARK: Describe this template
   <xsl:variable name="editors" select="
                 $info/editor | $info/authorgroup/editor"/>
   <xsl:if test="$editors">
-    <html:div class="division">
-      <html:h2 class="title editor">
+    <div class="division">
+      <h2 class="title editor">
         <xsl:call-template name="l10n.gettext">
           <xsl:with-param name="msgid" select="'Editor'"/>
           <xsl:with-param name="number" select="count($editors)"/>
         </xsl:call-template>
-      </html:h2>
-      <html:div class="block block-first">
-        <html:dl>
+      </h2>
+      <div class="block block-first">
+        <dl>
           <xsl:apply-templates mode="db2html.info.mode" select="$editors"/>
-        </html:dl>
-      </html:div>
-    </html:div>
+        </dl>
+      </div>
+    </div>
   </xsl:if>
 </xsl:template>
 
@@ -226,19 +225,19 @@ REMARK: Describe this template
   <xsl:variable name="collabs" select="
                 $info/collab | $info/authorgroup/collab"/>
   <xsl:if test="$collabs">
-    <html:div class="division">
-      <html:h2 class="title collab">
+    <div class="division">
+      <h2 class="title collab">
         <xsl:call-template name="l10n.gettext">
           <xsl:with-param name="msgid" select="'Collaborator'"/>
           <xsl:with-param name="number" select="count($collabs)"/>
         </xsl:call-template>
-      </html:h2>
-      <html:div class="block block-first">
-        <html:dl>
+      </h2>
+      <div class="block block-first">
+        <dl>
           <xsl:apply-templates mode="db2html.info.mode" select="$collabs"/>
-        </html:dl>
-      </html:div>
-    </html:div>
+        </dl>
+      </div>
+    </div>
   </xsl:if>
 </xsl:template>
 
@@ -260,19 +259,19 @@ REMARK: Describe this template
                 $info/authorgroup/corpcredit[@role = 'translator']   |
                 $info/authorgroup/othercredit[@role = 'translator']  "/>
   <xsl:if test="$translators">
-    <html:div class="division">
-      <html:h2 class="title translator">
+    <div class="division">
+      <h2 class="title translator">
         <xsl:call-template name="l10n.gettext">
           <xsl:with-param name="msgid" select="'Translator'"/>
           <xsl:with-param name="number" select="count($translators)"/>
         </xsl:call-template>
-      </html:h2>
-      <html:div class="block block-first">
-        <html:dl>
+      </h2>
+      <div class="block block-first">
+        <dl>
           <xsl:apply-templates mode="db2html.info.mode" select="$translators"/>
-        </html:dl>
-      </html:div>
-    </html:div>
+        </dl>
+      </div>
+    </div>
   </xsl:if>
 </xsl:template>
 
@@ -290,19 +289,19 @@ REMARK: Describe this template
   <xsl:param name="info" select="'FIXME'"/>
   <xsl:variable name="publishers" select="$info/publisher"/>
   <xsl:if test="$publishers">
-    <html:div class="division">
-      <html:h2 class="title publisher">
+    <div class="division">
+      <h2 class="title publisher">
         <xsl:call-template name="l10n.gettext">
           <xsl:with-param name="msgid" select="'Publisher'"/>
           <xsl:with-param name="number" select="count($publishers)"/>
         </xsl:call-template>
-      </html:h2>
-      <html:div class="block block-first">
-        <html:dl>
+      </h2>
+      <div class="block block-first">
+        <dl>
           <xsl:apply-templates mode="db2html.info.mode" select="$publishers"/>
-        </html:dl>
-      </html:div>
-    </html:div>
+        </dl>
+      </div>
+    </div>
   </xsl:if>
 </xsl:template>
 
@@ -325,19 +324,19 @@ REMARK: Describe this template
                 $info/authorgroup/corpcredit[@role != 'translator']  |
                 $info/authorgroup/othercredit[@role != 'translator'] "/>
   <xsl:if test="$othercredits">
-    <html:div class="division">
-      <html:h2 class="title othercredit">
+    <div class="division">
+      <h2 class="title othercredit">
         <xsl:call-template name="l10n.gettext">
           <xsl:with-param name="msgid" select="'Other Contributor'"/>
           <xsl:with-param name="number" select="count($othercredits)"/>
         </xsl:call-template>
-      </html:h2>
-      <html:div class="block block-first">
-        <html:dl>
+      </h2>
+      <div class="block block-first">
+        <dl>
           <xsl:apply-templates mode="db2html.info.mode" select="$othercredits"/>
-        </html:dl>
-      </html:div>
-    </html:div>
+        </dl>
+      </div>
+    </div>
   </xsl:if>
 </xsl:template>
 
@@ -355,19 +354,19 @@ REMARK: Describe this template
   <xsl:param name="info" select="'FIXME'"/>
   <xsl:variable name="copyrights" select="$info/copyright"/>
   <xsl:if test="$copyrights">
-    <html:div class="division">
-      <html:h2 class="title copyright">
+    <div class="division">
+      <h2 class="title copyright">
         <xsl:call-template name="l10n.gettext">
           <xsl:with-param name="msgid" select="'Copyright'"/>
           <xsl:with-param name="number" select="count($copyrights)"/>
         </xsl:call-template>
-      </html:h2>
-      <html:div class="block block-first">
-        <html:dl>
+      </h2>
+      <div class="block block-first">
+        <dl>
           <xsl:apply-templates mode="db2html.info.mode" select="$copyrights"/>
-        </html:dl>
-      </html:div>
-    </html:div>
+        </dl>
+      </div>
+    </div>
   </xsl:if>
 </xsl:template>
 
@@ -381,26 +380,26 @@ REMARK: Describe this mode.
 
 <!-- = affiliation % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="affiliation">
-  <html:dd class="affiliation">
+  <dd class="affiliation">
     <!-- FIXME: no style tags -->
-    <html:i>
+    <i>
       <xsl:call-template name="l10n.gettext">
         <xsl:with-param name="msgid" select="'Affiliation'"/>
       </xsl:call-template>
       <xsl:text>: </xsl:text>
-    </html:i>
+    </i>
     <xsl:apply-templates mode="db2html.info.mode" select="orgname"/>
-  </html:dd>
+  </dd>
 </xsl:template>
 
 <!-- = author % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="author">
-  <html:dt class="author">
+  <dt class="author">
     <xsl:variable name="node" select="(. | personname)[last()]"/>
     <xsl:call-template name="db.personname">
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
-  </html:dt>
+  </dt>
   <xsl:apply-templates mode="db2html.info.mode"
                        select="affiliation[orgname]"/>
   <xsl:apply-templates mode="db2html.info.mode"
@@ -416,38 +415,38 @@ REMARK: Describe this mode.
 
 <!-- = authorblurb % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="authorblurb">
-  <html:dd class="authorblurb">
+  <dd class="authorblurb">
     <xsl:apply-templates/>
-  </html:dd>
+  </dd>
 </xsl:template>
 
 <!-- = collab % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="collab">
-  <html:dt class="collab">
+  <dt class="collab">
     <xsl:apply-templates mode="db2html.info.mode" select="collabname"/>
-  </html:dt>
+  </dt>
   <xsl:apply-templates mode="db2html.info.mode"
                        select="affiliation[orgname]"/>
 </xsl:template>
 
 <!-- = collabname % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="collabname">
-  <html:span class="collabname">
+  <span class="collabname">
     <xsl:apply-templates/>
-  </html:span>
+  </span>
 </xsl:template>
 
 <!-- = corpauthor % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="corpauthor">
-  <html:dt class="corpauthor">
+  <dt class="corpauthor">
     <!-- Can occur outside db2html.info.mode, so apply those templates -->
     <xsl:apply-templates select="."/>
-  </html:dt>
+  </dt>
 </xsl:template>
 
 <!-- = corpcredit % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="corpname">
-  <html:dt>
+  <dt>
     <xsl:attribute name="class">
       <xsl:choose>
         <xsl:when test="@role = 'translator'">
@@ -460,12 +459,12 @@ REMARK: Describe this mode.
     </xsl:attribute>
     <!-- Can occur outside db2html.info.mode, so apply those templates -->
     <xsl:apply-templates select="."/>
-  </html:dt>
+  </dt>
 </xsl:template>
 
 <!-- = copyright % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="copyright">
-  <html:dt class="copyright">
+  <dt class="copyright">
     <xsl:call-template name="l10n.gettext">
       <xsl:with-param name="msgid" select="'Copyright'"/>
     </xsl:call-template>
@@ -483,7 +482,7 @@ REMARK: Describe this mode.
       </xsl:if>
       <xsl:apply-templates mode="db2html.info.mode" select="."/>
     </xsl:for-each>
-  </html:dt>
+  </dt>
 </xsl:template>
 
 <!-- = editor % db2html.info.mode = -->
@@ -493,12 +492,12 @@ REMARK: Describe this mode.
 
 <!-- = editor % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="editor">
-  <html:dt class="editor">
+  <dt class="editor">
     <xsl:variable name="node" select="(. | personname)[last()]"/>
     <xsl:call-template name="db.personname">
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
-  </html:dt>
+  </dt>
   <xsl:apply-templates mode="db2html.info.mode"
                        select="affiliation[orgname]"/>
   <xsl:apply-templates mode="db2html.info.mode"
@@ -509,39 +508,39 @@ REMARK: Describe this mode.
 
 <!-- = email % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="email">
-  <html:dd class="affiliation">
+  <dd class="affiliation">
     <!-- FIXME: no style tags -->
-    <html:i>
+    <i>
       <xsl:call-template name="l10n.gettext">
         <xsl:with-param name="msgid" select="'Email'"/>
       </xsl:call-template>
       <xsl:text>: </xsl:text>
-    </html:i>
+    </i>
     <!-- Can occur outside db2html.info.mode, so apply those templates -->
     <xsl:apply-templates select="."/>
-  </html:dd>
+  </dd>
 </xsl:template>
 
 <!-- = holder % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="holder">
-  <html:span class="holder">
+  <span class="holder">
     <xsl:apply-templates/>
-  </html:span>
+  </span>
 </xsl:template>
 
 <!-- = legalnotice % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="legalnotice">
-  <html:div class="division legalnotice">
+  <div class="division legalnotice">
     <xsl:call-template name="db2html.anchor"/>
     <xsl:if test="not(title)">
-      <html:h2 class="title legalnotice">
+      <h2 class="title legalnotice">
         <xsl:call-template name="l10n.gettext">
           <xsl:with-param name="msgid" select="'Legal Notice'"/>
         </xsl:call-template>
-      </html:h2>
+      </h2>
     </xsl:if>
     <xsl:apply-templates/>
-  </html:div>
+  </div>
 </xsl:template>
 
 <!-- = orgname % db2html.info.mode = -->
@@ -552,7 +551,7 @@ REMARK: Describe this mode.
 
 <!-- = othercredit % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="othercredit">
-  <html:dt>
+  <dt>
     <xsl:attribute name="class">
       <xsl:choose>
         <xsl:when test="@role = 'translator'">
@@ -567,7 +566,7 @@ REMARK: Describe this mode.
     <xsl:call-template name="db.personname">
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
-  </html:dt>
+  </dt>
   <xsl:apply-templates mode="db2html.info.mode"
                        select="affiliation[orgname]"/>
   <xsl:apply-templates mode="db2html.info.mode"
@@ -578,23 +577,23 @@ REMARK: Describe this mode.
 
 <!-- = personblurb % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="personblurb">
-  <html:dd class="personblurb">
+  <dd class="personblurb">
     <xsl:apply-templates/>
-  </html:dd>
+  </dd>
 </xsl:template>
 
 <!-- = publisher % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="publisher">
-  <html:dt class="publisher">
+  <dt class="publisher">
     <xsl:apply-templates mode="db2html.info.mode"/>
-  </html:dt>
+  </dt>
 </xsl:template>
 
 <!-- = publishername % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="publishername">
-  <html:span class="publishername">
+  <span class="publishername">
     <xsl:apply-templates/>
-  </html:span>
+  </span>
 </xsl:template>
 
 <!-- = revdescription % db2html.info.mode = -->
@@ -604,20 +603,20 @@ REMARK: Describe this mode.
 
 <!-- = revhistory % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="revhistory">
-  <html:div class="division revhistory">
+  <div class="division revhistory">
     <xsl:call-template name="db2html.anchor"/>
-    <html:h2 class="title revhistory">
+    <h2 class="title revhistory">
       <xsl:call-template name="l10n.gettext">
         <xsl:with-param name="msgid" select="'Revision History'"/>
       </xsl:call-template>
-    </html:h2>
+    </h2>
     <xsl:apply-templates mode="db2html.info.mode"/>
-  </html:div>
+  </div>
 </xsl:template>
 
 <!-- = revision % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="revision">
-  <html:div class="block revision">
+  <div class="block revision">
     <xsl:apply-templates mode="db2html.info.mode" select="date"/>
     <xsl:text>: </xsl:text>
     <xsl:apply-templates mode="db2html.info.mode" select="revnumber"/>
@@ -656,7 +655,7 @@ REMARK: Describe this mode.
       </xsl:for-each>
       <xsl:text>)</xsl:text>
     </xsl:if>
-  </html:div>
+  </div>
 </xsl:template>
 
 <!-- = revnumber % db2html.info.mode = -->
@@ -671,9 +670,9 @@ REMARK: Describe this mode.
 
 <!-- = year % db2html.info.mode = -->
 <xsl:template mode="db2html.info.mode" match="year">
-  <html:span class="year">
+  <span class="year">
     <xsl:apply-templates/>
-  </html:span>
+  </span>
 </xsl:template>
 
 
@@ -805,7 +804,7 @@ REMARK: Describe this mode.
 
 <!-- = legalnotice/title = -->
 <xsl:template match="legalnotice/title">
-  <html:h2 class="title legalnotice"><xsl:apply-templates/></html:h2>
+  <h2 class="title legalnotice"><xsl:apply-templates/></h2>
 </xsl:template>
 
 </xsl:stylesheet>

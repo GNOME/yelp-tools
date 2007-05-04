@@ -18,8 +18,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n"
-                xmlns:html="http://www.w3.org/1999/xhtml"
-                exclude-result-prefixes="msg html"
+                xmlns="http://www.w3.org/1999/xhtml"
+                exclude-result-prefixes="msg"
                 version="1.0">
 
 <!--!!==========================================================================
@@ -53,7 +53,7 @@ the parameters can do.
   <xsl:param name="font_stretch"    select="string($span/@font-stretch)"/>
   <xsl:param name="font_size"       select="string($span/@font-size)"/>
   <xsl:param name="text_decoration" select="string($span/@text-decoration)"/>
-  <html:span>
+  <span>
     <xsl:attribute name="style">
       <xsl:if test="$font_family != ''">
         <xsl:value-of select="concat('font-family: ', $font_family, '; ')"/>
@@ -81,7 +81,7 @@ the parameters can do.
     <xsl:apply-templates mode="l10n.format.mode">
       <xsl:with-param name="node" select="$node"/>
     </xsl:apply-templates>
-  </html:span>
+  </span>
 </xsl:template>
 
 <!--#% l10n.format.mode ==================================================== -->
@@ -120,20 +120,20 @@ the parameters can do.
 
 <xsl:template mode="l10n.format.mode" match="msg:sub">
   <xsl:param name="node"/>
-  <html:sub>
+  <sub>
     <xsl:apply-templates mode="l10n.format.mode">
       <xsl:with-param name="node" select="$node"/>
     </xsl:apply-templates>
-  </html:sub>
+  </sub>
 </xsl:template>
 
 <xsl:template mode="l10n.format.mode" match="msg:sup">
   <xsl:param name="node"/>
-  <html:sup>
+  <sup>
     <xsl:apply-templates mode="l10n.format.mode">
       <xsl:with-param name="node" select="$node"/>
     </xsl:apply-templates>
-  </html:sup>
+  </sup>
 </xsl:template>
 
 <xsl:template mode="l10n.format.mode" match="msg:small">

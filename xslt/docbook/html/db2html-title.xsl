@@ -17,8 +17,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:html="http://www.w3.org/1999/xhtml"
-                exclude-result-prefixes="html"
+                xmlns="http://www.w3.org/1999/xhtml"
                 version="1.0">
 
 <!--!!==========================================================================
@@ -44,21 +43,21 @@ REMARK: Talk about the different kinds of title blocks
       <xsl:with-param name="node" select="$referent"/>
     </xsl:call-template>
   </xsl:variable>
-  <html:div class="block block-first {local-name($node)}">
-    <html:span class="{local-name($node)}">
+  <div class="block block-first {local-name($node)}">
+    <span class="{local-name($node)}">
       <xsl:call-template name="db2html.anchor">
         <xsl:with-param name="node" select="$node"/>
       </xsl:call-template>
-      <html:span class="label">
+      <span class="label">
         <xsl:call-template name="db.label">
           <xsl:with-param name="node" select="$referent"/>
           <xsl:with-param name="role" select="'header'"/>
           <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
         </xsl:call-template>
-      </html:span>
+      </span>
       <xsl:apply-templates select="$node/node()"/>
-    </html:span>
-  </html:div>
+    </span>
+  </div>
 </xsl:template>
 
 
@@ -96,9 +95,5 @@ REMARK: Talk about the different kinds of title blocks
   <xsl:call-template name="db2html.title.block"/>
 </xsl:template>
 
-<!-- = table/title = -->
-<xsl:template match="table/title">
-  <xsl:call-template name="db2html.title.block"/>
-</xsl:template>
 
 </xsl:stylesheet>

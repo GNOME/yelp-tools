@@ -17,8 +17,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:html="http://www.w3.org/1999/xhtml"
-                exclude-result-prefixes="html"
+                xmlns="http://www.w3.org/1999/xhtml"
                 version="1.0">
 
 <!--!!==========================================================================
@@ -49,7 +48,7 @@ REMARK: Document this template
   <xsl:param name="sans" select="false()"/>
 
   <!-- FIXME: do CSS classes, rather than inline styles -->
-  <html:span class="{local-name($node)}">
+  <span class="{local-name($node)}">
     <xsl:if test="$bold or $italic or $mono or $underline or $sans">
       <xsl:variable name="style">
         <xsl:if test="$bold">
@@ -78,7 +77,7 @@ REMARK: Document this template
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
     <xsl:apply-templates select="$node/node()"/>
-  </html:span>
+  </span>
 </xsl:template>
 
 
@@ -142,11 +141,11 @@ REMARK: Document this template
 
 <!-- = citation = -->
 <xsl:template match="citation">
-  <html:span class="citation-punc">
+  <span class="citation-punc">
     <xsl:text>[</xsl:text>
     <xsl:call-template name="db2html.inline"/>
     <xsl:text>]</xsl:text>
-  </html:span>
+  </span>
 </xsl:template>
 
 <!-- = classname = -->
@@ -216,11 +215,11 @@ REMARK: Document this template
 
 <!-- = email = -->
 <xsl:template match="email">
-  <html:span class="email-punc">
+  <span class="email-punc">
     <!-- FIXME: no style tags -->
-    <html:tt>
+    <tt>
       <xsl:text>&lt;</xsl:text>
-      <html:a>
+      <a>
         <xsl:attribute name="href">
           <xsl:text>mailto:</xsl:text>
           <xsl:value-of select="string(.)"/>
@@ -233,10 +232,10 @@ REMARK: Document this template
           </xsl:call-template>
         </xsl:attribute>
         <xsl:call-template name="db2html.inline"/>
-      </html:a>
+      </a>
       <xsl:text>&gt;</xsl:text>
-    </html:tt>
-  </html:span>
+    </tt>
+  </span>
 </xsl:template>
 
 <!-- = emphasis = -->
@@ -429,14 +428,14 @@ REMARK: Document this template
       <xsl:otherwise>+</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
-  <html:span class="keycombo">
+  <span class="keycombo">
     <xsl:for-each select="*">
       <xsl:if test="position() != 1">
         <xsl:value-of select="$joinchar"/>
       </xsl:if>
       <xsl:apply-templates select="."/>
     </xsl:for-each>
-  </html:span>
+  </span>
 </xsl:template>
 
 <!-- = keysym = -->
@@ -479,7 +478,7 @@ REMARK: Document this template
 
 <!-- = menuchoice = -->
 <xsl:template match="menuchoice">
-  <html:span class="menuchoice">
+  <span class="menuchoice">
     <xsl:for-each select="*[local-name(.) != 'shortcut']">
       <xsl:if test="position() != 1">
         <xsl:text>&#x00A0;→ </xsl:text>
@@ -487,13 +486,13 @@ REMARK: Document this template
       <xsl:apply-templates select="."/>
     </xsl:for-each>
     <xsl:if test="shortcut">
-      <html:span class="shortcut-punc">
+      <span class="shortcut-punc">
         <xsl:text> (</xsl:text>
         <xsl:apply-templates select="shortcut"/>
         <xsl:text>)</xsl:text>
-      </html:span>
+      </span>
     </xsl:if>
-  </html:span>
+  </span>
 </xsl:template>
 
 <!-- = methodname = -->
@@ -517,11 +516,11 @@ REMARK: Document this template
 
 <!-- = optional = -->
 <xsl:template match="optional">
-  <html:span class="optional-punc">
+  <span class="optional-punc">
     <xsl:text>[</xsl:text>
     <xsl:call-template name="db2html.inline"/>
     <xsl:text>]</xsl:text>
-  </html:span>
+  </span>
 </xsl:template>
 
 <!-- = orgdiv = -->
@@ -548,9 +547,9 @@ REMARK: Document this template
 
 <!-- = personname = -->
 <xsl:template match="personname">
-  <html:div class="personname">
+  <div class="personname">
     <xsl:call-template name="db.personname"/>
-  </html:div>
+  </div>
 </xsl:template>
 
 <!-- = phone = -->
@@ -575,14 +574,14 @@ REMARK: Document this template
 
 <!-- = productname = -->
 <xsl:template match="productname">
-  <html:span class="productname-punc">
+  <span class="productname-punc">
     <xsl:call-template name="db2html.inline"/>
     <xsl:if test="@class">
       <xsl:call-template name="db.dingbat">
         <xsl:with-param name="dingbat" select="@class"/>
       </xsl:call-template>
     </xsl:if>
-  </html:span>
+  </span>
 </xsl:template>
 
 <!-- = productnumber = -->
@@ -614,7 +613,7 @@ REMARK: Document this template
 
 <!-- = quote = -->
 <xsl:template match="quote">
-  <html:span class="quote">
+  <span class="quote">
     <xsl:call-template name="l10n.gettext">
       <xsl:with-param name="msgid" select="'quote.format'"/>
       <xsl:with-param name="role">
@@ -630,7 +629,7 @@ REMARK: Document this template
       <xsl:with-param name="node" select="."/>
       <xsl:with-param name="format" select="true()"/>
     </xsl:call-template>
-  </html:span>
+  </span>
 </xsl:template>
 
 <!-- = replaceable = -->
@@ -658,7 +657,7 @@ REMARK: Document this template
     </xsl:choose>
   </xsl:variable>
   <!-- FIXME: no style tags -->
-  <html:tt class="sgmltag-{$class}">
+  <tt class="sgmltag-{$class}">
     <xsl:call-template name="db2html.anchor"/>
     <xsl:choose>
       <xsl:when test="$class = 'attribute'">
@@ -722,7 +721,7 @@ REMARK: Document this template
         <xsl:apply-templates/>
       </xsl:otherwise>
     </xsl:choose>
-  </html:tt>
+  </tt>
 </xsl:template>
 
 <!-- = shortcut = -->
@@ -759,18 +758,18 @@ REMARK: Document this template
 
 <!-- = subscript = -->
 <xsl:template match="subscript">
-  <html:sub>
+  <sub>
     <xsl:call-template name="db2html.anchor"/>
     <xsl:apply-templates/>
-  </html:sub>
+  </sub>
 </xsl:template>
 
 <!-- = superscript = -->
 <xsl:template match="superscript">
-  <html:sup>
+  <sup>
     <xsl:call-template name="db2html.anchor"/>
     <xsl:apply-templates/>
-  </html:sup>
+  </sup>
 </xsl:template>
 
 <!-- = surname = -->
@@ -807,12 +806,12 @@ REMARK: Document this template
       </xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
-  <html:span class="trademark">
+  <span class="trademark">
     <xsl:apply-templates/>
     <xsl:call-template name="db.dingbat">
       <xsl:with-param name="dingbat" select="$class"/>
     </xsl:call-template>
-  </html:span>
+  </span>
 </xsl:template>
 
 <!-- = type = -->

@@ -18,9 +18,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:exsl="http://exslt.org/common"
-                xmlns:html="http://www.w3.org/1999/xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
                 extension-element-prefixes="exsl"
-                exclude-result-prefixes="html"
                 version="1.0">
 
 <!--!!==========================================================================
@@ -61,12 +60,12 @@ avoid creating the same file multiple times.
           <xsl:call-template name="db2html.css.content"/>
         </exsl:document>
       </xsl:if>
-      <html:link rel="stylesheet" type="text/css" href="{$db2html.css.file}"/>
+      <link rel="stylesheet" type="text/css" href="{$db2html.css.file}"/>
     </xsl:when>
     <xsl:otherwise>
-      <html:style type="text/css">
+      <style type="text/css">
         <xsl:call-template name="db2html.css.content"/>
-      </html:style>
+      </style>
     </xsl:otherwise>
   </xsl:choose>
 </xsl:template>
@@ -268,10 +267,6 @@ div.list div.title span.title {
   border-bottom: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
 }
 div.list dd { margin-top: 0.2em; margin-bottom: 1em; }
-dt.term {
-  font-weight: bold;
-  color: </xsl:text><xsl:value-of select="$theme.color.text_light"/><xsl:text>;
-}
 div.simplelist {
   <!-- FIXME: rtl -->
   margin-left: 1.72em;

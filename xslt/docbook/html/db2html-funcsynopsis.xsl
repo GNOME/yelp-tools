@@ -18,9 +18,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:str="http://exslt.org/strings"
-                xmlns:html="http://www.w3.org/1999/xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
                 extension-element-prefixes="str"
-                exclude-result-prefixes="html"
                 version="1.0">
 
 <!--!!==========================================================================
@@ -119,13 +118,13 @@ elements.  Supported values are #{'KR'} and #{'ANSI'}.
       </xsl:otherwise>
     </xsl:choose>
   </xsl:param>
-  <html:pre class="funcsynopsis">
+  <pre class="funcsynopsis">
     <xsl:call-template name="db2html.anchor"/>
     <!-- The select is needed to avoid extra whitespace -->
     <xsl:apply-templates select="*">
       <xsl:with-param name="style" select="$style"/>
     </xsl:apply-templates>
-  </html:pre>
+  </pre>
 </xsl:template>
 
 <!-- = funcsynopsisinfo = -->
