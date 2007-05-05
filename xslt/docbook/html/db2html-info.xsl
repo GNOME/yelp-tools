@@ -22,6 +22,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!--!!==========================================================================
 DocBook to HTML - Title Pages
+:Requires: db-chunk db-common db2html-block db2html-division db2html-inline db2html-xref gettext
 
 REMARK: Describe this module
 -->
@@ -40,7 +41,7 @@ REMARK: Describe this template
   <xsl:param name="node" select="."/>
   <xsl:param name="info"/>
   <xsl:param name="depth_of_chunk">
-    <xsl:call-template name="db.chunk.depth_of_chunk">
+    <xsl:call-template name="db.chunk.depth-of-chunk">
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
   </xsl:param>

@@ -22,6 +22,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!--!!==========================================================================
 DocBook to HTML - EBNF Elements
+:Requires: db2html-title db2html-xref
 
 REMARK: Describe this module
 -->
@@ -53,9 +54,11 @@ REMARK: Describe this module
 </xsl:template>
 
 <!-- = productionset/title = -->
+<!-- FIXME
 <xsl:template match="productionset/title">
   <xsl:call-template name="db2html.title.simple"/>
 </xsl:template>
+-->
 
 <!-- = rhs = -->
 

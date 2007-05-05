@@ -22,6 +22,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!--!!==========================================================================
 DocBook to HTML - Bibliographies
+:Requires: db-chunk db-label db2html-block db2html-inline db2html-division db2html-xref gettext
 
 REMARK: Describe this module
 -->

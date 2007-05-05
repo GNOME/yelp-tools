@@ -22,6 +22,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!--!!==========================================================================
 DocBook to HTML - Images and Media
+:Requires: db2html-block db2html-xref
 
 REMARK: Describe this module
 -->

@@ -24,7 +24,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!--!!==========================================================================
 DocBook to HTML - CSS
-:Requires: l10n theme
+:Requires: db2html-bibliography db2html-block db2html-footnote db2html-callout db2html-cmdsynopsis db2html-qanda db2html-refentry gettext theme
 
 REMARK: Describe this module
 -->
@@ -144,6 +144,7 @@ div.title {
   font-weight: bold;
   color: </xsl:text><xsl:value-of select="$theme.color.text_light"/><xsl:text>;
 }
+div.title-formal { padding-left: 0.2em; padding-right: 0.2em; }
 div.title-formal .label { font-weight: normal; }
 a {
   color: </xsl:text><xsl:value-of select="$theme.color.link"/><xsl:text>;

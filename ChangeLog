@@ -1,5 +1,38 @@
 2007-05-04  Shaun McCance  <shaunm@gnome.org>
 
+	* doc/xslt/Makefile.am:
+	* doc/xslt/xsldoc-check.xsl:
+	* doc/xslt/xsldoc-fill.xsl:
+	* doc/xslt/xsldoc.xsl:
+	- Putting more checks and information in xsldoc
+
+	* xslt/docbook/common/db-label.xsl:
+	* xslt/docbook/common/db-title.xsl:
+	* xslt/docbook/common/db-xref.xsl:
+	* xslt/docbook/html/db2html-autotoc.xsl:
+	* xslt/docbook/html/db2html-bibliography.xsl:
+	* xslt/docbook/html/db2html-block.xsl:
+	* xslt/docbook/html/db2html-classsynopsis.xsl:
+	* xslt/docbook/html/db2html-cmdsynopsis.xsl:
+	* xslt/docbook/html/db2html-css.xsl:
+	* xslt/docbook/html/db2html-division.xsl:
+	* xslt/docbook/html/db2html-ebnf.xsl:
+	* xslt/docbook/html/db2html-footnote.xsl:
+	* xslt/docbook/html/db2html-funcsynopsis.xsl:
+	* xslt/docbook/html/db2html-info.xsl:
+	* xslt/docbook/html/db2html-inline.xsl:
+	* xslt/docbook/html/db2html-list.xsl:
+	* xslt/docbook/html/db2html-media.xsl:
+	* xslt/docbook/html/db2html-qanda.xsl:
+	* xslt/docbook/html/db2html-refentry.xsl:
+	* xslt/docbook/html/db2html-table.xsl:
+	* xslt/docbook/html/db2html-title.xsl:
+	* xslt/docbook/html/db2html-xref.xsl:
+	* xslt/docbook/omf/db2omf.xsl:
+	- Added :Requires: to satisfy new xsldoc stuff
+
+2007-05-04  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/docbook/html/db2html-table.xsl:
 	- Moved the table CSS to db2html-css.xsl
 

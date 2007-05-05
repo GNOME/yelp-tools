@@ -24,6 +24,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!--!!==========================================================================
 DocBook to HTML - Function Synopses
+:Requires: db2html-block db2html-inline
 
 REMARK: Describe this module
 -->

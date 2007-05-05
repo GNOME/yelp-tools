@@ -22,8 +22,9 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!--!!==========================================================================
 DocBook to HTML - Titles and Subtitles
+:Requires: db-chunk db-label db-xref db2html-xref
 
-REMARK: Describe this module
+This stylesheet is going away
 -->
 
 
@@ -59,6 +60,14 @@ REMARK: Talk about the different kinds of title blocks
     </span>
   </div>
 </xsl:template>
+
+<!--**==========================================================================
+db2html.title.header
+This template is going away
+
+This template is going away
+-->
+<xsl:template name="db2html.title.header"/>
 
 
 

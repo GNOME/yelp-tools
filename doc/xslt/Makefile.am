@@ -16,8 +16,12 @@ xsldoc_docs = $(patsubst %, C/%.xsldoc, $(xsldoc_base))
 xsldoc_xmls = $(patsubst %, C/%.xml, $(xsldoc_base))
 
 all: $(xsldoc_docs)
-$(xsldoc_docs): $(xsldoc_xsls) xsldoc.awk
-	$(GDU_AWK) -f "$(srcdir)/xsldoc.awk" "$(filter %/$(basename $(notdir $@)).xsl,$(xsldoc_xsls))" | xmllint --c14n - > "$@"
+$(xsldoc_docs): $(xsldoc_xsls) xsldoc.awk xsldoc-fill.xsl
+	$(GDU_AWK) -f "$(srcdir)/xsldoc.awk" "$(filter %/$(basename $(notdir $@)).xsl,$(xsldoc_xsls))" \
+	| xsltproc -o "$@" \
+	--stringparam basename "$(basename $(notdir $@))" \
+	--stringparam xsl_file "$(filter %/$(basename $(notdir $@)).xsl,$(xsldoc_xsls))" \
+	"$(srcdir)/xsldoc-fill.xsl" -
 
 $(xsldoc_xmls): xsldoc.xsl
 $(xsldoc_xmls): C/%.xml : C/%.xsldoc
@@ -26,7 +30,7 @@ $(xsldoc_xmls): C/%.xml : C/%.xsldoc
 	--stringparam xsl_file "$(filter %/$(basename $(notdir $@)).xsl,$(xsldoc_xsls))" \
 	"$(srcdir)/xsldoc.xsl" "$<"
 
-gnome_doc_xslt_awk='\
+gnome_doc_xslt_includes='\
 /<\!--BEGIN-->/ { inc=1; }\
 /<\!--END-->/ { inc=0; }\
 inc {\
@@ -38,10 +42,10 @@ inc {\
   }\
 }'
 
-.PHONY: gnome-doc-xslt-check
-all: gnome-doc-xslt-check
-gnome-doc-xslt-check:
-	@incs=`$(GDU_AWK) $(gnome_doc_xslt_awk) "$(srcdir)/C/gnome-doc-xslt.xml" | sort`; \
+.PHONY: gnome-doc-xslt-check-includes gnome-doc-xslt-check-xsldoc
+all: gnome-doc-xslt-check-includes gnome-doc-xslt-check-xsldoc
+gnome-doc-xslt-check-includes:
+	@incs=`$(GDU_AWK) $(gnome_doc_xslt_includes) "$(srcdir)/C/gnome-doc-xslt.xml" | sort`; \
 	xmls=`echo $(xsldoc_base) | sort`; \
 	exs=""; \
 	for xml in $$xmls; do \
@@ -52,6 +56,10 @@ gnome-doc-xslt-check:
 	  echo "gnome-doc-xslt.xml does not include the following reference pages: $$exs" 1>&2; \
 	  exit 1; \
 	fi
+gnome-doc-xslt-check-xsldoc:
+	@echo "Running xsldoc checks";
+	@(echo "<xsldoc>"; cat $(xsldoc_docs); echo "</xsldoc>") \
+	| xsltproc "$(srcdir)/xsldoc-check.xsl" - 1> /dev/null
 
 clean-local:
 	rm -f $(xsldoc_docs) $(xsldoc_xmls)

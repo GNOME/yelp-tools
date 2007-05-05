@@ -237,9 +237,6 @@ free software.
   </section>
 </xsl:template>
 
-<xsl:template match="mode">
-</xsl:template>
-
 <xsl:template match="param">
   <xsl:variable name="id" select="translate(name, '.', '_')"/>
   <refentry id="P__{$id}">

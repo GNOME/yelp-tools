@@ -22,6 +22,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!--!!==========================================================================
 DocBook to HTML - Question and Answer Sets
+:Requires: db-chunk db-label db2html-division
 
 REMARK: Describe this module
 -->

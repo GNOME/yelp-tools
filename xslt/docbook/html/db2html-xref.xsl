@@ -22,6 +22,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!--!!==========================================================================
 DocBook to HTML - Links and Cross References
+:Requires: db-xref
 
 REMARK: Describe this module
 -->

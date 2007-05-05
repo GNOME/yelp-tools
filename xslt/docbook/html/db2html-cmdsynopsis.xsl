@@ -23,6 +23,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!--!!==========================================================================
 DocBook to HTML - Command Synopses
+:Requires: db-label db2html-xref
 
 REMARK: Describe this module
 -->
