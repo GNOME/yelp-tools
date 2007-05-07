@@ -1,5 +1,18 @@
 2007-05-07  Shaun McCance  <shaunm@gnome.org>
 
+	* doc/xslt/xsldoc-check.xsl:
+	* doc/xslt/xsldoc-fill.xsl:
+	- Implemented more xsldoc checks
+
+	* xslt/docbook/common/db-chunk.xsl:
+	* xslt/docbook/html/db2html-block.xsl:
+	* xslt/docbook/html/db2html-ebnf.xsl:
+	* xslt/docbook/html/db2html-info.xsl:
+	* xslt/docbook/html/db2html-title.xsl:
+	- Made these stylesheets pass the new checks
+
+2007-05-07  Shaun McCance  <shaunm@gnome.org>
+
 	* doc/xslt/xsldoc-docbook.xsl:
 	* doc/xslt/xsldoc.xsl:
 	- Moving xsldoc.xsl to xsldoc-docbook.xsl

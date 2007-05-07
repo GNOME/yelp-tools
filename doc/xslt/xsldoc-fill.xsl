@@ -63,7 +63,7 @@ free software.
       </meta>
       <meta>
         <name>calls-modes</name>
-        <xsl:for-each select="set:distinct($xsl//xsl:apply-temlates/@mode)">
+        <xsl:for-each select="set:distinct($xsl//xsl:apply-templates/@mode)">
           <desc><xsl:value-of select="."/></desc>
         </xsl:for-each>
       </meta>
@@ -71,6 +71,13 @@ free software.
         <name>uses-modes</name>
         <xsl:for-each select="set:distinct($xsl//xsl:template/@mode)">
           <desc><xsl:value-of select="."/></desc>
+        </xsl:for-each>
+      </meta>
+      <meta>
+        <name>uses-params</name>
+        <xsl:for-each select="set:distinct($xsl//xsl:value-of
+                                [starts-with(@select, '$') and contains(@select, '.')]/@select)">
+          <desc><xsl:value-of select="substring-after(., '$')"/></desc>
         </xsl:for-each>
       </meta>
       <xsl:apply-templates select="metas/meta"/>

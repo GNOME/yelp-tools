@@ -30,7 +30,7 @@ REMARK: Describe this module
 
 <!--**==========================================================================
 db2html.info.div
-Renders the contents of the titlepage of a division element
+Renders the contents of the title page of a division element
 $node: The division element to generate a title page for
 $info: The info child element of ${node}
 $depth_of_chunk: The depth of the containing chunk in the document

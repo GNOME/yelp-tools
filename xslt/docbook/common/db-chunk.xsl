@@ -94,7 +94,7 @@ REMARK: Describe what this does
 
 <!--@@==========================================================================
 db.chunk.info_chunk
-Whether to create a chunk for the titlepage
+Whether to create a chunk for the title page
 
 REMARK: Describe what this does
 -->
@@ -103,7 +103,7 @@ REMARK: Describe what this does
 
 <!--@@==========================================================================
 db.chunk.info_basename
-The base filename for the titlepage
+The base filename for the title page
 
 REMARK: Describe what this does
 -->
@@ -510,8 +510,21 @@ REMARK: Explain how this works, and what the axes are
 
 
 <!--%%==========================================================================
+db.chunk.info.content.mode
+Renders the contents of the title page
+$depth_in_chunk: The depth of the element in the containing chunk
+$depth_of_chunk: The depth of the containing chunk in the document
+
+When processed in this mode, a division element should output the top-level
+markup for the output page.
+-->
+<xsl:template mode="db.chunk.info.content.mode" match="*"/>
+
+
+<!--%%==========================================================================
 db.chunk.content.mode
-Renders entire contents of the chunk
+Renders the entire contents of the chunk
+$depth_in_chunk: The depth of the element in the containing chunk
 $depth_of_chunk: The depth of the containing chunk in the document
 
 When processed in this mode, a division element should output the top-level

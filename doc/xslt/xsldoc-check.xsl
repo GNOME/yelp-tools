@@ -42,6 +42,8 @@ free software.
 
 <xsl:template match="section">
   <xsl:variable name="section" select="."/>
+
+  <!-- Check if all called templates exist -->
   <xsl:for-each select="metas/meta[name = 'calls-names']/desc">
     <xsl:variable name="name" select="string(.)"/>
     <xsl:choose>
@@ -63,9 +65,75 @@ free software.
       </xsl:otherwise>
     </xsl:choose>
   </xsl:for-each>
-  <!-- Check if all called modes are supported -->
-  <!-- Check if all used modes are supported -->
+
+  <!-- Check if all called modes exist -->
+  <xsl:for-each select="metas/meta[name = 'calls-modes']/desc">
+    <xsl:variable name="name" select="string(.)"/>
+    <xsl:choose>
+      <xsl:when test="$section/mode[name = $name][1]"/>
+      <xsl:otherwise>
+        <xsl:variable name="mode" select="/xsldoc/section/mode[name = $name][1]"/>
+        <xsl:choose>
+          <xsl:when test="$mode and
+                          $section/metas/meta[name = 'Requires']/desc[. = string($mode/../@id)]"/>
+          <xsl:otherwise>
+            <xsl:message terminate="yes">
+              <xsl:text>The stylesheet </xsl:text>
+              <xsl:value-of select="$section/@id"/>
+              <xsl:text> calls an undefined mode </xsl:text>
+              <xsl:value-of select="$name"/>
+            </xsl:message>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:for-each>
+
+  <!-- Check if all used modes exist -->
+  <xsl:for-each select="metas/meta[name = 'uses-modes']/desc">
+    <xsl:variable name="name" select="string(.)"/>
+    <xsl:choose>
+      <xsl:when test="$section/mode[name = $name][1]"/>
+      <xsl:otherwise>
+        <xsl:variable name="mode" select="/xsldoc/section/mode[name = $name][1]"/>
+        <xsl:choose>
+          <xsl:when test="$mode and
+                          $section/metas/meta[name = 'Requires']/desc[. = string($mode/../@id)]"/>
+          <xsl:otherwise>
+            <xsl:message terminate="yes">
+              <xsl:text>The stylesheet </xsl:text>
+              <xsl:value-of select="$section/@id"/>
+              <xsl:text> implements an undefined mode </xsl:text>
+              <xsl:value-of select="$name"/>
+            </xsl:message>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:for-each>
+
   <!-- Check if all requires are required -->
+  <xsl:for-each select="metas/meta[name = 'Requires']/desc">
+    <xsl:variable name="name" select="string(.)"/>
+    <xsl:variable name="names" select="$section/metas/meta[name = 'calls-names']/desc"/>
+    <xsl:variable name="modes" select="$section/metas/meta[name = 'calls-modes']/desc |
+                                       $section/metas/meta[name = 'uses-modes']/desc  "/>
+    <xsl:variable name="params" select="$section/metas/meta[name = 'uses-params']/desc"/>
+    <xsl:choose>
+      <xsl:when test="$name = /xsldoc/section[template[string(name) = $names]]/@id"/>
+      <xsl:when test="$name = /xsldoc/section[mode[string(name) = $modes]]/@id"/>
+      <xsl:when test="$name = /xsldoc/section[param[string(name) = $params]]/@id"/>
+      <xsl:otherwise>
+        <xsl:message terminate="yes">
+          <xsl:text>The stylesheet </xsl:text>
+          <xsl:value-of select="$section/@id"/>
+          <xsl:text> does not require the stylesheet </xsl:text>
+          <xsl:value-of select="$name"/>
+        </xsl:message>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:for-each>
+
 </xsl:template>
 
 </xsl:stylesheet>

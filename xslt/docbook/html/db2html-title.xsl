@@ -22,7 +22,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!--!!==========================================================================
 DocBook to HTML - Titles and Subtitles
-:Requires: db-chunk db-label db-xref db2html-xref
+:Requires: db-chunk db-label db2html-xref
 
 This stylesheet is going away
 -->
