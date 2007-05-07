@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?><!-- -*- indent-tabs-mode: nil -*- -->
 <!--
-xsldoc.xsl - Convert the output of xsldoc.awk to standard DocBook
+xsldoc-docbook.xsl - Convert the output of xsldoc.awk to standard DocBook
 Copyright (C) 2006 Shaun McCance <shaunm@gnome.org>
 
 This program is free software; you can redistribute it and/or modify it

@@ -23,12 +23,12 @@ $(xsldoc_docs): $(xsldoc_xsls) xsldoc.awk xsldoc-fill.xsl
 	--stringparam xsl_file "$(filter %/$(basename $(notdir $@)).xsl,$(xsldoc_xsls))" \
 	"$(srcdir)/xsldoc-fill.xsl" -
 
-$(xsldoc_xmls): xsldoc.xsl
+$(xsldoc_xmls): xsldoc-docbook.xsl
 $(xsldoc_xmls): C/%.xml : C/%.xsldoc
 	xsltproc -o "$@" \
 	--stringparam basename "$(basename $(notdir $@))" \
 	--stringparam xsl_file "$(filter %/$(basename $(notdir $@)).xsl,$(xsldoc_xsls))" \
-	"$(srcdir)/xsldoc.xsl" "$<"
+	"$(srcdir)/xsldoc-docbook.xsl" "$<"
 
 gnome_doc_xslt_includes='\
 /<\!--BEGIN-->/ { inc=1; }\
@@ -64,7 +64,7 @@ gnome-doc-xslt-check-xsldoc:
 clean-local:
 	rm -f $(xsldoc_docs) $(xsldoc_xmls)
 
-EXTRA_DIST = xsldoc.awk xsldoc.xsl
+EXTRA_DIST = xsldoc.awk xsldoc-fill.xsl xsldoc-check.xsl xsldoc-docbook.xsl
 
 DOC_MODULE = gnome-doc-xslt
 DOC_INCLUDES = legal.xml translating.xml $(patsubst %,%.xml,$(xsldoc_base))
