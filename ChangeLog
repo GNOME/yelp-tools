@@ -1,5 +1,10 @@
 2007-05-08  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/html/db2html-classsynopsis.xsl:
+	- Call db2html.class.python.mode, not db2html.python.mode
+
+2007-05-08  Shaun McCance  <shaunm@gnome.org>
+
 	* test/testbook/testbook.xml:
 	- Added some more linenumbering tests
 	- Added various synopsis tests

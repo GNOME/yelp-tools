@@ -499,7 +499,7 @@ REMARK: Describe this mode
   <xsl:if test="../self::classsynopsis">
     <xsl:value-of select="$python.tab"/>
   </xsl:if>
-  <xsl:apply-templates mode="db2html.python.mode" select="varname"/>
+  <xsl:apply-templates mode="db2html.class.python.mode" select="varname"/>
   <xsl:if test="initializer">
     <xsl:text>=</xsl:text>
     <xsl:apply-templates mode="db2html.class.python.mode" select="initializer"/>
