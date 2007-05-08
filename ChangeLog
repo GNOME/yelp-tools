@@ -1,6 +1,11 @@
 2007-05-08  Shaun McCance  <shaunm@gnome.org>
 
 	* tools/gnome-doc-tool.in:
+	- Use = instead of == to test equality
+
+2007-05-08  Shaun McCance  <shaunm@gnome.org>
+
+	* tools/gnome-doc-tool.in:
 	- Explicitly check for an empty command to avoid shift error
 
 2007-05-08  Shaun McCance  <shaunm@gnome.org>

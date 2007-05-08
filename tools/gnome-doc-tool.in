@@ -77,7 +77,7 @@ Miscellaneous:
 EOF
 }
 echo_verbose() {
-    if [ "x$doc_verbose" == "x1" ]; then echo $1; fi
+    if [ "x$doc_verbose" = "x1" ]; then echo $1; fi
 }
 mkdir_p() {
     __dir__='';
@@ -156,25 +156,25 @@ DO_html() {
     doc_indir=$( (cd $(dirname "$doc_input") && pwd) )
     doc_infile=$(basename "$doc_input")
     doc_inbase=$(basename "$doc_infile" ".xml")
-    if [ "$doc_inbase" == "$doc_infile" ]; then
+    if [ "$doc_inbase" = "$doc_infile" ]; then
       doc_inbase=$(basename "$doc_infile" ".docbook")
     fi;
 
-    if [ "x$doc_output" == "x" ]; then
+    if [ "x$doc_output" = "x" ]; then
 	doc_outdir=`pwd`
-	if [ "x$doc_extension" == "x" ]; then doc_extension='.xhtml'; fi
+	if [ "x$doc_extension" = "x" ]; then doc_extension='.xhtml'; fi
 	doc_outfile="${doc_inbase}${doc_extension}"
-    elif [ -d "$doc_output" -o $(echo "$doc_output" | sed -e 's/.*\/$/\//') == "/" ]; then
+    elif [ -d "$doc_output" -o $(echo "$doc_output" | sed -e 's/.*\/$/\//') = "/" ]; then
 	mkdir_p "$doc_output"
 	doc_outdir=`(cd "$doc_output" && pwd)`
-	if [ "x$doc_extension" == "x" ]; then doc_extension='.xhtml'; fi
+	if [ "x$doc_extension" = "x" ]; then doc_extension='.xhtml'; fi
 	doc_outfile="${doc_inbase}${doc_extension}"
     else
 	dir=`dirname "$doc_output"`
 	mkdir_p "$dir"
 	doc_outdir=`(cd "$dir" && pwd)`
 	doc_outfile=`basename "$doc_output"`
-	if [ "x$doc_extension" == "x" ]; then
+	if [ "x$doc_extension" = "x" ]; then
 	    doc_extension=`echo "$doc_outfile" | grep -o '\..*'`
 	fi;
     fi;
