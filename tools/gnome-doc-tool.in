@@ -45,14 +45,17 @@ Process a documentation file.
 
 COMMAND is one of:
   html       convert the document to HTML
+  xhtml      convert the document to XHTML
   help       display this help and exit
 EOF
 }
 
 print_help_html() {
+    format="$1"
+    upformat=`echo $format | tr a-z A-Z`
     cat <<EOF
-Usage: $progname html [OPTIONS] FILE
-Convert FILE into HTML.
+Usage: $progname $format [OPTIONS] FILE
+Convert FILE into $upformat.
 
 Basic Output Control:
   -c, --css-file=FILE             file to output CSS to
@@ -91,6 +94,8 @@ mkdir_p() {
 }
 
 DO_html() {
+    doc_format="$1"
+    shift
     longopts='
       -lcss-file:
       -lchunk-depth:
@@ -107,7 +112,7 @@ DO_html() {
       -lhelp
     ';
     options=`getopt -qn$progname $longopts -- c:d:e:o:nvVh "$@"`
-    if [ "$?" != "0" ]; then print_help_html 1>&2; exit 1; fi
+    if [ "$?" != "0" ]; then print_help_html $doc_format 1>&2; exit 1; fi
     eval set -- "$options";
     while [ "$1" != "--" ]; do
 	case "$1" in
@@ -140,17 +145,17 @@ DO_html() {
 		echo "$PROGRAM ($PACKAGE) $VERSION"
 		exit 0;;
 	    -h | --help)
-		print_help_html
+		print_help_html $doc_format
 		exit 0;;
 	    --)
-		print_help_html 1>&2
+		print_help_html $doc_format 1>&2
 		exit 1;;
 	esac
 	shift
     done
     shift
 
-    if [ "$#" != "1" ]; then print_help_html 1>& 2; exit 1; fi;
+    if [ "$#" != "1" ]; then print_help_html $doc_format 1>& 2; exit 1; fi;
     doc_input="$1"
     if [ ! -f "$doc_input" ]; then error "$doc_input: No such file"; fi
     doc_indir=$( (cd $(dirname "$doc_input") && pwd) )
@@ -162,12 +167,12 @@ DO_html() {
 
     if [ "x$doc_output" = "x" ]; then
 	doc_outdir=`pwd`
-	if [ "x$doc_extension" = "x" ]; then doc_extension='.xhtml'; fi
+	if [ "x$doc_extension" = "x" ]; then doc_extension=".$doc_format"; fi
 	doc_outfile="${doc_inbase}${doc_extension}"
     elif [ -d "$doc_output" -o $(echo "$doc_output" | sed -e 's/.*\/$/\//') = "/" ]; then
 	mkdir_p "$doc_output"
 	doc_outdir=`(cd "$doc_output" && pwd)`
-	if [ "x$doc_extension" = "x" ]; then doc_extension='.xhtml'; fi
+	if [ "x$doc_extension" = "x" ]; then doc_extension=".$doc_format"; fi
 	doc_outfile="${doc_inbase}${doc_extension}"
     else
 	dir=`dirname "$doc_output"`
@@ -211,7 +216,7 @@ DO_html() {
     fi
 
     cmd="xmllint --noent --xinclude \"$doc_indir/$doc_infile\" |\
-      xsltproc $params -o \"$doc_outdir/$doc_outfile\" \"$xsltdir/docbook/html/db2html.xsl\" -"
+      xsltproc $params -o \"$doc_outdir/$doc_outfile\" \"$xsltdir/docbook/html/db2$doc_format.xsl\" -"
     echo_verbose "$cmd"
     eval "$cmd"
 
@@ -234,8 +239,8 @@ if [ "x$command" = "x" ]; then
     exit 1;
 fi;
 shift;
-if [ "$command" = "html" ]; then
-    DO_html $@;
+if [ "$command" = "html" -o "$command" = "xhtml" ]; then
+    DO_html "$command" $@;
 elif [ "$command" = "-V" -o "$command" = "--version" ]; then
     echo "$PROGRAM ($PACKAGE) $VERSION";
     exit 0;

@@ -1,6 +1,11 @@
 2007-05-08  Shaun McCance  <shaunm@gnome.org>
 
 	* tools/gnome-doc-tool.in:
+	- Support for the new HTML/XHTML output methods
+
+2007-05-08  Shaun McCance  <shaunm@gnome.org>
+
+	* tools/gnome-doc-tool.in:
 	- Use = instead of == to test equality
 
 2007-05-08  Shaun McCance  <shaunm@gnome.org>
