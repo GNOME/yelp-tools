@@ -33,12 +33,12 @@ datadir=@datadir@
 pkgdatadir=@datadir@/gnome-doc-utils
 xsltdir=@datadir@/xml/gnome/xslt
 
-function error {
+error() {
     echo "$progname: $1" 1>&2;
     exit 1;
 }
 
-function print_help {
+print_help() {
     cat <<EOF
 Usage: $progname <COMMAND> [OPTIONS] FILE
 Process a documentation file.
@@ -49,7 +49,7 @@ COMMAND is one of:
 EOF
 }
 
-function print_help_html {
+print_help_html() {
     cat <<EOF
 Usage: $progname html [OPTIONS] FILE
 Convert FILE into HTML.
@@ -76,21 +76,21 @@ Miscellaneous:
   -h, --help                      display this help and exit
 EOF
 }
-function echo_verbose {
+echo_verbose() {
     if [ "x$doc_verbose" == "x1" ]; then echo $1; fi
 }
-function mkdir_p {
-    dir='';
+mkdir_p() {
+    __dir__='';
     echo $1 | sed -e 's/\//\n/g' | while read d; do
-	dir="$dir$d/"
-	if [ ! -d "$dir" ]; then
-	    echo_verbose "mkdir \"$dir\""
-	    mkdir "$dir"
+	__dir__="$__dir__$d/"
+	if [ ! -d "$__dir__" ]; then
+	    echo_verbose "mkdir \"$__dir__\""
+	    mkdir "$__dir__"
 	fi
     done;
 }
 
-function DO_html {
+DO_html() {
     longopts='
       -lcss-file:
       -lchunk-depth:
@@ -153,19 +153,18 @@ function DO_html {
     if [ "$#" != "1" ]; then print_help_html 1>& 2; exit 1; fi;
     doc_input="$1"
     if [ ! -f "$doc_input" ]; then error "$doc_input: No such file"; fi
-    doc_indir=$( (cd $(dirname $doc_input) && pwd) )
-    doc_infile=$(basename $doc_input)
-    if [ "x${doc_infile: -4}" == "x.xml" ]; then
-	doc_inbase=${doc_infile:0:$((${#doc_infile}-4))}
-    else
-	doc_inbase="$doc_infile"
-    fi
+    doc_indir=$( (cd $(dirname "$doc_input") && pwd) )
+    doc_infile=$(basename "$doc_input")
+    doc_inbase=$(basename "$doc_infile" ".xml")
+    if [ "$doc_inbase" == "$doc_infile" ]; then
+      doc_inbase=$(basename "$doc_infile" ".docbook")
+    fi;
 
     if [ "x$doc_output" == "x" ]; then
 	doc_outdir=`pwd`
 	if [ "x$doc_extension" == "x" ]; then doc_extension='.xhtml'; fi
 	doc_outfile="${doc_inbase}${doc_extension}"
-    elif [ -d "$doc_output" -o "${doc_output: -1}" == "/" ]; then
+    elif [ -d "$doc_output" -o $(echo "$doc_output" | sed -e 's/.*\/$/\//') == "/" ]; then
 	mkdir_p "$doc_output"
 	doc_outdir=`(cd "$doc_output" && pwd)`
 	if [ "x$doc_extension" == "x" ]; then doc_extension='.xhtml'; fi
@@ -179,11 +178,7 @@ function DO_html {
 	    doc_extension=`echo "$doc_outfile" | grep -o '\..*'`
 	fi;
     fi;
-    if [ "x${doc_outfile: -${#doc_extension}}" == "x${doc_extension}" ]; then
-	doc_outbase="${doc_outfile:0:$((${#doc_outfile}-${#doc_extension}))}"
-    else
-	doc_outbase="${doc_outfile}"
-    fi
+    doc_outbase=$(basename "$doc_outfile" "$doc_extension")
 
     params='--param db.chunk.chunk_top 0'
     params="$params --stringparam db.chunk.basename \"$doc_outbase\""
