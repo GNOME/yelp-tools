@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils 0.3.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-05-29 03:22+0200\n"
-"PO-Revision-Date: 2006-05-29 03:22+0200\n"
-"Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
+"POT-Creation-Date: 2007-05-08 12:57+0200\n"
+"PO-Revision-Date: 2007-04-29 02:18+0100\n"
+"Last-Translator: Espen Stefansen <espenas@gmail.com>\n"
 "Language-Team: Norwegian bokmal <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -474,7 +474,8 @@ msgstr ""
 #: ../xslt/gettext/l10n.xml.in.h:391
 msgid ""
 "<msgid>email.tooltip</msgid> <msgstr>Send email to ‘<string/>’.</msgstr>"
-msgstr "<msgid>email.tooltip</msgid> <msgstr>Send e-post til «<string/>».</msgstr>"
+msgstr ""
+"<msgid>email.tooltip</msgid> <msgstr>Send e-post til «<string/>».</msgstr>"
 
 #.
 #. The number formatter used for example numbers.  This can be one of
@@ -1752,11 +1753,16 @@ msgstr "Advarsel"
 msgid "Colophon"
 msgstr "Kolofon"
 
+#. Used as the title of the listing of subsections
+#: ../xslt/gettext/l10n.xml.in.h:1454
+msgid "Contents"
+msgstr "Innhold"
+
 #.
 #. http://www.docbook.org/tdg/en/html/dedication.html
 #. This is used as a default title for dedication elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1457
+#: ../xslt/gettext/l10n.xml.in.h:1459
 msgid "Dedication"
 msgstr "Tilegnet"
 
@@ -1769,7 +1775,7 @@ msgstr "Tilegnet"
 #. Shaun McCance
 #. Email: shaunm@gnome.org
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1467
+#: ../xslt/gettext/l10n.xml.in.h:1469
 msgid "Email"
 msgstr "E-post"
 
@@ -1777,7 +1783,7 @@ msgstr "E-post"
 #. http://www.docbook.org/tdg/en/html/glossary.html
 #. This is used as a default title for glossary elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1472
+#: ../xslt/gettext/l10n.xml.in.h:1474
 msgid "Glossary"
 msgstr "Ordbok"
 
@@ -1785,7 +1791,7 @@ msgstr "Ordbok"
 #. http://www.docbook.org/tdg/en/html/important.html
 #. This is used as a default title for important elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1477
+#: ../xslt/gettext/l10n.xml.in.h:1479
 msgid "Important"
 msgstr "Viktig"
 
@@ -1793,7 +1799,7 @@ msgstr "Viktig"
 #. http://www.docbook.org/tdg/en/html/index.html
 #. This is used as a default title for index elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1482
+#: ../xslt/gettext/l10n.xml.in.h:1484
 msgid "Index"
 msgstr "Indeks"
 
@@ -1801,7 +1807,7 @@ msgstr "Indeks"
 #. http://www.docbook.org/tdg/en/html/legalnotice.html
 #. This is used as a default title for legalnotice elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1487
+#: ../xslt/gettext/l10n.xml.in.h:1489
 msgid "Legal Notice"
 msgstr "Jussnotis"
 
@@ -1809,7 +1815,7 @@ msgstr "Jussnotis"
 #. http://www.docbook.org/tdg/en/html/refnamediv.html
 #. This is used as the title for refnamediv elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1492
+#: ../xslt/gettext/l10n.xml.in.h:1494
 msgid "Name"
 msgstr "Navn"
 
@@ -1817,7 +1823,7 @@ msgstr "Navn"
 #. http://www.docbook.org/tdg/en/html/note.html
 #. This is used as a default title for note elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1497
+#: ../xslt/gettext/l10n.xml.in.h:1499
 msgid "Note"
 msgstr "Merknad"
 
@@ -1825,7 +1831,7 @@ msgstr "Merknad"
 #. http://www.docbook.org/tdg/en/html/preface.html
 #. This is used as a default title for preface elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1502
+#: ../xslt/gettext/l10n.xml.in.h:1504
 msgid "Preface"
 msgstr "Forord"
 
@@ -1838,7 +1844,7 @@ msgstr "Forord"
 #. the labelling style for a qandaset.  If the labelling style is set
 #. to 'qanda', this string will be used to label questions.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1512
+#: ../xslt/gettext/l10n.xml.in.h:1514
 msgid "Q:&#x2003;"
 msgstr "Q:&#x2003;"
 
@@ -1846,7 +1852,7 @@ msgstr "Q:&#x2003;"
 #. http://www.docbook.org/tdg/en/html/revhistory.html
 #. This is used as a header before the revision history.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1517
+#: ../xslt/gettext/l10n.xml.in.h:1519
 msgid "Revision History"
 msgstr "Revisjonshistorikk"
 
@@ -1854,7 +1860,7 @@ msgstr "Revisjonshistorikk"
 #. Used for the <see> element.
 #. FIXME: this should be a format string.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1522
+#: ../xslt/gettext/l10n.xml.in.h:1524
 msgid "See"
 msgstr "Se"
 
@@ -1862,7 +1868,7 @@ msgstr "Se"
 #. Used for the <seealso> element.
 #. FIXME: this should be a format string.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1527
+#: ../xslt/gettext/l10n.xml.in.h:1529
 msgid "See Also"
 msgstr "Se også"
 
@@ -1870,7 +1876,7 @@ msgstr "Se også"
 #. http://www.docbook.org/tdg/en/html/refsynopsisdiv.html
 #. This is used as the default title for refsynopsisdiv elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1532
+#: ../xslt/gettext/l10n.xml.in.h:1534
 msgid "Synopsis"
 msgstr "Synopsis"
 
@@ -1878,7 +1884,7 @@ msgstr "Synopsis"
 #. http://www.docbook.org/tdg/en/html/tip.html
 #. This is used as a default title for tip elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1537
+#: ../xslt/gettext/l10n.xml.in.h:1539
 msgid "Tip"
 msgstr "Tips"
 
@@ -1886,7 +1892,7 @@ msgstr "Tips"
 #. http://www.docbook.org/tdg/en/html/warning.html
 #. This is used as a default title for warning elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1542
+#: ../xslt/gettext/l10n.xml.in.h:1544
 msgid "Warning"
 msgstr "Advarsel"
 
@@ -1896,6 +1902,6 @@ msgstr "Advarsel"
 #. translate it to "predefinito:LTR", if it it isn't default:LTR
 #. or default:RTL it will not work
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1549
+#: ../xslt/gettext/l10n.xml.in.h:1551
 msgid "default:LTR"
 msgstr "default:LTR"
