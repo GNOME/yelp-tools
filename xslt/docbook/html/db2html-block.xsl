@@ -216,9 +216,7 @@ is then used by the CSS for styling.
   <!-- FIXME:
   @width
   @language
-  @continuation
   @format
-  @startinglinenumber
   -->
   <div>
     <xsl:attribute name="class">
@@ -235,29 +233,26 @@ is then used by the CSS for styling.
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
     <xsl:if test="$node/@linenumbering = 'numbered'">
+      <xsl:variable name="number">
+        <xsl:choose>
+          <!-- FIXME: continuation -->
+          <xsl:when test="@startinglinenumber">
+            <xsl:value-of select="@startinglinenumber"/>
+          </xsl:when>
+          <xsl:otherwise>1</xsl:otherwise>
+        </xsl:choose>
+      </xsl:variable>
       <pre class="linenumbering"><xsl:call-template name="db.linenumbering">
         <xsl:with-param name="node" select="$node"/>
+        <xsl:with-param name="number" select="$number"/>
       </xsl:call-template></pre>
     </xsl:if>
     <pre class="{local-name($node)}">
       <!-- Strip off a leading newline -->
       <xsl:if test="$children[1]/self::text()">
         <xsl:choose>
-          <!-- CR LF -->
-          <xsl:when test="starts-with($node/text()[1], '&#x000D;&#x000A;')">
-            <xsl:value-of select="substring-after($node/text()[1], '&#x000D;&#x000A;')"/>
-          </xsl:when>
-          <!-- CR -->
-          <xsl:when test="starts-with($node/text()[1], '&#x000D;')">
-            <xsl:value-of select="substring-after($node/text()[1], '&#x000D;')"/>
-          </xsl:when>
-          <!-- LF -->
           <xsl:when test="starts-with($node/text()[1], '&#x000A;')">
             <xsl:value-of select="substring-after($node/text()[1], '&#x000A;')"/>
-          </xsl:when>
-          <!-- NEL -->
-          <xsl:when test="starts-with($node/text()[1], '&#x0085;')">
-            <xsl:value-of select="substring-after($node/text()[1], '&#x0085;')"/>
           </xsl:when>
           <xsl:otherwise>
             <xsl:value-of select="$node/text()[1]"/>
@@ -518,9 +513,7 @@ dd.glossdef, dd.glosssee, dd.glossseealso
 
 <!-- = synopsis = -->
 <xsl:template match="synopsis">
-  <xsl:call-template name="db2html.pre">
-    <xsl:with-param name="indent" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.pre"/>
 </xsl:template>
 
 <!-- = tip = -->

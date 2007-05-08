@@ -1,5 +1,20 @@
 2007-05-08  Shaun McCance  <shaunm@gnome.org>
 
+	* test/testbook/testbook.xml:
+	- Added some more linenumbering tests
+	- Added various synopsis tests
+
+	* xslt/docbook/common/db-common.xsl:
+	* xslt/docbook/html/db2html-block.xsl:
+	* xslt/docbook/html/db2html-css.xsl:
+	* xslt/docbook/html/db2html-funcsynopsis.xsl:
+	- Visual updates for synopses and line numbering
+
+	* xslt/docbook/html/db2html-classsynopsis.xsl:
+	- Implemented Python support
+
+2007-05-08  Shaun McCance  <shaunm@gnome.org>
+
 	* tools/gnome-doc-tool.in:
 	- Support for the new HTML/XHTML output methods
 

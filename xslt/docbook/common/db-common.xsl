@@ -69,57 +69,28 @@ REMARK: Document this template
 <xsl:template name="db.linenumbering">
   <xsl:param name="node" select="."/>
   <xsl:param name="number" select="1"/>
-  <xsl:variable name="substr">
+  <xsl:param name="string">
     <xsl:choose>
-      <xsl:when test="node()[1]/self::text()">
-        <xsl:choose>
-          <!-- CR LF -->
-          <xsl:when test="starts-with(string($node), '&#x000D;&#x000A;')">
-            <xsl:value-of select="substring-after(string($node), '&#x000D;&#x000A;')"/>
-          </xsl:when>
-          <!-- CR -->
-          <xsl:when test="starts-with(string($node), '&#x000D;')">
-            <xsl:value-of select="substring-after(string($node), '&#x000D;')"/>
-          </xsl:when>
-          <!-- LF -->
-          <xsl:when test="starts-with(string($node), '&#x000A;')">
-            <xsl:value-of select="substring-after(string($node), '&#x000A;')"/>
-          </xsl:when>
-          <!-- NEL -->
-          <xsl:when test="starts-with(string($node), '&#x0085;')">
-            <xsl:value-of select="substring-after(string($node), '&#x0085;')"/>
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:value-of select="string($node)"/>
-          </xsl:otherwise>
-        </xsl:choose>
+      <xsl:when test="$node/node()[1]/self::text() and starts-with($node/node()[1], '&#x000A;')">
+        <xsl:value-of select="substring-after(string($node), '&#x000A;')"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:value-of select="string($node)"/>
       </xsl:otherwise>
     </xsl:choose>
-  </xsl:variable>
-  <xsl:call-template name="db.linenumbering.substr">
-    <xsl:with-param name="substr" select="$substr"/>
-    <xsl:with-param name="number" select="$number"/>
-  </xsl:call-template>
-</xsl:template>
-
-<!--#* db.linenumbering.substr -->
-<xsl:template name="db.linenumbering.substr">
-  <xsl:param name="substr"/>
-  <xsl:param name="number"/>
+  </xsl:param>
   <xsl:choose>
-    <xsl:when test="contains($substr, '&#x000A;')">
+    <xsl:when test="contains($string, '&#x000A;')">
       <xsl:number value="$number"/>
       <xsl:text>&#x000A;</xsl:text>
-      <xsl:call-template name="db.linenumbering.substr">
-        <xsl:with-param name="substr"
-                        select="substring-after($substr, '&#x000A;')"/>
+      <xsl:call-template name="db.linenumbering">
+        <xsl:with-param name="node" select="$node"/>
         <xsl:with-param name="number" select="$number + 1"/>
+        <xsl:with-param name="string"
+                        select="substring-after($string, '&#x000A;')"/>
       </xsl:call-template>
     </xsl:when>
-    <xsl:when test="string-length($substr) != 0">
+    <xsl:when test="string-length($string) != 0">
       <xsl:number value="$number"/>
       <xsl:text>&#x000A;</xsl:text>
     </xsl:when>

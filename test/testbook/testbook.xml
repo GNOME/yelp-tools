@@ -203,55 +203,6 @@ $(_DOC_LC_DOCS) : $(_DOC_C_DOCS)
 
 </section> <!-- formal-block -->
 
-<section id="misc-block">
-  <title>Miscellaneous</title>
-
-  <epigraph>
-    <attribution>Henry Spencer</attribution>
-    <para>Those who do not understand Unix are condemned to reinvent it,
-    poorly.</para>
-  </epigraph>
-
-  <para>The above was brought to you courtesy of the <sgmltag>epigraph</sgmltag>
-  element.  Now here is an <sgmltag>address</sgmltag> element:</para>
-
-  <address>Free Software Foundation
-51 Franklin Street, Fifth Floor
-Boston, MA 02110-1301
-USA</address>
-
-  <para>Here is a <sgmltag>blockquote</sgmltag> element:</para>
-
-  <blockquote>
-    <attribution>Richard Stallman, from the <ulink
-    url="http://www.gnu.org/gnu/manifesto.html">GNU Manifeto</ulink></attribution>
-    <para>I consider that the golden rule requires that if I like a program
-    I must share it with other people who like it. Software sellers want to
-    divide the users and conquer them, making each user agree not to share
-    with others. I refuse to break solidarity with other users in this way.
-    I cannot in good conscience sign a nondisclosure agreement or a software
-    license agreement. For years I worked within the Artificial Intelligence
-    Lab to resist such tendencies and other inhospitalities, but eventually
-    they had gone too far: I could not remain in an institution where such
-    things are done for me against my will.</para>
-  </blockquote>
-
-  <formalpara>
-    <title>Formal Paragraph</title>
-    <para>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed risus dui,
-    faucibus at, blandit eu, congue in, sem. Suspendisse nec mi. Sed vel augue.
-    Cras egestas. Vivamus nisi. Fusce neque. Aenean posuere, orci non lacinia
-    consectetuer, neque libero semper metus, ut ullamcorper eros lorem at tellus.
-    Ut ante tellus, iaculis at, tincidunt quis, ultrices at, ligula. Pellentesque
-    porttitor condimentum nulla.</para>
-  </formalpara>
-
-  <para>Next we have a <sgmltag>literallayout</sgmltag> element:</para>
-
-  <literallayout>This is a line.
-This is another line.
-  This line is indented.</literallayout>
-
   <section id="programlisting">
   <title>Program Listings</title>
 
@@ -338,7 +289,25 @@ function runline (line, ix, jx, pre, aft, char, name, id, fmt) {
   }
 }
 ]]></programlisting>
-  </section>
+
+<programlisting linenumbering="numbered" continuation="continues">
+BEGIN { print "&lt;section&gt;"; }
+</programlisting>
+
+  <para>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed risus dui,
+  faucibus at, blandit eu, congue in, sem. Suspendisse nec mi. Sed vel augue.
+  Cras egestas. Vivamus nisi. Fusce neque. Aenean posuere, orci non lacinia
+  consectetuer, neque libero semper metus, ut ullamcorper eros lorem at tellus.
+  Ut ante tellus, iaculis at, tincidunt quis, ultrices at, ligula. Pellentesque
+  porttitor condimentum nulla.</para>
+
+<programlisting linenumbering="numbered" startinglinenumber="701">
+# The starting line number is 701.
+# So this is line number 72.
+</programlisting>
+
+
+  </section> <!-- programlisting -->
 
   <section id="screen">
   <title>Screens</title>
@@ -362,11 +331,92 @@ XInclude processing testbook.xml took 0 ms
 Running stylesheet and saving result took 144 ms
 ]]></computeroutput></screen>
 
-  </section>
+  <screen linenumbering="numbered"><prompt>[shaunm@verso testbook] </prompt><userinput>make</userinput>
+<computeroutput><![CDATA[if [ ! -d html ]; then mkdir html; fi
+rm -f html/*.*
+xsltproc --timing --nonet --xinclude -o html/ \
+        --param db.chunk.chunk_top 1 \
+        --stringparam theme.icon.admon.path "../../../data/icons/" \
+        --stringparam theme.icon.nav.previous "../../../data/icons/nav-previous.png" \
+        --stringparam theme.icon.nav.next "../../../data/icons/nav-next.png" \
+        ../../xslt/docbook/html/db2html.xsl \
+        testbook.xml
+Parsing stylesheet ../../xslt/docbook/html/db2html.xsl took 0 ms
+Parsing document testbook.xml took 51 ms
+XInclude processing testbook.xml took 0 ms
+Running stylesheet and saving result took 144 ms
+]]></computeroutput></screen>
+
+  </section> <!-- screen -->
+
+<section id="misc-block">
+  <title>Miscellaneous</title>
+
+  <epigraph>
+    <attribution>Henry Spencer</attribution>
+    <para>Those who do not understand Unix are condemned to reinvent it,
+    poorly.</para>
+  </epigraph>
+
+  <para>The above was brought to you courtesy of the <sgmltag>epigraph</sgmltag>
+  element.  Now here is an <sgmltag>address</sgmltag> element:</para>
+
+  <address>Free Software Foundation
+51 Franklin Street, Fifth Floor
+Boston, MA 02110-1301
+USA</address>
+
+  <para>Here is a <sgmltag>blockquote</sgmltag> element:</para>
+
+  <blockquote>
+    <attribution>Richard Stallman, from the <ulink
+    url="http://www.gnu.org/gnu/manifesto.html">GNU Manifeto</ulink></attribution>
+    <para>I consider that the golden rule requires that if I like a program
+    I must share it with other people who like it. Software sellers want to
+    divide the users and conquer them, making each user agree not to share
+    with others. I refuse to break solidarity with other users in this way.
+    I cannot in good conscience sign a nondisclosure agreement or a software
+    license agreement. For years I worked within the Artificial Intelligence
+    Lab to resist such tendencies and other inhospitalities, but eventually
+    they had gone too far: I could not remain in an institution where such
+    things are done for me against my will.</para>
+  </blockquote>
+
+  <formalpara>
+    <title>Formal Paragraph</title>
+    <para>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed risus dui,
+    faucibus at, blandit eu, congue in, sem. Suspendisse nec mi. Sed vel augue.
+    Cras egestas. Vivamus nisi. Fusce neque. Aenean posuere, orci non lacinia
+    consectetuer, neque libero semper metus, ut ullamcorper eros lorem at tellus.
+    Ut ante tellus, iaculis at, tincidunt quis, ultrices at, ligula. Pellentesque
+    porttitor condimentum nulla.</para>
+  </formalpara>
+
+  <para>Next we have a <sgmltag>literallayout</sgmltag> element:</para>
+
+  <literallayout>This is a line.
+This is another line.
+  This line is indented.</literallayout>
+
+  <para>And here is a <sgmltag>synopsis</sgmltag> element:</para>
+  <synopsis><![CDATA[#include <gtk/gtk.h>
+
+                    GtkButton;
+GtkWidget*          gtk_button_new                      (void);
+GtkWidget*          gtk_button_new_with_label           (const gchar *label);
+GtkWidget*          gtk_button_new_with_mnemonic        (const gchar *label);
+GtkWidget*          gtk_button_new_from_stock           (const gchar *stock_id);
+]]></synopsis>
+  <synopsis linenumbering="numbered"><![CDATA[#include <gtk/gtk.h>
+void                gtk_button_pressed                  (GtkButton *button);
+void                gtk_button_released                 (GtkButton *button);
+void                gtk_button_clicked                  (GtkButton *button);
+void                gtk_button_enter                    (GtkButton *button);
+void                gtk_button_leave                    (GtkButton *button);
+]]></synopsis>
 
 <!-- FIXME:
 glossary stuff
-synopsis
 -->
 
 </section> <!-- misc-block -->
@@ -1048,5 +1098,174 @@ porttitor condimentum nulla.</para>
 </section> <!-- funcsynopsis-kr -->
 
 </chapter> <!-- funcsynopsis -->
-    
+
+<chapter id="classsynopsis">
+<title>Class Synopses</title>
+
+<section id="classsynopsis-cpp">
+<title>C++</title>
+
+<para>Here is a <sgmltag>classsynopsis</sgmltag>:</para>
+<classsynopsis language="cpp">
+  <ooclass><classname>Button</classname></ooclass>
+  <ooclass><modifier>public</modifier><classname>Bin</classname></ooclass>
+  <constructorsynopsis>
+    <modifier>public</modifier>
+    <methodname>Button</methodname>
+    <void/>
+  </constructorsynopsis>
+  <constructorsynopsis>
+    <modifier>public</modifier>
+    <modifier>explicit</modifier>
+    <methodparam>
+      <modifier>const</modifier>
+      <type>Glib::ustring&amp;</type>
+      <parameter>label</parameter>
+    </methodparam>
+    <methodparam>
+      <type>bool</type>
+      <parameter>mnemonic</parameter>
+      <initializer>false</initializer>
+    </methodparam>
+  </constructorsynopsis>
+  <destructorsynopsis>
+    <modifier>public</modifier>
+    <modifier>virtual</modifier>
+    <void/>
+  </destructorsynopsis>
+  <fieldsynopsis>
+    <modifier>private</modifier>
+    <modifier>friend</modifier>
+    <type>class</type>
+    <varname>Button_Class</varname>
+  </fieldsynopsis>
+  <fieldsynopsis>
+    <modifier>private</modifier>
+    <modifier>static</modifier>
+    <type>CppClassType</type>
+    <varname>button_class_</varname>
+  </fieldsynopsis>
+  <methodsynopsis>
+    <modifier>protected</modifier>
+    <modifier>virtual</modifier>
+    <void/>
+    <methodname>on_pressed</methodname>
+    <void/>
+  </methodsynopsis>
+  <methodsynopsis>
+    <modifier>protected</modifier>
+    <modifier>virtual</modifier>
+    <void/>
+    <methodname>on_released</methodname>
+    <void/>
+  </methodsynopsis>
+  <methodsynopsis>
+    <modifier>protected</modifier>
+    <modifier>virtual</modifier>
+    <void/>
+    <methodname>on_clicked</methodname>
+    <void/>
+  </methodsynopsis>
+  <methodsynopsis>
+    <modifier>protected</modifier>
+    <modifier>virtual</modifier>
+    <void/>
+    <methodname>on_enter</methodname>
+    <void/>
+  </methodsynopsis>
+  <methodsynopsis>
+    <modifier>protected</modifier>
+    <modifier>virtual</modifier>
+    <void/>
+    <methodname>on_leave</methodname>
+    <void/>
+  </methodsynopsis>
+  <methodsynopsis>
+    <modifier>protected</modifier>
+    <modifier>virtual</modifier>
+    <void/>
+    <methodname>on_activate</methodname>
+    <void/>
+  </methodsynopsis>
+  <methodsynopsis>
+    <modifier>public</modifier>
+    <type>GType</type>
+    <methodname>get_type</methodname>
+    <void/>
+    <modifier>G_GNUC_CONST</modifier>
+  </methodsynopsis>
+  <methodsynopsis>
+    <modifier>public</modifier>
+    <type>GType</type>
+    <methodname>get_base_type</methodname>
+    <void/>
+    <modifier>G_GNUC_CONST</modifier>
+  </methodsynopsis>
+  <fieldsynopsis>
+    <modifier>public</modifier>
+    <modifier>static</modifier>
+    <type>bool</type>
+    <varname>fake</varname>
+    <initializer>true</initializer>
+  </fieldsynopsis>
+</classsynopsis>
+
+<para>Here is a standalone <sgmltag>methodsynopsis</sgmltag>:</para>
+<methodsynopsis language="cpp">
+<modifier>public</modifier>
+<void/>
+<methodname>frobnicate</methodname>
+<methodparam><type>Foo</type><parameter>foo</parameter></methodparam>
+<methodparam><modifier>const</modifier><type>bool</type><parameter>frob</parameter><initializer>true</initializer></methodparam>
+<modifier>FROB</modifier>
+</methodsynopsis>
+
+</section> <!-- classsynopsis-cpp -->
+
+<section id="classsynopsis-csharp">
+<title>C#</title>
+</section> <!-- classsynopsis-csharp -->
+
+<section id="classsynopsis-java">
+<title>Java</title>
+</section> <!-- classsynopsis-java -->
+
+<section id="classsynopsis-python">
+<title>Python</title>
+
+<para>Here is a <sgmltag>classsynopsis</sgmltag>:</para>
+<classsynopsis language="python">
+<ooclass><classname>gtk.Button</classname></ooclass>
+<ooclass><classname>gtk.Bin</classname></ooclass>
+<constructorsynopsis>
+  <methodparam>
+    <parameter>label</parameter>
+    <initializer>None</initializer>
+  </methodparam>
+  <methodparam>
+    <parameter>stock</parameter>
+    <initializer>None</initializer>
+  </methodparam>
+  <methodparam>
+    <parameter>use_underline</parameter>
+    <initializer>True</initializer>
+  </methodparam>
+</constructorsynopsis>
+<destructorsynopsis><void/></destructorsynopsis>
+<methodsynopsis><methodname>pressed</methodname><void/></methodsynopsis>
+<methodsynopsis><methodname>released</methodname><void/></methodsynopsis>
+<methodsynopsis><methodname>clicked</methodname><void/></methodsynopsis>
+<methodsynopsis><methodname>enter</methodname><void/></methodsynopsis>
+<methodsynopsis><methodname>leave</methodname><void/></methodsynopsis>
+<methodsynopsis>
+  <methodname>set_relief</methodname>
+  <methodparam><parameter>newstyle</parameter></methodparam>
+</methodsynopsis>
+<methodsynopsis><methodname>get_relief</methodname><void/></methodsynopsis>
+<fieldsynopsis><varname>fake</varname><initializer>True</initializer></fieldsynopsis>
+</classsynopsis>
+</section> <!-- classsynopsis-python -->
+
+</chapter> <!-- classsynopsis -->
+
 </book>

@@ -41,9 +41,9 @@ REMARK: Describe this param
 -->
 <xsl:param name="db2html.classsynopsis.language">
   <xsl:choose>
-    <xsl:when test="processing-instruction('db2html.classsynopsis.language')">
+    <xsl:when test="/processing-instruction('db2html.classsynopsis.language')">
       <xsl:value-of
-       select="processing-instruction('db2html.classsynopsis.language')"/>
+       select="/processing-instruction('db2html.classsynopsis.language')"/>
     </xsl:when>
     <xsl:otherwise>
       <xsl:value-of select="'cpp'"/>
@@ -68,19 +68,28 @@ REMARK: Describe this param
       </xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
+  <xsl:variable name="first"
+                select="not(preceding-sibling::*
+                        [not(self::blockinfo) and not(self::title) and
+                         not(self::titleabbrev) and not(self::attribution) ])"/>
 
-  <div class="{local-name(.)}">
+  <div>
+    <xsl:attribute name="class">
+      <xsl:value-of select="local-name(.)"/>
+      <xsl:text> block</xsl:text>
+      <xsl:if test="$first">
+        <xsl:text> block-first</xsl:text>
+      </xsl:if>
+    </xsl:attribute>
     <xsl:call-template name="db2html.anchor"/>
-    <pre class="$language">
+    <pre class="{local-name(.)} classsynopsis-{$language}">
       <xsl:choose>
         <xsl:when test="$language = 'cpp'">
           <xsl:apply-templates mode="db2html.class.cpp.mode" select="."/>
         </xsl:when>
-        <!--
         <xsl:when test="$language = 'python'">
           <xsl:apply-templates mode="db2html.class.python.mode" select="."/>
         </xsl:when>
-        -->
         <xsl:otherwise>
           <xsl:message>
             <xsl:text>No information about the language '</xsl:text>
@@ -96,6 +105,8 @@ REMARK: Describe this param
 <!-- = classsynopsisinfo = -->
 <xsl:template match="classsynopsisinfo">
   <xsl:apply-templates/>
+  <!-- FIXME? -->
+  <xsl:text>&#x000A;</xsl:text>
 </xsl:template>
 
 <!-- = methodparam = -->
@@ -154,23 +165,23 @@ REMARK: Describe this param
   </span>
 </xsl:template>
 
-<!--#* class.cpp.modifier -->
-<xsl:template name="class.cpp.modifier">
+<!--#* db2html.class.cpp.modifier -->
+<xsl:template name="db2html.class.cpp.modifier">
   <!-- For C++, we expect the first modifier to be the visibility -->
-  <xsl:if test="../self::classsynopsis">
-    <xsl:variable name="prec" select="
-                  preceding-sibling::constructorsynopsis |
-                  preceding-sibling::destructorsynopsis  |
-                  preceding-sibling::fieldsynopsis       |
-                  preceding-sibling::methodsynopsis      "/>
-    <xsl:if test="not($prec[modifier][last()][modifier[1] = current()/modifier[1]])">
-      <xsl:if test="$prec">
-        <xsl:text>&#x000A;</xsl:text>
-      </xsl:if>
+  <xsl:variable name="prec" select="self::*[../self::classsynopsis]/preceding-sibling::constructorsynopsis |
+                                    self::*[../self::classsynopsis]/preceding-sibling::destructorsynopsis  |
+                                    self::*[../self::classsynopsis]/preceding-sibling::fieldsynopsis       |
+                                    self::*[../self::classsynopsis]/preceding-sibling::methodsynopsis      "/>
+  <xsl:choose>
+    <xsl:when test="not($prec[modifier][last()][modifier[1] = current()/modifier[1]])">
+      <xsl:if test="$prec"><xsl:text>&#x000A;</xsl:text></xsl:if>
       <xsl:apply-templates select="modifier[1]"/>
       <xsl:text>:&#x000A;</xsl:text>
-    </xsl:if>
-  </xsl:if>
+    </xsl:when>
+    <xsl:when test="$prec and (name($prec[last()]) != name(.))">
+      <xsl:text>&#x000A;</xsl:text>
+    </xsl:when>
+  </xsl:choose>
 </xsl:template>
 
 
@@ -180,16 +191,14 @@ db2html.class.cpp.mode
 REMARK: Describe this mode
 -->
 <xsl:template mode="db2html.class.cpp.mode" match="*">
-  <!-- Most stuff just gets processed as normal -->
   <xsl:apply-templates select="."/>
 </xsl:template>
 
 <!-- = classsynopsis % db2html.class.cpp.mode = -->
 <xsl:template mode="db2html.class.cpp.mode" match="classsynopsis">
   <!-- classsynopsis = element classsynopsis {
-         common.attrib, role.attrib,
-         attribute language { "cpp" }?,
-         attribute class { "class" }?,
+         attribute language { ... }?,
+         attribute class { ... }?,
          ooclass+,
          (classsynopsisinfo  | constructorsynopsis |
           destructorsynopsis | fieldsynopsis       |
@@ -199,12 +208,10 @@ REMARK: Describe this mode
   <xsl:if test="@class = 'class' or not(@class)">
     <span class="ooclass">
       <xsl:for-each select="ooclass[1]/modifier">
-        <xsl:if test="position() != 1">
-          <xsl:text> </xsl:text>
-        </xsl:if>
         <xsl:apply-templates mode="db2html.class.cpp.mode" select="."/>
+        <xsl:text> </xsl:text>
       </xsl:for-each>
-      <xsl:text> class </xsl:text>
+      <xsl:text>class </xsl:text>
       <xsl:apply-templates mode="db2html.class.cpp.mode"
                            select="ooclass[1]/classname"/>
     </span>
@@ -230,24 +237,18 @@ REMARK: Describe this mode
 <!-- = constructorsynopsis % db2html.class.cpp.mode = -->
 <xsl:template mode="db2html.class.cpp.mode" match="constructorsynopsis">
   <!-- constructorsynopsis = element constructorsynopsis {
-         common.attrib, role.attrib,
-         attribute language { "cpp" }?,
+         attribute language { ... }?,
          modifier+,
          methodname?,
          (methodparam+ | void?)
        }
   -->
-  <xsl:call-template name="class.cpp.modifier"/>
+  <xsl:call-template name="db2html.class.cpp.modifier"/>
   <xsl:value-of select="$cpp.tab"/>
   <xsl:for-each select="modifier[position() != 1]">
-    <xsl:if test="position() != 1">
-      <xsl:text> </xsl:text>
-    </xsl:if>
     <xsl:apply-templates mode="db2html.class.cpp.mode" select="."/>
-  </xsl:for-each>
-  <xsl:if test="modifier[2]">
     <xsl:text> </xsl:text>
-  </xsl:if>
+  </xsl:for-each>
   <xsl:choose>
     <xsl:when test="methodname">
       <xsl:apply-templates mode="db2html.class.cpp.mode" select="methodname"/>
@@ -271,24 +272,18 @@ REMARK: Describe this mode
 <!-- = destructorsynopsis % db2html.class.cpp.mode = -->
 <xsl:template mode="db2html.class.cpp.mode" match="destructorsynopsis">
   <!-- destructorsynopsis = element destructorsynopsis {
-         common.attrib, role.attrib,
-         attribute language { "cpp" }?,
+         attribute language { ... }?,
          modifier+,
          methodname?,
          (methodparam+ | void?)
        }
   -->
-  <xsl:call-template name="class.cpp.modifier"/>
+  <xsl:call-template name="db2html.class.cpp.modifier"/>
   <xsl:value-of select="$cpp.tab"/>
   <xsl:for-each select="modifier[position() != 1]">
-    <xsl:if test="position() != 1">
-      <xsl:text> </xsl:text>
-    </xsl:if>
     <xsl:apply-templates mode="db2html.class.cpp.mode" select="."/>
-  </xsl:for-each>
-  <xsl:if test="modifier[2]">
     <xsl:text> </xsl:text>
-  </xsl:if>
+  </xsl:for-each>
   <xsl:choose>
     <xsl:when test="methodname">
       <xsl:apply-templates mode="db2html.class.cpp.mode" select="methodname"/>
@@ -314,29 +309,21 @@ REMARK: Describe this mode
 <!-- = fieldsynopsis % db2html.class.cpp.mode = -->
 <xsl:template mode="db2html.class.cpp.mode" match="fieldsynopsis">
   <!-- fieldsynopsis = element fieldsynopsis {
-         common.attrib, role.attrib,
-         attribute language { "cpp" }?,
+         attribute language { ... }?,
          modifier+,
          type,
          varname,
          initializer?
        }
   -->
-  <xsl:call-template name="class.cpp.modifier"/>
+  <xsl:call-template name="db2html.class.cpp.modifier"/>
   <xsl:value-of select="$cpp.tab"/>
   <xsl:for-each select="modifier[position() != 1]">
-    <xsl:if test="position() != 1">
-      <xsl:text> </xsl:text>
-    </xsl:if>
     <xsl:apply-templates mode="db2html.class.cpp.mode" select="."/>
-  </xsl:for-each>
-  <xsl:if test="modifier[2]">
     <xsl:text> </xsl:text>
-  </xsl:if>
+  </xsl:for-each>
   <xsl:if test="type">
     <xsl:apply-templates mode="db2html.class.cpp.mode" select="type"/>
-  </xsl:if>
-  <xsl:if test="modifier[2] or type">
     <xsl:text> </xsl:text>
   </xsl:if>
   <xsl:apply-templates mode="db2html.class.cpp.mode" select="varname"/>
@@ -354,6 +341,9 @@ REMARK: Describe this mode
       <xsl:if test="position() != 1">
         <xsl:text> </xsl:text>
       </xsl:if>
+      <xsl:if test="self::initializer">
+        <xsl:text>= </xsl:text>
+      </xsl:if>
       <xsl:apply-templates mode="db2html.class.cpp.mode" select="."/>
     </xsl:for-each>
   </span>
@@ -362,27 +352,21 @@ REMARK: Describe this mode
 <!-- = methodsynopsis % db2html.class.cpp.mode = -->
 <xsl:template mode="db2html.class.cpp.mode" match="methodsynopsis">
   <!-- methodsynopsis = element methodsynopsis {
-         common.attrib, role.attrib,
-         attribute language { "cpp" }?,
+         attribute language { ... }?,
          modifier+,
          (type | void),
          methodname,
          (methodparam+ | void?)
        }
   -->
-  <xsl:call-template name="class.cpp.modifier"/>
+  <xsl:call-template name="db2html.class.cpp.modifier"/>
   <xsl:value-of select="$cpp.tab"/>
   <!-- Parens for document order -->
   <xsl:for-each select="(methodname/preceding-sibling::modifier)[position() != 1]">
-    <xsl:if test="position() != 1">
-      <xsl:text> </xsl:text>
-    </xsl:if>
     <xsl:apply-templates mode="db2html.class.cpp.mode" select="."/>
-  </xsl:for-each>
-  <xsl:if test="methodname/preceding-sibling::modifier[2]">
     <xsl:text> </xsl:text>
-  </xsl:if>
-  <xsl:apply-templates mode="db2html.class.cpp.mode" select="type | void"/>
+  </xsl:for-each>
+  <xsl:apply-templates mode="db2html.class.cpp.mode" select="type | methodname/preceding-sibling::void"/>
   <xsl:text> </xsl:text>
   <xsl:apply-templates mode="db2html.class.cpp.mode" select="methodname"/>
   <xsl:text>(</xsl:text>
@@ -392,7 +376,12 @@ REMARK: Describe this mode
     </xsl:if>
     <xsl:apply-templates mode="db2html.class.cpp.mode" select="."/>
   </xsl:for-each>
-  <xsl:text>);&#x000A;</xsl:text>
+  <xsl:text>)</xsl:text>
+  <xsl:for-each select="methodname/following-sibling::modifier">
+    <xsl:text> </xsl:text>
+    <xsl:apply-templates mode="db2html.class.cpp.mode" select="."/>
+  </xsl:for-each>
+  <xsl:text>;&#x000A;</xsl:text>
 </xsl:template>
 
 
@@ -402,58 +391,48 @@ db2html.class.python.mode
 REMARK: Describe this mode
 -->
 <xsl:template mode="db2html.class.python.mode" match="*">
-  <!-- Most stuff just gets processed as normal -->
   <xsl:apply-templates select="."/>
 </xsl:template>
 
 <!-- = classsynopsis % db2html.class.python.mode = -->
-<!--
 <xsl:template mode="db2html.class.python.mode" match="classsynopsis">
+  <!-- classsynopsis = element classsynopsis {
+         attribute language { ... }?,
+         attribute class { ... }?,
+         ooclass+,
+         (classsynopsisinfo  | constructorsynopsis |
+          destructorsynopsis | fieldsynopsis       |
+          methodsynopsis     )
+       }
+  -->
   <xsl:if test="@class = 'class' or not(@class)">
-    <span class="ooclass">
-      <xsl:for-each select="ooclass[1]/modifier">
-        <xsl:if test="position() != 1">
-          <xsl:text> </xsl:text>
-        </xsl:if>
-        <xsl:apply-templates mode="db2html.class.python.mode" select="."/>
-      </xsl:for-each>
-      <xsl:text> class </xsl:text>
-      <xsl:apply-templates mode="db2html.class.python.mode"
-                           select="ooclass[1]/classname"/>
-    </span>
+    <xsl:text>class </xsl:text>
+    <xsl:apply-templates mode="db2html.class.python.mode" select="ooclass[1]"/>
     <xsl:if test="ooclass[2]">
-      <xsl:text> : </xsl:text>
-      <xsl:for-each select="ooclass[position() != 1]">
-        <xsl:if test="position() != 1">
-          <xsl:text>, </xsl:text>
-        </xsl:if>
-        <xsl:apply-templates mode="db2html.class.python.mode" select="."/>
-      </xsl:for-each>
+      <xsl:text>(</xsl:text>
+      <xsl:apply-templates mode="db2html.class.python.mode" select="ooclass[2]"/>
+      <xsl:text>)</xsl:text>
     </xsl:if>
-    <xsl:text>&#x000A;{&#x000A;</xsl:text>
+    <xsl:text>:&#x000A;</xsl:text>
     <xsl:apply-templates mode="db2html.class.python.mode"
                          select="
                            classsynopsisinfo   |
                            constructorsynopsis | destructorsynopsis |
                            fieldsynopsis       | methodsynopsis     "/>
-    <xsl:text>}&#x000A;</xsl:text>
   </xsl:if>
 </xsl:template>
--->
 
 <!-- = constructorsynopsis % db2html.class.python.mode = -->
-<!--
 <xsl:template mode="db2html.class.python.mode" match="constructorsynopsis">
-  <xsl:call-template name="class.python.modifier"/>
-  <xsl:value-of select="$cpp.tab"/>
-  <xsl:for-each select="modifier[position() != 1]">
-    <xsl:if test="position() != 1">
-      <xsl:text> </xsl:text>
-    </xsl:if>
-    <xsl:apply-templates mode="db2html.class.python.mode" select="."/>
-  </xsl:for-each>
-  <xsl:if test="modifier[2]">
-    <xsl:text> </xsl:text>
+  <!-- constructorsynopsis = element constructorsynopsis {
+         attribute language { ... }?,
+         modifier+,
+         methodname?,
+         (methodparam+ | void?)
+       }
+  -->
+  <xsl:if test="../self::classsynopsis">
+    <xsl:value-of select="$python.tab"/>
   </xsl:if>
   <xsl:choose>
     <xsl:when test="methodname">
@@ -472,34 +451,30 @@ REMARK: Describe this mode
     </xsl:if>
     <xsl:apply-templates mode="db2html.class.python.mode" select="."/>
   </xsl:for-each>
-  <xsl:text>);&#x000A;</xsl:text>
+  <xsl:text>)&#x000A;</xsl:text>
 </xsl:template>
--->
 
 <!-- = destructorsynopsis % db2html.class.python.mode = -->
-<!--
 <xsl:template mode="db2html.class.python.mode" match="destructorsynopsis">
-  <xsl:call-template name="class.python.modifier"/>
-  <xsl:value-of select="$cpp.tab"/>
-  <xsl:for-each select="modifier[position() != 1]">
-    <xsl:if test="position() != 1">
-      <xsl:text> </xsl:text>
-    </xsl:if>
-    <xsl:apply-templates mode="db2html.class.python.mode" select="."/>
-  </xsl:for-each>
-  <xsl:if test="modifier[2]">
-    <xsl:text> </xsl:text>
+  <!-- destructorsynopsis = element destructorsynopsis {
+         attribute language { ... }?,
+         modifier+,
+         methodname?,
+         (methodparam+ | void?)
+       }
+  -->
+  <xsl:if test="../self::classsynopsis">
+    <xsl:value-of select="$python.tab"/>
   </xsl:if>
   <xsl:choose>
     <xsl:when test="methodname">
       <xsl:apply-templates mode="db2html.class.python.mode" select="methodname"/>
     </xsl:when>
-    <xsl:when test="../self::classsynopsis[ooclass]">
+    <xsl:otherwise>
       <span class="methodname">
-        <xsl:text>~</xsl:text>
-        <xsl:value-of select="../ooclass/classname"/>
+        <xsl:text>__del__</xsl:text>
       </span>
-    </xsl:when>
+    </xsl:otherwise>
   </xsl:choose>
   <xsl:text>(</xsl:text>
   <xsl:for-each select="methodparam">
@@ -508,69 +483,55 @@ REMARK: Describe this mode
     </xsl:if>
     <xsl:apply-templates mode="db2html.class.python.mode" select="."/>
   </xsl:for-each>
-  <xsl:text>);&#x000A;</xsl:text>
+  <xsl:text>)&#x000A;</xsl:text>
 </xsl:template>
--->
 
 <!-- = fieldsynopsis % db2html.class.python.mode = -->
-<!--
 <xsl:template mode="db2html.class.python.mode" match="fieldsynopsis">
-  <xsl:call-template name="class.python.modifier"/>
-  <xsl:value-of select="$cpp.tab"/>
-  <xsl:for-each select="modifier[position() != 1]">
-    <xsl:if test="position() != 1">
-      <xsl:text> </xsl:text>
-    </xsl:if>
-    <xsl:apply-templates mode="db2html.class.python.mode" select="."/>
-  </xsl:for-each>
-  <xsl:if test="modifier[2]">
-    <xsl:text> </xsl:text>
+  <!-- fieldsynopsis = element fieldsynopsis {
+         attribute language { ... }?,
+         modifier+,
+         type,
+         varname,
+         initializer?
+       }
+  -->
+  <xsl:if test="../self::classsynopsis">
+    <xsl:value-of select="$python.tab"/>
   </xsl:if>
-  <xsl:if test="type">
-    <xsl:apply-templates mode="db2html.class.python.mode" select="type"/>
-  </xsl:if>
-  <xsl:if test="modifier[2] or type">
-    <xsl:text> </xsl:text>
-  </xsl:if>
-  <xsl:apply-templates mode="db2html.class.python.mode" select="varname"/>
+  <xsl:apply-templates mode="db2html.python.mode" select="varname"/>
   <xsl:if test="initializer">
-    <xsl:text> = </xsl:text>
+    <xsl:text>=</xsl:text>
     <xsl:apply-templates mode="db2html.class.python.mode" select="initializer"/>
   </xsl:if>
-  <xsl:text>;&#x000A;</xsl:text>
+  <xsl:text>&#x000A;</xsl:text>
 </xsl:template>
--->
 
 <!-- = methodparam % db2html.class.python.mode = -->
-<!--
 <xsl:template mode="db2html.class.python.mode" match="methodparam">
   <span class="methodparam">
-    <xsl:for-each select="*">
-      <xsl:if test="position() != 1">
-        <xsl:text> </xsl:text>
-      </xsl:if>
-      <xsl:apply-templates mode="db2html.class.python.mode" select="."/>
-    </xsl:for-each>
+    <xsl:apply-templates mode="db2html.class.python.mode" select="parameter"/>
+    <xsl:if test="initializer">
+      <xsl:text>=</xsl:text>
+      <xsl:apply-templates mode="db2html.class.python.mode" select="initializer"/>
+    </xsl:if>
   </span>
 </xsl:template>
--->
 
 <!-- = methodsynopsis % db2html.class.python.mode = -->
-<!--
 <xsl:template mode="db2html.class.python.mode" match="methodsynopsis">
-  <xsl:call-template name="class.python.modifier"/>
-  <xsl:value-of select="$cpp.tab"/>
-  <xsl:for-each select="modifier[position() != 1]">
-    <xsl:if test="position() != 1">
-      <xsl:text> </xsl:text>
-    </xsl:if>
-    <xsl:apply-templates mode="db2html.class.python.mode" select="."/>
-  </xsl:for-each>
-  <xsl:if test="modifier[2]">
-    <xsl:text> </xsl:text>
+  <!-- methodsynopsis = element methodsynopsis {
+         attribute language { ... }?,
+         modifier+,
+         (type | void),
+         methodname,
+         (methodparam+ | void?)
+       }
+  -->
+  <xsl:if test="../self::classsynopsis">
+    <xsl:value-of select="$python.tab"/>
   </xsl:if>
-  <xsl:apply-templates mode="db2html.class.python.mode" select="type | void"/>
-  <xsl:text> </xsl:text>
+  <xsl:text>def </xsl:text>
   <xsl:apply-templates mode="db2html.class.python.mode" select="methodname"/>
   <xsl:text>(</xsl:text>
   <xsl:for-each select="methodparam">
@@ -579,8 +540,7 @@ REMARK: Describe this mode
     </xsl:if>
     <xsl:apply-templates mode="db2html.class.python.mode" select="."/>
   </xsl:for-each>
-  <xsl:text>);&#x000A;</xsl:text>
+  <xsl:text>)&#x000A;</xsl:text>
 </xsl:template>
--->
 
 </xsl:stylesheet>

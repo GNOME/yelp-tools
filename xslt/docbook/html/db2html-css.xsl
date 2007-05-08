@@ -91,7 +91,7 @@ body {
   min-height: 100%;
   direction: </xsl:text><xsl:call-template name="l10n.direction"/><xsl:text>;
 }
-div, p, pre, blockquote { margin: 0; }
+div, p, pre, blockquote { margin: 0; padding: 0; }
 table { border-collapse: collapse; }
 td { vertical-align: top; }
 td { padding: 0.2em 0.83em 0.2em 0.83em; }
@@ -300,34 +300,40 @@ div.simplelist td.td-first {
   <!-- FIXME: rtl -->
   border-left: 0;
 }
-pre.funcsynopsis {
+div.synopsis,div.funcsynopsis {
+  padding: 0.5em;
+  <!-- FIXME: watermark -->
+  background-color: </xsl:text><xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
+  border-top: solid 2px </xsl:text><xsl:value-of select="$theme.color.blue_border"/><xsl:text>;
+  border-bottom: solid 2px </xsl:text><xsl:value-of select="$theme.color.blue_border"/><xsl:text>;
+}
+div.classsynopsis,div.constructorsynopsis,div.destructorsynopsis,div.methodsynopsis,div.fieldsynopsis {
+  padding: 0.5em;
+  <!-- FIXME: watermark -->
+  background-color: </xsl:text><xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
+  border-top: solid 2px </xsl:text><xsl:value-of select="$theme.color.blue_border"/><xsl:text>;
+  border-bottom: solid 2px </xsl:text><xsl:value-of select="$theme.color.blue_border"/><xsl:text>;
+}
+div.programlisting {
   padding: 0.5em;
   <!-- FIXME: watermark -->
   background-color: </xsl:text><xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
   border: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
 }
-pre.programlisting {
+div.screen {
   padding: 0.5em;
   <!-- FIXME: watermark -->
   background-color: </xsl:text><xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
   border: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
 }
-pre.screen {
-  padding: 0.5em;
-  <!-- FIXME: watermark -->
-  background-color: </xsl:text><xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
-  border: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
-}
-pre.screen .prompt {
+div.screen .prompt {
   color: </xsl:text><xsl:value-of select="$theme.color.text_light"/><xsl:text>;
 }
 pre.linenumbering {
-  margin-top: 0; padding: 0.5em;
-  border: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
-  <!-- FIXME: rtl -->
-  border-right: none;
-  background-color: </xsl:text><xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
   color: </xsl:text><xsl:value-of select="$theme.color.text_light"/><xsl:text>;
+  margin: 0;
+  <!-- FIXME: rtl -->
+  padding-right: 1em;
   <!-- FIXME: rtl -->
   float: left;
   <!-- FIXME: rtl -->

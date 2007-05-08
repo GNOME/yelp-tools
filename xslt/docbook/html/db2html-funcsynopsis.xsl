@@ -143,7 +143,6 @@ top of the XML document.  The same processing instruction or inside a
 <xsl:template match="funcsynopsis">
   <xsl:call-template name="db2html.pre">
     <xsl:with-param name="node" select="."/>
-    <xsl:with-param name="indent" select="true()"/>
     <xsl:with-param name="children" select="*"/>
   </xsl:call-template>
 </xsl:template>
