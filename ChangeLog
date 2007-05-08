@@ -1,6 +1,11 @@
 2007-05-08  Shaun McCance  <shaunm@gnome.org>
 
 	* tools/gnome-doc-tool.in:
+	- Explicitly check for an empty command to avoid shift error
+
+2007-05-08  Shaun McCance  <shaunm@gnome.org>
+
+	* tools/gnome-doc-tool.in:
 	- Removed  bsh-only parameter substitutions and function syntax, #436824
 	- Fixed global variable polution that caused directories to be forgotten, #436950
 
