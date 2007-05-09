@@ -294,6 +294,14 @@ function runline (line, ix, jx, pre, aft, char, name, id, fmt) {
 BEGIN { print "&lt;section&gt;"; }
 </programlisting>
 
+<programlisting linenumbering="numbered" continuation="continues">
+<![CDATA[/<\!--\!\!/ {
+  inthis = "title";
+  this = "header";
+  next;
+}
+]]></programlisting>
+
   <para>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed risus dui,
   faucibus at, blandit eu, congue in, sem. Suspendisse nec mi. Sed vel augue.
   Cras egestas. Vivamus nisi. Fusce neque. Aenean posuere, orci non lacinia

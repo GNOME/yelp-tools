@@ -1,3 +1,16 @@
+2007-05-09  Shaun McCance  <shaunm@gnome.org>
+
+	* test/testbook/testbook.xml:
+	- Added another line numbering continuation test
+
+	* xslt/docbook/common/db-common.xsl:
+	* xslt/docbook/html/db2html-block.xsl:
+	* xslt/docbook/html/db2html-inline.xsl:
+	* xslt/docbook/html/db2html-list.xsl:
+	- Implemented line numbering continuations
+	- Moved orderedlist continuation handling to db-common
+	- Removed hardly-used db.dingbat template
+
 2007-05-08  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/html/db2html-classsynopsis.xsl:

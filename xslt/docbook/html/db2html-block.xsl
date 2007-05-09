@@ -235,9 +235,13 @@ is then used by the CSS for styling.
     <xsl:if test="$node/@linenumbering = 'numbered'">
       <xsl:variable name="number">
         <xsl:choose>
-          <!-- FIXME: continuation -->
           <xsl:when test="@startinglinenumber">
             <xsl:value-of select="@startinglinenumber"/>
+          </xsl:when>
+          <xsl:when test="@continuation">
+            <xsl:call-template name="db.linenumbering.start">
+              <xsl:with-param name="node" select="$node"/>
+            </xsl:call-template>
           </xsl:when>
           <xsl:otherwise>1</xsl:otherwise>
         </xsl:choose>

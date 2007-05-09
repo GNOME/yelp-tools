@@ -22,42 +22,10 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!--!!==========================================================================
 DocBook to HTML - Lists
-:Requires: db2html-inline db2html-xref gettext
+:Requires: db-common db2html-inline db2html-xref gettext
 
 REMARK: Describe this module
 -->
-
-
-<!--**==========================================================================
-db2html.orderedlist.start
-Determines the number to use for the first #{listitem} in an #{orderedlist}
-$node: The #{orderedlist} element to use
-
-REMARK: Give a good explanation talking about #{continuation}.  This template
-determines the number to use for the first #{listitem} in an #{orderedlist}.
--->
-<xsl:template name="db2html.orderedlist.start">
-  <xsl:param name="node" select="."/>
-  <xsl:choose>
-    <xsl:when test="@continutation != 'continues'">1</xsl:when>
-    <xsl:otherwise>
-      <xsl:variable name="prevlist"
-                    select="$node/preceding::orderedlist[1]"/>
-      <xsl:choose>
-        <xsl:when test="count($prevlist) = 0">1</xsl:when>
-        <xsl:otherwise>
-          <xsl:variable name="prevlength" select="count($prevlist/listitem)"/>
-          <xsl:variable name="prevstart">
-            <xsl:call-template name="db2html.orderedlist.start">
-              <xsl:with-param name="node" select="$prevlist"/>
-            </xsl:call-template>
-          </xsl:variable>
-          <xsl:value-of select="$prevstart + $prevlength"/>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:otherwise>
-  </xsl:choose>
-</xsl:template>
 
 
 <!-- == Matched Templates == -->
@@ -127,7 +95,7 @@ determines the number to use for the first #{listitem} in an #{orderedlist}.
   <xsl:variable name="start">
     <xsl:choose>
       <xsl:when test="@continuation = 'continues'">
-        <xsl:call-template name="db2html.orderedlist.start"/>
+        <xsl:call-template name="db.orderedlist.start"/>
       </xsl:when>
       <xsl:otherwise>1</xsl:otherwise>
     </xsl:choose>

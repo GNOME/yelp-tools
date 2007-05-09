@@ -17,45 +17,18 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:str="http://exslt.org/strings"
+                exclude-result-prefixes="str"
                 version="1.0">
 
 <!--!!==========================================================================
 DocBook Common
 
-REMARK: Describe this
+This stylesheet module provides utility templates for DocBook that are
+independant of the target format.
 -->
 
 <xsl:key name="idkey" match="*" use="@id"/>
-
-
-<!--**==========================================================================
-db.dingbat
-Outputs a character from a character name, possibly localized
-$dingbat: The name of the character
-
-REMARK: Document the dingbats.  "Logical name" sounds dumb
--->
-<xsl:template name="db.dingbat">
-  <xsl:param name="dingbat"/>
-  <xsl:choose>
-    <xsl:when test="$dingbat = 'copyright'">
-      <!-- U+00A9 -->
-      <xsl:value-of select="'©'"/>
-    </xsl:when>
-    <xsl:when test="$dingbat = 'registered'">
-      <!-- U+00AE -->
-      <xsl:value-of select="'®'"/>
-    </xsl:when>
-    <xsl:when test="$dingbat = 'trade'">
-      <!-- U+2122 -->
-      <xsl:value-of select="'™'"/>
-    </xsl:when>
-    <xsl:when test="$dingbat = 'service'">
-      <!-- U+2120 -->
-      <xsl:value-of select="'℠'"/>
-    </xsl:when>
-  </xsl:choose>
-</xsl:template>
 
 
 <!--**==========================================================================
@@ -64,7 +37,9 @@ Numbers each line in a verbatim environment
 $node: The verbatim element to create the line numbering for
 $number: The starting line number
 
-REMARK: Document this template
+This template outputs a string with line numbers for each line in a verbatim
+elements.  Each line number is on its own line, allowing the output string to
+be placed to the side of the verbatim output.
 -->
 <xsl:template name="db.linenumbering">
   <xsl:param name="node" select="."/>
@@ -99,12 +74,88 @@ REMARK: Document this template
 
 
 <!--**==========================================================================
+db.linenumbering.start
+Determines the starting line number for a verbatim element
+$node: The verbatim element to determine the starting line number for
+
+This template determines the starting line number for a verbatim element using
+the #{continuation} attribute.  The template finds the first preceding element
+of the same name, counts its lines, and handles any #{startinglinenumber} or
+#{continuation} element it finds on that element.
+-->
+<xsl:template name="db.linenumbering.start">
+  <xsl:param name="node" select="."/>
+  <xsl:choose>
+    <xsl:when test="$node/@startinglinenumber">
+      <xsl:value-of select="$node/@startinglinenumber"/>
+    </xsl:when>
+    <xsl:when test="$node/@continuation">
+      <xsl:variable name="prev" select="$node/preceding::*[name(.) = name($node)][1]"/>
+      <xsl:choose>
+        <xsl:when test="count($prev) = 0">1</xsl:when>
+        <xsl:otherwise>
+          <xsl:variable name="prevcount">
+            <xsl:value-of select="count(str:split(string($prev), '&#x000A;'))"/>
+          </xsl:variable>
+          <xsl:variable name="prevstart">
+            <xsl:call-template name="db.linenumbering.start">
+              <xsl:with-param name="node" select="$prev"/>
+            </xsl:call-template>
+          </xsl:variable>
+          <xsl:value-of select="$prevstart + $prevcount"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:when>
+    <xsl:otherwise>1</xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+
+<!--**==========================================================================
+db.orderedlist.start
+Determines the number to use for the first #{listitem} in an #{orderedlist}
+$node: The #{orderedlist} element to use
+
+This template determines the starting number for an #{orderedlist} element using
+the #{continuation} attribute.  Thi template finds the first preceding #{orderedlist}
+element and counts its list items.  If that element also uses the #{continuation},
+this template calls itself recursively to add that element's starting line number
+to its list item count.
+-->
+<xsl:template name="db.orderedlist.start">
+  <xsl:param name="node" select="."/>
+  <xsl:choose>
+    <xsl:when test="$node/@continutation != 'continues'">1</xsl:when>
+    <xsl:otherwise>
+      <xsl:variable name="prevlist"
+                    select="$node/preceding::orderedlist[1]"/>
+      <xsl:choose>
+        <xsl:when test="count($prevlist) = 0">1</xsl:when>
+        <xsl:otherwise>
+          <xsl:variable name="prevlength" select="count($prevlist/listitem)"/>
+          <xsl:variable name="prevstart">
+            <xsl:call-template name="db.orderedlist.start">
+              <xsl:with-param name="node" select="$prevlist"/>
+            </xsl:call-template>
+          </xsl:variable>
+          <xsl:value-of select="$prevstart + $prevlength"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+
+<!--**==========================================================================
 db.personname
 Outputs the name of a person
 $node: The element containing tags such as #{firstname} and #{surname}
 $lang: The language rules to use to construct the name
 
-REMARK: Document this template
+This template outputs the name of a person as modelled by the #{personname}
+element.  The #{personname} element allows authors to mark up components of
+a person's name, such as the person's first name and surname.  This template
+assembled those into a string.
 -->
 <xsl:template name="db.personname">
   <xsl:param name="node" select="."/>
