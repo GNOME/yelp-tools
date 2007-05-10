@@ -21,6 +21,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!--!!==========================================================================
 Themes
+:Requires: gettext
 
 This module provides a common interface to specify custom colors and icons
 for transformations to presentation-oreinted formats.  This allows similar

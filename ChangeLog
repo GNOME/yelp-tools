@@ -1,5 +1,11 @@
 2007-05-10  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/common/theme.xsl:
+	* xslt/docbook/html/db2html-division.xsl:
+	- Fixes for xsldoc checks
+
+2007-05-10  Shaun McCance  <shaunm@gnome.org>
+
 	* test/testbook/Makefile:
 	- Changes to test various icons
 
