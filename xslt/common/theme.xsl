@@ -255,4 +255,33 @@ This parameter specifies the icon used for warning admonitions.
 <xsl:param name="theme.icon.admon.warning"
            select="concat($theme.icon.admon.path, 'admon-warning.png')"/>
 
+
+<!-- == Watermarks ========================================================= -->
+
+<!--@@==========================================================================
+theme.watermark.path
+The default path to the watermark graphics
+
+This parameter specifies a default path where watermark graphics can be found.
+This is only a default path.  It has no effect on watermark graphics for which
+the corresponding parameter has been specified explicitly.
+-->
+<xsl:param name="theme.watermark.path" select="''"/>
+
+<!--@@==========================================================================
+theme.watermark.blockquote
+The path for the blockquote watermark graphic
+
+This parameter specifies the graphic file used for blockquote watermarks.  Note
+that the default graphic is translatable.  If you set this parameter, you should
+ensure that your graphic uses a suitable quote character for the language your
+document is written in.
+-->
+<xsl:param name="theme.watermark.blockquote">
+  <xsl:value-of select="$theme.watermark.path"/>
+  <xsl:call-template name="l10n.gettext">
+    <xsl:with-param name="msgid" select="'watermark-blockquote-201C.png'"/>
+  </xsl:call-template>
+</xsl:param>
+
 </xsl:stylesheet>

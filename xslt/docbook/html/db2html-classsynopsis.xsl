@@ -80,6 +80,7 @@ REMARK: Describe this param
       <xsl:if test="$first">
         <xsl:text> block-first</xsl:text>
       </xsl:if>
+      <xsl:value-of select="concat(' watermark-code-', $language)"/>
     </xsl:attribute>
     <xsl:call-template name="db2html.anchor"/>
     <pre class="{local-name(.)} classsynopsis-{$language}">

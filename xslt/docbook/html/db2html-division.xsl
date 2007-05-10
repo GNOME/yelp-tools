@@ -570,8 +570,6 @@ REMARK: Document this template
                 <xsl:attribute name="title">
                   <xsl:value-of select="$text"/>
                 </xsl:attribute>
-                <xsl:copy-of select="$navbar.icon.previous"/>
-                <xsl:text>&#x00A0;&#x00A0;</xsl:text>
                 <xsl:value-of select="$text"/>
               </xsl:when>
               <xsl:otherwise>
@@ -581,8 +579,6 @@ REMARK: Document this template
                     <xsl:with-param name="target" select="$prev_node"/>
                   </xsl:call-template>
                 </xsl:attribute>
-                <xsl:copy-of select="$navbar.icon.previous"/>
-                <xsl:text>&#x00A0;&#x00A0;</xsl:text>
                 <xsl:call-template name="db.titleabbrev">
                   <xsl:with-param name="node" select="$prev_node"/>
                 </xsl:call-template>
@@ -609,40 +605,12 @@ REMARK: Document this template
             <xsl:call-template name="db.titleabbrev">
               <xsl:with-param name="node" select="$next_node"/>
             </xsl:call-template>
-            <xsl:text>&#x00A0;&#x00A0;</xsl:text>
-            <xsl:copy-of select="$navbar.icon.next"/>
           </a>
         </xsl:if>
       </td>
     </tr></table>
   </div>
 </xsl:template>
-<xsl:variable name="navbar.icon.previous">
-  <img>
-    <xsl:attribute name="src">
-      <xsl:value-of select="$theme.icon.nav.previous"/>
-    </xsl:attribute>
-    <xsl:attribute name="height">
-      <xsl:value-of select="$theme.icon.nav.size"/>
-    </xsl:attribute>
-    <xsl:attribute name="width">
-      <xsl:value-of select="$theme.icon.nav.size"/>
-    </xsl:attribute>
-  </img>
-</xsl:variable>
-<xsl:variable name="navbar.icon.next">
-  <img>
-    <xsl:attribute name="src">
-      <xsl:value-of select="$theme.icon.nav.next"/>
-    </xsl:attribute>
-    <xsl:attribute name="height">
-      <xsl:value-of select="$theme.icon.nav.size"/>
-    </xsl:attribute>
-    <xsl:attribute name="width">
-      <xsl:value-of select="$theme.icon.nav.size"/>
-    </xsl:attribute>
-  </img>
-</xsl:variable>
 
 
 <!--**==========================================================================

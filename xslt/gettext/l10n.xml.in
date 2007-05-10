@@ -276,6 +276,37 @@
   -->
   <_msg>Warning</_msg>
 </msgset>
+<msgset>
+  <msgid>watermark-blockquote-201C.png</msgid>
+  <!--
+  This is an image of the opening quotation character for your language.
+  The image is used as a watermark on blockquote elements.  There are a
+  number of different quote characters used by various languages, so the
+  image name is translatable.  The name of the icon should be of the form
+  "watermark-blockquote-XXXX.png", where XXXX is the Unicode code point
+  of the opening quote character.  For example, some languages use the
+  double angle quotation mark.  Translators for these languages should
+  use "watermark-blockquote-00AB.png".
+
+  The image, however, is not automatically created.  Do not translate
+  this to a value if there isn't a corresponding file in gnome-doc-utils,
+  under the directory data/watermarks.
+
+  Languages that use guillemets (angle quotation marks) should use either
+  00AB or 00BB, depending on whether the opening quotation is the left
+  guillemet or the right guillemet.  Languages that use inverted comma
+  quotation marks should use 201C, 201D, or 201E.  Single quotation marks
+  don't make very nice watermarks, so if you would normally open a quote
+  with single quotation marks in your language, use the corresponding
+  double quotation mark for the watermark image.
+
+  Translators who have been around Gnome for a while should recognize
+  this as nearly the same as the "yelp-watermark-blockquote-201C" string
+  once found inside Yelp.  The watermark functionality has been moved to
+  gnome-doc-utils.
+  -->
+  <_msg>watermark-blockquote-201C.png</_msg>
+</msgset>
 
 
 <!-- ======================================================================= -->

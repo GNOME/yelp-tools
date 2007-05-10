@@ -6,9 +6,6 @@ html:
 	rm -f html/*.*
 	xsltproc --timing --nonet --xinclude -o html/ \
 	--param db.chunk.chunk_top 1 \
-	--stringparam theme.icon.admon.path "../../../data/icons/" \
-	--stringparam theme.icon.nav.previous "../../../data/icons/nav-previous.png" \
-	--stringparam theme.icon.nav.next "../../../data/icons/nav-next.png" \
 	../../xslt/docbook/html/db2html.xsl \
 	testbook.xml
 xhtml:
@@ -16,8 +13,8 @@ xhtml:
 	rm -f xhtml/*.*
 	xsltproc --timing --nonet --xinclude -o xhtml/ \
 	--param db.chunk.chunk_top 1 \
-	--stringparam theme.icon.admon.path "../../../data/icons/" \
-	--stringparam theme.icon.nav.previous "../../../data/icons/nav-previous.png" \
-	--stringparam theme.icon.nav.next "../../../data/icons/nav-next.png" \
+	--stringparam theme.icon.admon.path "../../../data/icons/hicolor/48x48/" \
+	--stringparam theme.icon.nav.previous "../../../data/icons/hicolor/22x22/nav-previous.png" \
+	--stringparam theme.icon.nav.next "../../../data/icons/hicolor/22x22/nav-next.png" \
 	../../xslt/docbook/html/db2xhtml.xsl \
 	testbook.xml

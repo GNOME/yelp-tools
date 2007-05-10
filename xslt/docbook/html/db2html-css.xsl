@@ -196,6 +196,16 @@ td.navbar-next {
   <!-- FIXME: rtl -->
   text-align: right;
 }
+a.navbar-prev::before {
+  <!-- FIXME: rtl -->
+  content: '&#x25C0;&#x00A0;&#x00A0;';
+  color: </xsl:text><xsl:value-of select="$theme.color.text_light"/><xsl:text>;
+}
+a.navbar-next::after {
+  <!-- FIXME: rtl -->
+  content: '&#x00A0;&#x00A0;&#x25B6;';
+  color: </xsl:text><xsl:value-of select="$theme.color.text_light"/><xsl:text>;
+}
 
 div.autotoc {
   <!-- FIXME: hack -->
@@ -338,6 +348,12 @@ pre.linenumbering {
   float: left;
   <!-- FIXME: rtl -->
   text-align: right;
+}
+.watermark-code-python {
+  <!-- FIXME -->
+  background-image: url("/shaunm/projects/gnome-doc-utils/data/watermarks/watermark-code-python.png");
+  background-position: top right;
+  background-repeat: no-repeat;
 }
 
 div.admonition {

@@ -1,3 +1,16 @@
+2007-05-10  Shaun McCance  <shaunm@gnome.org>
+
+	* test/testbook/Makefile:
+	- Changes to test various icons
+
+	* xslt/common/theme.xsl:
+	* xslt/docbook/html/db2html-classsynopsis.xsl:
+	* xslt/docbook/html/db2html-css.xsl:
+	* xslt/docbook/html/db2html-division.xsl:
+	* xslt/gettext/l10n.xml.in:
+	- Use triangle characters instead of images for the navbar
+	- Starting to do some watermark work
+
 2007-05-09  Shaun McCance  <shaunm@gnome.org>
 
 	* test/testbook/testbook.xml:
