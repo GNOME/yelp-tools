@@ -2,20 +2,23 @@ include $(top_srcdir)/tools/gnome-doc-utils.make
 include $(top_srcdir)/bootstrap.make
 dist-hook: doc-dist-hook
 
+ABS_SRCDIR = @abs_srcdir@
+
 xsldoc_dirs = 					\
-	$(top_srcdir)/xslt/common		\
-	$(top_srcdir)/xslt/gettext		\
-	$(top_srcdir)/xslt/docbook/common	\
-	$(top_srcdir)/xslt/docbook/html		\
-	$(top_srcdir)/xslt/docbook/omf
-xsldoc_xsls = $(filter-out %db2html-suppressed.xsl,				\
-	$(sort $(patsubst ./%, %, $(foreach dir,$(xsldoc_dirs),			\
-	$(wildcard $(dir)/*.xsl) $(wildcard $(srcdir)/$(dir)/*.xsl) ))) )
+	$(ABS_SRCDIR)/../../xslt/common		\
+	$(ABS_SRCDIR)/../../xslt/gettext		\
+	$(ABS_SRCDIR)/../../xslt/docbook/common	\
+	$(ABS_SRCDIR)/../../xslt/docbook/html		\
+	$(ABS_SRCDIR)/../../xslt/docbook/omf
+xsldoc_xsls = $(filter-out %db2html-suppressed.xsl,			\
+	$(sort $(patsubst ./%, %,					\
+	  $(foreach dir,$(xsldoc_dirs), $(wildcard $(dir)/*.xsl)) )) )
 xsldoc_base = $(sort $(foreach xsl,$(xsldoc_xsls), $(basename $(notdir $(xsl)))))
 xsldoc_docs = $(patsubst %, C/%.xsldoc, $(xsldoc_base))
 xsldoc_xmls = $(patsubst %, C/%.xml, $(xsldoc_base))
 
-all: $(xsldoc_docs)
+all: $(xsldoc_docs) $(xsldoc_xmls)
+
 $(xsldoc_docs): $(xsldoc_xsls) xsldoc.awk xsldoc-fill.xsl
 	$(GDU_AWK) -f "$(srcdir)/xsldoc.awk" "$(filter %/$(basename $(notdir $@)).xsl,$(xsldoc_xsls))" \
 	| xsltproc -o "$@" \
@@ -56,12 +59,15 @@ gnome-doc-xslt-check-includes:
 	  echo "gnome-doc-xslt.xml does not include the following reference pages: $$exs" 1>&2; \
 	  exit 1; \
 	fi
-gnome-doc-xslt-check-xsldoc:
+gnome-doc-xslt-check-xsldoc: $(xsldoc_docs)
 	@echo "Running xsldoc checks";
 	@(echo "<xsldoc>"; cat $(xsldoc_docs); echo "</xsldoc>") \
 	| xsltproc "$(srcdir)/xsldoc-check.xsl" - 1> /dev/null
 
-clean-local:
+.PHONY: clean-xsldoc
+clean-local: clean_xsldoc
+clean-doc-dir: clean_xsldoc
+clean_xsldoc:
 	rm -f $(xsldoc_docs) $(xsldoc_xmls)
 
 EXTRA_DIST = xsldoc.awk xsldoc-fill.xsl xsldoc-check.xsl xsldoc-docbook.xsl
