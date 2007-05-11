@@ -1,5 +1,12 @@
 2007-05-11  Shaun McCance  <shaunm@gnome.org>
 
+	* data/watermarks/watermark-code-python.png:
+	* data/watermarks/watermark-code-python.svg:
+	* data/watermarks/watermark-code.png:
+	- Adding watermark graphics I'd forgotten
+
+2007-05-11  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/docbook/utils/Makefile.am:
 	* xslt/docbook/utils/graphics.xsl:
 	- Added utility XSLT file to list needed graphics
