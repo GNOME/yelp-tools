@@ -3,14 +3,14 @@
 # Christian Rose <menthos@menthos.com>, 2004, 2005.
 # Daniel Nylander <po@danielnylander.se>, 2006.
 #
-# $Id$
+# $Id: sv.po,v 1.7 2006/04/16 09:37:06 dnylande Exp $
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-04-16 05:17+0200\n"
-"PO-Revision-Date: 2006-04-16 11:37+0100\n"
+"POT-Creation-Date: 2007-05-11 18:22+0200\n"
+"PO-Revision-Date: 2007-05-11 18:25+0100\n"
 "Last-Translator: Daniel Nylander <po@danielnylander.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "MIME-Version: 1.0\n"
@@ -1659,11 +1659,16 @@ msgstr "Varning"
 msgid "Colophon"
 msgstr "Kolofon"
 
+#. Used as the title of the listing of subsections
+#: ../xslt/gettext/l10n.xml.in.h:1454
+msgid "Contents"
+msgstr "Innehåll"
+
 #.
 #. http://www.docbook.org/tdg/en/html/dedication.html
 #. This is used as a default title for dedication elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1457
+#: ../xslt/gettext/l10n.xml.in.h:1459
 msgid "Dedication"
 msgstr "Tillägning"
 
@@ -1676,7 +1681,7 @@ msgstr "Tillägning"
 #. Shaun McCance
 #. Email: shaunm@gnome.org
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1467
+#: ../xslt/gettext/l10n.xml.in.h:1469
 msgid "Email"
 msgstr "E-post"
 
@@ -1684,7 +1689,7 @@ msgstr "E-post"
 #. http://www.docbook.org/tdg/en/html/glossary.html
 #. This is used as a default title for glossary elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1472
+#: ../xslt/gettext/l10n.xml.in.h:1474
 msgid "Glossary"
 msgstr "Ordlista"
 
@@ -1692,7 +1697,7 @@ msgstr "Ordlista"
 #. http://www.docbook.org/tdg/en/html/important.html
 #. This is used as a default title for important elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1477
+#: ../xslt/gettext/l10n.xml.in.h:1479
 msgid "Important"
 msgstr "Viktigt"
 
@@ -1700,7 +1705,7 @@ msgstr "Viktigt"
 #. http://www.docbook.org/tdg/en/html/index.html
 #. This is used as a default title for index elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1482
+#: ../xslt/gettext/l10n.xml.in.h:1484
 msgid "Index"
 msgstr "Index"
 
@@ -1708,7 +1713,7 @@ msgstr "Index"
 #. http://www.docbook.org/tdg/en/html/legalnotice.html
 #. This is used as a default title for legalnotice elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1487
+#: ../xslt/gettext/l10n.xml.in.h:1489
 msgid "Legal Notice"
 msgstr "Juridisk information"
 
@@ -1716,7 +1721,7 @@ msgstr "Juridisk information"
 #. http://www.docbook.org/tdg/en/html/refnamediv.html
 #. This is used as the title for refnamediv elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1492
+#: ../xslt/gettext/l10n.xml.in.h:1494
 msgid "Name"
 msgstr "Namn"
 
@@ -1724,7 +1729,7 @@ msgstr "Namn"
 #. http://www.docbook.org/tdg/en/html/note.html
 #. This is used as a default title for note elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1497
+#: ../xslt/gettext/l10n.xml.in.h:1499
 msgid "Note"
 msgstr "Anteckning"
 
@@ -1732,7 +1737,7 @@ msgstr "Anteckning"
 #. http://www.docbook.org/tdg/en/html/preface.html
 #. This is used as a default title for preface elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1502
+#: ../xslt/gettext/l10n.xml.in.h:1504
 msgid "Preface"
 msgstr "Förord"
 
@@ -1745,7 +1750,7 @@ msgstr "Förord"
 #. the labelling style for a qandaset.  If the labelling style is set
 #. to 'qanda', this string will be used to label questions.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1512
+#: ../xslt/gettext/l10n.xml.in.h:1514
 msgid "Q:&#x2003;"
 msgstr "F:&#x2003;"
 
@@ -1753,7 +1758,7 @@ msgstr "F:&#x2003;"
 #. http://www.docbook.org/tdg/en/html/revhistory.html
 #. This is used as a header before the revision history.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1517
+#: ../xslt/gettext/l10n.xml.in.h:1519
 msgid "Revision History"
 msgstr "Revisionshistorik"
 
@@ -1761,7 +1766,7 @@ msgstr "Revisionshistorik"
 #. Used for the <see> element.
 #. FIXME: this should be a format string.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1522
+#: ../xslt/gettext/l10n.xml.in.h:1524
 msgid "See"
 msgstr "Se"
 
@@ -1769,7 +1774,7 @@ msgstr "Se"
 #. Used for the <seealso> element.
 #. FIXME: this should be a format string.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1527
+#: ../xslt/gettext/l10n.xml.in.h:1529
 msgid "See Also"
 msgstr "Se även"
 
@@ -1777,7 +1782,7 @@ msgstr "Se även"
 #. http://www.docbook.org/tdg/en/html/refsynopsisdiv.html
 #. This is used as the default title for refsynopsisdiv elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1532
+#: ../xslt/gettext/l10n.xml.in.h:1534
 msgid "Synopsis"
 msgstr "Sammanfattning"
 
@@ -1785,7 +1790,7 @@ msgstr "Sammanfattning"
 #. http://www.docbook.org/tdg/en/html/tip.html
 #. This is used as a default title for tip elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1537
+#: ../xslt/gettext/l10n.xml.in.h:1539
 msgid "Tip"
 msgstr "Tips"
 
@@ -1793,7 +1798,7 @@ msgstr "Tips"
 #. http://www.docbook.org/tdg/en/html/warning.html
 #. This is used as a default title for warning elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1542
+#: ../xslt/gettext/l10n.xml.in.h:1544
 msgid "Warning"
 msgstr "Varning"
 
@@ -1803,9 +1808,40 @@ msgstr "Varning"
 #. translate it to "predefinito:LTR", if it it isn't default:LTR
 #. or default:RTL it will not work
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1549
+#: ../xslt/gettext/l10n.xml.in.h:1551
 msgid "default:LTR"
 msgstr "default:LTR"
+
+#.
+#. This is an image of the opening quotation character for your language.
+#. The image is used as a watermark on blockquote elements.  There are a
+#. number of different quote characters used by various languages, so the
+#. image name is translatable.  The name of the icon should be of the form
+#. "watermark-blockquote-XXXX.png", where XXXX is the Unicode code point
+#. of the opening quote character.  For example, some languages use the
+#. double angle quotation mark.  Translators for these languages should
+#. use "watermark-blockquote-00AB.png".
+#.
+#. The image, however, is not automatically created.  Do not translate
+#. this to a value if there isn't a corresponding file in gnome-doc-utils,
+#. under the directory data/watermarks.
+#.
+#. Languages that use guillemets (angle quotation marks) should use either
+#. 00AB or 00BB, depending on whether the opening quotation is the left
+#. guillemet or the right guillemet.  Languages that use inverted comma
+#. quotation marks should use 201C, 201D, or 201E.  Single quotation marks
+#. don't make very nice watermarks, so if you would normally open a quote
+#. with single quotation marks in your language, use the corresponding
+#. double quotation mark for the watermark image.
+#.
+#. Translators who have been around Gnome for a while should recognize
+#. this as nearly the same as the "yelp-watermark-blockquote-201C" string
+#. once found inside Yelp.  The watermark functionality has been moved to
+#. gnome-doc-utils.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1579
+msgid "watermark-blockquote-201C.png"
+msgstr "watermark-blockquote-0022.png"
 
 #~ msgid "format.appendix.label"
 #~ msgstr "format.appendix.etikett"
@@ -1853,8 +1889,6 @@ msgstr "default:LTR"
 #~ msgstr "format.verktygstips.e-postatill"
 #~ msgid "Audience"
 #~ msgstr "Målgrupp"
-#~ msgid "Contents"
-#~ msgstr "Innehåll"
 #~ msgid "Date"
 #~ msgstr "Datum"
 #~ msgid "Level"
