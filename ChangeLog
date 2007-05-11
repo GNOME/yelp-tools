@@ -1,5 +1,18 @@
 2007-05-11  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/utils/Makefile.am:
+	* xslt/docbook/utils/graphics.xsl:
+	- Added utility XSLT file to list needed graphics
+
+	* xslt/common/theme.xsl:
+	- Removed the navigation icon stuff
+
+	* tools/gnome-doc-tool.in:
+	- Made admonition graphics option work with theme.xsl
+	- Added ability to copy graphics files to output directory
+
+2007-05-11  Shaun McCance  <shaunm@gnome.org>
+
 	* Makefile.am:
 	* configure.in:
 	* data/Makefile.am:

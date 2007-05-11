@@ -148,36 +148,6 @@ border color may be used by certain types of block elements.
 <xsl:param name="theme.color.yellow_border" select="'#ffffc0'"/>
 
 
-<!-- == Navigation Icons =================================================== -->
-
-<!--@@==========================================================================
-theme.icon.nav.previous
-The path for the previous page icon
-
-This parameter specifies the icon used for previous page links.
--->
-<xsl:param name="theme.icon.nav.previous" select="'nav-previous.png'"/>
-
-<!--@@==========================================================================
-theme.icon.nav.next
-The path for the next page icon
-
-This parameter specifies the icon used for next page links.
--->
-<xsl:param name="theme.icon.nav.next" select="'nav-next.png'"/>
-
-<!--@@==========================================================================
-theme.icon.nav.size
-The size of the navigation icons
-
-This parameter specifies the size of the icons given in @{theme.icon.nav.previous}
-and @{theme.icon.nav.next}.  The value of this parameter should be a single integer
-specifying both the width and the height in pixels.  Icon sizes are assumed to be
-square.
--->
-<xsl:param name="theme.icon.nav.size" select="22"/>
-
-
 <!-- == Admonition Icons =================================================== -->
 
 <!--@@==========================================================================

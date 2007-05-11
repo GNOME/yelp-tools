@@ -65,9 +65,9 @@ Basic Output Control:
   -o, --output=PATH               the file or directory to output to
 
 Formatting Control:
+  --copy-graphics                 copy graphics into the output directory
   --admon-graphics-path=PATH      the path to the admonition graphics
   --admon-graphics-size=INT       the size of the admonition graphics
-  --admon-graphics-extension=EXT  the extension of the admonition grahpics
   --classsynopsis-language=LANG   the default programming language to be used
                                   for classsynopsis elements
   --funcsynopsis-style=STYLE      the style to be used to render funcsynopsis
@@ -102,9 +102,9 @@ DO_html() {
       -lextension:
       -lno-figures
       -loutput:
+      -lcopy-graphics
       -ladmon-graphics-path:
       -ladmon-graphics-size:
-      -ladmon-graphics-extension:
       -lclasssynopsis-language:
       -lfuncsynopsis-style:
       -lverbose
@@ -127,12 +127,12 @@ DO_html() {
 	    -o | --output)
 		doc_output="$2";;
 
+	    --copy-graphics)
+		doc_copy_graphics="1";;
 	    --admon-graphics-path)
 		doc_admon_graphics_path="$2";;
 	    --admon-graphics-size)
 		doc_admon_graphics_size="$2";;
-	    --admon-graphics-extension)
-		doc_admon_graphics_extension="$2";;
 	    --classsynopsis-language)
 		doc_classsynopsis_language="$2";;
 	    --funcsynopsis-style)
@@ -194,17 +194,29 @@ DO_html() {
     if [ "x$doc_css_file" != "x" ]; then
 	params="$params --stringparam db2html.css.file \"$doc_css_file\""
     fi
-    if [ "x$doc_admon_graphics_path" != "x" ]; then
-	params="$params --stringparam db2html.admon.graphics_path"
-	params="$params \"$doc_admon_graphics_path\""
+    graphics=`xmllint --noent --xinclude "$doc_indir/$doc_infile" \
+      | xsltproc "$xsltdir/docbook/utils/graphics.xsl" -`;
+    if [ "x$doc_copy_graphics" = "x1" ]; then
+	for graphic in `echo $graphics | tr ' ' '\n' | grep '^admon-'`; do
+	    param="theme.icon."`echo $graphic | sed -e 's/\.png$//' -e 's/-/./'`;
+	    if [ "x$doc_admon_graphics_path" = "x" ]; then
+		cmd="cp \"$pkgdatadir/icons/hicolor/48x48/$graphic\" \"$doc_outdir/$graphic\""
+		echo_verbose "$cmd"
+		eval "$cmd"
+		params="$params --stringparam $param \"$graphic\""
+	    elif [ -f "$doc_admon_graphics_path/$graphic" ] ; then
+		cmd="cp \"$doc_admon_graphics_path/$graphic\" \"$doc_outdir/$graphic\""
+		echo_verbose "$cmd"
+		eval "$cmd"
+		params="$params --stringparam $param \"$graphic\""
+	    fi
+	done
+    fi
+    if [ "x$doc_copy_graphics" != "x1" -a "x$doc_admon_graphics_path" != "x" ]; then
+	params="$params --stringparam theme.icon.admon.path \"$doc_admon_graphics_path\""
     fi
     if [ "x$doc_admon_graphics_size" != "x" ]; then
-	params="$params --stringparam db2html.admon.graphics_size"
-	params="$params \"$doc_admon_graphics_size\""
-    fi
-    if [ "x$doc_admon_graphics_extension" != "x" ]; then
-	params="$params --stringparam db2html.admon.graphics_extension"
-	params="$params \"$doc_admon_graphics_extension\""
+	params="$params --stringparam theme.icon.admon.size \"$doc_admon_graphics_size\""
     fi
     if [ "x$doc_classsynopsis_language" != "x" ]; then
 	params="$params --stringparam db2html.classsynopsis.language"
