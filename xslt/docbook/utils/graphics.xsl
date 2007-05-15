@@ -33,7 +33,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <xsl:if test="//important[1]">
     <xsl:text>admon-important.png&#x000A;</xsl:text>
   </xsl:if>
-  <xsl:if test="//note[@role != 'bug'][1]">
+  <xsl:if test="//note[not(@role) or @role != 'bug'][1]">
     <xsl:text>admon-note.png&#x000A;</xsl:text>
   </xsl:if>
   <xsl:if test="//tip[1]">

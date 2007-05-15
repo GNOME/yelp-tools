@@ -1,3 +1,19 @@
+2007-05-15  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/utils/graphics.xsl:
+	- Fixed selector for not-bug note admonition
+
+	* data/icons/hicolor/48x48/admon-note.png:
+	* data/icons/hicolor/48x48/admon-tip.png:
+	* data/icons/hicolor/scalable/Makefile.am:
+	* data/icons/hicolor/scalable/admon-bug-shadow.svg:
+	* data/icons/hicolor/scalable/admon-important-shadow.svg:
+	* data/icons/hicolor/scalable/admon-note-shadow.svg:
+	* data/icons/hicolor/scalable/admon-note.svg:
+	* data/icons/hicolor/scalable/admon-tip-shadow.svg:
+	* data/icons/hicolor/scalable/admon-tip.svg:
+	- Adding more wonderful images from cornelius[cz]
+
 2007-05-11  Shaun McCance  <shaunm@gnome.org>
 
 	* data/watermarks/watermark-code-python.png:
