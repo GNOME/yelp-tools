@@ -130,42 +130,6 @@ REMARK: Describe this param
   </xsl:call-template>
 </xsl:template>
 
-<!-- = ooclass = -->
-<xsl:template match="ooclass">
-  <span class="ooclass" style="font-family: monospace;">
-    <xsl:for-each select="modifier | classname">
-      <xsl:if test="position() != 1">
-        <xsl:text> </xsl:text>
-      </xsl:if>
-      <xsl:apply-templates select="."/>
-    </xsl:for-each>
-  </span>
-</xsl:template>
-
-<!-- = ooexception = -->
-<xsl:template match="ooexception">
-  <span class="ooexception" style="font-family: monospace;">
-    <xsl:for-each select="modifier | exceptionname">
-      <xsl:if test="position() != 1">
-        <xsl:text> </xsl:text>
-      </xsl:if>
-      <xsl:apply-templates select="."/>
-    </xsl:for-each>
-  </span>
-</xsl:template>
-
-<!-- = oointerface = -->
-<xsl:template match="oointerface">
-  <span class="oointerface" style="font-family: monospace;">
-    <xsl:for-each select="modifier | interfacename">
-      <xsl:if test="position() != 1">
-        <xsl:text> </xsl:text>
-      </xsl:if>
-      <xsl:apply-templates select="."/>
-    </xsl:for-each>
-  </span>
-</xsl:template>
-
 <!--#* db2html.class.cpp.modifier -->
 <xsl:template name="db2html.class.cpp.modifier">
   <!-- For C++, we expect the first modifier to be the visibility -->

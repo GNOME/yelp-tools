@@ -84,7 +84,7 @@ REMARK: Put in a word about the chunk flow; talk about what templates get called
 -->
 <xsl:template name="db2html.division.html">
   <xsl:param name="node" select="."/>
-  <xsl:param name="info"/>
+  <xsl:param name="info" select="/false"/>
   <xsl:param name="template"/>
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk">
@@ -265,7 +265,7 @@ REMARK: Talk about some of the parameters
 -->
 <xsl:template name="db2html.division.div">
   <xsl:param name="node" select="."/>
-  <xsl:param name="info"/>
+  <xsl:param name="info" select="/false"/>
   <xsl:param name="title_node"
              select="($node/title | $info/title)[last()]"/>
   <xsl:param name="subtitle_node"
@@ -665,7 +665,7 @@ REMARK: Describe this template
 -->
 <xsl:template name="db2html.division.top">
   <xsl:param name="node"/>
-  <xsl:param name="info"/>
+  <xsl:param name="info" select="/false"/>
   <xsl:param name="template"/>
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk">
@@ -728,7 +728,7 @@ REMARK: Describe this template
 -->
 <xsl:template name="db2html.division.sidebar">
   <xsl:param name="node"/>
-  <xsl:param name="info"/>
+  <xsl:param name="info" select="/false"/>
   <xsl:param name="template"/>
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk">
@@ -789,7 +789,7 @@ REMARK: Describe this template
 -->
 <xsl:template name="db2html.division.bottom">
   <xsl:param name="node"/>
-  <xsl:param name="info"/>
+  <xsl:param name="info" select="/false"/>
   <xsl:param name="template"/>
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk">
@@ -1088,17 +1088,25 @@ REMARK: Describe this template
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
   </xsl:param>
-  <xsl:call-template name="db2html.division.div">
-    <xsl:with-param name="title_content">
-      <xsl:if test="not(title)">
-        <xsl:call-template name="l10n.gettext">
-          <xsl:with-param name="msgid" select="'Dedication'"/>
-        </xsl:call-template>
-      </xsl:if>
-    </xsl:with-param>
-    <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
-    <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
-  </xsl:call-template>
+  <xsl:choose>
+    <xsl:when test="not(title)">
+      <xsl:call-template name="db2html.division.div">
+        <xsl:with-param name="title_content">
+          <xsl:call-template name="l10n.gettext">
+            <xsl:with-param name="msgid" select="'Dedication'"/>
+          </xsl:call-template>
+        </xsl:with-param>
+        <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
+        <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+      </xsl:call-template>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:call-template name="db2html.division.div">
+        <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
+        <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+      </xsl:call-template>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
 <!-- = glossary = -->
@@ -1109,21 +1117,33 @@ REMARK: Describe this template
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
   </xsl:param>
-  <xsl:call-template name="db2html.division.div">
-    <xsl:with-param name="entries" select="glossentry"/>
-    <xsl:with-param name="divisions" select="glossdiv | bibliography"/>
-    <xsl:with-param name="title_content">
-      <xsl:if test="not(title) and not(glossaryinfo/title)">
-        <xsl:call-template name="l10n.gettext">
-          <xsl:with-param name="msgid" select="'Glossary'"/>
-        </xsl:call-template>
-      </xsl:if>
-    </xsl:with-param>
-    <xsl:with-param name="info" select="glossaryinfo"/>
-    <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
-    <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
-    <xsl:with-param name="chunk_divisions" select="false()"/>
-  </xsl:call-template>
+  <xsl:choose>
+    <xsl:when test="not(title) and not(glossaryinfo/title)">
+      <xsl:call-template name="db2html.division.div">
+        <xsl:with-param name="entries" select="glossentry"/>
+        <xsl:with-param name="divisions" select="glossdiv | bibliography"/>
+        <xsl:with-param name="title_content">
+          <xsl:call-template name="l10n.gettext">
+            <xsl:with-param name="msgid" select="'Glossary'"/>
+          </xsl:call-template>
+        </xsl:with-param>
+        <xsl:with-param name="info" select="glossaryinfo"/>
+        <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
+        <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+        <xsl:with-param name="chunk_divisions" select="false()"/>
+      </xsl:call-template>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:call-template name="db2html.division.div">
+        <xsl:with-param name="entries" select="glossentry"/>
+        <xsl:with-param name="divisions" select="glossdiv | bibliography"/>
+        <xsl:with-param name="info" select="glossaryinfo"/>
+        <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
+        <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+        <xsl:with-param name="chunk_divisions" select="false()"/>
+      </xsl:call-template>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
 <!-- = glossdiv = -->

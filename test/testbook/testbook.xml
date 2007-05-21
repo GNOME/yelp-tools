@@ -48,6 +48,437 @@
     </legalnotice>
   </bookinfo>
 
+<chapter id="inline">
+<title>Inline Elements</title>
+<variablelist>
+  <varlistentry>
+    <term><sgmltag>abbrev</sgmltag></term>
+    <listitem><para>The word <wordasword>concatenate</wordasword> is frequently abbreviated
+    as either <abbrev>concat</abbrev> or simply <abbrev>cat</abbrev>.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>accel</sgmltag></term>
+    <listitem><para>To see the authors of an application, select
+    <guimenuitem><accel>A</accel>bout</guimenuitem> from the
+    <guimenuitem><accel>H</accel>elp</guimenuitem> menu.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>acronym</sgmltag></term>
+    <listitem><para><acronym>GNOME</acronym> stands for <acronym>GNU</acronym>
+    Network Object Model Environment.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>action</sgmltag></term>
+    <listitem><para>Logging out will cause the session manager to perform
+    <action>session saving</action>.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>application</sgmltag></term>
+    <listitem><para><application>Yelp</application> is the default help
+    viewer in GNOME.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>citetitle</sgmltag></term>
+    <listitem><para>Please read <citetitle pubwork="article">A Pretty Good Article</citetitle>
+    and <citetitle pubwork="book">The Bestest Book Ever</citetitle>.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>citation</sgmltag></term>
+    <listitem><para>Consult <citation>HolubSpencer</citation> for more information.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>classname</sgmltag></term>
+    <listitem><para>The <classname>YelpDocument</classname> class provides on-demand
+    page transformations in <application>Yelp</application>.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>code</sgmltag></term>
+    <listitem><para>Call <code>frobnicate(file)</code> to frobnicate the file.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>command</sgmltag></term>
+    <listitem><para>To start <application>Yelp</application>, enter <command>yelp</command>
+    at the command line.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>computeroutput</sgmltag></term>
+    <listitem><para>Runnin <command>scrollkeeper-get-content-list C</command> should output
+    something like <computeroutput>/tmp/scrollkeeper-shaunm/contents.1</computeroutput>.
+    Sometimes it also prints errors like <computeroutput role="stderr">I/O warning :
+    failed to load external entity
+    "/var/lib/scrollkeeper/en_US.UTF-8/scrollkeeper_cl.xml"</computeroutput>.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>constant</sgmltag></term>
+    <listitem><para>The maximum legal length for a path name is 
+    <constant class='limit'>PATH_MAX</constant>.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>corpauthor</sgmltag></term>
+    <term><sgmltag>corpcredit</sgmltag></term>
+    <listitem><para>Some of the GNOME Documentation was written by
+    <corpauthor>Sun Microsystems</corpauthor>.  Some technical editing was also done
+    by <corpcredit>Sun Microsystems</corpcredit>.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>database</sgmltag></term>
+    <listitem><para>The <database>Pulse</database> database tracks everything
+    you need to know about your project.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>email</sgmltag></term>
+    <listitem><para>To contact the GNOME Documentation Team, send an email to
+    <email>gnome-doc-list@gnome.org</email>.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>emphasis</sgmltag></term>
+    <listitem><para>This is <emphasis>italic</emphasis>, and this is
+    <emphasis role="bold">bold</emphasis>.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>envar</sgmltag></term>
+    <listitem><para>The <envar>YELP_DEBUG</envar> environment variable can be used to
+    control the debugging output in <application>Yelp</application>.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>errorcode</sgmltag></term>
+    <term><sgmltag>errorname</sgmltag></term>
+    <term><sgmltag>errortext</sgmltag></term>
+    <term><sgmltag>errortype</sgmltag></term>
+    <listitem><para>On most DOS-derived systems, functions signal a
+    <errortext>File Not Found</errortext> error by returning <errorcode>2</errorcode>
+    (<errorname>ENOENT</errorname>).  This is usually a <errortype>recoverable</errortype>
+    (non-fatal) error.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>exceptionname</sgmltag></term>
+    <listitem><para>If the world is ending, this function will throw the exception
+    <exceptionname>ArmageddonException</exceptionname>.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>filename</sgmltag></term>
+    <listitem><para>This text was written in the file
+    <filename>testbook.xml</filename>.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>firstterm</sgmltag></term>
+    <listitem><para>This document has example <firstterm>tables</firstterm>, and in
+    particular <firstterm linkend="cals-tables">CALS tables</firstterm>.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>foreignphrase</sgmltag></term>
+    <listitem><para>Free software is sometimes called <foreignphrase>libre</foreignphrase>
+    software.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>function</sgmltag></term>
+    <listitem><para>The function <function>g_strdup</function> duplicates a string.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>glossterm</sgmltag></term>
+    <listitem><para>There's no glossary entry for <glossterm>frobnicate</glossterm>.  This
+    links implicitly to the definition of <glossterm>button</glossterm>, but we have to use
+    an explicit link for <glossterm linkend="gloss-button">buttons</glossterm>.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>guibutton</sgmltag></term>
+    <term><sgmltag>guiicon</sgmltag></term>
+    <term><sgmltag>guilabel</sgmltag></term>
+    <term><sgmltag>guimenu</sgmltag></term>
+    <term><sgmltag>guimenuitem</sgmltag></term>
+    <term><sgmltag>guisubmenu</sgmltag></term>
+    <listitem><para>You can select what fonts to use under the <guilabel>Fonts</guilabel>
+    heading in the dialog.  To close the dialog, click the <guibutton>Close</guibutton> button.
+    To open a file, select <guimenuitem>Open</guimenuitem> from the <guimenu>File</guimenu>
+    menu or click the <guiicon><inlinegraphic
+    fileref="file:///usr/share/icons/gnome/22x22/status/stock_open.png"/></guiicon> icon
+    on the toolbar.  To open a recent file, select a file from the <guisubmenu>Open Recent</guisubmenu>
+    submenu of the <guimenu>File</guimenu> menu.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>hardware</sgmltag></term>
+    <listitem><para>Unfortunately, your <hardware>hard drive</hardware> cannot be
+    fixed by simply blowing into it like an old game cartridge.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>inlineequation</sgmltag></term>
+    <term><sgmltag>mathphrase</sgmltag></term>
+    <listitem><para>Fermat's last theorem says that <inlineequation>
+    <alt>x^n + y^n &ne; z^n ∀ n &gt; 2</alt>
+    <mathphrase>x<superscript>n</superscript> + y<superscript>n</superscript> ≠ z<superscript>n</superscript> ∀ n ≠ 2</mathphrase></inlineequation>.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>interface</sgmltag></term>
+    <listitem><para>In old-school DocBook, we'd use the <sgmltag>interface</sgmltag>
+    tag for the <interface>Close</interface> button.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>interfacename</sgmltag></term>
+    <listitem><para>This class implements <interfacename>GtkCellLayout</interfacename>.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>keycap</sgmltag></term>
+    <term><sgmltag>keycode</sgmltag></term>
+    <term><sgmltag>keysym</sgmltag></term>
+    <listitem><para>The <keycap>F1</keycap> key on an IBM PC keyboard generates the
+    scan code <keycode>0x3B</keycode> when pressed.  This value is defined as
+    <keysym>KEY_F1</keysym>.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>keycombo</sgmltag></term>
+    <listitem><para>To copy the selection to the clipboard, press
+    <keycombo><keycap>Ctrl</keycap><keycap>C</keycap></keycombo>.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>lineannotation</sgmltag></term>
+    <listitem><para>Do not run this command if you value your data:</para>
+    <screen>find . -type f -exec shred -fuz {} \;        <lineannotation>shred all files at any depth</lineannotation></screen></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>literal</sgmltag></term>
+    <listitem><para>Set <envar>YELP_DEBUG</envar> to <literal>function-calls</literal> to
+    see all the major function calls inside <application>Yelp</application>.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>markup</sgmltag></term>
+    <listitem><para>To italicize text on Wikipedia, type <markup>''text''</markup>.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>medialabel</sgmltag></term>
+    <listitem><para>To being installing <application>Frobnicator</application>, insert
+    the disc labelled <medialabel>Frobnicator Install</medialabel>.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>menuchoice</sgmltag></term>
+    <listitem><para>You can open a new window by selecting <menuchoice>
+    <shortcut><keycombo><keycap>Ctrl</keycap><keycap>N</keycap></keycombo></shortcut>
+    <guimenu>File</guimenu><guimenuitem>New Window</guimenuitem></menuchoice>.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>methodname</sgmltag></term>
+    <listitem><para>The <methodname>set_label()</methodname> method sets the text of the
+    button to <parameter><replaceable>label</replaceable></parameter>.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>mousebutton</sgmltag></term>
+    <listitem><para>Click with the <mousebutton>middle</mousebutton> mouse button to
+    paste the contents of the PRIMARY selection.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>option</sgmltag></term>
+    <listitem><para>The <option>-rf</option> option to the <command>ls</command>
+    command has been known to cause mental anguish.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>optional</sgmltag></term>
+    <listitem>
+      <synopsis><command>yelp <optional><option>-p</option></optional></command></synopsis>
+    </listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>ooclass</sgmltag></term>
+    <term><sgmltag>ooexception</sgmltag></term>
+    <term><sgmltag>oointerface</sgmltag></term>
+    <listitem><para>The <ooclass><classname>Mallard</classname></ooclass> class
+    implements the <oointerface><interfacename>Quacks</interfacename></oointerface>
+    interface.  The <methodname>quack</methodname> method may throw the
+    <ooexception><exceptionname>Muted</exceptionname></ooexception>
+    exception.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>parameter</sgmltag></term>
+    <listitem><para>The <parameter>db2html.funcsynopsis.style</parameter> allows you
+    to set the style of function synopses to either <literal>'KR'</literal> or
+    <literal>'ANSI'</literal>.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>personname</sgmltag></term>
+    <listitem><para>My name is
+    <personname><firstname>Shaun</firstname><surname>McCance</surname></personname>,
+    or <personname><firstname>Shaun</firstname><othername>William</othername>
+    <surname>McCance</surname></personname>.  You may also call me <personname>
+    <honorific>Mr</honorific><surname>Mojo</surname></personname>.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>productname</sgmltag></term>
+    <listitem><para><productname class="trade">Frobnicator</productname> is the
+    only solution for frobnicating your files.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>prompt</sgmltag></term>
+    <listitem><para>The prototypical prompt is <prompt>$</prompt>, but most people
+    use something like <prompt>[<replaceable>user</replaceable>@<replaceable>host</replaceable> <replaceable>dir</replaceable>]</prompt>.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>property</sgmltag></term>
+    <listitem><para>The <property>font_name</property> property can be used to set
+    the font on a widget in your <filename>.gtrc-2.0</filename> file.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>quote</sgmltag></term>
+    <listitem><para>He said, <quote>The Mallard said <quote>Quack</quote>.</quote></para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>replaceable</sgmltag></term>
+    <listitem><para>To view a DocBook file, simply run
+    <command>yelp <replaceable>file</replaceable></command>, where
+    <parameter><replaceable>file</replaceable></parameter>
+    is the name of the file.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>returnvalue</sgmltag></term>
+    <listitem><para>The template <function>i18n.locale</function> returns
+    <returnvalue>C</returnvalue> if no language has been defined in the
+    document.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>sgmltag</sgmltag></term>
+    <listitem><itemizedlist>
+      <listitem><para><sgmltag class="attribute">attribute</sgmltag></para></listitem>
+      <listitem><para><sgmltag class="attvalue">attvalue</sgmltag></para></listitem>
+      <listitem><para><sgmltag class="element">element</sgmltag></para></listitem>
+      <listitem><para><sgmltag class="emptytag">emptytag</sgmltag></para></listitem>
+      <listitem><para><sgmltag class="endtag">endtag</sgmltag></para></listitem>
+      <listitem><para><sgmltag class="genentity">genentity</sgmltag></para></listitem>
+      <listitem><para><sgmltag class="localname">localname</sgmltag></para></listitem>
+      <listitem><para><sgmltag class="namespace">namespace</sgmltag></para></listitem>
+      <listitem><para><sgmltag class="numcharref">numcharref</sgmltag></para></listitem>
+      <listitem><para><sgmltag class="paramentity">paramentity</sgmltag></para></listitem>
+      <listitem><para><sgmltag class="pi">pi</sgmltag></para></listitem>
+      <listitem><para><sgmltag class="prefix">prefix</sgmltag></para></listitem>
+      <listitem><para><sgmltag class="sgmlcomment">sgmlcomment</sgmltag></para></listitem>
+      <listitem><para><sgmltag class="starttag">starttag</sgmltag></para></listitem>
+      <listitem><para><sgmltag class="xmlpi">xmlpi</sgmltag></para></listitem>
+    </itemizedlist></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>shortcut</sgmltag></term>
+    <listitem><para>You can open a new window by selecting <menuchoice>
+    <shortcut><keycombo><keycap>Ctrl</keycap><keycap>N</keycap></keycombo></shortcut>
+    <guimenu>File</guimenu><guimenuitem>New Window</guimenuitem></menuchoice>.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>structfield</sgmltag></term>
+    <term><sgmltag>structname</sgmltag></term>
+    <listitem><para>The <structfield>reqs_pending</structfield> field is a list
+    of all the <structname>Request</structname> instances that are currently open
+    for this <structname>YelpDocument</structname>.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>subscript</sgmltag></term>
+    <term><sgmltag>superscript</sgmltag></term>
+    <listitem><para>Here is a <sgmltag>subscript</sgmltag><subscript>sub<subscript>scr<subscript>ipt</subscript></subscript></subscript>.
+    Here is a <sgmltag>superscript</sgmltag><superscript>super<superscript>scr<superscript>ipt</superscript></superscript></superscript>.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>symbol</sgmltag></term>
+    <listitem><para>No more than <symbol>MAX_DUCKS</symbol> ducks may exist
+    at any single time.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>systemitem</sgmltag></term>
+    <listitem><para>The GNOME web site is hosted on
+    <systemitem>window.gnome.org</systemitem>.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>token</sgmltag></term>
+    <listitem><para>The character ∀ is parsed into <token>FORALL</token>.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>trademark</sgmltag></term>
+    <listitem><para>Here are some trademarks: <trademark class="copyright">copyright</trademark>
+    <trademark class="registered">registered</trademark>
+    <trademark class="service">service</trademark>
+    <trademark class="trade">trade</trademark>.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>type</sgmltag></term>
+    <listitem><para>Strings are stored as <type>gchar*</type> references.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>uri</sgmltag></term>
+    <listitem><para>Grab the latest Mallard stuff at
+    <uri>svn+ssh://svn.gnome.org/svn/gnome-doc-utils/trunk/sandbox/mallard/</uri>.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>userinput</sgmltag></term>
+    <listitem><para>Type <userinput>foo</userinput> at the prompt.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>varname</sgmltag></term>
+    <listitem><para>In Perl, <varname>@ARGV</varname> contains the command line
+    parameters used when the script was run.</para></listitem>
+  </varlistentry>
+
+  <varlistentry>
+    <term><sgmltag>wordasword</sgmltag></term>
+    <listitem><para>A <wordasword>term</wordasword> in Algebra has a very different
+    meaning than a <sgmltag>term</sgmltag> in DocBook.</para></listitem>
+  </varlistentry>
+
+</variablelist>
+</chapter> <!-- inline -->
+
 <chapter id="some-blocks">
 <title>Some Block Elements</title>
 <titleabbrev>Some Blocks</titleabbrev>
@@ -1275,5 +1706,19 @@ porttitor condimentum nulla.</para>
 </section> <!-- classsynopsis-python -->
 
 </chapter> <!-- classsynopsis -->
+
+<glossary id="glossary">
+  <glossdiv id="glossary-desktop">
+    <title>GNOME Desktop Terms</title>
+    <glossentry id="gloss-button">
+      <glossterm>button</glossterm>
+      <glossdef><para>A user interface element that you use to start an action.
+      There are many types of button in the GNOME Desktop. Some buttons do not have
+      labels, so you do not have a convenient reference term. Although a button does
+      not have a name, there might be a tooltip for the button. If the text in the
+      tooltip is appropriate, use that text as the button name.</para></glossdef>
+    </glossentry>
+  </glossdiv> <!-- glossary-desktop -->
+</glossary>
 
 </book>

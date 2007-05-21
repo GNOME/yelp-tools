@@ -1,3 +1,42 @@
+2007-05-21  Shaun McCance  <shaunm@gnome.org>
+
+	* test/testbook/testbook.xml:
+	- Added lots of inline tests
+	- Added the beginning of a glossary
+
+	* xslt/docbook/common/db-title.xsl:
+	* xslt/docbook/html/db2html-division.xsl:
+	- Made the empty $info selectors node sets
+	- Fixed some automatic titles
+
+	* xslt/docbook/html/db2html-info.xsl:
+	- Use the new dl-compact class in credits
+
+	* xslt/docbook/html/db2html-cmdsynopsis.xsl:
+	- Made cmdsynopsis have a pre wrapped in a div for consistency
+
+	* xslt/docbook/html/db2html-bibliography.xsl:
+	- Bibliographies have bibliographyinfo, not glossaryinfo
+
+	* xslt/docbook/html/db2html-classsynopsis.xsl:
+	- Moved ooclass, ooexception, and oointerface to db2html-inline
+
+	* xslt/docbook/html/db2html-css.xsl:
+	* xslt/docbook/html/db2html-inline.xsl:
+	- Revamped all inline elements
+	- Added db2html.inline.content.mode
+
+	* xslt/docbook/common/db-common.xsl:
+	- Small db.personname modification
+
+	* xslt/gettext/l10n.xml.in:
+	- Added localizable citation formatting
+
+	* data/icons/hicolor/48x48/admon-caution.png:
+	* data/icons/hicolor/48x48/admon-warning.png:
+	* data/icons/hicolor/scalable/Makefile.am:
+	- More icons from cornelius[cz]
+
 2007-05-15  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/utils/graphics.xsl:

@@ -172,7 +172,7 @@ REMARK: Describe this template
         </xsl:call-template>
       </h2>
       <div class="block block-first">
-        <dl>
+        <dl class="dl-compact">
           <xsl:apply-templates mode="db2html.info.mode" select="$authors"/>
         </dl>
       </div>
@@ -203,7 +203,7 @@ REMARK: Describe this template
         </xsl:call-template>
       </h2>
       <div class="block block-first">
-        <dl>
+        <dl class="dl-compact">
           <xsl:apply-templates mode="db2html.info.mode" select="$editors"/>
         </dl>
       </div>
@@ -234,7 +234,7 @@ REMARK: Describe this template
         </xsl:call-template>
       </h2>
       <div class="block block-first">
-        <dl>
+        <dl class="dl-compact">
           <xsl:apply-templates mode="db2html.info.mode" select="$collabs"/>
         </dl>
       </div>
@@ -254,6 +254,7 @@ REMARK: Describe this template
 <xsl:template name="db2html.info.translators">
   <xsl:param name="node" select="."/>
   <xsl:param name="info" select="'FIXME'"/>
+  <!-- FIXME: new class attribute on credit -->
   <xsl:variable name="translators" select="
                 $info/corpcredit[@role = 'translator']               |
                 $info/othercredit[@role = 'translator']              |
@@ -268,7 +269,7 @@ REMARK: Describe this template
         </xsl:call-template>
       </h2>
       <div class="block block-first">
-        <dl>
+        <dl class="dl-compact">
           <xsl:apply-templates mode="db2html.info.mode" select="$translators"/>
         </dl>
       </div>
@@ -298,7 +299,7 @@ REMARK: Describe this template
         </xsl:call-template>
       </h2>
       <div class="block block-first">
-        <dl>
+        <dl class="dl-compact">
           <xsl:apply-templates mode="db2html.info.mode" select="$publishers"/>
         </dl>
       </div>
@@ -318,6 +319,7 @@ REMARK: Describe this template
 <xsl:template name="db2html.info.othercredits">
   <xsl:param name="node" select="."/>
   <xsl:param name="info" select="'FIXME'"/>
+  <!-- FIXME: new class attribute on credit -->
   <xsl:variable name="othercredits" select="
                 $info/conbrib                                        |
                 $info/corpcredit[@role != 'translator']              |
@@ -333,7 +335,7 @@ REMARK: Describe this template
         </xsl:call-template>
       </h2>
       <div class="block block-first">
-        <dl>
+        <dl class="dl-compact">
           <xsl:apply-templates mode="db2html.info.mode" select="$othercredits"/>
         </dl>
       </div>
@@ -363,7 +365,7 @@ REMARK: Describe this template
         </xsl:call-template>
       </h2>
       <div class="block block-first">
-        <dl>
+        <dl class="dl-compact">
           <xsl:apply-templates mode="db2html.info.mode" select="$copyrights"/>
         </dl>
       </div>
@@ -390,6 +392,7 @@ REMARK: Describe this mode.
       <xsl:text>: </xsl:text>
     </i>
     <xsl:apply-templates mode="db2html.info.mode" select="orgname"/>
+    <!-- FIXME: orgdiv, jobtitle -->
   </dd>
 </xsl:template>
 
@@ -450,6 +453,7 @@ REMARK: Describe this mode.
   <dt>
     <xsl:attribute name="class">
       <xsl:choose>
+        <!-- FIXME: new class attribute on credit -->
         <xsl:when test="@role = 'translator'">
           <xsl:text>translator</xsl:text>
         </xsl:when>
@@ -555,6 +559,7 @@ REMARK: Describe this mode.
   <dt>
     <xsl:attribute name="class">
       <xsl:choose>
+        <!-- FIXME: new class attribute on credit -->
         <xsl:when test="@role = 'translator'">
           <xsl:text>translator</xsl:text>
         </xsl:when>

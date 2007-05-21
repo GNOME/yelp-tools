@@ -17,6 +17,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n"
                 xmlns="http://www.w3.org/1999/xhtml"
                 version="1.0">
 
@@ -30,9 +31,10 @@ REMARK: Describe this module
 
 <!--**==========================================================================
 db2html.inline
-Renders an inline element
+Renders an inline element as an HTML #{span} element
 $node: The element to render
 $children: The child elements to process
+$class: The value of the #{class} attribute on the #{span} tag
 $bold: Whether to render the element in bold face
 $italic: Whether to render the element in italics
 $underline: Whether to underline the element
@@ -43,7 +45,8 @@ REMARK: Document this template
 -->
 <xsl:template name="db2html.inline">
   <xsl:param name="node" select="."/>
-  <xsl:param name="children" select="$node/node()"/>
+  <xsl:param name="children" select="false()"/>
+  <xsl:param name="class" select="local-name($node)"/>
   <xsl:param name="bold" select="false()"/>
   <xsl:param name="italic" select="false()"/>
   <xsl:param name="underline" select="false()"/>
@@ -51,7 +54,7 @@ REMARK: Document this template
   <xsl:param name="sans" select="false()"/>
 
   <!-- FIXME: do CSS classes, rather than inline styles -->
-  <span class="{local-name($node)}">
+  <span class="{$class}">
     <xsl:if test="$bold or $italic or $mono or $underline or $sans">
       <xsl:variable name="style">
         <xsl:if test="$bold">
@@ -79,8 +82,26 @@ REMARK: Document this template
     <xsl:call-template name="db2html.anchor">
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
-    <xsl:apply-templates select="$children"/>
+    <xsl:choose>
+      <xsl:when test="$children">
+        <xsl:apply-templates select="$children"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:apply-templates mode="db2html.inline.content.mode" select="$node"/>
+      </xsl:otherwise>
+    </xsl:choose>
   </span>
+</xsl:template>
+
+
+<!--%%===========================================================================
+db2html.inline.content.mode
+FIXME
+
+FIXME
+-->
+<xsl:template mode="db2html.inline.content.mode" match="*">
+  <xsl:apply-templates/>
 </xsl:template>
 
 
@@ -93,16 +114,12 @@ REMARK: Document this template
 
 <!-- = accel = -->
 <xsl:template match="accel">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="underline" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = acronym = -->
 <xsl:template match="acronym">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="sans" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = action = -->
@@ -117,9 +134,7 @@ REMARK: Document this template
 
 <!-- = application = -->
 <xsl:template match="application">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="italic" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = authorinitials = -->
@@ -127,8 +142,34 @@ REMARK: Document this template
   <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
+<!-- = citation = -->
+<xsl:template match="citation">
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
+<!-- = citation % db2html.inline.content.mode = -->
+<xsl:template mode="db2html.inline.content.mode" match="citation">
+  <xsl:call-template name="l10n.gettext">
+    <xsl:with-param name="msgid" select="'citation.format'"/>
+    <xsl:with-param name="node" select="."/>
+    <xsl:with-param name="format" select="true()"/>
+  </xsl:call-template>
+</xsl:template>
+
+<!-- = citation % l10n.format.mode = -->
+<xsl:template mode="l10n.format.mode" match="msg:citation">
+  <xsl:param name="node"/>
+  <!-- FIXME: link to biblioentry/abbrev -->
+  <xsl:apply-templates select="$node/node()"/>
+</xsl:template>
+
 <!-- = citetitle = -->
 <xsl:template match="citetitle">
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
+<!-- = citetitle % db2html.inline.content.mode = -->
+<xsl:template mode="db2html.inline.content.mode" match="citetitle">
   <xsl:call-template name="l10n.gettext">
     <xsl:with-param name="msgid" select="'citetitle.format'"/>
     <xsl:with-param name="role" select="@pubwork"/>
@@ -142,49 +183,29 @@ REMARK: Document this template
   <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
-<!-- = citation = -->
-<xsl:template match="citation">
-  <span class="citation">
-    <xsl:call-template name="db2html.anchor"/>
-    <xsl:text>[</xsl:text>
-    <xsl:call-template name="db2html.inline"/>
-    <xsl:text>]</xsl:text>
-  </span>
-</xsl:template>
-
 <!-- = classname = -->
 <xsl:template match="classname">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="mono" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = code = -->
 <xsl:template match="code">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="mono" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = command = -->
 <xsl:template match="command">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="mono" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = computeroutput = -->
 <xsl:template match="computeroutput">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="mono" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = constant = -->
 <xsl:template match="constant">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="mono" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = corpauthor = -->
@@ -219,44 +240,46 @@ REMARK: Document this template
 
 <!-- = email = -->
 <xsl:template match="email">
-  <span class="email">
-    <xsl:call-template name="db2html.anchor"/>
-    <!-- FIXME: no style tags -->
-    <tt>
-      <xsl:text>&lt;</xsl:text>
-      <a>
-        <xsl:attribute name="href">
-          <xsl:text>mailto:</xsl:text>
-          <xsl:value-of select="string(.)"/>
-        </xsl:attribute>
-        <xsl:attribute name="title">
-          <xsl:call-template name="l10n.gettext">
-            <xsl:with-param name="msgid" select="'email.tooltip'"/>
-            <xsl:with-param name="node" select="."/>
-            <xsl:with-param name="format" select="true()"/>
-          </xsl:call-template>
-        </xsl:attribute>
-        <xsl:call-template name="db2html.inline"/>
-      </a>
-      <xsl:text>&gt;</xsl:text>
-    </tt>
-  </span>
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
+<!-- = email % db2html.inline.content.mode = -->
+<xsl:template mode="db2html.inline.content.mode" match="email">
+  <xsl:text>&lt;</xsl:text>
+  <a>
+    <xsl:attribute name="href">
+      <xsl:text>mailto:</xsl:text>
+      <xsl:value-of select="string(.)"/>
+    </xsl:attribute>
+    <xsl:attribute name="title">
+      <xsl:call-template name="l10n.gettext">
+        <xsl:with-param name="msgid" select="'email.tooltip'"/>
+        <xsl:with-param name="node" select="."/>
+        <xsl:with-param name="string" select="string(.)"/>
+        <xsl:with-param name="format" select="true()"/>
+      </xsl:call-template>
+    </xsl:attribute>
+    <xsl:apply-templates/>
+  </a>
+  <xsl:text>&gt;</xsl:text>
 </xsl:template>
 
 <!-- = emphasis = -->
 <xsl:template match="emphasis">
   <xsl:variable name="bold" select="@role = 'bold' or @role = 'strong'"/>
   <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="bold" select="$bold"/>
-    <xsl:with-param name="italic" select="not($bold)"/>
+    <xsl:with-param name="class">
+      <xsl:text>emphasis</xsl:text>
+      <xsl:if test="$bold">
+        <xsl:text> emphasis-bold</xsl:text>
+      </xsl:if>
+    </xsl:with-param>
   </xsl:call-template>
 </xsl:template>
 
 <!-- = envar = -->
 <xsl:template match="envar">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="mono" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = errorcode = -->
@@ -281,9 +304,7 @@ REMARK: Document this template
 
 <!-- = exceptionname = -->
 <xsl:template match="exceptionname">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="mono" select="$true"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = fax = -->
@@ -293,9 +314,7 @@ REMARK: Document this template
 
 <!-- = filename = -->
 <xsl:template match="filename">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="mono" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = firstname = -->
@@ -305,35 +324,81 @@ REMARK: Document this template
 
 <!-- = firstterm = -->
 <xsl:template match="firstterm">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="italic" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
+<!-- = firstterm % db2html.inline.content.mode = -->
+<xsl:template mode="db2html.inline.content.mode" match="firstterm">
+  <xsl:choose>
+    <xsl:when test="@linkend">
+      <xsl:call-template name="db2html.xref">
+        <xsl:with-param name="linkend" select="@linkend"/>
+        <xsl:with-param name="content">
+          <xsl:apply-templates/>
+        </xsl:with-param>
+      </xsl:call-template>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:apply-templates/>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
 <!-- = foreignphrase = -->
 <xsl:template match="foreignphrase">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="italic" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = function = -->
 <xsl:template match="function">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="mono" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
+
+<!-- = glosskey = -->
+<xsl:key name="glosskey" match="glossentry[@id]" use="string(glossterm)"/>
 
 <!-- = glossterm = -->
 <xsl:template match="glossterm">
   <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
+<!-- = glossterm % db2html.inline.content.mode = -->
+<xsl:template mode="db2html.inline.content.mode" match="glossterm">
+  <xsl:choose>
+    <xsl:when test="@linkend">
+      <xsl:call-template name="db2html.xref">
+        <xsl:with-param name="linkend" select="@linkend"/>
+        <xsl:with-param name="content">
+          <xsl:apply-templates/>
+        </xsl:with-param>
+      </xsl:call-template>
+    </xsl:when>
+    <xsl:when test="not(../self::glossentry)">
+      <xsl:variable name="glossentry" select="key('glosskey', string(.))"/>
+      <xsl:choose>
+        <xsl:when test="$glossentry">
+          <xsl:call-template name="db2html.xref">
+            <xsl:with-param name="linkend" select="$glossentry/@id"/>
+            <xsl:with-param name="target" select="$glossentry"/>
+            <xsl:with-param name="content">
+              <xsl:apply-templates/>
+            </xsl:with-param>
+          </xsl:call-template>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:apply-templates/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:apply-templates/>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
 <!-- = guibutton = -->
 <xsl:template match="guibutton">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="bold" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = guiicon = -->
@@ -343,30 +408,22 @@ REMARK: Document this template
 
 <!-- = guilabel = -->
 <xsl:template match="guilabel">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="bold" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = guimenu = -->
 <xsl:template match="guimenu">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="bold" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = guimenuitem = -->
 <xsl:template match="guimenuitem">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="bold" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = guisubmenu = -->
 <xsl:template match="guisubmenu">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="bold" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = hardware = -->
@@ -386,16 +443,12 @@ REMARK: Document this template
 
 <!-- = interface = -->
 <xsl:template match="interface">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="bold" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = interfacename = -->
 <xsl:template match="interfacename">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="mono" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = isbn = -->
@@ -410,9 +463,7 @@ REMARK: Document this template
 
 <!-- = keycap = -->
 <xsl:template match="keycap">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="bold" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = keycode = -->
@@ -422,6 +473,11 @@ REMARK: Document this template
 
 <!-- = keycombo = -->
 <xsl:template match="keycombo">
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
+<!-- = keycombo % db2html.inline.content.mode = -->
+<xsl:template mode="db2html.inline.content.mode" match="keycombo">
   <xsl:variable name="joinchar">
     <xsl:choose>
       <xsl:when test="@action = 'seq'"><xsl:text> </xsl:text></xsl:when>
@@ -429,19 +485,16 @@ REMARK: Document this template
       <xsl:when test="@action = 'press'">-</xsl:when>
       <xsl:when test="@action = 'click'">-</xsl:when>
       <xsl:when test="@action = 'double-click'">-</xsl:when>
-      <xsl:when test="@action = 'other'"></xsl:when>
+      <xsl:when test="@action = 'other'">+</xsl:when>
       <xsl:otherwise>+</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
-  <span class="keycombo">
-    <xsl:call-template name="db2html.anchor"/>
-    <xsl:for-each select="*">
-      <xsl:if test="position() != 1">
-        <xsl:value-of select="$joinchar"/>
-      </xsl:if>
-      <xsl:apply-templates select="."/>
-    </xsl:for-each>
-  </span>
+  <xsl:for-each select="*">
+    <xsl:if test="position() != 1">
+      <xsl:value-of select="$joinchar"/>
+    </xsl:if>
+    <xsl:apply-templates select="."/>
+  </xsl:for-each>
 </xsl:template>
 
 <!-- = keysym = -->
@@ -456,58 +509,51 @@ REMARK: Document this template
 
 <!-- = lineannotation = -->
 <xsl:template match="lineannotation">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="italic" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = literal = -->
 <xsl:template match="literal">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="mono" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = markup = -->
 <xsl:template match="markup">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="mono" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
+<!-- = mathphrase = -->
+<xsl:template match="mathphrase">
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = medialabel = -->
 <xsl:template match="medialabel">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="italic" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = menuchoice = -->
 <xsl:template match="menuchoice">
-  <span class="menuchoice">
-    <xsl:call-template name="db2html.anchor"/>
-    <xsl:for-each select="*[local-name(.) != 'shortcut']">
-      <xsl:if test="position() != 1">
-        <xsl:text>&#x00A0;→ </xsl:text>
-      </xsl:if>
-      <xsl:apply-templates select="."/>
-    </xsl:for-each>
-    <xsl:if test="shortcut">
-      <span class="shortcut">
-        <xsl:call-template name="db2html.anchor"/>
-        <xsl:text> (</xsl:text>
-        <xsl:apply-templates select="shortcut"/>
-        <xsl:text>)</xsl:text>
-      </span>
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
+<!-- = menuchoice % db2html.inline.content.mode = -->
+<xsl:template mode="db2html.inline.content.mode" match="menuchoice">
+  <xsl:for-each select="*[not(self::shortcut)]">
+    <xsl:if test="position() != 1">
+      <xsl:text>&#x00A0;&#x25B8; </xsl:text>
     </xsl:if>
-  </span>
+    <xsl:apply-templates select="."/>
+  </xsl:for-each>
+  <xsl:if test="shortcut">
+    <xsl:text> </xsl:text>
+    <xsl:apply-templates select="shortcut"/>
+  </xsl:if>
 </xsl:template>
 
 <!-- = methodname = -->
 <xsl:template match="methodname">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="mono" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = mousebutton = -->
@@ -517,19 +563,19 @@ REMARK: Document this template
 
 <!-- = option = -->
 <xsl:template match="option">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="mono" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = optional = -->
 <xsl:template match="optional">
-  <span class="optional">
-    <xsl:call-template name="db2html.anchor"/>
-    <xsl:text>[</xsl:text>
-    <xsl:call-template name="db2html.inline"/>
-    <xsl:text>]</xsl:text>
-  </span>
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
+<!-- = optional % db2html.inline.content.mode = -->
+<xsl:template mode="db2html.inline.content.mode" match="optional">
+  <xsl:text>[</xsl:text>
+  <xsl:apply-templates/>
+  <xsl:text>]</xsl:text>
 </xsl:template>
 
 <!-- = orgdiv = -->
@@ -549,16 +595,17 @@ REMARK: Document this template
 
 <!-- = parameter = -->
 <xsl:template match="parameter">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="mono" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = personname = -->
 <xsl:template match="personname">
-  <div class="personname">
-    <xsl:call-template name="db.personname"/>
-  </div>
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
+<!-- = personname % db2html.inline.content.mode = -->
+<xsl:template mode="db2html.inline.content.mode" match="personname">
+  <xsl:call-template name="db.personname"/>
 </xsl:template>
 
 <!-- = phone = -->
@@ -583,15 +630,18 @@ REMARK: Document this template
 
 <!-- = productname = -->
 <xsl:template match="productname">
-  <span class="productname">
-    <xsl:call-template name="db2html.inline"/>
-    <xsl:choose>
-      <xsl:when test="@class = 'copyright'">&#x00A9;</xsl:when>
-      <xsl:when test="@class = 'registered'">&#x00AE;</xsl:when>
-      <xsl:when test="@class = 'trade'">&#x2122;</xsl:when>
-      <xsl:when test="@class = 'service'">&#x2120;</xsl:when>
-    </xsl:choose>
-  </span>
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
+<!-- = productname % db2html.inline.content.mode = -->
+<xsl:template mode="db2html.inline.content.mode" match="productname">
+  <xsl:apply-templates/>
+  <xsl:choose>
+    <xsl:when test="@class = 'copyright'">&#x00A9;</xsl:when>
+    <xsl:when test="@class = 'registered'">&#x00AE;</xsl:when>
+    <xsl:when test="@class = 'trade'">&#x2122;</xsl:when>
+    <xsl:when test="@class = 'service'">&#x2120;</xsl:when>
+  </xsl:choose>
 </xsl:template>
 
 <!-- = productnumber = -->
@@ -601,9 +651,7 @@ REMARK: Document this template
 
 <!-- = prompt = -->
 <xsl:template match="prompt">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="mono" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = property = -->
@@ -621,125 +669,180 @@ REMARK: Document this template
   <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
+<!-- = ooclass = -->
+<xsl:template match="ooclass">
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
+<!-- = ooclass % db2html.inline.content.mode = -->
+<xsl:template mode="db2html.inline.content.mode" match="ooclass">
+  <xsl:for-each select="*">
+    <xsl:if test="position() != 1">
+      <xsl:text> </xsl:text>
+    </xsl:if>
+    <xsl:apply-templates select="."/>
+  </xsl:for-each>
+</xsl:template>
+
+<!-- = ooexception = -->
+<xsl:template match="ooexception">
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
+<!-- = ooexception % db2html.inline.content.mode = -->
+<xsl:template mode="db2html.inline.content.mode" match="ooexception">
+  <xsl:for-each select="*">
+    <xsl:if test="position() != 1">
+      <xsl:text> </xsl:text>
+    </xsl:if>
+    <xsl:apply-templates select="."/>
+  </xsl:for-each>
+</xsl:template>
+
+<!-- = oointerface = -->
+<xsl:template match="oointerface">
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
+<!-- = oointerface % db2html.inline.content.mode = -->
+<xsl:template mode="db2html.inline.content.mode" match="oointerface">
+  <xsl:for-each select="*">
+    <xsl:if test="position() != 1">
+      <xsl:text> </xsl:text>
+    </xsl:if>
+    <xsl:apply-templates select="."/>
+  </xsl:for-each>
+</xsl:template>
+
 <!-- = quote = -->
 <xsl:template match="quote">
-  <span class="quote">
-    <xsl:call-template name="db2html.anchor"/>
-    <xsl:call-template name="l10n.gettext">
-      <xsl:with-param name="msgid" select="'quote.format'"/>
-      <xsl:with-param name="role">
-        <xsl:choose>
-          <xsl:when test="(count(ancestor::quote) mod 2) = 0">
-            <xsl:text>outer</xsl:text>
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:text>inner</xsl:text>
-          </xsl:otherwise>
-        </xsl:choose>
-      </xsl:with-param>
-      <xsl:with-param name="node" select="."/>
-      <xsl:with-param name="format" select="true()"/>
-    </xsl:call-template>
-  </span>
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
+<!-- = quote % db2html.inline.content.mode = -->
+<xsl:template mode="db2html.inline.content.mode" match="quote">
+  <xsl:call-template name="l10n.gettext">
+    <xsl:with-param name="msgid" select="'quote.format'"/>
+    <xsl:with-param name="role">
+      <xsl:choose>
+        <xsl:when test="(count(ancestor::quote) mod 2) = 0">
+          <xsl:text>outer</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>inner</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:with-param>
+    <xsl:with-param name="node" select="."/>
+    <xsl:with-param name="format" select="true()"/>
+  </xsl:call-template>
 </xsl:template>
 
 <!-- = replaceable = -->
 <xsl:template match="replaceable">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="italic" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = returnvalue = -->
 <xsl:template match="returnvalue">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="mono" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = sgmltag = -->
 <xsl:template match="sgmltag">
-  <xsl:variable name="class">
-    <xsl:choose>
-      <xsl:when test="@class">
-        <xsl:value-of select="@class"/>
-      </xsl:when>
-      <xsl:otherwise>element</xsl:otherwise>
-    </xsl:choose>
-  </xsl:variable>
-  <!-- FIXME: no style tags -->
-  <tt class="sgmltag-{$class}">
-    <xsl:call-template name="db2html.anchor"/>
-    <xsl:choose>
-      <xsl:when test="$class = 'attribute'">
-        <xsl:apply-templates/>
-      </xsl:when>
-      <xsl:when test="$class = 'attvalue'">
-        <xsl:apply-templates/>
-      </xsl:when>
-      <xsl:when test="$class = 'element'">
-        <xsl:apply-templates/>
-      </xsl:when>
-      <xsl:when test="$class = 'emptytag'">
-        <xsl:text>&lt;</xsl:text>
-        <xsl:apply-templates/>
-        <xsl:text>/&gt;</xsl:text>
-      </xsl:when>
-      <xsl:when test="$class = 'endtag'">
-        <xsl:text>&lt;/</xsl:text>
-        <xsl:apply-templates/>
-        <xsl:text>&gt;</xsl:text>
-      </xsl:when>
-      <xsl:when test="$class = 'genentity'">
-        <xsl:text>&amp;</xsl:text>
-        <xsl:apply-templates/>
-        <xsl:text>;</xsl:text>
-      </xsl:when>
-      <xsl:when test="$class = 'namespace'">
-        <xsl:apply-templates/>
-      </xsl:when>
-      <xsl:when test="$class = 'numcharref'">
-        <xsl:text>&amp;#</xsl:text>
-        <xsl:apply-templates/>
-        <xsl:text>;</xsl:text>
-      </xsl:when>
-      <xsl:when test="$class = 'paramentity'">
-        <xsl:text>%</xsl:text>
-        <xsl:apply-templates/>
-        <xsl:text>;</xsl:text>
-      </xsl:when>
-      <xsl:when test="$class = 'pi'">
-        <xsl:text>&lt;?</xsl:text>
-        <xsl:apply-templates/>
-        <xsl:text>&gt;</xsl:text>
-      </xsl:when>
-      <xsl:when test="$class = 'sgmlcomment'">
-        <xsl:text>&lt;!--</xsl:text>
-        <xsl:apply-templates/>
-        <xsl:text>--&gt;</xsl:text>
-      </xsl:when>
-      <xsl:when test="$class = 'starttag'">
-        <xsl:text>&lt;</xsl:text>
-        <xsl:apply-templates/>
-        <xsl:text>&gt;</xsl:text>
-      </xsl:when>
-      <xsl:when test="$class = 'xmlpi'">
-        <xsl:text>&lt;?</xsl:text>
-        <xsl:apply-templates/>
-        <xsl:text>?&gt;</xsl:text>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:apply-templates/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </tt>
+  <xsl:call-template name="db2html.inline">
+    <xsl:with-param name="class">
+      <xsl:text>sgmltag</xsl:text>
+      <xsl:if test="@class">
+        <xsl:value-of select="concat(' sgmltag-', @class)"/>
+      </xsl:if>
+    </xsl:with-param>
+  </xsl:call-template>
+</xsl:template>
+
+<!-- = sgmltag % db2html.inline.content.mode = -->
+<xsl:template mode="db2html.inline.content.mode" match="sgmltag">
+  <xsl:choose>
+    <xsl:when test="@class = 'attribute'">
+      <xsl:apply-templates/>
+    </xsl:when>
+    <xsl:when test="@class = 'attvalue'">
+      <xsl:apply-templates/>
+    </xsl:when>
+    <xsl:when test="@class = 'element'">
+      <xsl:apply-templates/>
+    </xsl:when>
+    <xsl:when test="@class = 'emptytag'">
+      <xsl:text>&lt;</xsl:text>
+      <xsl:apply-templates/>
+      <xsl:text>/&gt;</xsl:text>
+    </xsl:when>
+    <xsl:when test="@class = 'endtag'">
+      <xsl:text>&lt;/</xsl:text>
+      <xsl:apply-templates/>
+      <xsl:text>&gt;</xsl:text>
+    </xsl:when>
+    <xsl:when test="@class = 'genentity'">
+      <xsl:text>&amp;</xsl:text>
+      <xsl:apply-templates/>
+      <xsl:text>;</xsl:text>
+    </xsl:when>
+    <xsl:when test="@class = 'localname'">
+      <xsl:apply-templates/>
+    </xsl:when>
+    <xsl:when test="@class = 'namespace'">
+      <xsl:apply-templates/>
+    </xsl:when>
+    <xsl:when test="@class = 'numcharref'">
+      <xsl:text>&amp;#</xsl:text>
+      <xsl:apply-templates/>
+      <xsl:text>;</xsl:text>
+    </xsl:when>
+    <xsl:when test="@class = 'paramentity'">
+      <xsl:text>%</xsl:text>
+      <xsl:apply-templates/>
+      <xsl:text>;</xsl:text>
+    </xsl:when>
+    <xsl:when test="@class = 'pi'">
+      <xsl:text>&lt;?</xsl:text>
+      <xsl:apply-templates/>
+      <xsl:text>&gt;</xsl:text>
+    </xsl:when>
+    <xsl:when test="@class = 'prefix'">
+      <xsl:apply-templates/>
+      <xsl:text>:</xsl:text>
+    </xsl:when>
+    <xsl:when test="@class = 'sgmlcomment'">
+      <xsl:text>&lt;!--</xsl:text>
+      <xsl:apply-templates/>
+      <xsl:text>--&gt;</xsl:text>
+    </xsl:when>
+    <xsl:when test="@class = 'starttag'">
+      <xsl:text>&lt;</xsl:text>
+      <xsl:apply-templates/>
+      <xsl:text>&gt;</xsl:text>
+    </xsl:when>
+    <xsl:when test="@class = 'xmlpi'">
+      <xsl:text>&lt;?</xsl:text>
+      <xsl:apply-templates/>
+      <xsl:text>?&gt;</xsl:text>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:apply-templates/>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
 <!-- = shortcut = -->
 <xsl:template match="shortcut">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="bold" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
+<!-- = shortcut % db2html.inline.content.mode = -->
+<xsl:template mode="db2html.inline.content.mode" match="shortcut">
+  <xsl:text>(</xsl:text>
+  <xsl:apply-templates/>
+  <xsl:text>)</xsl:text>
 </xsl:template>
 
 <!-- = state = -->
@@ -754,22 +857,17 @@ REMARK: Document this template
 
 <!-- = structfield = -->
 <xsl:template match="structfield">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="italic" select="true()"/>
-    <xsl:with-param name="mono" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = structname = -->
 <xsl:template match="structname">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="mono" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = subscript = -->
 <xsl:template match="subscript">
-  <sub>
+  <sub class="subscript">
     <xsl:call-template name="db2html.anchor"/>
     <xsl:apply-templates/>
   </sub>
@@ -777,7 +875,7 @@ REMARK: Document this template
 
 <!-- = superscript = -->
 <xsl:template match="superscript">
-  <sup>
+  <sup class="superscript">
     <xsl:call-template name="db2html.anchor"/>
     <xsl:apply-templates/>
   </sup>
@@ -795,9 +893,7 @@ REMARK: Document this template
 
 <!-- = systemitem = -->
 <xsl:template match="systemitem">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="mono" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = token = -->
@@ -807,16 +903,18 @@ REMARK: Document this template
 
 <!-- = trademark = -->
 <xsl:template match="trademark">
-  <span class="trademark">
-    <xsl:call-template name="db2html.anchor"/>
-    <xsl:apply-templates/>
-    <xsl:choose>
-      <xsl:when test="@class = 'copyright'">&#x00A9;</xsl:when>
-      <xsl:when test="@class = 'registered'">&#x00AE;</xsl:when>
-      <xsl:when test="@class = 'service'">&#x2120;</xsl:when>
-      <xsl:otherwise>&#x2122;</xsl:otherwise>
-    </xsl:choose>
-  </span>
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
+<!-- = trademark % db2html.inline.content.mode = -->
+<xsl:template mode="db2html.inline.content.mode" match="trademark">
+  <xsl:apply-templates/>
+  <xsl:choose>
+    <xsl:when test="@class = 'copyright'">&#x00A9;</xsl:when>
+    <xsl:when test="@class = 'registered'">&#x00AE;</xsl:when>
+    <xsl:when test="@class = 'service'">&#x2120;</xsl:when>
+    <xsl:otherwise>&#x2122;</xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
 <!-- = type = -->
@@ -826,31 +924,22 @@ REMARK: Document this template
 
 <!-- = uri = -->
 <xsl:template match="uri">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="mono" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = userinput = -->
 <xsl:template match="userinput">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="bold" select="true()"/>
-    <xsl:with-param name="mono" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = varname = -->
 <xsl:template match="varname">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="mono" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = wordasword = -->
 <xsl:template match="wordasword">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="italic" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 </xsl:stylesheet>

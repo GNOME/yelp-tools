@@ -166,17 +166,19 @@ div.cmdsynopsis { font-family: monospace; }
   </xsl:param>
   <div class="cmdsynopsis">
     <xsl:call-template name="db2html.anchor"/>
-    <xsl:for-each select="command | arg | group | sbr">
-      <xsl:if test="position() != 1">
-        <xsl:value-of select="$sepchar"/>
-      </xsl:if>
-      <xsl:apply-templates select=".">
+    <pre>
+      <xsl:for-each select="command | arg | group | sbr">
+        <xsl:if test="position() != 1">
+          <xsl:value-of select="$sepchar"/>
+        </xsl:if>
+        <xsl:apply-templates select=".">
+          <xsl:with-param name="sepchar" select="$sepchar"/>
+        </xsl:apply-templates>
+      </xsl:for-each>
+      <xsl:apply-templates select="synopfragment">
         <xsl:with-param name="sepchar" select="$sepchar"/>
       </xsl:apply-templates>
-    </xsl:for-each>
-    <xsl:apply-templates select="synopfragment">
-      <xsl:with-param name="sepchar" select="$sepchar"/>
-    </xsl:apply-templates>
+    </pre>
   </div>
 </xsl:template>
 

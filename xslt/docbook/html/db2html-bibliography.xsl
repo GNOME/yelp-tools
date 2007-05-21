@@ -60,7 +60,7 @@ Outputs CSS that controls the appearance of bibliograpies
         </xsl:call-template>
       </xsl:if>
     </xsl:with-param>
-    <xsl:with-param name="info" select="glossaryinfo"/>
+    <xsl:with-param name="info" select="bibliographyinfo"/>
     <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
     <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
     <xsl:with-param name="chunk_divisions" select="false()"/>

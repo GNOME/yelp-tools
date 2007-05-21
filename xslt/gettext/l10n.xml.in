@@ -625,6 +625,43 @@
   </_msg>
 </msgset>
 
+<msgset>
+  <msgid>citation.format</msgid>
+  <!--
+  This is a special format message.  Please read the full translator
+  documentation before translating this message.  The documentation
+  is maintained as part of the stylesheet documentation in DocBook.
+  For your convenience, it has also been converted to an HTML file
+  named STYLESHEETS.xml in the i18n directory.
+
+  citetitle - An inline bibliographic reference to another published work
+  http://docbook.org/tdg/en/html/citation.html
+
+  This is a format message used to format inline citations to other
+  published works.  The content is typically an abbreviation of the
+  authors' last names.  In English, this abbreviation is usually
+  written inside [square brackets].
+
+  Special elements in the message will be replaced with the
+  appropriate content, as follows:
+
+  citation - The text content of the citation element, possibly
+             as a link to an entry in the bibliography
+
+  These should be written as empty XML elements.  Due to limitations
+  in intltool, I can't write XML content in translator comments.  To
+  insert the citation, simply write left angle bracket, citation,
+  slash, right angle bracket.
+
+  Additionally, format messages can use the i, b, and tt markup tags
+  to mark text as italic, bold, and monospace.
+  -->
+  <_msg>
+    <msgid>citation.format</msgid>
+    <msgstr>[<citation/>]</msgstr>
+  </_msg>
+</msgset>
+
 <!-- == chapter == -->
 <msgset>
   <msgid>chapter.digit</msgid>

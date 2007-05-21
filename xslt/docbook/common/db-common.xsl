@@ -159,12 +159,12 @@ assembled those into a string.
 -->
 <xsl:template name="db.personname">
   <xsl:param name="node" select="."/>
+  <!-- FIXME: call i18n.locale -->
   <xsl:param name="lang" select="ancestor-or-self::*[@lang][1]/@lang"/>
 
   <!-- FIXME: Use xsl:choose for different language rules -->
   <xsl:if test="$node/honorific">
     <xsl:apply-templates select="$node/honorific[1]"/>
-    <xsl:text>.</xsl:text>
   </xsl:if>
   <xsl:choose>
     <xsl:when test="$node/@role = 'family-given'">

@@ -92,6 +92,11 @@ body {
   direction: </xsl:text><xsl:call-template name="l10n.direction"/><xsl:text>;
 }
 div, p, pre, blockquote { margin: 0; padding: 0; }
+p img { vertical-align: middle; }
+sub { font-size: 0.83em; }
+sub sub { font-size: 1em; }
+sup { font-size: 0.83em; }
+sup sup { font-size: 1em; }
 table { border-collapse: collapse; }
 td { vertical-align: top; }
 td { padding: 0.2em 0.83em 0.2em 0.83em; }
@@ -138,6 +143,8 @@ h4.title, h5.title, h6.title, h7.title { font-size: 1em; }
   margin-right: 1em;
 }
 .block-indent .block-indent { margin-left: 0em; margin-right: 0em; }
+td .block-indent  { margin-left: 0em; margin-right: 0em; }
+dd .block-indent  { margin-left: 0em; margin-right: 0em; }
 .block-verbatim { white-space: pre; }
 div.title {
   margin-bottom: 0.2em;
@@ -165,7 +172,10 @@ dt { margin: 0; }
 dd {
   <!-- FIXME: rtl -->
   margin-left: 1.72em;
+  margin-top: 0.2em;
+  margin-bottom: 1em;
 }
+dl.dl-compact dd { margin-top: 0; margin-bottom: 0; }
 ul.linktrail {
   display: block;
   margin: 0.2em 0 0 0;
@@ -294,7 +304,6 @@ div.caption { margin-top: 0.5em; }
 div.list div.title span.title {
   border-bottom: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
 }
-div.list dd { margin-top: 0.2em; margin-bottom: 1em; }
 div.simplelist {
   <!-- FIXME: rtl -->
   margin-left: 1.72em;
@@ -337,6 +346,10 @@ div.screen {
   border: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
 }
 div.screen .prompt {
+  color: </xsl:text><xsl:value-of select="$theme.color.text_light"/><xsl:text>;
+}
+div.screen .userinput {
+  font-weight: bold;
   color: </xsl:text><xsl:value-of select="$theme.color.text_light"/><xsl:text>;
 }
 pre.linenumbering {
@@ -386,8 +399,72 @@ div.warning {
   background-image: url("</xsl:text><xsl:value-of select="$theme.icon.admon.warning"/><xsl:text>");
 }
 
+span.accel { text-decoration: underline; }
+span.acronym { font-family: sans-serif; }
+span.application { font-style: italic; }
+span.classname, span.exceptionname, span.interfacename { font-family: monospace; }
+span.code {
+  font-family: monospace;
+  border: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
+  <!-- FIXME: rtl -->
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+pre span.code { border: none; padding: 0; }
+span.command {
+  font-family: monospace;
+  border: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
+  <!-- FIXME: rtl -->
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+pre span.command { border: none; padding: 0; }
+span.computeroutput { font-family: monospace; }
+<!-- FIXME: stderr red text -->
+span.constant { font-family: monospace; }
+span.database { font-family: monospace; }
+span.email { font-family: monospace; }
+span.emphasis { font-style: italic; }
+span.emphasis-bold { font-style: normal; font-weight: bold; }
+span.envar { font-family: monospace; }
+<!-- FIXME: error* red text -->
+span.filename { font-family: monospace; }
+span.firstterm { font-style: italic; }
+span.foreignphrase { font-style: italic; }
+span.function { font-family: monospace; }
+span.glossterm { font-style: italic; }
+dt.glossterm span.glossterm { font-style: normal; }
+span.guibutton, span.guilabel, span.guimenu, span.guimenuitem, span.guisubmenu, span.interface {
+  font-weight: bold;
+  color: </xsl:text><xsl:value-of select="$theme.color.text_light"/><xsl:text>;
+}
+span.keycap {
+  font-weight: bold;
+  color: </xsl:text><xsl:value-of select="$theme.color.text_light"/><xsl:text>;
+}
+span.lineannotation { font-style: italic; }
+span.literal { font-family: monospace; }
+span.markup  { font-family: monospace; }
+span.medialabel { font-style: italic; }
+span.methodname { font-family: monospace; }
+span.ooclass, span.ooexception, span.oointerface { font-family: monospace; }
+span.option { font-family: monospace; }
 span.parameter { font-family: monospace; }
 span.paramdef span.parameter { font-style: italic; }
+span.prompt { font-family: monospace; }
+span.property { font-family: monospace; }
+span.replaceable  { font-style: italic; }
+span.returnvalue { font-family: monospace; }
+span.sgmltag { font-family: monospace; }
+span.structfield, span.structname { font-family: monospace; }
+span.symbol { font-family: monospace; }
+span.systemitem { font-family: monospace; }
+span.token { font-family: monospace; }
+span.type { font-family: monospace; }
+span.uri { font-family: monospace; }
+span.userinput { font-family: monospace; }
+span.varname { font-family: monospace; }
+span.wordasword { font-style: italic; }
 <!-- FIXME below -->
 
 </xsl:text>

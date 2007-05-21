@@ -160,6 +160,11 @@ REMARK: Describe this mode
     <xsl:when test="glossaryinfo/title">
       <xsl:apply-templates select="glossaryinfo/title/node()"/>
     </xsl:when>
+    <xsl:otherwise>
+      <xsl:call-template name="l10n.gettext">
+        <xsl:with-param name="msgid" select="'Glossary'"/>
+      </xsl:call-template>
+    </xsl:otherwise>
   </xsl:choose>
 </xsl:template>
 
@@ -172,6 +177,11 @@ REMARK: Describe this mode
     <xsl:when test="indexinfo/title">
       <xsl:apply-templates select="indexinfo/title/node()"/>
     </xsl:when>
+    <xsl:otherwise>
+      <xsl:call-template name="l10n.gettext">
+        <xsl:with-param name="msgid" select="'Index'"/>
+      </xsl:call-template>
+    </xsl:otherwise>
   </xsl:choose>
 </xsl:template>
 
@@ -385,6 +395,11 @@ REMARK: Describe this mode
     <xsl:when test="setindexinfo/title">
       <xsl:apply-templates select="setindexinfo/title/node()"/>
     </xsl:when>
+    <xsl:otherwise>
+      <xsl:call-template name="l10n.gettext">
+        <xsl:with-param name="msgid" select="'Index'"/>
+      </xsl:call-template>
+    </xsl:otherwise>
   </xsl:choose>
 </xsl:template>
 
@@ -540,6 +555,11 @@ REMARK: Describe this mode
     <xsl:when test="glossaryinfo/title">
       <xsl:apply-templates select="glossaryinfo/title/node()"/>
     </xsl:when>
+    <xsl:otherwise>
+      <xsl:call-template name="l10n.gettext">
+        <xsl:with-param name="msgid" select="'Glossary'"/>
+      </xsl:call-template>
+    </xsl:otherwise>
   </xsl:choose>
 </xsl:template>
 
@@ -558,6 +578,11 @@ REMARK: Describe this mode
     <xsl:when test="indexinfo/title">
       <xsl:apply-templates select="indexinfo/title/node()"/>
     </xsl:when>
+    <xsl:otherwise>
+      <xsl:call-template name="l10n.gettext">
+        <xsl:with-param name="msgid" select="'Index'"/>
+      </xsl:call-template>
+    </xsl:otherwise>
   </xsl:choose>
 </xsl:template>
 
@@ -870,6 +895,11 @@ REMARK: Describe this mode
     <xsl:when test="setindexinfo/title">
       <xsl:apply-templates select="setindexinfo/title/node()"/>
     </xsl:when>
+    <xsl:otherwise>
+      <xsl:call-template name="l10n.gettext">
+        <xsl:with-param name="msgid" select="'Index'"/>
+      </xsl:call-template>
+    </xsl:otherwise>
   </xsl:choose>
 </xsl:template>
 
