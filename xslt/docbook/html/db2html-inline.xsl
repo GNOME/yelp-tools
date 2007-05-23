@@ -27,6 +27,7 @@ DocBook to HTML - Inline Elements
 
 REMARK: Describe this module
 -->
+<!--#% l10n.format.mode -->
 
 
 <!--**==========================================================================

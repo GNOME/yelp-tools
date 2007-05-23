@@ -1,6 +1,15 @@
 2007-05-23  Shaun McCance  <shaunm@gnome.org>
 
 	* test/testbook/testbook.xml:
+	* xslt/docbook/html/db2html-classsynopsis.xsl:
+	- Added some Pythonic goodies to classsynopsis
+
+	* xslt/docbook/html/db2html-inline.xsl:
+	- Fixed xsldoc error on l10n.format.mode
+
+2007-05-23  Shaun McCance  <shaunm@gnome.org>
+
+	* test/testbook/testbook.xml:
 	* xslt/docbook/common/db-chunk.xsl:
 	* xslt/docbook/html/db2html-bibliography.xsl:
 	- Made bibliodiv chunkable

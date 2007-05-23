@@ -1703,6 +1703,50 @@ porttitor condimentum nulla.</para>
 <methodsynopsis><methodname>get_relief</methodname><void/></methodsynopsis>
 <fieldsynopsis><varname>fake</varname><initializer>True</initializer></fieldsynopsis>
 </classsynopsis>
+
+<para>Here we use <sgmltag>modifier</sgmltag> for Python decorators:</para>
+<classsynopsis language="python">
+<ooclass><classname>Decorated</classname></ooclass>
+<ooclass><classname>Base1</classname></ooclass>
+<ooclass><classname>Base2</classname></ooclass>
+<ooclass><classname>Base3</classname></ooclass>
+<constructorsynopsis>
+  <modifier>@constructor</modifier>
+  <methodname>create</methodname>
+  <methodparam><parameter>input</parameter></methodparam>
+</constructorsynopsis>
+<constructorsynopsis>
+  <modifier>@destructor</modifier>
+  <methodname>destroy</methodname>
+  <void/>
+</constructorsynopsis>
+<fieldsynopsis>
+  <modifier>@private</modifier>
+  <varname>parts</varname>
+</fieldsynopsis>
+<methodsynopsis>
+  <modifier>@classmethod</modifier>
+  <methodname>find_all</methodname>
+  <void/>
+</methodsynopsis>
+</classsynopsis>
+
+<para>Here we use annotations from
+<ulink url="http://www.python.org/dev/peps/pep-3107/">PEP 3107</ulink>:</para>
+<methodsynopsis language="python">
+  <type>Frobnicated</type>
+  <methodname>frobnicate</methodname>
+  <methodparam>
+    <type>Frobnicatable</type>
+    <parameter>frob</parameter>
+  </methodparam>
+  <methodparam>
+    <type>bool</type>
+    <parameter>thorough</parameter>
+    <initializer>False</initializer>
+  </methodparam>
+</methodsynopsis>
+
 </section> <!-- classsynopsis-python -->
 
 </chapter> <!-- classsynopsis -->

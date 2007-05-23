@@ -375,7 +375,12 @@ REMARK: Describe this mode
     <xsl:apply-templates mode="db2html.class.python.mode" select="ooclass[1]"/>
     <xsl:if test="ooclass[2]">
       <xsl:text>(</xsl:text>
-      <xsl:apply-templates mode="db2html.class.python.mode" select="ooclass[2]"/>
+      <xsl:for-each select="ooclass[position() != 1]">
+        <xsl:if test="position() != 1">
+          <xsl:text>, </xsl:text>
+        </xsl:if>
+        <xsl:apply-templates mode="db2html.class.python.mode" select="."/>
+      </xsl:for-each>
       <xsl:text>)</xsl:text>
     </xsl:if>
     <xsl:text>:&#x000A;</xsl:text>
@@ -396,9 +401,17 @@ REMARK: Describe this mode
          (methodparam+ | void?)
        }
   -->
-  <xsl:if test="../self::classsynopsis">
-    <xsl:value-of select="$python.tab"/>
-  </xsl:if>
+  <xsl:variable name="tab">
+    <xsl:if test="../self::classsynopsis">
+      <xsl:value-of select="$python.tab"/>
+    </xsl:if>
+  </xsl:variable>
+  <xsl:for-each select="modifier">
+    <xsl:value-of select="$tab"/>
+    <xsl:apply-templates mode="db2html.class.python.mode" select="."/>
+    <xsl:text>&#x000A;</xsl:text>
+  </xsl:for-each>
+  <xsl:value-of select="$tab"/>
   <xsl:choose>
     <xsl:when test="methodname">
       <xsl:apply-templates mode="db2html.class.python.mode" select="methodname"/>
@@ -416,7 +429,12 @@ REMARK: Describe this mode
     </xsl:if>
     <xsl:apply-templates mode="db2html.class.python.mode" select="."/>
   </xsl:for-each>
-  <xsl:text>)&#x000A;</xsl:text>
+  <xsl:text>)</xsl:text>
+  <xsl:if test="type">
+    <xsl:text> -&gt; </xsl:text>
+    <xsl:apply-templates mode="db2html.class.python.mode" select="type"/>
+  </xsl:if>
+  <xsl:text>&#x000A;</xsl:text>
 </xsl:template>
 
 <!-- = destructorsynopsis % db2html.class.python.mode = -->
@@ -428,9 +446,17 @@ REMARK: Describe this mode
          (methodparam+ | void?)
        }
   -->
-  <xsl:if test="../self::classsynopsis">
-    <xsl:value-of select="$python.tab"/>
-  </xsl:if>
+  <xsl:variable name="tab">
+    <xsl:if test="../self::classsynopsis">
+      <xsl:value-of select="$python.tab"/>
+    </xsl:if>
+  </xsl:variable>
+  <xsl:for-each select="modifier">
+    <xsl:value-of select="$tab"/>
+    <xsl:apply-templates mode="db2html.class.python.mode" select="."/>
+    <xsl:text>&#x000A;</xsl:text>
+  </xsl:for-each>
+  <xsl:value-of select="$tab"/>
   <xsl:choose>
     <xsl:when test="methodname">
       <xsl:apply-templates mode="db2html.class.python.mode" select="methodname"/>
@@ -448,7 +474,12 @@ REMARK: Describe this mode
     </xsl:if>
     <xsl:apply-templates mode="db2html.class.python.mode" select="."/>
   </xsl:for-each>
-  <xsl:text>)&#x000A;</xsl:text>
+  <xsl:text>)</xsl:text>
+  <xsl:if test="type">
+    <xsl:text> -&gt; </xsl:text>
+    <xsl:apply-templates mode="db2html.class.python.mode" select="type"/>
+  </xsl:if>
+  <xsl:text>&#x000A;</xsl:text>
 </xsl:template>
 
 <!-- = fieldsynopsis % db2html.class.python.mode = -->
@@ -461,9 +492,17 @@ REMARK: Describe this mode
          initializer?
        }
   -->
-  <xsl:if test="../self::classsynopsis">
-    <xsl:value-of select="$python.tab"/>
-  </xsl:if>
+  <xsl:variable name="tab">
+    <xsl:if test="../self::classsynopsis">
+      <xsl:value-of select="$python.tab"/>
+    </xsl:if>
+  </xsl:variable>
+  <xsl:for-each select="modifier">
+    <xsl:value-of select="$tab"/>
+    <xsl:apply-templates mode="db2html.class.python.mode" select="."/>
+    <xsl:text>&#x000A;</xsl:text>
+  </xsl:for-each>
+  <xsl:value-of select="$tab"/>
   <xsl:apply-templates mode="db2html.class.python.mode" select="varname"/>
   <xsl:if test="initializer">
     <xsl:text>=</xsl:text>
@@ -476,6 +515,13 @@ REMARK: Describe this mode
 <xsl:template mode="db2html.class.python.mode" match="methodparam">
   <span class="methodparam">
     <xsl:apply-templates mode="db2html.class.python.mode" select="parameter"/>
+    <xsl:if test="modifier or type">
+      <xsl:text>: </xsl:text>
+      <xsl:apply-templates mode="db2html.class.python.mode" select="(modifier | type)[1]"/>
+      <xsl:if test="initializer">
+        <xsl:text> </xsl:text>
+      </xsl:if>
+    </xsl:if>
     <xsl:if test="initializer">
       <xsl:text>=</xsl:text>
       <xsl:apply-templates mode="db2html.class.python.mode" select="initializer"/>
@@ -493,9 +539,17 @@ REMARK: Describe this mode
          (methodparam+ | void?)
        }
   -->
-  <xsl:if test="../self::classsynopsis">
-    <xsl:value-of select="$python.tab"/>
-  </xsl:if>
+  <xsl:variable name="tab">
+    <xsl:if test="../self::classsynopsis">
+      <xsl:value-of select="$python.tab"/>
+    </xsl:if>
+  </xsl:variable>
+  <xsl:for-each select="modifier">
+    <xsl:value-of select="$tab"/>
+    <xsl:apply-templates mode="db2html.class.python.mode" select="."/>
+    <xsl:text>&#x000A;</xsl:text>
+  </xsl:for-each>
+  <xsl:value-of select="$tab"/>
   <xsl:text>def </xsl:text>
   <xsl:apply-templates mode="db2html.class.python.mode" select="methodname"/>
   <xsl:text>(</xsl:text>
@@ -505,7 +559,12 @@ REMARK: Describe this mode
     </xsl:if>
     <xsl:apply-templates mode="db2html.class.python.mode" select="."/>
   </xsl:for-each>
-  <xsl:text>)&#x000A;</xsl:text>
+  <xsl:text>)</xsl:text>
+  <xsl:if test="type">
+    <xsl:text> -&gt; </xsl:text>
+    <xsl:apply-templates mode="db2html.class.python.mode" select="type"/>
+  </xsl:if>
+  <xsl:text>&#x000A;</xsl:text>
 </xsl:template>
 
 </xsl:stylesheet>
