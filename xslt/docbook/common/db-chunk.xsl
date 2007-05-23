@@ -35,7 +35,7 @@ A space-seperated list of the names of elements that should be chunked
 REMARK: This parameter sucks
 -->
 <xsl:param name="db.chunk.chunks" select="
-           'appendix    article     bibliography  book       chapter
+           'appendix    article     bibliography  bibliodiv  book    chapter
             colophon    dedication  glossary      glossdiv   index
             lot         part        preface       refentry   reference
             sect1       sect2       sect3         sect4      sect5
@@ -228,6 +228,7 @@ REMARK: We need a lot more explanation about chunk flow
   <xsl:if test="$depth_of_chunk &lt; $db.chunk.max_depth">
     <xsl:for-each select="
                   $node/appendix   | $node/article    | $node/bibliography |
+                  $node/bibliodiv  |
                   $node/book       | $node/chapter    | $node/colophon     |
                   $node/dedication | $node/glossary   | $node/glossdiv     |
                   $node/index      | $node/lot        | $node/part         |
@@ -264,6 +265,7 @@ REMARK: Explain how this works
                         count($node/ancestor-or-self::appendix     ) + 
                         count($node/ancestor-or-self::article      ) + 
                         count($node/ancestor-or-self::bibliography ) + 
+                        count($node/ancestor-or-self::bibliodiv    ) +
                         count($node/ancestor-or-self::book         ) + 
                         count($node/ancestor-or-self::chapter      ) + 
                         count($node/ancestor-or-self::colophon     ) + 
@@ -285,28 +287,6 @@ REMARK: Explain how this works
                         count($node/ancestor-or-self::setindex     ) + 
                         count($node/ancestor-or-self::simplesect   ) + 
                         count($node/ancestor-or-self::toc          )"/>
-<!--
-  <xsl:variable name="divs"
-                select="count($node/ancestor-or-self::*[
-                          self::appendix     or  self::article   or
-                          self::bibliography or  self::book      or
-                          self::chapter      or  self::colophon  or
-                          self::dedication   or  self::glossary  or
-                          self::glossdiv     or  self::index     or
-                          self::lot          or  self::part      or
-                          self::preface      or  self::refentry  or
-                          self::reference    or  self::sect1     or
-                          self::sect2        or  self::sect3     or
-                          self::sect4        or  self::sect5     or
-                          self::section      or  self::setindex  or
-                          self::simplesect   or  self::toc       ])"/>
--->
-<!--
-  <xsl:variable name="divs"
-                select="count($node/ancestor-or-self::*
-                               [contains($db.chunk.chunks_,
-                                  concat(' ', local-name(.), ' '))] )"/>
--->
   <xsl:choose>
     <xsl:when test="$divs &lt; ($db.chunk.max_depth + 1)">
       <xsl:value-of select="count($node/ancestor-or-self::*) - $divs"/>
@@ -331,22 +311,6 @@ REMARK: Explain how this works
                 select="$node/ancestor-or-self::*
                          [contains($db.chunk.chunks_,
                             concat(' ', local-name(.), ' '))]"/>
-<!--
-  <xsl:variable name="divs"
-                select="count($node/ancestor::*[
-                          self::appendix     or  self::article   or
-                          self::bibliography or  self::book      or
-                          self::chapter      or  self::colophon  or
-                          self::dedication   or  self::glossary  or
-                          self::glossdiv     or  self::index     or
-                          self::lot          or  self::part      or
-                          self::preface      or  self::refentry  or
-                          self::reference    or  self::sect1     or
-                          self::sect2        or  self::sect3     or
-                          self::sect4        or  self::sect5     or
-                          self::section      or  self::setindex  or
-                          self::simplesect   or  self::toc       ])"/>
--->
   <xsl:choose>
     <xsl:when test="count($divs) - 1 &lt; $db.chunk.max_depth">
       <xsl:value-of select="count($divs) - 1"/>

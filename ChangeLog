@@ -1,3 +1,16 @@
+2007-05-23  Shaun McCance  <shaunm@gnome.org>
+
+	* test/testbook/testbook.xml:
+	* xslt/docbook/common/db-chunk.xsl:
+	* xslt/docbook/html/db2html-bibliography.xsl:
+	- Made bibliodiv chunkable
+
+	* data/icons/hicolor/scalable/admon-caution-shadow.svg:
+	* data/icons/hicolor/scalable/admon-caution.svg:
+	* data/icons/hicolor/scalable/admon-warning-shadow.svg:
+	* data/icons/hicolor/scalable/admon-warning.svg:
+	- Adding SVG some files I'd forgotten
+
 2007-05-21  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/html/db2html-division.xsl:
