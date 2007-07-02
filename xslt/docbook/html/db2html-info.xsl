@@ -473,20 +473,8 @@ REMARK: Describe this mode.
     <xsl:call-template name="l10n.gettext">
       <xsl:with-param name="msgid" select="'Copyright'"/>
     </xsl:call-template>
-    <xsl:text>&#x00A0;©&#x00A0;</xsl:text>
-    <xsl:for-each select="year">
-      <xsl:if test="position() != 1">
-        <xsl:text>, </xsl:text>
-      </xsl:if>
-      <xsl:apply-templates mode="db2html.info.mode" select="."/>
-    </xsl:for-each>
-    <xsl:text>&#x00A0;&#x00A0;</xsl:text>
-    <xsl:for-each select="holder">
-      <xsl:if test="position() != 1">
-        <xsl:text>, </xsl:text>
-      </xsl:if>
-      <xsl:apply-templates mode="db2html.info.mode" select="."/>
-    </xsl:for-each>
+    <xsl:text>&#x00A0;</xsl:text>
+    <xsl:call-template name="db.copyright"/>
   </dt>
 </xsl:template>
 
@@ -524,13 +512,6 @@ REMARK: Describe this mode.
     <!-- Can occur outside db2html.info.mode, so apply those templates -->
     <xsl:apply-templates select="."/>
   </dd>
-</xsl:template>
-
-<!-- = holder % db2html.info.mode = -->
-<xsl:template mode="db2html.info.mode" match="holder">
-  <span class="holder">
-    <xsl:apply-templates/>
-  </span>
 </xsl:template>
 
 <!-- = legalnotice % db2html.info.mode = -->
@@ -673,14 +654,6 @@ REMARK: Describe this mode.
 <xsl:template mode="db2html.info.mode" match="revremark">
   <xsl:call-template name="db2html.inline"/>
 </xsl:template>
-
-<!-- = year % db2html.info.mode = -->
-<xsl:template mode="db2html.info.mode" match="year">
-  <span class="year">
-    <xsl:apply-templates/>
-  </span>
-</xsl:template>
-
 
 
 <!--#% db.chunk.info.content.mode ========================================== -->

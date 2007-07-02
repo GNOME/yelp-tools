@@ -143,6 +143,23 @@ FIXME
   <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
+<!-- = bibkey-abbrev = -->
+<xsl:key name="bibkey-abbrev"
+         match="biblioentry[@id and *[1]/self::abbrev] |
+                bibliomixed[@id and *[1]/self::abbrev] "
+         use="string(*[1])"/>
+
+<!-- = bibkey-label = -->
+<xsl:key name="bibkey-label"
+         match="biblioentry[@id and @xreflabel] |
+                bibliomixed[@id and @xreflabel] "
+         use="string(@xreflabel)"/>
+
+<!-- = bibkey-id = -->
+<xsl:key name="bibkey-id"
+         match="biblioentry[@id] | bibliomixed[@id]"
+         use="string(@id)"/>
+
 <!-- = citation = -->
 <xsl:template match="citation">
   <xsl:call-template name="db2html.inline"/>
@@ -160,8 +177,51 @@ FIXME
 <!-- = citation % l10n.format.mode = -->
 <xsl:template mode="l10n.format.mode" match="msg:citation">
   <xsl:param name="node"/>
-  <!-- FIXME: link to biblioentry/abbrev -->
-  <xsl:apply-templates select="$node/node()"/>
+  <xsl:for-each select="$node[1]">
+    <xsl:variable name="entry_abbrev" select="key('bibkey-abbrev', string($node))"/>
+    <xsl:choose>
+      <xsl:when test="$entry_abbrev">
+        <xsl:call-template name="db2html.xref">
+          <xsl:with-param name="linkend" select="$entry_abbrev/@id"/>
+          <xsl:with-param name="target" select="$entry_abbrev"/>
+          <xsl:with-param name="content">
+            <xsl:apply-templates select="node()"/>
+          </xsl:with-param>
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:variable name="entry_label" select="key('bibkey-label', string($node))"/>
+        <xsl:choose>
+          <xsl:when test="$entry_label">
+            <xsl:call-template name="db2html.xref">
+              <xsl:with-param name="linkend" select="$entry_label/@id"/>
+              <xsl:with-param name="target" select="$entry_label"/>
+              <xsl:with-param name="content">
+                <xsl:apply-templates select="node()"/>
+              </xsl:with-param>
+            </xsl:call-template>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:variable name="entry_id" select="key('bibkey-id', string($node))"/>
+            <xsl:choose>
+              <xsl:when test="$entry_id">
+                <xsl:call-template name="db2html.xref">
+                  <xsl:with-param name="linkend" select="$entry_id/@id"/>
+                  <xsl:with-param name="target" select="$entry_id"/>
+                  <xsl:with-param name="content">
+                    <xsl:apply-templates select="node()"/>
+                  </xsl:with-param>
+                </xsl:call-template>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:apply-templates select="node()"/>
+              </xsl:otherwise>
+            </xsl:choose>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:for-each>
 </xsl:template>
 
 <!-- = citetitle = -->
@@ -432,6 +492,11 @@ FIXME
   <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
+<!-- = holder = -->
+<xsl:template match="holder">
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
 <!-- = honorific = -->
 <xsl:template match="honorific">
   <xsl:call-template name="db2html.inline"/>
@@ -454,6 +519,16 @@ FIXME
 
 <!-- = isbn = -->
 <xsl:template match="isbn">
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
+<!-- = issn = -->
+<xsl:template match="issn">
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
+<!-- = issuenum = -->
+<xsl:template match="issuenum">
   <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
@@ -591,6 +666,11 @@ FIXME
 
 <!-- = othername = -->
 <xsl:template match="othername">
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
+<!-- = pagenums = -->
+<xsl:template match="pagenums">
   <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
@@ -938,9 +1018,20 @@ FIXME
   <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
+<!-- = volumenum = -->
+<xsl:template match="volumenum">
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
 <!-- = wordasword = -->
 <xsl:template match="wordasword">
   <xsl:call-template name="db2html.inline"/>
 </xsl:template>
+
+<!-- = year = -->
+<xsl:template match="year">
+  <xsl:call-template name="db2html.inline"/>
+</xsl:template>
+
 
 </xsl:stylesheet>

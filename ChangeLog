@@ -1,3 +1,35 @@
+2007-07-02  Shaun McCance  <shaunm@gnome.org>
+
+	* test/testbook/Makefile:
+	- Added rules to build with Norm's stylesheets, for comparison
+
+	* xslt/docbook/html/db2html-info.xsl:
+	* xslt/docbook/html/db2html-suppressed.xsl:
+	- Use new common copyright template, moved holder and year to inline
+
+	* test/testbook/testbook.xml:
+	* xslt/docbook/html/db2html-bibliography.xsl:
+	- Lots and lots of work on bibliograpies
+
+	* xslt/docbook/html/db2html-classsynopsis.xsl:
+	- A few quick fixes for Python class synopses
+
+	* xslt/docbook/html/elements:
+	- Added bibliolist
+
+	* xslt/docbook/html/db2html-inline.xsl:
+	- Added automatic bibliography linking for citations
+
+	* xslt/docbook/common/db-common.xsl:
+	- New common copyright template
+	- New personname list template
+
+	* xslt/gettext/gettext.xsl:
+	- Some fixes for blank roles/forms
+
+	* xslt/gettext/l10n.xml.in:
+	- Added ", and ", " and ", and bibliolabel.format
+
 2007-05-23  Shaun McCance  <shaunm@gnome.org>
 
 	* test/testbook/testbook.xml:

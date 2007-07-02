@@ -26,6 +26,24 @@
   <_msg xml:space="preserve">, </_msg>
 </msgset>
 <msgset>
+  <msgid>, and </msgid>
+  <!--
+  This is used as the final separator in an inline list of three or
+  more elements.  The string ", " will be used to separate all but
+  the last pair of elements.  Using these two strings, a list of
+  names would be formatted as "Tom, Dick, and Harry".
+  -->
+  <_msg xml:space="preserve">, and </_msg>
+</msgset>
+<msgset>
+  <msgid> and </msgid>
+  <!--
+  This is used as a list item seperator for inline lists of exactly two
+  elements.  A list of two names would be formatted as "Tom and Dick".
+  -->
+  <_msg xml:space="preserve"> and </_msg>
+</msgset>
+<msgset>
   <msgid>A:</msgid>
   <!--
   http://www.docbook.org/tdg/en/html/qandaentry.html
@@ -528,6 +546,52 @@
   </_msg>
 </msgset>
 
+<!-- == bibliolabel == -->
+<msgset>
+  <msgid>bibliolabel.format</msgid>
+  <!--
+  This is a special format message.  Please read the full translator
+  documentation before translating this message.  The documentation
+  is maintained as part of the stylesheet documentation in DocBook.
+  For your convenience, it has also been converted to an HTML file
+  named STYLESHEETS.xml in the i18n directory.
+
+  biblioentry - An entry in a bibliography
+  bibliomixed - An entry in a bibliography
+  http://www.docbook.org/tdg/en/html/biblioentry.html
+  http://www.docbook.org/tdg/en/html/bibliomixed.html
+
+  This is a format message used to format the labels for entries in
+  a bibliography.  The content of the label is often an abbreviation
+  of the authors' names and the year of publication.  In English,
+  these are generally formatted with [square brackets] surrounding
+  them.
+
+  This string is similar to citation.format, but they are used in
+  different places.  The citation formatter is used when referencing
+  a bibliography entry in running prose.  This formatter is used for
+  the actual bibliography entry.  You may use the same formatting for
+  both, but you don't have to.
+
+  Special elements in the message will be replaced with the
+  appropriate content, as follows:
+
+  bibliolabel - The text content of the bibliography label
+
+  These should be written as empty XML elements.  Due to limitations
+  in intltool, I can't write XML content in translator comments.  To
+  insert the label, simply write left angle bracket, bibliolabel,
+  slash, right angle bracket.
+
+  Additionally, format messages can use the i, b, and tt markup tags
+  to mark text as italic, bold, and monospace.
+  -->
+  <_msg>
+    <msgid>bibliolabel.format</msgid>
+    <msgstr>[<bibliolabel/>]</msgstr>
+  </_msg>
+</msgset>
+
 <!-- == book == -->
 <msgset>
   <msgid>book.digit</msgid>
@@ -625,6 +689,7 @@
   </_msg>
 </msgset>
 
+<!-- == citation == -->
 <msgset>
   <msgid>citation.format</msgid>
   <!--

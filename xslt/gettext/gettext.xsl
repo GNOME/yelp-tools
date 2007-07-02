@@ -154,17 +154,19 @@ REMARK: Lots of documentation is needed
   </xsl:param>
   <xsl:param name="number"/>
   <xsl:param name="form">
-    <xsl:call-template name="l10n.plural.form">
-      <xsl:with-param name="number" select="$number"/>
-      <xsl:with-param name="lang" select="$lang"/>
-      <xsl:with-param name="lang_language" select="$lang_language"/>
-      <xsl:with-param name="lang_region"   select="$lang_region"/>
-      <xsl:with-param name="lang_variant"  select="$lang_variant"/>
-      <xsl:with-param name="lang_charset"  select="$lang_charset"/>
-    </xsl:call-template>
+    <xsl:if test="$number">
+      <xsl:call-template name="l10n.plural.form">
+        <xsl:with-param name="number" select="$number"/>
+        <xsl:with-param name="lang" select="$lang"/>
+        <xsl:with-param name="lang_language" select="$lang_language"/>
+        <xsl:with-param name="lang_region"   select="$lang_region"/>
+        <xsl:with-param name="lang_variant"  select="$lang_variant"/>
+        <xsl:with-param name="lang_charset"  select="$lang_charset"/>
+      </xsl:call-template>
+    </xsl:if>
   </xsl:param>
   <xsl:param name="node" select="."/>
-  <xsl:param name="role"/>
+  <xsl:param name="role" select="''"/>
   <xsl:param name="string"/>
   <xsl:param name="format" select="false()"/>
 
@@ -344,9 +346,9 @@ REMARK: Lots of documentation is needed
 <!--#* l10n.gettext.msg -->
 <xsl:template name="l10n.gettext.msg">
   <xsl:param name="msg"/>
-  <xsl:param name="form"/>
+  <xsl:param name="form" select="''"/>
   <xsl:param name="node" select="."/>
-  <xsl:param name="role"/>
+  <xsl:param name="role" select="''"/>
   <xsl:param name="string"/>
   <xsl:param name="format" select="false()"/>
   <xsl:choose>
@@ -500,13 +502,27 @@ REMARK: Lots of documentation is needed
       </xsl:choose>
     </xsl:when>
     <xsl:otherwise>
-      <xsl:call-template name="l10n.gettext.msgstr">
-        <xsl:with-param name="msgstr" select="$msg/msg:msgstr[1]"/>
-        <xsl:with-param name="node" select="$node"/>
-        <xsl:with-param name="role" select="$role"/>
-        <xsl:with-param name="string" select="$string"/>
-        <xsl:with-param name="format" select="$format"/>
-      </xsl:call-template>
+      <xsl:choose>
+        <xsl:when test="$msg/msg:msgstr[not(@role)]">
+          <xsl:call-template name="l10n.gettext.msgstr">
+            <xsl:with-param name="msgstr"
+                            select="$msg/msg:msgstr[not(@role)][1]"/>
+            <xsl:with-param name="node" select="$node"/>
+            <xsl:with-param name="role" select="$role"/>
+            <xsl:with-param name="string" select="$string"/>
+            <xsl:with-param name="format" select="$format"/>
+          </xsl:call-template>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:call-template name="l10n.gettext.msgstr">
+            <xsl:with-param name="msgstr" select="$msg/msg:msgstr[1]"/>
+            <xsl:with-param name="node" select="$node"/>
+            <xsl:with-param name="role" select="$role"/>
+            <xsl:with-param name="string" select="$string"/>
+            <xsl:with-param name="format" select="$format"/>
+          </xsl:call-template>
+        </xsl:otherwise>
+      </xsl:choose>
     </xsl:otherwise>
   </xsl:choose>
 </xsl:template>

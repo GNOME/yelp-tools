@@ -384,11 +384,14 @@ REMARK: Describe this mode
       <xsl:text>)</xsl:text>
     </xsl:if>
     <xsl:text>:&#x000A;</xsl:text>
-    <xsl:apply-templates mode="db2html.class.python.mode"
-                         select="
-                           classsynopsisinfo   |
-                           constructorsynopsis | destructorsynopsis |
-                           fieldsynopsis       | methodsynopsis     "/>
+    <xsl:for-each select="classsynopsisinfo  | constructorsynopsis |
+                          destructorsynopsis | fieldsynopsis       |
+                          methodsynopsis     ">
+      <xsl:apply-templates mode="db2html.class.python.mode" select="."/>
+      <xsl:if test="position() != last() and local-name(following-sibling::*[1]) != local-name(.)">
+        <xsl:text>&#x000A;</xsl:text>
+      </xsl:if>
+    </xsl:for-each>
   </xsl:if>
 </xsl:template>
 
@@ -524,6 +527,9 @@ REMARK: Describe this mode
     </xsl:if>
     <xsl:if test="initializer">
       <xsl:text>=</xsl:text>
+      <xsl:if test="modifier or type">
+        <xsl:text> </xsl:text>
+      </xsl:if>
       <xsl:apply-templates mode="db2html.class.python.mode" select="initializer"/>
     </xsl:if>
   </span>

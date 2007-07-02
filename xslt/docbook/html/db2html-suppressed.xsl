@@ -91,7 +91,6 @@ modes because of the DocBook content model.
 <xsl:template match="collabname"/>
 <xsl:template match="copyright"/>
 <xsl:template match="editor"/>
-<xsl:template match="holder"/>
 <xsl:template match="legalnotice"/>
 <xsl:template match="othercredit"/>
 <xsl:template match="personblurb"/>
@@ -101,7 +100,6 @@ modes because of the DocBook content model.
 <xsl:template match="revision"/>
 <xsl:template match="revnumber"/>
 <xsl:template match="revremark"/>
-<xsl:template match="year"/>
 
 <!-- Handled specially, so we can apply-templates -->
 <xsl:template match="label"/>

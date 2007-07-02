@@ -32,6 +32,40 @@ independant of the target format.
 
 
 <!--**==========================================================================
+db.copyright
+Outputs copyright information
+$node: The #{copyright} element to format
+
+This template outputs copyright information from a #{copyright} elements.
+It assembles the #{year} and #{holder} elements into a simple copyright
+notice, beginning with the copyright symbol "©".
+-->
+<xsl:template name="db.copyright">
+  <xsl:param name="node" select="."/>
+  <xsl:text>©&#x00A0;</xsl:text>
+  <xsl:for-each select="$node/year">
+    <xsl:if test="position() != 1">
+      <xsl:call-template name="l10n.gettext">
+        <xsl:with-param name="msgid" select="', '"/>
+      </xsl:call-template>
+    </xsl:if>
+    <xsl:apply-templates select="."/>
+  </xsl:for-each>
+  <xsl:if test="$node/holder">
+    <xsl:text>&#x00A0;&#x00A0;</xsl:text>
+    <xsl:for-each select="$node/holder">
+      <xsl:if test="position() != 1">
+        <xsl:call-template name="l10n.gettext">
+          <xsl:with-param name="msgid" select="', '"/>
+        </xsl:call-template>
+      </xsl:if>
+      <xsl:apply-templates select="."/>
+    </xsl:for-each>
+  </xsl:if>
+</xsl:template>
+
+
+<!--**==========================================================================
 db.linenumbering
 Numbers each line in a verbatim environment
 $node: The verbatim element to create the line numbering for
@@ -155,7 +189,7 @@ $lang: The language rules to use to construct the name
 This template outputs the name of a person as modelled by the #{personname}
 element.  The #{personname} element allows authors to mark up components of
 a person's name, such as the person's first name and surname.  This template
-assembled those into a string.
+assembles those into a string.
 -->
 <xsl:template name="db.personname">
   <xsl:param name="node" select="."/>
@@ -212,6 +246,49 @@ assembled those into a string.
     <xsl:text>, </xsl:text>
     <xsl:apply-templates select="$node/lineage[1]"/>
   </xsl:if>
+</xsl:template>
+
+
+<!--**==========================================================================
+db.personname.list
+Outputs a list of people's names
+$nodes: The elements containing tags such as #{firstname} and #{surname}
+$lang: The language rules to use to construct the list of names
+
+This template outputs a list of names of people as modelled by the #{personname}
+element.  The #{personname} element allows authors to mark up components of a
+person's name, such as the person's first name and surname.  This template makes
+a list formatted according to the locale set in ${lang} and calls the template
+*{db.personname} for each element in ${nodes}.
+-->
+<xsl:template name="db.personname.list">
+  <xsl:param name="nodes"/>
+  <!-- FIXME: call i18n.locale -->
+  <xsl:param name="lang" select="ancestor-or-self::*[@lang][1]/@lang"/>
+  <xsl:for-each select="$nodes">
+    <xsl:choose>
+      <xsl:when test="position() = 1"/>
+      <xsl:when test="last() = 2">
+        <xsl:call-template name="l10n.gettext">
+          <xsl:with-param name="msgid" select="' and '"/>
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:when test="position() = last()">
+        <xsl:call-template name="l10n.gettext">
+          <xsl:with-param name="msgid" select="', and '"/>
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:call-template name="l10n.gettext">
+          <xsl:with-param name="msgid" select="', '"/>
+        </xsl:call-template>
+      </xsl:otherwise>
+    </xsl:choose>
+    <xsl:call-template name="db.personname">
+      <xsl:with-param name="node" select="."/>
+      <xsl:with-param name="lang" select="$lang"/>
+    </xsl:call-template>
+  </xsl:for-each>
 </xsl:template>
 
 </xsl:stylesheet>
