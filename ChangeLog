@@ -1,3 +1,8 @@
+2007-07-04  Don Scorgie  <dscorgie@svn.gnome.org>
+
+	* xslt/docbook/html/db2html-bibliography.xsl: 
+	Fix compilation error (1)
+	
 2007-07-02  Shaun McCance  <shaunm@gnome.org>
 
 	* test/testbook/Makefile:

@@ -61,7 +61,12 @@ $node: The #{biblioentry} or #{bibliomixed} element to generate a label for
   </xsl:if>
 </xsl:template>
 
-<!-- = msg:bibliolabel = -->
+<!--%%=========================================================================
+l10n.format.mode
+FIXME
+$node: Needs describing
+REMARK: Needs describing
+-->
 <xsl:template mode="l10n.format.mode" match="msg:bibliolabel">
   <xsl:param name="node"/>
   <xsl:choose>
