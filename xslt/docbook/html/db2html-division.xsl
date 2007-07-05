@@ -936,6 +936,17 @@ REMARK: Describe this template
   </xsl:call-template>
 </xsl:template>
 
+<!-- = reference % db.chunk.content.mode = -->
+<xsl:template mode="db.chunk.content.mode" match="reference">
+  <xsl:param name="depth_of_chunk">
+    <xsl:call-template name="db.chunk.depth-of-chunk"/>
+  </xsl:param>
+  <xsl:call-template name="db2html.division.html">
+    <xsl:with-param name="info" select="referenceinfo"/>
+    <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+  </xsl:call-template>
+</xsl:template>
+
 <!-- = sect1 % db.chunk.content.mode = -->
 <xsl:template mode="db.chunk.content.mode" match="sect1">
   <xsl:param name="depth_of_chunk">
@@ -1192,6 +1203,22 @@ REMARK: Describe this template
                     refentry | simplesect | sect1    | section      | toc  |
                     lot      | index      | glossary | bibliography "/>
     <xsl:with-param name="info" select="prefaceinfo"/>
+    <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
+    <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+  </xsl:call-template>
+</xsl:template>
+
+<!-- = reference = -->
+<xsl:template match="reference">
+  <xsl:param name="depth_in_chunk">
+    <xsl:call-template name="db.chunk.depth-in-chunk"/>
+  </xsl:param>
+  <xsl:param name="depth_of_chunk">
+    <xsl:call-template name="db.chunk.depth-of-chunk"/>
+  </xsl:param>
+  <xsl:call-template name="db2html.division.div">
+    <xsl:with-param name="divisions" select="refentry"/>
+    <xsl:with-param name="info" select="referenceinfo"/>
     <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
     <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
   </xsl:call-template>

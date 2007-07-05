@@ -202,6 +202,9 @@ REMARK: Document this mode, and the role param
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.label.mode % reference = -->
+<xsl:template mode="db.label.mode" match="referece"/>
+
 <!-- = db.label.mode % refsection = -->
 <xsl:template mode="db.label.mode" match="
               refsection | refsect1 | refsect2 | refsect3">
@@ -255,7 +258,7 @@ REMARK: Document this mode, and the role param
 <xsl:template mode="db.label.mode" match="
               article  |
               colophon |    index     |
-              qandadiv | qandaset |  reference |
+              qandadiv | qandaset |
               set      | setindex ">
   <xsl:param name="role"/>
 <!-- FIXME 

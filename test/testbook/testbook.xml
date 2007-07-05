@@ -1839,4 +1839,41 @@ porttitor condimentum nulla.</para>
   </bibliodiv>
 </bibliography>
 
+<reference id="reference">
+<title>Reference</title>
+<partintro>
+<para>This is a collection of reference entries</para>
+</partintro>
+
+<refentry id="ls">
+<refmeta>
+<refentrytitle>ls</refentrytitle>
+<manvolnum>1</manvolnum>
+</refmeta>
+
+<refnamediv>
+<refname>ls</refname>
+<refpurpose>list contents of a directory</refpurpose>
+</refnamediv>
+
+<refsynopsisdiv>
+<cmdsynopsis>
+<command>/usr/bin/ls</command>
+<arg choice="opt">
+  <option>aAbcCdfFgilLmnopqrRstux1</option>
+</arg>
+<arg choice="opt" rep="repeat">file</arg>
+</cmdsynopsis>
+</refsynopsisdiv>
+
+<refsect1><title>Description</title>
+<para>
+For each file that is a directory, <command>ls</command> lists the contents of
+the directory; for each file that is an ordinary file, <command>ls</command>
+repeats its name and any other information requested.
+</para>
+</refsect1>
+</refentry>
+</reference>
+
 </book>

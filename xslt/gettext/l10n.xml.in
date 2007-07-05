@@ -44,6 +44,15 @@
   <_msg xml:space="preserve"> and </_msg>
 </msgset>
 <msgset>
+  <msgid> — </msgid>
+  <!--
+  This is used to offset an inline description from a title.  This is
+  typically used on title and refpurpose of a refentry element, which
+  models the structure of a man page.
+  -->
+  <_msg xml:space="preserve"> — </_msg>
+</msgset>
+<msgset>
   <msgid>A:</msgid>
   <!--
   http://www.docbook.org/tdg/en/html/qandaentry.html

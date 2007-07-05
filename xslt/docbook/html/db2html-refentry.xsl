@@ -138,7 +138,9 @@ div.refentry + div.refentry {
       </xsl:if>
       <xsl:apply-templates select="."/>
     </xsl:for-each>
-    <xsl:text> — </xsl:text>
+    <xsl:call-template name="l10n.gettext">
+      <xsl:with-param name="msgid" select="' — '"/>
+    </xsl:call-template>
     <xsl:apply-templates select="refpurpose"/>
   </div>
 </xsl:template>

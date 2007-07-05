@@ -1,3 +1,26 @@
+2007-07-05  Shaun McCance  <shaunm@gnome.org>
+
+	* test/testbook/testbook.xml:
+	* xslt/docbook/html/db2html-division.xsl:
+	* xslt/docbook/html/db2html-refentry.xsl:
+	- Some work on reference and refentry
+
+	* xslt/docbook/html/db2html-bibliography.xsl:
+	- Made l10n.format.mode a doc-noop, documented elsewhere
+
+	* xslt/docbook/html/db2html-autotoc.xsl:
+	- Added some documentation
+	- Remove $db.chunk.chunks_ reference
+
+	* xslt/docbook/common/db-common.xsl:
+	- Put gettext in :Requires: for db.personname.list
+
+	* xslt/docbook/common/db-label.xsl:
+	- Made reference label formatter output nothing
+
+	* xslt/gettext/l10n.xml.in:
+	- Added " — " for refpurpose separator
+
 2007-07-04  Don Scorgie  <dscorgie@svn.gnome.org>
 
 	* xslt/docbook/html/db2html-bibliography.xsl: 
