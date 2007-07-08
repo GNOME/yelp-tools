@@ -5,6 +5,7 @@ xmldir=${datadir}/xml
 xsltdir=${xmldir}/gnome/xslt
 gettext=${xsltdir}/common/gettext.xsl
 db2html=${xsltdir}/docbook/html/db2html.xsl
+db2xhtml=${xsltdir}/docbook/html/db2xhtml.xsl
 db2omf=${xsltdir}/docbook/omf/db2omf.xsl
 rngdoc=${xsltdir}/rngdoc/rngdoc.xsl
 xsldoc=${xsltdir}/xsldoc/xsldoc.xsl
