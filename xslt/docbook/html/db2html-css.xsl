@@ -19,12 +19,11 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:exsl="http://exslt.org/common"
                 xmlns="http://www.w3.org/1999/xhtml"
-                extension-element-prefixes="exsl"
                 version="1.0">
 
 <!--!!==========================================================================
 DocBook to HTML - CSS
-:Requires: db2html-bibliography db2html-block db2html-footnote db2html-callout db2html-cmdsynopsis db2html-qanda db2html-refentry gettext theme
+:Requires: db2html-footnote db2html-callout db2html-cmdsynopsis db2html-qanda db2html-refentry gettext theme
 
 REMARK: Describe this module
 -->
@@ -83,10 +82,10 @@ This template calls *{db2html.css.custom} at the end.  That template may be used
 by extension stylesheets to extend or override the CSS.
 -->
 <xsl:template name="db2html.css.content"><xsl:text>
+<!-- == common == -->
 html { height: 100%; }
 body {
-  margin: 0px;
-  padding: 12px;
+  margin: 0px; padding: 12px;
   background-color: </xsl:text><xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
   min-height: 100%;
   direction: </xsl:text><xsl:call-template name="l10n.direction"/><xsl:text>;
@@ -98,17 +97,17 @@ sub sub { font-size: 1em; }
 sup { font-size: 0.83em; }
 sup sup { font-size: 1em; }
 table { border-collapse: collapse; }
+table.table-pgwide { width: 100%; }
 td { vertical-align: top; }
 td { padding: 0.2em 0.83em 0.2em 0.83em; }
 th { padding: 0 0.83em 0 0.83em; }
-thead {
-  border-top: solid 2px;
-  border-bottom: solid 2px;
+tr.tr-shade {
+  background-color: </xsl:text><xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
 }
-tfoot {
-  border-top: solid 2px;
-  border-bottom: solid 2px;
-}
+td.td-colsep { border-right: solid 1px; }
+td.td-rowsep { border-bottom: solid 1px; }
+thead { border-top: solid 2px; border-bottom: solid 2px; }
+tfoot { border-top: solid 2px; border-bottom: solid 2px; }
 div.body {
   padding: 1em;
   max-width: 60em;
@@ -168,14 +167,17 @@ li {
   padding: 0;
 }
 li.li-first { margin-top: 0; }
-dt { margin: 0; }
+dt { margin: 1em 0 0 0; }
+dt.dt-first { margin: 0; }
 dd {
   <!-- FIXME: rtl -->
   margin-left: 1.72em;
-  margin-top: 0.2em;
-  margin-bottom: 1em;
+  margin-top: 0.5em;
 }
+dl.dl-compact dt { margin-top: 0; }
 dl.dl-compact dd { margin-top: 0; margin-bottom: 0; }
+
+<!-- == linktrail == -->
 ul.linktrail {
   display: block;
   margin: 0.2em 0 0 0;
@@ -191,6 +193,7 @@ li.linktrail::before {
 <!-- FIXME: rtl? -->
 li.linktrail-first::before, li.linktrail-only::before { content: ''; }
 
+<!-- == navbar == -->
 div.navbar {
   padding: 0.5em 1em 0.5em 1em;
   max-width: 60em;
@@ -217,22 +220,7 @@ a.navbar-next::after {
   color: </xsl:text><xsl:value-of select="$theme.color.text_light"/><xsl:text>;
 }
 
-div.autotoc {
-  <!-- FIXME: hack -->
-  display: table;
-  margin-top: 1em;
-  <!-- FIXME: rtl -->
-  margin-left: 1.72em;
-  padding: 0.5em 1em 0.5em 1em;
-  background-color: </xsl:text><xsl:value-of select="$theme.color.blue_background"/><xsl:text>;
-  border: solid 1px </xsl:text><xsl:value-of select="$theme.color.blue_border"/><xsl:text>;
-}
-div.autotoc ul { margin: 0; padding: 0; }
-div.autotoc li { list-style-type: none; margin: 0; }
-div.autotoc div.autotoc-title { margin-bottom: 0.5em; }
-div.autotoc div.autotoc { border: none; padding: 0; margin-top: 0; margin-bottom: 0.5em; }
-div.autotoc div.autotoc div.autotoc { margin-bottom: 0; }
-
+<!-- == sidebar == -->
 div.sidebar {
   <!-- FIXME: rtl -->
   float: right;
@@ -256,11 +244,58 @@ div.sidenav div.autotoc div.autotoc div.autotoc {
 }
 div.sidenav div.autotoc div.autotoc div.autotoc li { margin-bottom: 0; }
 
-table.table-pgwide { width: 100%; }
-tr.tr-shade { background-color: </xsl:text><xsl:value-of select="$theme.color.gray_background"/><xsl:text>; }
-td.td-colsep { border-right: solid 1px; }
-td.td-rowsep { border-bottom: solid 1px; }
+<!-- == autotoc == -->
+div.autotoc {
+  <!-- FIXME: hack -->
+  display: table;
+  margin-top: 1em;
+  <!-- FIXME: rtl -->
+  margin-left: 1.72em;
+  padding: 0.5em 1em 0.5em 1em;
+  background-color: </xsl:text><xsl:value-of select="$theme.color.blue_background"/><xsl:text>;
+  border: solid 1px </xsl:text><xsl:value-of select="$theme.color.blue_border"/><xsl:text>;
+}
+div.autotoc ul { margin: 0; padding: 0; }
+div.autotoc li { list-style-type: none; margin: 0; }
+div.autotoc div.autotoc-title { margin-bottom: 0.5em; }
+div.autotoc div.autotoc { border: none; padding: 0; margin-top: 0; margin-bottom: 0.5em; }
+div.autotoc div.autotoc div.autotoc { margin-bottom: 0; }
 
+<!-- == bibliography == -->
+span.bibliolabel {
+  color: </xsl:text><xsl:value-of select="$theme.color.text_light"/><xsl:text>;
+}
+
+<!-- == block == -->
+div.admonition {
+  padding: 0.5em 1em 0.5em 1em;
+  <!-- FIXME: rtl -->
+  padding-left: </xsl:text><xsl:value-of select="$theme.icon.admon.size + 12"/><xsl:text>px;
+  min-height: </xsl:text><xsl:value-of select="$theme.icon.admon.size"/><xsl:text>px;
+  border: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
+  background-color: </xsl:text><xsl:value-of select="$theme.color.yellow_background"/><xsl:text>;
+  <!-- FIXME: rtl -->
+  background-position: 6px 0.5em;
+  background-repeat: no-repeat;
+}
+div.caution {
+  background-image: url("</xsl:text><xsl:value-of select="$theme.icon.admon.caution"/><xsl:text>");
+}
+div.important {
+  background-image: url("</xsl:text><xsl:value-of select="$theme.icon.admon.important"/><xsl:text>");
+}
+div.note {
+  background-image: url("</xsl:text><xsl:value-of select="$theme.icon.admon.note"/><xsl:text>");
+}
+div.note-bug {
+  background-image: url("</xsl:text><xsl:value-of select="$theme.icon.admon.bug"/><xsl:text>");
+}
+div.tip {
+  background-image: url("</xsl:text><xsl:value-of select="$theme.icon.admon.tip"/><xsl:text>");
+}
+div.warning {
+  background-image: url("</xsl:text><xsl:value-of select="$theme.icon.admon.warning"/><xsl:text>");
+}
 div.blockquote {
   <!-- FIXME: i18n -->
   background-image: url('../../../data/icons/yelp-watermark-blockquote-201C.png');
@@ -301,38 +336,6 @@ div.figure-inner, div.informalfigure-inner {
   border: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
 }
 div.caption { margin-top: 0.5em; }
-div.list div.title span.title {
-  border-bottom: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
-}
-div.simplelist {
-  <!-- FIXME: rtl -->
-  margin-left: 1.72em;
-}
-div.simplelist table { margin-left: 0; border: none; }
-div.simplelist td {
-  padding: 0.5em;
-  border-left: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
-}
-div.simplelist td.td-first {
-  <!-- FIXME: rtl -->
-  padding-left: 0;
-  <!-- FIXME: rtl -->
-  border-left: 0;
-}
-div.synopsis,div.funcsynopsis {
-  padding: 0.5em;
-  <!-- FIXME: watermark -->
-  background-color: </xsl:text><xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
-  border-top: solid 2px </xsl:text><xsl:value-of select="$theme.color.blue_border"/><xsl:text>;
-  border-bottom: solid 2px </xsl:text><xsl:value-of select="$theme.color.blue_border"/><xsl:text>;
-}
-div.classsynopsis,div.constructorsynopsis,div.destructorsynopsis,div.methodsynopsis,div.fieldsynopsis {
-  padding: 0.5em;
-  <!-- FIXME: watermark -->
-  background-color: </xsl:text><xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
-  border-top: solid 2px </xsl:text><xsl:value-of select="$theme.color.blue_border"/><xsl:text>;
-  border-bottom: solid 2px </xsl:text><xsl:value-of select="$theme.color.blue_border"/><xsl:text>;
-}
 div.programlisting {
   padding: 0.5em;
   <!-- FIXME: watermark -->
@@ -362,42 +365,41 @@ pre.linenumbering {
   <!-- FIXME: rtl -->
   text-align: right;
 }
-.watermark-code-python {
-  <!-- FIXME -->
-  background-image: url("/shaunm/projects/gnome-doc-utils/data/watermarks/watermark-code-python.png");
-  background-position: top right;
-  background-repeat: no-repeat;
-}
 
-div.admonition {
-  padding: 0.5em 1em 0.5em 1em;
+
+<!-- == unsorted == -->
+div.list div.title-formal span.title {
+  border-bottom: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
+}
+div.simplelist {
   <!-- FIXME: rtl -->
-  padding-left: </xsl:text><xsl:value-of select="$theme.icon.admon.size + 12"/><xsl:text>px;
-  min-height: </xsl:text><xsl:value-of select="$theme.icon.admon.size"/><xsl:text>px;
-  border: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
-  background-color: </xsl:text><xsl:value-of select="$theme.color.yellow_background"/><xsl:text>;
+  margin-left: 1.72em;
+}
+div.simplelist table { margin-left: 0; border: none; }
+div.simplelist td {
+  padding: 0.5em;
+  border-left: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
+}
+div.simplelist td.td-first {
   <!-- FIXME: rtl -->
-  background-position: 6px 0.5em;
-  background-repeat: no-repeat;
+  padding-left: 0;
+  <!-- FIXME: rtl -->
+  border-left: 0;
 }
-div.caution {
-  background-image: url("</xsl:text><xsl:value-of select="$theme.icon.admon.caution"/><xsl:text>");
+div.synopsis {
+  padding: 0.5em;
+  <!-- FIXME: watermarks -->
+  background-color: </xsl:text><xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
+  border-top: solid 2px </xsl:text><xsl:value-of select="$theme.color.blue_border"/><xsl:text>;
+  border-bottom: solid 2px </xsl:text><xsl:value-of select="$theme.color.blue_border"/><xsl:text>;
 }
-div.important {
-  background-image: url("</xsl:text><xsl:value-of select="$theme.icon.admon.important"/><xsl:text>");
+div.synopsis div.synopsis {
+  padding: 0;
+  border: none;
 }
-div.note {
-  background-image: url("</xsl:text><xsl:value-of select="$theme.icon.admon.note"/><xsl:text>");
-}
-div.note-bug {
-  background-image: url("</xsl:text><xsl:value-of select="$theme.icon.admon.bug"/><xsl:text>");
-}
-div.tip {
-  background-image: url("</xsl:text><xsl:value-of select="$theme.icon.admon.tip"/><xsl:text>");
-}
-div.warning {
-  background-image: url("</xsl:text><xsl:value-of select="$theme.icon.admon.warning"/><xsl:text>");
-}
+div.synopsis div.block { margin-top: 0.2em; }
+div.synopsis div.block-first { margin-top: 0; }
+
 
 span.accel { text-decoration: underline; }
 span.acronym { font-family: sans-serif; }
@@ -432,8 +434,16 @@ span.filename { font-family: monospace; }
 span.firstterm { font-style: italic; }
 span.foreignphrase { font-style: italic; }
 span.function { font-family: monospace; }
-span.glossterm { font-style: italic; }
+
 dt.glossterm span.glossterm { font-style: normal; }
+<!--
+dt.glossterm { margin-left: 0em; }
+dd + dt.glossterm { margin-top: 2em; }
+dd.glossdef, dd.glosssee, dd.glossseealso { margin-top: 0em;  margin-bottom: 0; }
+-->
+
+span.glossterm { font-style: italic; }
+
 span.guibutton, span.guilabel, span.guimenu, span.guimenuitem, span.guisubmenu, span.interface {
   font-weight: bold;
   color: </xsl:text><xsl:value-of select="$theme.color.text_light"/><xsl:text>;
@@ -469,8 +479,6 @@ span.wordasword { font-style: italic; }
 
 </xsl:text>
   <xsl:call-template name="db2html.footnote.css"/>
-  <xsl:call-template name="db2html.bibliography.css"/>
-  <xsl:call-template name="db2html.block.css"/>
   <xsl:call-template name="db2html.callout.css"/>
   <xsl:call-template name="db2html.cmdsynopsis.css"/>
   <xsl:call-template name="db2html.qanda.css"/>

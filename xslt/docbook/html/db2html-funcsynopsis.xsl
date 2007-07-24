@@ -19,7 +19,6 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:str="http://exslt.org/strings"
                 xmlns="http://www.w3.org/1999/xhtml"
-                extension-element-prefixes="str"
                 version="1.0">
 
 <!--!!==========================================================================
@@ -144,6 +143,7 @@ top of the XML document.  The same processing instruction or inside a
   <xsl:call-template name="db2html.pre">
     <xsl:with-param name="node" select="."/>
     <xsl:with-param name="children" select="*"/>
+    <xsl:with-param name="class" select="'synopsis'"/>
   </xsl:call-template>
 </xsl:template>
 

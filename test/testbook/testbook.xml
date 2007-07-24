@@ -788,6 +788,109 @@ Running stylesheet and saving result took 144 ms
 
   </section> <!-- screen -->
 
+<section id="cmdsynopsis">
+  <title>Commands</title>
+  <cmdsynopsis>
+    <command>cd</command>
+    <arg choice="req"><replaceable>directory</replaceable></arg>
+  </cmdsynopsis>
+  <cmdsynopsis>
+    <command>cal</command>
+    <arg>-j</arg>
+    <arg>-y</arg>
+    <arg>month <arg>year</arg></arg>
+  </cmdsynopsis>
+  <cmdsynopsis>
+    <command>chgrp</command>
+    <arg>-R <group>
+      <arg>-H</arg>
+      <arg>-L</arg>
+      <arg>-P</arg>
+    </group></arg>
+    <arg>-f</arg>
+    <arg choice='plain'><replaceable>group</replaceable></arg>
+    <arg rep='repeat' choice='plain'><replaceable>file</replaceable></arg>
+  </cmdsynopsis>
+  <para>Here we use an <sgmltag>sbr</sgmltag> element:</para>
+  <cmdsynopsis>
+    <command>ls</command>
+    <group><arg>--all</arg><arg>--almost-all</arg></group>
+    <sbr/>
+    <arg>--ignore-backups</arg>
+    <sbr/>
+    <arg>--directory</arg>
+    <sbr/>
+    <arg>--human-readable</arg>
+    <sbr/>
+    <arg>--ignore=<replaceable>PATTERN</replaceable></arg>
+    <sbr/>
+    <arg>-l</arg>
+    <sbr/>
+    <arg rep="repeat"><replaceable>FILE</replaceable></arg>
+  </cmdsynopsis>
+  <para>And here we put <sgmltag>sbr</sgmltag> elements inside
+  <sgmltag>arg</sgmltag> and <sgmltag>group</sgmltag> elements:</para>
+  <cmdsynopsis>
+    <command>ls</command>
+    <group><arg>--all</arg><sbr/><arg>--almost-all</arg></group>
+    <arg>--ignore=<sbr/><group><replaceable>PATTERN</replaceable><sbr/><replaceable>PATTERN</replaceable><sbr/><replaceable>PATTERN</replaceable></group></arg>
+    <sbr/>
+    <arg>--ignore=<group><replaceable>PATTERN</replaceable><sbr/><replaceable>PATTERN</replaceable><sbr/><replaceable>PATTERN</replaceable></group></arg>
+    <sbr/>
+    <group><arg choice="req">fe=<sbr/>fi</arg><arg>fo</arg><sbr/><arg>fum</arg></group>
+    <sbr/>
+    <arg>-l</arg>
+    <arg rep="repeat"><replaceable>FILE</replaceable></arg>
+  </cmdsynopsis>
+
+  <para>Also, <sgmltag>sbr</sgmltag> tags with fragments:</para>
+  <cmdsynopsis>
+    <command>foo</command>
+    <group><synopfragmentref linkend="synopfrag1"/><arg>foo</arg><sbr/><arg>bar</arg></group>
+    <arg><synopfragmentref linkend="synopfrag2"/>foo=<sbr/>bar</arg>
+    <synopfragment id="synopfrag1">
+      <group><arg>foo</arg><sbr/><arg>bar</arg></group>
+      <arg>foo=<sbr/>bar</arg>
+    </synopfragment>
+    <synopfragment id="synopfrag2">
+      <group><arg>foo</arg><sbr/><arg>bar</arg></group>
+      <arg>foo=<sbr/>bar</arg>
+    </synopfragment>
+  </cmdsynopsis>
+
+  <para>Here we put two <sgmltag>cmdsynopsis</sgmltag> elements inside
+  a single <sgmltag>synopsis</sgmltag> element:</para>
+  <synopsis><cmdsynopsis>
+    <command>grep</command>
+    <arg><replaceable>options</replaceable></arg>
+    <arg choice="plain"><replaceable>PATTERN</replaceable></arg>
+    <arg rep="repeat"><replaceable>FILE</replaceable></arg>
+    </cmdsynopsis><cmdsynopsis>
+    <command>grep</command>
+    <arg><replaceable>options</replaceable></arg>
+    <group>
+      <arg>-e <replaceable>PATTERN</replaceable></arg>
+      <arg>-f <replaceable>FILE</replaceable></arg>
+    </group>
+    <arg rep="repeat"><replaceable>FILE</replaceable></arg>
+  </cmdsynopsis></synopsis>
+  <para>Here we just put both commands in a single <sgmltag>cmdsynopsis</sgmltag>
+  element:</para>
+  <cmdsynopsis>
+    <command>grep</command>
+    <arg><replaceable>options</replaceable></arg>
+    <arg choice="plain"><replaceable>PATTERN</replaceable></arg>
+    <arg rep="repeat"><replaceable>FILE</replaceable></arg>
+    <command>grep</command>
+    <arg><replaceable>options</replaceable></arg>
+    <group>
+      <arg>-e <replaceable>PATTERN</replaceable></arg>
+      <arg>-f <replaceable>FILE</replaceable></arg>
+    </group>
+    <arg rep="repeat"><replaceable>FILE</replaceable></arg>
+  </cmdsynopsis>
+</section>
+
 <section id="misc-block">
   <title>Miscellaneous</title>
 
@@ -1753,22 +1856,48 @@ porttitor condimentum nulla.</para>
 </chapter> <!-- classsynopsis -->
 
 <glossary id="glossary">
-  <glossdiv id="glossary-desktop">
-    <title>GNOME Desktop Terms</title>
-    <glossentry id="gloss-button">
-      <glossterm>button</glossterm>
-      <glossdef><para>A user interface element that you use to start an action.
-      There are many types of button in the GNOME Desktop. Some buttons do not have
-      labels, so you do not have a convenient reference term. Although a button does
-      not have a name, there might be a tooltip for the button. If the text in the
-      tooltip is appropriate, use that text as the button name.</para></glossdef>
+  <glossdiv id="glossary-div">
+    <title>A Glossary Division</title>
+    <glosslist>
+      <title>A Glossary List</title>
+      <glossentry>
+        <glossterm>applet</glossterm>
+        <glossdef>
+          <para>An applet is a small, interactive application that resides within
+          a panel, for example the <application>CD Player</application>. Each
+          applet has a simple user interface that you can operate with the mouse
+          or keyboard.</para>
+        </glossdef>
+      </glossentry>
+      <glossentry>
+        <glossterm>desktop</glossterm>
+        <glossdef>
+          <para>The part of the GNOME Desktop where there are no interface
+          graphical items, such as panels and windows.</para>
+        </glossdef>
+      </glossentry>
+    </glosslist>
+    <glossentry id="gloss-background">
+      <glossterm>desktop background</glossterm>
+      <abbrev>background</abbrev>
+      <glossdef>
+        <para>The image or color that is applied to your desktop.</para>
+        <glossseealso otherterm="gloss-background"/>
+      </glossdef>
     </glossentry>
-  </glossdiv> <!-- glossary-desktop -->
+    <glossentry>
+      <glossterm>desktop</glossterm>
+      <glosssee otherterm="gloss-background"/>
+    </glossentry>
+  </glossdiv> <!-- glossary-div -->
 </glossary>
 
 <bibliography id="bibliography">
   <bibliodiv id="bibliodiv">
     <title>A Bibliography Division</title>
+
+    <bibliolist>
+    <title>A <sgmltag>bibliolist</sgmltag></title>
 
     <biblioentry>
       <abbrev>AhoSethiUllman96</abbrev>
@@ -1803,6 +1932,8 @@ porttitor condimentum nulla.</para>
       <subtitle>Ancient Craft to Modern Sport</subtitle>
       <pagenums>988-999</pagenums>
     </biblioentry>
+
+    </bibliolist>
 
     <biblioentry id="Walsh97">
       <abbrev>Walsh97</abbrev>

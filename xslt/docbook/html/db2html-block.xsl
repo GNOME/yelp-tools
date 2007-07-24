@@ -17,6 +17,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:set="http://exslt.org/sets"
                 xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n"
                 xmlns="http://www.w3.org/1999/xhtml"
                 exclude-result-prefixes="msg"
@@ -85,14 +86,9 @@ is then used by the CSS for styling.
           </xsl:call-template>
         </xsl:if>
         <div class="{local-name($node)}-inner">
-          <xsl:apply-templates select="$node/node()[not(. = $title) and not(. = $caption)]"/>
+          <xsl:apply-templates select="$node/node()[not(set:has-same-node(., $title | $caption))]"/>
         </div>
         <xsl:apply-templates select="$caption"/>
-      </xsl:when>
-      <xsl:when test="$node/self::title">
-        <span class="title">
-          <xsl:apply-templates select="$node/node()"/>
-        </span>
       </xsl:when>
       <xsl:otherwise>
         <xsl:apply-templates select="$node/node()"/>
@@ -108,7 +104,8 @@ Renders a formal title for a block-level element
 $node: The block-level element being processed
 $title: The element containing the title
 
-FIXME
+This template formats the contents of ${title} as a title for a block-level
+element.  It is called by *{db2html.block} for formal block elements.
 -->
 <xsl:template name="db2html.block.title">
   <xsl:param name="node" select="."/>
@@ -117,15 +114,18 @@ FIXME
     <xsl:call-template name="db2html.anchor">
       <xsl:with-param name="node" select="$title"/>
     </xsl:call-template>
-    <span class="label">
-      <xsl:call-template name="db.label">
-        <xsl:with-param name="node" select="$node"/>
-        <xsl:with-param name="role" select="'header'"/>
-      </xsl:call-template>
+    <span class="title">
+      <span class="label">
+        <xsl:call-template name="db.label">
+          <xsl:with-param name="node" select="$node"/>
+          <xsl:with-param name="role" select="'header'"/>
+        </xsl:call-template>
+      </span>
+      <xsl:apply-templates select="$title/node()"/>
     </span>
-    <xsl:apply-templates select="$title/node()"/>
   </div>
 </xsl:template>
+
 
 <!--**==========================================================================
 db2html.blockquote
@@ -155,8 +155,7 @@ element.
     </xsl:call-template>
     <xsl:apply-templates select="$node/title"/>
     <blockquote class="{local-name($node)}">
-      <xsl:apply-templates
-       select="$node/node()[name(.) != 'title' and name(.) != 'attribution']"/>
+      <xsl:apply-templates select="$node/node()[not(self::title) and not(self::attribution)]"/>
     </blockquote>
     <xsl:apply-templates select="$node/attribution"/>
   </div>
@@ -197,6 +196,7 @@ This template creates an HTML #{p} element for the given DocBook element.
 db2html.pre
 Renders a block-level element as an HTML #{pre} element
 $node: The block-level element to render
+$class: An extra string to insert in the #{class} attribute
 $first: Whether this is the first child block in the parent
 $indent: Whether this block should be indented
 $children: The child elements to process
@@ -204,24 +204,23 @@ $children: The child elements to process
 This template creates an HTML #{pre} element for the given DocBook element.
 This template uses the parameters to construct the #{class} attribute, which
 is then used by the CSS for styling.
+
+If ${node} has the #{linenumbering} attribute set to #{"numbered"}, then this
+template will create line numbers for each line, using the *{db.linenumbering}
+template.
 -->
 <xsl:template name="db2html.pre">
   <xsl:param name="node" select="."/>
+  <xsl:param name="class" select="''"/>
   <xsl:param name="first"
              select="not($node/preceding-sibling::*
                      [not(self::blockinfo) and not(self::title) and
                       not(self::titleabbrev) and not(self::attribution) ])"/>
   <xsl:param name="indent" select="false()"/>
   <xsl:param name="children" select="$node/node()"/>
-  <!-- FIXME:
-  @width
-  @language
-  @format
-  -->
   <div>
     <xsl:attribute name="class">
-      <xsl:value-of select="local-name($node)"/>
-      <xsl:text> block</xsl:text>
+      <xsl:value-of select="concat($class, ' block ', local-name($node))"/>
       <xsl:if test="$indent">
         <xsl:text> block-indent</xsl:text>
       </xsl:if>
@@ -266,22 +265,6 @@ is then used by the CSS for styling.
       <xsl:apply-templates select="$children[not(position() = 1 and self::text())]"/>
     </pre>
   </div>
-</xsl:template>
-
-
-<!--**==========================================================================
-db2html.block.css
-Outputs CSS that controls the appearance of block-level elements
-
-REMARK: Describe this template
--->
-<xsl:template name="db2html.block.css">
-<xsl:text>
-dt.glossterm { margin-left: 0em; }
-dd + dt.glossterm { margin-top: 2em; }
-dd.glossdef, dd.glosssee, dd.glossseealso
-  { margin-top: 1em; margin-left: 2em; margin-right: 1em; }
-</xsl:text>
 </xsl:template>
 
 
@@ -367,23 +350,37 @@ dd.glossdef, dd.glosssee, dd.glossseealso
 <!-- = glossdef = -->
 <xsl:template match="glossdef">
   <dd class="glossdef">
-    <xsl:apply-templates select="*[local-name(.) != 'glossseealso']"/>
+    <xsl:apply-templates select="*[not(self::glossseealso)]"/>
   </dd>
   <xsl:apply-templates select="glossseealso[1]"/>
 </xsl:template>
 
 <!-- = glossentry = -->
 <xsl:template match="glossentry">
-  <dt class="glossterm">
+  <dt>
+    <xsl:attribute name="class">
+      <xsl:text>glossterm</xsl:text>
+      <xsl:if test="not(preceding-sibling::glossentry)">
+        <xsl:text> dt-first</xsl:text>
+      </xsl:if>
+    </xsl:attribute>
     <xsl:apply-templates select="glossterm"/>
+    <xsl:if test="acronym or abbrev">
+      <xsl:text> </xsl:text>
+      <xsl:call-template name="l10n.gettext">
+        <xsl:with-param name="msgid" select="'glossentry.abbrev.format'"/>
+        <xsl:with-param name="node" select="(acronym | abbrev)[1]"/>
+        <xsl:with-param name="format" select="true()"/>
+      </xsl:call-template>
+    </xsl:if>
   </dt>
   <xsl:apply-templates select="glossdef | glosssee[1]"/>
 </xsl:template>
 
-<!-- = glosssee = -->
+<!-- = glosssee(also) = -->
 <xsl:template match="glosssee | glossseealso">
   <dd class="{local-name(.)}">
-    <p>
+    <p class="block block-first">
       <xsl:call-template name="l10n.gettext">
         <xsl:with-param name="msgid" select="concat(local-name(.), '.format')"/>
         <xsl:with-param name="node" select="."/>
@@ -416,18 +413,18 @@ dd.glossdef, dd.glosssee, dd.glossseealso
               <xsl:with-param name="linkend" select="@otherterm"/>
             </xsl:call-template>
           </xsl:attribute>
+          <xsl:choose>
+            <xsl:when test="normalize-space(.) != ''">
+              <xsl:apply-templates/>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:call-template name="db.xref.content">
+                <xsl:with-param name="linkend" select="@otherterm"/>
+                <xsl:with-param name="role" select="'glosssee'"/>
+              </xsl:call-template>
+            </xsl:otherwise>
+          </xsl:choose>
         </a>
-        <xsl:choose>
-          <xsl:when test="normalize-space(.) != ''">
-            <xsl:apply-templates/>
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:call-template name="db.xref.content">
-              <xsl:with-param name="linkend" select="@otherterm"/>
-              <xsl:with-param name="role" select="'glosssee'"/>
-            </xsl:call-template>
-          </xsl:otherwise>
-        </xsl:choose>
       </xsl:when>
       <xsl:otherwise>
         <xsl:apply-templates/>
@@ -530,7 +527,10 @@ dd.glossdef, dd.glosssee, dd.glossseealso
 
 <!-- = title = -->
 <xsl:template match="title">
-  <xsl:call-template name="db2html.block"/>
+  <xsl:call-template name="db2html.block.title">
+    <xsl:with-param name="node" select=".."/>
+    <xsl:with-param name="title" select="."/>
+  </xsl:call-template>
 </xsl:template>
 
 <!-- = warning = -->

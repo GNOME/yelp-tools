@@ -1194,6 +1194,46 @@
   </_msg>
 </msgset>
 
+<!-- == glossentry == -->
+<msgset>
+  <msgid>glossentry.abbrev.format</msgid>
+  <!--
+  This is a special format message.  Please read the full translator
+  documentation before translating this message.  The documentation
+  is maintained as part of the stylesheet documentation in DocBook.
+  For your convenience, it has also been converted to an HTML file
+  named STYLESHEETS.xml in the i18n directory.
+
+  glossentry - A entry in a glossary or glosslist
+  http://www.docbook.org/tdg/en/html/glossentry.html
+
+  This is a format message used to format the abbreviations of terms
+  in glossary entries.  An abbreviation for a glossary term can be
+  provided by an 'acronym' or an 'abbrev' element.  For example, a
+  glossary entry for HTML might look like this:
+
+    Hypertext Markup Language (HTML)
+      Definition goes here....
+
+  Special elements in the message will be replaced with the
+  appropriate content, as follows:
+
+  node - The content of the acronym or abbrev element
+
+  These should be written as empty XML elements.  Due to limitations
+  in intltool, I can't write XML content in translator comments.  To
+  insert the content, simply write left angle bracket, node, slash,
+  right angle bracket.
+
+  Additionally, format messages can use the i, b, and tt markup tags
+  to mark text as italic, bold, and monospace.
+  -->
+  <_msg>
+    <msgid>glossentry.abbrev.format</msgid>
+    <msgstr>(<node/>)</msgstr>
+  </_msg>
+</msgset>
+
 <!-- == glossary == -->
 <msgset>
   <msgid>glossary.xref</msgid>
@@ -2034,6 +2074,63 @@
   <_msg>
     <msgid>section.xref</msgid>
     <msgstr>Section <number/> ― <title/></msgstr>
+  </_msg>
+</msgset>
+
+<!-- == synopfragment == -->
+<msgset>
+  <msgid>synopfragment.digit</msgid>
+  <!--
+  The number formatter used for synopsis numbers.  This can be one of
+  "1", "A", "a", "I", or "i", without the quotes.  These formatters
+  provide the following results:
+
+  1    2    3    4    5    6    7    8    9   10   11   12   13   14
+  A    B    C    D    E    F    G    H    I    J    K    L    M    N
+  a    b    c    d    e    f    g    h    i    j    k    l    m    n
+  I   II  III   IV    V   VI  VII VIII   IX    X   XI  XII XIII  XIV
+  i   ii  iii   iv    v   vi  vii viii   ix    x   xi  xii xiii  xiv
+
+  Non-Western languages probably need additional formatters.  Please
+  contact the maintainers about adding formatters for your language.
+  -->
+  <_msg>
+    <msgid>synopfragment.digit</msgid>
+    <msgstr>1</msgstr>
+  </_msg>
+</msgset>
+<msgset>
+  <msgid>synopfragment.label</msgid>
+  <!--
+  This is a special format message.  Please read the full translator
+  documentation before translating this message.  The documentation
+  is maintained as part of the stylesheet documentation in DocBook.
+  For your convenience, it has also been converted to an HTML file
+  named STYLESHEETS.xml in the i18n directory.
+
+  This is a format message used to format labels for command synopsis
+  fragments, as well as cross references to them.  See the following:
+
+    http://www.docbook.org/tdg/en/html/synopfragment.html
+    http://www.docbook.org/tdg/en/html/synopfragmentref.html
+
+  Special elements in the message will be replaced with the
+  appropriate content, as follows:
+
+  number - The number of the synopsis fragment, formatted according
+           to the synopfragment.digit string
+
+  These should be written as empty XML elements.  Due to limitations
+  in intltool, I can't write XML content in translator comments.  To
+  insert the number, simply write left angle bracket, number, slash,
+  right angle bracket.
+
+  Additionally, format messages can use the i, b, and tt markup tags
+  to mark text as italic, bold, and monospace.
+  -->  
+  <_msg>
+    <msgid>synopfragment.label</msgid>
+    <msgstr>(<number/>)</msgstr>
   </_msg>
 </msgset>
 

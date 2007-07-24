@@ -240,12 +240,15 @@ REMARK: Document this mode, and the role param
   </xsl:call-template>
 </xsl:template>
 
-<!-- FIXME -->
+<!-- = db.label.mode % synopfragment = -->
 <xsl:template mode="db.label.mode" match="synopfragment">
   <xsl:param name="role"/>
-  <xsl:text>(</xsl:text>
-  <xsl:call-template name="db.number"/>
-  <xsl:text>)</xsl:text>
+  <xsl:call-template name="l10n.gettext">
+    <xsl:with-param name="msgid" select="'synopfragment.label'"/>
+    <xsl:with-param name="role" select="$role"/>
+    <xsl:with-param name="node" select="."/>
+    <xsl:with-param name="format" select="true()"/>
+  </xsl:call-template>
 </xsl:template>
 
 <xsl:template mode="db.label.mode" match="title | subtitle">
@@ -489,6 +492,11 @@ REMARK: Document this mode
   </xsl:choose>
 </xsl:template>
 
+<!-- = db.number.mode % synopfragment = -->
+<xsl:template mode="db.number.mode" match="synopfragment">
+  <xsl:call-template name="db.digit"/>
+</xsl:template>
+
 <!-- = db.number.mode % table = -->
 <xsl:template mode="db.number.mode" match="table">
   <xsl:choose>
@@ -722,6 +730,18 @@ REMARK: Document this mode.  Rename to db.number.digit.mode?
     <xsl:with-param name="format">
       <xsl:call-template name="l10n.gettext">
         <xsl:with-param name="msgid" select="'section.digit'"/>
+      </xsl:call-template>
+    </xsl:with-param>
+  </xsl:call-template>
+</xsl:template>
+
+<!-- = db.digit.mode % synopfragment = -->
+<xsl:template mode="db.digit.mode" match="synopfragment">
+  <xsl:call-template name="db.digit.format">
+    <xsl:with-param name="digit" select="count(preceding-sibling::synopfragment) + 1"/>
+    <xsl:with-param name="format">
+      <xsl:call-template name="l10n.gettext">
+        <xsl:with-param name="msgid" select="'synopfragment.digit'"/>
       </xsl:call-template>
     </xsl:with-param>
   </xsl:call-template>

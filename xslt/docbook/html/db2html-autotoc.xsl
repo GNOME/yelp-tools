@@ -24,7 +24,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 DocBook to HTML - Tables of Contents
 :Requires: db-label db-xref db2html-xref gettext
 
-REMARK: Write some intro material here
+This module provides templates to create tables of contents from any
+division-level elements.
 -->
 
 

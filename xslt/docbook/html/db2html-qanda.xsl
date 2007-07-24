@@ -110,6 +110,7 @@ dd.answer div.label { float: left; }
 
 <!-- = question = -->
 <xsl:template match="question">
+  <!-- FIXME: dt-first -->
   <dt class="question">
     <div class="label">
       <xsl:call-template name="db.label">

@@ -17,6 +17,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:set="http://exslt.org/sets"
                 xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n"
                 xmlns="http://www.w3.org/1999/xhtml"
                 version="1.0">
@@ -25,27 +26,21 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 DocBook to HTML - Bibliographies
 :Requires: db-chunk db-common db-label db2html-block db2html-inline db2html-division db2html-xref gettext
 
-REMARK: Describe this module
+This module provides templates to process DocBook bibliograpies.
 -->
-
-
-<!--** =========================================================================
-db2html.bibliography.css
-Outputs CSS that controls the appearance of bibliograpies
--->
-<xsl:template name="db2html.bibliography.css">
-<xsl:text>
-span.bibliolabel { color: </xsl:text><xsl:value-of select="$theme.color.text_light"/><xsl:text>; }
-* + div.biblioentry { margin-top: 1.2em; }
-* + div.bibliomixed { margin-top: 1.2em; }
-</xsl:text>
-</xsl:template>
 
 
 <!--** =========================================================================
 db2html.biblioentry.label
 Outputs the label for a bibliography entry
 $node: The #{biblioentry} or #{bibliomixed} element to generate a label for
+
+This outputs a label to be placed inline at the beginning of a bibliography
+entry.  Labels are created for both #{biblioentry} and #{bibliomixed} elements.
+The label is typically an abbreviation of the authors' names an the year of
+publication.  In DocBook, it is usually provides with a leading #{abbrev}
+element.  Without a leading #{abbrev} element, this template will instead
+use the #{xreflabel} or #{id} attribute.
 -->
 <xsl:template name="db2html.biblioentry.label">
   <xsl:param name="node" select="."/>
@@ -80,9 +75,11 @@ $node: The #{biblioentry} or #{bibliomixed} element to generate a label for
 
 <!--%%==========================================================================
 db2html.biblioentry.mode
-FIXME
+Formats elements inside a #{biblioentry} element
 
-REMARK: Describe this mode
+This mode is used when processing the child elements of a #{biblioentry}
+element.  Many elements are treated differently when they appear inside
+a bibliography entry.
 -->
 <xsl:template mode="db2html.biblioentry.mode" match="*">
   <xsl:apply-templates select="."/>
@@ -469,9 +466,11 @@ REMARK: Describe this mode
 
 <!--%%==========================================================================
 db2html.bibliomixed.mode
-FIXME
+Formats elements inside a #{bibliomixed} element
 
-REMARK: Describe this mode
+This mode is used when processing the child elements of a #{bibliomixed}
+element.  Many elements are treated differently when they appear inside
+a bibliography entry.
 -->
 <xsl:template mode="db2html.bibliomixed.mode" match="*">
   <xsl:apply-templates select="."/>
@@ -602,15 +601,15 @@ REMARK: Describe this mode
   <xsl:variable name="node" select="."/>
   <div>
     <xsl:attribute name="class">
-      <xsl:text>biblioentry block</xsl:text>
-      <xsl:if test="not(preceding-sibling::biblioentry or preceding-sibling::bibliomixed)">
+      <xsl:text>bibliomixed block</xsl:text>
+      <xsl:if test="not(preceding-sibling::biblioentry | preceding-sibling::bibliomixed)">
         <xsl:text> block-first</xsl:text>
       </xsl:if>
     </xsl:attribute>
     <xsl:call-template name="db2html.anchor"/>
     <xsl:call-template name="db2html.biblioentry.label"/>
     <xsl:apply-templates mode="db2html.biblioentry.mode"
-                         select="*[not(. = $node/*[1]/self::abbrev)]"/>
+                         select="*[not(set:has-same-node(., $node/*[1]/self::abbrev))]"/>
   </div>
 </xsl:template>
 
@@ -620,15 +619,24 @@ REMARK: Describe this mode
   <div>
     <xsl:attribute name="class">
       <xsl:text>bibliomixed block</xsl:text>
-      <xsl:if test="not(preceding-sibling::biblioentry or preceding-sibling::bibliomixed)">
+      <xsl:if test="not(preceding-sibling::biblioentry | preceding-sibling::bibliomixed)">
         <xsl:text> block-first</xsl:text>
       </xsl:if>
     </xsl:attribute>
     <xsl:call-template name="db2html.anchor"/>
     <xsl:call-template name="db2html.biblioentry.label"/>
     <xsl:apply-templates mode="db2html.bibliomixed.mode"
-                         select="node()[not(. = $node/*[1]/self::abbrev)]"/>
+                         select="node()[not(set:has-same-node(., $node/*[1]/self::abbrev))]"/>
   </div>
+</xsl:template>
+
+<!-- = bibliolist = -->
+<xsl:template match="bibliolist">
+  <xsl:call-template name="db2html.block">
+    <xsl:with-param name="class" select="'list'"/>
+    <xsl:with-param name="indent" select="true()"/>
+    <xsl:with-param name="formal" select="true()"/>
+  </xsl:call-template>
 </xsl:template>
 
 </xsl:stylesheet>

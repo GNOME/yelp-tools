@@ -17,6 +17,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:set="http://exslt.org/sets"
                 xmlns="http://www.w3.org/1999/xhtml"
                 version="1.0">
 
@@ -257,10 +258,10 @@ div.refentry + div.refentry {
   </xsl:param>
   <xsl:param name="referent_depth_in_chunk">
     <xsl:choose>
-      <xsl:when test="$referent = .">
+      <xsl:when test="set:has-same-node(., $referent)">
         <xsl:value-of select="$depth_in_chunk"/>
       </xsl:when>
-      <xsl:when test="ancestor::* = $referent">
+      <xsl:when test="ancestor::*[set:has-same-node(., $referent)]">
         <xsl:value-of select="$depth_in_chunk -
                       (count(ancestor::*) - count($referent/ancestor::*)) "/>
       </xsl:when>

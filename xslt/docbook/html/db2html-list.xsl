@@ -30,31 +30,40 @@ REMARK: Describe this module
 
 <!-- == Matched Templates == -->
 
+<!-- = variablelist = -->
+<xsl:template match="glosslist">
+  <div class="block list glosslist">
+    <xsl:call-template name="db2html.anchor"/>
+    <xsl:apply-templates select="title"/>
+    <dl class="glosslist">
+      <xsl:apply-templates select="glossentry"/>
+    </dl>
+  </div>
+</xsl:template>
+
 <!-- = itemizedlist = -->
 <xsl:template match="itemizedlist">
-  <div class="block list">
-    <div class="itemizedlist">
-      <xsl:call-template name="db2html.anchor"/>
-      <xsl:apply-templates select="*[name(.) != 'listitem']"/>
-      <ul>
-        <xsl:if test="@mark">
-          <xsl:attribute name="style">
-            <xsl:text>list-style-type: </xsl:text>
-            <xsl:choose>
-              <xsl:when test="@mark = 'bullet'">disc</xsl:when>
-              <xsl:when test="@mark = 'box'">square</xsl:when>
-              <xsl:otherwise><xsl:value-of select="@mark"/></xsl:otherwise>
-            </xsl:choose>
-          </xsl:attribute>
-        </xsl:if>
-        <xsl:if test="@spacing = 'compact'">
-          <xsl:attribute name="compact">
-            <xsl:value-of select="@spacing"/>
-          </xsl:attribute>
-        </xsl:if>
-        <xsl:apply-templates select="listitem"/>
-      </ul>
-    </div>
+  <div class="block list itemizedlist">
+    <xsl:call-template name="db2html.anchor"/>
+    <xsl:apply-templates select="*[not(self::listitem)]"/>
+    <ul class="itemizedlist">
+      <xsl:if test="@mark">
+        <xsl:attribute name="style">
+          <xsl:text>list-style-type: </xsl:text>
+          <xsl:choose>
+            <xsl:when test="@mark = 'bullet'">disc</xsl:when>
+            <xsl:when test="@mark = 'box'">square</xsl:when>
+            <xsl:otherwise><xsl:value-of select="@mark"/></xsl:otherwise>
+          </xsl:choose>
+        </xsl:attribute>
+      </xsl:if>
+      <xsl:if test="@spacing = 'compact'">
+        <xsl:attribute name="compact">
+          <xsl:value-of select="@spacing"/>
+        </xsl:attribute>
+      </xsl:if>
+      <xsl:apply-templates select="listitem"/>
+    </ul>
   </div>
 </xsl:template>
 
@@ -101,37 +110,35 @@ REMARK: Describe this module
     </xsl:choose>
   </xsl:variable>
   <!-- FIXME: auto-numeration for nested lists -->
-  <div class="block list">
-    <div class="orderedlist">
-      <xsl:call-template name="db2html.anchor"/>
-      <xsl:apply-templates select="*[name(.) != 'listitem']"/>
-      <ol>
-        <xsl:if test="@numeration">
-          <xsl:attribute name="type">
-            <xsl:choose>
-              <xsl:when test="@numeration = 'arabic'">1</xsl:when>
-              <xsl:when test="@numeration = 'loweralpha'">a</xsl:when>
-              <xsl:when test="@numeration = 'lowerroman'">i</xsl:when>
-              <xsl:when test="@numeration = 'upperalpha'">A</xsl:when>
-              <xsl:when test="@numeration = 'upperroman'">I</xsl:when>
-              <xsl:otherwise>1</xsl:otherwise>
-            </xsl:choose>
-          </xsl:attribute>
-        </xsl:if>
-        <xsl:if test="$start != '1'">
-          <xsl:attribute name="start">
-            <xsl:value-of select="$start"/>
-          </xsl:attribute>
-        </xsl:if>
-        <xsl:if test="@spacing = 'compact'">
-          <xsl:attribute name="compact">
-            <xsl:value-of select="@spacing"/>
-          </xsl:attribute>
-        </xsl:if>
-        <!-- FIXME: @inheritnum -->
-        <xsl:apply-templates select="listitem"/>
-      </ol>
-    </div>
+  <div class="block list orderedlist">
+    <xsl:call-template name="db2html.anchor"/>
+    <xsl:apply-templates select="*[not(self::listitem)]"/>
+    <ol class="orderedlist">
+      <xsl:if test="@numeration">
+        <xsl:attribute name="type">
+          <xsl:choose>
+            <xsl:when test="@numeration = 'arabic'">1</xsl:when>
+            <xsl:when test="@numeration = 'loweralpha'">a</xsl:when>
+            <xsl:when test="@numeration = 'lowerroman'">i</xsl:when>
+            <xsl:when test="@numeration = 'upperalpha'">A</xsl:when>
+            <xsl:when test="@numeration = 'upperroman'">I</xsl:when>
+            <xsl:otherwise>1</xsl:otherwise>
+          </xsl:choose>
+        </xsl:attribute>
+      </xsl:if>
+      <xsl:if test="$start != '1'">
+        <xsl:attribute name="start">
+          <xsl:value-of select="$start"/>
+        </xsl:attribute>
+      </xsl:if>
+      <xsl:if test="@spacing = 'compact'">
+        <xsl:attribute name="compact">
+          <xsl:value-of select="@spacing"/>
+        </xsl:attribute>
+      </xsl:if>
+      <!-- FIXME: @inheritnum -->
+      <xsl:apply-templates select="listitem"/>
+    </ol>
   </div>
 </xsl:template>
 
@@ -158,30 +165,28 @@ REMARK: Describe this module
 
 <!-- = procedure = -->
 <xsl:template match="procedure">
-  <div class="block list">
-    <div class="procedure">
-      <xsl:call-template name="db2html.anchor"/>
-      <xsl:apply-templates select="*[name(.) != 'step']"/>
-      <xsl:choose>
-        <xsl:when test="count(step) = 1">
-          <ul>
-            <xsl:apply-templates select="step"/>
-          </ul>
-        </xsl:when>
-        <xsl:otherwise>
-          <ol>
-            <xsl:apply-templates select="step"/>
-          </ol>
-        </xsl:otherwise>
-      </xsl:choose>
-    </div>
+  <div class="block list procedure">
+    <xsl:call-template name="db2html.anchor"/>
+    <xsl:apply-templates select="*[not(self::step)]"/>
+    <xsl:choose>
+      <xsl:when test="count(step) = 1">
+        <ul class="procedure">
+          <xsl:apply-templates select="step"/>
+        </ul>
+      </xsl:when>
+      <xsl:otherwise>
+        <ol class="procedure">
+          <xsl:apply-templates select="step"/>
+        </ol>
+      </xsl:otherwise>
+    </xsl:choose>
   </div>
 </xsl:template>
 
 <!-- = seg = -->
 <xsl:template match="seg">
   <xsl:variable name="position" select="count(preceding-sibling::seg) + 1"/>
-  <p>
+  <p class="block seg">
     <xsl:if test="$position = 1">
       <xsl:attribute name="class">
         <xsl:text>segfirst</xsl:text>
@@ -195,7 +200,7 @@ REMARK: Describe this module
 <!-- = seglistitem = -->
 <xsl:template match="seglistitem">
   <xsl:param name="position" select="count(preceding-sibling::seglistitem) + 1"/>
-  <div class="seglistitem">
+  <div class="block seglistitem">
     <div>
       <xsl:attribute name="class">
         <xsl:choose>
@@ -215,7 +220,7 @@ REMARK: Describe this module
 <!-- FIXME: Implement tabular segmentedlists -->
 <!-- = segmentedlist = -->
 <xsl:template match="segmentedlist">
-  <div class="segmentedlist">
+  <div class="block list segmentedlist">
     <xsl:call-template name="db2html.anchor"/>
     <xsl:apply-templates select="title"/>
     <xsl:apply-templates select="seglistitem"/>
@@ -259,59 +264,55 @@ REMARK: Describe this module
       </span>
     </xsl:when>
     <xsl:when test="@type = 'horiz'">
-      <div class="block list">
-        <div class="simplelist">
-          <xsl:call-template name="db2html.anchor"/>
-          <table>
-            <xsl:for-each select="member[$columns = 1 or position() mod $columns = 1]">
-              <tr>
-                <td class="td-first">
+      <div class="block list simplelist">
+        <xsl:call-template name="db2html.anchor"/>
+        <table class="simplelist">
+          <xsl:for-each select="member[$columns = 1 or position() mod $columns = 1]">
+            <tr>
+              <td class="td-first">
+                <xsl:apply-templates select="."/>
+              </td>
+              <xsl:for-each select="following-sibling::member[
+                                    position() &lt; $columns]">
+                <td>
                   <xsl:apply-templates select="."/>
                 </td>
-                <xsl:for-each select="following-sibling::member[
-                                        position() &lt; $columns]">
-                  <td>
-                    <xsl:apply-templates select="."/>
-                  </td>
-                </xsl:for-each>
-                <xsl:variable name="fcount" select="count(following-sibling::member)"/>
-                <xsl:if test="$fcount &lt; ($columns - 1)">
-                  <td colspan="{$columns - $fcount - 1}"/>
-                </xsl:if>
-              </tr>
-            </xsl:for-each>
-          </table>
-        </div>
+              </xsl:for-each>
+              <xsl:variable name="fcount" select="count(following-sibling::member)"/>
+              <xsl:if test="$fcount &lt; ($columns - 1)">
+                <td colspan="{$columns - $fcount - 1}"/>
+              </xsl:if>
+            </tr>
+          </xsl:for-each>
+        </table>
       </div>
     </xsl:when>
     <xsl:otherwise>
-      <div class="block list">
-        <div class="simplelist">
-          <xsl:call-template name="db2html.anchor"/>
-          <xsl:variable name="rows" select="ceiling(count(member) div $columns)"/>
-          <table>
-            <xsl:for-each select="member[position() &lt;= $rows]">
-              <tr>
-                <td class="td-first">
+      <div class="block list simplelist">
+        <xsl:call-template name="db2html.anchor"/>
+        <xsl:variable name="rows" select="ceiling(count(member) div $columns)"/>
+        <table class="simplelist">
+          <xsl:for-each select="member[position() &lt;= $rows]">
+            <tr>
+              <td class="td-first">
+                <xsl:apply-templates select="."/>
+              </td>
+              <xsl:for-each select="following-sibling::member[
+                                    position() mod $rows = 0]">
+                <td>
                   <xsl:apply-templates select="."/>
                 </td>
-                <xsl:for-each select="following-sibling::member[
-                              position() mod $rows = 0]">
-                  <td>
-                    <xsl:apply-templates select="."/>
-                  </td>
-                </xsl:for-each>
-                <xsl:if test="position() = $rows">
-                  <xsl:variable name="fcount"
-                                select="count(following-sibling::member[position() mod $rows = 0])"/>
-                  <xsl:if test="$fcount &lt; ($columns - 1)">
-                    <td colspan="{$columns - $fcount - 1}"/>
-                  </xsl:if>
+              </xsl:for-each>
+              <xsl:if test="position() = $rows">
+                <xsl:variable name="fcount"
+                              select="count(following-sibling::member[position() mod $rows = 0])"/>
+                <xsl:if test="$fcount &lt; ($columns - 1)">
+                  <td colspan="{$columns - $fcount - 1}"/>
                 </xsl:if>
-              </tr>
-            </xsl:for-each>
-          </table>
-        </div>
+              </xsl:if>
+            </tr>
+          </xsl:for-each>
+        </table>
       </div>
     </xsl:otherwise>
   </xsl:choose>
@@ -337,9 +338,9 @@ REMARK: Describe this module
 <!-- = substeps = -->
 <xsl:template match="substeps">
   <xsl:variable name="depth" select="count(ancestor::substeps)"/>
-  <div class="substeps">
+  <div class="block list substeps">
     <xsl:call-template name="db2html.anchor"/>
-    <ol>
+    <ol class="substeps">
       <xsl:attribute name="type">
         <xsl:choose>
           <xsl:when test="$depth mod 3 = 0">a</xsl:when>
@@ -354,7 +355,13 @@ REMARK: Describe this module
 
 <!-- = term = -->
 <xsl:template match="term">
-  <dt class="term">
+  <dt>
+    <xsl:attribute name="class">
+      <xsl:text>term</xsl:text>
+      <xsl:if test="not(../preceding-sibling::varlistentry)">
+        <xsl:text> dt-first</xsl:text>
+      </xsl:if>
+    </xsl:attribute>
     <xsl:if test="../varlistentry/@id and not(preceding-sibling::term)">
       <xsl:call-template name="db2html.anchor">
         <xsl:with-param name="node" select=".."/>
@@ -366,14 +373,12 @@ REMARK: Describe this module
 
 <!-- = variablelist = -->
 <xsl:template match="variablelist">
-  <div class="block list">
-    <div class="variablelist">
-      <xsl:call-template name="db2html.anchor"/>
-      <xsl:apply-templates select="*[name(.) != 'varlistentry']"/>
-      <dl>
-        <xsl:apply-templates select="varlistentry"/>
-      </dl>
-    </div>
+  <div class="block list variablelist">
+    <xsl:call-template name="db2html.anchor"/>
+    <xsl:apply-templates select="*[not(self::varlistentry)]"/>
+    <dl class="variablelist">
+      <xsl:apply-templates select="varlistentry"/>
+    </dl>
   </div>
 </xsl:template>
 
@@ -393,11 +398,11 @@ REMARK: Describe this module
 
 
 <!--
+FIXME: are these still necessary with block-first?
 These templates strip the p tag around single-paragraph list items to avoid
 introducing extra spacing.  We don't do this for list items in varlistentry
 elements because it adds a non-negligable amount of processing time for
-non-trivial documents.  The default CSS for dd elements has a negative top
-margin instead.
+non-trivial documents.
 -->
 <xsl:template match="itemizedlist/listitem/para[
               not(preceding-sibling::* or following-sibling::*)  and

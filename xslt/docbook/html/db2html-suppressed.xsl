@@ -43,6 +43,7 @@ modes because of the DocBook content model.
 
 <!-- Explicitly matched by parent -->
 <xsl:template match="listitem"/>
+<xsl:template match="sbr"/>
 
 <!-- Index elements, not yet supported -->
 <xsl:template match="indexterm"/>
@@ -61,6 +62,7 @@ modes because of the DocBook content model.
 <xsl:template match="appendixinfo"/>
 <xsl:template match="blockinfo"/>
 <xsl:template match="articleinfo"/>
+<xsl:template match="bibliographyinfo"/>
 <xsl:template match="bookinfo"/>
 <xsl:template match="chapterinfo"/>
 <xsl:template match="glossaryinfo"/>

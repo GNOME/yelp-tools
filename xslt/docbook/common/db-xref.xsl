@@ -316,6 +316,16 @@ REMARK: Document this mode
   </xsl:call-template>
 </xsl:template>
 
+<!-- = db.xref.content.mode % synopfragment = -->
+<xsl:template mode="db.xref.content.mode" match="synopfragment">
+  <xsl:param name="xrefstyle"/>
+  <xsl:call-template name="l10n.gettext">
+    <xsl:with-param name="msgid" select="'synopfragment.label'"/>
+    <xsl:with-param name="node" select="."/>
+    <xsl:with-param name="format" select="true()"/>
+  </xsl:call-template>
+</xsl:template>
+
 <!-- = db.xref.content.mode % table = -->
 <xsl:template mode="db.xref.content.mode" match="table">
   <xsl:param name="xrefstyle"/>

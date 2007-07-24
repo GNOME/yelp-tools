@@ -1,3 +1,46 @@
+2007-07-24  Shaun McCance  <shaunm@gnome.org>
+
+	* test/testbook/testbook.xml:
+	- Added cmdsynopsis and glossary tests
+
+	* xslt/docbook/html/db2html-division.xsl:
+	- Fixed node comparisons by using set:has-same-node
+	- Put entry-type division children are in a "block" div for CSS
+
+	* xslt/docbook/html/db2html-qanda.xsl:
+	* xslt/docbook/html/db2html-table.xsl:
+	- Added FIXME notes
+
+	* xslt/docbook/html/db2html-css.xsl:
+	- Much CSS simplification
+
+	* xslt/docbook/html/db2html-block.xsl:
+	* xslt/docbook/html/db2html-refentry.xsl:
+	- Fixed node comparisons by using set:has-same-node
+
+	* xslt/gettext/l10n.xml.in:
+	* xslt/docbook/common/db-label.xsl:
+	* xslt/docbook/common/db-xref.xsl:
+	* xslt/docbook/html/db2html-cmdsynopsis.xsl:
+	* xslt/docbook/html/db2html-ebnf.xsl:
+	* xslt/docbook/html/db2html-suppressed.xsl:
+	* xslt/docbook/html/db2html-funcsynopsis.xsl:
+	- Changed sbr handling, suppress by default
+	- Implemented synopfragments correctly
+	- Put in automatic alignment padding for sbr elements
+	- Consolidated CSS for *synopsis elements
+
+	* xslt/docbook/html/db2html-bibliography.xsl:
+	- Fixed node comparisons by using set:has-same-node
+	- Implemented bibliolist
+
+	* xslt/docbook/html/db2html-list.xsl:
+	* xslt/docbook/html/db2html-classsynopsis.xsl:
+	- Consolidated properties for CSS styling
+
+	* xslt/docbook/html/db2html-autotoc.xsl:
+	- Documentation edit
+
 2007-07-08  Shaun McCance  <shaunm@gnome.org>
 
 	* configure.in:

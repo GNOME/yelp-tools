@@ -17,6 +17,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:set="http://exslt.org/sets"
                 xmlns="http://www.w3.org/1999/xhtml"
                 version="1.0">
 
@@ -313,17 +314,19 @@ REMARK: Talk about some of the parameters
       </xsl:call-template>
     </xsl:if>
     <xsl:variable name="nots" select="$divisions | $entries | $title_node | $subtitle_node"/>
-    <xsl:apply-templates select="*[not(. = $nots)]">
+    <xsl:apply-templates select="*[not(set:has-same-node(., $nots))]">
       <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
       <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
     </xsl:apply-templates>
     <xsl:if test="$entries">
-      <dl class="{local-name($node)}">
-        <xsl:apply-templates select="$entries">
-          <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
-          <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
-        </xsl:apply-templates>
-      </dl>
+      <div class="block">
+        <dl class="{local-name($node)}">
+          <xsl:apply-templates select="$entries">
+            <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
+            <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+          </xsl:apply-templates>
+        </dl>
+      </div>
     </xsl:if>
     <xsl:if test="$autotoc_depth != 0">
       <xsl:call-template name="db2html.autotoc">

@@ -75,8 +75,8 @@ REMARK: Describe this param
 
   <div>
     <xsl:attribute name="class">
+      <xsl:text>block synopsis </xsl:text>
       <xsl:value-of select="local-name(.)"/>
-      <xsl:text> block</xsl:text>
       <xsl:if test="$first">
         <xsl:text> block-first</xsl:text>
       </xsl:if>

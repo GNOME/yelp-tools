@@ -908,6 +908,7 @@ REMARK: This template needs to be explained in detail, but I forgot how it works
 </xsl:template>
 
 <!--#* copy-string -->
+<!-- FIXME: replace with str:padding? -->
 <xsl:template name="copy-string">
   <xsl:param name="count" select="1"/>
   <xsl:param name="string"/>
