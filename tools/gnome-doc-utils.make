@@ -554,7 +554,7 @@ uninstall-doc-figs:
 
 uninstall-doc-omf:
 	@list='$(_DOC_OMF_ALL)'; for omf in $$list; do \
-	  if test "x$(_ENABLE_SK)" == "xtrue"; then \
+	  if test "x$(_ENABLE_SK)" = "xtrue"; then \
 	    echo "scrollkeeper-uninstall -p $(_sklocalstatedir) $(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf"; \
 	    scrollkeeper-uninstall -p "$(_sklocalstatedir)" "$(DESTDIR)$(OMF_DIR)/$(DOC_MODULE)/$$omf"; \
 	  fi; \
