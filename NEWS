@@ -1,3 +1,51 @@
+Changes in 0.11.1:
+------------------
+** general
+ * Added new admonition graphics from cornelius[cz]
+** tools
+ * Fixed #456700, non-portable equality test (Joe Marcus Clarke)
+ * Use portable sh function syntax, #436824
+ * Fixed global variable polution that caused #436950
+ * Updated pkg-config file to reflect recent changes
+ * Added graphics copying option to gnome-doc-tool
+** xslt
+ * Fixed XSLT node comparisons to be faster and more correct
+ * Added utility XSLT to list needed automatic graphics
+ * Added dual HTML/XHTML output
+ * Added various sanity checks to xsldoc
+ * Added a commmon theme XSLT
+ * Lots of DocBook work, including:
+   - CSS consolidation and simplification
+   - Command, function, and class synopses
+   - Bibliographies
+   - Glossaries
+   - Reference pages and sections
+   - Admonitions
+   - All inline elements
+   - Navigation headers and footers
+   - All types of lists
+   - Automatic TOCs, including a TOC sidebar
+   - CALS tables
+** Updated translations:
+   da     (Peter Bach)
+   de     (Hendrik Richter)
+   dz     (Pema Geyleg)
+   en_GB  (David Lodge)
+   es     (Jorge González)
+   et     (Ivar Smolin)
+   fi     (Ilkka Tuohela)
+   gl     (Ignacio Casal Quinteiro)
+   gu     (Ankit Patel)
+   hu     (Gabor Kelemen)
+   nb     (Kjartan Maraas, Espen Stefansen)
+   nl     (Wouter Bolsterlee)
+   oc     (Yannig MARCHEGAY)
+   sv     (Daniel Nylander)
+   ta     (Tirumurthi Vasudevan)
+   th     (Theppitak Karoonboonyanan)
+   vi     (Clytie Siddall)
+   zh_CN  (Funda Wang)
+
 Changes in 0.10.3:
 ------------------
 * Fixed build issue with --disable-scrollkeeper, bug #427939 (Shaun McCance)

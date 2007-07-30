@@ -1,5 +1,10 @@
 2007-07-30  Shaun McCance  <shaunm@gnome.org>
 
+	* NEWS:
+	- Version 0.11.1
+
+2007-07-30  Shaun McCance  <shaunm@gnome.org>
+
 	* tools/gnome-doc-utils.make:
 	- Use = to test equality, bug #456700 from Joe Marcus Clarke
 
