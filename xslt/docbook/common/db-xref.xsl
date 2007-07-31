@@ -17,6 +17,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:set="http://exslt.org/sets"
                 version="1.0">
 
 <!--!!==========================================================================
@@ -357,7 +358,7 @@ REMARK: Talk about how this works with chunking
       <xsl:value-of
        select="concat($db.chunk.info_basename, $db.chunk.extension)"/>
     </xsl:when>
-    <xsl:when test="$target = /*">
+    <xsl:when test="set:has-same-node($target, /*)">
       <xsl:value-of select="concat($db.chunk.basename, $db.chunk.extension)"/>
     </xsl:when>
     <xsl:when test="$is_chunk">

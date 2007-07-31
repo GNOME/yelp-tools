@@ -1,3 +1,10 @@
+2007-07-31  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/common/db-chunk.xsl:
+	* xslt/docbook/common/db-label.xsl:
+	* xslt/daocbook/common/db-xref.xsl:
+	- Use set:has-same-node
+
 2007-07-30  Shaun McCance  <shaunm@gnome.org>
 
 	* NEWS:

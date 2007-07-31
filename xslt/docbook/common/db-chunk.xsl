@@ -18,6 +18,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:exsl="http://exslt.org/common"
+                xmlns:set="http://exslt.org/sets"
                 extension-element-prefixes="exsl"
                 version="1.0">
 
@@ -140,7 +141,7 @@ chunking mechanism without having to duplicate the content-generation code.
       <xsl:when test="$template = 'info'">
         <xsl:value-of select="$db.chunk.info_basename"/>
       </xsl:when>
-      <xsl:when test="$node = /*">
+      <xsl:when test="set:has-same-node($node, /*)">
         <xsl:value-of select="$db.chunk.basename"/>
       </xsl:when>
       <xsl:otherwise>

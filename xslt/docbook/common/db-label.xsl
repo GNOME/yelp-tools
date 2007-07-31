@@ -17,6 +17,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:set="http://exslt.org/sets"
                 xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n"
                 version="1.0">
 
@@ -423,7 +424,8 @@ REMARK: Document this mode
     </xsl:call-template>
   </xsl:variable>
   <xsl:variable name="increment"
-                select="number($this/ancestor::*[number($depth)] = $chunk)"/>
+                select="number(set:has-same-node($this/ancestor::*[number($depth)],
+                                                 $chunk ))"/>
   <xsl:choose>
     <xsl:when test="$pos = count($notes)">
       <xsl:value-of select="$count + $increment"/>
