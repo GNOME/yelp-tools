@@ -1,3 +1,10 @@
+2007-07-31  Shaun McCance  <shaunm@gnome.org>
+
+	* html/Makefile:
+	* spec/*:
+	* xslt/mal2html-page.xsl:
+	- Various bits of moving stuff around
+
 2007-03-27  Shaun McCance  <shaunm@gnome.org>
 
 	* rng/rnc2rng.awk:

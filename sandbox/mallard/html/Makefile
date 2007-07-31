@@ -22,3 +22,7 @@ $(pages) : %.xhtml : ../spec/%.xml
 figures:
 	if [ ! -d figures ]; then mkdir figures; fi
 	cp ../spec/figures/*.png figures/
+
+.PHONY: clean
+clean:
+	rm mallard.cache *.xhtml

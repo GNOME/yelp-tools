@@ -69,7 +69,7 @@ REMARK: Describe this template
   </xsl:variable>
   <!-- FIXME: // is slow -->
   <xsl:variable name="pagelinks"
-                select="$cache//*[mal:info/mal:link[@type = 'page'][@xref = $id]]"/>
+                select="$cache//*[mal:info/mal:link[@type = 'topic'][@xref = $id]]"/>
   <xsl:variable name="guidelinks"
                 select="$node/mal:info/mal:link[@type = 'guide']"/>
   <xsl:if test="$pagelinks or $guidelinks">
@@ -207,7 +207,7 @@ REMARK: Describe this template
     </xsl:choose>
   </xsl:variable>
   <xsl:variable name="pagelinks"
-                select="$node/mal:info/mal:link[@type = 'page']"/>
+                select="$node/mal:info/mal:link[@type = 'topic']"/>
   <!-- FIXME: // selectors are slow -->
   <!-- FIXME: exclude $pagelinks from $guidelinks -->
   <xsl:variable name="guidelinks"
