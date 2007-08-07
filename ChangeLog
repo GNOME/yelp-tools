@@ -1,3 +1,13 @@
+2007-08-07  Shaun McCance  <shaunm@gnome.org>
+
+	* test/testbook/testbook.xml:
+	* xslt/docbook/html/db2html-css.xsl:
+	* xslt/docbook/html/db2html-index.xsl:
+	* xslt/docbook/html/db2html.xsl:
+	* xslt/docbook/html/db2xhtml.xsl:
+	* xslt/gettext/l10n.xml.in:
+	- Adding some basic index support
+
 2007-07-31  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/common/db-chunk.xsl:

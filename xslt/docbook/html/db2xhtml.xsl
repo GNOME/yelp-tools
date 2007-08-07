@@ -50,6 +50,7 @@ DocBook to XHTML
 <xsl:include href="db2html-division.xsl"/>
 <xsl:include href="db2html-ebnf.xsl"/>
 <xsl:include href="db2html-funcsynopsis.xsl"/>
+<xsl:include href="db2html-index.xsl"/>
 <xsl:include href="db2html-info.xsl"/>
 <xsl:include href="db2html-inline.xsl"/>
 <xsl:include href="db2html-l10n.xsl"/>

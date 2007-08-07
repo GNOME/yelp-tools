@@ -2077,6 +2077,78 @@
   </_msg>
 </msgset>
 
+<!-- == seeie == -->
+<msgset>
+  <msgid>seeie.format</msgid>
+  <!--
+  This is a special format message.  Please read the full translator
+  documentation before translating this message.  The documentation
+  is maintained as part of the stylesheet documentation in DocBook.
+  For your convenience, it has also been converted to an HTML file
+  named STYLESHEETS.xml in the i18n directory.
+
+  seeie - A “See” entry in an index, rather than in the text
+  http://www.docbook.org/tdg/en/html/seeie.html
+
+  This is a format message used to format index cross references.
+  This format message controls the sentence used to present the cross
+  reference, not the link itself.
+
+  Special elements in the message will be replaced with the
+  appropriate content, as follows:
+
+  seeie - The actual link or links of the cross reference
+
+  These should be written as empty XML elements.  Due to limitations
+  in intltool, I can't write XML content in translator comments.  To
+  insert the seeie, simply write left angle bracket, seeie, slash,
+  right angle bracket.
+
+  Additionally, format messages can use the i, b, and tt markup tags
+  to mark text as italic, bold, and monospace.
+  -->
+  <_msg>
+    <msgid>seeie.format</msgid>
+    <msgstr>See <seeie/>.</msgstr>
+  </_msg>
+</msgset>
+
+<!-- == seealsoie == -->
+<msgset>
+  <msgid>seealsoie.format</msgid>
+  <!--
+  This is a special format message.  Please read the full translator
+  documentation before translating this message.  The documentation
+  is maintained as part of the stylesheet documentation in DocBook.
+  For your convenience, it has also been converted to an HTML file
+  named STYLESHEETS.xml in the i18n directory.
+
+  seealsoie - A “See also” entry in an index, rather than in the text
+  http://www.docbook.org/tdg/en/html/seealsoie.html
+
+  This is a format message used to format index cross references.
+  This format message controls the sentence used to present the cross
+  reference, not the link itself.
+
+  Special elements in the message will be replaced with the
+  appropriate content, as follows:
+
+  seeie - The actual link or links of the cross reference
+
+  These should be written as empty XML elements.  Due to limitations
+  in intltool, I can't write XML content in translator comments.  To
+  insert the seeie, simply write left angle bracket, seeie, slash,
+  right angle bracket.
+
+  Additionally, format messages can use the i, b, and tt markup tags
+  to mark text as italic, bold, and monospace.
+  -->
+  <_msg>
+    <msgid>seealsoie.format</msgid>
+    <msgstr>See also <seeie/>.</msgstr>
+  </_msg>
+</msgset>
+
 <!-- == synopfragment == -->
 <msgset>
   <msgid>synopfragment.digit</msgid>

@@ -2007,4 +2007,31 @@ repeats its name and any other information requested.
 </refentry>
 </reference>
 
+<index id="idx">
+  <title>Manual Index</title>
+  <para>This index is constructed manually using <sgmltag>indexentry</sgmltag>
+  elements.</para>
+  <indexentry>
+    <primaryie><classname>GtkAboutDialog</classname></primaryie>
+    <seealsoie><classname>GtkDialog</classname></seealsoie>
+    <seealsoie><classname>GtkWindow</classname></seealsoie>
+  </indexentry>
+  <indexentry>
+    <primaryie><classname>GtkDialog</classname></primaryie>
+    <seealsoie><classname>GtkWindow</classname></seealsoie>
+  </indexentry>
+  <indexentry>
+    <primaryie><classname>GtkWindow</classname></primaryie>
+  </indexentry>
+  <indexentry>
+    <primaryie>windows</primaryie>
+    <seeie><classname>GtkWindow</classname></seeie>
+    <secondaryie>about dialogs</secondaryie>
+    <seeie><classname>GtkAboutDialog</classname></seeie>
+    <seealsoie><classname>GtkDialog</classname></seealsoie>
+    <secondaryie>dialogs</secondaryie>
+    <seeie><classname>GtkDialog</classname></seeie>
+  </indexentry>
+</index>
+
 </book>
