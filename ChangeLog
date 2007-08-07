@@ -1,5 +1,11 @@
 2007-08-07  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/html/db2html-autotoc.xsl:
+	- Fixed bad node comparisons
+	- Fixed TOC entry for selected refentry elements 
+
+2007-08-07  Shaun McCance  <shaunm@gnome.org>
+
 	* test/testbook/testbook.xml:
 	* xslt/docbook/html/db2html-css.xsl:
 	* xslt/docbook/html/db2html-index.xsl:

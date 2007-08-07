@@ -17,6 +17,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:set="http://exslt.org/sets"
                 xmlns="http://www.w3.org/1999/xhtml"
                 version="1.0">
 
@@ -67,7 +68,7 @@ ${titleabbrev} element specifies whether list elements should use the
   <xsl:param name="show_info" select="false()"/>
   <xsl:param name="is_info" select="false()"/>
   <xsl:param name="show_title" select="false()"/>
-  <xsl:param name="selected" select="false()"/>
+  <xsl:param name="selected" select="/false"/>
   <xsl:param name="divisions"/>
 
   <xsl:param name="toc_depth" select="1"/>
@@ -148,7 +149,7 @@ For a description of the other parameters, see *{db2html.autotoc}.
 -->
 <xsl:template mode="db2html.autotoc.mode" match="*">
   <xsl:param name="is_info" select="false()"/>
-  <xsl:param name="selected" select="false()"/>
+  <xsl:param name="selected" select="/false"/>
   <xsl:param name="toc_depth" select="0"/>
   <xsl:param name="labels" select="true()"/>
   <xsl:param name="titleabbrev" select="false()"/>
@@ -168,7 +169,7 @@ For a description of the other parameters, see *{db2html.autotoc}.
       </span>
     </xsl:if>
     <xsl:choose>
-      <xsl:when test=". = $selected and not($is_info)">
+      <xsl:when test="set:has-same-node(., $selected) and not($is_info)">
         <xsl:call-template name="db.xref.content">
           <xsl:with-param name="linkend" select="@id"/>
           <xsl:with-param name="target" select="."/>
@@ -204,7 +205,7 @@ For a description of the other parameters, see *{db2html.autotoc}.
 <!-- = refentry % db2html.autotoc.mode = -->
 <xsl:template mode="db2html.autotoc.mode" match="refentry">
   <xsl:param name="is_info" select="false()"/>
-  <xsl:param name="selected" select="false()"/>
+  <xsl:param name="selected" select="/false"/>
   <xsl:param name="toc_depth" select="0"/>
   <xsl:param name="labels" select="true()"/>
   <xsl:param name="titleabbrev" select="false()"/>
@@ -215,11 +216,22 @@ For a description of the other parameters, see *{db2html.autotoc}.
     </xsl:if>
   </xsl:variable>
   <li>
-    <xsl:call-template name="db2html.xref">
-      <xsl:with-param name="linkend" select="@id"/>
-      <xsl:with-param name="target" select="."/>
-      <xsl:with-param name="xrefstyle" select="$xrefstyle"/>
-    </xsl:call-template>
+    <xsl:choose>
+      <xsl:when test="set:has-same-node(., $selected)">
+        <xsl:call-template name="db.xref.content">
+          <xsl:with-param name="linkend" select="@id"/>
+          <xsl:with-param name="target" select="."/>
+          <xsl:with-param name="xrefstyle" select="$xrefstyle"/>
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:call-template name="db2html.xref">
+          <xsl:with-param name="linkend" select="@id"/>
+          <xsl:with-param name="target" select="."/>
+          <xsl:with-param name="xrefstyle" select="$xrefstyle"/>
+        </xsl:call-template>
+      </xsl:otherwise>
+    </xsl:choose>
     <xsl:if test="$labels">
       <xsl:if test="refnamediv/refpurpose">
         <xsl:call-template name="l10n.gettext">
