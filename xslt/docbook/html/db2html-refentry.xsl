@@ -69,7 +69,8 @@ div.refentry + div.refentry {
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
   </xsl:param>
 
-  <div class="refentry">
+  <!-- FIXME: would be nice to use db2html.division.div -->
+  <div class="division refentry">
     <xsl:choose>
       <xsl:when test="refmeta/refentrytitle">
         <xsl:call-template name="db2html.title.header">
@@ -227,60 +228,25 @@ div.refentry + div.refentry {
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
   </xsl:param>
-  <div class="refsynopsisdiv">
-    <xsl:call-template name="db2html.anchor"/>
-    <xsl:if test="not(title)">
-      <xsl:call-template name="db2html.title.header">
-        <xsl:with-param name="node" select="."/>
-        <xsl:with-param name="referent" select="."/>
-        <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
-        <xsl:with-param name="referent_depth_in_chunk" select="$depth_in_chunk"/>
-        <xsl:with-param name="generate_label" select="false()"/>
+  <xsl:choose>
+    <xsl:when test="not(title)">
+      <xsl:call-template name="db2html.division.div">
         <xsl:with-param name="title_content">
           <xsl:call-template name="l10n.gettext">
             <xsl:with-param name="msgid" select="'Synopsis'"/>
           </xsl:call-template>
         </xsl:with-param>
+        <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
+        <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
       </xsl:call-template>
-    </xsl:if>
-    <xsl:apply-templates>
-      <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
-    </xsl:apply-templates>
-  </div>
-</xsl:template>
-
-<!-- = refsect*/title = -->
-<xsl:template match="refsect1/title | refsect2/title   |
-                     refsect3/title | refsection/title ">
-  <xsl:param name="referent" select=".."/>
-  <xsl:param name="depth_in_chunk">
-    <xsl:call-template name="db.chunk.depth-in-chunk"/>
-  </xsl:param>
-  <xsl:param name="referent_depth_in_chunk">
-    <xsl:choose>
-      <xsl:when test="set:has-same-node(., $referent)">
-        <xsl:value-of select="$depth_in_chunk"/>
-      </xsl:when>
-      <xsl:when test="ancestor::*[set:has-same-node(., $referent)]">
-        <xsl:value-of select="$depth_in_chunk -
-                      (count(ancestor::*) - count($referent/ancestor::*)) "/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:call-template name="db.chunk.depth-in-chunk">
-          <xsl:with-param name="node" select="$referent"/>
-        </xsl:call-template>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:param>
-  <xsl:param name="depth_of_chunk">
-    <xsl:call-template name="db.chunk.depth-of-chunk"/>
-  </xsl:param>
-  <xsl:call-template name="db2html.title.header">
-    <xsl:with-param name="referent" select="$referent"/>
-    <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
-    <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
-    <xsl:with-param name="generate_label" select="false()"/>
-  </xsl:call-template>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:call-template name="db2html.division.div">
+        <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
+        <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+      </xsl:call-template>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
 </xsl:stylesheet>

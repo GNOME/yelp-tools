@@ -207,16 +207,7 @@ REMARK: Document this mode, and the role param
 <xsl:template mode="db.label.mode" match="referece"/>
 
 <!-- = db.label.mode % refsection = -->
-<xsl:template mode="db.label.mode" match="
-              refsection | refsect1 | refsect2 | refsect3">
-  <xsl:param name="role"/>
-  <xsl:call-template name="l10n.gettext">
-    <xsl:with-param name="msgid" select="'refsection.label'"/>
-    <xsl:with-param name="role" select="$role"/>
-    <xsl:with-param name="node" select="."/>
-    <xsl:with-param name="format" select="true()"/>
-  </xsl:call-template>
-</xsl:template>
+<xsl:template mode="db.label.mode" match="refsection | refsect1 | refsect2 | refsect3"/>
 
 <!-- = db.label.mode % section = -->
 <xsl:template mode="db.label.mode" match="

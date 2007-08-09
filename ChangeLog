@@ -1,3 +1,12 @@
+2007-08-09  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/html/db2html-refentry.xsl:
+	* xslt/docbook/common/db-label.xsl:
+	- Some changes to refentry sectioning
+
+	* doc/xslt/C/gnome-doc-xslt.xml:
+	- Include db2html-index in the documentation
+
 2007-08-07  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/html/db2html-autotoc.xsl:
