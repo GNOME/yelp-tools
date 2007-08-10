@@ -1,5 +1,10 @@
 2007-08-10  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/html/db2html-refentry.xsl:
+	- Fixed the :Requires: field
+
+2007-08-10  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/docbook/html/db2html-block.xsl:
 	- Added missing ending brace to docs
 

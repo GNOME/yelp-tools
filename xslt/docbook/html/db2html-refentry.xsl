@@ -23,7 +23,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!--!!==========================================================================
 DocBook to HTML - Reference Pages
-:Requires: db-chunk db2html-inline db2html-division db2html-title db2html-xref gettext
+:Requires: db-chunk db-title db2html-inline db2html-division db2html-xref gettext
 
 REMARK: Describe this module. Talk about refenty and friends
 -->
