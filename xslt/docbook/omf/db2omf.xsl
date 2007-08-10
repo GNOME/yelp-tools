@@ -538,23 +538,16 @@ REMARK: Document this
 	     select="*[substring(local-name(.), string-length(local-name(.)) - 3)
 		       = 'info']"/>
   <format>
+    <xsl:attribute name="mime">
+      <xsl:value-of select="$db2omf.mime"/>
+    </xsl:attribute>
     <xsl:choose>
       <xsl:when test="$db2omf.mime = 'text/xml'">
-        <xsl:attribute name="mime">
-          <xsl:value-of select="text/xml"/>
-        </xsl:attribute>
         <xsl:attribute name="dtd">
           <xsl:value-of select="$db2omf.dtd"/>
         </xsl:attribute>
       </xsl:when>
-      <xsl:when test="$db2omf.mime = 'text/html'">
-        <xsl:attribute name="mime">
-          <xsl:value-of select="text/html"/>
-        </xsl:attribute>
-        <!-- FIXME:
-        <xsl:attribute name="dtd"/>
-        -->
-      </xsl:when>
+      <xsl:when test="$db2omf.mime = 'text/html'"/>
       <xsl:otherwise>
         <xsl:message terminate="yes">
           <xsl:text>db2omf: Unknown value of db2omf.mime: "</xsl:text>
