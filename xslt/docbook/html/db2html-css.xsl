@@ -23,7 +23,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!--!!==========================================================================
 DocBook to HTML - CSS
-:Requires: db2html-footnote db2html-callout db2html-cmdsynopsis db2html-qanda db2html-refentry gettext theme
+:Requires: db2html-footnote db2html-callout db2html-cmdsynopsis db2html-qanda gettext theme
 
 REMARK: Describe this module
 -->
@@ -488,7 +488,6 @@ span.wordasword { font-style: italic; }
   <xsl:call-template name="db2html.callout.css"/>
   <xsl:call-template name="db2html.cmdsynopsis.css"/>
   <xsl:call-template name="db2html.qanda.css"/>
-  <xsl:call-template name="db2html.refentry.css"/>
 <xsl:call-template name="db2html.css.custom"/>
 </xsl:template>
 

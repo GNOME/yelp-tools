@@ -256,6 +256,7 @@ $title_content: The title for divisions lacking a #{title} tag
 $subtitle_content: The subtitle for divisions lacking a #{subtitle} tag
 $entries: The entry-style child elements
 $divisions: The division-level child elements
+$callback: Whether to process ${node} in %{db2html.division.div.content.mode}
 $depth_in_chunk: The depth of ${node} in the containing chunk
 $depth_of_chunk: The depth of the containing chunk in the document
 $chunk_divisions: Whether to create new documents for ${divisions}
@@ -275,6 +276,7 @@ REMARK: Talk about some of the parameters
   <xsl:param name="subtitle_content"/>
   <xsl:param name="entries" select="/false"/>
   <xsl:param name="divisions" select="/false"/>
+  <xsl:param name="callback" select="false()"/>
   <xsl:param name="depth_in_chunk">
     <xsl:call-template name="db.chunk.depth-in-chunk">
       <xsl:with-param name="node" select="$node"/>
@@ -313,21 +315,31 @@ REMARK: Talk about some of the parameters
         <xsl:with-param name="node" select="$node"/>
       </xsl:call-template>
     </xsl:if>
-    <xsl:variable name="nots" select="$divisions | $entries | $title_node | $subtitle_node"/>
-    <xsl:apply-templates select="*[not(set:has-same-node(., $nots))]">
-      <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
-      <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
-    </xsl:apply-templates>
-    <xsl:if test="$entries">
-      <div class="block">
-        <dl class="{local-name($node)}">
-          <xsl:apply-templates select="$entries">
-            <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
-            <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
-          </xsl:apply-templates>
-        </dl>
-      </div>
-    </xsl:if>
+    <xsl:choose>
+      <xsl:when test="$callback">
+        <xsl:apply-templates mode="db2html.division.div.content.mode" select="$node">
+          <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
+          <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+        </xsl:apply-templates>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:variable name="nots" select="$divisions | $entries | $title_node | $subtitle_node"/>
+        <xsl:apply-templates select="*[not(set:has-same-node(., $nots))]">
+          <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
+          <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+        </xsl:apply-templates>
+        <xsl:if test="$entries">
+          <div class="block">
+            <dl class="{local-name($node)}">
+              <xsl:apply-templates select="$entries">
+                <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
+                <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+              </xsl:apply-templates>
+            </dl>
+          </div>
+        </xsl:if>
+      </xsl:otherwise>
+    </xsl:choose>
     <xsl:if test="$autotoc_depth != 0">
       <xsl:call-template name="db2html.autotoc">
         <xsl:with-param name="node" select="$node"/>
@@ -351,6 +363,17 @@ REMARK: Talk about some of the parameters
     </xsl:if>
   </div>
 </xsl:template>
+
+
+<!--%%==========================================================================
+db2html.division.div.content.mode
+Renders the block-level content of a division element
+$depth_in_chunk: The depth of the context element in the containing chunk
+$depth_of_chunk: The depth of the containing chunk in the document
+
+REMARK: Talk about how this works with #{callback}
+-->
+<xsl:template mode="db2html.division.div.content.mode" match="*"/>
 
 
 <!--**==========================================================================

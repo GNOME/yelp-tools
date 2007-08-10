@@ -1,5 +1,20 @@
 2007-08-10  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/html/db2html-block.xsl:
+	- Added missing ending brace to docs
+
+	* xslt/docbook/html/db2html-division.xsl:
+	- Added callback parameter to db2html.division.div
+
+	* test/testbook/testbook.xml:
+	* xslt/docbook/common/db-title.xsl:
+	* xslt/docbook/common/db-xref.xsl:
+	* xslt/docbook/html/db2html-css.xsl:
+	* xslt/docbook/html/db2html-refentry.xsl:
+	- More consistent refentry output
+
+2007-08-10  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/docbook/omf/db2omf.xsl:
 	- Fixed format/@mime output
 

@@ -28,25 +28,7 @@ DocBook to HTML - Reference Pages
 REMARK: Describe this module. Talk about refenty and friends
 -->
 
-
-<!--**==========================================================================
-db2html.refentry.css
-Outputs CSS that controls the appearance of reference page elements
-
-REMARK: Describe this template
--->
-<xsl:template name="db2html.refentry.css">
-<xsl:text>
-div.refentry h2.refentry {
-  border: none;
-  margin-top: 1em;
-}
-div.refentry + div.refentry {
-<!-- FIXME: this is ugly -->
-  border-top: dashed black 1px;
-}
-</xsl:text>
-</xsl:template>
+<!--#% db2html.division.div.content.mode -->
 
 
 <!-- == Matched Templates == -->
@@ -68,61 +50,38 @@ div.refentry + div.refentry {
   <xsl:param name="depth_of_chunk">
     <xsl:call-template name="db.chunk.depth-of-chunk"/>
   </xsl:param>
-
-  <!-- FIXME: would be nice to use db2html.division.div -->
-  <div class="division refentry">
-    <xsl:choose>
-      <xsl:when test="refmeta/refentrytitle">
-        <xsl:call-template name="db2html.title.header">
-          <!-- FIXME: this won't work -->
-          <xsl:with-param name="node"
-                          select="refmeta/refentrytitle | refmeta/manvolnum"/>
-          <xsl:with-param name="referent" select="."/>
-          <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
-          <xsl:with-param name="referent_depth_in_chunk" select="$depth_in_chunk"/>
-          <xsl:with-param name="generate_label" select="false()"/>
-        </xsl:call-template>
-      </xsl:when>
-      <xsl:when test="refentryinfo/title">
-        <xsl:call-template name="db2html.title.header">
-          <xsl:with-param name="node" select="refentryinfo/title"/>
-          <xsl:with-param name="referent" select="."/>
-          <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
-          <xsl:with-param name="referent_depth_in_chunk" select="$depth_in_chunk"/>
-          <xsl:with-param name="generate_label" select="false()"/>
-        </xsl:call-template>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:call-template name="db2html.title.header">
-          <xsl:with-param name="node" select="refnamediv/refname[1]"/>
-          <xsl:with-param name="referent" select="."/>
-          <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
-          <xsl:with-param name="referent_depth_in_chunk" select="$depth_in_chunk"/>
-          <xsl:with-param name="generate_label" select="false()"/>
-        </xsl:call-template>
-      </xsl:otherwise>
-    </xsl:choose>
-
-    <div class="refnamedivs">
-      <xsl:call-template name="db2html.title.header">
-        <xsl:with-param name="node" select="refnamediv"/>
-        <xsl:with-param name="referent" select="refnamediv"/>
-        <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 2"/>
-        <xsl:with-param name="referent_depth_in_chunk" select="$depth_in_chunk + 1"/>
-        <xsl:with-param name="generate_label" select="false()"/>
-        <xsl:with-param name="title_content">
-          <xsl:call-template name="l10n.gettext">
-            <xsl:with-param name="msgid" select="'Name'"/>
-          </xsl:call-template>
-        </xsl:with-param>
+  <xsl:call-template name="db2html.division.div">
+    <xsl:with-param name="title_content">
+      <xsl:call-template name="db.title">
+        <xsl:with-param name="node" select="."/>
       </xsl:call-template>
-      <xsl:apply-templates select="refnamediv"/>
-    </div>
-    <xsl:apply-templates select="refsynopsisdiv | refsect1 | refsection">
+    </xsl:with-param>
+    <xsl:with-param name="divisions" select="refsynopsisdiv | refsection | refsect1"/>
+    <xsl:with-param name="callback" select="true()"/>
+    <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
+    <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
+  </xsl:call-template>
+</xsl:template>
+
+<!-- = refentry % db2html.division.div.content.mode = -->
+<xsl:template mode="db2html.division.div.content.mode" match="refentry">
+  <xsl:param name="depth_in_chunk">
+    <xsl:call-template name="db.chunk.depth-in-chunk"/>
+  </xsl:param>
+  <xsl:param name="depth_of_chunk">
+    <xsl:call-template name="db.chunk.depth-of-chunk"/>
+  </xsl:param>
+  <div class="refnamedivs">
+    <xsl:apply-templates select="refnamediv">
       <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk + 1"/>
       <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
     </xsl:apply-templates>
   </div>
+</xsl:template>
+
+<!-- = refdescriptor = -->
+<xsl:template match="refdescriptor">
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = refname = -->
@@ -132,19 +91,35 @@ div.refentry + div.refentry {
 
 <!-- = refnamediv = -->
 <xsl:template match="refnamediv">
-  <div class="refnamediv">
+  <xsl:param name="depth_in_chunk">
+    <xsl:call-template name="db.chunk.depth-in-chunk"/>
+  </xsl:param>
+  <xsl:param name="depth_of_chunk">
+    <xsl:call-template name="db.chunk.depth-of-chunk"/>
+  </xsl:param>
+  <div class="block refnamediv">
     <xsl:call-template name="db2html.anchor"/>
-    <xsl:for-each select="refname">
-      <xsl:if test="position() != 1">
-        <xsl:text>, </xsl:text>
-      </xsl:if>
-      <xsl:apply-templates select="."/>
-    </xsl:for-each>
+    <xsl:choose>
+      <xsl:when test="refdescriptor">
+        <xsl:apply-templates select="refdescriptor"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:for-each select="refname">
+          <xsl:if test="position() != 1">
+            <xsl:call-template name="l10n.gettext">
+              <xsl:with-param name="msgid" select="', '"/>
+            </xsl:call-template>
+          </xsl:if>
+          <xsl:apply-templates select="."/>
+        </xsl:for-each>
+      </xsl:otherwise>
+    </xsl:choose>
     <xsl:call-template name="l10n.gettext">
       <xsl:with-param name="msgid" select="' — '"/>
     </xsl:call-template>
     <xsl:apply-templates select="refpurpose"/>
   </div>
+  <!-- FIXME: what to do with refclass? -->
 </xsl:template>
 
 <!-- = refpurpose = -->

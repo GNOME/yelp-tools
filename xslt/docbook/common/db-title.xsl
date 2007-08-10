@@ -215,10 +215,11 @@ REMARK: Describe this mode
     <xsl:when test="refmeta/refentrytitle">
       <xsl:apply-templates select="refmeta/refentrytitle/node()"/>
       <xsl:if test="refmeta/manvolnum">
-        <!-- FIXME: I18N -->
-        <xsl:text>(</xsl:text>
-        <xsl:apply-templates select="refmeta/manvolnum[1]/node()"/>
-        <xsl:text>)</xsl:text>
+        <xsl:call-template name="l10n.gettext">
+          <xsl:with-param name="msgid" select="'manvolnum.format'"/>
+          <xsl:with-param name="node" select="refmeta/manvolnum[1]"/>
+          <xsl:with-param name="format" select="true()"/>
+        </xsl:call-template>
       </xsl:if>
     </xsl:when>
     <xsl:when test="refentryinfo/title">
@@ -299,6 +300,11 @@ REMARK: Describe this mode
     <xsl:when test="refsynopsisdivinfo/title">
       <xsl:apply-templates select="refsynopsisdivinfo/title/node()"/>
     </xsl:when>
+    <xsl:otherwise>
+      <xsl:call-template name="l10n.gettext">
+        <xsl:with-param name="msgid" select="'Synopsis'"/>
+      </xsl:call-template>
+    </xsl:otherwise>
   </xsl:choose>
 </xsl:template>
 

@@ -304,6 +304,11 @@ REMARK: Document this mode
   </xsl:call-template>
 </xsl:template>
 
+<!-- = db.xref.content.mode % refsynopsisdiv = -->
+<xsl:template mode="db.xref.content.mode" match="refsynopsisdiv">
+  <xsl:call-template name="db.title"/>
+</xsl:template>
+
 <!-- = db.xref.content.mode % section = -->
 <xsl:template mode="db.xref.content.mode" match="
               section | sect1 | sect2 | sect3 | sect4 | sect5 | simplesect">

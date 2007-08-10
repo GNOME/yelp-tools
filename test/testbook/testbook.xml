@@ -1987,7 +1987,7 @@ porttitor condimentum nulla.</para>
 <refpurpose>list contents of a directory</refpurpose>
 </refnamediv>
 
-<refsynopsisdiv>
+<refsynopsisdiv id="ls-synops">
 <cmdsynopsis>
 <command>/usr/bin/ls</command>
 <arg choice="opt">
@@ -1997,7 +1997,7 @@ porttitor condimentum nulla.</para>
 </cmdsynopsis>
 </refsynopsisdiv>
 
-<refsect1><title>Description</title>
+<refsect1 id="ls-desc"><title>Description</title>
 <para>
 For each file that is a directory, <command>ls</command> lists the contents of
 the directory; for each file that is an ordinary file, <command>ls</command>

@@ -43,7 +43,7 @@ $indent: Whether this block should be indented
 $verbatim: Whether to maintain whitespace as written
 $formal: Whether this is a formal block element
 $title: When ${formal} is true, an element to use for the title
-$caption: When ${formal is true, an element to use for the caption 
+$caption: When ${formal} is true, an element to use for the caption 
 
 This template creates an HTML #{div} element for the given DocBook element.
 This template uses the parameters to construct the #{class} attribute, which
