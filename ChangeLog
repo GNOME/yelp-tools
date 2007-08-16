@@ -1,3 +1,8 @@
+2007-08-16  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/html/Makefile.am:
+	- Added missing db2html-index.xsl
+
 2007-08-10  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/html/db2html-refentry.xsl:
