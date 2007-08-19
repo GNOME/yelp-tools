@@ -91,7 +91,7 @@ msgid ""
 "<number/></msgstr>"
 msgstr ""
 "<msgid>appendix.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
-"msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Appendix "
+"msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Παράρτημα "
 "<number/></msgstr>"
 
 #.
@@ -163,7 +163,7 @@ msgstr "<msgid>appendix.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 #.
 #: ../xslt/gettext/l10n.xml.in.h:121
 msgid "<msgid>appendix.xref</msgid> <msgstr>Appendix <number/> ― <title/></msgstr>"
-msgstr "<msgid>appendix.xref</msgid> <msgstr>Appendix <number/> ― <title/></msgstr>"
+msgstr "<msgid>appendix.xref</msgid> <msgstr>Παράρτημα <number/> ― <title/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -477,7 +477,7 @@ msgstr ""
 #.
 #: ../xslt/gettext/l10n.xml.in.h:391
 msgid "<msgid>email.tooltip</msgid> <msgstr>Send email to ‘<string/>’.</msgstr>"
-msgstr "<msgid>email.tooltip</msgid> <msgstr>Αποστολή email σε ‘<string/>’.</msgstr>"
+msgstr "<msgid>email.tooltip</msgid> <msgstr>Αποστολή ηλ. αλληλογραφίας σε ‘<string/>’.</msgstr>"
 
 #.
 #. The number formatter used for example numbers.  This can be one of
@@ -670,7 +670,7 @@ msgid ""
 msgstr ""
 "<msgid>figure.label</msgid> <msgstr role='header'><i>Φιγούρα <number/></"
 "i>&#x2003;</msgstr> <msgstr role='li'>Φιγούρα <number/>&#x2002;</msgstr> "
-"<msgstr>Figure <number/></msgstr>"
+"<msgstr>Φιγούρα <number/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -808,7 +808,7 @@ msgid ""
 "<msgid>glossentry.tooltip</msgid> <msgstr>Read the definition for "
 "‘<glossterm/>’.</msgstr>"
 msgstr ""
-"<msgid>glossentry.tooltip</msgid> <msgstr>Διαβ'αστε τον ορισμό για "
+"<msgid>glossentry.tooltip</msgid> <msgstr>Διαβάστε τον ορισμό για "
 "‘<glossterm/>’.</msgstr>"
 
 #.
@@ -1014,7 +1014,7 @@ msgid ""
 "<msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Part <number/></msgstr>"
 msgstr ""
 "<msgid>part.label</msgid> <msgstr role='header'><number/>.&#x2003;</msgstr> "
-"<msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Part <number/></msgstr>"
+"<msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Μέρος <number/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1049,7 +1049,7 @@ msgstr ""
 #.
 #: ../xslt/gettext/l10n.xml.in.h:888
 msgid "<msgid>part.xref</msgid> <msgstr>Part <number/> ― <title/></msgstr>"
-msgstr "<msgid>part.xref</msgid> <msgstr>Part <number/> ― <title/></msgstr>"
+msgstr "<msgid>part.xref</msgid> <msgstr>Μέρος <number/> ― <title/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1382,7 +1382,7 @@ msgstr "<msgid>refsection.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1175
 msgid "<msgid>refsection.xref</msgid> <msgstr>Section <number/> ― <title/></msgstr>"
-msgstr "<msgid>refsection.xref</msgid> <msgstr>Section <number/> ― <title/></msgstr>"
+msgstr "<msgid>refsection.xref</msgid> <msgstr>Ενότητα <number/> ― <title/></msgstr>"
 
 #.
 #. The number formatter used for section numbers.  This can be one of
@@ -1575,7 +1575,7 @@ msgid ""
 "<msgstr>Table <number/></msgstr>"
 msgstr ""
 "<msgid>table.label</msgid> <msgstr role='header'><i>Table <number/></"
-"i>&#x2003;</msgstr> <msgstr role='li'>Table <number/>&#x2002;</msgstr> "
+"i>&#x2003;</msgstr> <msgstr role='li'>Πίνακας <number/>&#x2002;</msgstr> "
 "<msgstr>Πίνακας <number/></msgstr>"
 
 #.
@@ -1679,8 +1679,8 @@ msgid ""
 "<msgstr form='0'>Other Contributor</msgstr> <msgstr form='1'>Other "
 "Contributors</msgstr>"
 msgstr ""
-"<msgstr form='0'>Άλλος Συντελεστής</msgstr> <msgstr form='1'>Άλλοι "
-"Συντελεστές</msgstr>"
+"<msgstr form='0'>Άλλος συντελεστής</msgstr> <msgstr form='1'>Άλλοι "
+"συντελεστές</msgstr>"
 
 #. Used as a header before a list of publishers.
 #: ../xslt/gettext/l10n.xml.in.h:1416
@@ -1703,7 +1703,7 @@ msgstr "<msgstr form='0'>Μεταφραστής</msgstr> <msgstr form='1'>Μετ
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1428
 msgid "A:&#x2003;"
-msgstr "A:&#x2003;"
+msgstr "Α:&#x2003;"
 
 #. Used for links to the titlepage.
 #: ../xslt/gettext/l10n.xml.in.h:1430
@@ -1763,7 +1763,7 @@ msgstr "Αφιέρωση"
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1467
 msgid "Email"
-msgstr "Email"
+msgstr "Ηλ. διεύθυνση"
 
 #.
 #. http://www.docbook.org/tdg/en/html/glossary.html
@@ -1832,7 +1832,7 @@ msgstr "Πρόλογος"
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1512
 msgid "Q:&#x2003;"
-msgstr "Q:&#x2003;"
+msgstr "Ε:&#x2003;"
 
 #.
 #. http://www.docbook.org/tdg/en/html/revhistory.html
@@ -1890,5 +1890,5 @@ msgstr "Προειδοποίηση"
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1549
 msgid "default:LTR"
-msgstr "προεπιλογή:LTR"
+msgstr "default:LTR"
 
