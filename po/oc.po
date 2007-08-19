@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: gnome-doc-utils 0.7.1\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2006-07-02 23:45+0200\n"
-"PO-Revision-Date: 2007-05-15 19:00+0200\n"
+"PO-Revision-Date: 2007-08-19 19:46+0200\n"
 "Last-Translator: Yannig MARCHEGAY (Kokoyaya) <yannig@marchegay.org>\n"
 "Language-Team: Occitan (post 1500) <ubuntu-l10n-oci@lists.ubuntu.com>\n"
 "MIME-Version: 1.0\n"
@@ -1733,7 +1733,7 @@ msgstr "Adreça electronica"
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1472
 msgid "Glossary"
-msgstr ""
+msgstr "Glossari"
 
 #.
 #. http://www.docbook.org/tdg/en/html/important.html
