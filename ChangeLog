@@ -1,3 +1,8 @@
+2007-08-20  Shaun McCance  <shaunm@gnome.org>
+
+	* tools/gnome-doc-utils.make:
+	- Allow DOC_INCLUDES/ENTITIES to be in subdirectories
+
 2007-08-18  Shaun McCance  <shaunm@gnome.org>
 
 	* configure.in:
