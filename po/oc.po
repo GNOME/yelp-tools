@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils 0.7.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-19 19:46+0100\n"
-"PO-Revision-Date: 2007-08-20 23:59+0200\n"
+"POT-Creation-Date: 2007-08-21 12:03+0100\n"
+"PO-Revision-Date: 2007-09-01 20:35+0200\n"
 "Last-Translator: Yannig MARCHEGAY (Kokoyaya) <yannig@marchegay.org>\n"
 "Language-Team: Occitan (post 1500) <ubuntu-l10n-oci@lists.ubuntu.com>\n"
 "MIME-Version: 1.0\n"
@@ -69,7 +69,7 @@ msgstr ", e "
 #.
 #: ../xslt/gettext/l10n.xml.in.h:40
 msgid "<msgid>appendix.digit</msgid> <msgstr>A</msgstr>"
-msgstr ""
+msgstr "<msgid>appendix.digit</msgid> <msgstr>A</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -145,7 +145,7 @@ msgstr ""
 #.
 #: ../xslt/gettext/l10n.xml.in.h:107
 msgid "<msgid>appendix.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
-msgstr ""
+msgstr "<msgid>appendix.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -182,6 +182,7 @@ msgstr ""
 msgid ""
 "<msgid>appendix.xref</msgid> <msgstr>Appendix <number/> ― <title/></msgstr>"
 msgstr ""
+"<msgid>appendix.xref</msgid> <msgstr>Appendix <number/> ― <title/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -247,7 +248,7 @@ msgstr ""
 #.
 #: ../xslt/gettext/l10n.xml.in.h:197
 msgid "<msgid>bibliography.xref</msgid> <msgstr><title/></msgstr>"
-msgstr ""
+msgstr "<msgid>bibliography.xref</msgid> <msgstr><title/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -306,7 +307,7 @@ msgstr ""
 #.
 #: ../xslt/gettext/l10n.xml.in.h:250
 msgid "<msgid>book.digit</msgid> <msgstr>1</msgstr>"
-msgstr ""
+msgstr "<msgid>book.digit</msgid> <msgstr>1</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -339,7 +340,7 @@ msgstr ""
 #.
 #: ../xslt/gettext/l10n.xml.in.h:280
 msgid "<msgid>book.xref</msgid> <msgstr><title/></msgstr>"
-msgstr ""
+msgstr "<msgid>book.xref</msgid> <msgstr><title/></msgstr>"
 
 #.
 #. The number formatter used for chapter numbers.  This can be one of
@@ -357,7 +358,7 @@ msgstr ""
 #.
 #: ../xslt/gettext/l10n.xml.in.h:295
 msgid "<msgid>chapter.digit</msgid> <msgstr>1</msgstr>"
-msgstr ""
+msgstr "<msgid>chapter.digit</msgid> <msgstr>1</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -433,7 +434,7 @@ msgstr ""
 #.
 #: ../xslt/gettext/l10n.xml.in.h:362
 msgid "<msgid>chapter.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
-msgstr ""
+msgstr "<msgid>chapter.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1912,7 +1913,7 @@ msgstr ""
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1645
 msgid "A:&#x2003;"
-msgstr ""
+msgstr "A:&#x2003;"
 
 #. Used for links to the titlepage.
 #: ../xslt/gettext/l10n.xml.in.h:1647
@@ -2046,7 +2047,7 @@ msgstr ""
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1731
 msgid "Q:&#x2003;"
-msgstr ""
+msgstr "Q:&#x2003;"
 
 #.
 #. http://www.docbook.org/tdg/en/html/revhistory.html
