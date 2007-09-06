@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-07-25 03:14+0100\n"
-"PO-Revision-Date: 2007-07-26 20:12+0800\n"
+"POT-Creation-Date: 2007-08-08 02:33+0100\n"
+"PO-Revision-Date: 2007-09-06 21:19+0800\n"
 "Last-Translator: Funda Wang <fundawang@linux.net.cn>\n"
 "Language-Team: zh_CN <i18n-translation@lists.linux.net.cn>\n"
 "MIME-Version: 1.0\n"
@@ -1654,6 +1654,68 @@ msgid ""
 msgstr "<msgid>section.xref</msgid> <msgstr>第<number/>节 ― <title/></msgstr>"
 
 #.
+#. This is a special format message.  Please read the full translator
+#. documentation before translating this message.  The documentation
+#. is maintained as part of the stylesheet documentation in DocBook.
+#. For your convenience, it has also been converted to an HTML file
+#. named STYLESHEETS.xml in the i18n directory.
+#.
+#. seealsoie - A “See also” entry in an index, rather than in the text
+#. http://www.docbook.org/tdg/en/html/seealsoie.html
+#.
+#. This is a format message used to format index cross references.
+#. This format message controls the sentence used to present the cross
+#. reference, not the link itself.
+#.
+#. Special elements in the message will be replaced with the
+#. appropriate content, as follows:
+#.
+#. seeie - The actual link or links of the cross reference
+#.
+#. These should be written as empty XML elements.  Due to limitations
+#. in intltool, I can't write XML content in translator comments.  To
+#. insert the seeie, simply write left angle bracket, seeie, slash,
+#. right angle bracket.
+#.
+#. Additionally, format messages can use the i, b, and tt markup tags
+#. to mark text as italic, bold, and monospace.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1436
+msgid "<msgid>seealsoie.format</msgid> <msgstr>See also <seeie/>.</msgstr>"
+msgstr "<msgid>seealsoie.format</msgid> <msgstr>See also <seeie/>.</msgstr>"
+
+#.
+#. This is a special format message.  Please read the full translator
+#. documentation before translating this message.  The documentation
+#. is maintained as part of the stylesheet documentation in DocBook.
+#. For your convenience, it has also been converted to an HTML file
+#. named STYLESHEETS.xml in the i18n directory.
+#.
+#. seeie - A “See” entry in an index, rather than in the text
+#. http://www.docbook.org/tdg/en/html/seeie.html
+#.
+#. This is a format message used to format index cross references.
+#. This format message controls the sentence used to present the cross
+#. reference, not the link itself.
+#.
+#. Special elements in the message will be replaced with the
+#. appropriate content, as follows:
+#.
+#. seeie - The actual link or links of the cross reference
+#.
+#. These should be written as empty XML elements.  Due to limitations
+#. in intltool, I can't write XML content in translator comments.  To
+#. insert the seeie, simply write left angle bracket, seeie, slash,
+#. right angle bracket.
+#.
+#. Additionally, format messages can use the i, b, and tt markup tags
+#. to mark text as italic, bold, and monospace.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1464
+msgid "<msgid>seeie.format</msgid> <msgstr>See <seeie/>.</msgstr>"
+msgstr "<msgid>seeie.format</msgid> <msgstr>See <seeie/>.</msgstr>"
+
+#.
 #. The number formatter used for synopsis numbers.  This can be one of
 #. "1", "A", "a", "I", or "i", without the quotes.  These formatters
 #. provide the following results:
@@ -1667,7 +1729,7 @@ msgstr "<msgid>section.xref</msgid> <msgstr>第<number/>节 ― <title/></msgstr
 #. Non-Western languages probably need additional formatters.  Please
 #. contact the maintainers about adding formatters for your language.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1423
+#: ../xslt/gettext/l10n.xml.in.h:1479
 msgid "<msgid>synopfragment.digit</msgid> <msgstr>1</msgstr>"
 msgstr "<msgid>synopfragment.digit</msgid> <msgstr>1</msgstr>"
 
@@ -1698,7 +1760,7 @@ msgstr "<msgid>synopfragment.digit</msgid> <msgstr>1</msgstr>"
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1451
+#: ../xslt/gettext/l10n.xml.in.h:1507
 msgid "<msgid>synopfragment.label</msgid> <msgstr>(<number/>)</msgstr>"
 msgstr "<msgid>synopfragment.label</msgid> <msgstr>(<number/>)</msgstr>"
 
@@ -1716,7 +1778,7 @@ msgstr "<msgid>synopfragment.label</msgid> <msgstr>(<number/>)</msgstr>"
 #. Non-Western languages probably need additional formatters.  Please
 #. contact the maintainers about adding formatters for your language.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1466
+#: ../xslt/gettext/l10n.xml.in.h:1522
 msgid "<msgid>table.digit</msgid> <msgstr>1</msgstr>"
 msgstr "<msgid>table.digit</msgid> <msgstr>1</msgstr>"
 
@@ -1753,7 +1815,7 @@ msgstr "<msgid>table.digit</msgid> <msgstr>1</msgstr>"
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1500
+#: ../xslt/gettext/l10n.xml.in.h:1556
 msgid ""
 "<msgid>table.label</msgid> <msgstr role='header'><i>Table <number/></"
 "i>&#x2003;</msgstr> <msgstr role='li'>Table <number/>&#x2002;</msgstr> "
@@ -1795,7 +1857,7 @@ msgstr ""
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1533
+#: ../xslt/gettext/l10n.xml.in.h:1589
 msgid "<msgid>table.number</msgid> <msgstr><parent/>-<digit/></msgstr>"
 msgstr "<msgid>table.number</msgid> <msgstr><parent/>-<digit/></msgstr>"
 
@@ -1830,35 +1892,35 @@ msgstr "<msgid>table.number</msgid> <msgstr><parent/>-<digit/></msgstr>"
 #. Additionally, format messages can use the i, b, and tt markup tags
 #. to mark text as italic, bold, and monospace.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1565
+#: ../xslt/gettext/l10n.xml.in.h:1621
 msgid "<msgid>table.xref</msgid> <msgstr>Table <number/></msgstr>"
 msgstr "<msgid>table.xref</msgid> <msgstr>表 <number/></msgstr>"
 
 #. Used as a header before a list of authors.
-#: ../xslt/gettext/l10n.xml.in.h:1567
+#: ../xslt/gettext/l10n.xml.in.h:1623
 msgid "<msgstr form='0'>Author</msgstr> <msgstr form='1'>Authors</msgstr>"
 msgstr "<msgstr form='0'>作者</msgstr> <msgstr form='1'>作者</msgstr>"
 
 #. Used as a header before a list of collaborators.
-#: ../xslt/gettext/l10n.xml.in.h:1569
+#: ../xslt/gettext/l10n.xml.in.h:1625
 msgid ""
 "<msgstr form='0'>Collaborator</msgstr> <msgstr form='1'>Collaborators</"
 "msgstr>"
 msgstr "<msgstr form='0'>合作者</msgstr> <msgstr form='1'>合作者</msgstr>"
 
 #. Used as a header before a list of copyrights.
-#: ../xslt/gettext/l10n.xml.in.h:1571
+#: ../xslt/gettext/l10n.xml.in.h:1627
 msgid ""
 "<msgstr form='0'>Copyright</msgstr> <msgstr form='1'>Copyrights</msgstr>"
 msgstr "<msgstr form='0'>版权</msgstr> <msgstr form='1'>版权</msgstr>"
 
 #. Used as a header before a list of editors.
-#: ../xslt/gettext/l10n.xml.in.h:1573
+#: ../xslt/gettext/l10n.xml.in.h:1629
 msgid "<msgstr form='0'>Editor</msgstr> <msgstr form='1'>Editors</msgstr>"
 msgstr "<msgstr form='0'>编辑</msgstr> <msgstr form='1'>编辑</msgstr>"
 
 #. Used as a header before a list of contributors.
-#: ../xslt/gettext/l10n.xml.in.h:1575
+#: ../xslt/gettext/l10n.xml.in.h:1631
 msgid ""
 "<msgstr form='0'>Other Contributor</msgstr> <msgstr form='1'>Other "
 "Contributors</msgstr>"
@@ -1866,13 +1928,13 @@ msgstr ""
 "<msgstr form='0'>其他贡献者</msgstr> <msgstr form='1'>其他贡献者</msgstr>"
 
 #. Used as a header before a list of publishers.
-#: ../xslt/gettext/l10n.xml.in.h:1577
+#: ../xslt/gettext/l10n.xml.in.h:1633
 msgid ""
 "<msgstr form='0'>Publisher</msgstr> <msgstr form='1'>Publishers</msgstr>"
 msgstr "<msgstr form='0'>出版者</msgstr> <msgstr form='1'>出版者</msgstr>"
 
 #. Used as a header before a list of translators.
-#: ../xslt/gettext/l10n.xml.in.h:1579
+#: ../xslt/gettext/l10n.xml.in.h:1635
 msgid ""
 "<msgstr form='0'>Translator</msgstr> <msgstr form='1'>Translators</msgstr>"
 msgstr "<msgstr form='0'>翻译者</msgstr> <msgstr form='1'>翻译者</msgstr>"
@@ -1886,12 +1948,12 @@ msgstr "<msgstr form='0'>翻译者</msgstr> <msgstr form='1'>翻译者</msgstr>"
 #. the labelling style for a qandaset.  If the labelling style is set
 #. to 'qanda', this string will be used to label answers.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1589
+#: ../xslt/gettext/l10n.xml.in.h:1645
 msgid "A:&#x2003;"
 msgstr "答："
 
 #. Used for links to the titlepage.
-#: ../xslt/gettext/l10n.xml.in.h:1591
+#: ../xslt/gettext/l10n.xml.in.h:1647
 msgid "About This Document"
 msgstr "关于本文档"
 
@@ -1904,12 +1966,12 @@ msgstr "关于本文档"
 #. Shaun McCance
 #. Affiliation: GNOME Documentation Project
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1601
+#: ../xslt/gettext/l10n.xml.in.h:1657
 msgid "Affiliation"
 msgstr "隶属"
 
 #. Used as a title for a bibliography.
-#: ../xslt/gettext/l10n.xml.in.h:1603
+#: ../xslt/gettext/l10n.xml.in.h:1659
 msgid "Bibliography"
 msgstr "参考书目"
 
@@ -1917,7 +1979,7 @@ msgstr "参考书目"
 #. http://www.docbook.org/tdg/en/html/caution.html
 #. This is used as a default title for caution elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1608
+#: ../xslt/gettext/l10n.xml.in.h:1664
 msgid "Caution"
 msgstr "小心"
 
@@ -1925,12 +1987,12 @@ msgstr "小心"
 #. http://www.docbook.org/tdg/en/html/colophon.html
 #. This is used as a default title for colophon elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1613
+#: ../xslt/gettext/l10n.xml.in.h:1669
 msgid "Colophon"
 msgstr "版权页"
 
 #. Used as the title of the listing of subsections
-#: ../xslt/gettext/l10n.xml.in.h:1615
+#: ../xslt/gettext/l10n.xml.in.h:1671
 msgid "Contents"
 msgstr "目录"
 
@@ -1938,7 +2000,7 @@ msgstr "目录"
 #. http://www.docbook.org/tdg/en/html/dedication.html
 #. This is used as a default title for dedication elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1620
+#: ../xslt/gettext/l10n.xml.in.h:1676
 msgid "Dedication"
 msgstr "贡献"
 
@@ -1951,7 +2013,7 @@ msgstr "贡献"
 #. Shaun McCance
 #. Email: shaunm@gnome.org
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1630
+#: ../xslt/gettext/l10n.xml.in.h:1686
 msgid "Email"
 msgstr "电子邮件"
 
@@ -1959,7 +2021,7 @@ msgstr "电子邮件"
 #. http://www.docbook.org/tdg/en/html/glossary.html
 #. This is used as a default title for glossary elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1635
+#: ../xslt/gettext/l10n.xml.in.h:1691
 msgid "Glossary"
 msgstr "术语表"
 
@@ -1967,7 +2029,7 @@ msgstr "术语表"
 #. http://www.docbook.org/tdg/en/html/important.html
 #. This is used as a default title for important elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1640
+#: ../xslt/gettext/l10n.xml.in.h:1696
 msgid "Important"
 msgstr "重要"
 
@@ -1975,7 +2037,7 @@ msgstr "重要"
 #. http://www.docbook.org/tdg/en/html/index.html
 #. This is used as a default title for index elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1645
+#: ../xslt/gettext/l10n.xml.in.h:1701
 msgid "Index"
 msgstr "索引"
 
@@ -1983,7 +2045,7 @@ msgstr "索引"
 #. http://www.docbook.org/tdg/en/html/legalnotice.html
 #. This is used as a default title for legalnotice elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1650
+#: ../xslt/gettext/l10n.xml.in.h:1706
 msgid "Legal Notice"
 msgstr "版权通告"
 
@@ -1991,7 +2053,7 @@ msgstr "版权通告"
 #. http://www.docbook.org/tdg/en/html/refnamediv.html
 #. This is used as the title for refnamediv elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1655
+#: ../xslt/gettext/l10n.xml.in.h:1711
 msgid "Name"
 msgstr "名称"
 
@@ -1999,7 +2061,7 @@ msgstr "名称"
 #. http://www.docbook.org/tdg/en/html/note.html
 #. This is used as a default title for note elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1660
+#: ../xslt/gettext/l10n.xml.in.h:1716
 msgid "Note"
 msgstr "备注"
 
@@ -2007,7 +2069,7 @@ msgstr "备注"
 #. http://www.docbook.org/tdg/en/html/preface.html
 #. This is used as a default title for preface elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1665
+#: ../xslt/gettext/l10n.xml.in.h:1721
 msgid "Preface"
 msgstr "封面"
 
@@ -2020,7 +2082,7 @@ msgstr "封面"
 #. the labelling style for a qandaset.  If the labelling style is set
 #. to 'qanda', this string will be used to label questions.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1675
+#: ../xslt/gettext/l10n.xml.in.h:1731
 msgid "Q:&#x2003;"
 msgstr "问："
 
@@ -2028,7 +2090,7 @@ msgstr "问："
 #. http://www.docbook.org/tdg/en/html/revhistory.html
 #. This is used as a header before the revision history.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1680
+#: ../xslt/gettext/l10n.xml.in.h:1736
 msgid "Revision History"
 msgstr "版本历史"
 
@@ -2036,7 +2098,7 @@ msgstr "版本历史"
 #. Used for the <see> element.
 #. FIXME: this should be a format string.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1685
+#: ../xslt/gettext/l10n.xml.in.h:1741
 msgid "See"
 msgstr "见"
 
@@ -2044,7 +2106,7 @@ msgstr "见"
 #. Used for the <seealso> element.
 #. FIXME: this should be a format string.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1690
+#: ../xslt/gettext/l10n.xml.in.h:1746
 msgid "See Also"
 msgstr "参见"
 
@@ -2052,7 +2114,7 @@ msgstr "参见"
 #. http://www.docbook.org/tdg/en/html/refsynopsisdiv.html
 #. This is used as the default title for refsynopsisdiv elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1695
+#: ../xslt/gettext/l10n.xml.in.h:1751
 msgid "Synopsis"
 msgstr "提要"
 
@@ -2060,7 +2122,7 @@ msgstr "提要"
 #. http://www.docbook.org/tdg/en/html/tip.html
 #. This is used as a default title for tip elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1700
+#: ../xslt/gettext/l10n.xml.in.h:1756
 msgid "Tip"
 msgstr "提示"
 
@@ -2068,7 +2130,7 @@ msgstr "提示"
 #. http://www.docbook.org/tdg/en/html/warning.html
 #. This is used as a default title for warning elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1705
+#: ../xslt/gettext/l10n.xml.in.h:1761
 msgid "Warning"
 msgstr "警告"
 
@@ -2078,7 +2140,7 @@ msgstr "警告"
 #. translate it to "predefinito:LTR", if it it isn't default:LTR
 #. or default:RTL it will not work
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1712
+#: ../xslt/gettext/l10n.xml.in.h:1768
 msgid "default:LTR"
 msgstr "default:LTR"
 
@@ -2109,6 +2171,6 @@ msgstr "default:LTR"
 #. once found inside Yelp.  The watermark functionality has been moved to
 #. gnome-doc-utils.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1740
+#: ../xslt/gettext/l10n.xml.in.h:1796
 msgid "watermark-blockquote-201C.png"
 msgstr "watermark-blockquote-201C.png"
