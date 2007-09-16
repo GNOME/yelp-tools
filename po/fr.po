@@ -13,8 +13,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils 0.7.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-09-15 21:18+0200\n"
-"PO-Revision-Date: 2007-09-15 21:51+0200\n"
+"POT-Creation-Date: 2007-09-16 22:38+0200\n"
+"PO-Revision-Date: 2007-09-16 22:37+0200\n"
 "Last-Translator: Stéphane Raimbault <stephane.raimbault@gmail.com>\n"
 "Language-Team: GNOME French Team <gnomefr@traduc.org>\n"
 "MIME-Version: 1.0\n"
@@ -479,7 +479,7 @@ msgstr "<msgstr><parent/>.<digit/></msgstr>"
 #: ../xslt/gettext/l10n.xml.in.h:394
 msgid ""
 "<msgid>chapter.xref</msgid> <msgstr>Chapter <number/> ― <title/></msgstr>"
-msgstr "<msgstr>Chapitre <number/> : <title/></msgstr>"
+msgstr "<msgstr>Chapitre <number/> ― <title/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -546,7 +546,9 @@ msgstr "<msgstr>[<citation/>]</msgstr>"
 msgid ""
 "<msgid>citetitle.format</msgid> <msgstr role='article'>“<node/>”</msgstr> "
 "<msgstr><i><node/></i></msgstr>"
-msgstr "<msgstr role='article'><i><node/></i></msgstr> <msgstr><i><node/></i></msgstr>"
+msgstr ""
+"<msgstr role='article'><i><node/></i></msgstr> <msgstr><i><node/></i></"
+"msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1179,7 +1181,7 @@ msgstr ""
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1006
 msgid "<msgid>part.xref</msgid> <msgstr>Part <number/> ― <title/></msgstr>"
-msgstr "<msgstr>Partie <number/> : <title/></msgstr>"
+msgstr "<msgstr>Partie <number/> ― <title/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1509,7 +1511,7 @@ msgstr "<msgstr><parent/>.<digit/></msgstr>"
 #: ../xslt/gettext/l10n.xml.in.h:1293
 msgid ""
 "<msgid>refsection.xref</msgid> <msgstr>Section <number/> ― <title/></msgstr>"
-msgstr "<msgstr>Section <number/> : <title/></msgstr>"
+msgstr "<msgstr>Section <number/> ― <title/></msgstr>"
 
 #.
 #. The number formatter used for section numbers.  This can be one of
@@ -1642,7 +1644,7 @@ msgstr "<msgstr><parent/>.<digit/></msgstr>"
 #: ../xslt/gettext/l10n.xml.in.h:1408
 msgid ""
 "<msgid>section.xref</msgid> <msgstr>Section <number/> ― <title/></msgstr>"
-msgstr "<msgstr>Section <number/> : <title/></msgstr>"
+msgstr "<msgstr>Section <number/> ― <title/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
