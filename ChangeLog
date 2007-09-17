@@ -1,3 +1,9 @@
+2007-09-17  Shaun McCance  <shaunm@gnome.org>
+
+	* configure.in:
+	* NEWS:
+	- Version 0.12.0
+
 2007-08-20  Shaun McCance  <shaunm@gnome.org>
 
 	* tools/gnome-doc-utils.make:

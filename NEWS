@@ -1,3 +1,32 @@
+Changes in 0.12.0:
+------------------
+* Allow DOC_INCLUDES/ENTITIES to be in subdirectories
+* Updated translations:
+  ar      (Anas Husseini)
+  bg      (Alexander Shopov)
+  ca      (Gil Forcada)
+  da      (Kenneth Nielsen)
+  el      (Simos Xenitellis)
+  en_CA   (Adam Weinberger)
+  en_GB   (David Lodge)
+  et      (Ivar Smolin)
+  eu      (Inaki Larranaga Murgoitio)
+  fr      (Stéphane Raimbaul, Vincent Untz)
+  hu      (Gabor Kelemen)
+  it      (Luca Ferretti)
+  ja      (Takehsi AIHANA)
+  mk      (Jovan Naumovski)
+  oc      (Yannig MARCHEGAY)
+  pl      (GNOME PL Team)
+  pt      (Duarte Loreto)
+  pt_BR   (Luiz Armesto)
+  ru      (Nickolay V. Shmyrev)
+  sr      (Danilo Šega
+  sr@Latn (Danilo Šega
+  ta      (Tirumurthi Vasudevan)
+  uk      (Maxim Dziumanenko)
+  vi      (Clytie Siddall)
+
 Changes in 0.11.2:
 ------------------
 * Added db2html.division.div.content.mode
