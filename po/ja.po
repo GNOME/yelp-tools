@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils trunk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-19 23:16+0900\n"
-"PO-Revision-Date: 2007-08-19 23:16+0900\n"
+"POT-Creation-Date: 2007-10-16 23:26+0900\n"
+"PO-Revision-Date: 2007-10-16 23:25+0900\n"
 "Last-Translator: Takeshi AIHANA <takeshi.aihana@gmail.com>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "MIME-Version: 1.0\n"
@@ -1966,7 +1966,7 @@ msgstr "A:&#x2003;"
 #. Used for links to the titlepage.
 #: ../xslt/gettext/l10n.xml.in.h:1647
 msgid "About This Document"
-msgstr "この文書について"
+msgstr "このドキュメントについて"
 
 #.
 #. http://www.docbook.org/tdg/en/html/affiliation.html
