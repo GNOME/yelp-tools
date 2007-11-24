@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils trunk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-10-16 23:26+0900\n"
-"PO-Revision-Date: 2007-10-16 23:25+0900\n"
+"POT-Creation-Date: 2007-11-24 11:56+0900\n"
+"PO-Revision-Date: 2007-11-24 11:46+0900\n"
 "Last-Translator: Takeshi AIHANA <takeshi.aihana@gmail.com>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "MIME-Version: 1.0\n"
@@ -185,7 +185,7 @@ msgstr "<msgid>appendix.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 msgid ""
 "<msgid>appendix.xref</msgid> <msgstr>Appendix <number/> ― <title/></msgstr>"
 msgstr ""
-"<msgid>appendix.xref</msgid> <msgstr>目次 <number/> ― <title/></msgstr>"
+"<msgid>appendix.xref</msgid> <msgstr>目次 <number/> - <title/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -478,8 +478,7 @@ msgstr "<msgid>chapter.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 #: ../xslt/gettext/l10n.xml.in.h:394
 msgid ""
 "<msgid>chapter.xref</msgid> <msgstr>Chapter <number/> ― <title/></msgstr>"
-msgstr ""
-"<msgid>chapter.xref</msgid> <msgstr>第 <number/> 章 ― <title/></msgstr>"
+msgstr "<msgid>chapter.xref</msgid> <msgstr>第<number/>章 - <title/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1188,7 +1187,7 @@ msgstr ""
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1006
 msgid "<msgid>part.xref</msgid> <msgstr>Part <number/> ― <title/></msgstr>"
-msgstr "<msgid>part.xref</msgid> <msgstr>パート <number/> ― <title/></msgstr>"
+msgstr "<msgid>part.xref</msgid> <msgstr>パート <number/> - <title/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1523,7 +1522,7 @@ msgstr "<msgid>refsection.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 msgid ""
 "<msgid>refsection.xref</msgid> <msgstr>Section <number/> ― <title/></msgstr>"
 msgstr ""
-"<msgid>refsection.xref</msgid> <msgstr>セクション <number/> ― <title/></"
+"<msgid>refsection.xref</msgid> <msgstr>セクション <number/> - <title/></"
 "msgstr>"
 
 #.
@@ -1659,7 +1658,7 @@ msgstr "<msgid>section.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 msgid ""
 "<msgid>section.xref</msgid> <msgstr>Section <number/> ― <title/></msgstr>"
 msgstr ""
-"<msgid>section.xref</msgid> <msgstr>セクション <number/> ― <title/></msgstr>"
+"<msgid>section.xref</msgid> <msgstr>セクション <number/> - <title/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
