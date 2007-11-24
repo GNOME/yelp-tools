@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils trunk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-11-24 11:56+0900\n"
-"PO-Revision-Date: 2007-11-24 11:46+0900\n"
+"POT-Creation-Date: 2007-11-24 12:04+0900\n"
+"PO-Revision-Date: 2007-11-24 12:04+0900\n"
 "Last-Translator: Takeshi AIHANA <takeshi.aihana@gmail.com>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "MIME-Version: 1.0\n"
@@ -111,7 +111,7 @@ msgid ""
 "<number/></msgstr>"
 msgstr ""
 "<msgid>appendix.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
-"msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>目次 <number/"
+"msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>付録 <number/"
 "></msgstr>"
 
 #.
@@ -185,7 +185,7 @@ msgstr "<msgid>appendix.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 msgid ""
 "<msgid>appendix.xref</msgid> <msgstr>Appendix <number/> ― <title/></msgstr>"
 msgstr ""
-"<msgid>appendix.xref</msgid> <msgstr>目次 <number/> - <title/></msgstr>"
+"<msgid>appendix.xref</msgid> <msgstr>付録 <number/> - <title/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
