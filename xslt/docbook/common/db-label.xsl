@@ -261,7 +261,6 @@ REMARK: Document this mode, and the role param
   <xsl:text> </xsl:text>
   <xsl:call-template name="db.label.number"/>
 -->
-<xsl:call-template name="db.title"/>
 </xsl:template>
 
 <xsl:template mode="db.label.mode" match="
