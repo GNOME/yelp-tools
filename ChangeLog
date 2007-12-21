@@ -1,3 +1,11 @@
+2007-12-21  Sven Herzberg  <herzi@gnome-de.org>
+
+	reviewed by: Shaun McCance
+
+	* tools/gnome-doc-utils.m4: set DISTCHECK_CONFIGURE_FLAGS to
+	disable scrollkeeper so application developers don't have to do this
+	anymore
+
 2007-12-19  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/common/db-label.xsl:
