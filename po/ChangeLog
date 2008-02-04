@@ -1,3 +1,7 @@
+2008-02-04  Wouter Bolsterlee  <wbolster@svn.gnome.org>
+
+	* nl.po: Dutch translation updated by Wouter Bolsterlee.
+
 2008-02-02  Ignacio Casal Quinteiro  <nacho.resa@gmail.com>
 
 	* gl.po: Updated Galician Translation.
@@ -8,7 +12,7 @@
 
 2008-01-07  Inaki Larranaga Murgoitio  <dooteo@euskalgnu.org>
 
-        * eu.po: Fixed some typos.
+	* eu.po: Fixed some typos.
 
 2007-12-31  Yannig Marchegay <yannig@marchegay.org>
 
@@ -78,7 +82,7 @@
 
 2007-09-15  Inaki Larranaga Murgoitio  <dooteo@zundan.com>
 
-        * eu.po: Updated Basque translation.
+	* eu.po: Updated Basque translation.
 
 2007-09-15  Artur Flinta  <aflinta@svn.gnome.org>
 
@@ -180,7 +184,7 @@
 2007-08-08  Jorge Gonzalez  <jorgegonz@svn.gnome.org>
 
 	* es.po: Updated Spanish translation
-                                         
+
 2007-08-08  Theppitak Karoonboonyanan  <thep@linux.thai.net>
 
 	* th.po: Updated Thai translation.
@@ -219,7 +223,7 @@
 
 2007-07-25  Jorge Gonzalez <jorgegonz@svn.gnome.org>
 
-        * es.po: Updated Spanish translation
+	* es.po: Updated Spanish translation
 
 2007-07-25  Theppitak Karoonboonyanan  <thep@linux.thai.net>
 
@@ -231,7 +235,7 @@
 
 2007-07-23  Jorge Gonzalez <jorgegonz@svn.gnome.org>
 
-        * es.po: Updated Spanish translation
+	* es.po: Updated Spanish translation
 
 2007-07-20  Hendrik Richter  <hendrikr@gnome.org>
 
@@ -271,7 +275,7 @@
 
 2007-07-04  Jorge Gonzalez <jorgegonz@svn.gnome.org>
 
-        * es.po: Updated Spanish translation    
+	* es.po: Updated Spanish translation
 
 2007-06-26  Clytie Siddall <clytie@riverland.net.au>
 
@@ -291,7 +295,7 @@
 
 2007-05-28  Jorge Gonzalez <jorgegonz@svn.gnome.org>
 
-        * es.po: Updated Spanish translation.
+	* es.po: Updated Spanish translation.
 
 2007-05-27  Daniel Nylander  <po@danielnylander.se>
 
@@ -348,7 +352,7 @@
 
 2007-02-21  Maxim Dziumanenko <dziumanenko@gmail.com>
 
-        * uk.po: Update Ukrainian translation.
+	* uk.po: Update Ukrainian translation.
 
 2007-02-20  Artur Flinta  <aflinta@cvs.gnome.org>
 
@@ -461,7 +465,7 @@
 
 2006-08-14  Maxim Dziumanenko <dziumanenko@gmail.com>
 
-        * uk.po: Update Ukrainian translation.
+	* uk.po: Update Ukrainian translation.
 
 2006-08-13  Subhransu Behera  <arya_subhransu@yahoo.co.in>
 
@@ -498,7 +502,7 @@
 
 006-07-03  Runa Bhattacharjee <runabh@gmail.com>
 
-        * bn_IN.po: Added Bengali India Translation
+	* bn_IN.po: Added Bengali India Translation
 
 2006-07-02  Benoît Dejean  <benoit@placenet.org>
 
@@ -543,11 +547,11 @@
 
 2006-04-18  Ankit Patel  <ankit644@yahoo.com>
 
-        * gu.po: Updated Gujarati Translation.
+	* gu.po: Updated Gujarati Translation.
 
 2006-04-18  Vladimer Sichinava  <alinux@siena.linux.it>
 
-        * ka.po: Added Georgian translation.
+	* ka.po: Added Georgian translation.
 
 2006-04-17  Alexander Shopov  <ash@contact.bg>
 
@@ -626,7 +630,7 @@
 
 2006-03-03  Maxim Dziumanenko <mvd@mylinux.ua>
 
-        * uk.po: Updated Ukrainian translation.
+	* uk.po: Updated Ukrainian translation.
 
 2006-02-28  Nickolay V. Shmyrev <nshmyrev@yandex.ru>
 
@@ -741,7 +745,7 @@
 
 2006-01-18  Ankit Patel  <ankit644@yahoo.com>
 
-        * gu.po: Updated Gujarati Translation.
+	* gu.po: Updated Gujarati Translation.
 
 2006-01-08  Ilkka Tuohela  <hile@iki.fi>
 
@@ -787,7 +791,7 @@
 
 2005-01-09  Ankit Patel  <ankit644@yahoo.com>
 
-        * gu.po: Updated Gujarati Translation.
+	* gu.po: Updated Gujarati Translation.
 
 2006-01-08  Vincent van Adrighem  <adrighem@gnome.org>
 
@@ -812,7 +816,7 @@
 
 2006-01-05  Josep Puigdemont i Casamajó  <josep.puigdemont@gmail.com>
 
-        * ca.po: Updated Catalan translation.
+	* ca.po: Updated Catalan translation.
 
 2005-12-30  Ilkka Tuohela  <hile@iki.fi>
 
@@ -836,7 +840,7 @@
 
 2005-12-11  Ankit Patel  <ankit644@yahoo.com>
 
-        * gu.po: Updated Gujarati Translation.
+	* gu.po: Updated Gujarati Translation.
 
 2005-12-11  Funda Wang  <fundawang@linux.net.cn>
 
@@ -870,7 +874,7 @@
 2005-10-17  Runa Bhattacharjee  <runa@bengalinux.org>
 
 	* bn.po: Added Bengali (bn) Translation by
-        Mahay Alam Khan <makl10n@yahoo.com>
+	Mahay Alam Khan <makl10n@yahoo.com>
 
 2005-09-22  Alessio Frusciante  <algol@firenze.linux.it>
 
@@ -1023,7 +1027,7 @@
 
 2005-08-04  Clytie Siddall <clytie@riverland.net.au>
 
-        * vi.po: Updated Vietnamese translation.
+	* vi.po: Updated Vietnamese translation.
 
 2005-08-02  Adam Weinberger  <adamw@gnome.org>
 
@@ -1472,7 +1476,7 @@
 
 	* nl.po: Translation updated by Taco Witte.
 
-2004-11-24   Amanpreet Singh Alam <amanlinux@netcape.net>
+2004-11-24  Amanpreet Singh Alam <amanlinux@netcape.net>
 
 	* pa.po: Punjabi Language is added
 
