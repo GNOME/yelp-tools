@@ -21,6 +21,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                 xmlns:set="http://exslt.org/sets"
                 xmlns:str="http://exslt.org/strings"
                 xmlns="http://www.w3.org/1999/xhtml"
+                exclude-result-prefixes="set str"
                 version="1.0">
 
 <!--!!==========================================================================

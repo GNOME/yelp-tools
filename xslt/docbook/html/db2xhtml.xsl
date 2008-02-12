@@ -22,6 +22,9 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <xsl:import href="../../gettext/gettext.xsl"/>
 
+<xsl:output method="html"
+            doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
+            doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"/>
 <!--#@ db2html.namespace -->
 <xsl:param name="db2html.namespace" select="'http://www.w3.org/1999/xhtml'"/>
 

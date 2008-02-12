@@ -20,7 +20,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                 xmlns:set="http://exslt.org/sets"
                 xmlns:msg="http://www.gnome.org/~shaunm/gnome-doc-utils/l10n"
                 xmlns="http://www.w3.org/1999/xhtml"
-                exclude-result-prefixes="msg"
+                exclude-result-prefixes="msg set"
                 version="1.0">
 
 <!--!!==========================================================================

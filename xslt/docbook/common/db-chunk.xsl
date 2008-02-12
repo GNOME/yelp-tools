@@ -20,6 +20,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                 xmlns:exsl="http://exslt.org/common"
                 xmlns:set="http://exslt.org/sets"
                 extension-element-prefixes="exsl"
+                exclude-result-prefixes="set"
                 version="1.0">
 
 <!--!!==========================================================================

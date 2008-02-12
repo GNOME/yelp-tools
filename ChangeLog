@@ -1,5 +1,23 @@
 2008-02-12  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/html/db2html.xsl:
+	* xslt/docbook/html/db2xhtml.xsl:
+	- Add a DOCTYPE declaration with xsl:output
+
+	* xslt/docbook/common/db-chunk.xsl:
+	* xslt/docbook/common/db-label.xsl:
+	* xslt/docbook/common/db-xref.xsl:
+	* xslt/docbook/html/db2html-autotoc.xsl:
+	* xslt/docbook/html/db2html-bibliography.xsl:
+	* xslt/docbook/html/db2html-block.xsl:
+	* xslt/docbook/html/db2html-cmdsynopsis.xsl:
+	* xslt/docbook/html/db2html-division.xsl:
+	* xslt/docbook/html/db2html-index.xsl:
+	* xslt/docbook/html/db2html-refentry.xsl:
+	- Add set to exclude-result-prefixes
+
+2008-02-12  Shaun McCance  <shaunm@gnome.org>
+
 	* configure.in:
 	* NEWS:
 	- Version 0.12.1
