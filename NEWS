@@ -1,3 +1,21 @@
+Changes in 0.12.1:
+------------------
+* Made chunks without id attributes work (Shaun McCance)
+* Don't use the title as a label for qandadiv, et al (Shaun McCance)
+* Pass --xinclude to xmllint in the 'make check' rule (Sven Herzberg)
+* Set DISTCHECK_CONFIGURE_FLAGS to disable scrollkeeper (Sven Herzberg)
+* Updated translations:
+  ar          (Anas Husseini)
+  eu          (Inaki Larranaga Murgoitio)
+  gl          (Ignacio Casal Quinteiro)
+  ja          (Takeshi AIHANA)
+  nl          (Wouter Bolsterlee)
+  nn          (Eskild Hustvedt)
+  oc          (Yannig Marchegay)
+  sl          (Matej Urbančič)
+  uz          (Nurali)
+  uz@cyrillic (Nurali Abdurahmonov)
+
 Changes in 0.12.0:
 ------------------
 * Allow DOC_INCLUDES/ENTITIES to be in subdirectories

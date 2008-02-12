@@ -1,5 +1,11 @@
 2008-02-12  Shaun McCance  <shaunm@gnome.org>
 
+	* configure.in:
+	* NEWS:
+	- Version 0.12.1
+
+2008-02-12  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/docbook/common/db-chunk.xsl:
 	* xslt/docbook/common/db-xref.xsl:
 	- Made chunks without id attributes work
