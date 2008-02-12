@@ -141,11 +141,12 @@ chunking mechanism without having to duplicate the content-generation code.
       <xsl:when test="$template = 'info'">
         <xsl:value-of select="$db.chunk.info_basename"/>
       </xsl:when>
-      <xsl:when test="set:has-same-node($node, /*)">
-        <xsl:value-of select="$db.chunk.basename"/>
-      </xsl:when>
       <xsl:otherwise>
-        <xsl:value-of select="$node/@id"/>
+        <xsl:call-template name="db.chunk.chunk-id">
+          <xsl:with-param name="node" select="$node"/>
+          <xsl:with-param name="depth_in_chunk" select="0"/>
+          <xsl:with-param name="chunk" select="$node"/>
+        </xsl:call-template>
       </xsl:otherwise>
     </xsl:choose>
     <xsl:value-of select="$db.chunk.extension"/>
@@ -340,7 +341,18 @@ REMARK: Explain how this works
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
   </xsl:param>
-  <xsl:value-of select="string($node/ancestor-or-self::*[$depth_in_chunk + 1]/@id)"/>
+  <xsl:param name="chunk" select="$node/ancestor-or-self::*[$depth_in_chunk + 1]"/>
+  <xsl:choose>
+    <xsl:when test="set:has-same-node($chunk, /*)">
+      <xsl:value-of select="$db.chunk.basename"/>
+    </xsl:when>
+    <xsl:when test="$chunk/@id">
+      <xsl:value-of select="string($chunk/@id)"/>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:value-of select="generate-id($chunk)"/>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
 
@@ -384,7 +396,11 @@ REMARK: Explain how this works, and what the axes are
                                 concat(' ', local-name(.), ' '))]"/>
       <xsl:choose>
         <xsl:when test="$divs">
-          <xsl:value-of select="string($divs[1]/@id)"/>
+          <xsl:call-template name="db.chunk.chunk-id">
+            <xsl:with-param name="node" select="$divs[1]"/>
+            <xsl:with-param name="depth_in_chunk" select="0"/>
+            <xsl:with-param name="chunk" select="$divs[1]"/>
+          </xsl:call-template>
         </xsl:when>
         <xsl:when test="$node/..">
           <xsl:call-template name="db.chunk.chunk-id.axis">
@@ -403,10 +419,18 @@ REMARK: Explain how this works, and what the axes are
                                       concat(' ', local-name(.), ' '))]"/>
       <xsl:choose>
         <xsl:when test="($depth_of_chunk &gt;= $db.chunk.max_depth)">
-          <xsl:value-of select="string($node/@id)"/>
+          <xsl:call-template name="db.chunk.chunk-id">
+            <xsl:with-param name="node" select="$node"/>
+            <xsl:with-param name="depth_in_chunk" select="0"/>
+            <xsl:with-param name="chunk" select="$node"/>
+          </xsl:call-template>
         </xsl:when>
         <xsl:when test="($depth_of_chunk + 1 = $db.chunk.max_depth) and $divs">
-          <xsl:value-of select="string($divs[last()]/@id)"/>
+          <xsl:call-template name="db.chunk.chunk-id">
+            <xsl:with-param name="node" select="$divs[last()]"/>
+            <xsl:with-param name="depth_in_chunk" select="0"/>
+            <xsl:with-param name="chunk" select="$divs[last()]"/>
+          </xsl:call-template>
         </xsl:when>
         <xsl:when test="$divs">
           <xsl:call-template name="db.chunk.chunk-id.axis">
@@ -417,7 +441,11 @@ REMARK: Explain how this works, and what the axes are
           </xsl:call-template>
         </xsl:when>
         <xsl:otherwise>
-          <xsl:value-of select="string($node/@id)"/>
+          <xsl:call-template name="db.chunk.chunk-id">
+            <xsl:with-param name="node" select="$node"/>
+            <xsl:with-param name="depth_in_chunk" select="0"/>
+            <xsl:with-param name="chunk" select="$node"/>
+          </xsl:call-template>
         </xsl:otherwise>
       </xsl:choose>
     </xsl:when>
@@ -428,7 +456,11 @@ REMARK: Explain how this works, and what the axes are
                                       concat(' ', local-name(.), ' '))]"/>
       <xsl:choose>
         <xsl:when test="($depth_of_chunk &lt; $db.chunk.max_depth) and $divs">
-          <xsl:value-of select="string($divs[1]/@id)"/>
+          <xsl:call-template name="db.chunk.chunk-id">
+            <xsl:with-param name="node" select="$divs[1]"/>
+            <xsl:with-param name="depth_in_chunk" select="0"/>
+            <xsl:with-param name="chunk" select="$divs[1]"/>
+          </xsl:call-template>
         </xsl:when>
         <xsl:otherwise>
           <xsl:call-template name="db.chunk.chunk-id.axis">
@@ -456,10 +488,18 @@ REMARK: Explain how this works, and what the axes are
           </xsl:call-template>
         </xsl:when>
         <xsl:when test="$divs">
-          <xsl:value-of select="string($divs[last()]/@id)"/>
+          <xsl:call-template name="db.chunk.chunk-id">
+            <xsl:with-param name="node" select="$divs[last()]"/>
+            <xsl:with-param name="depth_in_chunk" select="0"/>
+            <xsl:with-param name="chunk" select="$divs[last()]"/>
+          </xsl:call-template>
         </xsl:when>
         <xsl:when test="$node/..">
-          <xsl:value-of select="string($node/../@id)"/>
+          <xsl:call-template name="db.chunk.chunk-id">
+            <xsl:with-param name="node" select="$node"/>
+            <xsl:with-param name="depth_in_chunk" select="0"/>
+            <xsl:with-param name="chunk" select="$node"/>
+          </xsl:call-template>
         </xsl:when>
       </xsl:choose>
     </xsl:when>
