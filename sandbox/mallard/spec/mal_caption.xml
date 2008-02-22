@@ -1,18 +1,27 @@
 <page xmlns="http://www.gnome.org/~shaunm/mallard"
        id="mal_caption">
 <info>
-  <version number="0.1" date="2007-02-05" status="draft"/>
-  <credit type="author" name="Shaun McCance" email="shaunm@gnome.org"/>
-  <copyright year="2007" name="Shaun McCance"/>
-  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
   <link type="guide" xref="mal_block"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+  </credit>
+  <copyright>
+    <year>2007</year>
+    <name>Shaun McCance</name>
+  </copyright>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <version number="0.1" date="2007-02-05" status="draft"/>
 </info>
 
 <title>Captions</title>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_caption = element caption {
-  <link xref="mal_inline">mal_inline</link>+
+  <link xref="mal_inline">mal_inline</link> +
 }
 </code></synopsis>
 
@@ -23,7 +32,7 @@ image.  Captions are simple block elements that can contain all
 general <link xref="mal_inline">inline content</link>.</p>
 
 <comment>
-  <cite name="Shaun McCance" date="2007-02-02"/>
+  <cite date="2007-02-02"><name>Shaun McCance</name></cite>
   <p>also appears in table</p>
 </comment>
 
@@ -46,7 +55,7 @@ general <link xref="mal_inline">inline content</link>.</p>
   </figure>
 
   <comment>
-    <cite name="Shaun McCance" date="2007-02-06"/>
+    <cite date="2007-02-06"><name>Shaun McCance</name></cite>
     <p>Maybe add an example with a non-image figure?  Should we even allow these?</p>
   </comment>
 </section>

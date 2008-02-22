@@ -220,8 +220,10 @@ span.var { font-style: italic; }
 
 <!-- = quote = -->
 <xsl:template mode="mal2html.inline.mode" match="mal:quote">
-  <!-- FIXME: auto-quote -->
+  <!-- FIXME: do smart quoting -->
+  <xsl:text>"</xsl:text>
   <xsl:call-template name="mal2html.span"/>
+  <xsl:text>"</xsl:text>
 </xsl:template>
 
 <!-- = sys = -->

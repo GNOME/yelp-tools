@@ -1,15 +1,26 @@
 <page xmlns="http://www.gnome.org/~shaunm/mallard"
       type="guide"
       id="principles">
+
 <info>
-  <version number="0.1" date="2007-02-21" status="stub"/>
   <desc>The guiding principles behind the design of Mallard</desc>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+  </credit>
+  <copyright>
+    <year>2008</year>
+    <name>Shaun McCance</name>
+  </copyright>
+
+  <version number="0.1" date="2007-02-21" status="stub"/>
 </info>
 
 <title>Design Principles</title>
 
 <comment>
-  <cite name="Shaun McCance" date="2007-02-27"/>
+  <cite date="2007-02-27"><name>Shaun McCance</name></cite>
   <p>Add intro content</p>
   <p>Add principles: pluggability, implementation speed, l10n</p>
 </comment>
@@ -32,6 +43,10 @@
     <title type="link">Principles for the Writer</title>
   </info>
   <title>For the Writer</title>
+  <comment>
+    <cite date="2007-02-27"><name>Shaun McCance</name></cite>
+    <p>Add</p>
+  </comment>
 </section>
 
 <section id="hacker">

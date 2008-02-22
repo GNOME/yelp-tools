@@ -8,4 +8,11 @@
 
 <title>System Items</title>
 
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_inline_sys = element sys {
+  <link xref="mal_attr_link">mal_attr_link</link> ?,
+  <link xref="mal_inline#simple">mal_inline__simple</link> +
+}
+</code></synopsis>
+
 </page>

@@ -1,0 +1,17 @@
+<page xmlns="http://www.gnome.org/~shaunm/mallard"
+       id="mal_info_desc">
+<info>
+  <version number="0.1" date="2007-02-23" status="stub"/>
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+  <link type="guide" xref="spec_info"/>
+</info>
+
+<title>FIXME</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_info_desc = element desc {
+  <link xref="mal_inline">mal_inline</link> +
+}
+</code></synopsis>
+
+</page>

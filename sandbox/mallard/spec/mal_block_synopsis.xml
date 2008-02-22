@@ -1,0 +1,44 @@
+<page xmlns="http://www.gnome.org/~shaunm/mallard"
+       id="mal_block_synopsis">
+
+<info>
+  <link type="guide" xref="mal_block#containers"/>
+  <version number="0.1" date="2007-02-21" status="incomplete"/>
+</info>
+
+<title>Synopses</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block_synopsis = element synopsis {
+  <link xref="mal_title">mal_title</link> ?,
+  <link xref="mal_block#simple">mal_block__simple</link> +
+}
+</code></synopsis>
+
+<p>The <code>synopsis</code> element allows you to mark up a block as
+providing an overview of the material being presented.  It is useful
+for providing a listing of functions, commands, or options in reference
+material, or for enumerating the items in a menu or other graphical
+control element.</p>
+
+<comment>
+  <cite date="2006-11-16"><name>Shaun McCance</name></cite>
+  <p>Add explanation, examples</p>
+</comment>
+
+<section>
+  <title>Processing Expectations</title>
+
+  <p>A <code>synopsis</code> element is rendered as a displayed block,
+  with each of its child elements interpreted as block elements.  Since
+  a <code>synopsis</code> element often contains large blocks, and is
+  generally offset from the running text, processing tools may opt to
+  render it inside a colored or screened box, with a border, or
+  otherwise differently from the surrounding text.</p>
+
+  <p>If a <code xref="mal_title">title</code> element is provided, it
+  should appear at the top of the block and be clearly marked as the
+  title using font variations or other stylistic means.</p>
+</section>
+
+</page>

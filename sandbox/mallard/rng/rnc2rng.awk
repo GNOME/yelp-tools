@@ -1,4 +1,5 @@
 #!/bin/awk
+# -*- indent-tabs-mode: nil -*-
 # rnc2rng.awk - Convert RELAX NG Compact Syntax to XML Syntax
 # Copyright (C) 2007 Shaun McCance <shaunm@gnome.org>
 #
@@ -31,13 +32,13 @@
 # you atone for your actions.  A good atonement would be contributing to
 # free software.
 
-function runline (line) {
+function parse_pattern (line) {
   sub(/^ */, "", line)
   c = substr(line, 1, 1);
   if (c == "(" || c == "{") {
     stack[++stack_i] = substr(line, 1, 1);
     paren[++paren_i] = stack_i;
-    runline(substr(line, 2));
+    parse_pattern(substr(line, 2));
   }
   else if (c == ")" || c == "}") {
     open = stack[paren[paren_i]];
@@ -75,28 +76,42 @@ function runline (line) {
 
     if (oc == "{}") {
       if (substr(stack[stack_i - 1], 1, 8) == "<element") {
-	tmp = stack[stack_i - 1] "\n";
-	tmp = tmp stack[stack_i] "\n";
-	tmp = tmp "</element>";
-	stack[--stack_i] = tmp;
+        tmp = stack[stack_i - 1] "\n";
+        if (stack[stack_i] != "") {
+          tmp = tmp stack[stack_i] "\n";
+        } else {
+          tmp = tmp "<empty/>\n";
+        }
+        tmp = tmp "</element>";
+        stack[--stack_i] = tmp;
       }
       else if (substr(stack[stack_i - 1], 1, 10) == "<attribute") {
-	tmp = stack[stack_i - 1] "\n";
-	tmp = tmp stack[stack_i] "\n";
-	tmp = tmp "</attribute>";
-	stack[--stack_i] = tmp;
+        tmp = stack[stack_i - 1] "\n";
+        if (stack[stack_i] != "") {
+          tmp = tmp stack[stack_i] "\n";
+        } else {
+          tmp = tmp "<empty/>\n";
+        }
+        tmp = tmp "</attribute>";
+        stack[--stack_i] = tmp;
       }
       else if (stack[stack_i - 1] == "<list>") {
-	tmp = stack[stack_i - 1] "\n";
-	tmp = tmp stack[stack_i] "\n";
-	tmp = tmp "</list>";
-	stack[--stack_i] = tmp;
+        tmp = stack[stack_i - 1] "\n";
+        tmp = tmp stack[stack_i] "\n";
+        tmp = tmp "</list>";
+        stack[--stack_i] = tmp;
+      }
+      else if (stack[stack_i - 1] == "<mixed>") {
+        tmp = stack[stack_i - 1] "\n";
+        tmp = tmp stack[stack_i] "\n";
+        tmp = tmp "</mixed>";
+        stack[--stack_i] = tmp;
       }
     }
     if (paren_i == 0) {
-      mode = "top";
+      mode = "grammar";
     }
-    runline(substr(line, 2));
+    parse_pattern(substr(line, 2));
   }
   else if (c == "|" || c == "&" || c == ",") {
     if (length(stack[paren[paren_i]]) == 1) {
@@ -107,56 +122,69 @@ function runline (line) {
       error = 1;
       exit 1
     }
-    runline(substr(line, 2));
+    parse_pattern(substr(line, 2));
   }
   else if (c == "?") {
     stack[stack_i] = "<optional>" stack[stack_i] "</optional>"
-    runline(substr(line, 2));
+    parse_pattern(substr(line, 2));
   }
   else if (c == "*") {
     stack[stack_i] = "<zeroOrMore>" stack[stack_i] "</zeroOrMore>"
-    runline(substr(line, 2));
+    parse_pattern(substr(line, 2));
   }
   else if (c == "+") {
     stack[stack_i] = "<oneOrMore>" stack[stack_i] "</oneOrMore>"
-    runline(substr(line, 2));
+    parse_pattern(substr(line, 2));
   }
   else if (c == "\"") {
     txt = substr(line, 2);
     sub(/".*/, "", txt)
     stack[++stack_i] = "<value>" txt "</value>";
-    runline(substr(line, length(txt) + 3));
+    parse_pattern(substr(line, length(txt) + 3));
   }
   else if (substr(line, 1, 8) == "element ") {
     aft = substr(line, 8);
     sub(/^ */, "", aft);
     name = aft;
-    sub(/[^A-Za-z_]+.*/, "", name);
-    aft = substr(aft, length(name) + 1);
-    stack[++stack_i] = sprintf("<element name=\"%s\">", name);
-    runline(aft);
+    stack[++stack_i] = "<element"
+    mode = "name_class";
+    name_class_i = stack_i;
+    parse_name_class(name);
   }
   else if (substr(line, 1, 10) == "attribute ") {
     aft = substr(line, 10);
     sub(/^ */, "", aft);
     name = aft;
-    sub(/[^A-Za-z_]+.*/, "", name);
-    aft = substr(aft, length(name) + 1);
-    stack[++stack_i] = sprintf("<attribute name=\"%s\">", name);
-    runline(aft);
+    stack[++stack_i] = "<attribute"
+    mode = "name_class";
+    name_class_i = stack_i;
+    parse_name_class(name);
   }
   else if (substr(line, 1, 5) == "list ") {
     aft = substr(line, 5);
     sub(/^ */, "", aft);
     stack[++stack_i] = "<list>";
-    runline(aft);
+    if (aft != "") { parse_pattern(aft); }
   }
-  else if (match(line, /^text[^A-Za-z]/)) {
+  else if (substr(line, 1, 6) == "mixed ") {
+    aft = substr(line, 6);
+    sub(/^ */, "", aft);
+    stack[++stack_i] = "<mixed>";
+    if (aft != "") { parse_pattern(aft); }
+  }
+  else if (match(line, /^text[^A-Za-z]/) || match(line, /^text$/)) {
     stack[++stack_i] = "<text/>";
-    runline(substr(line, 5));
+    aft = substr(line, 5);
+    sub(/^ */, "", aft);
+    if (aft != "") { parse_pattern(aft); }
   }
   else if (substr(line, 1, 18) == "default namespace ") {
     print "default namespace appeared out of context on line " FNR | "cat 1>&2";
+    error = 1;
+    exit 1
+  }
+  else if (substr(line, 1, 10) == "namespace ") {
+    print "namespace appeared out of context on line " FNR | "cat 1>&2";
     error = 1;
     exit 1
   }
@@ -170,72 +198,207 @@ function runline (line) {
     sub(/^xsd:/, "", name);
     sub(/[^A-Za-z_]+.*/, "", name);
     aft = substr(line, length(name) + 5);
-    stack[++stack_i] = sprintf("<data type=\"%s\" datatypeLibrary=\"http://www.w3.org/2001/XMLSchema-datatypes\"/>",
-			      name);
-    runline(aft);
+    stack[++stack_i] = sprintf("<data type='%s' datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'/>",
+                               name);
+    parse_pattern(aft);
   }
   else if (match(line, /^[A-Za-z_]/)) {
     name = substr(line, 1);
     sub(/[^A-Za-z_]+.*/, "", name);
     aft = substr(line, length(name) + 1);
-    stack[++stack_i] = sprintf("<ref name=\"%s\"/>", name);
-    runline(aft);
+    stack[++stack_i] = sprintf("<ref name='%s'/>", name);
+    parse_pattern(aft);
+  }
+}
+
+function parse_name_class (line) {
+  sub(/^ */, "", line)
+  c = substr(line, 1, 1);
+  if (c == "{") {
+    if (stack_i != name_class_i) {
+      tmp = "";
+      for (i = stack_i; i >= name_class_i; i--) {
+        if (stack[i] == "<except>") {
+          tmp = "<except>" tmp "</except>";
+        }
+        else if (stack[i] == "<anyName>") {
+          tmp = "<anyName>" tmp "</anyName>";
+        }
+        else {
+          tmp = stack[i] tmp
+        }
+      }
+      stack[name_class_i] = tmp;
+      stack_i = name_class_i;
+    }
+    mode = "pattern";
+    parse_pattern(line);
+  }
+  else if (c == "*") {
+    if (stack[stack_i] == "<element" || stack[stack_i] == "<attribute") {
+      stack[stack_i] = stack[stack_i] ">";
+    }
+    stack[++stack_i] = "<anyName>";
+    parse_name_class(substr(line, 2));
+  }
+  else if (c == "-") {
+    stack[++stack_i] = "<except>"
+    parse_name_class(substr(line, 2));
+  }
+  else if (c == "|") {
+    if (length(stack[paren[paren_i]]) == 1) {
+      stack[paren[paren_i]] = stack[paren[paren_i]] c;
+    }
+    else if (substr(stack[paren[paren_i]], 2) != "|") {
+      print "Mismatched infix operators on line " FNR | "cat 1>&2";
+      error = 1;
+      exit 1
+    }
+    parse_name_class(substr(line, 2));
+  }
+  else if (c == "(") {
+    stack[++stack_i] = "(";
+    paren[++paren_i] = stack_i;
+    parse_name_class(substr(line, 2));
+  }
+  else if (c == ")") {
+    open = stack[paren[paren_i]];
+    if (substr(open, 1, 1) != "(") {
+      print "Mismatched parentheses on line " FNR | "cat 1>&2";
+      error = 1;
+      exit 1
+    }
+    if (length(open) == 1 || substr(open, 2, 1) != "|") {
+      print "Unknown name class pattern on line " FNR | "cat 1>&2";
+      error = 1;
+      exit 1
+    }
+    tmp = ""
+    for (i = paren[paren_i] + 1; i <= stack_i; i++) {
+      tmp = tmp stack[i] "\n";
+    }
+    stack_i = paren[paren_i];
+    stack[stack_i] = tmp;
+    paren_i--;
+    parse_name_class(substr(line, 2));
+  }
+  else if (match(line, /^[A-Za-z_]/)) {
+    name = substr(line, 1);
+    sub(/[^A-Za-z_]+.*/, "", name);
+    aft = substr(line, length(name) + 1);
+    if (substr(aft, 1, 2) == ":*") {
+      for (i = 1; i <= namespaces_i; i++) {
+        if (nsnames[i] == name) {
+          stack[++stack_i] = sprintf("<nsName ns='%s'/>", namespaces[i])
+          break;
+        }
+      }
+      aft = substr(aft, 3);
+    }
+    else if (stack[stack_i] == "<element" || stack[stack_i] == "<attribute") {
+      stack[stack_i] = stack[stack_i] sprintf(" name='%s'>", name);
+    }
+    else {
+      stack[++stack_i] = sprintf("<name>%s</name>", name);
+    }
+    parse_name_class(aft);
   }
 }
 
 function printstack () {
+  pos = 1;
+  while (pos <= stack_i) {
+    printstackone();
+  }
+}
+function printstackone () {
   if (substr(stack[pos], 1, 6) == "<start") {
-    print stack[pos++];
-    printstack();
+    print stack[pos];
+    pos++;
+    printstackone();
     print "</start>"
   }
   else if (substr(stack[pos], 1, 7) == "<define") {
-    print stack[pos++];
-    printstack();
+    print stack[pos];
+    pos++;
+    printstackone();
     print "</define>"
   }
   else {
-    print stack[pos++];
+    print stack[pos];
+    pos++;
   }
 }
 
 BEGIN {
-  mode = "top";
+  mode = "grammar";
   stack_i = 0;
   paren_i = 0;
+  namespaces_i = 0;
 }
 
 END {
   if (!error) {
-    printf "<grammar xmlns='http://relaxng.org/ns/structure/1.0' ns='%s'>\n", namespace;
-    tab = 1;
+    print "<grammar xmlns='http://relaxng.org/ns/structure/1.0'";
     pos = 1;
-    while (pos <= stack_i) {
-      printstack()
+    while (pos <= namespaces_i) {
+      if (namespaces[pos] != "") {
+        printf " xmlns:%s='%s'", nsnames[pos], namespaces[pos];
+      }
+      pos++;
     }
+    printf " ns='%s'>\n", default_namespace;
+    printstack()
     print "</grammar>"
   }
 }
 
-mode != "top" {
-  runline($0);
-}
-mode == "top" && /.*=/ {
+mode == "pattern" && paren_i == 0 && /.*=/ { mode = "grammar"; }
+mode == "grammar" && /.*=/ {
   name = substr($0, 1, index($0, "=") - 1);
   sub(/ /, "", name);
-  if (substr($0, 1, 17) == "default namespace") {
+  if (substr($0, 1, 18) == "default namespace ") {
     namespace = substr($0, index($0, "=") + 1);
+    nsname = substr($0, 19, index($0, "=") - 19);
+    sub(/^ */, "", nsname);
+    sub(/ *$/, "", nsname);
     sub(/^ *"/, "", namespace);
     sub(/" *$/, "", namespace);
+    if (nsname != "") {
+      nsnames[++namespaces_i] = nsname;
+      namespaces[namespaces_i] = namespace;
+    }
+    default_namespace = namespace
+  }
+  else if (substr($0, 1, 10) == "namespace ") {
+    namespace = substr($0, index($0, "=") + 1);
+    nsname = substr($0, 11, index($0, "=") - 11);
+    sub(/^ */, "", nsname);
+    sub(/ *$/, "", nsname);
+    sub(/^ *"/, "", namespace);
+    sub(/" *$/, "", namespace);
+    if (nsname != "") {
+      nsnames[++namespaces_i] = nsname;
+      namespaces[namespaces_i] = namespace;
+    }
   }
   else if (name == "start") {
     stack[++stack_i] = "<start>"
-    mode = "blank";
-    runline(substr($0, index($0, "=") + 1))
+    mode = "pattern";
+    parse_pattern(substr($0, index($0, "=") + 1))
   }
   else {
-    stack[++stack_i] = sprintf("<define name=\"%s\">", name);
-    mode = "blank";
-    runline(substr($0, index($0, "=") + 1))
+    stack[++stack_i] = sprintf("<define name='%s'>", name);
+    mode = "pattern";
+    parse_pattern(substr($0, index($0, "=") + 1))
   }
+  next;
+}
+mode == "pattern" {
+  parse_pattern($0);
+  next;
+}
+mode == "name_class" {
+  parse_name_class($0);
+  next;
 }

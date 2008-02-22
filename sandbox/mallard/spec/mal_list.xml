@@ -17,12 +17,12 @@ mal_list = (
 </code></synopsis>
 
 <comment>
-  <cite><name>Shaun McCance</name><date>2007-01-30</date></cite>
+  <cite date="2007-01-30"><name>Shaun McCance</name></cite>
   <p>Add explanation, examples, processing expectations</p>
 </comment>
 
 <comment>
-  <cite><name>Shaun McCance</name><date>2007-02-09</date></cite>
+  <cite date="2007-02-09"><name>Shaun McCance</name></cite>
   <p>Unmarked lists and segmented lists</p>
 </comment>
 

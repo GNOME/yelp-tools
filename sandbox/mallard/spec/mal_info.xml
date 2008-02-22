@@ -1,4 +1,28 @@
-<page xmlns="http://www.gnome.org/~shaunm/mallard">
+<page xmlns="http://www.gnome.org/~shaunm/mallard"
+      id="mal_info">
+
+<info>
+  <link type="guide" xref="spec_pages"/>
+  <version number="0.1" date="2008-02-21" status="stub"/>
+</info>
+
+<title>Page Information</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_info = element info {
+  element title {
+    attribute type { text },
+    attribute role { text } ?,
+    <link xref="mal_inline">mal_inline</link>
+  } *
+&amp; <link xref="mal_info_desc">mal_info_desc</link> ?
+&amp; <link xref="mal_info_link">mal_info_link</link> *
+&amp; <link xref="mal_info_credit">mal_info_credit</link> *
+&amp; <link xref="mal_info_copyright">mal_info_copyright</link> *
+&amp; <link xref="mal_info_license">mal_info_license</link> *
+&amp; <link xref="mal_info_version">mal_info_version</link> *
+}
+</code></synopsis>
 <!--
 credit (type)
 credit/date

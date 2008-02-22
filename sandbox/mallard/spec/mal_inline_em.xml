@@ -2,22 +2,74 @@
        id="mal_em">
 <info>
   <link type="guide" xref="mal_inline"/>
-  <link type="seealso" xref="mal_link#ubiquitous"/>
-  <version number="0.1" date="2007-02-21" status="stub"/>
+  <link type="seealso" xref="mal_attr_link"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+  </credit>
+  <copyright>
+    <year>2008</year>
+    <name>Shaun McCance</name>
+  </copyright>
+
+  <version number="0.1" date="2008-02-19" status="incomplete"/>
 </info>
 
 <title>Emphasis</title>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
-mal_em = element em {
-  <link xref="mal_link#ubiquitous">mal_link_attr</link>?,
-  <link xref="mal_inline#simple">mal_inline_simple</link>+
+mal_inline_em = element em {
+  <link xref="mal_attr_link">mal_attr_link</link> ?,
+  <link xref="mal_inline#simple">mal_inline__simple</link>
 }
 </code></synopsis>
 
-<comment>
-  <cite><name>Shaun McCance</name><date>2007-01-30</date></cite>
-  <p>Add examples, processing expectations</p>
-</comment>
+<p>The <code>em</code> element indicates that its enclosed text should be
+emphasized.  You may use <code>em</code> to stress certain words in a sentence.
+Do not use <code>em</code> to effect a particular typographic style, since it
+may be rendered differently by different processing tools.</p>
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+  <comment>
+    <cite date="2008-02-19"><name>Shaun McCance</name></cite>
+    <p>Add examples.</p>
+  </comment>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+  <p>Emphasized text is traditionally presented in an italic or oblique font.
+  Italic and oblique fonts stress a portion of text without making it stand
+  out.  By contrast, bold text tends to draw the eye, which can be distracting
+  when reading long passages of text.  In scripts without a distinction between
+  roman and italic type styles, it may still be possible to use an oblique font
+  or some other font variation.  Bold text may be used if necessary.</p>
+  <p>Underlining should be avoided completely, since it hurts the legibility
+  of the text.  This problem is especially pronounced in scripts which place
+  diacritical marks below the text.  In these scripts, underlining can render
+  the text completely illegible.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN docbook -->
+<section id="docbook">
+  <title>Comparison to DocBook</title>
+  <p>The <code>em</code> element is functionally similar to the
+  <code href="http://www.docbook.org/tdg/en/html/emphasis.html">emphasis</code>
+  element in DocBook.  Athough DocBook does not normatively specify a means of
+  controlling the presentation, most DocBook processing tools allow writers to
+  set the <code>role</code> attribute to <code>bold</code> or <code>strong</code>
+  to specify bold text.  We explicitly recommend against doing this in Mallard
+  documents and processing tools.</p>
+</section>
+<!-- END docbook -->
 
 </page>

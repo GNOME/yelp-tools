@@ -4,7 +4,7 @@ pages=$(filter-out legal.xml, $(wildcard *.xml))
 
 check-validate:
 	@(cd ../rng/ && $(MAKE) mallard.rnc)
-	xmllint --noout --relaxng ../rng/mallard.rng $(pages)
+	xmllint --xinclude --noout --relaxng ../rng/mallard.rng $(pages)
 
 check-links:
 	@files=$$(for page in $(pages); do \

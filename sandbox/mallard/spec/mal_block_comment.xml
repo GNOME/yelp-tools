@@ -1,19 +1,31 @@
 <page xmlns="http://www.gnome.org/~shaunm/mallard"
-       id="mal_comment">
+       id="mal_block_comment">
+
 <info>
-  <version number="0.1" date="2007-02-21" status="incomplete"/>
   <link type="guide" xref="mal_block#containers"/>
   <link type="seealso" xref="mal_cite"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+  </credit>
+  <copyright>
+    <year>2007</year>
+    <year>2008</year>
+    <name>Shaun McCance</name>
+  </copyright>
+
+  <version number="0.1" date="2007-02-21" status="incomplete"/>
 </info>
 
 <title>Editorial Comments</title>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
-mal_comment = element comment {
-  <link xref="mal_title">mal_title</link>?,
+mal_block_comment = element comment {
+  <link xref="mal_title">mal_title</link> ?,
   <link xref="mal_cite">mal_cite</link>,
-  <link xref="mal_block#simple">mal_block_simple</link>+,
-  mal_comment*
+  <link xref="mal_block#simple">mal_block__simple</link> +,
+  mal_block_comment*
 }
 </code></synopsis>
 
@@ -38,11 +50,11 @@ attribute.  Writers are highly encouraged to provide a <code xref="mal_date">mal
 -->
 
 <comment>
-  <cite name="Shaun McCance" date="2006-11-16"/>
+  <cite date="2006-11-16"><name>Shaun McCance</name></cite>
   <p>Add examples, processing expectations</p>
 
   <comment>
-    <cite name="Shaun McCance" date="2007-01-23"/>
+    <cite date="2007-01-23"><name>Shaun McCance</name></cite>
     <p>This is a test of nested comments.</p>
   </comment>
 </comment>

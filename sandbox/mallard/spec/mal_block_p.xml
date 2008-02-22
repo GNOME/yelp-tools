@@ -1,5 +1,5 @@
 <page xmlns="http://www.gnome.org/~shaunm/mallard"
-       id="mal_p">
+       id="mal_block_p">
 <info>
   <link type="guide" xref="mal_block#simple"/>
   <version number="0.1" date="2007-02-21" status="stub"/>
@@ -8,26 +8,26 @@
 <title>Paragraphs</title>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
-mal_p = element p {
-  <link xref="mal_attr">mal_attr_common</link>,
-  <link xref="mal_inline">mal_inline</link>+
-}</code></synopsis>
+mal_block_p = element p {
+  <link xref="mal_inline">mal_inline</link>
+}
+</code></synopsis>
 
 <p>The most basic block-level element in Mallard is the <code>p</code>
 element.  The <code>p</code> element creates a paragraph in the formatted
 outout.</p>
 
 <comment>
-  <cite name="Shaun McCance" date="2007-01-25"/>
+  <cite date="2007-01-25"><name>Shaun McCance</name></cite>
   <p>Add some more description.</p>
 </comment>
 
 
 <!-- BEGIN examples -->
-<section id="examples" status="tentative">
+<section id="examples">
   <title>Examples</title>
   <comment>
-    <cite name="Shaun McCance" date="2007-01-25"/>
+    <cite date="2007-01-25"><name>Shaun McCance</name></cite>
     <p>Add examples.</p>
   </comment>
 </section>
@@ -35,10 +35,10 @@ outout.</p>
 
 
 <!-- BEGIN processing -->
-<section id="processing" status="tentative">
+<section id="processing">
   <title>Processing Expectations</title>
   <comment>
-    <cite name="Shaun McCance" date="2007-01-25"/>
+    <cite date="2007-01-25"><name>Shaun McCance</name></cite>
     <p>Add processing expectations.  Very basic.  Mention margins and
     indentation as means of demarkating paragraphs.  Explicitly mention
     the no-block-nesting thing.</p>
@@ -48,7 +48,7 @@ outout.</p>
 
 
 <!-- BEGIN docbook -->
-<section id="docbook" status="tentative">
+<section id="docbook">
   <title>Comparison to DocBook</title>
   <p>The <code>p</code> element in Mallard appears to be equivalent to to the
   <code href="http://www.docbook.org/tdg/en/html/para.html">para</code> element

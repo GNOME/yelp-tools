@@ -1,30 +1,30 @@
 <page xmlns="http://www.gnome.org/~shaunm/mallard"
-      id="mal_gui">
+      id="mal_inline_gui">
+
 <info>
   <link type="guide" xref="mal_inline"/>
-  <link type="seealso" xref="mal_link#ubiquitous"/>
-  <version number="0.1" date="2007-02-21" status="stub"/>
+  <link type="seealso" xref="mal_attr_link"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+  </credit>
+  <copyright>
+    <year>2008</year>
+    <name>Shaun McCance</name>
+  </copyright>
+
+  <version number="0.1" date="2008-02-19" status="incomplete"/>
 </info>
 
 <title>GUI Labels</title>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
-mal_gui = element gui {
-  attribute type { "check" | "radio" | "menuitem" }?,
-  <link xref="mal_link#ubiquitous">mal_link_attr</link>?,
-  ( mal_gui +           |
-    <link xref="mal_inline#simple">mal_inline_simple</link> + )
-}
+mal_inline_gui = element gui
+  { <link xref="mal_attr_link">mal_attr_link</link>?,
+    <link xref="mal_inline#simple">mal_inline__simple</link>+
+  }
 </code></synopsis>
 
-<comment>
-  <cite name="Shaun McCance" date="2007-01-30"/>
-  <p>Add examples, processing expectations</p>
-</comment>
-
-<comment>
-  <cite name="Shaun McCance" date="2007-02-07"/>
-  <p>Fix the content model, make type correspond to gui/inline content.</p>
-</comment>
 
 </page>
