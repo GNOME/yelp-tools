@@ -119,6 +119,24 @@ REMARK: Describe what this does
 </xsl:param>
 
 
+<!--@@==========================================================================
+db.chunk.doctype_public
+The public DOCTYPE for output files
+
+REMARK: Describe this
+-->
+<xsl:param name="db.chunk.doctype_public"/>
+
+
+<!--@@==========================================================================
+db.chunk.doctype_system
+The system DOCTYPE for output files
+
+REMARK: Describe this
+-->
+<xsl:param name="db.chunk.doctype_system"/>
+
+
 <!--**==========================================================================
 db.chunk
 Creates a new page of output
@@ -157,7 +175,9 @@ chunking mechanism without having to duplicate the content-generation code.
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>
   </xsl:param>
-  <exsl:document href="{$href}">
+  <exsl:document href="{$href}"
+                 doctype-public="{$db.chunk.doctype_public}"
+                 doctype-system="{$db.chunk.doctype_system}">
     <xsl:call-template name="db.chunk.content">
       <xsl:with-param name="node" select="$node"/>
       <xsl:with-param name="template" select="$template"/>

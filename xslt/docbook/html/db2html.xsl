@@ -22,10 +22,17 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <xsl:import href="../../gettext/gettext.xsl"/>
 
+<!--#@ db.chunk.doctype_public -->
+<xsl:param name="db.chunk.doctype_public" select="'-//W3C//DTD HTML 4.01 Transitional//EN'"/>
+
+<!--#@ db.chunk.doctype_system -->
+<xsl:param name="db.chunk.doctype_system" select="'http://www.w3.org/TR/html4/loose.dtd'"/>
+
 <xsl:output method="html"
             doctype-public="-//W3C//DTD HTML 4.01 Transitional//EN"
             doctype-system="http://www.w3.org/TR/html4/loose.dtd"/>
 <xsl:namespace-alias stylesheet-prefix="html" result-prefix="#default"/>
+
 <!--#@ db2html.namespace -->
 <xsl:param name="db2html.namespace" select="''"/>
 
