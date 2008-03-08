@@ -1,16 +1,16 @@
 # Hungarian translation of gnome-doc-utils.
-# Copyright (C) 2004, 2005, 2006, 2007 Free Software Foundation, Inc.
+# Copyright (C) 2004, 2005, 2006, 2007, 2008 Free Software Foundation, Inc.
 # This file is distributed under the same license as the gnome-doc-utils package.
 #
-# Gabor Kelemen <kelemeng@gnome.hu>, 2004, 2005, 2006, 2007.
+# Gabor Kelemen <kelemeng@gnome.hu>, 2004, 2005, 2006, 2007, 2008.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils.HEAD.hu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-08 02:33+0100\n"
-"PO-Revision-Date: 2007-09-13 19:47+0200\n"
+"POT-Creation-Date: 2007-09-13 18:49+0100\n"
+"PO-Revision-Date: 2008-03-08 01:24+0100\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
-"Language-Team: Hungarian <gnome@gnome.hu>\n"
+"Language-Team: Hungarian <gnome@fsf.hu>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -544,7 +544,7 @@ msgid ""
 "<msgid>citetitle.format</msgid> <msgstr role='article'>“<node/>”</msgstr> "
 "<msgstr><i><node/></i></msgstr>"
 msgstr ""
-"<msgid>citetitle.format</msgid> <msgstr role='article'>\"<node/>\"</msgstr> "
+"<msgid>citetitle.format</msgid> <msgstr role='article'>„<node/>”</msgstr> "
 "<msgstr><i><node/></i></msgstr>"
 
 #.
@@ -573,7 +573,7 @@ msgstr ""
 #: ../xslt/gettext/l10n.xml.in.h:477
 msgid "<msgid>email.tooltip</msgid> <msgstr>Send email to ‘<string/>’.</msgstr>"
 msgstr ""
-"<msgid>email.tooltip</msgid> <msgstr>E-mail küldése \"<string/>\" részére.</"
+"<msgid>email.tooltip</msgid> <msgstr>E-mail küldése „<string/>” részére.</"
 "msgstr>"
 
 #.
@@ -940,7 +940,7 @@ msgid ""
 "<msgid>glossentry.tooltip</msgid> <msgstr>Read the definition for "
 "‘<glossterm/>’.</msgstr>"
 msgstr ""
-"<msgid>glossentry.tooltip</msgid> <msgstr>\"<glossterm/>\" definíciójának "
+"<msgid>glossentry.tooltip</msgid> <msgstr>„<glossterm/>” definíciójának "
 "elolvasása.</msgstr>"
 
 #.
@@ -980,7 +980,7 @@ msgid ""
 "<msgstr>‘<glossterm/>’</msgstr>"
 msgstr ""
 "<msgid>glossentry.xref</msgid> <msgstr role='glosssee'><glossterm/></msgstr> "
-"<msgstr>\"<glossterm/>\"</msgstr>"
+"<msgstr>„<glossterm/>”</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1350,8 +1350,8 @@ msgid ""
 "<msgid>quote.format</msgid> <msgstr role='inner'>‘<node/>’</msgstr> "
 "<msgstr>“<node/>”</msgstr>"
 msgstr ""
-"<msgid>quote.format</msgid> <msgstr role='inner'>-<node/>-</msgstr> <msgstr>"
-"\"<node/>\"</msgstr>"
+"<msgid>quote.format</msgid> <msgstr role='inner'>„<node/>”</msgstr> <msgstr>"
+"»<node/>«</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
