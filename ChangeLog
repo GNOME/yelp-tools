@@ -1,3 +1,9 @@
+2008-03-09  Shaun McCance  <shaunm@gnome.org>
+
+	* configure.in:
+	* NEWS:
+	- Version 0.12.2
+
 2008-02-29  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/html/db2xhtml.xsl:

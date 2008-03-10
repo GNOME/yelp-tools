@@ -1,3 +1,22 @@
+Changes in 0.12.2:
+------------------
+* Added DOCTYPE declarations to HTML and XHTML pages
+* Added EXSLT set to the excluded prefixes
+* Updated translations:
+  be@latin  (Ihar Hrachyshka)
+  cs        (Lucas Lommer)
+  el        (Kostas Papadimas)
+  es        (Jorge Gonzalez)
+  hu        (Gabor Kelemen)
+  ko        (Changwoo Ryu)
+  lt        (Gintautas Miliauskas)
+  mr        (Sandeep Shedmake)
+  ne        (Pawan Chitrakar)
+  nl        (Wouter Bolsterlee)
+  sq        (Laurent Dhima)
+  zh_HK:    (Chao-Hsiung Liao)
+  zh_TW:    (Chao-Hsiung Liao)
+
 Changes in 0.12.1:
 ------------------
 * Made chunks without id attributes work (Shaun McCance)
