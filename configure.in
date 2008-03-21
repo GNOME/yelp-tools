@@ -2,6 +2,8 @@ AC_INIT([gnome-doc-utils], [0.12.2],
         [http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-doc-utils])
 AM_INIT_AUTOMAKE([1.9 no-dist-gzip dist-bzip2])
 
+AC_CONFIG_MACRO_DIR([m4])
+
 dnl  In the interest of portability, we don't use GNU awk extensions,
 dnl  even though they rule.  To prevent accidental use and subsequent
 dnl  bug reports after busted tarballs were shipped, we use -W compat
@@ -38,7 +40,7 @@ AC_SUBST(GETTEXT_PACKAGE)
 AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE")
 
 IT_PROG_INTLTOOL([0.35.0])
-AM_GLIB_GNU_GETTEXT
+AX_GLIB_GNU_GETTEXT
 
 AC_OUTPUT([
 Makefile

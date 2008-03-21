@@ -12,7 +12,7 @@ endif
 # doc must go last
 SUBDIRS = data po xslt tools $(build_SUBDIRS) doc
 
-ACLOCAL_AMFLAGS=-I .
+ACLOCAL_AMFLAGS = -I m4
 
 EXTRA_DIST = 						\
 	$(pkgdata_DATA)					\

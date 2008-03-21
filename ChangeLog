@@ -1,3 +1,9 @@
+2008-03-21  Marc-Andre Lureau <marcandre.lureau@gmail.com>
+
+	* Makefile.am, configure.in, m4/glib-gettext.m4:
+	Remove GLib build dependency.  Include glib-gettext.m4, with AX_
+	namespace.  (Closes #510915)
+
 2008-03-09  Shaun McCance  <shaunm@gnome.org>
 
 	* configure.in:
