@@ -4,14 +4,15 @@
 # Kjartan Maraas <kmaraas@gnome.org>, 2004,2006.
 # Eskild Hustvedt <i18n@zerodogg.org>, 2007
 #
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils 0.3.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-08-14 15:09+0100\n"
-"PO-Revision-Date: 2007-12-08 22:06+0100\n"
-"Last-Translator: Eskild Hustvedt <i18n@zerodogg.org>\n"
-"Language-Team: Norwegian bokmal <i18n-nn@lister.ping.uio.no>\n"
+"POT-Creation-Date: 2008-04-04 13:17+0200\n"
+"PO-Revision-Date: 2008-04-04 13:18+0200\n"
+"Last-Translator: Eskild Hustvedt <eskildh@gnome.org>\n"
+"Language-Team: Norwegian Nynorsk <i18n-no@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -30,8 +31,8 @@ msgstr " og "
 #. models the structure of a man page.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:11
-msgid " â "
-msgstr " â "
+msgid " — "
+msgstr " — "
 
 #.
 #. This is used a simple list item seperator in places where simple
@@ -182,10 +183,8 @@ msgstr "<msgid>appendix.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:139
-msgid ""
-"<msgid>appendix.xref</msgid> <msgstr>Appendix <number/> â <title/></msgstr>"
-msgstr ""
-"<msgid>appendix.xref</msgid> <msgstr>Appendiks <number/> - <title/></msgstr>"
+msgid "<msgid>appendix.xref</msgid> <msgstr>Appendix <number/> ― <title/></msgstr>"
+msgstr "<msgid>appendix.xref</msgid> <msgstr>Appendiks <number/> - <title/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -211,8 +210,12 @@ msgstr ""
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:163
-msgid "<msgid>biblioentry.tooltip</msgid> <msgstr>View the bibliography entry <label/>.</msgstr>"
-msgstr "<msgid>biblioentry.tooltip</msgid> <msgstr>Vis bibliografioppfÃ¸ringa <label/>.</msgstr>"
+msgid ""
+"<msgid>biblioentry.tooltip</msgid> <msgstr>View the bibliography entry "
+"<label/>.</msgstr>"
+msgstr ""
+"<msgid>biblioentry.tooltip</msgid> <msgstr>Vis bibliografioppfÃ¸ringa <label/"
+">.</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -472,10 +475,8 @@ msgstr "<msgid>chapter.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:394
-msgid ""
-"<msgid>chapter.xref</msgid> <msgstr>Chapter <number/> â <title/></msgstr>"
-msgstr ""
-"<msgid>chapter.xref</msgid> <msgstr>Kapittel <number/> - <title/></msgstr>"
+msgid "<msgid>chapter.xref</msgid> <msgstr>Chapter <number/> ― <title/></msgstr>"
+msgstr "<msgid>chapter.xref</msgid> <msgstr>Kapittel <number/> - <title/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -539,12 +540,8 @@ msgstr "<msgid>citation.format</msgid> <msgstr>[<citation/>]</msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:453
-msgid ""
-"<msgid>citetitle.format</msgid> <msgstr role='article'>â<node/>â</msgstr> "
-"<msgstr><i><node/></i></msgstr>"
-msgstr ""
-"<msgid>citetitle.format</msgid> <msgstr role='article'>Â«<node/>Â»</msgstr> "
-"<msgstr><i><node/></i></msgstr>"
+msgid "<msgid>citetitle.format</msgid> <msgstr role='article'>“<node/>”</msgstr> <msgstr><i><node/></i></msgstr>"
+msgstr "<msgid>citetitle.format</msgid> <msgstr role='article'>«<node/>»</msgstr> <msgstr><i><node/></i></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -570,10 +567,8 @@ msgstr ""
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:477
-msgid ""
-"<msgid>email.tooltip</msgid> <msgstr>Send email to â<string/>â.</msgstr>"
-msgstr ""
-"<msgid>email.tooltip</msgid> <msgstr>Send e-post til Â«<string/>Â».</msgstr>"
+msgid "<msgid>email.tooltip</msgid> <msgstr>Send email to ‘<string/>’.</msgstr>"
+msgstr "<msgid>email.tooltip</msgid> <msgstr>Send e-post til «<string/>».</msgstr>"
 
 #.
 #. The number formatter used for example numbers.  This can be one of
@@ -627,8 +622,14 @@ msgstr "<msgid>example.digit</msgid> <msgstr>1</msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:526
-msgid "<msgid>example.label</msgid> <msgstr role='header'><i>Example <number/></i>&#x2003;</msgstr> <msgstr role='li'>Example <number/>&#x2002;</msgstr> <msgstr>Example <number/></msgstr>"
-msgstr "<msgid>example.label</msgid> <msgstr role='header'><i>DÃ¸me <number/></i>&#x2003;</msgstr> <msgstr role='li'>DÃ¸me <number/>&#x2002;</msgstr> <msgstr>DÃ¸me <number/></msgstr>"
+msgid ""
+"<msgid>example.label</msgid> <msgstr role='header'><i>Example <number/></"
+"i>&#x2003;</msgstr> <msgstr role='li'>Example <number/>&#x2002;</msgstr> "
+"<msgstr>Example <number/></msgstr>"
+msgstr ""
+"<msgid>example.label</msgid> <msgstr role='header'><i>DÃ¸me <number/></"
+"i>&#x2003;</msgstr> <msgstr role='li'>DÃ¸me <number/>&#x2002;</msgstr> "
+"<msgstr>DÃ¸me <number/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -929,12 +930,8 @@ msgstr "<msgid>glossentry.abbrev.format</msgid> <msgstr>(<node/>)</msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:795
-msgid ""
-"<msgid>glossentry.tooltip</msgid> <msgstr>Read the definition for "
-"â<glossterm/>â.</msgstr>"
-msgstr ""
-"<msgid>glossentry.tooltip</msgid> <msgstr>Les definisjonen for Â«<glossterm/"
-">Â».</msgstr>"
+msgid "<msgid>glossentry.tooltip</msgid> <msgstr>Read the definition for ‘<glossterm/>’.</msgstr>"
+msgstr "<msgid>glossentry.tooltip</msgid> <msgstr>Les definisjonen for «<glossterm/>».</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -968,12 +965,8 @@ msgstr ""
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:827
-msgid ""
-"<msgid>glossentry.xref</msgid> <msgstr role='glosssee'><glossterm/></msgstr> "
-"<msgstr>â<glossterm/>â</msgstr>"
-msgstr ""
-"<msgid>glossentry.xref</msgid> <msgstr role='glosssee'><glossterm/></msgstr> "
-"<msgstr>Â«<glossterm/>Â»</msgstr>"
+msgid "<msgid>glossentry.xref</msgid> <msgstr role='glosssee'><glossterm/></msgstr> <msgstr>‘<glossterm/>’</msgstr>"
+msgstr "<msgid>glossentry.xref</msgid> <msgstr role='glosssee'><glossterm/></msgstr> <msgstr>«<glossterm/>»</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1047,8 +1040,10 @@ msgstr "<msgid>glosssee.format</msgid> <msgstr>SjÃ¥ <glosssee/>.</msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:896
-msgid "<msgid>glossseealso.format</msgid> <msgstr>See also <glosssee/>.</msgstr>"
-msgstr "<msgid>glossseealso.format</msgid> <msgstr>SjÃ¥ Ã²g <glosssee/>.</msgstr>"
+msgid ""
+"<msgid>glossseealso.format</msgid> <msgstr>See also <glosssee/>.</msgstr>"
+msgstr ""
+"<msgid>glossseealso.format</msgid> <msgstr>SjÃ¥ Ã²g <glosssee/>.</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1173,7 +1168,7 @@ msgstr ""
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1006
-msgid "<msgid>part.xref</msgid> <msgstr>Part <number/> â <title/></msgstr>"
+msgid "<msgid>part.xref</msgid> <msgstr>Part <number/> ― <title/></msgstr>"
 msgstr "<msgid>part.xref</msgid> <msgstr>Del <number/> - <title/></msgstr>"
 
 #.
@@ -1338,12 +1333,8 @@ msgstr "<msgid>question.xref</msgid> <msgstr>SpÃ¸rsmÃ¥l <number/></msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1150
-msgid ""
-"<msgid>quote.format</msgid> <msgstr role='inner'>â<node/>â</msgstr> "
-"<msgstr>â<node/>â</msgstr>"
-msgstr ""
-"<msgid>quote.format</msgid> <msgstr role='inner'>Â«<node/>Â»</msgstr> "
-"<msgstr>Â«<node/>Â»</msgstr>"
+msgid "<msgid>quote.format</msgid> <msgstr role='inner'>‘<node/>’</msgstr> <msgstr>“<node/>”</msgstr>"
+msgstr "<msgid>quote.format</msgid> <msgstr role='inner'>«<node/>»</msgstr> <msgstr>«<node/>»</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1506,10 +1497,8 @@ msgstr "<msgid>refsection.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1293
-msgid ""
-"<msgid>refsection.xref</msgid> <msgstr>Section <number/> â <title/></msgstr>"
-msgstr ""
-"<msgid>refsection.xref</msgid> <msgstr>Del <number/> - <title/></msgstr>"
+msgid "<msgid>refsection.xref</msgid> <msgstr>Section <number/> ― <title/></msgstr>"
+msgstr "<msgid>refsection.xref</msgid> <msgstr>Del <number/> - <title/></msgstr>"
 
 #.
 #. The number formatter used for section numbers.  This can be one of
@@ -1641,8 +1630,7 @@ msgstr "<msgid>section.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1408
-msgid ""
-"<msgid>section.xref</msgid> <msgstr>Section <number/> â <title/></msgstr>"
+msgid "<msgid>section.xref</msgid> <msgstr>Section <number/> ― <title/></msgstr>"
 msgstr "<msgid>section.xref</msgid> <msgstr>Del <number/> - <title/></msgstr>"
 
 #.
@@ -1652,7 +1640,7 @@ msgstr "<msgid>section.xref</msgid> <msgstr>Del <number/> - <title/></msgstr>"
 #. For your convenience, it has also been converted to an HTML file
 #. named STYLESHEETS.xml in the i18n directory.
 #.
-#. seealsoie - A âSee alsoâ entry in an index, rather than in the text
+#. seealsoie - A “See also” entry in an index, rather than in the text
 #. http://www.docbook.org/tdg/en/html/seealsoie.html
 #.
 #. This is a format message used to format index cross references.
@@ -1683,7 +1671,7 @@ msgstr "<msgid>seealsoie.format</msgid> <msgstr>SjÃ¥ Ã²g <seeie/>.</msgstr>"
 #. For your convenience, it has also been converted to an HTML file
 #. named STYLESHEETS.xml in the i18n directory.
 #.
-#. seeie - A âSeeâ entry in an index, rather than in the text
+#. seeie - A “See” entry in an index, rather than in the text
 #. http://www.docbook.org/tdg/en/html/seeie.html
 #.
 #. This is a format message used to format index cross references.
@@ -1891,12 +1879,16 @@ msgstr "<msgid>table.xref</msgid> <msgstr>Tabell <number/></msgstr>"
 #. Used as a header before a list of authors.
 #: ../xslt/gettext/l10n.xml.in.h:1623
 msgid "<msgstr form='0'>Author</msgstr> <msgstr form='1'>Authors</msgstr>"
-msgstr "<msgstr form='0'>Forfattar</msgstr> <msgstr form='1'>Forfattarar</msgstr>"
+msgstr ""
+"<msgstr form='0'>Forfattar</msgstr> <msgstr form='1'>Forfattarar</msgstr>"
 
 #. Used as a header before a list of collaborators.
 #: ../xslt/gettext/l10n.xml.in.h:1625
-msgid "<msgstr form='0'>Collaborator</msgstr> <msgstr form='1'>Collaborators</msgstr>"
-msgstr "<msgstr form='0'>Medhjelpar</msgstr> <msgstr form='1'>Medhjelparar</msgstr>"
+msgid ""
+"<msgstr form='0'>Collaborator</msgstr> <msgstr form='1'>Collaborators</"
+"msgstr>"
+msgstr ""
+"<msgstr form='0'>Medhjelpar</msgstr> <msgstr form='1'>Medhjelparar</msgstr>"
 
 #. Used as a header before a list of copyrights.
 #: ../xslt/gettext/l10n.xml.in.h:1627
@@ -1908,22 +1900,30 @@ msgstr ""
 #. Used as a header before a list of editors.
 #: ../xslt/gettext/l10n.xml.in.h:1629
 msgid "<msgstr form='0'>Editor</msgstr> <msgstr form='1'>Editors</msgstr>"
-msgstr "<msgstr form='0'>RedaktÃ¸r</msgstr> <msgstr form='1'>RedaktÃ¸rar</msgstr>"
+msgstr ""
+"<msgstr form='0'>RedaktÃ¸r</msgstr> <msgstr form='1'>RedaktÃ¸rar</msgstr>"
 
 #. Used as a header before a list of contributors.
 #: ../xslt/gettext/l10n.xml.in.h:1631
-msgid "<msgstr form='0'>Other Contributor</msgstr> <msgstr form='1'>Other Contributors</msgstr>"
-msgstr "<msgstr form='0'>Annan bidragsyter</msgstr> <msgstr form='1'>Andre bidragsytarar</msgstr>"
+msgid ""
+"<msgstr form='0'>Other Contributor</msgstr> <msgstr form='1'>Other "
+"Contributors</msgstr>"
+msgstr ""
+"<msgstr form='0'>Annan bidragsyter</msgstr> <msgstr form='1'>Andre "
+"bidragsytarar</msgstr>"
 
 #. Used as a header before a list of publishers.
 #: ../xslt/gettext/l10n.xml.in.h:1633
-msgid "<msgstr form='0'>Publisher</msgstr> <msgstr form='1'>Publishers</msgstr>"
+msgid ""
+"<msgstr form='0'>Publisher</msgstr> <msgstr form='1'>Publishers</msgstr>"
 msgstr "<msgstr form='0'>Utgiver</msgstr> <msgstr form='1'>Utgivarar</msgstr>"
 
 #. Used as a header before a list of translators.
 #: ../xslt/gettext/l10n.xml.in.h:1635
-msgid "<msgstr form='0'>Translator</msgstr> <msgstr form='1'>Translators</msgstr>"
-msgstr "<msgstr form='0'>Omsetjar</msgstr> <msgstr form='1'>Omsetjarar</msgstr>"
+msgid ""
+"<msgstr form='0'>Translator</msgstr> <msgstr form='1'>Translators</msgstr>"
+msgstr ""
+"<msgstr form='0'>Omsetjar</msgstr> <msgstr form='1'>Omsetjarar</msgstr>"
 
 #.
 #. http://www.docbook.org/tdg/en/html/qandaentry.html
@@ -2158,5 +2158,6 @@ msgstr "default:LTR"
 #. gnome-doc-utils.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1796
+#
 msgid "watermark-blockquote-201C.png"
 msgstr "watermark-blockquote-201C.png"
