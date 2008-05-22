@@ -2069,7 +2069,7 @@ msgstr "ملاحظة قانونية"
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1711
 msgid "Name"
-msgstr "الإسم"
+msgstr "الاسم"
 
 #.
 #. http://www.docbook.org/tdg/en/html/note.html
