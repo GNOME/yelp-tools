@@ -116,12 +116,35 @@ $role: For a role-based ${xrefstyle}, the role of the cross reference
 REMARK: Document this mode
 -->
 <xsl:template mode="db.xref.content.mode" match="*">
-  <xsl:message>
-    <xsl:text>No cross reference formatter found for </xsl:text>
-    <xsl:value-of select="local-name(.)"/>
-    <xsl:text> elements</xsl:text>
-  </xsl:message>
-  <xsl:call-template name="db.title"/>
+  <xsl:variable name="target_chunk_id">
+    <xsl:call-template name="db.chunk.chunk-id">
+      <xsl:with-param name="node" select="."/>
+    </xsl:call-template>
+  </xsl:variable>
+  <xsl:variable name="target_chunk" select="key('idkey', $target_chunk_id)"/>
+  <xsl:choose>
+    <xsl:when test="$target_chunk">
+      <xsl:apply-templates mode="db.xref.content.mode" select="$target_chunk"/>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:message>
+        <xsl:text>No cross reference formatter found for </xsl:text>
+        <xsl:value-of select="local-name(.)"/>
+        <xsl:text> elements</xsl:text>
+      </xsl:message>
+      <xsl:variable name="title">
+        <xsl:call-template name="db.title"/>
+      </xsl:variable>
+      <xsl:choose>
+        <xsl:when test="string($title) != ''">
+          <xsl:copy-of select="$title"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="@id"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
 <!-- = db.xref.content.mode % appendix = -->

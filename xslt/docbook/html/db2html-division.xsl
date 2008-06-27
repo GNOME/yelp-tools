@@ -1094,6 +1094,11 @@ REMARK: Describe this template
                     lot      | part       | preface      | reference |
                     setindex | toc        "/>
     <xsl:with-param name="info" select="bookinfo"/>
+    <!-- Unlike other elements in DocBook, title comes before bookinfo -->
+    <xsl:with-param name="title_node"
+                    select="(title | bookinfo/title)[1]"/>
+    <xsl:with-param name="subtitle_node"
+                    select="(subtitle | bookinfo/subtitle)[1]"/>
     <xsl:with-param name="depth_in_chunk" select="$depth_in_chunk"/>
     <xsl:with-param name="depth_of_chunk" select="$depth_of_chunk"/>
     <xsl:with-param name="autotoc_depth" select="2"/>

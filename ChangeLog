@@ -1,3 +1,12 @@
+2008-07-27  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/common/db-title.xsl:
+	* xslt/docbook/common/db-xref.xsl:
+	- Correctly handle content and tooltips for links to anchor elements
+
+	* xslt/docbook/html/db2html-division.xsl:
+	- Don't reprocess book titles when title and bookinfo/title exist
+
 2008-03-21  Marc-Andre Lureau <marcandre.lureau@gmail.com>
 
 	* Makefile.am, configure.in, m4/glib-gettext.m4:

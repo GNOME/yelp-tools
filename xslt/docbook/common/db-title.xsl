@@ -22,7 +22,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!--!!==========================================================================
 DocBook Titles
-:Requires: gettext
+:Requires: db-chunk gettext
 -->
 
 
@@ -82,6 +82,21 @@ REMARK: Describe this mode
     </xsl:when>
     <xsl:when test="objectinfo/title">
       <xsl:apply-templates select="objectinfo/title/node()"/>
+    </xsl:when>
+  </xsl:choose>
+</xsl:template>
+
+<!-- = db.title.mode % appendix = -->
+<xsl:template mode="db.title.mode" match="anchor">
+  <xsl:variable name="target_chunk_id">
+    <xsl:call-template name="db.chunk.chunk-id">
+      <xsl:with-param name="node" select="."/>
+    </xsl:call-template>
+  </xsl:variable>
+  <xsl:variable name="target_chunk" select="key('idkey', $target_chunk_id)"/>
+  <xsl:choose>
+    <xsl:when test="$target_chunk">
+      <xsl:apply-templates mode="db.title.mode" select="$target_chunk"/>
     </xsl:when>
   </xsl:choose>
 </xsl:template>
