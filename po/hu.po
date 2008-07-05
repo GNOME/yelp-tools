@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils.HEAD.hu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-09-13 18:49+0100\n"
-"PO-Revision-Date: 2008-03-08 01:24+0100\n"
+"POT-Creation-Date: 2008-03-08 00:27+0000\n"
+"PO-Revision-Date: 2008-07-05 07:41+0200\n"
 "Last-Translator: Gabor Kelemen <kelemeng@gnome.hu>\n"
 "Language-Team: Hungarian <gnome@fsf.hu>\n"
 "MIME-Version: 1.0\n"
@@ -1350,8 +1350,8 @@ msgid ""
 "<msgid>quote.format</msgid> <msgstr role='inner'>‘<node/>’</msgstr> "
 "<msgstr>“<node/>”</msgstr>"
 msgstr ""
-"<msgid>quote.format</msgid> <msgstr role='inner'>„<node/>”</msgstr> <msgstr>"
-"»<node/>«</msgstr>"
+"<msgid>quote.format</msgid> <msgstr role='inner'>„<node/>”</msgstr> "
+"<msgstr>»<node/>«</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1856,7 +1856,7 @@ msgstr ""
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1589
 msgid "<msgid>table.number</msgid> <msgstr><parent/>-<digit/></msgstr>"
-msgstr "<msgid>table.number</msgid> <msgstr><parent/>-<digit/></msgstr>"
+msgstr "<msgid>table.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -2168,5 +2168,5 @@ msgstr "default:LTR"
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1796
 msgid "watermark-blockquote-201C.png"
-msgstr "watermark-blockquote-201C.png"
+msgstr "watermark-blockquote-201D.png"
 
