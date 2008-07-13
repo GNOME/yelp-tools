@@ -1,3 +1,7 @@
+2008-07-14  Danilo Šegan  <danilo@gnome.org>
+
+	* xml2po.py: Apply Goran Rakić's patch for #437371.
+
 2007-03-16  Loïc Minier  <lminier@svn.gnome.org>
 
 	* Makefile.am:

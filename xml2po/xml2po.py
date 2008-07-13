@@ -507,7 +507,7 @@ def processElementTag(node, replacements, restart = 0):
         if mode == 'merge':
             translation = getTranslation(outtxt, isSpacePreserveNode(node))
         else:
-            translation = outtxt
+            translation = outtxt.decode('utf-8')
 
         starttag = startTagForNode(node)
         endtag = endTagForNode(node)
