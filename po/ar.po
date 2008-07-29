@@ -1063,7 +1063,7 @@ msgstr "<msgid>glosssee.format</msgid> <msgstr>انظر <glosssee/>.</msgstr>"
 msgid ""
 "<msgid>glossseealso.format</msgid> <msgstr>See also <glosssee/>.</msgstr>"
 msgstr ""
-"<msgid>glossseealso.format</msgid> <msgstr>انظر أيضاً <glosssee/>.</msgstr>"
+"<msgid>glossseealso.format</msgid> <msgstr>انظر أيضًا <glosssee/>.</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
