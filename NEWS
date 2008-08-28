@@ -1,3 +1,20 @@
+Changes in 0.13.1:
+------------------
+* Fixed UnicodeDecodeError in xml2po (Goran Rakić)
+* Correctly handle content and tooltips for links to anchors (Shaun McCance)
+* Don't reprocess book titles when title and bookinfo/title exist (Shaun McCance)
+* Remove GLib build dependency; include glib-gettext.m4 [#510915] (Marc-Andre Lureau)
+* Updated translations:
+  ar        (Khaled Hosny, Anas Husseini)
+  et        (Ivar Smolin)
+  hu        (Gabor Kelemen)
+  kn        (Shankar Prasad)
+  nn        (Eskild Hustvedt)
+  oc        (Yannig Marchegay)
+  or        (Manoj Kumar Giri)
+  sr@latin  (Goran Rakic)
+  tr        (Baris Cicek)
+
 Changes in 0.12.2:
 ------------------
 * Added DOCTYPE declarations to HTML and XHTML pages
