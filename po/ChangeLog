@@ -1,3 +1,9 @@
+2008-09-19  Roozbeh Pournader  <roozbeh@gmail.com>
+
+	* LINGUAS: Added Persian ('fa').
+	* fa.po: Added Persian translation by Amir Hedayaty and Roozbeh
+	  Pournader.
+
 2008-09-18  Djihed Afifi <djihed@gmail.com> 
 
 	* ar.po: Updated Arabic Translation by Khaled Hosny.
