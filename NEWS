@@ -1,3 +1,11 @@
+Changes in 0.14.0:
+------------------
+* Updated translations:
+  ar    (Khaled Hosny)
+  dz    (Pema Geyleg)
+  fa    (Amir Hedayaty, Roozbeh Pournader)
+  te    (Krishna Babu K)
+
 Changes in 0.13.1:
 ------------------
 * Fixed UnicodeDecodeError in xml2po (Goran Rakić)
