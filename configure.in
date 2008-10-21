@@ -16,6 +16,8 @@ else
 fi
 AC_SUBST(GDU_AWK)
 
+AC_PROG_LN_S
+
 gdu_cv_have_gdu=yes
 GNOME_DOC_DEFINES
 

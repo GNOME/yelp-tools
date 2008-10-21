@@ -1,3 +1,14 @@
+2008-10-22  Christian Persch  <chpe@gnome.org>
+
+	* tools/gnome-doc-utils.make: Save disk space by Symlinking the
+	non-localised figures to the C figures instead of copying them. Bug
+	#557227.
+
+	* tools/gnome-doc-utils.m4: Require AC_PROG_LN_S.
+
+	* configure.ac: Call AC_PROG_LN_S explicitly since g-d-u doesn't use
+	GNOME_DOC_INIT itself.
+
 2008-09-22  Shaun McCance  <shaunm@gnome.org>
 
 	* configure.in:
