@@ -1,3 +1,8 @@
+2008-10-24  Christian Persch  <chpe@gnome.org>
+
+	* configure.in: chmod +x gnome-doc-{tool,prepare} on configure. Bug
+	#557732.
+
 2008-10-22  Christian Persch  <chpe@gnome.org>
 
 	* tools/gnome-doc-utils.make: Save disk space by Symlinking the

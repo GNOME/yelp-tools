@@ -44,7 +44,7 @@ AC_DEFINE_UNQUOTED(GETTEXT_PACKAGE,"$GETTEXT_PACKAGE")
 IT_PROG_INTLTOOL([0.35.0])
 AX_GLIB_GNU_GETTEXT
 
-AC_OUTPUT([
+AC_CONFIG_FILES([
 Makefile
 data/Makefile
 data/icons/Makefile
@@ -73,4 +73,9 @@ xslt/docbook/html/Makefile
 xslt/docbook/omf/Makefile
 xslt/docbook/utils/Makefile
 xslt/gettext/Makefile
+],[
+chmod +x tools/gnome-doc-tool
+chmod +x tools/gnome-doc-prepare
 ])
+
+AC_OUTPUT
