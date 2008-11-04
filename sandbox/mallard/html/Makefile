@@ -1,5 +1,5 @@
-xslts=$(wildcard ../xslt/*.xsl)
-specs=$(filter-out ../spec/legal.xml, $(wildcard ../spec/*.xml))
+xslts=$(wildcard ../../../xslt/mallard/common/*.xsl) $(wildcard ../../../xslt/mallard/html/*.xsl)
+specs=$(filter-out ../../../doc/mallard/C/legal.xml, $(wildcard ../../../doc/mallard/C/*.xml))
 pages=$(patsubst %.xml,%.xhtml, $(notdir $(specs)))
 
 all: $(pages) figures mallard.cache
@@ -10,18 +10,18 @@ mallard.cache : $(specs) $(xslts)
 	  echo "<page href='$$file'/>" >> $@.in; \
 	done
 	echo '</cache>' >> $@.in
-	xsltproc ../xslt/mal2cache.xsl $@.in | xmllint --format - > $@
+	xsltproc ../../../xslt/mallard/utils/mal2cache.xsl $@.in | xmllint --format - > $@
 	rm $@.in
 
-$(pages) : mallard.cache ../xslt/theme.xml $(xslts)
-$(pages) : %.xhtml : ../spec/%.xml
+$(pages) : mallard.cache $(xslts)
+$(pages) : %.xhtml : ../../../doc/mallard/C/%.xml
 	xsltproc -o $@ \
 	  --stringparam mal.cache_file `pwd`/mallard.cache \
-	  ../xslt/mal2html.xsl $<
+	  ../../../xslt/mallard/html/mal2html.xsl $<
 
 figures:
 	if [ ! -d figures ]; then mkdir figures; fi
-	cp ../spec/figures/*.png figures/
+	cp ../../../doc/mallard/C/figures/*.png figures/
 
 .PHONY: clean
 clean:

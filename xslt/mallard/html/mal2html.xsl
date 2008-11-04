@@ -27,7 +27,7 @@ Mallard to HTML
 REMARK: Describe this module
 -->
 
-<xsl:include href="mal-link.xsl"/>
+<xsl:include href="../common/mal-link.xsl"/>
 
 <xsl:include href="mal2html-block.xsl"/>
 <xsl:include href="mal2html-css.xsl"/>
