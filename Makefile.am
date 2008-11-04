@@ -10,7 +10,7 @@ pkgdata_DATA=\
 endif
 
 # doc must go last
-SUBDIRS = data po xslt tools $(build_SUBDIRS) doc
+SUBDIRS = data po rng xslt tools $(build_SUBDIRS) doc
 
 ACLOCAL_AMFLAGS = -I m4
 
