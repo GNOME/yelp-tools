@@ -1,7 +1,6 @@
 all: mallard.rnc mallard.rng
 
-specs1=$(top_srcdir)/doc/mallard/C/spec_pages.xml \
-       $(top_srcdir)/doc/mallard/C/mal_page.xml   \
+specs1=$(top_srcdir)/doc/mallard/C/mal_page.xml   \
        $(top_srcdir)/doc/mallard/C/mal_block.xml  $(wildcard $(top_srcdir)/doc/mallard/C/mal_block_*.xml) \
        $(top_srcdir)/doc/mallard/C/mal_inline.xml $(wildcard $(top_srcdir)/doc/mallard/C/mal_inline_*.xml)
 specs=$(specs1) $(filter-out $(specs1), $(wildcard $(top_srcdir)/doc/mallard/C/*.xml))
