@@ -49,7 +49,7 @@ pre.code {
   background: url(mallard-icon-code.png) no-repeat top right;
   border: solid 2px </xsl:text>
   <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'gray-light'"/>
+    <xsl:with-param name="id" select="'gray-border'"/>
   </xsl:call-template>
   <xsl:text>;
   padding: 0.5em 1em 0.5em 1em;
@@ -205,15 +205,15 @@ div.title {
   <div class="cite">
     <!-- FIXME: i18n -->
     <xsl:choose>
-      <xsl:when test="@name and @date">
+      <xsl:when test="mal:name and @date">
         <xsl:text>from </xsl:text>
-        <xsl:apply-templates mode="mal2html.inline.mode" select="@name"/>
+        <xsl:apply-templates mode="mal2html.inline.mode" select="mal:name"/>
         <xsl:text> on </xsl:text>
         <xsl:apply-templates mode="mal2html.inline.mode" select="@date"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:text>from </xsl:text>
-        <xsl:apply-templates mode="mal2html.inline.mode" select="@name"/>
+        <xsl:apply-templates mode="mal2html.inline.mode" select="mal:name"/>
       </xsl:otherwise>
     </xsl:choose>
   </div>

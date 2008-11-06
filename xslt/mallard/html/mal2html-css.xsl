@@ -84,9 +84,177 @@ by extension stylesheets to extend or override the CSS.
   <xsl:call-template name="mal2html.block.css"/>
   <xsl:call-template name="mal2html.inline.css"/>
   <xsl:call-template name="mal2html.list.css"/>
-  <xsl:call-template name="mal2html.page.css"/>
   <xsl:call-template name="mal2html.table.css"/>
 <xsl:text>
+html { height: 100%; }
+body {
+  direction: </xsl:text><xsl:call-template name="l10n.direction"/><xsl:text>;
+  margin: 0px;
+  background-color: </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'gray-background'"/>
+  </xsl:call-template>
+  <xsl:text>;
+  padding: 12px;
+  min-height: 100%;
+}
+<!-- FIXME: only in editor mode & better colors -->
+body.status-stub { background-color:  </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'red-background'"/>
+  </xsl:call-template>
+  <xsl:text>; }
+body.status-draft { background-color:  </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'red-background'"/>
+  </xsl:call-template>
+  <xsl:text>; }
+body.status-incomplete { background-color:  </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'red-background'"/>
+  </xsl:call-template>
+  <xsl:text>; }
+body.status-review { background-color:  </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'yellow-background'"/>
+  </xsl:call-template>
+  <xsl:text>; }
+div.version {
+  margin: 0 0 1em 0;
+  padding: 0.5em 1em 0.5em 1em;
+  max-width: 60em;
+  border: solid 1px </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'gray-border'"/>
+  </xsl:call-template>
+  <xsl:text>;
+  background-color: </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'yellow-background'"/>
+  </xsl:call-template>
+  <xsl:text>;
+}
+div.version p.version {
+  margin-top: 0.2em;
+}
+div.body {
+  margin: 0;
+  padding: 1em;
+  max-width: 60em;
+  min-height: 20em;
+  border: solid 1px </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'gray-border'"/>
+  </xsl:call-template>
+  <xsl:text>;
+  background-color: </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'background'"/>
+  </xsl:call-template>
+  <xsl:text>;
+}
+div.copyrights {
+  text-align: center;
+  color: </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'text-light'"/>
+  </xsl:call-template>
+  <xsl:text>;
+}
+div.section { margin-top: 2em; clear: both; }
+div.section div.section { margin-top: 1.72em; margin-left: 1.72em; }
+div.section div.section div.section { margin-top: 1.44em; }
+div.header {
+  margin: 0;
+  color: </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'text-light'"/>
+  </xsl:call-template>
+  <xsl:text>;
+  border-bottom: solid 1px </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'gray-border'"/>
+  </xsl:call-template>
+  <xsl:text>;
+}
+div.section div.section div.header { border: none; }
+h1, h2, h3, h4, h5, h6, h7 { margin: 0; }
+h1.title { font-size: 1.44em; }
+h2.title { font-size: 1.2em; }
+h3.title { font-size: 1em; }
+h4.title { font-size: 1em; }
+h5.title { font-size: 1em; }
+h6.title { font-size: 1em; }
+h7.title { font-size: 1em; }
+
+div.pagelink div.title {
+  font-size: 1em;
+  color: inherit;
+}
+div.pagelink div.desc {
+  margin-top: 0.2em;
+  color: </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'text-light'"/>
+  </xsl:call-template>
+  <xsl:text>;
+}
+div.pagelink {
+  margin: 0;
+  padding: 0.5em;
+  border: solid 1px </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'background'"/>
+  </xsl:call-template>
+  <xsl:text>;
+}
+div.pagelink:hover {
+  border-color: </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'blue-border'"/>
+  </xsl:call-template>
+  <xsl:text>;
+  background-color: </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'blue-background'"/>
+  </xsl:call-template>
+  <xsl:text>;
+}
+ul.guidelinks {
+  display: block;
+  margin: 0;
+  text-align: right;
+}
+li.guidelink { display: inline; }
+li.guidelink::before {
+  content: ' • ';
+  color: </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'gray-dark'"/>
+  </xsl:call-template>
+  <xsl:text>;
+}
+li.guidelink-first::before, li.guidelink-only::before {
+  content: '';
+}
+div.seealsolinks { margin: 0; }
+div.seealsolink {
+  display: inline;
+}
+div.seealsolink::before {
+  content: ' • ';
+  color: </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'gray-dark'"/>
+  </xsl:call-template>
+  <xsl:text>;
+}
+div.seealsolink-first::before, div.seealsolink-only::before {
+  content: ' : ';
+}
+
+
+
 div, pre, p { margin: 1em 0 0 0; padding: 0; }
 .first-child { margin-top: 0; }
 a {
