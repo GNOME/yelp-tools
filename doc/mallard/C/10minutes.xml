@@ -4,8 +4,6 @@
 <info>
   <desc>Create a multiple-page document in only ten minutes</desc>
 
-  <link type="guide" xref="spec" weight="1"/>
-
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>

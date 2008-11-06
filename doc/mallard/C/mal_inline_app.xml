@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <page xmlns="http://www.gnome.org/~shaunm/mallard"
+      type="topic"
       id="mal_inline_app">
 
 <info>
@@ -47,7 +48,7 @@ the name of the command used to run an application; use
 
   <p>For example, the calculator application that comes with Gnome is called
   <app>Calculator</app>.  If an author were to write <quote>To start
-  <app>Calculator</app>…</quote>, then a reader may confuse this for <quote>To
+  Calculator…</quote>, then a reader may confuse this for <quote>To
   start the calculator…</quote> with an error.  This is even more pronounced
   in languages such as German where nouns are always capitalized.</p>
 

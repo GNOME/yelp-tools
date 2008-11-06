@@ -3,8 +3,6 @@
 <info>
   <desc>Explore more of what Mallard has to offer</desc>
 
-  <link type="guide" xref="spec" weight="1"/>
-
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
