@@ -1,5 +1,7 @@
 <page xmlns="http://www.gnome.org/~shaunm/mallard"
-       id="mal_inline_media">
+      type="topic"
+      id="mal_inline_media">
+
 <info>
   <link type="guide" xref="mal_inline"/>
   <version number="0.1" date="2007-02-21" status="stub"/>

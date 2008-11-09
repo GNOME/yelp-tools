@@ -1,5 +1,7 @@
 <page xmlns="http://www.gnome.org/~shaunm/mallard"
-      id="mal_sys">
+      type="topic"
+      id="mal_inline_sys">
+
 <info>
   <link type="guide" xref="mal_inline"/>
   <link type="seealso" xref="mal_link#ubiquitous"/>

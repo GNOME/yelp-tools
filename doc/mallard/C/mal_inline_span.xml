@@ -1,5 +1,6 @@
 <page xmlns="http://www.gnome.org/~shaunm/mallard"
-       id="mal_inline_span">
+      type="topic"
+      id="mal_inline_span">
 
 <info>
   <link type="guide" xref="mal_inline"/>
