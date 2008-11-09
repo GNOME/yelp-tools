@@ -26,5 +26,39 @@ mal_inline_gui = element gui
   }
 </code></synopsis>
 
+<section id="examples">
+  <title>Examples</title>
+</section>
+
+<section id="processing">
+  <title>Processing Expectations</title>
+  <comment>
+    <cite date="2008-11-09"><name>Shaun McCance</name></cite>
+    <p>Add processing expectations.</p>
+  </comment>
+</section>
+
+<section id="docbook">
+  <title>Comparison to DocBook</title>
+  <p>The <code>gui</code> element is functionally similar to DocBook's deprecated
+  <code href="http://www.docbook.org/tdg/en/html/interface.html">interface</code>
+  element.  DocBook 3 introduced more specific elements for marking up parts of
+  a user interface:
+  <code href="http://www.docbook.org/tdg/en/html/guibutton.html">guibutton</code>,
+  <code href="http://www.docbook.org/tdg/en/html/guiicon.html">guiicon</code>,
+  <code href="http://www.docbook.org/tdg/en/html/guilabel.html">guilabel</code>,
+  <code href="http://www.docbook.org/tdg/en/html/guimenu.html">guimenu</code>,
+  <code href="http://www.docbook.org/tdg/en/html/guimenuitem.html">guimenuitem</code>, and
+  <code href="http://www.docbook.org/tdg/en/html/guisubmenu.html">guisubmenu</code>.
+  In practice, there is rarely a need to distinguish between types of interface
+  elements in markup.  When such a need arises, it can be handled using attributes
+  on a single element.  Furthermore, DocBook's various elements are nowhere near
+  exhaustive.  Thus, authors must frequently either abuse a specific element or
+  use the deprecated <code>interface</code> element.</p>
+  <comment>
+    <cite date="2008-11-09"><name>Shaun McCance</name></cite>
+    <p>See principle of just enough markup</p>
+  </comment>
+</section>
 
 </page>
