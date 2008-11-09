@@ -7,7 +7,7 @@
   <version number="0.1" date="2007-02-21" status="stub"/>
 </info>
 
-<title>Variable Text</title>
+<title>Spans</title>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_inline_span = element em {

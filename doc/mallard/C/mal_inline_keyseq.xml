@@ -16,7 +16,7 @@
   <version number="0.1" date="2008-02-19" status="incomplete"/>
 </info>
 
-<title>GUI Labels</title>
+<title>Key Sequences</title>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_inline_keyseq = element keyseq {
