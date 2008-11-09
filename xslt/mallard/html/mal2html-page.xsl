@@ -380,7 +380,7 @@ REMARK: Describe this template
   <xsl:if test="$inlinks or $outlinks">
     <div class="seealsolinks">
       <!-- FIXME: i18n -->
-      <div class="title">See Also</div>
+      <span>See Also: </span>
       <xsl:for-each select="$inlinks">
         <xsl:call-template name="mal2html.page.seealsolink">
           <xsl:with-param name="node" select="$node"/>

@@ -250,7 +250,7 @@ div.seealsolink::before {
   <xsl:text>;
 }
 div.seealsolink-first::before, div.seealsolink-only::before {
-  content: ' : ';
+  content: '';
 }
 
 
