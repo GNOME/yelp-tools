@@ -14,7 +14,7 @@ start = mal_page
 mal_page = (mal_page_guide | mal_page_topic)
 mal_page_guide = element page {
   attribute id { text },
-  attribute type "guide",
+  attribute type { "guide" },
   <link xref="mal_info">mal_info</link>,
   <link xref="mal_title">mal_title</link>,
   <link xref="mal_block">mal_block</link> *,
@@ -22,7 +22,7 @@ mal_page_guide = element page {
 }
 mal_page_topic = element page {
   attribute id { text },
-  attribute type "topic",
+  attribute type { "topic" },
   <link xref="mal_info">mal_info</link>,
   <link xref="mal_title">mal_title</link>,
   <link xref="mal_block">mal_block</link> *,
