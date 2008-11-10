@@ -154,6 +154,7 @@ div.body {
   <xsl:text>;
 }
 div.copyrights {
+  max-width: 60em;
   text-align: center;
   color: </xsl:text>
   <xsl:call-template name="theme.get_color">
