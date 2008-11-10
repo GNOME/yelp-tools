@@ -3,15 +3,16 @@
       id="mal_inline_span">
 
 <info>
-  <link type="guide" xref="mal_inline"/>
-  <link type="seealso" xref="mal_link#ubiquitous"/>
+  <link type="guide" xref="mal_inline#elements"/>
+  <link type="seealso" xref="mal_attr_link"/>
+
   <version number="0.1" date="2007-02-21" status="stub"/>
 </info>
 
 <title>Spans</title>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
-mal_inline_span = element em {
+mal_inline_span = element span {
   <link xref="mal_attr_link">mal_attr_link</link> ?,
   <link xref="mal_inline#simple">mal_inline__simple</link> +
 }

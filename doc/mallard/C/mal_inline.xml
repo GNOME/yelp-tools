@@ -32,15 +32,33 @@ mal_inline = mixed {
   element * - (mal:* | local:*) { text } *
 }
 mal_inline__simple = mixed {
+  <link xref="mal_inline_span">mal_inline_span</link> *,
   <link xref="mal_inline_var">mal_inline_var</link> *,
   element * - (mal:* | local:*) { text } *
 }
-mal_inline__text = mixed { element * - (mal:* | local:*) { text } * }
+mal_inline__text = mixed {
+  element * - (mal:* | local:*) { text } *
+}
 </code></synopsis>
 
 <comment>
   <cite date="2008-02-19"><name>Shaun McCance</name></cite>
   <p>Add some intro text and general processing expectations</p>
 </comment>
+
+<section id="elements">
+  <info>
+    <title type="link">Inline Elements</title>
+  </info>
+  <title>Elements</title>
+</section>
+
+<section id="processing">
+  <title>Processing Expectations</title>
+  <comment>
+    <cite date="2008-11-10"><name>Shaun McCance</name></cite>
+    <p>Add processing expectations</p>
+  </comment>
+</section>
 
 </page>
