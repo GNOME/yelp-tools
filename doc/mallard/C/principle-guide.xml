@@ -1,5 +1,6 @@
 <page xmlns="http://www.gnome.org/~shaunm/mallard"
-       id="principle-guide">
+      type="topic"
+      id="principle-guide">
 
 <info>
   <desc>Ensure the reader doesn't get lost in a link swarm</desc>

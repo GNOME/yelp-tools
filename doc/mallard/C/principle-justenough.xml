@@ -1,5 +1,7 @@
 <page xmlns="http://www.gnome.org/~shaunm/mallard"
-       id="principle-justenough">
+      type="topic"
+      id="principle-justenough">
+
 <info>
   <version number="0.1" date="2007-02-26" status="stub"/>
   <link type="guide" xref="principles#writer"/>
