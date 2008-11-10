@@ -17,17 +17,4 @@ mal_info_link = element link {
 }
 </code></synopsis>
 
-<!-- BEGIN ubiquitous -->
-<section id="ubiquitous">
-  <title>Ubiquitous Linking</title>
-
-  <synopsis><code mime="application/relax-ng-compact-syntax">
-mal_link_attr = (
-  attribute xref { text } |
-  attribute href { text } )
-</code></synopsis>
-
-</section>
-<!-- END ubiquitous -->
-
 </page>
