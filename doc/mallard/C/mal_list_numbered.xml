@@ -1,5 +1,7 @@
 <page xmlns="http://www.gnome.org/~shaunm/mallard"
-       id="mal_list_numbered">
+      type="topic"
+      id="mal_list_numbered">
+
 <info>
   <link type="guide" xref="mal_list"/>
   <version number="0.1" date="2007-02-21" status="stub"/>
