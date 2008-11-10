@@ -50,7 +50,7 @@ by the user.</p>
 <section id="examples">
   <title>Examples</title>
 
-  <section>
+  <section id="examples-basic">
     <title>Basic Use</title>
     <code><![CDATA[
 <p>To start <app>Totem Movie Player</app>, enter <cmd>totem</cmd> at
@@ -60,7 +60,7 @@ the command line.</p>
     command line.</p>
   </section>
 
-  <section>
+  <section id="examples-using-var">
     <title>Using <code>var</code></title>
     <code><![CDATA[
 <p>To view a file in <app>Totem Movie Player</app>, enter <cmd>totem
@@ -71,7 +71,7 @@ with the name of the file.</p>
     at the command line, replacing <var>file</var> with the name of the file.</p>
   </section>
 
-  <section>
+  <section id="examples-for-options">
     <title>For Options</title>
     <code><![CDATA[
 <p>The <cmd>-mtime</cmd> option for the <cmd>find</cmd> command allows
