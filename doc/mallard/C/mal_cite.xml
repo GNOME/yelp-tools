@@ -21,8 +21,8 @@
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_cite = element cite {
   attribute date { xsd:date } ?,
-  element name { <link xref="mal_inline">mal_inline__text</link> + },
-  element email { <link xref="mal_inline">mal_inline__text</link> + } ?
+  element name { <link xref="mal_inline">mal_inline</link> + },
+  element email { <link xref="mal_inline">mal_inline</link> + } ?
 }
 </code></synopsis>
 

@@ -24,14 +24,14 @@
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_inline_link = element link
   { ( attribute xref { text }
-    , <link xref="mal_inline">mal_inline__simple</link> ?
+    , <link xref="mal_inline">mal_inline</link> ?
     )
   | ( attribute dref { text }
     , attribute href { text }?
-    , <link xref="mal_inline">mal_inline__text</link>
+    , <link xref="mal_inline">mal_inline</link>
     )
   | ( attribute href { text }
-    , <link xref="mal_inline">mal_inline__text</link>
+    , <link xref="mal_inline">mal_inline</link>
     )
   }
 </code></synopsis>

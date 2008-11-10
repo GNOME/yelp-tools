@@ -31,14 +31,6 @@ mal_inline = mixed {
   <link xref="mal_inline_var">mal_inline_var</link> *,
   element * - (mal:* | local:*) { text } *
 }
-mal_inline__simple = mixed {
-  <link xref="mal_inline_span">mal_inline_span</link> *,
-  <link xref="mal_inline_var">mal_inline_var</link> *,
-  element * - (mal:* | local:*) { text } *
-}
-mal_inline__text = mixed {
-  element * - (mal:* | local:*) { text } *
-}
 </code></synopsis>
 
 <comment>

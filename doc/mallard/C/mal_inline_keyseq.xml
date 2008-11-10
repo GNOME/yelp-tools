@@ -21,6 +21,9 @@
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_inline_keyseq = element keyseq {
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
   mixed { <link xref="mal_inline_gui">mal_inline_key</link> + }
 }
 </code></synopsis>

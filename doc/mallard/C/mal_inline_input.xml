@@ -22,10 +22,13 @@
 <title>User Input</title>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
-mal_inline_input = element input
-  { <link xref="mal_attr_link">mal_attr_link</link>?,
-    <link xref="mal_inline#simple">mal_inline__simple</link>+
-  }
+mal_inline_input = element input {
+  <link xref="mal_attr_link">mal_attr_link</link> ?,
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  <link xref="mal_inline">mal_inline</link>+
+}
 </code></synopsis>
 
 </page>

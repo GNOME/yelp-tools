@@ -26,7 +26,10 @@
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_inline_quote = element quote {
   <link xref="mal_attr_link">mal_attr_link</link> ?,
-  <link xref="mal_inline">mal_inline</link> +
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  <link xref="mal_inline">mal_inline</link>+
 }
 </code></synopsis>
 

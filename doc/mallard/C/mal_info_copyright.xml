@@ -24,8 +24,8 @@
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_info_copyright = element copyright {
   element year { text } +,
-  element name { <link xref="mal_inline">mal_inline__text</link> + },
-  element email { <link xref="mal_inline">mal_inline__text</link> + } ?
+  element name { <link xref="mal_inline">mal_inline</link> + },
+  element email { <link xref="mal_inline">mal_inline</link> + } ?
 }
 </code></synopsis>
 
