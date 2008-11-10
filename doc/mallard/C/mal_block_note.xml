@@ -1,5 +1,7 @@
 <page xmlns="http://www.gnome.org/~shaunm/mallard"
-       id="mal_block_note">
+      type="topic"
+      id="mal_block_note">
+
 <info>
   <link type="guide" xref="mal_block#containers"/>
   <version number="0.1" date="2007-02-21" status="stub"/>

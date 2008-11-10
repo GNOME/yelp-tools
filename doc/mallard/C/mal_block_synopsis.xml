@@ -1,5 +1,6 @@
 <page xmlns="http://www.gnome.org/~shaunm/mallard"
-       id="mal_block_synopsis">
+      type="topic"
+      id="mal_block_synopsis">
 
 <info>
   <link type="guide" xref="mal_block#containers"/>
@@ -26,7 +27,7 @@ control element.</p>
   <p>Add explanation, examples</p>
 </comment>
 
-<section>
+<section id="processing">
   <title>Processing Expectations</title>
 
   <p>A <code>synopsis</code> element is rendered as a displayed block,

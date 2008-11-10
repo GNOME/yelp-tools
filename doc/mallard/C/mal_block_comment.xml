@@ -1,5 +1,6 @@
 <page xmlns="http://www.gnome.org/~shaunm/mallard"
-       id="mal_block_comment">
+      type="topic"
+      id="mal_block_comment">
 
 <info>
   <link type="guide" xref="mal_block#containers"/>
