@@ -1,5 +1,6 @@
 <page xmlns="http://www.gnome.org/~shaunm/mallard"
-      type="guide" id="mal_page">
+      type="topic"
+      id="mal_page">
 
 <info>
   <version number="0.1" date="2008-02-21" status="stub"/>
@@ -13,16 +14,20 @@ default namespace mal = "http://www.gnome.org/~shaunm/mallard"
 start = mal_page
 mal_page = (mal_page_guide | mal_page_topic)
 mal_page_guide = element page {
-  attribute id { text },
+  attribute id { xsd:ID },
   attribute type { "guide" },
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
   <link xref="mal_info">mal_info</link>,
   <link xref="mal_title">mal_title</link>,
   <link xref="mal_block">mal_block</link> *,
   <link xref="mal_section">mal_section</link> *
 }
 mal_page_topic = element page {
-  attribute id { text },
+  attribute id { xsd:ID },
   attribute type { "topic" },
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
   <link xref="mal_info">mal_info</link>,
   <link xref="mal_title">mal_title</link>,
   <link xref="mal_block">mal_block</link> *,
