@@ -26,7 +26,7 @@ mal_caption = element caption {
 </code></synopsis>
 
 <p>The <code>caption</code> element marks a short text caption at the
-bottom of a <link xref="mal_figure">figure</link>.  Captions provide
+bottom of a <link xref="mal_block_figure">figure</link>.  Captions provide
 a short textual description of the contents of the figure, often an
 image.  Captions are simple block elements that can contain all
 general <link xref="mal_inline">inline content</link>.</p>
