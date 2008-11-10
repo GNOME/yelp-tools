@@ -27,16 +27,19 @@
 <title>Application Names</title>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
-mal_inline_app = element app
-  { <link xref="mal_attr_link">mal_attr_link</link>?,
-    <link xref="mal_inline#simple">mal_inline__simple</link>+
-  }
+mal_inline_app = element app {
+  <link xref="mal_attr_link">mal_attr_link</link> ?,
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+  <link xref="mal_inline#simple">mal_inline__simple</link>+
+}
 </code></synopsis>
 
 <p>The <code>app</code> element marks the human-readable name of an application
 or the title of a window within an application.  It should not be used to mark
 the name of the command used to run an application; use
 <code xref="mal_inline_cmd">cmd</code> for this purpose instead.</p>
+
 
 <!-- BEGIN processing -->
 <section id="processing">
@@ -60,5 +63,15 @@ the name of the command used to run an application; use
   variation.</p>
 </section>
 <!-- END processing -->
+
+
+<!-- BEGIN docbook -->
+<section id="docbook">
+  <title>Comparison to DocBook</title>
+  <p>The <code>app</code> element is functionally similar to DocBook's
+  <code href="http://www.docbook.org/tdg/en/html/application.html">application</code>
+  element.</p>
+</section>
+<!-- END docbook -->
 
 </page>
