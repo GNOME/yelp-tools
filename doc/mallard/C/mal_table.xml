@@ -75,7 +75,7 @@ mal_table_td = element td { <link xref="mal_block#simple">mal_block__simple</lin
 <section id="examples-rules">
   <title>The <code>rules</code> Attribute</title>
 
-  <section>
+  <section id="examples-rules-rows">
   <title>Rows</title>
   <code><![CDATA[
 <table frame="all" rules="rows">
@@ -156,7 +156,7 @@ mal_table_td = element td { <link xref="mal_block#simple">mal_block__simple</lin
   </table>
   </section>
 
-  <section>
+  <section id="example-rules-columns">
   <title>Columns</title>
   <code><![CDATA[
 <table frame="all" rules="cols">
@@ -237,7 +237,7 @@ mal_table_td = element td { <link xref="mal_block#simple">mal_block__simple</lin
   </table>
   </section>
 
-  <section>
+  <section id="examples-rules-rowgroups">
   <title>Row Groups</title>
   <code><![CDATA[
 <table frame="all" rules="rowgroups cols">
@@ -330,7 +330,7 @@ mal_table_td = element td { <link xref="mal_block#simple">mal_block__simple</lin
   </table>
   </section>
 
-  <section>
+  <section id="examples-rules-colgroups">
   <title>Column Groups</title>
   <code><![CDATA[
 <table frame="all" rules="rows colgroups">
@@ -421,7 +421,7 @@ mal_table_td = element td { <link xref="mal_block#simple">mal_block__simple</lin
 <section id="examples-shade">
   <title>The <code>shade</code> Attribute</title>
 
-  <section>
+  <section id="examples-shade-rows">
   <title>Rows</title>
   <code><![CDATA[
 <table frame="all" shade="rows">
@@ -502,7 +502,7 @@ mal_table_td = element td { <link xref="mal_block#simple">mal_block__simple</lin
   </table>
   </section>
 
-  <section>
+  <section id="examples-shade-cols">
   <title>Columns</title>
   <code><![CDATA[
 <table frame="all" shade="cols">
@@ -583,7 +583,7 @@ mal_table_td = element td { <link xref="mal_block#simple">mal_block__simple</lin
   </table>
   </section>
 
-  <section>
+  <section id="examples-shade-rowgroups">
   <title>Row Groups</title>
   <code><![CDATA[
 <table frame="all" shade="rowgroups cols">
@@ -676,7 +676,7 @@ mal_table_td = element td { <link xref="mal_block#simple">mal_block__simple</lin
   </table>
   </section>
 
-  <section>
+  <section id="examples-shade-colgroups">
   <title>Column Groups</title>
   <code><![CDATA[
 <table frame="all" shade="rows colgroups">
