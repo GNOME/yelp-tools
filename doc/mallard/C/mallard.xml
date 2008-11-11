@@ -2,7 +2,7 @@
       type="guide"
       id="mallard">
 <info>
-  <link type="topic" xref="10minutes"/>
+  <link type="topic" xref="tenminutes"/>
   <link type="topic" xref="explore"/>
   <link type="topic" xref="principles"/>
   <link type="topic" xref="spec"/>

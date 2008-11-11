@@ -1,5 +1,7 @@
 <page xmlns="http://www.gnome.org/~shaunm/mallard"
-       id="explore">
+      type="topic"
+      id="explore">
+
 <info>
   <desc>Explore more of what Mallard has to offer</desc>
 

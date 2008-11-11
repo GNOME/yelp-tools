@@ -1,5 +1,6 @@
 <page xmlns="http://www.gnome.org/~shaunm/mallard"
-      id="10minutes">
+      type="topic"
+      id="tenminutes">
 
 <info>
   <desc>Create a multiple-page document in only ten minutes</desc>

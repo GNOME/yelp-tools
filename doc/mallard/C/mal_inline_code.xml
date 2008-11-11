@@ -38,7 +38,7 @@ mal_inline_code = element code {
 
 
 <!-- BEGIN attributes -->
-<section id="examples">
+<section id="attributes">
   <title>Attributes</title>
   <comment>
     <cite date="2008-11-10"><name>Shaun McCance</name></cite>
