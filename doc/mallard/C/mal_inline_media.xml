@@ -12,9 +12,13 @@
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_inline_media = element media {
-  attribute type { text } ?,
+  attribute type { "image" | "video" | "audio" | "application" | "text" } ?,
   attribute mime { text } ?,
-  attribute href { text }
+  attribute href { text },
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  mal_inline_media ?
 }
 </code></synopsis>
 
