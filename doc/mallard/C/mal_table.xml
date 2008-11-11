@@ -38,7 +38,7 @@ mal_table = element table {
     )
   ),
 
-  <link xref="mal_caption">mal_caption</link> ?
+  <link xref="mal_block_caption">mal_block_caption</link> ?
 }
 mal_table_col = element col {}
 mal_table_colgroup = element colgroup { mal_table_col * }

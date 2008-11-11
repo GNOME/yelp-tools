@@ -22,7 +22,7 @@
 <title>Captions</title>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
-mal_caption = element caption {
+mal_block_caption = element caption {
   attribute style { xsd:NMTOKENS } ?,
   attribute * - (mal:* | local:*) { text } *,
 
