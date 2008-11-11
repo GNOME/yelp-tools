@@ -10,6 +10,8 @@
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_table = element table {
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
   attribute frame {
     "all" | "none" |
     list { ("top" | "bottom" | "left" | "right") * }
@@ -25,12 +27,12 @@ mal_table = element table {
 
   <link xref="mal_title">mal_title</link> ?,
 
-  ( <link xref="mal_table_col">mal_table_col</link> +
-  | <link xref="mal_table_colgroup">mal_table_colgroup</link> +
+  ( <link xref="mal_table_col">mal_table_col</link> + |
+    <link xref="mal_table_colgroup">mal_table_colgroup</link> +
   ) ?,
 
-  ( <link xref="mal_table_tr">mal_table_tr</link> +
-  | ( <link xref="mal_table_thead">mal_table_thead</link> ?,
+  ( <link xref="mal_table_tr">mal_table_tr</link> + |
+    ( <link xref="mal_table_thead">mal_table_thead</link> ?,
       <link xref="mal_table_tbody">mal_table_tbody</link> +,
       <link xref="mal_table_tfoot">mal_table_tfoot</link> ?
     )
