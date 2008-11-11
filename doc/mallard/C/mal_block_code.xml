@@ -21,7 +21,10 @@
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_block_code = element code {
+  attribute style { xsd:NMTOKENS } ?,
   attribute mime { text } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
   <link xref="mal_inline">mal_inline</link>
 }</code></synopsis>
 

@@ -12,7 +12,11 @@
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_block_screen = element screen {
-  <link xref="mal_inline">mal_inline</link> +
+  attribute style { xsd:NMTOKENS } ?,
+  attribute mime { text } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  <link xref="mal_inline">mal_inline</link>
 }
 </code></synopsis>
 
