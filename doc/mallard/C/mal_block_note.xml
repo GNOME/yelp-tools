@@ -11,6 +11,9 @@
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_block_note = element note {
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
   <link xref="mal_title">mal_title</link> ?,
   <link xref="mal_block#simple">mal_block__simple</link> +
 }
