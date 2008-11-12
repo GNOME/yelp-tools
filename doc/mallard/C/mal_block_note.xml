@@ -19,4 +19,60 @@ mal_block_note = element note {
 }
 </code></synopsis>
 
+<!-- BEGIN discussion -->
+<section id="discussion">
+  <title>Discussion</title>
+  <list type="bullet">
+    <item><p>The <code>style</code> attribute takes a space-seperated list of
+    style hints.  Processing tools should adjust their rendering according to
+    those style hints they understand.</p></item>
+
+    <item>
+      <p>The following style hints are recommended:</p>
+      <table rules="rows">
+        <tr>
+          <td><code>"advanced"</code></td>
+          <td><p>information that advanced users may find useful</p></td>
+        </tr>
+        <tr>
+          <td><code>"bug"</code></td>
+          <td><p>a note about a known bug in the software</p></td>
+        </tr>
+        <tr>
+          <td><code>"tip"</code></td>
+          <td><p>a general tip that may help the reader perform an operation better</p></td>
+        </tr>
+        <tr>
+          <td><code>"warning"</code></td>
+          <td><p>a warning to the reader about a potentially dangerous operation</p></td>
+        </tr>
+      </table>
+    </item>
+  </list>
+
+  <comment>
+    <cite date="2008-10-11"><name>shaunm</name></cite>
+    <p>Add discussion of content model</p>
+  </comment>
+</section>
+<!-- END discussion -->
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+</section>
+<!-- END examples -->
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+</section>
+<!-- END processing -->
+
+<!-- BEGIN docbook -->
+<section id="docbook">
+  <title>Comparison to DocBook</title>
+</section>
+<!-- END docbook -->
+
 </page>
