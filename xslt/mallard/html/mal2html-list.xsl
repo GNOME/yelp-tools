@@ -36,6 +36,12 @@ REMARK: Describe this template
 -->
 <xsl:template name="mal2html.list.css">
 <xsl:text>
+ul.list-bullet {
+  margin: 0; padding: 0;
+}
+ul.list-bullet li {
+  margin-left: 1.44em;
+}
 ul.list-tree {
   margin: 0; padding: 0;
   list-style-type: none;
@@ -57,6 +63,21 @@ ul.list-tree ul.list-tree li {
 
 
 <!-- == Bullet Lists == -->
+
+<xsl:template mode="mal2html.block.mode" match="mal:list[@type='bullet']">
+  <div class="list list-bullet">
+    <ul class="list list-bullet">
+      <xsl:apply-templates mode="mal2html.list.bullet.mode"/>
+    </ul>
+  </div>
+</xsl:template>
+
+<xsl:template mode="mal2html.list.bullet.mode" match="mal:item">
+  <li>
+    <xsl:apply-templates mode="mal2html.block.mode"/>
+  </li>
+</xsl:template>
+
 
 <!-- == Numbered Lists == -->
 
