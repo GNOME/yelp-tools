@@ -12,7 +12,7 @@
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_info_license = element license {
   attribute href { text } ?,
-  <link xref="mal_block#simple">mal_block__simple</link> +
+  <link xref="mal_block">mal_block</link> +
 }
 </code></synopsis>
 

@@ -46,7 +46,7 @@ mal_table_thead = element thead { mal_table_tr + }
 mal_table_tbody = element tbody { mal_table_tr + }
 mal_table_tfoot = element tfoot { mal_table_tr + }
 mal_table_tr = element tr { mal_table_td * }
-mal_table_td = element td { <link xref="mal_block#simple">mal_block__simple</link> + }
+mal_table_td = element td { <link xref="mal_block">mal_block</link> + }
 </code></synopsis>
 
 

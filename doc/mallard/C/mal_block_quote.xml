@@ -12,7 +12,7 @@
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_block_quote = element quote {
   <link xref="mal_title">mal_title</link> ?,
-  <link xref="mal_block#simple">mal_block__simple</link> +,
+  <link xref="mal_block">mal_block</link> +,
   <link xref="mal_block_caption">mal_block_caption</link> ?
 }
 </code></synopsis>

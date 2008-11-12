@@ -21,19 +21,16 @@
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_block = (
+  <link xref="mal_block_code">mal_block_code</link> |
   <link xref="mal_block_comment">mal_block_comment</link> |
   <link xref="mal_block_figure">mal_block_figure</link> |
   <link xref="mal_block_media">mal_block_media</link> |
   <link xref="mal_block_note">mal_block_note</link> |
+  <link xref="mal_block_p">mal_block_p</link> |
+  <link xref="mal_block_screen">mal_block_screen</link> |
   <link xref="mal_block_synopsis">mal_block_synopsis</link> |
   <link xref="mal_list">mal_list</link> |
-  <link xref="mal_table">mal_table</link> |
-  mal_block__simple
-)
-mal_block__simple = (
-  <link xref="mal_block_code">mal_block_code</link> |
-  <link xref="mal_block_p">mal_block_p</link> |
-  <link xref="mal_block_screen">mal_block_screen</link>
+  <link xref="mal_table">mal_table</link>
 )
 </code></synopsis>
 
@@ -45,10 +42,7 @@ mal_block__simple = (
 
 <!-- BEGIN simple -->
 <section id="simple">
-<title>Simple Block Elements</title>
-
-<synopsis><code mime="application/relax-ng-compact-syntax">
-</code></synopsis>
+  <title>Simple Block Elements</title>
 
 </section>
 <!-- END simple -->
@@ -56,7 +50,7 @@ mal_block__simple = (
 
 <!-- BEGIN containers -->
 <section id="containers">
-<title>Block Container Elements</title>
+  <title>Block Container Elements</title>
 
 </section>
 <!-- END containers -->
