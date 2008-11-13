@@ -238,23 +238,23 @@ li.guidelink::before {
 li.guidelink-first::before, li.guidelink-only::before {
   content: '';
 }
-div.seealsolinks { margin: 0; }
-div.seealsolink {
-  display: inline;
+
+ul.seealsolinks {
+  margin: 0; padding: 0;
 }
-div.seealsolink::before {
-  content: ' • ';
-  color: </xsl:text>
+li.seealsolink {
+  margin-left: 1.44em;
+}
+li.seealsolinksep {
+  margin: 0.5em 0 0.5em 1.44em;
+  list-style-type: none;
+  max-width: 12em;
+  border-bottom: solid 1px </xsl:text>
   <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'gray-dark'"/>
+    <xsl:with-param name="id" select="'gray-border'"/>
   </xsl:call-template>
   <xsl:text>;
 }
-div.seealsolink-first::before, div.seealsolink-only::before {
-  content: '';
-}
-
-
 
 div, pre, p { margin: 1em 0 0 0; padding: 0; }
 .first-child { margin-top: 0; }

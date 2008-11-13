@@ -49,145 +49,6 @@ REMARK: Describe this template
 
 
 <!--**==========================================================================
-mal2html.page.guidelinks
-Outputs the automatic links from a page to guide pages and sections
-$node: The #{page} or #{section} element containing the links
-
-REMARK: Describe this template
--->
-<xsl:template name="mal2html.page.guidelinks">
-  <xsl:param name="node" select="."/>
-  <xsl:variable name="id">
-    <xsl:choose>
-      <xsl:when test="$node/self::mal:section">
-        <xsl:value-of select="concat(ancestor::mal:page[1]/@id, '#', @id)"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:value-of select="@id"/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:variable>
-  <!-- FIXME: // is slow -->
-  <xsl:variable name="pagelinks"
-                select="$cache//*[mal:info/mal:link[@type = 'topic'][@xref = $id]]"/>
-  <xsl:variable name="guidelinks"
-                select="$node/mal:info/mal:link[@type = 'guide']"/>
-  <xsl:if test="$pagelinks or $guidelinks">
-    <ul class="guidelinks">
-      <xsl:for-each select="$pagelinks">
-        <xsl:variable name="position">
-          <xsl:choose>
-            <xsl:when test="last() = 1 and count($guidelinks) = 0">
-              <xsl:text>only</xsl:text>
-            </xsl:when>
-            <xsl:when test="position() = 1">
-              <xsl:text>first</xsl:text>
-            </xsl:when>
-            <xsl:when test="position() = last() and count($guidelinks) = 0">
-              <xsl:text>last</xsl:text>
-            </xsl:when>
-          </xsl:choose>
-        </xsl:variable>
-        <xsl:call-template name="mal2html.page.guidelink">
-          <xsl:with-param name="node" select="$node"/>
-          <xsl:with-param name="page" select="."/>
-          <xsl:with-param name="position" select="$position"/>
-        </xsl:call-template>
-      </xsl:for-each>
-      <!-- FIXME: exclude pagelinks -->
-      <xsl:for-each select="$guidelinks">
-        <xsl:variable name="linkid">
-          <xsl:choose>
-            <xsl:when test="contains(@xref, '#')">
-              <xsl:value-of select="@xref"/>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:value-of select="concat(@xref, '#', @xref)"/>
-            </xsl:otherwise>
-          </xsl:choose>
-        </xsl:variable>
-        <xsl:variable name="position">
-          <xsl:choose>
-            <xsl:when test="last() = 1 and count($pagelinks) = 0">
-              <xsl:text>only</xsl:text>
-            </xsl:when>
-            <xsl:when test="position() = 1 and count($pagelinks) = 0">
-              <xsl:text>first</xsl:text>
-            </xsl:when>
-            <xsl:when test="position() = last()">
-              <xsl:text>last</xsl:text>
-            </xsl:when>
-          </xsl:choose>
-        </xsl:variable>
-        <xsl:for-each select="$cache">
-          <xsl:call-template name="mal2html.page.guidelink">
-            <xsl:with-param name="node" select="$node"/>
-            <xsl:with-param name="page" select="key('cache_key', $linkid)"/>
-            <xsl:with-param name="position" select="$position"/>
-          </xsl:call-template>
-        </xsl:for-each>
-      </xsl:for-each>
-    </ul>
-  </xsl:if>
-</xsl:template>
-
-
-<!--**==========================================================================
-mal2html.page.guidelink
-Outputs an automatic link block from a page or section to a guide
-$node: The #{page} or #{section} element containing the link
-$page: The element from the cache file of the page being linked to
-$position: The position of this link in the list, either 'first', 'last', or ''
-
-REMARK: Describe this template
--->
-<xsl:template name="mal2html.page.guidelink">
-  <xsl:param name="node" select="."/>
-  <xsl:param name="page"/>
-  <xsl:param name="position"/>
-  <xsl:variable name="xref">
-    <xsl:choose>
-      <xsl:when test="$page/self::mal:section">
-        <xsl:value-of select="$page/ancestor::mal:page[1]/@id"/>
-        <xsl:text>#</xsl:text>
-        <xsl:value-of select="$page/@id"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:value-of select="$page/@id"/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:variable>
-  <li>
-    <xsl:attribute name="class">
-      <xsl:text>guidelink</xsl:text>
-      <xsl:choose>
-        <xsl:when test="$position = 'only'">
-          <xsl:text> guidelink-only</xsl:text>
-        </xsl:when>
-        <xsl:when test="$position = 'first'">
-          <xsl:text> guidelink-first</xsl:text>
-        </xsl:when>
-        <xsl:when test="$position = 'last'">
-          <xsl:text> guidelink-last</xsl:text>
-        </xsl:when>
-      </xsl:choose>
-    </xsl:attribute>
-    <a>
-      <xsl:attribute name="href">
-        <xsl:call-template name="mal.link.target">
-          <xsl:with-param name="xref" select="$xref"/>
-        </xsl:call-template>
-      </xsl:attribute>
-      <xsl:call-template name="mal.link.content">
-        <xsl:with-param name="node" select="."/>
-        <xsl:with-param name="xref" select="$xref"/>
-      </xsl:call-template>
-    </a>
-  </li>
-</xsl:template>
-
-
-<!--**==========================================================================
 mal2html.page.pagelinks
 Outputs the automatic links from a guide page or guide section
 $node: The #{page} or #{section} element containing the links
@@ -362,6 +223,8 @@ REMARK: Describe this template
 -->
 <xsl:template name="mal2html.page.seealsolinks">
   <xsl:param name="node" select="."/>
+  <xsl:variable name="depth"
+                select="count($node/ancestor::mal:section) + 2"/>
   <xsl:variable name="id">
     <xsl:choose>
       <xsl:when test="$node/self::mal:section">
@@ -377,64 +240,119 @@ REMARK: Describe this template
                 select="$cache//*[mal:info/mal:link[@type = 'seealso'][@xref = $id]]"/>
   <xsl:variable name="outlinks"
                 select="$node/mal:info/mal:link[@type = 'seealso']"/>
-  <xsl:if test="$inlinks or $outlinks">
-    <div class="seealsolinks">
-      <!-- FIXME: i18n -->
-      <span>See Also: </span>
-      <xsl:for-each select="$inlinks">
-        <xsl:call-template name="mal2html.page.seealsolink">
-          <xsl:with-param name="node" select="$node"/>
-          <xsl:with-param name="page" select="."/>
-          <xsl:with-param name="position">
-            <xsl:choose>
-              <xsl:when test="last() = 1 and count($outlinks) = 0">
-                <xsl:text>only</xsl:text>
-              </xsl:when>
-              <xsl:when test="position() = 1">
-                <xsl:text>first</xsl:text>
-              </xsl:when>
-              <xsl:when test="position() = last() and count($outlinks) = 0">
-                <xsl:text>last</xsl:text>
-              </xsl:when>
-            </xsl:choose>
-          </xsl:with-param>
-        </xsl:call-template>
-      </xsl:for-each>
-      <xsl:for-each select="$outlinks">
-        <xsl:variable name="linkid">
-          <xsl:choose>
-            <xsl:when test="contains(@xref, '#')">
-              <xsl:value-of select="@xref"/>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:value-of select="concat(@xref, '#', @xref)"/>
-            </xsl:otherwise>
-          </xsl:choose>
-        </xsl:variable>
-        <xsl:variable name="position">
-          <xsl:choose>
-            <xsl:when test="last() = 1 and count($inlinks) = 0">
-              <xsl:text>only</xsl:text>
-            </xsl:when>
-            <xsl:when test="position() = 1 and count($inlinks) = 0">
-              <xsl:text>first</xsl:text>
-            </xsl:when>
-            <xsl:when test="position() = last()">
-              <xsl:text>last</xsl:text>
-            </xsl:when>
-          </xsl:choose>
-        </xsl:variable>
-        <xsl:for-each select="$cache">
-          <xsl:call-template name="mal2html.page.seealsolink">
-            <xsl:with-param name="node" select="$node"/>
-            <xsl:with-param name="page" select="key('cache_key', $linkid)"/>
-            <xsl:with-param name="position" select="$position"/>
-          </xsl:call-template>
-        </xsl:for-each>
-      </xsl:for-each>
+  <xsl:variable name="pagelinks"
+                select="$cache//*[mal:info/mal:link[@type = 'topic'][@xref = $id]]"/>
+  <xsl:variable name="guidelinks"
+                select="$node/mal:info/mal:link[@type = 'guide']"/>
+  <xsl:if test="$inlinks or $outlinks or $pagelinks or $guidelinks">
+    <div class="section seealsosection">
+      <div class="header">
+        <xsl:element name="{concat('h', $depth)}">
+          <xsl:attribute name="class">
+            <xsl:text>title</xsl:text>
+          </xsl:attribute>
+          <!-- FIXME: i18n -->
+          <xsl:text>See Also</xsl:text>
+        </xsl:element>
+      </div>
+      <div class="seealsolinks">
+        <ul class="seealsolinks">
+          <!-- FIXME: exclude pagelinks -->
+          <xsl:for-each select="$guidelinks">
+            <xsl:variable name="linkid">
+              <xsl:choose>
+                <xsl:when test="contains(@xref, '#')">
+                  <xsl:value-of select="@xref"/>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:value-of select="concat(@xref, '#', @xref)"/>
+                </xsl:otherwise>
+              </xsl:choose>
+            </xsl:variable>
+            <xsl:variable name="position">
+              <xsl:choose>
+                <xsl:when test="last() = 1 and count($pagelinks) = 0">
+                  <xsl:text>only</xsl:text>
+                </xsl:when>
+                <xsl:when test="position() = 1 and count($pagelinks) = 0">
+                  <xsl:text>first</xsl:text>
+                </xsl:when>
+                <xsl:when test="position() = last()">
+                  <xsl:text>last</xsl:text>
+                </xsl:when>
+              </xsl:choose>
+            </xsl:variable>
+            <xsl:for-each select="$cache">
+              <xsl:call-template name="mal2html.page.seealsolink">
+                <xsl:with-param name="node" select="$node"/>
+                <xsl:with-param name="page" select="key('cache_key', $linkid)"/>
+                <xsl:with-param name="position" select="$position"/>
+              </xsl:call-template>
+            </xsl:for-each>
+          </xsl:for-each>
+
+          <xsl:if test="($pagelinks or $guidelinks) and ($inlinks or $outlinks)">
+            <li class="seealsolinksep"/>
+          </xsl:if>
+
+          <xsl:for-each select="$inlinks">
+            <xsl:call-template name="mal2html.page.seealsolink">
+              <xsl:with-param name="node" select="$node"/>
+              <xsl:with-param name="page" select="."/>
+              <xsl:with-param name="position">
+                <xsl:choose>
+                  <xsl:when test="last() = 1 and count($outlinks) = 0">
+                    <xsl:text>only</xsl:text>
+                  </xsl:when>
+                  <xsl:when test="position() = 1">
+                    <xsl:text>first</xsl:text>
+                  </xsl:when>
+                  <xsl:when test="position() = last() and count($outlinks) = 0">
+                    <xsl:text>last</xsl:text>
+                  </xsl:when>
+                </xsl:choose>
+              </xsl:with-param>
+            </xsl:call-template>
+          </xsl:for-each>
+          <xsl:for-each select="$outlinks">
+            <xsl:variable name="linkid">
+              <xsl:choose>
+                <xsl:when test="contains(@xref, '#')">
+                  <xsl:value-of select="@xref"/>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:value-of select="concat(@xref, '#', @xref)"/>
+                </xsl:otherwise>
+              </xsl:choose>
+            </xsl:variable>
+            <xsl:variable name="position">
+              <xsl:choose>
+                <xsl:when test="last() = 1 and count($inlinks) = 0">
+                  <xsl:text>only</xsl:text>
+                </xsl:when>
+                <xsl:when test="position() = 1 and count($inlinks) = 0">
+                  <xsl:text>first</xsl:text>
+                </xsl:when>
+                <xsl:when test="position() = last()">
+                  <xsl:text>last</xsl:text>
+                </xsl:when>
+              </xsl:choose>
+            </xsl:variable>
+            <xsl:for-each select="$cache">
+              <xsl:call-template name="mal2html.page.seealsolink">
+                <xsl:with-param name="node" select="$node"/>
+                <xsl:with-param name="page" select="key('cache_key', $linkid)"/>
+                <xsl:with-param name="position" select="$position"/>
+              </xsl:call-template>
+            </xsl:for-each>
+          </xsl:for-each>
+        </ul>
+      </div>
     </div>
+
   </xsl:if>
-  <!-- END guidelinks -->
+  <xsl:if test="$inlinks or $outlinks">
+  </xsl:if>
 </xsl:template>
 
 
@@ -463,7 +381,7 @@ REMARK: Describe this template
       </xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
-  <div>
+  <li class="seealsolink">
     <xsl:attribute name="class">
       <xsl:text>seealsolink</xsl:text>
       <xsl:choose>
@@ -489,7 +407,7 @@ REMARK: Describe this template
         <xsl:with-param name="xref" select="$xref"/>
       </xsl:call-template>
     </a>
-  </div>
+  </li>
 </xsl:template>
 
 
@@ -568,12 +486,6 @@ REMARK: Describe this template
     <xsl:apply-templates mode="mal2html.block.mode"
                          select="mal:title | mal:subtitle"/>
   </div>
-  <xsl:call-template name="mal2html.page.guidelinks">
-    <xsl:with-param name="node" select="."/>
-  </xsl:call-template>
-  <xsl:call-template name="mal2html.page.seealsolinks">
-    <xsl:with-param name="node" select="."/>
-  </xsl:call-template>
   <div class="contents">
     <xsl:apply-templates
         mode="mal2html.block.mode"
@@ -583,6 +495,9 @@ REMARK: Describe this template
     </xsl:if>
   </div>
   <xsl:apply-templates select="mal:section"/>
+  <xsl:call-template name="mal2html.page.seealsolinks">
+    <xsl:with-param name="node" select="."/>
+  </xsl:call-template>
 </xsl:template>
 
 <!-- = section = -->
@@ -592,12 +507,6 @@ REMARK: Describe this template
       <xsl:apply-templates mode="mal2html.block.mode"
                            select="mal:title | mal:subtitle"/>
     </div>
-    <xsl:call-template name="mal2html.page.guidelinks">
-      <xsl:with-param name="node" select="."/>
-    </xsl:call-template>
-    <xsl:call-template name="mal2html.page.seealsolinks">
-      <xsl:with-param name="node" select="."/>
-    </xsl:call-template>
     <div class="contents">
       <xsl:apply-templates
           mode="mal2html.block.mode"
@@ -607,6 +516,9 @@ REMARK: Describe this template
       </xsl:if>
     </div>
     <xsl:apply-templates select="mal:section"/>
+    <xsl:call-template name="mal2html.page.seealsolinks">
+      <xsl:with-param name="node" select="."/>
+    </xsl:call-template>
   </div>
 </xsl:template>
 
