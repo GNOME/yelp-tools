@@ -122,7 +122,7 @@ body.status-review { background-color:  </xsl:text>
 div.version {
   margin: 0 0 1em 0;
   padding: 0.5em 1em 0.5em 1em;
-  max-width: 60em;
+  max-width: 48em;
   border: solid 1px </xsl:text>
   <xsl:call-template name="theme.get_color">
     <xsl:with-param name="id" select="'gray-border'"/>
@@ -140,7 +140,7 @@ div.version p.version {
 div.body {
   margin: 0;
   padding: 1em;
-  max-width: 60em;
+  max-width: 48em;
   min-height: 20em;
   border: solid 1px </xsl:text>
   <xsl:call-template name="theme.get_color">
@@ -154,7 +154,7 @@ div.body {
   <xsl:text>;
 }
 div.copyrights {
-  max-width: 60em;
+  max-width: 48em;
   text-align: center;
   color: </xsl:text>
   <xsl:call-template name="theme.get_color">
@@ -222,16 +222,10 @@ div.pagelink:hover {
   <xsl:text>;
 }
 
-ul.seealsolinks {
-  margin: 0; padding: 0;
-}
-li.seealsolink {
-  margin-left: 1.44em;
-}
-li.seealsolinksep {
-  margin: 0.5em 0 0.5em 1.44em;
+div.pagelinksep {
+  margin: 0.5em;
   list-style-type: none;
-  max-width: 12em;
+  max-width: 24em;
   border-bottom: solid 1px </xsl:text>
   <xsl:call-template name="theme.get_color">
     <xsl:with-param name="id" select="'gray-border'"/>
@@ -239,7 +233,7 @@ li.seealsolinksep {
   <xsl:text>;
 }
 
-div, pre, p { margin: 1em 0 0 0; padding: 0; }
+div, pre, p, li { margin: 1em 0 0 0; padding: 0; }
 .first-child { margin-top: 0; }
 a {
   text-decoration: none;

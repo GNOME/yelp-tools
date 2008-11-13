@@ -74,6 +74,11 @@ ul.list-tree ul.list-tree li {
 
 <xsl:template mode="mal2html.list.bullet.mode" match="mal:item">
   <li>
+    <xsl:if test="not(preceding-sibling::mal:item)">
+      <xsl:attribute name="class">
+        <xsl:text>first-child</xsl:text>
+      </xsl:attribute>
+    </xsl:if>
     <xsl:apply-templates mode="mal2html.block.mode"/>
   </li>
 </xsl:template>
@@ -95,6 +100,11 @@ ul.list-tree ul.list-tree li {
 
 <xsl:template mode="mal2html.list.tree.mode" match="mal:item">
   <li>
+    <xsl:if test="not(preceding-sibling::mal:item)">
+      <xsl:attribute name="class">
+        <xsl:text>first-child</xsl:text>
+      </xsl:attribute>
+    </xsl:if>
     <p>
       <xsl:apply-templates mode="mal2html.inline.mode"
                            select="*[not(self::mal:item)]"/>
