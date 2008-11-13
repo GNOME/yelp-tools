@@ -221,23 +221,6 @@ div.pagelink:hover {
   </xsl:call-template>
   <xsl:text>;
 }
-ul.guidelinks {
-  display: block;
-  margin: 0;
-  text-align: right;
-}
-li.guidelink { display: inline; }
-li.guidelink::before {
-  content: ' • ';
-  color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'gray-dark'"/>
-  </xsl:call-template>
-  <xsl:text>;
-}
-li.guidelink-first::before, li.guidelink-only::before {
-  content: '';
-}
 
 ul.seealsolinks {
   margin: 0; padding: 0;
