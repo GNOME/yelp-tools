@@ -345,13 +345,7 @@ REMARK: Describe this template
         </xsl:attribute>
         <div class="version">
           <!-- FIXME: i18n -->
-          <div class="title">Version Information</div>
-          <p class="version">
-            <xsl:text>Version </xsl:text>
-            <xsl:value-of select="$version/@number"/>
-            <xsl:text> on </xsl:text>
-            <xsl:value-of select="$version/@date"/>
-            <xsl:text> (</xsl:text>
+          <div class="title">
             <xsl:choose>
               <xsl:when test="$version/@status = 'stub'">
                 <xsl:text>Stub</xsl:text>
@@ -369,7 +363,12 @@ REMARK: Describe this template
                 <xsl:text>Final</xsl:text>
               </xsl:when>
             </xsl:choose>
-            <xsl:text>)</xsl:text>
+          </div>
+          <p class="version">
+            <xsl:text>Version </xsl:text>
+            <xsl:value-of select="$version/@number"/>
+            <xsl:text> on </xsl:text>
+            <xsl:value-of select="$version/@date"/>
           </p>
           <xsl:apply-templates mode="mal2html.block.mode" select="$version/*"/>
         </div>
