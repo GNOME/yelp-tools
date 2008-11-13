@@ -5,7 +5,6 @@
 
 <info>
   <link type="guide" xref="mal_inline#elements"/>
-  <link type="seealso" xref="mal_attr_link"/>
 
   <version number="0.1" date="2007-02-08" status="review"/>
 
@@ -40,6 +39,23 @@ mal_inline_app = element app {
 or the title of a window within an application.  It should not be used to mark
 the name of the command used to run an application; use
 <code xref="mal_inline_cmd">cmd</code> for this purpose instead.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list type="bullet">
+    <item><p>The <code>style</code> attribute takes a space-seperated list of
+    style hints.  Processing tools should adjust their rendering according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>app</code> element can link to other pages or documents.
+    See <link xref="mal_attr_link"/> for more information.</p></item>
+  </list>
+  <comment><cite date="2008-11-13"><name>Shaun McCance</name></cite>
+  <p>Add a note about external attributes</p></comment>
+</section>
+<!-- END notes -->
 
 
 <!-- BEGIN processing -->
