@@ -257,6 +257,26 @@ REMARK: Describe this template
       </div>
       <div class="seealsolinks">
         <ul class="seealsolinks">
+          <xsl:for-each select="$pagelinks">
+            <xsl:variable name="position">
+              <xsl:choose>
+                <xsl:when test="last() = 1 and count($guidelinks) = 0">
+                  <xsl:text>only</xsl:text>
+                </xsl:when>
+                <xsl:when test="position() = 1">
+                  <xsl:text>first</xsl:text>
+                </xsl:when>
+                <xsl:when test="position() = last() and count($guidelinks) = 0">
+                  <xsl:text>last</xsl:text>
+                </xsl:when>
+              </xsl:choose>
+            </xsl:variable>
+            <xsl:call-template name="mal2html.page.seealsolink">
+              <xsl:with-param name="node" select="$node"/>
+              <xsl:with-param name="page" select="."/>
+              <xsl:with-param name="position" select="$position"/>
+            </xsl:call-template>
+          </xsl:for-each>
           <!-- FIXME: exclude pagelinks -->
           <xsl:for-each select="$guidelinks">
             <xsl:variable name="linkid">
