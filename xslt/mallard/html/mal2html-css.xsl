@@ -178,6 +178,7 @@ div.header {
   </xsl:call-template>
   <xsl:text>;
 }
+table { border-collapse: collapse; }
 div.section div.section div.header { border: none; }
 h1, h2, h3, h4, h5, h6, h7 { margin: 0; }
 h1.title { font-size: 1.44em; }
@@ -187,6 +188,19 @@ h4.title { font-size: 1em; }
 h5.title { font-size: 1em; }
 h6.title { font-size: 1em; }
 h7.title { font-size: 1em; }
+
+td.twocolumnleft {
+  width: 48%;
+  vertical-align: top;
+  padding: 0;
+  margin: 0;
+}
+td.twocolumnright {
+  width: 52%;
+  vertical-align: top;
+  padding: 0 0 0 1em;
+  margin: 0;
+}
 
 div.pagelink div.title {
   font-size: 1em;

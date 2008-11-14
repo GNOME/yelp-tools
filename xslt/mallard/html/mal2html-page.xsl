@@ -75,35 +75,110 @@ REMARK: Describe this template
                 select="$cache//*[mal:info/mal:link[@type = 'guide'][@xref = $id]][not(@id = $pagelinks/@xref)]"/>
   <xsl:if test="$pagelinks or $guidelinks">
     <div class="pagelinks">
-      <xsl:for-each select="$pagelinks">
-        <xsl:variable name="linkid">
-          <xsl:choose>
-            <xsl:when test="contains(@xref, '#')">
-              <xsl:value-of select="@xref"/>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:value-of select="concat(@xref, '#', @xref)"/>
-            </xsl:otherwise>
-          </xsl:choose>
-        </xsl:variable>
-        <xsl:for-each select="$cache">
-          <xsl:call-template name="mal2html.page.pagelink">
-            <xsl:with-param name="node" select="$node"/>
-            <xsl:with-param name="page" select="key('cache_key', $linkid)"/>
-          </xsl:call-template>
-        </xsl:for-each>
-      </xsl:for-each>
-      <xsl:for-each select="$guidelinks">
-        <xsl:sort select="mal:info/mal:link[@type = 'guide'][@xref = $id]/@weight"
-                  data-type="number" order="descending"/>
-        <!-- FIXME: lang -->
-        <xsl:sort select="mal:info/mal:title[@type = 'sort']"
-                  data-type="text" order="ascending"/>
-        <xsl:call-template name="mal2html.page.pagelink">
-          <xsl:with-param name="node" select="$node"/>
-          <xsl:with-param name="page" select="."/>
-        </xsl:call-template>
-      </xsl:for-each>
+      <xsl:choose>
+        <xsl:when test="contains(concat(' ', $node/@style, ' '), ' 2column ')">
+          <xsl:variable name="coltot" select="ceiling(count($pagelinks | $guidelinks) div 2)"/>
+          <table class="twocolumn"><tr>
+            <td class="twocolumnleft">
+              <xsl:for-each select="$pagelinks[position() &lt;= $coltot]">
+                <xsl:variable name="linkid">
+                  <xsl:choose>
+                    <xsl:when test="contains(@xref, '#')">
+                      <xsl:value-of select="@xref"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                      <xsl:value-of select="concat(@xref, '#', @xref)"/>
+                    </xsl:otherwise>
+                  </xsl:choose>
+                </xsl:variable>
+                <xsl:for-each select="$cache">
+                  <xsl:call-template name="mal2html.page.pagelink">
+                    <xsl:with-param name="node" select="$node"/>
+                    <xsl:with-param name="page" select="key('cache_key', $linkid)"/>
+                  </xsl:call-template>
+                </xsl:for-each>
+              </xsl:for-each>
+              <xsl:for-each select="$guidelinks">
+                <xsl:sort select="mal:info/mal:link[@type = 'guide'][@xref = $id]/@weight"
+                          data-type="number" order="descending"/>
+                <!-- FIXME: lang -->
+                <xsl:sort select="mal:info/mal:title[@type = 'sort']"
+                          data-type="text" order="ascending"/>
+                <xsl:if test="(position() + count($pagelinks)) &lt;= $coltot">
+                  <xsl:call-template name="mal2html.page.pagelink">
+                    <xsl:with-param name="node" select="$node"/>
+                    <xsl:with-param name="page" select="."/>
+                  </xsl:call-template>
+                </xsl:if>
+              </xsl:for-each>
+            </td>
+            <td class="twocolumnright">
+              <xsl:for-each select="$pagelinks[position() &gt; $coltot]">
+                <xsl:variable name="linkid">
+                  <xsl:choose>
+                    <xsl:when test="contains(@xref, '#')">
+                      <xsl:value-of select="@xref"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                      <xsl:value-of select="concat(@xref, '#', @xref)"/>
+                    </xsl:otherwise>
+                  </xsl:choose>
+                </xsl:variable>
+                <xsl:for-each select="$cache">
+                  <xsl:call-template name="mal2html.page.pagelink">
+                    <xsl:with-param name="node" select="$node"/>
+                    <xsl:with-param name="page" select="key('cache_key', $linkid)"/>
+                  </xsl:call-template>
+                </xsl:for-each>
+              </xsl:for-each>
+              <xsl:for-each select="$guidelinks">
+                <xsl:sort select="mal:info/mal:link[@type = 'guide'][@xref = $id]/@weight"
+                          data-type="number" order="descending"/>
+                <!-- FIXME: lang -->
+                <xsl:sort select="mal:info/mal:title[@type = 'sort']"
+                          data-type="text" order="ascending"/>
+                <xsl:if test="(position() + count($pagelinks)) &gt; $coltot">
+                  <xsl:call-template name="mal2html.page.pagelink">
+                    <xsl:with-param name="node" select="$node"/>
+                    <xsl:with-param name="page" select="."/>
+                  </xsl:call-template>
+                </xsl:if>
+              </xsl:for-each>
+            </td>
+          </tr></table>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:for-each select="$pagelinks">
+            <xsl:variable name="linkid">
+              <xsl:choose>
+                <xsl:when test="contains(@xref, '#')">
+                  <xsl:value-of select="@xref"/>
+                </xsl:when>
+                <xsl:otherwise>
+                  <xsl:value-of select="concat(@xref, '#', @xref)"/>
+                </xsl:otherwise>
+              </xsl:choose>
+            </xsl:variable>
+            <xsl:for-each select="$cache">
+              <xsl:call-template name="mal2html.page.pagelink">
+                <xsl:with-param name="node" select="$node"/>
+                <xsl:with-param name="page" select="key('cache_key', $linkid)"/>
+              </xsl:call-template>
+            </xsl:for-each>
+          </xsl:for-each>
+          <xsl:for-each select="$guidelinks">
+            <xsl:sort select="mal:info/mal:link[@type = 'guide'][@xref = $id]/@weight"
+                      data-type="number" order="descending"/>
+            <!-- FIXME: lang -->
+            <xsl:sort select="mal:info/mal:title[@type = 'sort']"
+                      data-type="text" order="ascending"/>
+            <xsl:call-template name="mal2html.page.pagelink">
+              <xsl:with-param name="node" select="$node"/>
+              <xsl:with-param name="page" select="."/>
+            </xsl:call-template>
+          </xsl:for-each>
+        </xsl:otherwise>
+      </xsl:choose>
     </div>
   </xsl:if>
 </xsl:template>

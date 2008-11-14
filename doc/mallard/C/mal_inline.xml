@@ -38,7 +38,7 @@ mal_inline = mixed {
   <p>Add some intro text and general processing expectations</p>
 </comment>
 
-<section id="elements">
+<section id="elements" style="2column">
   <info>
     <title type="link">Inline Elements</title>
   </info>
