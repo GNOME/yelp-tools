@@ -123,6 +123,7 @@ div.version {
   margin: 0 0 1em 0;
   padding: 0.5em 1em 0.5em 1em;
   max-width: 48em;
+  -moz-border-radius: 6px;
   border: solid 1px </xsl:text>
   <xsl:call-template name="theme.get_color">
     <xsl:with-param name="id" select="'gray-border'"/>
@@ -142,6 +143,7 @@ div.body {
   padding: 1em;
   max-width: 48em;
   min-height: 20em;
+  -moz-border-radius: 6px;
   border: solid 1px </xsl:text>
   <xsl:call-template name="theme.get_color">
     <xsl:with-param name="id" select="'gray-border'"/>
@@ -217,6 +219,7 @@ div.pagelink div.desc {
 div.pagelink {
   margin: 0;
   padding: 0.5em;
+  -moz-border-radius: 6px;
   border: solid 1px </xsl:text>
   <xsl:call-template name="theme.get_color">
     <xsl:with-param name="id" select="'background'"/>
