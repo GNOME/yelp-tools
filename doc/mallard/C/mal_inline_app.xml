@@ -8,9 +8,6 @@
 
   <version number="0.1" date="2007-02-08" status="review"/>
 
-  <desc>The <code>app</code> element marks the human-readable name of an
-  application or the title of a window within an application.</desc>
-
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
@@ -21,6 +18,8 @@
   </copyright>
 
   <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Mark up the human-readable name of an application or window.</desc>
 </info>
 
 <title>Application Names</title>

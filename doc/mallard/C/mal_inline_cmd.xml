@@ -19,6 +19,8 @@
   </copyright>
 
   <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Mark up a command to be entered at an interactive shell.</desc>
 </info>
 
 <title>Commands</title>

@@ -7,6 +7,8 @@
   <link type="seealso" xref="mal_attr_link"/>
 
   <version number="0.1" date="2007-02-21" status="stub"/>
+
+  <desc>Mark up a key to be pressed on the user's keyboard.</desc>
 </info>
 
 <title>Key Strokes</title>

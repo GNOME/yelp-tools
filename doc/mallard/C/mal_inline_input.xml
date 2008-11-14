@@ -17,6 +17,8 @@
   </copyright>
 
   <version number="0.1" date="2008-02-19" status="stub"/>
+
+  <desc>Mark up text the user should input into a computer program.</desc>
 </info>
 
 <title>User Input</title>
