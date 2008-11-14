@@ -72,7 +72,7 @@ REMARK: Describe this template
   <!-- FIXME: // selectors are slow -->
   <!-- FIXME: exclude $pagelinks from $guidelinks -->
   <xsl:variable name="guidelinks"
-                select="$cache//*[mal:info/mal:link[@type = 'guide'][@xref = $id]]"/>
+                select="$cache//*[mal:info/mal:link[@type = 'guide'][@xref = $id]][not(@id = $pagelinks/@xref)]"/>
   <xsl:if test="$pagelinks or $guidelinks">
     <div class="pagelinks">
       <xsl:for-each select="$pagelinks">
@@ -383,7 +383,7 @@ REMARK: Describe this template
   </html>
 </xsl:template>
 
-<!-- = guide = -->
+<!-- = page = -->
 <xsl:template match="mal:page">
   <div class="header">
     <xsl:apply-templates mode="mal2html.block.mode"
