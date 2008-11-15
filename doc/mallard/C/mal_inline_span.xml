@@ -7,6 +7,9 @@
   <link type="seealso" xref="mal_attr_link"/>
 
   <version number="0.1" date="2007-02-21" status="stub"/>
+
+  <desc>A generic inline element that can be used for semantic,
+  localization, and styling purpose.</desc>
 </info>
 
 <title>Spans</title>
