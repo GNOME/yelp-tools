@@ -6,7 +6,7 @@
   <link type="guide" xref="mal_inline#elements"/>
   <link type="seealso" xref="mal_block_screen"/>
 
-  <version number="0.1" date="2007-02-05" status="incomplete"/>
+  <version number="0.1" date="2007-02-05" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -126,10 +126,19 @@ you to filter files based on their modification times.</p>
 <!-- BEGIN processing -->
 <section id="processing">
   <title>Processing Expectations</title>
-  <comment>
-    <cite date="2007-02-06"><name>Shaun McCance</name></cite>
-    <p>Add processing expectations.</p>
-  </comment>
+  <p>Commands should be displayed in a fixed-width font.  This mimics the look
+  of a typical environment where commands are executed.  More importantly,
+  fixed-width fonts tend to have more distinction between visually similar
+  characters.  This is particularly important in commands, since letters often
+  appear without the context of a known word that helps make them discernable
+  in normal prose.</p>
+
+  <p>Commands in documentation are often provided with options to illustrate
+  how to use them to a particular effect.  This can make it difficult to find
+  the end of the command quickly.  Surrounding text content, especially
+  punctuation, can sometimes be confused for part of the command.  For this
+  reason, it is recommended that processing tools apply a border or background
+  color to commands.</p>
 </section>
 <!-- END processing -->
 
