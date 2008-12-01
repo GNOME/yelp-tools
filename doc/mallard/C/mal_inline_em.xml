@@ -41,7 +41,7 @@ may be rendered differently by different processing tools.</p>
 <section id="notes">
   <title>Notes</title>
   <list type="bullet">
-    <item><p>The <code>style</code> attribute takes a space-seperated list of
+    <item><p>The <code>style</code> attribute takes a space-separated list of
     style hints.  Processing tools should adjust their rendering according to
     those style hints they understand.</p></item>
 

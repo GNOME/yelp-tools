@@ -42,7 +42,7 @@ mal_inline_keyseq = element keyseq {
     pressed together (<code>"combo"</code>) or in sequence (<code>"sequence"</code>).
     The default is <code>"combo"</code>.</p></item>
 
-    <item><p>The <code>style</code> attribute takes a space-seperated list of
+    <item><p>The <code>style</code> attribute takes a space-separated list of
     style hints.  Processing tools should adjust their rendering according to
     those style hints they understand.</p></item>
 
