@@ -33,4 +33,20 @@ mal_inline_guiseq = element guiseq {
 <p>The <code>guiseq</code> element marks a sequence of graphical interface
 elements.  This is typically used to to present a sequence of menu items.</p>
 
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list type="bullet">
+    <item><p>The <code>style</code> attribute takes a space-seperated list of
+    style hints.  Processing tools should adjust their rendering according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>guiseq</code> element can have attributes from external
+    namespaces.  See <link xref="mal_attr_external"/> for more information
+    on external-namespace attributes on inline elements.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
 </page>

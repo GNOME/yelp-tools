@@ -4,7 +4,6 @@
 
 <info>
   <link type="guide" xref="mal_inline#elements"/>
-  <link type="seealso" xref="mal_attr_link"/>
   <link type="seealso" xref="mal_inline_output"/>
 
   <credit type="author">
@@ -32,5 +31,28 @@ mal_inline_input = element input {
   <link xref="mal_inline">mal_inline</link>+
 }
 </code></synopsis>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list type="bullet">
+    <item><p>The <code>style</code> attribute takes a space-seperated list of
+    style hints.  Processing tools should adjust their rendering according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>input</code> element, together with the <code>output</code>
+    element, may be used to mark up the contents of a <code>screen</code> element,
+    allowing processing tools to render them differently.</p></item>
+
+    <item><p>The <code>input</code> element can link to other pages or documents.
+    See <link xref="mal_attr_link"/> for more information.</p></item>
+
+    <item><p>The <code>input</code> element can have attributes from external
+    namespaces.  See <link xref="mal_attr_external"/> for more information
+    on external-namespace attributes on inline elements.</p></item>
+  </list>
+</section>
+<!-- END notes -->
 
 </page>

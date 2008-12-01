@@ -4,7 +4,6 @@
 
 <info>
   <link type="guide" xref="mal_inline#elements"/>
-  <link type="seealso" xref="mal_attr_link"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -31,5 +30,43 @@ mal_inline_output = element output {
   <link xref="mal_inline">mal_inline</link>+
 }
 </code></synopsis>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list type="bullet">
+    <item><p>The <code>style</code> attribute takes a space-seperated list of
+    style hints.  Processing tools should adjust their rendering according to
+    those style hints they understand.</p></item>
+
+    <item>
+      <p>Typical values for the <code>style</code> attribute include:</p>
+      <table><tr>
+        <td><code>output</code></td>
+        <td>Standard output from a running program</td>
+      </tr><tr>
+        <td><code>error</code></td>
+        <td>Standard error from a running program</td>
+      </tr><tr>
+        <td><code>prompt</code></td>
+        <td>The command prompt for an interactive shell</td>
+      </tr></table>
+    </item>
+
+    <item><p>The <code>output</code> element, together with the <code>input</code>
+    element, may be used to mark up the contents of a <code>screen</code> element,
+    allowing processing tools to render them differently.</p></item>
+
+    <item><p>The <code>output</code> element can link to other pages or documents.
+    See <link xref="mal_attr_link"/> for more information.</p></item>
+
+    <item><p>The <code>output</code> element can have attributes from external
+    namespaces.  See <link xref="mal_attr_external"/> for more information
+    on external-namespace attributes on inline elements.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
 
 </page>

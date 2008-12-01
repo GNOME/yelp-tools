@@ -50,9 +50,11 @@ the name of the command used to run an application; use
 
     <item><p>The <code>app</code> element can link to other pages or documents.
     See <link xref="mal_attr_link"/> for more information.</p></item>
+
+    <item><p>The <code>app</code> element can have attributes from external
+    namespaces.  See <link xref="mal_attr_external"/> for more information
+    on external-namespace attributes on inline elements.</p></item>
   </list>
-  <comment><cite date="2008-11-13"><name>Shaun McCance</name></cite>
-  <p>Add a note about external attributes</p></comment>
 </section>
 <!-- END notes -->
 

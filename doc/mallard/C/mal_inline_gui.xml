@@ -4,7 +4,6 @@
 
 <info>
   <link type="guide" xref="mal_inline#elements"/>
-  <link type="seealso" xref="mal_attr_link"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -32,10 +31,34 @@ mal_inline_gui = element gui {
 }
 </code></synopsis>
 
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list type="bullet">
+    <item><p>The <code>style</code> attribute takes a space-seperated list of
+    style hints.  Processing tools should adjust their rendering according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>gui</code> element can link to other pages or documents.
+    See <link xref="mal_attr_link"/> for more information.</p></item>
+
+    <item><p>The <code>gui</code> element can have attributes from external
+    namespaces.  See <link xref="mal_attr_external"/> for more information
+    on external-namespace attributes on inline elements.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
 <section id="examples">
   <title>Examples</title>
 </section>
+<!-- END examples -->
 
+
+<!-- BEGIN processing -->
 <section id="processing">
   <title>Processing Expectations</title>
   <comment>
@@ -43,7 +66,10 @@ mal_inline_gui = element gui {
     <p>Add processing expectations.</p>
   </comment>
 </section>
+<!-- END processing -->
 
+
+<!-- BEGIN docbook -->
 <section id="docbook">
   <title>Comparison to DocBook</title>
   <p>The <code>gui</code> element is functionally similar to DocBook's deprecated
@@ -66,5 +92,6 @@ mal_inline_gui = element gui {
     <p>See principle of just enough markup</p>
   </comment>
 </section>
+<!-- END docbook -->
 
 </page>

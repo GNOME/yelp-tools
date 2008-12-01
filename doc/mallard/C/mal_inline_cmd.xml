@@ -5,7 +5,6 @@
 <info>
   <link type="guide" xref="mal_inline#elements"/>
   <link type="seealso" xref="mal_block_screen"/>
-  <link type="seealso" xref="mal_attr_link"/>
 
   <version number="0.1" date="2007-02-05" status="incomplete"/>
 
@@ -50,6 +49,39 @@ such as options and arguments, when these need to be referenced alone.</p>
 <p>The <code xref="mal_inline_var">var</code> element may be used inside a
 <code>cmd</code> element to indicate text that should be replaced
 by the user.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list type="bullet">
+    <item><p>The <code>style</code> attribute takes a space-seperated list of
+    style hints.  Processing tools should adjust their rendering according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>mime</code> attribute takes a valid MIME type.  Processing
+    tools may adjust their rendering for particular MIME types.</p></item>
+
+    <item>
+      <p>Typical values for the <code>mime</code> attribute include:</p>
+      <table><tr>
+        <td><code>application/x-sh</code></td>
+        <td>Command to execute with the Bourne shell</td>
+      </tr><tr>
+        <td><code>application/x-csh</code></td>
+        <td>Command to execute with the C shell</td>
+      </tr></table>
+    </item>
+
+    <item><p>The <code>cmd</code> element can link to other pages or documents.
+    See <link xref="mal_attr_link"/> for more information.</p></item>
+
+    <item><p>The <code>cmd</code> element can have attributes from external
+    namespaces.  See <link xref="mal_attr_external"/> for more information
+    on external-namespace attributes on inline elements.</p></item>
+  </list>
+</section>
+<!-- END notes -->
 
 
 <!-- BEGIN examples -->
