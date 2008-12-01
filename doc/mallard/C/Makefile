@@ -3,8 +3,8 @@ pages=$(filter-out legal.xml, $(wildcard *.xml))
 .PHONY: check-validate check-links status-report
 
 check-validate:
-	@(cd ../rng/ && $(MAKE) mallard.rnc)
-	xmllint --xinclude --noout --relaxng ../rng/mallard.rng $(pages)
+	@(cd ../../../rng/mallard && $(MAKE) mallard.rnc)
+	xmllint --xinclude --noout --relaxng ../../../rng/mallard/mallard.rng $(pages)
 
 check-links:
 	@files=$$(for page in $(pages); do \
