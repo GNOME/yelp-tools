@@ -72,10 +72,10 @@ mal_inline_gui = element gui {
 <!-- BEGIN docbook -->
 <section id="docbook">
   <title>Comparison to DocBook</title>
-  <p>The <code>gui</code> element is functionally similar to DocBook's deprecated
+  <p>The <code>gui</code> element is similar to the deprecated
   <code href="http://www.docbook.org/tdg/en/html/interface.html">interface</code>
-  element.  DocBook 3 introduced more specific elements for marking up parts of
-  a user interface:
+  element in DocBook.  DocBook 3 introduced more specific elements for marking up
+  parts of a user interface:
   <code href="http://www.docbook.org/tdg/en/html/guibutton.html">guibutton</code>,
   <code href="http://www.docbook.org/tdg/en/html/guiicon.html">guiicon</code>,
   <code href="http://www.docbook.org/tdg/en/html/guilabel.html">guilabel</code>,

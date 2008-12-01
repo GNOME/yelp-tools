@@ -49,4 +49,20 @@ elements.  This is typically used to to present a sequence of menu items.</p>
 </section>
 <!-- END notes -->
 
+
+<!-- BEGIN docbook -->
+<section id="docbook">
+  <title>Comparison to DocBook</title>
+  <p>The <code>guiseq</code> element is similar to the
+  <code href="http://www.docbook.org/tdg/en/html/menuchoice.html">menuchoice</code>
+  element in DocBook.  Since Mallard does not provide different elements for
+  different types of interface elements, the contents of <code>guiseq</code>
+  are all <code>gui</code> elements or text.  Currently, Mallard does not
+  provide a way to encode shortcut keys like the
+  <code href="http://www.docbook.org/tdg/en/html/shortcut.html">shortcut</code>
+  element in DocBook.  It is recommended that shortcuts, when necessary, be
+  written into prose separately.</p>
+</section>
+<!-- END docbook -->
+
 </page>

@@ -61,6 +61,16 @@ mal_block_code = element code {
 <!-- BEGIN docbook -->
 <section id="docbook">
   <title>Comparison to DocBook</title>
+  <p>DocBook contains numerous elements for modeling code in procedural and
+  object-oriented programming languages.  Many of these elements can be seen
+  by browsing the content models for the
+  <code href="http://www.docbook.org/tdg/en/html/classsynopsis.html">classsynopsis</code>
+  and
+  <code href="http://www.docbook.org/tdg/en/html/funcsynopsis.html">funcsynopsis</code>
+  elements.  Mallard does not attempt to model any programming languages.</p>
+
+
+
   <comment>
     <cite date="2007-01-25"><name>Shaun McCance</name></cite>
     <p>Add: code, class*, func*, programlisting</p>

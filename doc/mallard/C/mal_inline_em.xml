@@ -87,7 +87,7 @@ may be rendered differently by different processing tools.</p>
 <!-- BEGIN docbook -->
 <section id="docbook">
   <title>Comparison to DocBook</title>
-  <p>The <code>em</code> element is functionally similar to the
+  <p>The <code>em</code> element is similar to the
   <code href="http://www.docbook.org/tdg/en/html/emphasis.html">emphasis</code>
   element in DocBook.  Athough DocBook does not normatively specify a means of
   controlling the presentation, most DocBook processing tools allow writers to

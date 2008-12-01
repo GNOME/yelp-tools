@@ -86,9 +86,9 @@ the name of the command used to run an application; use
 <!-- BEGIN docbook -->
 <section id="docbook">
   <title>Comparison to DocBook</title>
-  <p>The <code>app</code> element is functionally similar to DocBook's
+  <p>The <code>app</code> element is similar to the
   <code href="http://www.docbook.org/tdg/en/html/application.html">application</code>
-  element.</p>
+  element in DocBook.</p>
 </section>
 <!-- END docbook -->
 
