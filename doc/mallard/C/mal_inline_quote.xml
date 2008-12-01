@@ -29,7 +29,7 @@ mal_inline_quote = element quote {
   attribute style { xsd:NMTOKENS } ?,
   attribute * - (mal:* | local:*) { text } *,
 
-  <link xref="mal_inline">mal_inline</link>+
+  <link xref="mal_inline">mal_inline</link> +
 }
 </code></synopsis>
 
