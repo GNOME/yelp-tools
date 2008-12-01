@@ -22,18 +22,51 @@
 <title>Hyperlinks</title>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
-mal_inline_link = element link
-  { ( attribute xref { text }
-    , <link xref="mal_inline">mal_inline</link> ?
+mal_inline_link = element link {
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  ( ( attribute xref { text },
+      <link xref="mal_inline">mal_inline</link> ?
+    ) |
+    ( attribute dref { text },
+      attribute href { text } ?,
+      <link xref="mal_inline">mal_inline</link>
+    ) |
+    ( attribute href { text },
+      <link xref="mal_inline">mal_inline</link>
     )
-  | ( attribute dref { text }
-    , attribute href { text }?
-    , <link xref="mal_inline">mal_inline</link>
-    )
-  | ( attribute href { text }
-    , <link xref="mal_inline">mal_inline</link>
-    )
-  }
+  )
+}
 </code></synopsis>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list type="bullet">
+    <item><p>The <code>style</code> attribute takes a space-seperated list of
+    style hints.  Processing tools should adjust their rendering according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>app</code> element can have attributes from external
+    namespaces.  See <link xref="mal_attr_external"/> for more information
+    on external-namespace attributes on inline elements.</p></item>
+
+    <item><p>The <code>xref</code> attribute creates a link to another page
+    or section within the same document.  When text content is omitted, the
+    content is automatically taken from the title of the page or section
+    being linked to.</p></item>
+
+    <item><p>The <code>dref</code> attribute creates a link to a page or
+    section in another document.  An <code>href</code> attribute can be
+    provide as a fallback for systems that don't understand document
+    links.</p></item>
+
+    <item><p>The <code>href</code> attribute creates a link to a web page
+    or other network-accessible resource.</p></item>
+  </list>
+</section>
+<!-- END notes -->
 
 </page>

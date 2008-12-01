@@ -14,13 +14,55 @@
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_inline_media = element media {
-  attribute type { "image" | "video" | "audio" | "application" | "text" } ?,
-  attribute mime { text } ?,
-  attribute href { text },
+  mal_inline_media_container |
+  mal_inline_media_application |
+  mal_inline_media_audio |
+  mal_inline_media_image |
+  mal_inline_media_text |
+  mal_inline_media_video
+}
+mal_inline_media_container = element media {
   attribute style { xsd:NMTOKENS } ?,
   attribute * - (mal:* | local:*) { text } *,
-
-  mal_inline_media ?
+  ( mal_inline_media_application |
+    mal_inline_media_audio |
+    mal_inline_media_image |
+    mal_inline_media_text |
+    mal_inline_media_video
+  )
+}
+mal_inline_media_audio = element media {
+  attribute type { "audio" },
+  attribute mime { text } ?,
+  attribute src { text },
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+}
+mal_inline_media_application = element media {
+  attribute type { "application" },
+  attribute mime { text } ?,
+  attribute src { text },
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+}
+mal_inline_media_image = element media {
+  attribute type { "image" },
+  attribute mime { text } ?,
+  attribute src { text },
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+}
+mal_inline_media_text = element media {
+  attribute type { "text" },
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+}
+mal_inline_media_video = element media {
+  attribute type { "video" },
+  attribute mime { text } ?,
+  attribute src { text },
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
 }
 </code></synopsis>
 
