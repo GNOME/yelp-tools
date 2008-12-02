@@ -12,7 +12,7 @@
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_info_desc = element desc {
-  <link xref="mal_inline">mal_inline</link> +
+  <link xref="mal_inline">mal_inline</link>
 }
 </code></synopsis>
 

@@ -16,8 +16,8 @@ mal_info_credit = element credit {
     "maintainer" | "collaborator" |
     "translator" | "publisher"    },
   attribute date { xsd:date } ?,
-  element name { <link xref="mal_inline">mal_inline</link> + },
-  element email { <link xref="mal_inline">mal_inline</link> + } ?
+  element name { <link xref="mal_inline">mal_inline</link> },
+  element email { <link xref="mal_inline">mal_inline</link> } ?
 }
 </code></synopsis>
 

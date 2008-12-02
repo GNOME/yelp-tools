@@ -31,7 +31,7 @@ mal_inline_cmd = element cmd {
   attribute mime { text } ?,
   attribute * - (mal:* | local:*) { text } *,
 
-  <link xref="mal_inline">mal_inline</link> +
+  <link xref="mal_inline">mal_inline</link>
 }
 </code></synopsis>
 

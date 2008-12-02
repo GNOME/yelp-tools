@@ -16,7 +16,7 @@ mal_list_tree = element list {
   mal_item_tree +
 }
 mal_item_tree = element item {
-  <link xref="mal_inline">mal_inline</link> +,
+  <link xref="mal_inline">mal_inline</link>,
   mal_item_tree *
 }
 </code></synopsis>
