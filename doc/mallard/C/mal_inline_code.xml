@@ -113,6 +113,8 @@ by the user.</p>
   in place of the DocBook elements
   <code href="http://www.docbook.org/tdg/en/html/markup.html">markup</code> and
   <code href="http://www.docbook.org/tdg/en/html/sgmltag.html">sgmltag</code>.</p>
+
+  <p>See <link xref="principle-justenough"/> for more background.</p>
 </section>
 <!-- END docbook -->
 

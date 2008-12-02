@@ -52,6 +52,8 @@ mal_inline_sys = element sys {
   element.  Since Mallard does not provide the level of markup specificity
   that DocBook does, the <code>sys</code> element should be used in place
   of these and various other elements.</p>
+
+  <p>See <link xref="principle-justenough"/> for more background.</p>
 </section>
 <!-- END docbook -->
 

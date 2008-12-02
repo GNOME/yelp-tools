@@ -146,15 +146,19 @@ you to filter files based on their modification times.</p>
 <!-- BEGIN docbook -->
 <section id="docbook">
   <title>Comparison to DocBook</title>
+
   <p>The <code>cmd</code> element is similar to the
   <code href="http://www.docbook.org/tdg/en/html/command.html">command</code>
   element in DocBook.  In DocBook, writers frequently use the
   <code href="http://www.docbook.org/tdg/en/html/option.html">option</code>
   element inside <code>command</code>.  Mallard does not provide an element
   for this purpose.</p>
+
   <p>In DocBook, the <code>option</code> element is also used outside the
   <code>command</code> element.  In Mallard, simply use the <code>cmd</code>
   element for options outside of an entire command.</p>
+
+  <p>See <link xref="principle-justenough"/> for more background.</p>
 </section>
 <!-- END docbook -->
 

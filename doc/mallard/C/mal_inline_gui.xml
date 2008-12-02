@@ -87,10 +87,8 @@ mal_inline_gui = element gui {
   on a single element.  Furthermore, DocBook's various elements are nowhere near
   exhaustive.  Thus, authors must frequently either abuse a specific element or
   use the deprecated <code>interface</code> element.</p>
-  <comment>
-    <cite date="2008-11-09"><name>Shaun McCance</name></cite>
-    <p>See principle of just enough markup</p>
-  </comment>
+
+  <p>See <link xref="principle-justenough"/> for more background.</p>
 </section>
 <!-- END docbook -->
 
