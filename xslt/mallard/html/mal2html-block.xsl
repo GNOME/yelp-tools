@@ -166,12 +166,12 @@ div.title {
       <xsl:call-template name="util.strip_newlines">
         <xsl:with-param name="string" select="$first"/>
         <xsl:with-param name="leading" select="true()"/>
-        <xsl:with-param name="trailing" select="$first = $last"/>
+        <xsl:with-param name="trailing" select="count(node()) = 1"/>
       </xsl:call-template>
     </xsl:if>
     <xsl:apply-templates mode="mal2html.inline.mode"
-                         select="node()[not(. = $first or . = $last)]"/>
-    <xsl:if test="$last and ($first != $last)">
+                         select="node()[not(self::text() and (position() = 1 or position() = last()))]"/>
+    <xsl:if test="$last and (count(node()) != 1)">
       <xsl:call-template name="util.strip_newlines">
         <xsl:with-param name="string" select="$last"/>
         <xsl:with-param name="leading" select="false()"/>

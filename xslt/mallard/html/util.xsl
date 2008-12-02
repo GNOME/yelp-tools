@@ -33,11 +33,9 @@ $string: The string to strip newlines from
 $leading: Whether to strip leading newlines
 $trailing: Whether to strip trailing newlines
 
-This template strips at most one leading and one trailing newline from ${string}.
-The newline may come in four different forms: U+000D U+000A (CR LF), U+000D (CR),
-U+000A (LF), and U+0085 (NEL).  This is useful for preformatted block elements
-where leading and trailing newlines are ignored to make source formatting easier
-for authors.
+This template strips at most one leading and one trailing newline from
+${string}.  This is useful for preformatted block elements where leading and
+trailing newlines are ignored to make source formatting easier for authors.
 -->
 <xsl:template name="util.strip_newlines">
   <xsl:param name="string"/>
@@ -47,21 +45,8 @@ for authors.
     <xsl:when test="$leading">
       <xsl:variable name="new">
         <xsl:choose>
-          <!-- CR LF -->
-          <xsl:when test="starts-with($string, '&#x000D;&#x000A;')">
-            <xsl:value-of select="substring-after($string, '&#x000D;&#x000A;')"/>
-          </xsl:when>
-          <!-- CR -->
-          <xsl:when test="starts-with($string, '&#x000D;')">
-            <xsl:value-of select="substring-after($string, '&#x000D;')"/>
-          </xsl:when>
-          <!-- LF -->
           <xsl:when test="starts-with($string, '&#x000A;')">
-            <xsl:value-of select="substring-after($string, '&#x000A;')"/>
-          </xsl:when>
-          <!-- NEL -->
-          <xsl:when test="starts-with($string, '&#x0085;')">
-            <xsl:value-of select="substring-after($string, '&#x0085;')"/>
+            <xsl:value-of select="substring($string, 2)"/>
           </xsl:when>
           <xsl:otherwise>
             <xsl:value-of select="$string"/>
@@ -83,20 +68,7 @@ for authors.
     </xsl:when>
     <xsl:when test="$trailing">
       <xsl:choose>
-        <!-- CR LF -->
-        <xsl:when test="substring($string, -2) = '&#x000D;&#x000A;'">
-          <xsl:value-of select="substring($string, 1, string-length($string) - 2 )"/>
-        </xsl:when>
-        <!-- CR -->
-        <xsl:when test="substring($string, -1) = '&#x000D;'">
-          <xsl:value-of select="substring($string, 1, string-length($string) - 1 )"/>
-        </xsl:when>
-        <!-- LF -->
-        <xsl:when test="substring($string, -1) = '&#x000A;'">
-          <xsl:value-of select="substring($string, 1, string-length($string) - 1 )"/>
-        </xsl:when>
-        <!-- NEL -->
-        <xsl:when test="substring($string, -1) = '&#x0085;'">
+        <xsl:when test="substring($string, string-length($string)) = '&#x000A;'">
           <xsl:value-of select="substring($string, 1, string-length($string) - 1 )"/>
         </xsl:when>
         <xsl:otherwise>
