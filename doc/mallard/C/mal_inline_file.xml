@@ -14,7 +14,7 @@
     <name>Shaun McCance</name>
   </copyright>
 
-  <version number="0.1" date="2008-02-19" status="incomplete"/>
+  <version number="0.1" date="2008-12-01" status="review"/>
 
   <desc>Mark up the name of a file or directory.</desc>
 </info>
@@ -31,10 +31,9 @@ mal_inline_file = element file {
 }
 </code></synopsis>
 
-<comment>
-  <cite date="2007-01-30"><name>Shaun McCance</name></cite>
-  <p>Add examples, processing expectations</p>
-</comment>
+<p>The <code>file</code> element marks the name of a file or directory.
+It may also be used to mark collections or portions of filenames, such
+as search paths and file extensions.</p>
 
 
 <!-- BEGIN notes -->
@@ -54,6 +53,15 @@ mal_inline_file = element file {
   </list>
 </section>
 <!-- END notes -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+  <p>Filenames should be rendered in a fixed-width or wide font to reduce
+  ambiguity between visually similar characters.</p>
+</section>
+<!-- END processing -->
 
 
 <!-- BEGIN docbook -->
