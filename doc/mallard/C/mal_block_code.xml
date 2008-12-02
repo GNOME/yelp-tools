@@ -27,7 +27,8 @@ mal_block_code = element code {
   attribute * - (mal:* | local:*) { text } *,
 
   <link xref="mal_inline">mal_inline</link>
-}</code></synopsis>
+}
+</code></synopsis>
 
 <comment>
   <cite date="2006-12-08"><name>Shaun McCance</name></cite>
@@ -54,6 +55,27 @@ mal_block_code = element code {
     <p>Add processing expectations.  For block, strip leading/trailing
     newline.  Do not strip leading indentation.</p>
   </comment>
+  <p>Processing tools should strip a leading newline and a trailing newline
+  from the text content.  This allows people to write XML like the following:</p>
+  <code>
+&lt;code&gt;
+def frobnicate (foo, bar):
+    if foo:
+        bar
+    else:
+        foo + bar
+&lt;/code&gt;
+</code>
+  <p>This is much more natural to read and write, since every line is on its
+  own without markup.  Processing tools should strip no more than one newline
+  from either end, in case authors need to insert intentional newlines.  If
+  the first or last child is an element, processing tools should not descend
+  into those elements to strip newlines.</p>
+  <p>Processing tools should not attempt to strip uniform indentation from
+  the text contents.  Authors sometimes indent preformatted text to match
+  the indentation of the surrounding markup.  Handling this reliably is
+  difficult and can lead to unexpected results.  Authors should fix their
+  documents if this problem arises.</p>
 </section>
 <!-- END processing -->
 
