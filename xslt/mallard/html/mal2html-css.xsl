@@ -208,6 +208,42 @@ div.pagelink div.title {
   font-size: 1em;
   color: inherit;
 }
+div.pagelink div.title span.status {
+  font-size: 0.83em;
+  font-weight: normal;
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+  color: </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'text-light'"/>
+  </xsl:call-template>
+  <xsl:text>;
+  border: solid 1px </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'red-border'"/>
+  </xsl:call-template>
+  <xsl:text>;
+}
+div.pagelink div.title span.status-stub { background-color: </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'red-background'"/>
+  </xsl:call-template>
+  <xsl:text>; }
+div.pagelink div.title span.status-draft { background-color: </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'red-background'"/>
+  </xsl:call-template>
+  <xsl:text>; }
+div.pagelink div.title span.status-incomplete { background-color: </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'red-background'"/>
+  </xsl:call-template>
+  <xsl:text>; }
+div.pagelink div.title span.status-review { background-color: </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'yellow-background'"/>
+  </xsl:call-template>
+  <xsl:text>; }
 div.pagelink div.desc {
   margin-top: 0.2em;
   color: </xsl:text>

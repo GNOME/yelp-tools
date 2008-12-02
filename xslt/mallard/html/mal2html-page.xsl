@@ -227,16 +227,51 @@ REMARK: Describe this template
       <!-- FIXME: call a common linkifier? -->
       <div class="title">
         <xsl:call-template name="mal.link.content">
-          <xsl:with-param name="node" select="."/>
+          <xsl:with-param name="node" select="$node"/>
           <xsl:with-param name="xref" select="$xref"/>
         </xsl:call-template>
+        <xsl:variable name="date">
+          <xsl:for-each select="$page/mal:info/mal:version">
+            <xsl:sort select="@date" data-type="text" order="descending"/>
+            <xsl:if test="position() = 1">
+              <xsl:value-of select="@date"/>
+            </xsl:if>
+          </xsl:for-each>
+        </xsl:variable>
+        <xsl:variable name="version"
+                      select="$page/mal:info/mal:version[@date = $date][last()]"/>
+        <xsl:if test="$version/@status != '' and $version/@status != 'final'">
+          <xsl:text> </xsl:text>
+          <span>
+            <xsl:attribute name="class">
+              <xsl:value-of select="concat('status status-', $version/@status)"/>
+            </xsl:attribute>
+            <!-- FIXME: i18n -->
+            <xsl:choose>
+              <xsl:when test="$version/@status = 'stub'">
+                <xsl:text>Stub</xsl:text>
+              </xsl:when>
+              <xsl:when test="$version/@status = 'incomplete'">
+                <xsl:text>Incomplete</xsl:text>
+              </xsl:when>
+              <xsl:when test="$version/@status = 'draft'">
+                <xsl:text>Draft</xsl:text>
+              </xsl:when>
+              <xsl:when test="$version/@status = 'review'">
+                <xsl:text>Ready for review</xsl:text>
+              </xsl:when>
+              <xsl:when test="$version/@status = 'final'">
+                <xsl:text>Final</xsl:text>
+              </xsl:when>
+            </xsl:choose>
+          </span>
+        </xsl:if>
       </div>
       <xsl:for-each select="$cache">
         <xsl:variable name="desc"
                       select="key('cache_key', $linkid)/mal:info/mal:desc[1]"/>
         <xsl:if test="$desc">
           <div class="desc">
-            <!-- FIXME: should desc contain inline or block? -->
             <xsl:apply-templates mode="mal2html.inline.mode" select="$desc/node()"/>
           </div>
         </xsl:if>
