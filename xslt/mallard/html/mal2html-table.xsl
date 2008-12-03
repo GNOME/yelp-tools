@@ -184,7 +184,13 @@ td {
       </xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
-  <div class="table">
+  <div>
+    <xsl:attribute name="class">
+      <xsl:text>table</xsl:text>
+      <xsl:if test="not(preceding-sibling::*)">
+        <xsl:text> first-child</xsl:text>
+      </xsl:if>
+    </xsl:attribute>
     <table class="table">
       <xsl:if test="$style != ''">
         <xsl:attribute name="style">

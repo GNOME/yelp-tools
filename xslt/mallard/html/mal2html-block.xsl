@@ -156,12 +156,13 @@ div.title {
 <xsl:template mode="mal2html.block.mode" match="mal:code">
   <xsl:variable name="first" select="node()[1]/self::text()"/>
   <xsl:variable name="last" select="node()[last()]/self::text()"/>
-  <pre class="code">
-    <xsl:if test="not(preceding-sibling::*)">
-      <xsl:attribute name="class">
-        <xsl:text>first-child</xsl:text>
-      </xsl:attribute>
-    </xsl:if>
+  <pre>
+    <xsl:attribute name="class">
+      <xsl:text>code</xsl:text>
+      <xsl:if test="not(preceding-sibling::*)">
+        <xsl:text> first-child</xsl:text>
+      </xsl:if>
+    </xsl:attribute>
     <xsl:if test="$first">
       <xsl:call-template name="util.strip_newlines">
         <xsl:with-param name="string" select="$first"/>
@@ -183,12 +184,13 @@ div.title {
 
 <!-- = comment = -->
 <xsl:template mode="mal2html.block.mode" match="mal:comment">
-  <div class="comment">
-    <xsl:if test="not(preceding-sibling::*)">
-      <xsl:attribute name="class">
-        <xsl:text>first-child</xsl:text>
-      </xsl:attribute>
-    </xsl:if>
+  <div>
+    <xsl:attribute name="class">
+      <xsl:text>comment</xsl:text>
+      <xsl:if test="not(preceding-sibling::*)">
+        <xsl:text> first-child</xsl:text>
+      </xsl:if>
+    </xsl:attribute>
     <xsl:apply-templates mode="mal2html.block.mode"/>
   </div>
 </xsl:template>
@@ -221,12 +223,13 @@ div.title {
 
 <!-- = figure = -->
 <xsl:template mode="mal2html.block.mode" match="mal:figure">
-  <div class="figure">
-    <xsl:if test="not(preceding-sibling::*)">
-      <xsl:attribute name="class">
-        <xsl:text>first-child</xsl:text>
-      </xsl:attribute>
-    </xsl:if>
+  <div>
+    <xsl:attribute name="class">
+      <xsl:text>figure</xsl:text>
+      <xsl:if test="not(preceding-sibling::*)">
+        <xsl:text> first-child</xsl:text>
+      </xsl:if>
+    </xsl:attribute>
     <xsl:apply-templates mode="mal2html.block.mode" select="mal:title"/>
     <div class="figure-contents">
       <xsl:apply-templates mode="mal2html.block.mode"
@@ -248,12 +251,13 @@ div.title {
 
 <!-- = p = -->
 <xsl:template mode="mal2html.block.mode" match="mal:p">
-  <p class="p">
-    <xsl:if test="not(preceding-sibling::*)">
-      <xsl:attribute name="class">
-        <xsl:text>first-child</xsl:text>
-      </xsl:attribute>
-    </xsl:if>
+  <p>
+    <xsl:attribute name="class">
+      <xsl:text>p</xsl:text>
+      <xsl:if test="not(preceding-sibling::*)">
+        <xsl:text> first-child</xsl:text>
+      </xsl:if>
+    </xsl:attribute>
     <xsl:apply-templates mode="mal2html.inline.mode"/>
   </p>
 </xsl:template>
@@ -261,11 +265,12 @@ div.title {
 <!-- = synopsis = -->
 <xsl:template mode="mal2html.block.mode" match="mal:synopsis">
   <div class="synopsis">
-    <xsl:if test="not(preceding-sibling::*)">
-      <xsl:attribute name="class">
-        <xsl:text>first-child</xsl:text>
-      </xsl:attribute>
-    </xsl:if>
+    <xsl:attribute name="class">
+      <xsl:text>synopsis</xsl:text>
+      <xsl:if test="not(preceding-sibling::*)">
+        <xsl:text> first-child</xsl:text>
+      </xsl:if>
+    </xsl:attribute>
     <xsl:apply-templates mode="mal2html.block.mode"/>
   </div>
 </xsl:template>

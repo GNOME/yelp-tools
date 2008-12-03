@@ -98,46 +98,25 @@ body {
   padding: 12px;
   min-height: 100%;
 }
-<!-- FIXME: only in editor mode & better colors -->
-body.status-stub { background-color:  </xsl:text>
+div, pre, p, li { margin: 1em 0 0 0; padding: 0; }
+.first-child { margin-top: 0; }
+a {
+  text-decoration: none;
+  color: </xsl:text>
   <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'red-background'"/>
-  </xsl:call-template>
-  <xsl:text>; }
-body.status-draft { background-color:  </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'red-background'"/>
-  </xsl:call-template>
-  <xsl:text>; }
-body.status-incomplete { background-color:  </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'red-background'"/>
-  </xsl:call-template>
-  <xsl:text>; }
-body.status-review { background-color:  </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'yellow-background'"/>
-  </xsl:call-template>
-  <xsl:text>; }
-div.version {
-  margin: 0 0 1em 0;
-  padding: 0.5em 1em 0.5em 1em;
-  max-width: 48em;
-  -moz-border-radius: 6px;
-  border: solid 1px </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'gray-border'"/>
-  </xsl:call-template>
-  <xsl:text>;
-  background-color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'yellow-background'"/>
+    <xsl:with-param name="id" select="'link'"/>
   </xsl:call-template>
   <xsl:text>;
 }
-div.version p.version {
-  margin-top: 0.2em;
+a:visited {
+  color: </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'link-visited'"/>
+  </xsl:call-template>
+  <xsl:text>;
 }
+a:hover { text-decoration: underline; }
+
 div.body {
   margin: 0;
   padding: 1em;
@@ -208,6 +187,101 @@ div.pagelink div.title {
   font-size: 1em;
   color: inherit;
 }
+div.pagelink {
+  margin: 0;
+  padding: 0.5em;
+  -moz-border-radius: 6px;
+  border: solid 1px </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'background'"/>
+  </xsl:call-template>
+  <xsl:text>;
+}
+div.pagelink:hover {
+  border-color: </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'blue-border'"/>
+  </xsl:call-template>
+  <xsl:text>;
+  background-color: </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'blue-background'"/>
+  </xsl:call-template>
+  <xsl:text>;
+}
+div.pagelinksep {
+  margin: 0.5em;
+  list-style-type: none;
+  max-width: 24em;
+  border-bottom: solid 1px </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'gray-border'"/>
+  </xsl:call-template>
+  <xsl:text>;
+}
+
+</xsl:text>
+<xsl:call-template name="mal2html.css.editor"/>
+<xsl:call-template name="mal2html.css.custom"/>
+</xsl:template>
+<!--
+2.4
+2
+1.72
+1.44
+1.2
+1
+0.83
+0.69
+0.5
+-->
+
+
+<!--**==========================================================================
+mal2html.css.editor
+Outputs CSS for editor mode
+
+FIXME
+-->
+<xsl:template name="mal2html.css.editor">
+<xsl:text>
+body.status-stub { background-color:  </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'red-background'"/>
+  </xsl:call-template>
+  <xsl:text>; }
+body.status-draft { background-color:  </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'red-background'"/>
+  </xsl:call-template>
+  <xsl:text>; }
+body.status-incomplete { background-color:  </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'red-background'"/>
+  </xsl:call-template>
+  <xsl:text>; }
+body.status-review { background-color:  </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'yellow-background'"/>
+  </xsl:call-template>
+  <xsl:text>; }
+div.version {
+  margin: 0 0 1em 0;
+  padding: 0.5em 1em 0.5em 1em;
+  max-width: 48em;
+  -moz-border-radius: 6px;
+  border: solid 1px </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'gray-border'"/>
+  </xsl:call-template>
+  <xsl:text>;
+  background-color: </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'yellow-background'"/>
+  </xsl:call-template>
+  <xsl:text>;
+}
+div.version p.version { margin-top: 0.2em; }
 div.pagelink div.title span.status {
   font-size: 0.83em;
   font-weight: normal;
@@ -252,72 +326,8 @@ div.pagelink div.desc {
   </xsl:call-template>
   <xsl:text>;
 }
-div.pagelink {
-  margin: 0;
-  padding: 0.5em;
-  -moz-border-radius: 6px;
-  border: solid 1px </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'background'"/>
-  </xsl:call-template>
-  <xsl:text>;
-}
-div.pagelink:hover {
-  border-color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'blue-border'"/>
-  </xsl:call-template>
-  <xsl:text>;
-  background-color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'blue-background'"/>
-  </xsl:call-template>
-  <xsl:text>;
-}
-
-div.pagelinksep {
-  margin: 0.5em;
-  list-style-type: none;
-  max-width: 24em;
-  border-bottom: solid 1px </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'gray-border'"/>
-  </xsl:call-template>
-  <xsl:text>;
-}
-
-div, pre, p, li { margin: 1em 0 0 0; padding: 0; }
-.first-child { margin-top: 0; }
-a {
-  text-decoration: none;
-  color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'link'"/>
-  </xsl:call-template>
-  <xsl:text>;
-}
-a:visited {
-  color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'link-visited'"/>
-  </xsl:call-template>
-  <xsl:text>;
-}
-a:hover { text-decoration: underline; }
 </xsl:text>
-<xsl:call-template name="mal2html.css.custom"/>
 </xsl:template>
-<!--
-2.4
-2
-1.72
-1.44
-1.2
-1
-0.83
-0.69
-0.5
--->
 
 
 <!--**==========================================================================
