@@ -308,6 +308,8 @@ template.
 <xsl:template match="caution">
   <xsl:call-template name="db2html.block">
     <xsl:with-param name="class" select="'admonition'"/>
+    <xsl:with-param name="formal" select="true()"/>
+    <xsl:with-param name="title" select="/false"/>
     <xsl:with-param name="indent" select="true()"/>
   </xsl:call-template>
 </xsl:template>
@@ -442,6 +444,8 @@ template.
 <xsl:template match="important">
   <xsl:call-template name="db2html.block">
     <xsl:with-param name="class" select="'admonition'"/>
+    <xsl:with-param name="formal" select="true()"/>
+    <xsl:with-param name="title" select="/false"/>
     <xsl:with-param name="indent" select="true()"/>
   </xsl:call-template>
 </xsl:template>
@@ -484,6 +488,8 @@ template.
         <xsl:text> note-bug</xsl:text>
       </xsl:if>
     </xsl:with-param>
+    <xsl:with-param name="formal" select="true()"/>
+    <xsl:with-param name="title" select="/false"/>
     <xsl:with-param name="indent" select="true()"/>
   </xsl:call-template>
 </xsl:template>
@@ -521,6 +527,8 @@ template.
 <xsl:template match="tip">
   <xsl:call-template name="db2html.block">
     <xsl:with-param name="class" select="'admonition'"/>
+    <xsl:with-param name="formal" select="true()"/>
+    <xsl:with-param name="title" select="/false"/>
     <xsl:with-param name="indent" select="true()"/>
   </xsl:call-template>
 </xsl:template>
@@ -537,6 +545,8 @@ template.
 <xsl:template match="warning">
   <xsl:call-template name="db2html.block">
     <xsl:with-param name="class" select="'admonition'"/>
+    <xsl:with-param name="formal" select="true()"/>
+    <xsl:with-param name="title" select="/false"/>
     <xsl:with-param name="indent" select="true()"/>
   </xsl:call-template>
 </xsl:template>

@@ -268,34 +268,30 @@ span.bibliolabel {
 
 <!-- == block == -->
 div.admonition {
-  padding: 0.5em 1em 0.5em 1em;
-  <!-- FIXME: rtl -->
-  padding-left: </xsl:text><xsl:value-of select="$theme.icon.admon.size + 12"/><xsl:text>px;
+  padding: 0.5em 6px 0.5em 6px;
   min-height: </xsl:text><xsl:value-of select="$theme.icon.admon.size"/><xsl:text>px;
   border: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
   background-color: </xsl:text><xsl:value-of select="$theme.color.yellow_background"/><xsl:text>;
+}
+div.caution-inner, div.important-inner, div.note-inner, div.tip-inner, div.warning-inner {
   <!-- FIXME: rtl -->
-  background-position: 6px 0.5em;
+  padding-left: </xsl:text><xsl:value-of select="$theme.icon.admon.size + 12"/><xsl:text>px;
+  <!-- FIXME: rtl -->
+  background-position: left top;
   background-repeat: no-repeat;
 }
-div.caution {
-  background-image: url("</xsl:text><xsl:value-of select="$theme.icon.admon.caution"/><xsl:text>");
-}
-div.important {
-  background-image: url("</xsl:text><xsl:value-of select="$theme.icon.admon.important"/><xsl:text>");
-}
-div.note {
-  background-image: url("</xsl:text><xsl:value-of select="$theme.icon.admon.note"/><xsl:text>");
-}
-div.note-bug {
-  background-image: url("</xsl:text><xsl:value-of select="$theme.icon.admon.bug"/><xsl:text>");
-}
-div.tip {
-  background-image: url("</xsl:text><xsl:value-of select="$theme.icon.admon.tip"/><xsl:text>");
-}
-div.warning {
-  background-image: url("</xsl:text><xsl:value-of select="$theme.icon.admon.warning"/><xsl:text>");
-}
+div.caution-inner { background-image: url("</xsl:text>
+  <xsl:value-of select="$theme.icon.admon.caution"/><xsl:text>"); }
+div.important-inner { background-image: url("</xsl:text>
+  <xsl:value-of select="$theme.icon.admon.important"/><xsl:text>"); }
+div.note-inner { background-image: url("</xsl:text>
+  <xsl:value-of select="$theme.icon.admon.note"/><xsl:text>"); }
+div.note-bug div.note-inner { background-image: url("</xsl:text>
+  <xsl:value-of select="$theme.icon.admon.bug"/><xsl:text>"); }
+div.tip-inner { background-image: url("</xsl:text>
+  <xsl:value-of select="$theme.icon.admon.tip"/><xsl:text>"); }
+div.warning-inner { background-image: url("</xsl:text>
+  <xsl:value-of select="$theme.icon.admon.warning"/><xsl:text>"); }
 div.blockquote {
   <!-- FIXME: i18n -->
   background-image: url('../../../data/icons/yelp-watermark-blockquote-201C.png');
