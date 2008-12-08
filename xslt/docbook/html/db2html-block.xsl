@@ -64,7 +64,7 @@ is then used by the CSS for styling.
   <xsl:param name="formal" select="false()"/>
   <xsl:param name="title" select="$node/title"/>
   <xsl:param name="caption" select="$node/caption"/>
-  <xsl:param name="lang" select="$node/@language"/>
+  <xsl:param name="lang" select="$node/@lang"/>
   <xsl:param name="dir" select="false()"/>
   <xsl:param name="ltr" select="false()"/>
 
@@ -139,7 +139,7 @@ element.  It is called by *{db2html.block} for formal block elements.
 <xsl:template name="db2html.block.title">
   <xsl:param name="node" select="."/>
   <xsl:param name="title" select="$node/title"/>
-  <xsl:param name="lang" select="$title/@language"/>
+  <xsl:param name="lang" select="$title/@lang"/>
   <xsl:param name="dir" select="false()"/>
   <xsl:param name="ltr" select="false()"/>
 
@@ -197,7 +197,7 @@ element.
              select="not($node/preceding-sibling::*
                      [not(self::blockinfo) and not(self::title) and
                       not(self::titleabbrev) and not(self::attribution) ])"/>
-  <xsl:param name="lang" select="$title/@language"/>
+  <xsl:param name="lang" select="$title/@lang"/>
   <xsl:param name="dir" select="false()"/>
   <xsl:param name="ltr" select="false()"/>
 
@@ -257,7 +257,7 @@ This template creates an HTML #{p} element for the given DocBook element.
              select="not($node/preceding-sibling::*
                      [not(self::blockinfo) and not(self::title) and
                       not(self::titleabbrev) and not(self::attribution) ])"/>
-  <xsl:param name="lang" select="$title/@language"/>
+  <xsl:param name="lang" select="$title/@lang"/>
   <xsl:param name="dir" select="false()"/>
   <xsl:param name="ltr" select="false()"/>
 
@@ -325,7 +325,7 @@ template.
                       not(self::titleabbrev) and not(self::attribution) ])"/>
   <xsl:param name="indent" select="false()"/>
   <xsl:param name="children" select="$node/node()"/>
-  <xsl:param name="lang" select="$title/@language"/>
+  <xsl:param name="lang" select="$title/@lang"/>
   <xsl:param name="dir" select="false()"/>
   <xsl:param name="ltr" select="true()"/>
 

@@ -56,7 +56,7 @@ REMARK: Document this template
   <xsl:param name="underline" select="false()"/>
   <xsl:param name="mono" select="false()"/>
   <xsl:param name="sans" select="false()"/>
-  <xsl:param name="lang" select="$node/@language"/>
+  <xsl:param name="lang" select="$node/@lang"/>
   <xsl:param name="dir" select="false()"/>
   <xsl:param name="ltr" select="false()"/>
 
