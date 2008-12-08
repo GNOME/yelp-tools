@@ -1,6 +1,11 @@
 2008-12-08  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/html/db2html-inline.xsl:
+	- Fix ltr on accel
+
+2008-12-08  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/html/db2html-inline.xsl:
 	- Setting dir on inline elements for mixed-language documents
 
 2008-12-08  Shaun McCance  <shaunm@gnome.org>

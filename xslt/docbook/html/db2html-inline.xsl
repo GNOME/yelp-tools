@@ -140,9 +140,7 @@ FIXME
 
 <!-- = accel = -->
 <xsl:template match="accel">
-  <xsl:call-template name="db2html.inline">
-    <xsl:with-param name="defaultltr" select="true()"/>
-  </xsl:call-template>
+  <xsl:call-template name="db2html.inline"/>
 </xsl:template>
 
 <!-- = acronym = -->
