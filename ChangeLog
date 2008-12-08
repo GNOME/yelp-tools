@@ -1,5 +1,10 @@
 2008-12-08  Shaun McCance  <shaunm@gnome.org>
 
+	* xslt/docbook/html/db2html-block.xsl:
+	- Set text direction on block elements
+
+2008-12-08  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/docbook/html/db2html-inline.xsl:
 	- Fix ltr on accel
 

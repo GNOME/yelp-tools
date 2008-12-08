@@ -44,6 +44,9 @@ $verbatim: Whether to maintain whitespace as written
 $formal: Whether this is a formal block element
 $title: When ${formal} is true, an element to use for the title
 $caption: When ${formal} is true, an element to use for the caption 
+$lang: The locale of the text in ${node}
+$dir: The text direction, either #{ltr} or #{rtl}
+$ltr: Whether to default to #{ltr} if neither ${lang} nor ${dir} is specified
 
 This template creates an HTML #{div} element for the given DocBook element.
 This template uses the parameters to construct the #{class} attribute, which
@@ -61,7 +64,30 @@ is then used by the CSS for styling.
   <xsl:param name="formal" select="false()"/>
   <xsl:param name="title" select="$node/title"/>
   <xsl:param name="caption" select="$node/caption"/>
+  <xsl:param name="lang" select="$node/@language"/>
+  <xsl:param name="dir" select="false()"/>
+  <xsl:param name="ltr" select="false()"/>
+
   <div>
+    <xsl:choose>
+      <xsl:when test="$dir = 'ltr' or $dir = 'rtl'">
+        <xsl:attribute name="dir">
+          <xsl:value-of select="$dir"/>
+        </xsl:attribute>
+      </xsl:when>
+      <xsl:when test="$lang">
+        <xsl:attribute name="dir">
+          <xsl:call-template name="l10n.direction">
+            <xsl:with-param name="lang" select="$lang"/>
+          </xsl:call-template>
+        </xsl:attribute>
+      </xsl:when>
+      <xsl:when test="$ltr">
+        <xsl:attribute name="dir">
+          <xsl:text>ltr</xsl:text>
+        </xsl:attribute>
+      </xsl:when>
+    </xsl:choose>
     <xsl:attribute name="class">
       <xsl:value-of select="concat($class, ' block ', local-name($node))"/>
       <xsl:if test="$first">
@@ -103,6 +129,9 @@ db2html.block.title
 Renders a formal title for a block-level element
 $node: The block-level element being processed
 $title: The element containing the title
+$lang: The locale of the text in ${title}
+$dir: The text direction, either #{ltr} or #{rtl}
+$ltr: Whether to default to #{ltr} if neither ${lang} nor ${dir} is specified
 
 This template formats the contents of ${title} as a title for a block-level
 element.  It is called by *{db2html.block} for formal block elements.
@@ -110,7 +139,30 @@ element.  It is called by *{db2html.block} for formal block elements.
 <xsl:template name="db2html.block.title">
   <xsl:param name="node" select="."/>
   <xsl:param name="title" select="$node/title"/>
+  <xsl:param name="lang" select="$title/@language"/>
+  <xsl:param name="dir" select="false()"/>
+  <xsl:param name="ltr" select="false()"/>
+
   <div class="block block-first title title-formal">
+    <xsl:choose>
+      <xsl:when test="$dir = 'ltr' or $dir = 'rtl'">
+        <xsl:attribute name="dir">
+          <xsl:value-of select="$dir"/>
+        </xsl:attribute>
+      </xsl:when>
+      <xsl:when test="$lang">
+        <xsl:attribute name="dir">
+          <xsl:call-template name="l10n.direction">
+            <xsl:with-param name="lang" select="$lang"/>
+          </xsl:call-template>
+        </xsl:attribute>
+      </xsl:when>
+      <xsl:when test="$ltr">
+        <xsl:attribute name="dir">
+          <xsl:text>ltr</xsl:text>
+        </xsl:attribute>
+      </xsl:when>
+    </xsl:choose>
     <xsl:call-template name="db2html.anchor">
       <xsl:with-param name="node" select="$title"/>
     </xsl:call-template>
@@ -132,6 +184,9 @@ db2html.blockquote
 Renders a #{blockquote} element to HTML
 $node: The #{blockquote} element to render
 $first: Whether this is the first child block in the parent
+$lang: The locale of the text in ${node}
+$dir: The text direction, either #{ltr} or #{rtl}
+$ltr: Whether to default to #{ltr} if neither ${lang} nor ${dir} is specified
 
 This template creates an HTML #{blockquote} element for the given DocBook
 element.
@@ -142,7 +197,30 @@ element.
              select="not($node/preceding-sibling::*
                      [not(self::blockinfo) and not(self::title) and
                       not(self::titleabbrev) and not(self::attribution) ])"/>
+  <xsl:param name="lang" select="$title/@language"/>
+  <xsl:param name="dir" select="false()"/>
+  <xsl:param name="ltr" select="false()"/>
+
   <div>
+    <xsl:choose>
+      <xsl:when test="$dir = 'ltr' or $dir = 'rtl'">
+        <xsl:attribute name="dir">
+          <xsl:value-of select="$dir"/>
+        </xsl:attribute>
+      </xsl:when>
+      <xsl:when test="$lang">
+        <xsl:attribute name="dir">
+          <xsl:call-template name="l10n.direction">
+            <xsl:with-param name="lang" select="$lang"/>
+          </xsl:call-template>
+        </xsl:attribute>
+      </xsl:when>
+      <xsl:when test="$ltr">
+        <xsl:attribute name="dir">
+          <xsl:text>ltr</xsl:text>
+        </xsl:attribute>
+      </xsl:when>
+    </xsl:choose>
     <xsl:attribute name="class">
       <xsl:value-of select="local-name($node)"/>
       <xsl:text> block block-indent</xsl:text>
@@ -167,6 +245,9 @@ db2html.para
 Renders a block-level element as an HTML #{p} element
 $node: The block-level element to render
 $first: Whether this is the first child block in the parent
+$lang: The locale of the text in ${node}
+$dir: The text direction, either #{ltr} or #{rtl}
+$ltr: Whether to default to #{ltr} if neither ${lang} nor ${dir} is specified
 
 This template creates an HTML #{p} element for the given DocBook element.
 -->
@@ -176,7 +257,30 @@ This template creates an HTML #{p} element for the given DocBook element.
              select="not($node/preceding-sibling::*
                      [not(self::blockinfo) and not(self::title) and
                       not(self::titleabbrev) and not(self::attribution) ])"/>
+  <xsl:param name="lang" select="$title/@language"/>
+  <xsl:param name="dir" select="false()"/>
+  <xsl:param name="ltr" select="false()"/>
+
   <p>
+    <xsl:choose>
+      <xsl:when test="$dir = 'ltr' or $dir = 'rtl'">
+        <xsl:attribute name="dir">
+          <xsl:value-of select="$dir"/>
+        </xsl:attribute>
+      </xsl:when>
+      <xsl:when test="$lang">
+        <xsl:attribute name="dir">
+          <xsl:call-template name="l10n.direction">
+            <xsl:with-param name="lang" select="$lang"/>
+          </xsl:call-template>
+        </xsl:attribute>
+      </xsl:when>
+      <xsl:when test="$ltr">
+        <xsl:attribute name="dir">
+          <xsl:text>ltr</xsl:text>
+        </xsl:attribute>
+      </xsl:when>
+    </xsl:choose>
     <xsl:attribute name="class">
       <xsl:value-of select="local-name($node)"/>
       <xsl:text> block</xsl:text>
@@ -200,6 +304,9 @@ $class: An extra string to insert in the #{class} attribute
 $first: Whether this is the first child block in the parent
 $indent: Whether this block should be indented
 $children: The child elements to process
+$lang: The locale of the text in ${node}
+$dir: The text direction, either #{ltr} or #{rtl}
+$ltr: Whether to default to #{ltr} if neither ${lang} nor ${dir} is specified
 
 This template creates an HTML #{pre} element for the given DocBook element.
 This template uses the parameters to construct the #{class} attribute, which
@@ -218,7 +325,30 @@ template.
                       not(self::titleabbrev) and not(self::attribution) ])"/>
   <xsl:param name="indent" select="false()"/>
   <xsl:param name="children" select="$node/node()"/>
+  <xsl:param name="lang" select="$title/@language"/>
+  <xsl:param name="dir" select="false()"/>
+  <xsl:param name="ltr" select="true()"/>
+
   <div>
+    <xsl:choose>
+      <xsl:when test="$dir = 'ltr' or $dir = 'rtl'">
+        <xsl:attribute name="dir">
+          <xsl:value-of select="$dir"/>
+        </xsl:attribute>
+      </xsl:when>
+      <xsl:when test="$lang">
+        <xsl:attribute name="dir">
+          <xsl:call-template name="l10n.direction">
+            <xsl:with-param name="lang" select="$lang"/>
+          </xsl:call-template>
+        </xsl:attribute>
+      </xsl:when>
+      <xsl:when test="$ltr">
+        <xsl:attribute name="dir">
+          <xsl:text>ltr</xsl:text>
+        </xsl:attribute>
+      </xsl:when>
+    </xsl:choose>
     <xsl:attribute name="class">
       <xsl:value-of select="concat($class, ' block ', local-name($node))"/>
       <xsl:if test="$indent">
