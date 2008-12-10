@@ -43,10 +43,11 @@ table.table {
   border-color: #555753;
   border-width: 1px;
 }
-td {
-  padding: 0.5em;
+table.table td {
+  padding: 0.1em 0.5em 0.1em 0.5em;
   border-color: #888a85;
   border-width: 1px;
+  vertical-align: top;
 }
 </xsl:text>
 </xsl:template>
@@ -404,6 +405,16 @@ td {
     <xsl:if test="$style != ''">
       <xsl:attribute name="style">
         <xsl:value-of select="$style"/>
+      </xsl:attribute>
+    </xsl:if>
+    <xsl:if test="@colspan">
+      <xsl:attribute name="colspan">
+        <xsl:value-of select="@colspan"/>
+      </xsl:attribute>
+    </xsl:if>
+    <xsl:if test="@rowspan">
+      <xsl:attribute name="rowspan">
+        <xsl:value-of select="@rowspan"/>
       </xsl:attribute>
     </xsl:if>
     <xsl:apply-templates mode="mal2html.block.mode"/>
