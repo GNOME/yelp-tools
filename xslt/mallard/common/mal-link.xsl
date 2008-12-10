@@ -25,6 +25,15 @@ Mallard Links
 -->
 
 
+<!--@@==========================================================================
+mal.cache.file
+The location of the cache file
+-->
+<xsl:param name="mal.cache.file"/>
+<xsl:variable name="mal.cache" select="document($mal.cache.file)"/>
+<xsl:key name="mal.cache.key" match="mal:page | mal:section" use="@id"/>
+
+
 <!--**==========================================================================
 mal.link.content
 Generates the content for a #{link} element
@@ -40,7 +49,7 @@ $href: The #{href} attribute of ${link}
     <xsl:when test="contains($xref, '/')">
       <!--
       This is a link to another document, which we don't handle in these
-      stylesheets.  Extensions such like library or yelp should override
+      stylesheets.  Extensions such as library or yelp should override
       this template to provide this functionality.
       -->
       <xsl:choose>
@@ -53,19 +62,11 @@ $href: The #{href} attribute of ${link}
       </xsl:choose>
     </xsl:when>
     <xsl:otherwise>
-      <xsl:variable name="linkid">
-        <xsl:choose>
-          <xsl:when test="contains($xref, '#')">
-            <xsl:value-of select="$xref"/>
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:value-of select="concat($xref, '#', $xref)"/>
-          </xsl:otherwise>
-        </xsl:choose>
-      </xsl:variable>
-      <xsl:apply-templates mode="mal.link.content.mode"
-                           select="key('cache_key', $linkid)
-                                   /mal:info/mal:title[@type = 'link']/node()"/>
+      <xsl:for-each select="$mal.cache">
+        <xsl:apply-templates mode="mal.link.content.mode"
+                             select="key('mal.cache.key', $xref)
+                                     /mal:info/mal:title[@type = 'link']/node()"/>
+      </xsl:for-each>
     </xsl:otherwise>
   </xsl:choose>
 </xsl:template>
@@ -102,7 +103,7 @@ $href: The #{href} attribute of ${link}
     <xsl:when test="contains($xref, '/')">
       <!--
       This is a link to another document, which we don't handle in these
-      stylesheets.  Extensions such like library or yelp should override
+      stylesheets.  Extensions such as library or yelp should override
       this template to provide this functionality.
       -->
       <xsl:value-of select="$href"/>

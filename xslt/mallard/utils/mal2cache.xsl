@@ -61,6 +61,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
   <section>
     <xsl:if test="@id">
       <xsl:attribute name="id">
+        <xsl:value-of select="ancestor::mal:page[1]/@id"/>
+        <xsl:text>#</xsl:text>
         <xsl:value-of select="@id"/>
       </xsl:attribute>
     </xsl:if>

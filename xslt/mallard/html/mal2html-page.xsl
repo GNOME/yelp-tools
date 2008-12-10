@@ -70,9 +70,8 @@ REMARK: Describe this template
   <xsl:variable name="pagelinks"
                 select="$node/mal:info/mal:link[@type = 'topic']"/>
   <!-- FIXME: // selectors are slow -->
-  <!-- FIXME: exclude $pagelinks from $guidelinks -->
   <xsl:variable name="guidelinks"
-                select="$cache//*[mal:info/mal:link[@type = 'guide'][@xref = $id]][not(@id = $pagelinks/@xref)]"/>
+                select="$mal.cache//*[mal:info/mal:link[@type = 'guide'][@xref = $id]][not(@id = $pagelinks/@xref)]"/>
   <xsl:if test="$pagelinks or $guidelinks">
     <div class="pagelinks">
       <xsl:choose>
@@ -81,20 +80,11 @@ REMARK: Describe this template
           <table class="twocolumn"><tr>
             <td class="twocolumnleft">
               <xsl:for-each select="$pagelinks[position() &lt;= $coltot]">
-                <xsl:variable name="linkid">
-                  <xsl:choose>
-                    <xsl:when test="contains(@xref, '#')">
-                      <xsl:value-of select="@xref"/>
-                    </xsl:when>
-                    <xsl:otherwise>
-                      <xsl:value-of select="concat(@xref, '#', @xref)"/>
-                    </xsl:otherwise>
-                  </xsl:choose>
-                </xsl:variable>
-                <xsl:for-each select="$cache">
+                <xsl:variable name="xref" select="@xref"/>
+                <xsl:for-each select="$mal.cache">
                   <xsl:call-template name="mal2html.page.pagelink">
                     <xsl:with-param name="source" select="$node"/>
-                    <xsl:with-param name="target" select="key('cache_key', $linkid)"/>
+                    <xsl:with-param name="target" select="key('mal.cache.key', $xref)"/>
                   </xsl:call-template>
                 </xsl:for-each>
               </xsl:for-each>
@@ -114,20 +104,11 @@ REMARK: Describe this template
             </td>
             <td class="twocolumnright">
               <xsl:for-each select="$pagelinks[position() &gt; $coltot]">
-                <xsl:variable name="linkid">
-                  <xsl:choose>
-                    <xsl:when test="contains(@xref, '#')">
-                      <xsl:value-of select="@xref"/>
-                    </xsl:when>
-                    <xsl:otherwise>
-                      <xsl:value-of select="concat(@xref, '#', @xref)"/>
-                    </xsl:otherwise>
-                  </xsl:choose>
-                </xsl:variable>
-                <xsl:for-each select="$cache">
+                <xsl:variable name="xref" select="@xref"/>
+                <xsl:for-each select="$mal.cache">
                   <xsl:call-template name="mal2html.page.pagelink">
                     <xsl:with-param name="source" select="$node"/>
-                    <xsl:with-param name="target" select="key('cache_key', $linkid)"/>
+                    <xsl:with-param name="target" select="key('mal.cache.key', $xref)"/>
                   </xsl:call-template>
                 </xsl:for-each>
               </xsl:for-each>
@@ -149,20 +130,11 @@ REMARK: Describe this template
         </xsl:when>
         <xsl:otherwise>
           <xsl:for-each select="$pagelinks">
-            <xsl:variable name="linkid">
-              <xsl:choose>
-                <xsl:when test="contains(@xref, '#')">
-                  <xsl:value-of select="@xref"/>
-                </xsl:when>
-                <xsl:otherwise>
-                  <xsl:value-of select="concat(@xref, '#', @xref)"/>
-                </xsl:otherwise>
-              </xsl:choose>
-            </xsl:variable>
-            <xsl:for-each select="$cache">
+            <xsl:variable name="xref" select="@xref"/>
+            <xsl:for-each select="$mal.cache">
               <xsl:call-template name="mal2html.page.pagelink">
                 <xsl:with-param name="source" select="$node"/>
-                <xsl:with-param name="target" select="key('cache_key', $linkid)"/>
+                <xsl:with-param name="target" select="key('mal.cache.key', $xref)"/>
               </xsl:call-template>
             </xsl:for-each>
           </xsl:for-each>
@@ -195,40 +167,18 @@ REMARK: Describe this template
 <xsl:template name="mal2html.page.pagelink">
   <xsl:param name="source" select="."/>
   <xsl:param name="target"/>
-  <xsl:variable name="xref">
-    <xsl:choose>
-      <xsl:when test="$target/self::mal:section"> 
-       <xsl:value-of select="$target/ancestor::mal:page[1]/@id"/>
-        <xsl:text>#</xsl:text>
-        <xsl:value-of select="$target/@id"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:value-of select="$target/@id"/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:variable>
-  <xsl:variable name="linkid">
-    <xsl:choose>
-      <xsl:when test="contains($xref, '#')">
-        <xsl:value-of select="$xref"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:value-of select="concat($xref, '#', $xref)"/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:variable>
   <a>
     <xsl:attribute name="href">
       <xsl:call-template name="mal.link.target">
         <xsl:with-param name="link" select="$source"/>
-        <xsl:with-param name="xref" select="$xref"/>
+        <xsl:with-param name="xref" select="$target/@id"/>
       </xsl:call-template>
     </xsl:attribute>
     <div class="pagelink">
       <div class="title">
         <xsl:call-template name="mal.link.content">
           <xsl:with-param name="link" select="$source"/>
-          <xsl:with-param name="xref" select="$xref"/>
+          <xsl:with-param name="xref" select="$target/@id"/>
         </xsl:call-template>
 
         <xsl:if test="true()">
@@ -271,10 +221,10 @@ REMARK: Describe this template
           </xsl:if>
         </xsl:if>
       </div>
-      <xsl:variable name="desc" select="key('cache_key', $linkid)/mal:info/mal:desc[1]"/>
-      <xsl:if test="$desc">
+      <xsl:if test="$target/mal:info/mal:desc">
         <div class="desc">
-          <xsl:apply-templates mode="mal2html.inline.mode" select="$desc/node()"/>
+          <xsl:apply-templates mode="mal2html.inline.mode"
+                               select="$target/mal:info/mal:desc[1]/node()"/>
         </div>
       </xsl:if>
     </div>
@@ -305,11 +255,11 @@ REMARK: Describe this template
   </xsl:variable>
   <!-- FIXME: // is slow -->
   <xsl:variable name="inlinks"
-                select="$cache//*[mal:info/mal:link[@type = 'seealso'][@xref = $id]]"/>
+                select="$mal.cache//*[mal:info/mal:link[@type = 'seealso'][@xref = $id]]"/>
   <xsl:variable name="outlinks"
                 select="$node/mal:info/mal:link[@type = 'seealso']"/>
   <xsl:variable name="pagelinks"
-                select="$cache//*[mal:info/mal:link[@type = 'topic'][@xref = $id]]"/>
+                select="$mal.cache//*[mal:info/mal:link[@type = 'topic'][@xref = $id]]"/>
   <xsl:variable name="guidelinks"
                 select="$node/mal:info/mal:link[@type = 'guide']"/>
   <xsl:if test="$inlinks or $outlinks or $pagelinks or $guidelinks">
@@ -332,22 +282,10 @@ REMARK: Describe this template
         </xsl:for-each>
         <!-- FIXME: exclude pagelinks -->
         <xsl:for-each select="$guidelinks">
-          <xsl:variable name="linkid">
-            <xsl:choose>
-              <xsl:when test="contains(@xref, '#')">
-                <xsl:value-of select="@xref"/>
-              </xsl:when>
-              <xsl:otherwise>
-                <xsl:value-of select="concat(@xref, '#', @xref)"/>
-              </xsl:otherwise>
-            </xsl:choose>
-          </xsl:variable>
-          <xsl:for-each select="$cache">
-            <xsl:call-template name="mal2html.page.pagelink">
-              <xsl:with-param name="source" select="$node"/>
-              <xsl:with-param name="target" select="key('cache_key', $linkid)"/>
-            </xsl:call-template>
-          </xsl:for-each>
+          <xsl:call-template name="mal2html.page.pagelink">
+            <xsl:with-param name="source" select="$node"/>
+            <xsl:with-param name="target" select="."/>
+          </xsl:call-template>
         </xsl:for-each>
 
         <xsl:if test="($pagelinks or $guidelinks) and ($inlinks or $outlinks)">
@@ -361,28 +299,16 @@ REMARK: Describe this template
           </xsl:call-template>
         </xsl:for-each>
         <xsl:for-each select="$outlinks">
-          <xsl:variable name="linkid">
-            <xsl:choose>
-              <xsl:when test="contains(@xref, '#')">
-                <xsl:value-of select="@xref"/>
-              </xsl:when>
-              <xsl:otherwise>
-                <xsl:value-of select="concat(@xref, '#', @xref)"/>
-              </xsl:otherwise>
-            </xsl:choose>
-          </xsl:variable>
-          <xsl:for-each select="$cache">
+          <xsl:variable name="xref" select="@xref"/>
+          <xsl:for-each select="$mal.cache">
             <xsl:call-template name="mal2html.page.pagelink">
               <xsl:with-param name="source" select="$node"/>
-              <xsl:with-param name="target" select="key('cache_key', $linkid)"/>
+              <xsl:with-param name="target" select="key('mal.cache.key', $xref)"/>
             </xsl:call-template>
           </xsl:for-each>
         </xsl:for-each>
       </div>
     </div>
-
-  </xsl:if>
-  <xsl:if test="$inlinks or $outlinks">
   </xsl:if>
 </xsl:template>
 

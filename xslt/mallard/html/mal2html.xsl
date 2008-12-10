@@ -41,10 +41,6 @@ REMARK: Describe this module
 <xsl:include href="util.xsl"/>
 
 <xsl:param name="mal.extension" select="'.xhtml'"/>
-<xsl:param name="mal.cache_file"/>
-<xsl:variable name="cache" select="document($mal.cache_file)"/>
-<xsl:key name="cache_key" match="*[@id]"
-         use="concat(ancestor-or-self::mal:page[1]/@id, '#', @id)"/>
 
 <!-- FIXME -->
 <xsl:template match="*">
