@@ -28,49 +28,92 @@ Mallard Links
 <!--**==========================================================================
 mal.link.content
 Generates the content for a #{link} element
-$node: FIXME
-$xref: FIXME
+$link: The #{link} or other element creating the link
+$xref: The #{xref} attribute of ${link}
+$href: The #{href} attribute of ${link}
 -->
 <xsl:template name="mal.link.content">
-  <xsl:param name="node" select="."/>
-  <xsl:param name="xref" select="$node/@xref"/>
-  <xsl:variable name="linkid">
-    <xsl:choose>
-      <xsl:when test="contains($xref, '#')">
-        <xsl:value-of select="$xref"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:value-of select="concat($xref, '#', $xref)"/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:variable>
-  <xsl:for-each select="$cache">
-    <!-- FIXME: if empty -->
-    <xsl:apply-templates mode="mal2html.inline.mode"
-                         select="key('cache_key', $linkid)
-                                 /mal:info/mal:title[@type = 'link']/node()"/>
-  </xsl:for-each>
+  <xsl:param name="link" select="."/>
+  <xsl:param name="xref" select="$link/@xref"/>
+  <xsl:param name="href" select="$link/@href"/>
+  <xsl:choose>
+    <xsl:when test="contains($xref, '/')">
+      <!--
+      This is a link to another document, which we don't handle in these
+      stylesheets.  Extensions such like library or yelp should override
+      this template to provide this functionality.
+      -->
+      <xsl:choose>
+        <xsl:when test="$href">
+          <xsl:value-of select="$href"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="$xref"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:variable name="linkid">
+        <xsl:choose>
+          <xsl:when test="contains($xref, '#')">
+            <xsl:value-of select="$xref"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="concat($xref, '#', $xref)"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:variable>
+      <xsl:apply-templates mode="mal.link.content.mode"
+                           select="key('cache_key', $linkid)
+                                   /mal:info/mal:title[@type = 'link']/node()"/>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+
+<!--%%==========================================================================
+mal.link.content.mode
+Renders the content of a link from a title
+
+This mode is applied to the contents of a #{title} element by *{mal.link.content}.
+By default, it returns the string value of its input.  Stylesheets that import
+this module should override this to call their inline mode.
+-->
+<xsl:template mode="mal.link.content.mode" match="* | text()">
+  <xsl:value-of select="."/>
 </xsl:template>
 
 
 <!--**==========================================================================
 mal.link.target
 Generates the target for a #{link} element
-$node: FIXME
-$xref: FIXME
+$link: The #{link} or other element creating the link
+$xref: The #{xref} attribute of ${link}
+$href: The #{href} attribute of ${link}
 -->
 <xsl:template name="mal.link.target">
-  <xsl:param name="node" select="."/>
-  <xsl:param name="xref" select="$node/@xref"/>
-  <!-- FIXME -->
+  <xsl:param name="link" select="."/>
+  <xsl:param name="xref" select="$link/@xref"/>
+  <xsl:param name="href" select="$link/@href"/>
   <xsl:choose>
+    <xsl:when test="string($xref) = ''">
+      <xsl:value-of select="$href"/>
+    </xsl:when>
+    <xsl:when test="contains($xref, '/')">
+      <!--
+      This is a link to another document, which we don't handle in these
+      stylesheets.  Extensions such like library or yelp should override
+      this template to provide this functionality.
+      -->
+      <xsl:value-of select="$href"/>
+    </xsl:when>
     <xsl:when test="contains($xref, '#')">
-      <xsl:variable name="page" select="substring-before($xref, '#')"/>
-      <xsl:variable name="sect" select="substring-after($xref, '#')"/>
-      <xsl:if test="$page != ''">
-        <xsl:value-of select="concat($page, $mal.extension)"/>
+      <xsl:variable name="pageid" select="substring-before($xref, '#')"/>
+      <xsl:variable name="sectionid" select="substring-after($xref, '#')"/>
+      <xsl:if test="$pageid != ''">
+        <xsl:value-of select="concat($pageid, $mal.extension)"/>
       </xsl:if>
-      <xsl:value-of select="concat('#', $sect)"/>
+      <xsl:value-of select="concat('#', $sectionid)"/>
     </xsl:when>
     <xsl:otherwise>
       <xsl:value-of select="concat($xref, $mal.extension)"/>
@@ -81,24 +124,24 @@ $xref: FIXME
 
 <!--**==========================================================================
 mal.link.tooltip
-Generates the tooltip for a #{link} element
-$node: FIXME
-$xref: FIXME
-$href: FIXME
+Generates the tooltip for a #{link} or other linking element
+$link: The #{link} or other element creating the link
+$xref: The #{xref} attribute of ${link}
+$href: The #{href} attribute of ${link}
 -->
 <xsl:template name="mal.link.tooltip">
-  <xsl:param name="node" select="."/>
-  <xsl:param name="xref" select="$node/@xref"/>
-  <xsl:param name="href" select="$node/@href"/>
+  <xsl:param name="link" select="."/>
+  <xsl:param name="xref" select="$link/@xref"/>
+  <xsl:param name="href" select="$link/@href"/>
   <xsl:choose>
-    <xsl:when test="$xref">
+    <xsl:when test="string($xref) != ''">
       <!-- FIXME -->
     </xsl:when>
     <xsl:when test="starts-with($href, 'mailto:')">
-      <xsl:variable name="addy" select="substring-after($href, 'mailto:')"/>
+      <xsl:variable name="address" select="substring-after($href, 'mailto:')"/>
       <xsl:call-template name="l10n.gettext">
         <xsl:with-param name="msgid" select="'email.tooltip'"/>
-        <xsl:with-param name="string" select="$addy"/>
+        <xsl:with-param name="string" select="$address"/>
         <xsl:with-param name="format" select="true()"/>
       </xsl:call-template>
     </xsl:when>

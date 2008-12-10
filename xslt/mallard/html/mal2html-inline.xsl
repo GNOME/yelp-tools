@@ -27,75 +27,64 @@ Mallard to HTML - Inline Elements
 REMARK: Describe this module
 -->
 
+<xsl:template mode="mal.link.content.mode" match="*">
+  <xsl:apply-templates mode="mal2html.inline.mode" select="."/>
+</xsl:template>
+
+
+<!--%%==========================================================================
+mal2html.inline.mode
+Processes an element in inline mode
+
+FIXME
+-->
+
+
+<!--%%==========================================================================
+mal2html.inline.content.mode
+Outputs the contents of an inline element
+
+FIXME
+-->
+<xsl:template mode="mal2html.inline.content.mode" match="*">
+  <xsl:apply-templates/>
+</xsl:template>
+
 
 <!--**==========================================================================
 mal2html.span
 Renders an inline element as a #{span}
 $node: The element to render
-$content: An optional parameter specifying the content of the #{span}
 
 REMARK: Document this template
 -->
 <xsl:template name="mal2html.span">
   <xsl:param name="node" select="."/>
-  <xsl:param name="content" select="false()"/>
   <span class="{local-name($node)}">
     <xsl:choose>
-      <xsl:when test="$node/@xref">
-        <a class="xref">
+      <xsl:when test="$node/@xref | $node/@xref">
+        <a>
           <xsl:attribute name="href">
             <xsl:call-template name="mal.link.target">
-              <xsl:with-param name="node" select="$node"/>
-              <xsl:with-param name="xref" select="$node/@xref"/>
+              <xsl:with-param name="link" select="$node"/>
             </xsl:call-template>
           </xsl:attribute>
           <xsl:attribute name="title">
             <xsl:call-template name="mal.link.tooltip">
-              <xsl:with-param name="node" select="$node"/>
-              <xsl:with-param name="xref" select="$node/@xref"/>
+              <xsl:with-param name="link" select="$node"/>
             </xsl:call-template>
           </xsl:attribute>
-          <xsl:choose>
-            <xsl:when test="$content">
-              <xsl:copy-of select="$content"/>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:apply-templates mode="mal2html.inline.mode" select="$node/node()"/>
-            </xsl:otherwise>
-          </xsl:choose>
-        </a>
-      </xsl:when>
-      <xsl:when test="$node/@href">
-        <a class="href" href="{$node/@href}">
-          <xsl:attribute name="title">
-            <xsl:call-template name="mal.link.tooltip">
-              <xsl:with-param name="node" select="$node"/>
-              <xsl:with-param name="href" select="$node/@href"/>
-            </xsl:call-template>
-          </xsl:attribute>
-          <xsl:choose>
-            <xsl:when test="$content">
-              <xsl:copy-of select="$content"/>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:apply-templates mode="mal2html.inline.mode" select="$node/node()"/>
-            </xsl:otherwise>
-          </xsl:choose>
+          <xsl:apply-templates mode="mal2html.inline.content.mode" select="$node"/>
         </a>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:choose>
-          <xsl:when test="$content">
-            <xsl:copy-of select="$content"/>
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:apply-templates mode="mal2html.inline.mode" select="$node/node()"/>
-          </xsl:otherwise>
-        </xsl:choose>
+        <xsl:apply-templates mode="mal2html.inline.content.mode" select="$node"/>
       </xsl:otherwise>
     </xsl:choose>
   </span>
 </xsl:template>
+
+
 
 
 <!--**==========================================================================
@@ -119,7 +108,7 @@ span.email { color: red; }
 span.file { font-family: monospace; }
 span.gui { color: red; }
 span.input { color: red; }
-span.key { color: red; }
+span.key { /* FIXME */ }
 span.output { color: red; }
 span.sys { font-family: monospace; }
 span.var { font-style: italic; }
@@ -183,24 +172,19 @@ span.var { font-style: italic; }
 
 <!-- = link = -->
 <xsl:template mode="mal2html.inline.mode" match="mal:link">
-  <xsl:call-template name="mal2html.span">
-    <xsl:with-param name="content">
-      <xsl:choose>
-        <xsl:when test="normalize-space(.) != ''">
-          <xsl:apply-templates/>
-        </xsl:when>
-        <xsl:when test="@xref">
-          <xsl:call-template name="mal.link.content">
-            <xsl:with-param name="node" select="."/>
-            <xsl:with-param name="xref" select="@xref"/>
-          </xsl:call-template>
-        </xsl:when>
-        <xsl:when test="@href">
-          <xsl:value-of select="@href"/>
-        </xsl:when>
-      </xsl:choose>
-    </xsl:with-param>
-  </xsl:call-template>
+  <xsl:call-template name="mal2html.span"/>
+</xsl:template>
+
+<!-- = linke % mal2html.inline.content.mode = -->
+<xsl:template mode="mal2html.inline.content.mode" match="mal:link">
+  <xsl:choose>
+    <xsl:when test="normalize-space(.) != ''">
+      <xsl:apply-templates mode="mal2html.inline.mode"/>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:call-template name="mal.link.content"/>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
 <!-- = media = -->

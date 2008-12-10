@@ -49,7 +49,7 @@ mal_inline_link = element link {
     style hints.  Processing tools should adjust their rendering according to
     those style hints they understand.</p></item>
 
-    <item><p>The <code>app</code> element can have attributes from external
+    <item><p>The <code>link</code> element can have attributes from external
     namespaces.  See <link xref="mal_attr_external"/> for more information
     on external-namespace attributes on inline elements.</p></item>
 
