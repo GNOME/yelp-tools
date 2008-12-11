@@ -46,7 +46,7 @@ Outputs the contents of an inline element
 
 FIXME
 -->
-<xsl:template mode="mal2html.inline.content.mode" match="*">
+<xsl:template mode="mal2html.inline.content.mode" match="node()">
   <xsl:apply-templates/>
 </xsl:template>
 
@@ -166,8 +166,32 @@ span.var { font-style: italic; }
 
 <!-- = key = -->
 <xsl:template mode="mal2html.inline.mode" match="mal:key">
-  <!-- FIXME: keycombo -->
   <xsl:call-template name="mal2html.span"/>
+</xsl:template>
+
+<!-- = keyseq = -->
+<xsl:template mode="mal2html.inline.mode" match="mal:keyseq">
+  <xsl:call-template name="mal2html.span"/>
+</xsl:template>
+
+<!-- = keyseq % mal2html.inline.content.mode = -->
+<xsl:template mode="mal2html.inline.content.mode" match="mal:keyseq">
+  <xsl:variable name="joinchar">
+    <xsl:choose>
+      <xsl:when test="@type = 'sequence'">
+        <xsl:text> </xsl:text>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:text>+</xsl:text>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
+  <xsl:for-each select="* | text()[normalize-space(.) != '']">
+    <xsl:if test="position() != 1">
+      <xsl:value-of select="$joinchar"/>
+    </xsl:if>
+    <xsl:apply-templates mode="mal2html.inline.mode" select="."/>
+  </xsl:for-each>
 </xsl:template>
 
 <!-- = link = -->
@@ -175,7 +199,7 @@ span.var { font-style: italic; }
   <xsl:call-template name="mal2html.span"/>
 </xsl:template>
 
-<!-- = linke % mal2html.inline.content.mode = -->
+<!-- = link % mal2html.inline.content.mode = -->
 <xsl:template mode="mal2html.inline.content.mode" match="mal:link">
   <xsl:choose>
     <xsl:when test="normalize-space(.) != ''">

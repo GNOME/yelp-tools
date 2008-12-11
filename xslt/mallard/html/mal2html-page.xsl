@@ -282,10 +282,13 @@ REMARK: Describe this template
         </xsl:for-each>
         <!-- FIXME: exclude pagelinks -->
         <xsl:for-each select="$guidelinks">
-          <xsl:call-template name="mal2html.page.pagelink">
-            <xsl:with-param name="source" select="$node"/>
-            <xsl:with-param name="target" select="."/>
-          </xsl:call-template>
+          <xsl:variable name="xref" select="@xref"/>
+          <xsl:for-each select="$mal.cache">
+            <xsl:call-template name="mal2html.page.pagelink">
+              <xsl:with-param name="source" select="$node"/>
+              <xsl:with-param name="target" select="key('mal.cache.key', $xref)"/>
+            </xsl:call-template>
+          </xsl:for-each>
         </xsl:for-each>
 
         <xsl:if test="($pagelinks or $guidelinks) and ($inlinks or $outlinks)">

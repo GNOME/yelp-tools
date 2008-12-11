@@ -16,7 +16,7 @@ mallard.cache : $(specs) $(xslts)
 $(pages) : mallard.cache $(xslts)
 $(pages) : %.xhtml : ../../../doc/mallard/C/%.xml
 	xsltproc -o $@ \
-	  --stringparam mal.cache_file `pwd`/mallard.cache \
+	  --stringparam mal.cache.file `pwd`/mallard.cache \
 	  ../../../xslt/mallard/html/mal2html.xsl $<
 
 figures:
