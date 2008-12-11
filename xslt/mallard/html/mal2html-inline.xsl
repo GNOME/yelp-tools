@@ -47,7 +47,7 @@ Outputs the contents of an inline element
 FIXME
 -->
 <xsl:template mode="mal2html.inline.content.mode" match="node()">
-  <xsl:apply-templates/>
+  <xsl:apply-templates mode="mal2html.inline.mode"/>
 </xsl:template>
 
 

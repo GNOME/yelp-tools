@@ -65,10 +65,10 @@ by the user.</p>
     <item>
       <p>Typical values for the <code>mime</code> attribute include:</p>
       <table><tr>
-        <td><code>application/x-sh</code></td>
+        <td><p><code>application/x-sh</code></p></td>
         <td>Command to execute with the Bourne shell</td>
       </tr><tr>
-        <td><code>application/x-csh</code></td>
+        <td><p><code>application/x-csh</code></p></td>
         <td>Command to execute with the C shell</td>
       </tr></table>
     </item>
@@ -88,18 +88,21 @@ by the user.</p>
 <section id="examples">
   <title>Examples</title>
 
-  <section id="examples-basic">
-    <title>Basic Use</title>
+  <p>Use <code>cmd</code> to mark up a simple command to run:</p>
+
+  <example>
     <code><![CDATA[
 <p>To start <app>Totem Movie Player</app>, enter <cmd>totem</cmd> at
 the command line.</p>
 ]]></code>
     <p>To start <app>Totem Movie Player</app>, enter <cmd>totem</cmd> at the
     command line.</p>
-  </section>
+  </example>
 
-  <section id="examples-using-var">
-    <title>Using <code>var</code></title>
+  <p>Use <code>cmd</code> with <code xref="mal_inline_var">var</code> to mark
+  up a command with a placeholder for an argument the user should supply:</p>
+
+  <example>
     <code><![CDATA[
 <p>To view a file in <app>Totem Movie Player</app>, enter <cmd>totem
 <var>file</var></cmd> at the command line, replacing <var>file</var>
@@ -107,17 +110,18 @@ with the name of the file.</p>
 ]]></code>
     <p>To view a file in <app>Totem Movie Player</app>, enter <cmd>totem <var>file</var></cmd>
     at the command line, replacing <var>file</var> with the name of the file.</p>
-  </section>
+  </example>
 
-  <section id="examples-for-options">
-    <title>For Options</title>
+  <p>Use <code>cmd</code> to mark up command names and options:</p>
+
+  <example>
     <code><![CDATA[
 <p>The <cmd>-mtime</cmd> option for the <cmd>find</cmd> command allows
 you to filter files based on their modification times.</p>
 ]]></code>
     <p>The <cmd>-mtime</cmd> option for the <cmd>find</cmd> command allows you to
     filter files based on their modification times.</p>
-  </section>
+  </example>
 
 </section>
 <!-- END examples -->

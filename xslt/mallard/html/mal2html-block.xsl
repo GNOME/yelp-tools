@@ -114,6 +114,15 @@ div.figure-contents {
 div.figure div.title { margin: 0 0 4px 0; }
 div.figure div.caption { margin: 4px 0 0 0; }
 
+div.example {
+  border-left: solid 4px </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'gray-border'"/>
+  </xsl:call-template>
+  <xsl:text>;
+  padding-left: 1em;
+}
+
 div.synopsis {
   border-top: solid 2px;
   border-bottom: solid 2px;
@@ -218,6 +227,19 @@ div.title {
         <xsl:apply-templates mode="mal2html.inline.mode" select="mal:name"/>
       </xsl:otherwise>
     </xsl:choose>
+  </div>
+</xsl:template>
+
+<!-- = example = -->
+<xsl:template mode="mal2html.block.mode" match="mal:example">
+  <div>
+    <xsl:attribute name="class">
+      <xsl:text>example</xsl:text>
+      <xsl:if test="not(preceding-sibling::*)">
+        <xsl:text> first-child</xsl:text>
+      </xsl:if>
+    </xsl:attribute>
+    <xsl:apply-templates mode="mal2html.block.mode"/>
   </div>
 </xsl:template>
 

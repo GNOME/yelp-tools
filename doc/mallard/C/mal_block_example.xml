@@ -1,0 +1,34 @@
+<page xmlns="http://www.gnome.org/~shaunm/mallard"
+      type="topic"
+      id="mal_block_example">
+
+<info>
+  <link type="guide" xref="mal_block#containers"/>
+  <version number="0.1" date="2008-12-21" status="stub"/>
+</info>
+
+<title>Examples</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block_example = element example {
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  <link xref="mal_block">mal_block</link> +
+}
+</code></synopsis>
+
+<comment>
+  <cite date="2008-12-11"><name>Shaun McCance</name></cite>
+  <p>Add explanation, examples</p>
+</comment>
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+</section>
+<!-- END processing -->
+
+</page>
