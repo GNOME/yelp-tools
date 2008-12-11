@@ -62,7 +62,7 @@ REMARK: Document this template
   <xsl:param name="node" select="."/>
   <span class="{local-name($node)}">
     <xsl:choose>
-      <xsl:when test="$node/@xref | $node/@xref">
+      <xsl:when test="$node/@xref | $node/@href">
         <a>
           <xsl:attribute name="href">
             <xsl:call-template name="mal.link.target">
