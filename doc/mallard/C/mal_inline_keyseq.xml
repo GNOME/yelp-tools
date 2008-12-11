@@ -4,6 +4,7 @@
 
 <info>
   <link type="guide" xref="mal_inline#elements"/>
+  <link type="seealso" xref="mal_inline_key"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -32,6 +33,13 @@ mal_inline_keyseq = element keyseq {
   }
 }
 </code></synopsis>
+
+<comment>
+<p><keyseq><key>A</key><key>B</key></keyseq></p>
+<p><keyseq>A<key>B</key>C</keyseq></p>
+<p><keyseq>A<key>B</key>
+</keyseq></p>
+</comment>
 
 
 <!-- BEGIN notes -->
