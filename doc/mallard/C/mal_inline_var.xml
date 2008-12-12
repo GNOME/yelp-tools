@@ -4,6 +4,8 @@
 
 <info>
   <link type="guide" xref="mal_inline#elements"/>
+  <link type="seealso" xref="mal_inline_cmd"/>
+  <link type="seealso" xref="mal_inline_code"/>
 
   <version number="0.1" date="2007-02-21" status="stub"/>
 
@@ -21,6 +23,12 @@ mal_inline_var = element var {
   <link xref="mal_inline">mal_inline</link>
 }
 </code></synopsis>
+
+<p>Use the <code>var</code> element to mark up placeholder text that should be
+replaced by the user.  This is typically used inside a
+<code xref="mal_inline_cmd">cmd</code> or <code xref="mal_inline_code">code</code>
+element to indicate a replaceable argument, or within running prose to refer to
+an indicated argument.</p>
 
 
 <!-- BEGIN notes -->
