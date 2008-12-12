@@ -4,6 +4,7 @@
 
 <info>
   <link type="guide" xref="mal_inline#elements"/>
+  <link type="seealso" xref="mal_inline_gui"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -31,7 +32,7 @@ mal_inline_guiseq = element guiseq {
 </code></synopsis>
 
 <p>The <code>guiseq</code> element marks a sequence of graphical interface
-elements.  This is typically used to to present a sequence of menu items.</p>
+elements.  This is typically used to present a sequence of menu items.</p>
 
 
 <!-- BEGIN notes -->
