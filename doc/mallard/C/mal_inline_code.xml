@@ -32,17 +32,18 @@ mal_inline_code = element code {
 }
 </code></synopsis>
 
-<p>The <code>code</code> elements marks a portion of text from a computer
-language.  This includes programming languages, markup languages, and the
-contents of any type of file with a structured syntax.  Commands to run in
-an interactive shell, however, should use the <code>cmd</code> element,
-even though they may include snippets of shell programming.</p>
+<p>Use the <code>code</code> element to mark up a portion of text from a
+computer language.  This includes programming languages, markup languages,
+and the contents of any type of file with a structured syntax.  For commands
+which are run in an interactive shell, however, you should use the
+<code xref="mal_inline_cmd">cmd</code> element, even though they may
+include snippets of shell programming.</p>
 
-<p>The <code>code</code> element may be used to mark any portion of code,
-including comments or textual content that doesn't strictly follow any
-syntax.</p>
+<p>You can use the <code>code</code> element to mark up any portion of
+code, including comments or textual content that doesn't strictly follow
+any syntax.</p>
 
-<p>The <code xref="mal_inline_var">var</code> element may be used inside a
+<p>Use the <code xref="mal_inline_var">var</code> element inside a
 <code>code</code> element to indicate text that should be replaced
 by the user.</p>
 

@@ -35,18 +35,19 @@ mal_inline_cmd = element cmd {
 }
 </code></synopsis>
 
-<p>The <code>cmd</code> element marks a command or a portion of a command run
-in a shell.  It is frequently used to mark the command to run an application.
-It should not be used to mark the human-readable name of an application; use
+<p>Use the <code>cmd</code> element to mark up a command or a portion of a
+command to run in an interactive shell.  It is frequently used to mark up
+the command to run an application.  Do not use the <code>cmd</code> element
+to mark up the human-readable name of an application; use
 <code xref="mal_inline_app">app</code> for this purpose instead.</p>
 
-<p>The <code>cmd</code> element may be used to mark the entire command,
-including all arguments.  Mallard does not contain elements to mark the
+<p>You may use the <code>cmd</code> element to mark up the entire command,
+including all arguments.  Mallard does not contain elements to mark up the
 arguments specifically, as there is rarely a need to distinguish them.
-The <code>cmd</code> element may also be used to mark parts of a command,
+You may also use the <code>cmd</code> element to mark up parts of a command,
 such as options and arguments, when these need to be referenced alone.</p>
 
-<p>The <code xref="mal_inline_var">var</code> element may be used inside a
+<p>Use the <code xref="mal_inline_var">var</code> element inside a
 <code>cmd</code> element to indicate text that should be replaced
 by the user.</p>
 

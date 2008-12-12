@@ -31,10 +31,10 @@ mal_inline_em = element em {
 }
 </code></synopsis>
 
-<p>The <code>em</code> element indicates that its enclosed text should be
-emphasized.  You may use <code>em</code> to stress certain words in a sentence.
-Do not use <code>em</code> to effect a particular typographic style, since it
-may be rendered differently by different processing tools.</p>
+<p>Use the <code>em</code> element to emphasize text.  You may use <code>em</code>
+to stress certain words in a sentence.  Do not use <code>em</code> to effect a
+particular typographic style, since it may be rendered differently by different
+processing tools.</p>
 
 
 <!-- BEGIN notes -->

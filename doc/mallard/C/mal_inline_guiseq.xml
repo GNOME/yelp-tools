@@ -31,8 +31,9 @@ mal_inline_guiseq = element guiseq {
 }
 </code></synopsis>
 
-<p>The <code>guiseq</code> element marks a sequence of graphical interface
-elements.  This is typically used to present a sequence of menu items.</p>
+<p>Use the <code>guiseq</code> element to mark up a sequence of graphical
+interface elements.  This is typically used to present a sequence of menu
+items.</p>
 
 
 <!-- BEGIN notes -->
