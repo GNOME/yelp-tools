@@ -92,8 +92,8 @@ by the user.</p>
 
   <example>
     <code><![CDATA[
-<p>To start <app>Totem Movie Player</app>, enter <cmd>totem</cmd> at
-the command line.</p>
+To start <app>Totem Movie Player</app>, enter <cmd>totem</cmd> at
+the command line.
 ]]></code>
     <p>To start <app>Totem Movie Player</app>, enter <cmd>totem</cmd> at the
     command line.</p>
@@ -104,9 +104,9 @@ the command line.</p>
 
   <example>
     <code><![CDATA[
-<p>To view a file in <app>Totem Movie Player</app>, enter <cmd>totem
+To view a file in <app>Totem Movie Player</app>, enter <cmd>totem
 <var>file</var></cmd> at the command line, replacing <var>file</var>
-with the name of the file.</p>
+with the name of the file.
 ]]></code>
     <p>To view a file in <app>Totem Movie Player</app>, enter <cmd>totem <var>file</var></cmd>
     at the command line, replacing <var>file</var> with the name of the file.</p>
@@ -116,8 +116,8 @@ with the name of the file.</p>
 
   <example>
     <code><![CDATA[
-<p>The <cmd>-mtime</cmd> option for the <cmd>find</cmd> command allows
-you to filter files based on their modification times.</p>
+The <cmd>-mtime</cmd> option for the <cmd>find</cmd> command allows
+you to filter files based on their modification times.
 ]]></code>
     <p>The <cmd>-mtime</cmd> option for the <cmd>find</cmd> command allows you to
     filter files based on their modification times.</p>

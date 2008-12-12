@@ -31,6 +31,9 @@ mal_inline_output = element output {
 }
 </code></synopsis>
 
+<comment><cite date="2008-12-12"><name>Shaun McCance</name></cite>
+<p>Add intro text</p></comment>
+
 
 <!-- BEGIN notes -->
 <section id="notes">
@@ -43,19 +46,20 @@ mal_inline_output = element output {
     <item>
       <p>Typical values for the <code>style</code> attribute include:</p>
       <table><tr>
-        <td><code>output</code></td>
-        <td>Standard output from a running program</td>
+        <td><p><code>output</code></p></td>
+        <td><p>Standard output from a running program</p></td>
       </tr><tr>
-        <td><code>error</code></td>
-        <td>Standard error from a running program</td>
+        <td><p><code>error</code></p></td>
+        <td><p>Standard error from a running program</p></td>
       </tr><tr>
-        <td><code>prompt</code></td>
-        <td>The command prompt for an interactive shell</td>
+        <td><p><code>prompt</code></p></td>
+        <td><p>The command prompt for an interactive shell</p></td>
       </tr></table>
     </item>
 
-    <item><p>The <code>output</code> element, together with the <code>input</code>
-    element, may be used to mark up the contents of a <code>screen</code> element,
+    <item><p>The <code>output</code> element, together with the
+    <code xref="mal_inline_input">input</code> element, may be used to mark up
+    the contents of a <code xref="mal_block_screen">screen</code> element,
     allowing processing tools to render them differently.</p></item>
 
     <item><p>The <code>output</code> element can link to other pages or documents.

@@ -58,8 +58,10 @@ as search paths and file extensions.</p>
 <!-- BEGIN processing -->
 <section id="processing">
   <title>Processing Expectations</title>
-  <p>Filenames should be rendered in a fixed-width or wide font to reduce
-  ambiguity between visually similar characters.</p>
+  <p>Filenames should be displayed in a fixed-width or wide font.  Fixed-width
+  fonts tend to have more distinction between visually similar characters.  This
+  is particularly important in filenames, since letters often appear without the
+  context of a known word that helps make them discernable in normal prose.</p>
 </section>
 <!-- END processing -->
 

@@ -59,6 +59,22 @@ the name of the command used to run an application; use
 <!-- END notes -->
 
 
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+  <p>Use <code>app</code> to mark up the name of an application:</p>
+  <example>
+    <code><![CDATA[
+To start <app>Totem Movie Player</app>, enter <cmd>totem</cmd> at
+the command line.
+]]></code>
+    <p>To start <app>Totem Movie Player</app>, enter <cmd>totem</cmd> at the
+    command line.</p>
+  </example>
+</section>
+<!-- END examples -->
+
+
 <!-- BEGIN processing -->
 <section id="processing">
   <title>Processing Expectations</title>

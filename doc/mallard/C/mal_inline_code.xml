@@ -14,7 +14,7 @@
     <name>Shaun McCance</name>
   </copyright>
 
-  <version number="0.1" date="2008-02-19" status="incomplete"/>
+  <version number="0.1" date="2008-12-12" status="review"/>
 
   <desc>Mark up code from a programming, markup, or other machine-readable format.</desc>
 </info>
@@ -72,10 +72,42 @@ by the user.</p>
 <!-- BEGIN examples -->
 <section id="examples">
   <title>Examples</title>
-  <comment>
-    <cite date="2007-01-25"><name>Shaun McCance</name></cite>
-    <p>Add examples.</p>
-  </comment>
+
+  <p>Use <code>code</code> to mark up the name of a function, struct, or other
+  constuct in a programming language:</p>
+
+  <example>
+    <code><![CDATA[
+Use <code>gtk_container_add</code> to add a child widget to a
+<code>GtkButton</code>.
+]]></code>
+    <p>Use <code>gtk_container_add</code> to add a child widget to a <code>GtkButton</code>.</p>
+  </example>
+
+  <p>Use <code>code</code> with <code xref="mal_inline_var">var</code> to mark
+  up code with a placeholder for an argument the user should supply:</p>
+
+  <example>
+    <code><![CDATA[
+To create a new button with a label, use
+<code>gtk_button_new_with_label(<var>label</var>)</code>,
+replacing <var>label</var> with the text of the label.
+]]></code>
+    <p>To create a new button with a label, use
+    <code>gtk_button_new_with_label(<var>label</var>)</code>,
+    replacing <var>label</var> with the text of the label.</p>
+  </example>
+
+  <p>Link to a web page directly with a <code>code</code> element:</p>
+
+  <example>
+    <code><![CDATA[
+Use <code>code</code> with <code xref="mal_inline_var">var</code> to mark
+up code with a placeholder for an argument the user should supply.
+]]></code>
+    <p>Use <code>code</code> with <code xref="mal_inline_var">var</code> to mark
+    up code with a placeholder for an argument the user should supply.</p>
+  </example>
 </section>
 <!-- END examples -->
 
@@ -83,11 +115,16 @@ by the user.</p>
 <!-- BEGIN processing -->
 <section id="processing">
   <title>Processing Expectations</title>
-  <comment>
-    <cite date="2007-01-25"><name>Shaun McCance</name></cite>
-    <p>Add processing expectations.  For block, strip leading/trailing
-    newline.  Do not strip leading indentation.</p>
-  </comment>
+  <p>Code snippets should be displayed in a fixed-width font.  This mimics
+  the look of a typical environment where code is typed.  More importantly,
+  fixed-width fonts tend to have more distinction between visually similar
+  characters.  This is particularly important in code, since letters often
+  appear without the context of a known word that helps make them discernable
+  in normal prose.</p>
+
+  <p>For particularly long code snippets, processing tools may use a background
+  color or border to make the beginning and end clear, although authors should
+  prefer <link xref="mal_block_code">code blocks</link> for long code snippets.</p>
 </section>
 <!-- END processing -->
 
@@ -97,7 +134,7 @@ by the user.</p>
   <title>Comparison to DocBook</title>
   <p>The <code>code</code> element is similar to the
   <code href="http://www.docbook.org/tdg/en/html/code.html">code</code> element
-  in DocBook.  Since Mallard does not attempt to model programming languages, the
+  in DocBook.  Since Mallard does not attempt to model programming languages,
   <code>code</code> may be used in place of numerous DocBook elements, including
   <code href="http://www.docbook.org/tdg/en/html/classname.html">classname</code>,
   <code href="http://www.docbook.org/tdg/en/html/constant.html">constant</code>,

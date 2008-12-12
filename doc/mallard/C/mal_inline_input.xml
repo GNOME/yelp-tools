@@ -32,6 +32,9 @@ mal_inline_input = element input {
 }
 </code></synopsis>
 
+<comment><cite date="2008-12-12"><name>Shaun McCance</name></cite>
+<p>Add intro text</p></comment>
+
 
 <!-- BEGIN notes -->
 <section id="notes">
@@ -41,8 +44,9 @@ mal_inline_input = element input {
     style hints.  Processing tools should adjust their rendering according to
     those style hints they understand.</p></item>
 
-    <item><p>The <code>input</code> element, together with the <code>output</code>
-    element, may be used to mark up the contents of a <code>screen</code> element,
+    <item><p>The <code>input</code> element, together with the
+    <code xref="mal_inline_outpu">output</code> element, may be used to mark up
+    the contents of a <code xref="mal_block_screen">screen</code> element,
     allowing processing tools to render them differently.</p></item>
 
     <item><p>The <code>input</code> element can link to other pages or documents.
