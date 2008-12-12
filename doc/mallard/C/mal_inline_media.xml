@@ -29,7 +29,7 @@ mal_inline_media_container = element media {
     mal_inline_media_image |
     mal_inline_media_text |
     mal_inline_media_video
-  )
+  ) +
 }
 mal_inline_media_audio = element media {
   attribute type { "audio" },
