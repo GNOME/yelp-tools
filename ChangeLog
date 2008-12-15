@@ -1,5 +1,11 @@
 2008-12-15  Shaun McCance  <shaunm@gnome.org>
 
+	* configure.in:
+	* NEWS:
+	- Version 0.14.1
+
+2008-12-15  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/docbook/html/db2html-title.xsl:
 	* xslt/docbook/html/db2html-cmdsynopsis.xsl:
 	* xslt/docbook/html/db2html-qanda.xsl:

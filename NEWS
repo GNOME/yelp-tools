@@ -1,3 +1,12 @@
+Changes in 0.14.1:
+------------------
+* Fixed some LTR issues, more remain on bug #563559 (Shaun McCance)
+* chmod +x gnome-doc-{tool,prepare} on configure, #557732 (Christian Persch)
+* Symlink non-localized figured to C figures, #557227 (Christian Persch)
+* Updated translations:
+  ar    (Khaled Hosny)
+  ja    (Mitsuya Shibata)
+
 Changes in 0.14.0:
 ------------------
 * Updated translations:
