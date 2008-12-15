@@ -54,6 +54,22 @@ dd.answer div.label { float: left; }
 <!-- = answer = -->
 <xsl:template match="answer">
   <dd class="answer">
+    <xsl:choose>
+      <xsl:when test="@lang">
+        <xsl:attribute name="dir">
+          <xsl:call-template name="l10n.direction">
+            <xsl:with-param name="lang" select="@lang"/>
+          </xsl:call-template>
+        </xsl:attribute>
+      </xsl:when>
+      <xsl:when test="../@lang">
+        <xsl:attribute name="dir">
+          <xsl:call-template name="l10n.direction">
+            <xsl:with-param name="lang" select="../@lang"/>
+          </xsl:call-template>
+        </xsl:attribute>
+      </xsl:when>
+    </xsl:choose>
     <div class="label">
       <xsl:call-template name="db.label">
         <xsl:with-param name="role" select="'header'"/>
@@ -83,7 +99,7 @@ dd.answer div.label { float: left; }
   </xsl:call-template>
 </xsl:template>
 
-<!-- = entry = -->
+<!-- = qandaentry = -->
 <xsl:template match="qandaentry">
   <xsl:apply-templates/>
 </xsl:template>
@@ -112,6 +128,22 @@ dd.answer div.label { float: left; }
 <xsl:template match="question">
   <!-- FIXME: dt-first -->
   <dt class="question">
+    <xsl:choose>
+      <xsl:when test="@lang">
+        <xsl:attribute name="dir">
+          <xsl:call-template name="l10n.direction">
+            <xsl:with-param name="lang" select="@lang"/>
+          </xsl:call-template>
+        </xsl:attribute>
+      </xsl:when>
+      <xsl:when test="../@lang">
+        <xsl:attribute name="dir">
+          <xsl:call-template name="l10n.direction">
+            <xsl:with-param name="lang" select="../@lang"/>
+          </xsl:call-template>
+        </xsl:attribute>
+      </xsl:when>
+    </xsl:choose>
     <div class="label">
       <xsl:call-template name="db.label">
         <xsl:with-param name="role" select="'header'"/>

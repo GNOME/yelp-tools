@@ -74,6 +74,20 @@ REMARK: Describe this param
                          not(self::titleabbrev) and not(self::attribution) ])"/>
 
   <div>
+    <xsl:choose>
+      <xsl:when test="@lang">
+        <xsl:attribute name="dir">
+          <xsl:call-template name="l10n.direction">
+            <xsl:with-param name="lang" select="@lang"/>
+          </xsl:call-template>
+        </xsl:attribute>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:attribute name="dir">
+          <xsl:text>ltr</xsl:text>
+        </xsl:attribute>
+      </xsl:otherwise>
+    </xsl:choose>
     <xsl:attribute name="class">
       <xsl:text>block synopsis </xsl:text>
       <xsl:value-of select="local-name(.)"/>

@@ -197,7 +197,7 @@ element.
              select="not($node/preceding-sibling::*
                      [not(self::blockinfo) and not(self::title) and
                       not(self::titleabbrev) and not(self::attribution) ])"/>
-  <xsl:param name="lang" select="$title/@lang"/>
+  <xsl:param name="lang" select="$node/@lang"/>
   <xsl:param name="dir" select="false()"/>
   <xsl:param name="ltr" select="false()"/>
 
@@ -257,7 +257,7 @@ This template creates an HTML #{p} element for the given DocBook element.
              select="not($node/preceding-sibling::*
                      [not(self::blockinfo) and not(self::title) and
                       not(self::titleabbrev) and not(self::attribution) ])"/>
-  <xsl:param name="lang" select="$title/@lang"/>
+  <xsl:param name="lang" select="$node/@lang"/>
   <xsl:param name="dir" select="false()"/>
   <xsl:param name="ltr" select="false()"/>
 
@@ -325,7 +325,7 @@ template.
                       not(self::titleabbrev) and not(self::attribution) ])"/>
   <xsl:param name="indent" select="false()"/>
   <xsl:param name="children" select="$node/node()"/>
-  <xsl:param name="lang" select="$title/@lang"/>
+  <xsl:param name="lang" select="$node/@lang"/>
   <xsl:param name="dir" select="false()"/>
   <xsl:param name="ltr" select="true()"/>
 

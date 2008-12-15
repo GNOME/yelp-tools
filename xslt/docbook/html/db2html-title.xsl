@@ -33,18 +33,36 @@ db2html.title.block
 Generates a labeled block title
 $node: The element to generate a title for
 $referent: The element that ${node} is a title for
+$lang: The locale of the text in ${node}
+$dir: The text direction, either #{ltr} or #{rtl}
 
 REMARK: Talk about the different kinds of title blocks
 -->
 <xsl:template name="db2html.title.block">
   <xsl:param name="node" select="."/>
   <xsl:param name="referent" select="$node/.."/>
+  <xsl:param name="lang" select="$node/@lang"/>
+  <xsl:param name="dir" select="false()"/>
   <xsl:variable name="depth_in_chunk">
     <xsl:call-template name="db.chunk.depth-in-chunk">
       <xsl:with-param name="node" select="$referent"/>
     </xsl:call-template>
   </xsl:variable>
   <div class="block block-first {local-name($node)}">
+    <xsl:choose>
+      <xsl:when test="$dir = 'ltr' or $dir = 'rtl'">
+        <xsl:attribute name="dir">
+          <xsl:value-of select="$dir"/>
+        </xsl:attribute>
+      </xsl:when>
+      <xsl:when test="$lang">
+        <xsl:attribute name="dir">
+          <xsl:call-template name="l10n.direction">
+            <xsl:with-param name="lang" select="$lang"/>
+          </xsl:call-template>
+        </xsl:attribute>
+      </xsl:when>
+    </xsl:choose>
     <span class="{local-name($node)}">
       <xsl:call-template name="db2html.anchor">
         <xsl:with-param name="node" select="$node"/>

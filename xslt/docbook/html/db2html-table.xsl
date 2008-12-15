@@ -413,6 +413,22 @@ element to output the next #{td}.
       </xsl:variable>
       <!-- Finally, output the td or th element -->
       <xsl:element name="{$element}" namespace="{$db2html.namespace}">
+        <xsl:choose>
+          <xsl:when test="@lang">
+            <xsl:attribute name="dir">
+              <xsl:call-template name="l10n.direction">
+                <xsl:with-param name="lang" select="@lang"/>
+              </xsl:call-template>
+            </xsl:attribute>
+          </xsl:when>
+          <xsl:when test="../@lang">
+            <xsl:attribute name="dir">
+              <xsl:call-template name="l10n.direction">
+                <xsl:with-param name="lang" select="../@lang"/>
+              </xsl:call-template>
+            </xsl:attribute>
+          </xsl:when>
+        </xsl:choose>
         <xsl:if test="$style != ''">
           <xsl:attribute name="style">
             <xsl:value-of select="normalize-space($style)"/>
@@ -929,6 +945,13 @@ REMARK: This template needs to be explained in detail, but I forgot how it works
 <!-- = table = -->
 <xsl:template match="table | informaltable">
   <div class="table block block-indent">
+    <xsl:if test="@lang">
+      <xsl:attribute name="dir">
+        <xsl:call-template name="l10n.direction">
+          <xsl:with-param name="lang" select="@lang"/>
+        </xsl:call-template>
+      </xsl:attribute>
+    </xsl:if>
     <xsl:call-template name="db2html.anchor"/>
     <xsl:apply-templates select="title"/>
     <!-- FIXME: I have no idea what I'm supposed to do with textobject -->
@@ -1000,6 +1023,13 @@ REMARK: This template needs to be explained in detail, but I forgot how it works
     </xsl:if>
   </xsl:variable>
   <table>
+    <xsl:if test="@lang">
+      <xsl:attribute name="dir">
+        <xsl:call-template name="l10n.direction">
+          <xsl:with-param name="lang" select="@lang"/>
+        </xsl:call-template>
+      </xsl:attribute>
+    </xsl:if>
     <xsl:if test="../title">
       <xsl:attribute name="summary">
         <xsl:value-of select="../title"/>
@@ -1043,6 +1073,13 @@ REMARK: This template needs to be explained in detail, but I forgot how it works
   <xsl:param name="colsep" select="''"/>
   <xsl:param name="rowsep" select="''"/>
   <xsl:element name="{local-name(.)}" namespace="{$db2html.namespace}">
+    <xsl:if test="@lang">
+      <xsl:attribute name="dir">
+        <xsl:call-template name="l10n.direction">
+          <xsl:with-param name="lang" select="@lang"/>
+        </xsl:call-template>
+      </xsl:attribute>
+    </xsl:if>
     <xsl:if test="@valign">
       <xsl:attribute name="valign">
         <xsl:value-of select="@valign"/>

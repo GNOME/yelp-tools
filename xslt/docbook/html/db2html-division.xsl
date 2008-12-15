@@ -263,6 +263,8 @@ $depth_of_chunk: The depth of the containing chunk in the document
 $chunk_divisions: Whether to create new documents for ${divisions}
 $chunk_info: Whether to create a new document for a title page
 $autotoc_depth: How deep to create contents listings of ${divisions}
+$lang: The locale of the text in ${node}
+$dir: The text direction, either #{ltr} or #{rtl}
 
 REMARK: Talk about some of the parameters
 -->
@@ -296,8 +298,24 @@ REMARK: Talk about some of the parameters
              select="($depth_of_chunk = 0) and
                      ($depth_in_chunk = 0 and $info)"/>
   <xsl:param name="autotoc_depth" select="number(boolean($divisions))"/>
+  <xsl:param name="lang" select="$node/@lang"/>
+  <xsl:param name="dir" select="false()"/>
 
   <div class="division {local-name($node)}">
+    <xsl:choose>
+      <xsl:when test="$dir = 'ltr' or $dir = 'rtl'">
+        <xsl:attribute name="dir">
+          <xsl:value-of select="$dir"/>
+        </xsl:attribute>
+      </xsl:when>
+      <xsl:when test="$lang">
+        <xsl:attribute name="dir">
+          <xsl:call-template name="l10n.direction">
+            <xsl:with-param name="lang" select="$lang"/>
+          </xsl:call-template>
+        </xsl:attribute>
+      </xsl:when>
+    </xsl:choose>
     <xsl:call-template name="db2html.anchor">
       <xsl:with-param name="node" select="$node"/>
     </xsl:call-template>

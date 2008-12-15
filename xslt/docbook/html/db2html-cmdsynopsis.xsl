@@ -68,19 +68,6 @@ REMARK: Describe this param
 <xsl:param name="db2html.group.rep" select="'norepeat'"/>
 
 
-<!--**==========================================================================
-db2html.cmdsynopsis.css
-Outputs CSS that controls the appearance of command synopsis elements
-
-REMARK: Describe this template
--->
-<xsl:template name="db2html.cmdsynopsis.css">
-<xsl:text>
-div.cmdsynopsis { font-family: monospace; }
-</xsl:text>
-</xsl:template>
-
-
 <!-- == Matched Templates == -->
 
 <!-- = arg = -->
@@ -173,6 +160,20 @@ div.cmdsynopsis { font-family: monospace; }
     </xsl:choose>
   </xsl:param>
   <div>
+    <xsl:choose>
+      <xsl:when test="@lang">
+        <xsl:attribute name="dir">
+          <xsl:call-template name="l10n.direction">
+            <xsl:with-param name="lang" select="@lang"/>
+          </xsl:call-template>
+        </xsl:attribute>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:attribute name="dir">
+          <xsl:text>ltr</xsl:text>
+        </xsl:attribute>
+      </xsl:otherwise>
+    </xsl:choose>
     <xsl:attribute name="class">
       <xsl:text>synopsis cmdsynopsis block</xsl:text>
       <xsl:if test="not(preceding-sibling::*
