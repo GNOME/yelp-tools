@@ -26,7 +26,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!--!!==========================================================================
 DocBook to HTML - Command Synopses
-:Requires: db-label db2html-xref
+:Requires: db-label db2html-xref gettext
 
 This module contains templates to process DocBook command synopsis elements.
 -->

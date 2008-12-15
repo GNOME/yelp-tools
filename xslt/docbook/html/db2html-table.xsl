@@ -22,7 +22,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <!--!!==========================================================================
 DocBook to HTML - Tables
-:Requires: db2html-block db2html-inline db2html-xref
+:Requires: db2html-block db2html-inline db2html-xref gettext
 
 REMARK: This needs lots of talk about CALS
 -->

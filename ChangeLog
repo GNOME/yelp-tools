@@ -1,6 +1,15 @@
 2008-12-15  Shaun McCance  <shaunm@gnome.org>
 
 	* xslt/docbook/html/db2html-title.xsl:
+	* xslt/docbook/html/db2html-cmdsynopsis.xsl:
+	* xslt/docbook/html/db2html-qanda.xsl:
+	* xslt/docbook/html/db2html-table.xsl:
+	* xslt/docbook/html/db2html-classsynopsis.xsl:
+	- Fix Requirements introduced with l10n work
+
+2008-12-15  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/html/db2html-title.xsl:
 	* xslt/docbook/html/db2html-list.xsl:
 	* xslt/docbook/html/db2html-cmdsynopsis.xsl:
 	* xslt/docbook/html/db2html-division.xsl:
