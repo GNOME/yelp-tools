@@ -107,9 +107,9 @@ span.em { font-style: italic; }
 span.email { color: red; }
 span.file { font-family: monospace; }
 span.gui { color: red; }
-span.input { color: red; }
+span.input { font-family: monospace; }
 span.key { /* FIXME */ }
-span.output { color: red; }
+span.output { font-family: monospace; }
 span.sys { font-family: monospace; }
 span.var { font-style: italic; }
 </xsl:text>
