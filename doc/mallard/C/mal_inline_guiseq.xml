@@ -15,7 +15,7 @@
     <name>Shaun McCance</name>
   </copyright>
 
-  <version number="0.1" date="2008-02-19" status="incomplete"/>
+  <version number="0.1" date="2008-12-16" status="review"/>
 
   <desc>Mark up a sequence of interface controls to navigate.</desc>
 </info>
@@ -50,6 +50,38 @@ items.</p>
   </list>
 </section>
 <!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Use <code>guiseq</code> to mark up a sequence of menu items:</p>
+
+  <example>
+    <code><![CDATA[
+Select <guiseq><gui>File</gui><gui>New</gui></guiseq> to open
+a new document.
+]]></code>
+    <p>Select <guiseq><gui>File</gui><gui>New</gui></guiseq> to open
+    a new document.</p>
+  </example>
+
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>Display tools should show each of the child <code>gui</code> elements as
+  normal, adding a separator between them.  The exact separator may vary according
+  to the language and style preferences, but it will typically be some sort of
+  right-pointing arrow or triangle, or left-pointing for right-to-left
+  languages.</p>
+</section>
+<!-- END processing -->
 
 
 <!-- BEGIN docbook -->

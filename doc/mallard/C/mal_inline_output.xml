@@ -14,7 +14,7 @@
     <name>Shaun McCance</name>
   </copyright>
 
-  <version number="0.1" date="2008-02-19" status="stub"/>
+  <version number="0.1" date="2008-12-16" status="incomplete"/>
 
   <desc>Mark up the output from a computer program.</desc>
 </info>
@@ -30,6 +30,10 @@ mal_inline_output = element output {
   <link xref="mal_inline">mal_inline</link>
 }
 </code></synopsis>
+
+<comment><cite date="2008-12-16"><name>shaunm</name></cite>
+<p>This is marked incomplete because the example with screen is
+not yet rendered correctly.  The content is finished.</p></comment>
 
 <p>Use the <code>output</code> element to mark up text that is output
 by a computer program.  Typically, this is text output in a command-line
@@ -134,7 +138,11 @@ if you use the Bourne-again shell.
 <!-- BEGIN processing -->
 <section id="processing">
   <title>Processing Expectations</title>
-  <comment><cite date="2008-12-15"><name>shaunm</name></cite><p>Add processing expectations</p></comment>
+
+  <p>Computer output should be displayed in a fixed-width or wide font.
+  Fixed-width fonts tend to have more distinction between visually similar
+  characters.  Processing tools may use a background color or border to
+  make the beginning and end of the ouptut clear.</p>
 </section>
 
 

@@ -14,7 +14,7 @@
     <name>Shaun McCance</name>
   </copyright>
 
-  <version number="0.1" date="2008-02-19" status="incomplete"/>
+  <version number="0.1" date="2008-12-16" status="review"/>
 
   <desc>Mark up control labels from a graphical user interface.</desc>
 </info>
@@ -31,6 +31,12 @@ mal_inline_gui = element gui {
 }
 </code></synopsis>
 
+<p>Use the <code>gui</code> element to mark up the label of a control in
+a graphical user interface.  You can use <code>gui</code> for all sorts
+of controls, including buttons, check boxes, and menu items.  If necessary,
+you can use the <code>style</code> attribute to indicate what kind of
+control is being marked up.</p>
+
 
 <!-- BEGIN notes -->
 <section id="notes">
@@ -39,6 +45,42 @@ mal_inline_gui = element gui {
     <item><p>The <code>style</code> attribute takes a space-separated list of
     style hints.  Processing tools should adjust their rendering according to
     those style hints they understand.</p></item>
+
+    <item><p>Typical style hints include:</p>
+    <table>
+      <tr>
+        <td><p><code>button</code></p></td>
+        <td><p>The text of a button</p></td>
+      </tr>
+      <tr>
+        <td><p><code>checkbox</code></p></td>
+        <td><p>The label for a check box</p></td>
+      </tr>
+      <tr>
+        <td><p><code>group</code></p></td>
+        <td><p>The label for a group of controls</p></td>
+      </tr>
+      <tr>
+        <td><p><code>input</code></p></td>
+        <td><p>The label for any text entry control</p></td>
+      </tr>
+      <tr>
+        <td><p><code>menu</code></p></td>
+        <td><p>The name of a menu</p></td>
+      </tr>
+      <tr>
+        <td><p><code>menuitem</code></p></td>
+        <td><p>The name of an item in a menu</p></td>
+      </tr>
+      <tr>
+        <td><p><code>radiobutton</code></p></td>
+        <td><p>The label for a radio button</p></td>
+      </tr>
+      <tr>
+        <td><p><code>tab</code></p></td>
+        <td><p>The label on a tab</p></td>
+      </tr>
+    </table></item>
 
     <item><p>The <code>gui</code> element can link to other pages or documents.
     See <link xref="mal_attr_link"/> for more information.</p></item>
@@ -54,6 +96,27 @@ mal_inline_gui = element gui {
 <!-- BEGIN examples -->
 <section id="examples">
   <title>Examples</title>
+
+  <p>Use <code>gui</code> to mark up the text of a button:</p>
+
+  <example>
+    <code><![CDATA[
+Click the <gui>Close</gui> button to close the window.
+]]></code>
+    <p>Click the <gui>Close</gui> button to close the window.</p>
+  </example>
+
+  <p>Use <code>gui</code> to mark up the label on a tab:</p>
+
+  <example>
+    <code><![CDATA[
+The <gui>Filters</gui> tab contains options to change the behavior
+of your keyboard to meet certain accessibility needs.
+]]></code>
+    <p>The <gui>Filters</gui> tab contains options to change the behavior
+    of your keyboard to meet certain accessibility needs.</p>
+  </example>
+
 </section>
 <!-- END examples -->
 
@@ -61,10 +124,16 @@ mal_inline_gui = element gui {
 <!-- BEGIN processing -->
 <section id="processing">
   <title>Processing Expectations</title>
-  <comment>
-    <cite date="2008-11-09"><name>Shaun McCance</name></cite>
-    <p>Add processing expectations.</p>
-  </comment>
+
+  <p>No particular special rendering is required for <code>gui</code> elements.
+  Processing tools may use subtle effects such as lightened text to distinguish
+  interface labels elements from the surrounding text.</p>
+
+  <p>In certain environments, processing tools may decorate interface labels
+  with an icon or other effect based on the <code>style</code> attribute.
+  For example, in a table of options where the first element of each row is
+  a <code>gui</code> element, those with the <code>checkbox</code> style
+  hint could be decorated with a check box icon.</p>
 </section>
 <!-- END processing -->
 

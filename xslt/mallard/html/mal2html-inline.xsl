@@ -106,9 +106,33 @@ span.code { font-family: monospace; }
 span.em { font-style: italic; }
 span.email { color: red; }
 span.file { font-family: monospace; }
-span.gui { color: red; }
+span.gui, span.guiseq { color: </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'text-light'"/>
+  </xsl:call-template>
+  <xsl:text>;
+}
 span.input { font-family: monospace; }
-span.key { /* FIXME */ }
+span.key {
+  color: </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'text-light'"/>
+  </xsl:call-template>
+  <xsl:text>;
+  border: solid 1px </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'gray-border'"/>
+  </xsl:call-template>
+  <xsl:text>;
+  padding: 0 0.2em 0 0.2em;
+}
+span.keyseq {
+  color: </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'text-light'"/>
+  </xsl:call-template>
+  <xsl:text>;
+}
 span.output { font-family: monospace; }
 span.sys { font-family: monospace; }
 span.var { font-style: italic; }
@@ -155,8 +179,23 @@ span.var { font-style: italic; }
 
 <!-- = gui = -->
 <xsl:template mode="mal2html.inline.mode" match="mal:gui">
-  <!-- FIXME: menu -->
   <xsl:call-template name="mal2html.span"/>
+</xsl:template>
+
+<!-- = guiseq = -->
+<xsl:template mode="mal2html.inline.mode" match="mal:guiseq">
+  <xsl:call-template name="mal2html.span"/>
+</xsl:template>
+
+<!-- = guiseq % mal2html.inline.content.mode = -->
+<xsl:template mode="mal2html.inline.content.mode" match="mal:guiseq">
+  <xsl:for-each select="mal:gui">
+    <xsl:if test="position() != 1">
+      <!-- FIXME: rtl -->
+      <xsl:text>&#x00A0;&#x25B8; </xsl:text>
+    </xsl:if>
+    <xsl:apply-templates mode="mal2html.inline.mode" select="."/>
+  </xsl:for-each>
 </xsl:template>
 
 <!-- = input = -->

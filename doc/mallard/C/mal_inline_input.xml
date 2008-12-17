@@ -15,7 +15,7 @@
     <name>Shaun McCance</name>
   </copyright>
 
-  <version number="0.1" date="2008-02-19" status="stub"/>
+  <version number="0.1" date="2008-12-16" status="incomplete"/>
 
   <desc>Mark up text the user should input into a computer program.</desc>
 </info>
@@ -32,8 +32,9 @@ mal_inline_input = element input {
 }
 </code></synopsis>
 
-<comment><cite date="2008-12-12"><name>Shaun McCance</name></cite>
-<p>Add intro text</p></comment>
+<p>Use the <code>input</code> element to mark up text that is input b
+the user.  This may be text entered into a command-line environment
+or into a text field in a graphical application.</p>
 
 
 <!-- BEGIN notes -->
@@ -58,6 +59,27 @@ mal_inline_input = element input {
   </list>
 </section>
 <!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <comment><cite date="2008-12-16"><name>Shaun McCance</name></cite>
+  <p>Add examples</p></comment>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>User input should be displayed in a fixed-width or wide font.  Fixed-width
+  fonts tend to have more distinction between visually similar characters.
+  Processing tools may use a background color or border to make the beginning
+  and end of the intut clear.</p>
+</section>
 
 
 <!-- BEGIN docbook -->

@@ -14,7 +14,7 @@
     <name>Shaun McCance</name>
   </copyright>
 
-  <version number="0.1" date="2008-02-19" status="incomplete"/>
+  <version number="0.1" date="2008-12-16" status="review"/>
 
   <desc>Emphasize important text.</desc>
 </info>
@@ -59,10 +59,24 @@ processing tools.</p>
 <!-- BEGIN examples -->
 <section id="examples">
   <title>Examples</title>
-  <comment>
-    <cite date="2008-02-19"><name>Shaun McCance</name></cite>
-    <p>Add examples.</p>
-  </comment>
+
+  <p>Use <code>em</code> to stress a word in a sentence:</p>
+
+  <example>
+    <code><![CDATA[
+You should <em>never</em> run a graphical application as root.
+]]></code>
+    <p>You should <em>never</em> run a graphical application as root.</p>
+  </example>
+
+  <p>Use <code>em</code> to mark the first occurance of a term:</p>
+
+  <example>
+    <code><![CDATA[
+Note that <em>accelerators</em> are different from <em>mnemonics</em>.
+]]></code>
+    <p>Note that <em>accelerators</em> are different from <em>mnemonics</em>.</p>
+  </example>
 </section>
 <!-- END examples -->
 
