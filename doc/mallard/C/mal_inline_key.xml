@@ -100,7 +100,7 @@ Press the <key>Down</key> key to select the next item.
 
   <p>No particular special rendering is required for <code>key</code> elements.
   Display tools may use subtle effects such as lightened text or borders to
-  distinguish interface keys from the surrounding text.</p>
+  distinguish keys from the surrounding text.</p>
 </section>
 <!-- END processing -->
 

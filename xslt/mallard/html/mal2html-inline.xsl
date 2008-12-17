@@ -236,6 +236,9 @@ span.var { font-style: italic; }
       <xsl:when test="@type = 'sequence'">
         <xsl:text> </xsl:text>
       </xsl:when>
+      <xsl:when test="contains(concat(' ', @style, ' '), ' hyphen ')">
+        <xsl:text>-</xsl:text>
+      </xsl:when>
       <xsl:otherwise>
         <xsl:text>+</xsl:text>
       </xsl:otherwise>
@@ -245,7 +248,14 @@ span.var { font-style: italic; }
     <xsl:if test="position() != 1">
       <xsl:value-of select="$joinchar"/>
     </xsl:if>
-    <xsl:apply-templates mode="mal2html.inline.mode" select="."/>
+    <xsl:choose>
+      <xsl:when test="./self::text()">
+        <xsl:value-of select="normalize-space(.)"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:apply-templates mode="mal2html.inline.mode" select="."/>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:for-each>
 </xsl:template>
 

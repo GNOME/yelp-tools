@@ -15,7 +15,7 @@
     <name>Shaun McCance</name>
   </copyright>
 
-  <version number="0.1" date="2008-02-19" status="incomplete"/>
+  <version number="0.1" date="2008-12-17" status="review"/>
 
   <desc>Mark up a key combination or sequence.</desc>
 </info>
@@ -34,12 +34,10 @@ mal_inline_keyseq = element keyseq {
 }
 </code></synopsis>
 
-<comment>
-<p><keyseq><key>A</key><key>B</key></keyseq></p>
-<p><keyseq>A<key>B</key>C</keyseq></p>
-<p><keyseq>A<key>B</key>
-</keyseq></p>
-</comment>
+<p>Use the <code>keyseq</code> element to mark up a key combination or sequence.
+Use the <code xref="mal_inline_key">key</code> element to mark up each individual
+key press.  You can use text without markup to indicate a class of keys, such as
+<em>arrow keys</em>, or to indicate a mouse action.</p>
 
 
 <!-- BEGIN notes -->
@@ -60,6 +58,93 @@ mal_inline_keyseq = element keyseq {
   </list>
 </section>
 <!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Use <code>keyseq</code> to mark up a keyboard shortcut:</p>
+
+  <example>
+    <code><![CDATA[
+Press <keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit.
+]]></code>
+    <p>Press <keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit.</p>
+  </example>
+
+  <p>Use <code>keyseq</code> with text for classes of keys:</p>
+
+  <example>
+    <code><![CDATA[
+Press <keyseq><key>Shift</key>arrow keys</keyseq> to make a continuous
+selection as you move the keyboard focus.
+]]></code> 
+    <p>Press <keyseq><key>Shift</key>arrow keys</keyseq> to make a continuous
+    selection as you move the keyboard focus.</p>
+  </example>
+
+  <p>Use <code>keyseq</code> with text for mouse actions:</p>
+
+  <example>
+    <code><![CDATA[
+<keyseq><key>Shift</key>click</keyseq> to make a continuous selection.
+]]></code> 
+    <p><keyseq><key>Shift</key>click</keyseq> to make a continuous selection.</p>
+  </example>
+
+  <p>Use nested <code>keyseq</code> elements for comples key commands:</p>
+
+  <example>
+    <code><![CDATA[
+Press <keyseq type="sequence"><keyseq><key>C</key><key>x</key></keyseq>
+<keyseq><key>C</key><key>s</key></keyseq></keyseq> to save a file in
+<app>Emacs</app>.
+]]></code> 
+    <p>Press <keyseq type="sequence"><keyseq><key>C</key><key>x</key></keyseq>
+    <keyseq><key>C</key><key>s</key></keyseq></keyseq> to save a file in
+    <app>Emacs</app>.</p>
+  </example>
+
+  <p>Since classes of keys and mouse actions are written without surrounding
+  markup, you can't have two consecutive key classes or mouse actions.  You
+  can overcome this limitation by using nested singleton <code>keyseq</code>
+  elements:</p>
+
+  <example>
+    <code><![CDATA[
+There are various ways to modify drag behavior by using
+<keyseq><keyseq>modifier</keyseq>drag</keyseq>.
+]]></code> 
+    <p>There are various ways to modify drag behavior by using
+    <keyseq><keyseq>modifier</keyseq>drag</keyseq>.</p>
+  </example>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>Display tools should show each of the children except whitespace-only
+  text nodes, adding a separator between them.  The exact separator may vary
+  according to language and style preferences, and according to the
+  <code>type</code> attribute.  For sequences, a space is typically used.
+  For combinations, the plus sign (+) is most frequently used on modern
+  systems, although the hyphen (-) is still common in some areas.  Display
+  tools may use a style hint to choose different separators.</p>
+
+  <p>Child <code>key</code> and <code>keyseq</code> elements should be shown
+  as normal.  Text nodes should have their whitespace normalized to strip
+  leading and trailing spaces.  Text nodes may be rendered using a font
+  variation such as italics.</p>
+
+  <p>Display tools may use subtle effects such as lightened text or borders
+  to distinguish key sequences from the surrounding text.</p>
+</section>
+<!-- END processing -->
+
 
 <!-- BEGIN docbook -->
 <section id="docbook">
