@@ -60,7 +60,8 @@ REMARK: Document this template
 -->
 <xsl:template name="mal2html.span">
   <xsl:param name="node" select="."/>
-  <span class="{local-name($node)}">
+  <xsl:param name="class" select="''"/>
+  <span class="{concat($class, ' ', local-name($node))}">
     <xsl:choose>
       <xsl:when test="$node/@xref | $node/@href">
         <a>
@@ -137,6 +138,18 @@ span.keyseq {
   <xsl:text>;
 }
 span.output { font-family: monospace; }
+pre.screen span.output {
+  color: </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'text-light'"/>
+  </xsl:call-template>
+  <xsl:text>;
+}
+pre.screen span.output-error {
+<!-- FIXME: theme -->
+  color: #ff0000;
+}
+pre.screen span.output-prompt { font-weight: bold; }
 span.sys { font-family: monospace; }
 span.var { font-style: italic; }
 </xsl:text>
@@ -265,7 +278,22 @@ span.var { font-style: italic; }
 
 <!-- = output = -->
 <xsl:template mode="mal2html.inline.mode" match="mal:output">
-  <xsl:call-template name="mal2html.span"/>
+  <xsl:variable name="style" select="concat(' ', @style, ' ')"/>
+  <xsl:call-template name="mal2html.span">
+    <xsl:with-param name="class">
+      <xsl:choose>
+        <xsl:when test="contains($style, ' output ')">
+          <xsl:text>output-output</xsl:text>
+        </xsl:when>
+        <xsl:when test="contains($style, ' error ')">
+          <xsl:text>output-error</xsl:text>
+        </xsl:when>
+        <xsl:when test="contains($style, ' prompt ')">
+          <xsl:text>output-prompt</xsl:text>
+        </xsl:when>
+      </xsl:choose>
+    </xsl:with-param>
+  </xsl:call-template>
 </xsl:template>
 
 <!-- = quote = -->
