@@ -53,11 +53,11 @@ by the user.</p>
   <title>Notes</title>
   <list type="bullet">
     <item><p>The <code>style</code> attribute takes a space-separated list of
-    style hints.  Processing tools should adjust their rendering according to
+    style hints.  Processing tools should adjust their behavior according to
     those style hints they understand.</p></item>
 
     <item><p>The <code>mime</code> attribute takes a valid MIME type.  Processing
-    tools may adjust their rendering for particular MIME types.</p></item>
+    tools may adjust their behavior for particular MIME types.</p></item>
 
     <item><p>The <code>code</code> element can link to other pages or documents.
     See <link xref="mal_attr_link"/> for more information.</p></item>
@@ -123,7 +123,7 @@ up code with a placeholder for an argument the user should supply.
   appear without the context of a known word that helps make them discernable
   in normal prose.</p>
 
-  <p>For particularly long code snippets, processing tools may use a background
+  <p>For particularly long code snippets, display tools may use a background
   color or border to make the beginning and end clear, although authors should
   prefer <link xref="mal_block_code">code blocks</link> for long code snippets.</p>
 </section>

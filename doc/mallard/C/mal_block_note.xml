@@ -24,7 +24,7 @@ mal_block_note = element note {
   <title>Discussion</title>
   <list type="bullet">
     <item><p>The <code>style</code> attribute takes a space-separated list of
-    style hints.  Processing tools should adjust their rendering according to
+    style hints.  Processing tools should adjust their behavior according to
     those style hints they understand.</p></item>
 
     <item>

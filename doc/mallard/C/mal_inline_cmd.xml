@@ -57,11 +57,11 @@ by the user.</p>
   <title>Notes</title>
   <list type="bullet">
     <item><p>The <code>style</code> attribute takes a space-separated list of
-    style hints.  Processing tools should adjust their rendering according to
+    style hints.  Processing tools should adjust their behavior according to
     those style hints they understand.</p></item>
 
     <item><p>The <code>mime</code> attribute takes a valid MIME type.  Processing
-    tools may adjust their rendering for particular MIME types.</p></item>
+    tools may adjust their behavior for particular MIME types.</p></item>
 
     <item>
       <p>Typical values for the <code>mime</code> attribute include:</p>
@@ -142,7 +142,7 @@ you to filter files based on their modification times.
   how to use them to a particular effect.  This can make it difficult to find
   the end of the command quickly.  Surrounding text content, especially
   punctuation, can sometimes be confused for part of the command.  For this
-  reason, it is recommended that processing tools apply a border or background
+  reason, it is recommended that display tools apply a border or background
   color to commands.</p>
 </section>
 <!-- END processing -->

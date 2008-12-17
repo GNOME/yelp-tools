@@ -45,7 +45,7 @@ these instead.</p>
   <title>Notes</title>
   <list type="bullet">
     <item><p>The <code>style</code> attribute takes a space-separated list of
-    style hints.  Processing tools should adjust their rendering according to
+    style hints.  Processing tools should adjust their behavior according to
     those style hints they understand.</p></item>
 
     <item><p>The <code>key</code> element can link to other pages or documents.
@@ -99,7 +99,7 @@ Press the <key>Down</key> key to select the next item.
   <title>Processing Expectations</title>
 
   <p>No particular special rendering is required for <code>key</code> elements.
-  Processing tools may use subtle effects such as lightened text or borders to
+  Display tools may use subtle effects such as lightened text or borders to
   distinguish interface keys from the surrounding text.</p>
 </section>
 <!-- END processing -->

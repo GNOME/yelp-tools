@@ -34,7 +34,7 @@ mal_inline_em = element em {
 <p>Use the <code>em</code> element to emphasize text.  You may use <code>em</code>
 to stress certain words in a sentence.  Do not use <code>em</code> to effect a
 particular typographic style, since it may be rendered differently by different
-processing tools.</p>
+display tools.</p>
 
 
 <!-- BEGIN notes -->
@@ -42,7 +42,7 @@ processing tools.</p>
   <title>Notes</title>
   <list type="bullet">
     <item><p>The <code>style</code> attribute takes a space-separated list of
-    style hints.  Processing tools should adjust their rendering according to
+    style hints.  Processing tools should adjust their behavior according to
     those style hints they understand.</p></item>
 
     <item><p>The <code>em</code> element can link to other pages or documents.
@@ -104,10 +104,10 @@ Note that <em>accelerators</em> are different from <em>mnemonics</em>.
   <p>The <code>em</code> element is similar to the
   <code href="http://www.docbook.org/tdg/en/html/emphasis.html">emphasis</code>
   element in DocBook.  Athough DocBook does not normatively specify a means of
-  controlling the presentation, most DocBook processing tools allow writers to
+  controlling the presentation, most DocBook display tools allow writers to
   set the <code>role</code> attribute to <code>bold</code> or <code>strong</code>
   to specify bold text.  We explicitly recommend against doing this in Mallard
-  documents and processing tools.</p>
+  documents and display tools.</p>
 </section>
 <!-- END docbook -->
 

@@ -36,7 +36,7 @@ control element.</p>
   <p>A <code>synopsis</code> element is rendered as a displayed block,
   with each of its child elements interpreted as block elements.  Since
   a <code>synopsis</code> element often contains large blocks, and is
-  generally offset from the running text, processing tools may opt to
+  generally offset from the running text, display tools may opt to
   render it inside a colored or screened box, with a border, or
   otherwise differently from the surrounding text.</p>
 

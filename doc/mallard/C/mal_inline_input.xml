@@ -42,13 +42,13 @@ or into a text field in a graphical application.</p>
   <title>Notes</title>
   <list type="bullet">
     <item><p>The <code>style</code> attribute takes a space-separated list of
-    style hints.  Processing tools should adjust their rendering according to
+    style hints.  Processing tools should adjust their behavior according to
     those style hints they understand.</p></item>
 
     <item><p>The <code>input</code> element, together with the
-    <code xref="mal_inline_outpu">output</code> element, may be used to mark up
+    <code xref="mal_inline_output">output</code> element, may be used to mark up
     the contents of a <code xref="mal_block_screen">screen</code> element,
-    allowing processing tools to render them differently.</p></item>
+    allowing processing tools to treat them differently.</p></item>
 
     <item><p>The <code>input</code> element can link to other pages or documents.
     See <link xref="mal_attr_link"/> for more information.</p></item>
@@ -77,7 +77,7 @@ or into a text field in a graphical application.</p>
 
   <p>User input should be displayed in a fixed-width or wide font.  Fixed-width
   fonts tend to have more distinction between visually similar characters.
-  Processing tools may use a background color or border to make the beginning
+  Display tools may use a background color or border to make the beginning
   and end of the intut clear.</p>
 </section>
 
