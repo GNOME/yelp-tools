@@ -37,6 +37,9 @@ REMARK: Describe this template
 <xsl:template name="mal2html.block.css">
 <xsl:text>
 div.title {
+  font-size: 1.2em;
+  margin-top: 0;
+  font-weight: bold;
   color: </xsl:text>
   <xsl:call-template name="theme.get_color">
     <xsl:with-param name="id" select="'text-light'"/>
@@ -54,24 +57,14 @@ pre.code {
   <xsl:text>;
   padding: 0.5em 1em 0.5em 1em;
 }
-div.comment {
-  padding: 0.5em;
-  border: solid 2px </xsl:text>
+div.example {
+  border-left: solid 4px </xsl:text>
   <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'red-border'"/>
+    <xsl:with-param name="id" select="'gray-border'"/>
   </xsl:call-template>
   <xsl:text>;
-  background-color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'red-background'"/>
-  </xsl:call-template>
-  <xsl:text>;
+  padding-left: 1em;
 }
-div.comment div.comment {
-  margin: 1em 0 0 1em;
-}
-div.comment div.cite { margin: 0; font-style: italic; }
-
 div.figure {
   color: </xsl:text>
   <xsl:call-template name="theme.get_color">
@@ -113,16 +106,19 @@ div.figure-contents {
 }
 div.figure div.title { margin: 0 0 4px 0; }
 div.figure div.caption { margin: 4px 0 0 0; }
-
-div.example {
-  border-left: solid 4px </xsl:text>
+pre.screen {
+  background-color: </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'gray-background'"/>
+  </xsl:call-template>
+  <xsl:text>;
+  border: solid 2px </xsl:text>
   <xsl:call-template name="theme.get_color">
     <xsl:with-param name="id" select="'gray-border'"/>
   </xsl:call-template>
   <xsl:text>;
-  padding-left: 1em;
+  padding: 0.5em 1em 0.5em 1em;
 }
-
 div.synopsis {
   border-top: solid 2px;
   border-bottom: solid 2px;
@@ -143,31 +139,22 @@ div.synopsis pre.code {
   border: none;
   padding: 0;
 }
-div.title {
-  font-size: 1.2em;
-  margin-top: 0;
-  font-weight: bold;
-}
 </xsl:text>
 </xsl:template>
 
 
-<!-- == Matched Templates == -->
+<!--**==========================================================================
+mal2html.pre
 
-<!-- = caption = -->
-<xsl:template mode="mal2html.block.mode" match="mal:caption">
-  <div class="caption">
-    <xsl:apply-templates mode="mal2html.block.mode"/>
-  </div>
-</xsl:template>
-
-<!-- = code = -->
-<xsl:template mode="mal2html.block.mode" match="mal:code">
-  <xsl:variable name="first" select="node()[1]/self::text()"/>
-  <xsl:variable name="last" select="node()[last()]/self::text()"/>
+FIXME
+-->
+<xsl:template name="mal2html.pre">
+  <xsl:param name="node" select="."/>
+  <xsl:variable name="first" select="$node/node()[1]/self::text()"/>
+  <xsl:variable name="last" select="$node/node()[last()]/self::text()"/>
   <pre>
     <xsl:attribute name="class">
-      <xsl:text>code</xsl:text>
+      <xsl:value-of select="local-name($node)"/>
       <xsl:if test="not(preceding-sibling::*)">
         <xsl:text> first-child</xsl:text>
       </xsl:if>
@@ -189,6 +176,21 @@ div.title {
       </xsl:call-template>
     </xsl:if>
   </pre>
+</xsl:template>
+
+
+<!-- == Matched Templates == -->
+
+<!-- = caption = -->
+<xsl:template mode="mal2html.block.mode" match="mal:caption">
+  <div class="caption">
+    <xsl:apply-templates mode="mal2html.block.mode"/>
+  </div>
+</xsl:template>
+
+<!-- = code = -->
+<xsl:template mode="mal2html.block.mode" match="mal:code">
+  <xsl:call-template name="mal2html.pre"/>
 </xsl:template>
 
 <!-- = comment = -->
@@ -282,6 +284,11 @@ div.title {
     </xsl:attribute>
     <xsl:apply-templates mode="mal2html.inline.mode"/>
   </p>
+</xsl:template>
+
+<!-- = screen = -->
+<xsl:template mode="mal2html.block.mode" match="mal:screen">
+  <xsl:call-template name="mal2html.pre"/>
 </xsl:template>
 
 <!-- = synopsis = -->

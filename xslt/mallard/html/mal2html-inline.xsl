@@ -98,9 +98,12 @@ REMARK: Describe this template
 span.app { font-style: italic; }
 span.cmd {
   font-family: monospace;
-  background-color: #f0f0f0;
-  padding-left: 0.2em;
-  padding-right: 0.4em;
+  background-color: </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'gray-background'"/>
+  </xsl:call-template>
+  <xsl:text>;
+  padding: 0 0.2em 0 0.2em;
 }
 span.code { font-family: monospace; }
 span.em { font-style: italic; }

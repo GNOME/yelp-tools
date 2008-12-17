@@ -170,18 +170,8 @@ h5.title { font-size: 1em; }
 h6.title { font-size: 1em; }
 h7.title { font-size: 1em; }
 
-td.twocolumnleft {
-  width: 48%;
-  vertical-align: top;
-  padding: 0;
-  margin: 0;
-}
-td.twocolumnright {
-  width: 52%;
-  vertical-align: top;
-  padding: 0 0 0 1em;
-  margin: 0;
-}
+td.twocolumnleft { width: 48%; vertical-align: top; padding: 0; margin: 0; }
+td.twocolumnright { width: 52%; vertical-align: top; padding: 0 0 0 1em; margin: 0; }
 
 div.pagelink div.title {
   font-size: 1em;
@@ -219,7 +209,6 @@ div.pagelinksep {
   </xsl:call-template>
   <xsl:text>;
 }
-
 </xsl:text>
 <xsl:call-template name="mal2html.css.editor"/>
 <xsl:call-template name="mal2html.css.custom"/>
@@ -326,6 +315,23 @@ div.pagelink div.desc {
   </xsl:call-template>
   <xsl:text>;
 }
+div.comment {
+  padding: 0.5em;
+  border: solid 2px </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'red-border'"/>
+  </xsl:call-template>
+  <xsl:text>;
+  background-color: </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'red-background'"/>
+  </xsl:call-template>
+  <xsl:text>;
+}
+div.comment div.comment {
+  margin: 1em 0 0 1em;
+}
+div.comment div.cite { margin: 0; font-style: italic; }
 </xsl:text>
 </xsl:template>
 
