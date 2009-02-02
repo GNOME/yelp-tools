@@ -1,3 +1,9 @@
+Changes in 0.15.1:
+------------------
+* Fixed some RTL issues, thanks to muayyad alsadi, bug #563559
+* Updated translations:
+  lv    (Raivis Dejus)
+
 Changes in 0.14.1:
 ------------------
 * Fixed some LTR issues, more remain on bug #563559 (Shaun McCance)
