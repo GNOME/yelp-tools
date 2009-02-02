@@ -1,3 +1,9 @@
+2009-02-01  Shaun McCance  <shaunm@gnome.org>
+
+	* xslt/docbook/html/db2html-css.xsl:
+	* xslt/gettext/gettext.xsl:
+	- Fixing some RTL issues, thanks to muayyad alsadi, bug #563559
+
 2008-12-15  Shaun McCance  <shaunm@gnome.org>
 
 	* configure.in:

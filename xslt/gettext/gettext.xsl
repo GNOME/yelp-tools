@@ -790,6 +790,94 @@ REMARK: Lots of documentation is needed
 
 
 <!--**==========================================================================
+l10n.align.start
+Determines the start alignment
+$direction: The text direction
+
+REMARK: Lots of documentation is needed
+-->
+<xsl:template name="l10n.align.start">
+  <xsl:param name="direction">
+    <xsl:call-template name="l10n.direction"/>
+  </xsl:param>
+  <xsl:choose>
+    <xsl:when test="$direction = 'rlt'">
+      <xsl:text>right</xsl:text>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:text>left</xsl:text>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+
+<!--**==========================================================================
+l10n.align.end
+Determines the end alignment
+$direction: The text direction
+
+REMARK: Lots of documentation is needed
+-->
+<xsl:template name="l10n.align.end">
+  <xsl:param name="direction">
+    <xsl:call-template name="l10n.direction"/>
+  </xsl:param>
+  <xsl:choose>
+    <xsl:when test="$direction = 'rlt'">
+      <xsl:text>left</xsl:text>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:text>right</xsl:text>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+
+<!--**==========================================================================
+l10n.arrow.previous
+FIXME
+$direction: The text direction
+
+REMARK: Lots of documentation is needed
+-->
+<xsl:template name="l10n.arrow.previous">
+  <xsl:param name="direction">
+    <xsl:call-template name="l10n.direction"/>
+  </xsl:param>
+  <xsl:choose>
+    <xsl:when test="$direction = 'rlt'">
+      <xsl:text>&#x25C0;&#x00A0;&#x00A0;</xsl:text>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:text>&#x00A0;&#x00A0;&#x25B6;</xsl:text>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+
+<!--**==========================================================================
+l10n.arrow.next
+FIXME
+$direction: The text direction
+
+REMARK: Lots of documentation is needed
+-->
+<xsl:template name="l10n.arrow.next">
+  <xsl:param name="direction">
+    <xsl:call-template name="l10n.direction"/>
+  </xsl:param>
+  <xsl:choose>
+    <xsl:when test="$direction = 'rlt'">
+      <xsl:text>&#x00A0;&#x00A0;&#x25B6;</xsl:text>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:text>&#x25C0;&#x00A0;&#x00A0;</xsl:text>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+
+<!--**==========================================================================
 l10n.language
 Extracts the langauge portion of a locale
 $lang: The locale to extract the language from

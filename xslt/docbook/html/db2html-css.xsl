@@ -81,7 +81,21 @@ those modules.
 This template calls *{db2html.css.custom} at the end.  That template may be used
 by extension stylesheets to extend or override the CSS.
 -->
-<xsl:template name="db2html.css.content"><xsl:text>
+<xsl:template name="db2html.css.content">
+  <xsl:variable name="direction">
+    <xsl:call-template name="l10n.direction"/>
+  </xsl:variable>
+  <xsl:variable name="left">
+    <xsl:call-template name="l10n.align.start">
+      <xsl:with-param name="direction" select="$direction"/>
+    </xsl:call-template>
+  </xsl:variable>
+  <xsl:variable name="right">
+    <xsl:call-template name="l10n.align.end">
+      <xsl:with-param name="direction" select="$direction"/>
+    </xsl:call-template>
+  </xsl:variable>
+  <xsl:text>
 <!-- == common == -->
 html { height: 100%; }
 body {
@@ -136,10 +150,8 @@ h4.title, h5.title, h6.title, h7.title { font-size: 1em; }
 .block { margin-top: 1em; }
 .block .block-first { margin-top: 0; }
 .block-indent {
-  <!-- FIXME: rtl -->
-  margin-left: 1.72em;
-  <!-- FIXME: rtl -->
-  margin-right: 1em;
+  margin-</xsl:text><xsl:value-of select="$left"/><xsl:text> left: 1.72em;
+  margin-</xsl:text><xsl:value-of select="right"/><xsl:text>: 1em;
 }
 .block-indent .block-indent { margin-left: 0em; margin-right: 0em; }
 td .block-indent  { margin-left: 0em; margin-right: 0em; }
@@ -161,17 +173,14 @@ a:visited { color: </xsl:text><xsl:value-of select="$theme.color.link_visited"/>
 ul, ol, dl { margin: 0; padding: 0; }
 li {
   margin-top: 1em;
-  <!-- FIXME: rtl -->
-  margin-left: 2.4em;
-  <!-- FIXME: rtl -->
+  margin-</xsl:text><xsl:value-of select="$left"/><xsl:text>: 2.4em;
   padding: 0;
 }
 li.li-first { margin-top: 0; }
 dt { margin: 1em 0 0 0; }
 dt.dt-first { margin: 0; }
 dd {
-  <!-- FIXME: rtl -->
-  margin-left: 1.72em;
+  margin-</xsl:text><xsl:value-of select="$left"/><xsl:text>: 1.72em;
   margin-top: 0.5em;
 }
 dl.dl-compact dt { margin-top: 0; }
@@ -181,8 +190,7 @@ dl.dl-compact dd { margin-top: 0; margin-bottom: 0; }
 ul.linktrail {
   display: block;
   margin: 0.2em 0 0 0;
-  <!-- FIXME: rtl -->
-  text-align: right;
+  text-align: </xsl:text><xsl:value-of select="$right"/><xsl:text>;
 }
 li.linktrail { display: inline; margin: 0; padding: 0; }
 <!-- FIXME: rtl? -->
@@ -238,8 +246,7 @@ div.sidenav div.autotoc {
 div.sidenav div.autotoc div.autotoc { margin-top: 0.5em; }
 div.sidenav div.autotoc li { margin-bottom: 0.5em; }
 div.sidenav div.autotoc div.autotoc div.autotoc {
-  <!-- FIXME: rtl -->
-  margin-left: 1em;
+  margin-</xsl:text><xsl:value-of select="$left"/><xsl:text>: 1em;
   margin-top: 0;
 }
 div.sidenav div.autotoc div.autotoc div.autotoc li { margin-bottom: 0; }
@@ -249,8 +256,7 @@ div.autotoc {
   <!-- FIXME: hack -->
   display: table;
   margin-top: 1em;
-  <!-- FIXME: rtl -->
-  margin-left: 1.72em;
+  margin-</xsl:text><xsl:value-of select="$left"/><xsl:text>: 1.72em;
   padding: 0.5em 1em 0.5em 1em;
   background-color: </xsl:text><xsl:value-of select="$theme.color.blue_background"/><xsl:text>;
   border: solid 1px </xsl:text><xsl:value-of select="$theme.color.blue_border"/><xsl:text>;
@@ -274,10 +280,9 @@ div.admonition {
   background-color: </xsl:text><xsl:value-of select="$theme.color.yellow_background"/><xsl:text>;
 }
 div.caution-inner, div.important-inner, div.note-inner, div.tip-inner, div.warning-inner {
-  <!-- FIXME: rtl -->
-  padding-left: </xsl:text><xsl:value-of select="$theme.icon.admon.size + 12"/><xsl:text>px;
-  <!-- FIXME: rtl -->
-  background-position: left top;
+  padding-</xsl:text><xsl:value-of select="$left"/><xsl:text>: </xsl:text>
+    <xsl:value-of select="$theme.icon.admon.size + 12"/><xsl:text>px;
+  background-position: </xsl:text><xsl:value-of select="$left"/><xsl:text> top;
   background-repeat: no-repeat;
 }
 div.caution-inner { background-image: url("</xsl:text>
@@ -296,11 +301,9 @@ div.blockquote {
   <!-- FIXME: i18n -->
   background-image: url('../../../data/icons/yelp-watermark-blockquote-201C.png');
   background-repeat: no-repeat;
-  <!-- FIXME: rtl -->
-  background-position: top left;
+  background-position: top </xsl:text><xsl:value-of select="$left"/><xsl:text>;
   padding: 0.5em;
-  <!-- FIXME: rtl -->
-  padding-left: 4em;
+  padding-</xsl:text><xsl:value-of select="$left"/><xsl:text>: 4em;
 }
 div.attribution {
   margin-top: 0.5em;
@@ -311,12 +314,9 @@ div.attribution::before {
   content: '&#x2015; ';
 }
 div.epigraph {
-  <!-- FIXME: rtl -->
-  text-align: right;
-  <!-- FIXME: rtl -->
-  margin-left: 20%;
-  <!-- FIXME: rtl -->
-  margin-right: 0;
+  text-align: </xsl:text><xsl:value-of select="$right"/><xsl:text>;
+  margin-</xsl:text><xsl:value-of select="$left"/><xsl:text>: 20%;
+  margin-</xsl:text><xsl:value-of select="$right"/><xsl:text>: 0;
   color: </xsl:text><xsl:value-of select="$theme.color.text_light"/><xsl:text>;
 }
 div.figure, div.informalfigure {
@@ -354,12 +354,9 @@ div.screen .userinput {
 pre.linenumbering {
   color: </xsl:text><xsl:value-of select="$theme.color.text_light"/><xsl:text>;
   margin: 0;
-  <!-- FIXME: rtl -->
-  padding-right: 1em;
-  <!-- FIXME: rtl -->
-  float: left;
-  <!-- FIXME: rtl -->
-  text-align: right;
+  padding-</xsl:text><xsl:value-of select="$right"/><xsl:text>: 1em;
+  float: </xsl:text><xsl:value-of select="$left"/><xsl:text>;
+  text-align: </xsl:text><xsl:value-of select="$right"/><xsl:text>;
 }
 
 
@@ -374,19 +371,17 @@ div.list div.title-formal span.title {
   border-bottom: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
 }
 div.simplelist {
-  <!-- FIXME: rtl -->
-  margin-left: 1.72em;
+  margin-</xsl:text><xsl:value-of select="$left"/><xsl:text>: 1.72em;
 }
 div.simplelist table { margin-left: 0; border: none; }
 div.simplelist td {
   padding: 0.5em;
-  border-left: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
+  border-</xsl:text><xsl:value-of select="$left"/><xsl:text>: solid 1px </xsl:text>
+    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
 }
 div.simplelist td.td-first {
-  <!-- FIXME: rtl -->
-  padding-left: 0;
-  <!-- FIXME: rtl -->
-  border-left: 0;
+  padding-</xsl:text><xsl:value-of select="$left"/><xsl:text>: 0;
+  border-</xsl:text><xsl:value-of select="$left"/><xsl:text>: 0;
 }
 div.synopsis {
   padding: 0.5em;
@@ -410,7 +405,6 @@ span.classname, span.exceptionname, span.interfacename { font-family: monospace;
 span.code {
   font-family: monospace;
   border: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
-  <!-- FIXME: rtl -->
   padding-left: 0.2em;
   padding-right: 0.2em;
 }
@@ -418,7 +412,6 @@ pre span.code { border: none; padding: 0; }
 span.command {
   font-family: monospace;
   border: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
-  <!-- FIXME: rtl -->
   padding-left: 0.2em;
   padding-right: 0.2em;
 }
