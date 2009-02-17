@@ -8,9 +8,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=l10n&component=Romanian%20[ro]\n"
-"POT-Creation-Date: 2008-11-07 12:52+0100\n"
-"PO-Revision-Date: 2009-02-13 00:36+0200\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-doc-utils&component=general\n"
+"POT-Creation-Date: 2009-02-13 19:15+0000\n"
+"PO-Revision-Date: 2009-02-17 22:34+0200\n"
 "Last-Translator: Adi Roiban <adi@roiban.ro>\n"
 "Language-Team: Gnome Romanian Team <gnomero-list@lists.sourceforge.net>\n"
 "MIME-Version: 1.0\n"
@@ -2088,5 +2088,5 @@ msgstr "default:LTR"
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1796
 msgid "watermark-blockquote-201C.png"
-msgstr ""
+msgstr "watermark-blockquote-201D.png"
 
