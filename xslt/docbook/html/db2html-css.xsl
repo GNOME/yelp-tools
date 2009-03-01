@@ -118,7 +118,7 @@ th { padding: 0 0.83em 0 0.83em; }
 tr.tr-shade {
   background-color: </xsl:text><xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
 }
-td.td-colsep { border-right: solid 1px; }
+td.td-colsep { border-</xsl:text><xsl:value-of select="$right"/><xsl:text>: solid 1px; }
 td.td-rowsep { border-bottom: solid 1px; }
 thead { border-top: solid 2px; border-bottom: solid 2px; }
 tfoot { border-top: solid 2px; border-bottom: solid 2px; }
@@ -129,8 +129,7 @@ div.body {
   border: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
 }
 div.body-sidebar {
-  <!-- FIXME: rtl -->
-  margin-right: 13em;
+  margin-</xsl:text><xsl:value-of select="$right"/><xsl:text>: 13em;
 }
 div.division div.division { margin-top: 1.72em; }
 div.division div.division div.division { margin-top: 1.44em; }
@@ -214,24 +213,28 @@ div.navbar img { border: 0; vertical-align: -0.4em; }
 table.navbar { width: 100%; margin: 0; border: none; }
 table.navbar td { padding: 0; border: none; }
 td.navbar-next {
-  <!-- FIXME: rtl -->
-  text-align: right;
+  text-align: </xsl:text><xsl:value-of select="$right"/><xsl:text>;
 }
 a.navbar-prev::before {
   <!-- FIXME: rtl -->
-  content: '&#x25C0;&#x00A0;&#x00A0;';
+  content: '</xsl:text><xsl:choose>
+  <xsl:when test="$left = 'left'"><xsl:text>&#x25C0;&#x00A0;&#x00A0;</xsl:text></xsl:when>
+  <xsl:otherwise><xsl:text>&#x25B6;&#x00A0;&#x00A0;</xsl:text></xsl:otherwise>
+  </xsl:choose><xsl:text>';
   color: </xsl:text><xsl:value-of select="$theme.color.text_light"/><xsl:text>;
 }
 a.navbar-next::after {
   <!-- FIXME: rtl -->
-  content: '&#x00A0;&#x00A0;&#x25B6;';
+  content: '</xsl:text><xsl:choose>
+  <xsl:when test="$left = 'left'"><xsl:text>&#x00A0;&#x00A0;&#x25B6;</xsl:text></xsl:when>
+  <xsl:otherwise><xsl:text>&#x00A0;&#x00A0;&#x25C0;</xsl:text></xsl:otherwise>
+  </xsl:choose><xsl:text>';
   color: </xsl:text><xsl:value-of select="$theme.color.text_light"/><xsl:text>;
 }
 
 <!-- == sidebar == -->
 div.sidebar {
-  <!-- FIXME: rtl -->
-  float: right;
+  float: </xsl:text><xsl:value-of select="$right"/><xsl:text>;
   padding: 0; margin: 0; width: 12em;
 }
 div.sidenav {
@@ -275,7 +278,6 @@ span.bibliolabel {
 <!-- == block == -->
 div.admonition {
   padding: 0.5em 6px 0.5em 6px;
-  min-height: </xsl:text><xsl:value-of select="$theme.icon.admon.size"/><xsl:text>px;
   border: solid 1px </xsl:text><xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
   background-color: </xsl:text><xsl:value-of select="$theme.color.yellow_background"/><xsl:text>;
 }
@@ -284,6 +286,7 @@ div.caution-inner, div.important-inner, div.note-inner, div.tip-inner, div.warni
     <xsl:value-of select="$theme.icon.admon.size + 12"/><xsl:text>px;
   background-position: </xsl:text><xsl:value-of select="$left"/><xsl:text> top;
   background-repeat: no-repeat;
+  min-height: </xsl:text><xsl:value-of select="$theme.icon.admon.size"/><xsl:text>px;
 }
 div.caution-inner { background-image: url("</xsl:text>
   <xsl:value-of select="$theme.icon.admon.caution"/><xsl:text>"); }

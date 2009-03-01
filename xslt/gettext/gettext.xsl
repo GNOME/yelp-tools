@@ -801,7 +801,7 @@ REMARK: Lots of documentation is needed
     <xsl:call-template name="l10n.direction"/>
   </xsl:param>
   <xsl:choose>
-    <xsl:when test="$direction = 'rlt'">
+    <xsl:when test="$direction = 'rtl'">
       <xsl:text>right</xsl:text>
     </xsl:when>
     <xsl:otherwise>
@@ -823,7 +823,7 @@ REMARK: Lots of documentation is needed
     <xsl:call-template name="l10n.direction"/>
   </xsl:param>
   <xsl:choose>
-    <xsl:when test="$direction = 'rlt'">
+    <xsl:when test="$direction = 'rtl'">
       <xsl:text>left</xsl:text>
     </xsl:when>
     <xsl:otherwise>
