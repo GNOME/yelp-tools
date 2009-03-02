@@ -1,5 +1,11 @@
 2009-03-01  Shaun McCance  <shaunm@gnome.org>
 
+	* configure.in:
+	* NEWS:
+	- Version 0.15.2
+
+2009-03-01  Shaun McCance  <shaunm@gnome.org>
+
 	* xslt/gettext/gettext.xsl:
 	- More RTL fixes for bug #563559
 
