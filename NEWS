@@ -1,3 +1,10 @@
+Changes in 0.16.0:
+------------------
+* Updated translations:
+  as    (Amitakhya Phukan)
+  gl    (Suso Baleato)
+  he    (Yaron Sharabani)
+
 Changes in 0.15.2:
 ------------------
 * More RTL fixes for bug #563559
