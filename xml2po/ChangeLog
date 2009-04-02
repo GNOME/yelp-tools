@@ -1,3 +1,9 @@
+2009-04-02  Claude Paroz  <claude@2xlibre.net>
+
+	* modes/docbook.py: Use new hashlib module rather than deprecated md5
+	module, when available.
+	Fixes bug #576161.
+
 2008-07-14  Danilo Šegan  <danilo@gnome.org>
 
 	* xml2po.py: Apply Goran Rakić's patch for #437371.

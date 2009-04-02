@@ -36,8 +36,12 @@
 import re
 import libxml2
 import os
-import md5
 import sys
+try:
+    # Hashlib is new in Python 2.5
+    from hashlib import md5 as md5_new
+except ImportError:
+    from md5 import new as md5_new
 
 class docbookXmlMode:
     """Class for special handling of DocBook document types.
@@ -109,7 +113,7 @@ class docbookXmlMode:
         return last
 
     def _md5_for_file(self, filename):
-        hash = md5.new()
+        hash = md5_new()
         input = open(filename, "rb")
         read = input.read(4096)
         while read:
