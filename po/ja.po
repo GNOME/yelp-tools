@@ -2,14 +2,14 @@
 # Copyright (C) 2004-2007 Shaun McCance <shaunm@gnome.org>
 # This file is distributed under the same license as the gnome-doc-utils package.
 # Satoru SATOH <ss@gnome.gr.jp>, 2004.
-# Takeshi AIHANA <takeshi.aihana@gmail.com>, 2005-2007.
+# Takeshi AIHANA <takeshi.aihana@gmail.com>, 2005-2007,2009.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils trunk\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-12-04 22:50+0900\n"
-"PO-Revision-Date: 2008-12-04 22:46+0900\n"
+"POT-Creation-Date: 2009-04-05 11:04+0900\n"
+"PO-Revision-Date: 2009-04-05 11:03+0900\n"
 "Last-Translator: Takeshi AIHANA <takeshi.aihana@gmail.com>\n"
 "Language-Team: Japanese <gnome-translation@gnome.gr.jp>\n"
 "MIME-Version: 1.0\n"
@@ -575,8 +575,7 @@ msgstr ""
 #: ../xslt/gettext/l10n.xml.in.h:477
 msgid ""
 "<msgid>email.tooltip</msgid> <msgstr>Send email to ‘<string/>’.</msgstr>"
-msgstr ""
-"<msgid>email.tooltip</msgid> <msgstr>'<string/>' の問い合わせ先</msgstr>"
+msgstr "<msgid>email.tooltip</msgid> <msgstr>問い合わせ先: <string/></msgstr>"
 
 #.
 #. The number formatter used for example numbers.  This can be one of
