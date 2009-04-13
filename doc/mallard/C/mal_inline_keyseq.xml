@@ -93,7 +93,7 @@ selection as you move the keyboard focus.
     <p><keyseq><key>Shift</key>click</keyseq> to make a continuous selection.</p>
   </example>
 
-  <p>Use nested <code>keyseq</code> elements for comples key commands:</p>
+  <p>Use nested <code>keyseq</code> elements for complex key commands:</p>
 
   <example>
     <code><![CDATA[

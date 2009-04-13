@@ -32,7 +32,7 @@ mal_inline_input = element input {
 }
 </code></synopsis>
 
-<p>Use the <code>input</code> element to mark up text that is input b
+<p>Use the <code>input</code> element to mark up text that is input by
 the user.  This may be text entered into a command-line environment
 or into a text field in a graphical application.</p>
 
@@ -78,8 +78,9 @@ or into a text field in a graphical application.</p>
   <p>User input should be displayed in a fixed-width or wide font.  Fixed-width
   fonts tend to have more distinction between visually similar characters.
   Display tools may use a background color or border to make the beginning
-  and end of the intut clear.</p>
+  and end of the input clear.</p>
 </section>
+<!-- END processing -->
 
 
 <!-- BEGIN docbook -->
