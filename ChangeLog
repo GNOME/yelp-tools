@@ -1,3 +1,9 @@
+2009-04-14  Shaun McCance  <shaunm@gnome.org>
+
+	* configure.in:
+	* NEWS:
+	- Version 0.16.1
+
 2009-03-16  Shaun McCance  <shaunm@gnome.org>
 
 	* configure.in:

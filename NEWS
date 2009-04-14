@@ -1,3 +1,11 @@
+Changes in 0.16.1:
+------------------
+* Use new hashlib module instead of md5, bug #576161 (Claude Paroz)
+* Updated translations:
+  ar    (Khaled Hosny)
+  ja    (Takeshi AIHANA)
+  pa    (Amanpreet Singh Alam)
+
 Changes in 0.16.0:
 ------------------
 * Updated translations:
