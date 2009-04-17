@@ -41,6 +41,15 @@ mal_block = (
 </comment>
 
 
+<!-- BEGIN elements -->
+<section id="elements" style="2column">
+  <info>
+    <title type="link">Block Elements</title>
+  </info>
+  <title>Elements</title>
+</section>
+<!-- END elements -->
+
 <!-- BEGIN simple -->
 <section id="simple">
   <title>Simple Block Elements</title>
