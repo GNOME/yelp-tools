@@ -19,7 +19,7 @@
 
   <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
 
-  <desc>Mark up a an interactive shell session.</desc>
+  <desc>Mark up a textual user interface or an interactive shell session.</desc>
 </info>
 
 <title>Screens</title>
@@ -43,6 +43,10 @@ to provide richer markup when showing a shell session.</p>
 
 <p>The <code>screen</code> element may also be used to mark up a single
 command in a block context.</p>
+
+<p>Use the <code xref="mal_inline_var">var</code> element inside a
+<code>screen</code> element to indicate text that should be replaced
+by the user.</p>
 
 
 <!-- BEGIN notes -->
@@ -158,7 +162,7 @@ xsltproc -o mal_block_screen.html \
 
 <!-- BEGIN comparison -->
 <section id="comparison">
-  <title>Comparison to DocBook</title>
+  <title>Comparison to Other Formats</title>
 
   <p>The <code>screen</code> element is similar to the
   <code href="http://www.docbook.org/tdg/en/html/screen.html">screen</code>
