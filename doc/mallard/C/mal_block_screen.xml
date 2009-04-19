@@ -34,12 +34,15 @@ mal_block_screen = element screen {
 }
 </code></synopsis>
 
-<p>Use the <code>screen</code> element to mark up a sequence of commands
-and program output from an interactive shell session.  The contents of
-a <code>screen</code> element are displayed verbatim.  While all inline
+<p>Use the <code>screen</code> element to mark up a textual screen for
+a textual user interface or an interactive shell.  The contents of a
+<code>screen</code> element are displayed verbatim.  While all inline
 content is allowed, <code xref="mal_inline_input">input</code> and
 <code xref="mal_inline_output">output</code> will frequently be used
-to provide richer markup inside a <code>screen</code> element.</p>
+to provide richer markup when showing a shell session.</p>
+
+<p>The <code>screen</code> element may also be used to mark up a single
+command in a block context.</p>
 
 
 <!-- BEGIN notes -->
@@ -79,6 +82,28 @@ to provide richer markup inside a <code>screen</code> element.</p>
 <section id="examples">
   <title>Examples</title>
 
+  <p>Use <code>screen</code> to mark up the screen of an interactive
+  text-based interface:</p>
+
+  <example>
+    <code><![CDATA[<screen>
++==== Beanstalk =====================================+
+| Type the letter of the command you want:           |
+| O - Order beans                                    |
+| P - Plant beans                                    |
+| T - Track bean inventory                           |
++====================================================+
+</screen>]]></code>
+    <screen>
++==== Beanstalk =====================================+
+| Type the letter of the command you want:           |
+| O - Order beans                                    |
+| P - Plant beans                                    |
+| T - Track bean inventory                           |
++====================================================+
+</screen>
+  </example>
+
   <p>Use <code>screen</code> to mark up a long command:</p>
 
   <example>
@@ -102,8 +127,8 @@ xsltproc -o mal_block_screen.html \
   <example>
     <code><![CDATA[
 <screen>
-<output type="prompt">[rupert@gnome] </output><input>ls foo bar</input>
-<output type="error">foo: cannot access file: No such file or directory</output>
+<output style="prompt">[rupert@gnome] </output><input>ls foo bar</input>
+<output style="error">foo: cannot access file: No such file or directory</output>
 <output>bar</output></screen>
 ]]></code>
     <screen>
@@ -121,7 +146,9 @@ xsltproc -o mal_block_screen.html \
 
   <p>Screens should be displayed verbatim, with all whitespace and line breaks
   reproduced in the rendered output.  The only exception is a single leading
-  line break, which should be stripped by display tools if present.</p>
+  line break, which should be stripped by display tools if present.  Display
+  tools should only strip a leading line break in an initial text node.  They
+  are not expected to strip line breaks from child elements.</p>
 
   <p>Screens should be displayed in a fixed-width font.  Inline markup may cause
   style variations, but they should not cause a change to a variable-width font.</p>
@@ -129,14 +156,18 @@ xsltproc -o mal_block_screen.html \
 <!-- END processing -->
 
 
-<!-- BEGIN docbook -->
-<section id="docbook">
+<!-- BEGIN comparison -->
+<section id="comparison">
   <title>Comparison to DocBook</title>
 
   <p>The <code>screen</code> element is similar to the
   <code href="http://www.docbook.org/tdg/en/html/screen.html">screen</code>
   element in DocBook.</p>
+
+  <p>The <code>screen</code> element is similar to the
+  <code href="http://docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/screen.html">screen</code>
+  element in DITA.</p>
 </section>
-<!-- END docbook -->
+<!-- END comparison -->
 
 </page>
