@@ -1,0 +1,82 @@
+<page xmlns="http://www.gnome.org/~shaunm/mallard"
+      type="topic"
+      id="mal_block_desc">
+
+<info>
+  <link type="guide" xref="mal_block#elements"/>
+
+  <version number="0.1" date="2009-04-19" status="incomplete"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+  </credit>
+  <copyright>
+    <year>2007-2009</year>
+    <name>Shaun McCance</name>
+  </copyright>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>FIXME</desc>
+</info>
+
+<title>Block Descriptions</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_block_desc = element desc {
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  <link xref="mal_inline">mal_inline</link>
+}
+</code></synopsis>
+
+<p>The <code>desc</code> element marks a short text description for
+formal block elements like <link xref="mal_block_figure">figure</link>.
+The description provided by <code>desc</code> is formatted as a caption
+for the formal element.</p>
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>More exaples of figures can be found on the page <link xref="mal_figure"/>.</p>
+
+  <code><![CDATA[
+<figure>
+  <media type="image" mime="image/png" href="figures/mallard.png"/>
+  <desc>Drake, the Mallard mascot</desc>
+</figure>
+]]></code>
+  <figure>
+    <media type="image" mime="image/png" href="figures/mallard.png"/>
+    <desc>Drake, the Mallard mascot</desc>
+  </figure>
+
+  <comment>
+    <cite date="2007-02-06"><name>Shaun McCance</name></cite>
+    <p>Maybe add an example with a non-image figure?  Should we even allow these?</p>
+  </comment>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>The exact display of a description will depend on how the enclosing formatl
+  element is displayed.  A description is a block of text that should be displayed
+  directly above or below the normal contents of the enclosing element.</p>
+
+  <p>Display tools should attempt to display the description in a way that makes it
+  clear that it belongs to the enclosing formal element.  For example, if a display
+  tool draws a frame around an enclosing figure, it may choose to place the description
+  inside that frame.  If the formal element is indented from its enclosing block, the
+  description should also be at the same indentation level.</p>
+</section>
+<!-- END processing -->
+
+</page>

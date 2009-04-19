@@ -105,7 +105,7 @@ div.figure-contents {
   text-align: center;
 }
 div.figure div.title { margin: 0 0 4px 0; }
-div.figure div.caption { margin: 4px 0 0 0; }
+div.figure div.desc { margin: 4px 0 0 0; }
 pre.screen {
   background-color: </xsl:text>
   <xsl:call-template name="theme.get_color">
@@ -181,9 +181,9 @@ FIXME
 
 <!-- == Matched Templates == -->
 
-<!-- = caption = -->
-<xsl:template mode="mal2html.block.mode" match="mal:caption">
-  <div class="caption">
+<!-- = desc = -->
+<xsl:template mode="mal2html.block.mode" match="mal:desc">
+  <div class="desc">
     <xsl:apply-templates mode="mal2html.block.mode"/>
   </div>
 </xsl:template>
@@ -257,9 +257,9 @@ FIXME
     <xsl:apply-templates mode="mal2html.block.mode" select="mal:title"/>
     <div class="figure-contents">
       <xsl:apply-templates mode="mal2html.block.mode"
-                           select="*[not(self::mal:title or self::mal:caption)]"/>
+                           select="*[not(self::mal:title or self::mal:desc)]"/>
     </div>
-    <xsl:apply-templates mode="mal2html.block.mode" select="mal:caption"/>
+    <xsl:apply-templates mode="mal2html.block.mode" select="mal:desc"/>
   </div>
 </xsl:template>
 
