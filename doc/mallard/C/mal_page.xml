@@ -35,4 +35,39 @@ mal_page_topic = element page {
 }
 </code></synopsis>
 
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list type="bullet">
+    <item><p>The <code>type</code> attribute takes the values <code>"guide"</code> and
+    <code>"topic"</code>.  <link xref="#guide">Guide pages</link> and <link xref="#topic">topic
+    pages</link> are discussed below.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN guide -->
+<section id="guide">
+  <title>Guide Pages</title>
+</section>
+<!-- END topic -->
+
+
+<!-- BEGIN topic -->
+<section id="topic">
+  <title>Topic Pages</title>
+</section>
+<!-- END topic -->
+
+
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+</section>
+<!-- END processing -->
+
 </page>

@@ -5,7 +5,20 @@
 <info>
   <link type="guide" xref="spec"/>
 
-  <version number="0.1" date="2007-02-21" status="incomplete"/>
+  <version number="0.1" date="2009-04-16" status="review"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+  </credit>
+  <copyright>
+    <year>2009</year>
+    <name>Shaun McCance</name>
+  </copyright>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Rich semantic elements for marking up inline content.</desc>
 </info>
 
 <title>Inline Elements</title>
@@ -33,24 +46,52 @@ mal_inline = mixed {
 }
 </code></synopsis>
 
-<comment>
-  <cite date="2008-02-19"><name>Shaun McCance</name></cite>
-  <p>Add some intro text and general processing expectations</p>
-</comment>
+<p>Mallard provides a small but rich set of semantic inline elements.
+The elements provided are culled from first-hand experience with software
+documentation and other document formats.  The inline element defined in
+this specification will serve most software documentation writers' needs
+well.</p>
 
+<p>Authors, editors, or other content producers sometimes need to supply
+richer information in their documents.  While this information may not
+be conveyed by display tools, it may be used for various internal tracking
+purposes.  Mallard allows elements to be extended with attributes from
+external namespaces.  See <link xref="mal_attr_external"/> for more
+information.</p>
+
+<p>Furthermore, Mallard allows elements from external namespaces to be
+used in any inline context.  See <link xref="#processing"/> below for
+more information.</p>
+
+
+<!-- BEGIN elements -->
 <section id="elements" style="2column">
   <info>
     <title type="link">Inline Elements</title>
   </info>
   <title>Elements</title>
 </section>
+<!-- END elements -->
 
+
+<!-- BEGIN processing -->
 <section id="processing">
   <title>Processing Expectations</title>
-  <comment>
-    <cite date="2008-11-10"><name>Shaun McCance</name></cite>
-    <p>Add processing expectations</p>
-  </comment>
+
+  <p>Inline elements occur within block elements or other inline elements.
+  Mallard never allows block elements within inline elements.  Inline elements
+  should never introduce a line break in the rendered output.</p>
+
+  <p>Different inline elements may introduce different styling effects, such
+  as font variations, text and background colors, and backgrounds.  Generally,
+  if a styling effect is set for a particular element, it is in effect for all
+  descendant elements, unless explicitly overridden.</p>
+
+  <p>Mallard allows elements from external namespaces to be used in any inline
+  context.  Display tools may have special behavior for particular elements they
+  understand.  Otherwise, display tools should process an unknown element as if
+  the element were replaced by its child content.</p>
 </section>
+<!-- END processing -->
 
 </page>
