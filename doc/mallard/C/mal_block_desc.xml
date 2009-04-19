@@ -42,23 +42,22 @@ for the formal element.</p>
 <section id="examples">
   <title>Examples</title>
 
-  <p>More exaples of figures can be found on the page <link xref="mal_figure"/>.</p>
+  <p>Use <code>desc</code> to provide a caption for a figure:</p>
 
-  <code><![CDATA[
+  <example>
+    <code><![CDATA[
 <figure>
   <media type="image" mime="image/png" href="figures/mallard.png"/>
   <desc>Drake, the Mallard mascot</desc>
 </figure>
 ]]></code>
-  <figure>
-    <media type="image" mime="image/png" href="figures/mallard.png"/>
-    <desc>Drake, the Mallard mascot</desc>
-  </figure>
+    <figure>
+      <desc>Drake, the Mallard mascot</desc>
+      <media type="image" mime="image/png" href="figures/mallard.png"/>
+    </figure>
+  </example>
 
-  <comment>
-    <cite date="2007-02-06"><name>Shaun McCance</name></cite>
-    <p>Maybe add an example with a non-image figure?  Should we even allow these?</p>
-  </comment>
+  <p>More exaples of figures can be found on the page <link xref="mal_block_figure"/>.</p>
 </section>
 <!-- END examples -->
 
@@ -67,7 +66,7 @@ for the formal element.</p>
 <section id="processing">
   <title>Processing Expectations</title>
 
-  <p>The exact display of a description will depend on how the enclosing formatl
+  <p>The exact display of a description will depend on how the enclosing formal
   element is displayed.  A description is a block of text that should be displayed
   directly above or below the normal contents of the enclosing element.</p>
 
