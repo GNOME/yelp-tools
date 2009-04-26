@@ -48,7 +48,7 @@ mal_inline = mixed {
 
 <p>Mallard provides a small but rich set of semantic inline elements.
 The elements provided are culled from first-hand experience with software
-documentation and other document formats.  The inline element defined in
+documentation and other document formats.  The inline elements defined in
 this specification will serve most software documentation writers' needs
 well.</p>
 
