@@ -61,6 +61,11 @@ by the user.</p>
 
     <item><p>The <code>code</code> element may also be used in an inline context.
     See <link xref="mal_inline_code"/> for more information.</p></item>
+
+    <item><p>Use the <code>code</code> element inside a
+    <code xref="mal_block_listing">listing</code> element to provide a title
+    and description for the code block.  This is frequently used to provide
+    the name of the file whose contents are being shown.</p></item>
   </list>
 </section>
 <!-- END notes -->
