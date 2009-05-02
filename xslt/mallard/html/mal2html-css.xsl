@@ -331,7 +331,10 @@ div.comment {
 div.comment div.comment {
   margin: 1em 0 0 1em;
 }
-div.comment div.cite { margin: 0; font-style: italic; }
+div.comment div.cite {
+  margin: 0 0 0.5em 0;
+  font-style: italic;
+}
 </xsl:text>
 </xsl:template>
 

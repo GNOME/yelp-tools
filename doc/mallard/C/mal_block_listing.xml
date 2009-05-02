@@ -1,16 +1,16 @@
 <page xmlns="http://www.gnome.org/~shaunm/mallard"
       type="topic"
-      id="mal_block_figure">
+      id="mal_block_listing">
 
 <info>
   <link type="guide" xref="mal_block#elements"/>
-  <version number="0.1" date="2007-02-21" status="stub"/>
+  <version number="0.1" date="2009-05-02" status="stub"/>
 </info>
 
-<title>Figures</title>
+<title>Listings</title>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
-mal_block_figure = element figure {
+mal_block_listing = element listing {
   attribute style { xsd:NMTOKENS } ?,
   attribute * - (mal:* | local:*) { text } *,
 
@@ -21,9 +21,22 @@ mal_block_figure = element figure {
 </code></synopsis>
 
 <comment>
-  <cite date="2006-11-16"><name>Shaun McCance</name></cite>
+  <cite date="2009-05-02"><name>Shaun McCance</name></cite>
   <p>Add explanation, examples, processing expectations</p>
-  <p>A way to float right, a'la wikipedia?</p>
 </comment>
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <example>
+    <listing>
+      <title>foo.c</title>
+      <desc>Some stuff in foo.c</desc>
+      <code>int foo ()</code>
+    </listing>
+  </example>
+</section>
+<!-- END examples -->
 
 </page>

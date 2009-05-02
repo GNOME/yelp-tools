@@ -447,7 +447,7 @@ REMARK: Describe this template
 <xsl:template match="mal:section">
   <div class="section" id="{@id}">
     <div class="header">
-      <xsl:apply-templates mode="mal2html.block.mode"
+      <xsl:apply-templates mode="mal2html.title.mode"
                            select="mal:title | mal:subtitle"/>
     </div>
     <div class="contents">
@@ -465,8 +465,13 @@ REMARK: Describe this template
   </div>
 </xsl:template>
 
+<!-- = subtitle = -->
+<xsl:template mode="mal2html.title.mode" match="mal:subtitle">
+  <!-- FIXME -->
+</xsl:template>
+
 <!-- = title = -->
-<xsl:template mode="mal2html.block.mode" match="mal:title">
+<xsl:template mode="mal2html.title.mode" match="mal:title">
   <xsl:variable name="depth"
                 select="count(ancestor::mal:section) + 1"/>
   <xsl:element name="{concat('h', $depth)}">
