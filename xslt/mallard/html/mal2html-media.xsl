@@ -34,7 +34,7 @@ REMARK: Describe this module
 <xsl:template mode="mal2html.block.mode"
               match="mal:media[@type='image']">
   <div class="media media-image">
-    <img src="{@href}"/>
+    <img src="{@src}"/>
   </div>
 </xsl:template>
 
