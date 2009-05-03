@@ -4,7 +4,22 @@
 
 <info>
   <link type="guide" xref="mal_block#elements"/>
-  <version number="0.1" date="2007-02-21" status="stub"/>
+  <link type="seealso" xref="mal_inline_media"/>
+
+  <version number="0.1" date="2009-05-03" status="review"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+  </credit>
+  <copyright>
+    <year>2008-2009</year>
+    <name>Shaun McCance</name>
+  </copyright>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Insert an image, video, or other multimedia object.</desc>
 </info>
 
 <title>Multimedia Objects</title>
@@ -28,6 +43,28 @@ multimedia object into your document.  Since not all display tools will be
 able to display all types of objects, you can provide fallback elements in
 the contents of a <code>media</code> element.  See <link xref="#processing"/>
 for details on how fallback elements are handled.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list type="bullet">
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>mime</code> attribute takes a valid MIME type for the
+    object that is being inserted.</p></item>
+
+    <item><p>The <code>media</code> element can have attributes from external
+    namespaces.  See <link xref="mal_attr_external"/> for more information
+    on external-namespace attributes on inline elements.</p></item>
+
+    <item><p>The <code>media</code> element may also be used in an inline context.
+    See <link xref="mal_inline_media"/> for more information.</p></item>
+  </list>
+</section>
+<!-- END notes -->
 
 
 <!-- BEGIN examples -->
@@ -96,6 +133,15 @@ for details on how fallback elements are handled.</p>
 <!-- BEGIN comparison -->
 <section id="comparison">
   <title>Comparison to Other Formats</title>
+
+  <p>The <code>media</code> element can be used in place of the DocBook elements
+  <code xref="http://www.docbook.org/tdg/en/html/audiooobject.html">audioobject</code>,
+  <code xref="http://www.docbook.org/tdg/en/html/imageobject.html">imageobject</code>, and
+  <code xref="http://www.docbook.org/tdg/en/html/videoobject.html">videoobject</code>.
+  DocBook uses the
+  <code xref="http://www.docbook.org/tdg/en/html/mediaobject.html">mediaobject</code>
+  element to provide alternative objects.  In Mallard, alternative objects are
+  nested, obviating the need for a container element.</p>
 </section>
 <!-- END comparison -->
 

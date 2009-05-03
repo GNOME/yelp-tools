@@ -30,7 +30,7 @@ REMARK: Describe this module
 
 <!-- == Matched Templates == -->
 
-<!-- = mal2html.block.mode % media/image = -->
+<!-- = mal2html.block.mode % media = -->
 <xsl:template mode="mal2html.block.mode" match="mal:media">
   <xsl:param name="first_child" select="not(preceding-sibling::*)"/>
   <xsl:choose>
@@ -69,6 +69,26 @@ REMARK: Describe this module
           <xsl:with-param name="first_child" select="position() = 1 and $first_child"/>
         </xsl:apply-templates>
       </xsl:for-each>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+<!-- = mal2html.inline.mode % media = -->
+<xsl:template mode="mal2html.inline.mode" match="mal:media">
+  <xsl:choose>
+    <xsl:when test="@type = 'image'">
+      <span class="media media-image">
+        <img src="{@src}">
+          <xsl:copy-of select="@height"/>
+          <xsl:copy-of select="@width"/>
+          <xsl:attribute name="alt">
+            <xsl:value-of select="."/>
+          </xsl:attribute>
+        </img>
+      </span>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:apply-templates mode="db2html.inline.mode"/>
     </xsl:otherwise>
   </xsl:choose>
 </xsl:template>
