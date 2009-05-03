@@ -31,11 +31,46 @@ REMARK: Describe this module
 <!-- == Matched Templates == -->
 
 <!-- = mal2html.block.mode % media/image = -->
-<xsl:template mode="mal2html.block.mode"
-              match="mal:media[@type='image']">
-  <div class="media media-image">
-    <img src="{@src}"/>
-  </div>
+<xsl:template mode="mal2html.block.mode" match="mal:media">
+  <xsl:param name="first_child" select="not(preceding-sibling::*)"/>
+  <xsl:choose>
+    <xsl:when test="@type = 'image'">
+      <div>
+        <xsl:attribute name="class">
+          <xsl:text>media media-image</xsl:text>
+          <xsl:if test="$first_child">
+            <xsl:text> first-child</xsl:text>
+          </xsl:if>
+        </xsl:attribute>
+        <img src="{@src}">
+          <xsl:copy-of select="@height"/>
+          <xsl:copy-of select="@width"/>
+          <xsl:attribute name="alt">
+            <!-- FIXME: This is not ideal.  Nested block container elements
+                 will introduce lots of garbage whitespace.  But then, XML
+                 processors are supposed to normalize whitespace in attribute
+                 values anyway.  Ideally, we'd have a set of modes for text
+                 conversion.  That'd probably be best handled in a set of
+                 mal2text stylesheets.
+            -->
+            <xsl:for-each select="mal:*">
+              <xsl:if test="position() &gt; 1">
+                <xsl:text>&#x000A;</xsl:text>
+              </xsl:if>
+              <xsl:value-of select="string(.)"/>
+            </xsl:for-each>
+          </xsl:attribute>
+        </img>
+      </div>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:for-each select="mal:*">
+        <xsl:apply-templates mode="db2html.block.mode" select=".">
+          <xsl:with-param name="first_child" select="position() = 1 and $first_child"/>
+        </xsl:apply-templates>
+      </xsl:for-each>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
 </xsl:stylesheet>

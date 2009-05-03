@@ -14,6 +14,8 @@ mal_block_media = element media {
   attribute type { "image" | "video" | "audio" | "application" } ?,
   attribute mime { text } ?,
   attribute src { text },
+  attribute height { text },
+  attribute width { text },
   attribute style { xsd:NMTOKENS } ?,
   attribute * - (mal:* | local:*) { text } *,
 
@@ -36,9 +38,13 @@ for details on how fallback elements are handled.</p>
 
   <example>
     <code><![CDATA[
-<media type="image" mime="image/png" src="figures/mallard.png"/>
+<media type="image" mime="image/png" src="figures/mallard.png">
+<p>Drake, the Mallard mascot</p>
+</media>
 ]]></code>
-    <media type="image" mime="image/png" src="figures/mallard.png"/>
+    <media type="image" mime="image/png" src="figures/mallard.png">
+      <p>Drake, the Mallard mascot</p>
+    </media>
   </example>
 
 </section>
@@ -48,6 +54,41 @@ for details on how fallback elements are handled.</p>
 <!-- BEGIN processing -->
 <section id="processing">
   <title>Processing Expectations</title>
+
+  <p>When a <code>media</code> element occurs in a block context, it should be
+  displayed as a block element.  The exact rendering of a <code>media</code>
+  element will depend on the <code>type</code> and <code>mime</code> attributes.
+  Display tools may need to add controls for audio and video objects.</p>
+
+  <p>The <code>application</code> type is intended for embedding interactive
+  applications in documents.  There are currently no specific recommendations
+  for displaying application objects.  Behavior may vary according to the
+  type of application being embedded.</p>
+
+  <p>Some display tools will not be able to display all types of objects.
+  For example, a printed document will not be able to display video or play
+  back audio.  Even when a display tool can display the type of object, it
+  may not be able to work with the given MIME type for technical or other
+  reasons.</p>
+
+  <p>When a display tool cannot display a <code>media</code> element, it
+  should display the child elements of the element, as if the <code>media</code>
+  element itself were replaced by its children.  The child elements may consist
+  of simply another <code>media</code> element referencing a different type of
+  content.  When processing any child <code>media</code> elements, display tools
+  may need to fall back further to their child elements.</p>
+
+  <p>Frequently, the children of a <code>media</code> element will be a single
+  block element, such as another <code>media</code> element or a <code>p</code>
+  element.  Note, however, that this is not required, and fallback rendering
+  may involve displaying several block elements.</p>
+
+  <p>In some display media, multimedia objects can have alternate text.  This
+  may be displayed when a user hovers over the object, or it may be provided
+  to assistive technologies.  When displaying in such a medium, display tools
+  should extract the text value of a <code>media</code> element by processing
+  its child elements, and recursively processing any child <code>media</code>
+  elements, as if it can not display any types of <code>media</code> elements.</p>
 </section>
 <!-- END processing -->
 
