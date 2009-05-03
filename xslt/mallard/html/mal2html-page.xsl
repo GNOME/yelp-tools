@@ -426,7 +426,7 @@ REMARK: Describe this template
 <!-- = page = -->
 <xsl:template match="mal:page">
   <div class="header">
-    <xsl:apply-templates mode="mal2html.block.mode"
+    <xsl:apply-templates mode="mal2html.title.mode"
                          select="mal:title | mal:subtitle"/>
   </div>
   <div class="contents">

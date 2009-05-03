@@ -3,8 +3,22 @@
       id="mal_block_synopsis">
 
 <info>
-  <link type="guide" xref="mal_block#containers"/>
+  <link type="guide" xref="mal_block#elements"/>
+
   <version number="0.1" date="2007-02-21" status="incomplete"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+  </credit>
+  <copyright>
+    <year>2008-2009</year>
+    <name>Shaun McCance</name>
+  </copyright>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Create an overview of concepts.</desc>
 </info>
 
 <title>Synopses</title>
@@ -15,6 +29,7 @@ mal_block_synopsis = element synopsis {
   attribute * - (mal:* | local:*) { text } *,
 
   <link xref="mal_title">mal_title</link> ?,
+  <link xref="mal_block_desc">mal_block_desc</link> ?,
   <link xref="mal_block">mal_block</link> +
 }
 </code></synopsis>
@@ -30,19 +45,67 @@ control element.</p>
   <p>Add explanation, examples</p>
 </comment>
 
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list type="bullet">
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>synopsis</code> element can have attributes from external
+    namespaces.  See <link xref="mal_attr_external"/> for more information
+    on external-namespace attributes on inline elements.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Use <code>synopsis</code> to create an overview of functions:</p>
+
+  <example>
+    <code><![CDATA[<synopsis>
+<title>Beanstalk Functions</title>
+<desc>Use these methods on a <code>Beanstalk</code> object.</desc>
+<code>
+void add_bean    (Bean bean);
+int  count_beans ();
+</code>
+</synopsis>
+]]></code>
+    <synopsis>
+      <title>Beanstalk Functions</title>
+      <desc>Use these methods on a <code>beanstalk</code> object.</desc>
+      <code>
+void add_bean    (Bean bean);
+int  count_beans ();
+</code>
+    </synopsis>
+  </example>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
 <section id="processing">
   <title>Processing Expectations</title>
 
   <p>A <code>synopsis</code> element is rendered as a displayed block,
   with each of its child elements interpreted as block elements.  Since
   a <code>synopsis</code> element often contains large blocks, and is
-  generally offset from the running text, display tools may opt to
-  render it inside a colored or screened box, with a border, or
-  otherwise differently from the surrounding text.</p>
+  generally offset from the running text, display tools may opt to render
+  it inside a colored box, with a border, or otherwise differently from
+  the surrounding text.</p>
 
   <p>If a <code xref="mal_title">title</code> element is provided, it
   should appear at the top of the block and be clearly marked as the
   title using font variations or other stylistic means.</p>
 </section>
+<!-- END processing -->
 
 </page>

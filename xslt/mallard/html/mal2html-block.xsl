@@ -37,16 +37,17 @@ REMARK: Describe this template
 <xsl:template name="mal2html.block.css">
 <xsl:text>
 div.title {
-  font-size: 1.2em;
-  margin-top: 0;
+  margin: 0 0 0.2em 0;
   font-weight: bold;
   color: </xsl:text>
   <xsl:call-template name="theme.get_color">
     <xsl:with-param name="id" select="'text-light'"/>
   </xsl:call-template>
   <xsl:text>;
-  font-weight: bold;
 }
+div.desc { margin: 0 0 0.2em 0; }
+div.desc-listing, div.desc-synopsis { font-style: italic; }
+div.desc-figure { margin: 0.2em 0 0 0; }
 pre.code {
   <!-- FIXME: theme -->
   background: url(mallard-icon-code.png) no-repeat top right;
@@ -66,6 +67,8 @@ div.example {
   padding-left: 1em;
 }
 div.figure {
+  margin-left: 1.72em;
+  padding: 4px;
   color: </xsl:text>
   <xsl:call-template name="theme.get_color">
     <xsl:with-param name="id" select="'text-light'"/>
@@ -81,10 +84,11 @@ div.figure {
     <xsl:with-param name="id" select="'gray-background'"/>
   </xsl:call-template>
   <xsl:text>;
-  margin-left: 1.72em;
-  padding: 4px;
 }
 div.figure-contents {
+  margin: 0;
+  padding: 0.5em 1em 0.5em 1em;
+  text-align: center;
   color: </xsl:text>
   <xsl:call-template name="theme.get_color">
     <xsl:with-param name="id" select="'text'"/>
@@ -100,15 +104,12 @@ div.figure-contents {
     <xsl:with-param name="id" select="'background'"/>
   </xsl:call-template>
   <xsl:text>;
-  padding: 0.5em 1em 0.5em 1em;
-  margin: 0;
-  text-align: center;
 }
-div.figure div.title { margin: 0 0 4px 0; }
-div.figure div.desc { margin: 4px 0 0 0; }
-div.listing div.title { font-size: 1em; margin: 0 0 4px 0; }
-div.listing div.desc { margin: 0 0 4px 0; font-style: italic; }
+div.listing-contents {
+  margin: 0;
+}
 pre.screen {
+  padding: 0.5em 1em 0.5em 1em;
   background-color: </xsl:text>
   <xsl:call-template name="theme.get_color">
     <xsl:with-param name="id" select="'gray-background'"/>
@@ -119,9 +120,10 @@ pre.screen {
     <xsl:with-param name="id" select="'gray-border'"/>
   </xsl:call-template>
   <xsl:text>;
-  padding: 0.5em 1em 0.5em 1em;
 }
-div.synopsis {
+div.synopsis-contents {
+  margin: 0;
+  padding: 0.5em 1em 0.5em 1em;
   border-top: solid 2px;
   border-bottom: solid 2px;
   border-color: </xsl:text>
@@ -134,7 +136,6 @@ div.synopsis {
     <xsl:with-param name="id" select="'gray-background'"/>
   </xsl:call-template>
   <xsl:text>;
-  padding: 0.5em 1em 0.5em 1em;
 }
 div.synopsis pre.code {
   background: none;
@@ -186,7 +187,7 @@ FIXME
 
 <!-- = desc = -->
 <xsl:template mode="mal2html.block.mode" match="mal:desc">
-  <div class="desc">
+  <div class="desc desc-{local-name(..)}">
     <xsl:apply-templates mode="mal2html.inline.mode"/>
   </div>
 </xsl:template>
@@ -348,7 +349,7 @@ FIXME
 </xsl:template>
 
 <xsl:template mode="mal2html.block.mode" match="mal:title">
-  <div class="title">
+  <div class="title title-{local-name(..)}">
     <xsl:apply-templates mode="mal2html.inline.mode"/>
   </div>
 </xsl:template>
