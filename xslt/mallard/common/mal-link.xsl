@@ -62,9 +62,24 @@ $href: The #{href} attribute of ${link}
       </xsl:choose>
     </xsl:when>
     <xsl:otherwise>
+      <xsl:variable name="fullid">
+        <xsl:choose>
+          <xsl:when test="contains($xref, '#')">
+            <xsl:variable name="pageid" select="substring-before($xref, '#')"/>
+            <xsl:variable name="sectionid" select="substring-after($xref, '#')"/>
+            <xsl:if test="$pageid = ''">
+              <xsl:value-of select="$link/ancestor::mal:page/@id"/>
+            </xsl:if>
+            <xsl:value-of select="concat($pageid, '#', $sectionid)"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="$xref"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:variable>
       <xsl:for-each select="$mal.cache">
         <xsl:apply-templates mode="mal.link.content.mode"
-                             select="key('mal.cache.key', $xref)
+                             select="key('mal.cache.key', $fullid)
                                      /mal:info/mal:title[@type = 'link']/node()"/>
       </xsl:for-each>
     </xsl:otherwise>
