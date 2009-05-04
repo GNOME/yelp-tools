@@ -233,13 +233,13 @@ REMARK: Describe this template
 
 
 <!--**==========================================================================
-mal2html.page.seealsolinks
-Outputs the automatic seealso links from a page related pages
+mal2html.page.autolinks
+Outputs the automatic links from a page to related pages
 $node: The #{topic} or #{section} element containing the links
 
 REMARK: Describe this template
 -->
-<xsl:template name="mal2html.page.seealsolinks">
+<xsl:template name="mal2html.page.autolinks">
   <xsl:param name="node" select="."/>
   <xsl:variable name="depth"
                 select="count($node/ancestor::mal:section) + 2"/>
@@ -263,53 +263,55 @@ REMARK: Describe this template
   <xsl:variable name="guidelinks"
                 select="$node/mal:info/mal:link[@type = 'guide']"/>
   <xsl:if test="$inlinks or $outlinks or $pagelinks or $guidelinks">
-    <div class="section seealsosection">
+    <div class="section autolinkssection">
       <div class="header">
         <xsl:element name="{concat('h', $depth)}">
           <xsl:attribute name="class">
             <xsl:text>title</xsl:text>
           </xsl:attribute>
           <!-- FIXME: i18n -->
-          <xsl:text>See Also</xsl:text>
+          <xsl:text>Further Reading</xsl:text>
         </xsl:element>
       </div>
-      <div class="seealsolinks">
-        <xsl:for-each select="$pagelinks">
-          <xsl:call-template name="mal2html.page.pagelink">
-            <xsl:with-param name="source" select="$node"/>
-            <xsl:with-param name="target" select="."/>
-          </xsl:call-template>
-        </xsl:for-each>
-        <!-- FIXME: exclude pagelinks -->
-        <xsl:for-each select="$guidelinks">
-          <xsl:variable name="xref" select="@xref"/>
-          <xsl:for-each select="$mal.cache">
-            <xsl:call-template name="mal2html.page.pagelink">
-              <xsl:with-param name="source" select="$node"/>
-              <xsl:with-param name="target" select="key('mal.cache.key', $xref)"/>
-            </xsl:call-template>
-          </xsl:for-each>
-        </xsl:for-each>
-
-        <xsl:if test="($pagelinks or $guidelinks) and ($inlinks or $outlinks)">
-          <div class="pagelinksep"/>
+      <div class="autolinks">
+        <xsl:if test="$pagelinks or $guidelinks">
+          <div class="title"><span>
+            <!-- FIXME: i18n -->
+            <xsl:text>More About</xsl:text>
+          </span></div>
+          <ul>
+            <xsl:for-each select="$pagelinks">
+              <xsl:call-template name="mal2html.page.autolink">
+                <xsl:with-param name="page" select="."/>
+              </xsl:call-template>
+            </xsl:for-each>
+            <!-- FIXME: exclude pagelinks -->
+            <xsl:for-each select="$guidelinks">
+              <xsl:call-template name="mal2html.page.autolink">
+                <xsl:with-param name="xref" select="@xref"/>
+              </xsl:call-template>
+            </xsl:for-each>
+          </ul>
         </xsl:if>
 
-        <xsl:for-each select="$inlinks">
-          <xsl:call-template name="mal2html.page.pagelink">
-            <xsl:with-param name="source" select="$node"/>
-            <xsl:with-param name="target" select="."/>
-          </xsl:call-template>
-        </xsl:for-each>
-        <xsl:for-each select="$outlinks">
-          <xsl:variable name="xref" select="@xref"/>
-          <xsl:for-each select="$mal.cache">
-            <xsl:call-template name="mal2html.page.pagelink">
-              <xsl:with-param name="source" select="$node"/>
-              <xsl:with-param name="target" select="key('mal.cache.key', $xref)"/>
-            </xsl:call-template>
-          </xsl:for-each>
-        </xsl:for-each>
+        <xsl:if test="$inlinks or $outlinks">
+          <div class="title"><span>
+            <!-- FIXME: i18n -->
+            <xsl:text>See Also</xsl:text>
+          </span></div>
+          <ul>
+            <xsl:for-each select="$inlinks">
+              <xsl:call-template name="mal2html.page.autolink">
+                <xsl:with-param name="page" select="."/>
+              </xsl:call-template>
+            </xsl:for-each>
+            <xsl:for-each select="$outlinks">
+              <xsl:call-template name="mal2html.page.autolink">
+                <xsl:with-param name="xref" select="@xref"/>
+              </xsl:call-template>
+            </xsl:for-each>
+          </ul>
+        </xsl:if>
       </div>
     </div>
   </xsl:if>
@@ -317,17 +319,15 @@ REMARK: Describe this template
 
 
 <!--**==========================================================================
-mal2html.page.seealsolink
-Outputs an automatic link block for a seealso link
-$node: The #{topic} or #{section} element containing the link
+mal2html.page.autolink
+Outputs an automatic link for a related page
 $page: The element from the cache file of the page being linked to
 
 REMARK: Describe this template
 -->
-<xsl:template name="mal2html.page.seealsolink">
-  <xsl:param name="node" select="."/>
+<xsl:template name="mal2html.page.autolink">
   <xsl:param name="page"/>
-  <xsl:variable name="xref">
+  <xsl:param name="xref">
     <xsl:choose>
       <xsl:when test="$page/self::mal:section">
         <xsl:value-of select="$page/ancestor::mal:page[1]/@id"/>
@@ -338,8 +338,8 @@ REMARK: Describe this template
         <xsl:value-of select="$page/@id"/>
       </xsl:otherwise>
     </xsl:choose>
-  </xsl:variable>
-  <li class="seealsolink">
+  </xsl:param>
+  <li class="autolink">
     <a>
       <xsl:attribute name="href">
         <xsl:call-template name="mal.link.target">
@@ -351,6 +351,15 @@ REMARK: Describe this template
         <xsl:with-param name="xref" select="$xref"/>
       </xsl:call-template>
     </a>
+    <xsl:for-each select="$mal.cache">
+      <xsl:variable name="desc" select="key('mal.cache.key', $xref)/mal:info/mal:desc"/>
+      <xsl:if test="$desc">
+        <span class="desc">
+          <xsl:text> &#x2014; </xsl:text>
+          <xsl:apply-templates mode="mal2html.inline.mode" select="$desc/node()"/>
+        </span>
+      </xsl:if>
+    </xsl:for-each>
   </li>
 </xsl:template>
 
@@ -438,7 +447,7 @@ REMARK: Describe this template
     </xsl:if>
   </div>
   <xsl:apply-templates select="mal:section"/>
-  <xsl:call-template name="mal2html.page.seealsolinks">
+  <xsl:call-template name="mal2html.page.autolinks">
     <xsl:with-param name="node" select="."/>
   </xsl:call-template>
 </xsl:template>
@@ -459,7 +468,7 @@ REMARK: Describe this template
       </xsl:if>
     </div>
     <xsl:apply-templates select="mal:section"/>
-    <xsl:call-template name="mal2html.page.seealsolinks">
+    <xsl:call-template name="mal2html.page.autolinks">
       <xsl:with-param name="node" select="."/>
     </xsl:call-template>
   </div>

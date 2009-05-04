@@ -98,6 +98,7 @@ body {
   padding: 12px;
   min-height: 100%;
 }
+ul, ol, dl { margin: 0; }
 div, pre, p, li { margin: 1em 0 0 0; padding: 0; }
 .first-child { margin-top: 0; }
 a {
@@ -169,6 +170,17 @@ h4.title { font-size: 1em; }
 h5.title { font-size: 1em; }
 h6.title { font-size: 1em; }
 h7.title { font-size: 1em; }
+
+div.autolinks ul { margin: 0; padding: 0; }
+div.autolinks div.title { margin: 1em 0 0 1em; }
+div.autolinks div.title span {
+  border-bottom: solid 1px </xsl:text>
+  <xsl:call-template name="theme.get_color">
+    <xsl:with-param name="id" select="'gray-border'"/>
+  </xsl:call-template>
+  <xsl:text>;
+}
+li.autolink { margin: 0.5em 0 0 0; padding: 0 0 0 1em; list-style-type: none; }
 
 td.twocolumnleft { width: 48%; vertical-align: top; padding: 0; margin: 0; }
 td.twocolumnright { width: 52%; vertical-align: top; padding: 0 0 0 1em; margin: 0; }
