@@ -144,7 +144,7 @@ div.copyrights {
   </xsl:call-template>
   <xsl:text>;
 }
-div.section { margin-top: 2em; clear: both; }
+div.section { margin-top: 2.4em; clear: both; }
 div.section div.section { margin-top: 1.72em; margin-left: 1.72em; }
 div.section div.section div.section { margin-top: 1.44em; }
 div.header {
