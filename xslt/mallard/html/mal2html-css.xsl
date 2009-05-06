@@ -160,16 +160,15 @@ div.header {
   </xsl:call-template>
   <xsl:text>;
 }
+h1 {
+  font-size: 1.44em;
+  margin: 0;
+}
+h2, h3, h4, h5, h6, h7 {
+  font-size: 1.2em;
+  margin: 0;
+}
 table { border-collapse: collapse; }
-div.section div.section div.header { border: none; }
-h1, h2, h3, h4, h5, h6, h7 { margin: 0; }
-h1.title { font-size: 1.44em; }
-h2.title { font-size: 1.2em; }
-h3.title { font-size: 1em; }
-h4.title { font-size: 1em; }
-h5.title { font-size: 1em; }
-h6.title { font-size: 1em; }
-h7.title { font-size: 1em; }
 
 div.autolinks ul { margin: 0; padding: 0; }
 div.autolinks div.title { margin: 1em 0 0 1em; }
