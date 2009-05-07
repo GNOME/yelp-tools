@@ -203,7 +203,8 @@ FIXME
 <!-- = comment = -->
 <xsl:template mode="mal2html.block.mode" match="mal:comment">
   <xsl:param name="first_child" select="not(preceding-sibling::*)"/>
-  <xsl:if test="$mal2html.editor_mode">
+  <xsl:if test="$mal2html.editor_mode
+                or processing-instruction('mal2html.show_comment')">
     <div>
       <xsl:attribute name="class">
         <xsl:text>comment</xsl:text>
@@ -214,7 +215,8 @@ FIXME
       <xsl:apply-templates mode="mal2html.block.mode" select="mal:title"/>
       <xsl:apply-templates mode="mal2html.block.mode" select="mal:cite"/>
       <xsl:for-each select="mal:*[not(self::mal:title or self::mal:cite)
-                            and not($mal2html.editor_mode and self::mal:comment)]">
+                            and ($mal2html.editor_mode or not(self::mal:comment)
+                            or processing-instruction('mal2html.show_comment'))]">
         <xsl:apply-templates mode="mal2html.block.mode" select=".">
           <xsl:with-param name="first_child" select="position() = 1"/>
         </xsl:apply-templates>
@@ -227,18 +229,21 @@ FIXME
 <xsl:template mode="mal2html.block.mode" match="mal:comment/mal:cite">
   <div class="cite">
     <!-- FIXME: i18n -->
+    <xsl:text>from </xsl:text>
     <xsl:choose>
-      <xsl:when test="mal:name and @date">
-        <xsl:text>from </xsl:text>
-        <xsl:apply-templates mode="mal2html.inline.mode" select="mal:name"/>
-        <xsl:text> on </xsl:text>
-        <xsl:apply-templates mode="mal2html.inline.mode" select="@date"/>
+      <xsl:when test="@href">
+        <a href="{@href}">
+          <xsl:apply-templates mode="mal2html.inline.mode"/>
+        </a>
       </xsl:when>
       <xsl:otherwise>
-        <xsl:text>from </xsl:text>
-        <xsl:apply-templates mode="mal2html.inline.mode" select="mal:name"/>
+        <xsl:apply-templates mode="mal2html.inline.mode"/>
       </xsl:otherwise>
     </xsl:choose>
+    <xsl:if test="@date">
+      <xsl:text> on </xsl:text>
+      <xsl:value-of select="@date"/>
+    </xsl:if>
   </div>
 </xsl:template>
 
@@ -252,7 +257,8 @@ FIXME
         <xsl:text> first-child</xsl:text>
       </xsl:if>
     </xsl:attribute>
-    <xsl:for-each select="mal:*[not($mal2html.editor_mode and self::mal:comment)]">
+    <xsl:for-each select="mal:*[$mal2html.editor_mode or not(self::mal:comment)
+                          or processing-instruction('mal2html.show_comment')]">
       <xsl:apply-templates mode="mal2html.block.mode" select=".">
         <xsl:with-param name="first_child" select="position() = 1"/>
       </xsl:apply-templates>
@@ -273,7 +279,8 @@ FIXME
     <xsl:apply-templates mode="mal2html.block.mode" select="mal:title"/>
     <div class="figure-contents">
       <xsl:for-each select="mal:*[not(self::mal:title or self::mal:desc)
-                            and not($mal2html.editor_mode and self::mal:comment)]">
+                            and ($mal2html.editor_mode or not(self::mal:comment)
+                            or processing-instruction('mal2html.show_comment'))]">
         <xsl:apply-templates mode="mal2html.block.mode" select=".">
           <xsl:with-param name="first_child" select="position() = 1"/>
         </xsl:apply-templates>
@@ -297,7 +304,8 @@ FIXME
     <xsl:apply-templates mode="mal2html.block.mode" select="mal:desc"/>
     <div class="listing-contents">
       <xsl:for-each select="mal:*[not(self::mal:title or self::mal:desc)
-                            and not($mal2html.editor_mode and self::mal:comment)]">
+                            and ($mal2html.editor_mode or not(self::mal:comment)
+                            or processing-instruction('mal2html.show_comment'))]">
         <xsl:apply-templates mode="mal2html.block.mode" select=".">
           <xsl:with-param name="first_child" select="position() = 1"/>
         </xsl:apply-templates>
@@ -345,7 +353,8 @@ FIXME
     <xsl:apply-templates mode="mal2html.block.mode" select="mal:desc"/>
     <div class="synopsis-contents">
       <xsl:for-each select="mal:*[not(self::mal:title or self::mal:desc)
-                            and not($mal2html.editor_mode and self::mal:comment)]">
+                            and ($mal2html.editor_mode or not(self::mal:comment)
+                            or processing-instruction('mal2html.show_comment'))]">
         <xsl:apply-templates mode="mal2html.block.mode" select=".">
           <xsl:with-param name="first_child" select="position() = 1"/>
         </xsl:apply-templates>

@@ -432,7 +432,8 @@ REMARK: Describe this template
   <div class="contents">
     <xsl:for-each
         select="mal:*[not(self::mal:section or self::mal:title or self::mal:subtitle)
-                and not($mal2html.editor_mode and self::mal:comment)]">
+                and ($mal2html.editor_mode or not(self::mal:comment)
+                or processing-instruction('mal2html.show_comment'))]">
       <xsl:apply-templates mode="mal2html.block.mode" select=".">
         <xsl:with-param name="first_child" select="position() = 1"/>
       </xsl:apply-templates>
@@ -457,7 +458,8 @@ REMARK: Describe this template
     <div class="contents">
       <xsl:for-each
           select="mal:*[not(self::mal:section or self::mal:title or self::mal:subtitle)
-                  and not($mal2html.editor_mode and self::mal:comment)]">
+                  and ($mal2html.editor_mode or not(self::mal:comment)
+                  or processing-instruction('mal2html.show_comment'))]">
         <xsl:apply-templates mode="mal2html.block.mode" select=".">
           <xsl:with-param name="first_child" select="position() = 1"/>
         </xsl:apply-templates>

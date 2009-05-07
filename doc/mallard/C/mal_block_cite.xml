@@ -3,6 +3,9 @@
       id="mal_block_cite">
 
 <info>
+  <link type="seealso" xref="mal_block_comment"/>
+  <link type="seealso" xref="mal_block_quote"/>
+
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
@@ -20,9 +23,12 @@
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_block_cite = element cite {
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
   attribute date { xsd:date } ?,
-  element name { <link xref="mal_inline">mal_inline</link> },
-  element email { <link xref="mal_inline">mal_inline</link> } ?
+  attribute href { text } ?,
+
+  <link xref="mal_inline">mal_inline</link>
 }
 </code></synopsis>
 
@@ -39,5 +45,25 @@ element.</p>
   <cite date="2007-02-08"><name>Shaun McCance</name></cite>
   <p>Add examples, processing expectations.</p>
 </comment>
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list type="bullet">
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>cite</code> element can have attributes from external
+    namespaces.  See <link xref="mal_attr_external"/> for more information
+    on external-namespace attributes.</p></item>
+
+    <item><p>The <code>href</code> attribute provides a URL to identify the
+    entity being cited.  It will frequently be a <sys>mailto:</sys> URL with
+    a person's email address.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
 
 </page>
