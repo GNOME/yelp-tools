@@ -268,7 +268,7 @@ REMARK: Describe this template
   <xsl:if test="$inlinks or $outlinks or $pagelinks or $guidelinks">
     <div class="section autolinkssection">
       <div class="header">
-        <xsl:element name="{concat('h', $depth)}">
+        <xsl:element name="{concat('h', $depth)}" namespace="{$mal2html.namespace}">
           <xsl:attribute name="class">
             <xsl:text>title</xsl:text>
           </xsl:attribute>
@@ -484,7 +484,7 @@ REMARK: Describe this template
 <xsl:template mode="mal2html.title.mode" match="mal:title">
   <xsl:variable name="depth"
                 select="count(ancestor::mal:section) + 1"/>
-  <xsl:element name="{concat('h', $depth)}">
+  <xsl:element name="{concat('h', $depth)}" namespace="{$mal2html.namespace}">
     <xsl:attribute name="class">
       <xsl:text>title</xsl:text>
     </xsl:attribute>
