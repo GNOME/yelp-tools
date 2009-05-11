@@ -103,7 +103,6 @@ mal_block_list = (
 <!-- BEGIN tables -->
 <section id="tables">
   <info>
-    <title type="link">Block Elements</title>
     <link type="topic" xref="mal_table"/>
   </info>
   <title>Tables</title>

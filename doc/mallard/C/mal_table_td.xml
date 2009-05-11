@@ -1,0 +1,20 @@
+<page xmlns="http://www.gnome.org/~shaunm/mallard"
+      type="topic"
+      id="mal_table_td">
+
+<info>
+  <link type="guide" xref="mal_block#tables"/>
+</info>
+
+<title>Table Cells</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_table_td = element td {
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  <link xref="mal_block">mal_block</link> +
+}
+</code></synopsis>
+
+</page>
