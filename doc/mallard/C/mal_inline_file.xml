@@ -40,16 +40,25 @@ filenames, such as search paths and file extensions.</p>
 <section id="notes">
   <title>Notes</title>
   <list type="bullet">
-    <item><p>The <code>style</code> attribute takes a space-separated list of
-    style hints.  Processing tools should adjust their behavior according to
-    those style hints they understand.</p></item>
+    <item><p>The <code>file</code> element can contain a mixture of text and
+    any <link xref="mal_inline">general inline elements</link>.</p></item>
+
+    <item><p>The <code>file</code> element can occur in any
+    general inline context, including inside most
+    <link xref="mal_inline">inline elements</link>, some
+    <link xref="mal_block#basic">basic block elements</link>, and certain
+    <link xref="mal_info">informational elements</link>.</p></item>
 
     <item><p>The <code>file</code> element can link to other pages or documents.
     See <link xref="mal_attr_link"/> for more information.</p></item>
 
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
     <item><p>The <code>file</code> element can have attributes from external
     namespaces.  See <link xref="mal_attr_external"/> for more information
-    on external-namespace attributes on inline elements.</p></item>
+    on external-namespace attributes.</p></item>
   </list>
 </section>
 <!-- END notes -->
@@ -66,13 +75,13 @@ filenames, such as search paths and file extensions.</p>
 <!-- END processing -->
 
 
-<!-- BEGIN docbook -->
-<section id="docbook">
-  <title>Comparison to DocBook</title>
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
   <p>The <code>file</code> element is similar to the
   <code href="http://www.docbook.org/tdg/en/html/filename.html">filename</code>
   element in DocBook.</p>
 </section>
-<!-- END docbook -->
+<!-- END comparison -->
 
 </page>

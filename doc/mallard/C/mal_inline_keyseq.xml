@@ -24,8 +24,8 @@
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_inline_keyseq = element keyseq {
-  attribute type { "combo" | "sequence" } ?,
   attribute style { xsd:NMTOKENS } ?,
+  attribute type { "combo" | "sequence" } ?,
   attribute * - (mal:* | local:*) { text } *,
 
   mixed {
@@ -44,17 +44,28 @@ key press.  You can use text without markup to indicate a class of keys, such as
 <section id="notes">
   <title>Notes</title>
   <list type="bullet">
-    <item><p>The <code>type</code> element indicates whether the keys should be
-    pressed together (<code>"combo"</code>) or in sequence (<code>"sequence"</code>).
-    The default is <code>"combo"</code>.</p></item>
+    <item><p>The <code>keyseq</code> element can contain a mixture of text,
+    <code xref="mal_inline_key">key</code> elements, and other
+    <code>keyseq</code> elements.</p></item>
+
+    <item><p>The <code>keyseq</code> element can occur in any
+    general inline context, including inside most
+    <link xref="mal_inline">inline elements</link>, some
+    <link xref="mal_block#basic">basic block elements</link>, and certain
+    <link xref="mal_info">informational elements</link>.</p></item>
+
 
     <item><p>The <code>style</code> attribute takes a space-separated list of
     style hints.  Processing tools should adjust their behavior according to
     those style hints they understand.</p></item>
 
+    <item><p>The <code>type</code> element indicates whether the keys should be
+    pressed together (<code>"combo"</code>) or in sequence (<code>"sequence"</code>).
+    The default is <code>"combo"</code>.</p></item>
+
     <item><p>The <code>keyseq</code> element can have attributes from external
     namespaces.  See <link xref="mal_attr_external"/> for more information
-    on external-namespace attributes on inline elements.</p></item>
+    on external-namespace attributes.</p></item>
   </list>
 </section>
 <!-- END notes -->
@@ -127,28 +138,25 @@ There are various ways to modify drag behavior by using
 <section id="processing">
   <title>Processing Expectations</title>
 
-  <p>Display tools should show each of the children except whitespace-only
-  text nodes, adding a separator between them.  The exact separator may vary
-  according to language and style preferences, and according to the
-  <code>type</code> attribute.  For sequences, a space is typically used.
-  For combinations, the plus sign (+) is most frequently used on modern
-  systems, although the hyphen (-) is still common in some areas.  Display
-  tools may use a style hint to choose different separators.</p>
+  <p>Each of the child <code>key</code> elements and text nodes, except
+  whitespace-only text nodes, is displayed as described below, adding a
+  separator between them.  The exact separator may vary according to
+  language and style preferences, and according to the <code>type</code>
+  attribute.  For sequences, a space is typically used.  For combinations,
+  the plus sign (+) is most frequently used on modern systems, although the
+  hyphen (-) is still common in some areas.  A style hint may be used to
+  choose between different separators.</p>
 
-  <p>Child <code>key</code> and <code>keyseq</code> elements should be shown
-  as normal.  Text nodes should have their whitespace normalized to strip
-  leading and trailing spaces.  Text nodes may be rendered using a font
-  variation such as italics.</p>
-
-  <p>Display tools may use subtle effects such as lightened text or borders
-  to distinguish key sequences from the surrounding text.</p>
+  <p>Child <code>key</code> and <code>keyseq</code> elements are shown as
+  normal.  Text nodes have their whitespace normalized to strip leading and
+  trailing spaces.  Text nodes may be rendered using a font variation.</p>
 </section>
 <!-- END processing -->
 
 
-<!-- BEGIN docbook -->
-<section id="docbook">
-  <title>Comparison to DocBook</title>
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
   <p>The <code>keyseq</code> element is similar to the
   <code href="http://www.docbook.org/tdg/en/html/keycombo.html">keycombo</code>
   element in DocBook.  Like <code>keycombo</code>, <code>keyseq</code> elements
@@ -157,6 +165,6 @@ There are various ways to modify drag behavior by using
   <code href="http://www.docbook.org/tdg/en/html/mousebutton.html">mousebutton</code>,
   mouse actions in key sequences should be written as text content without markup.</p>
 </section>
-<!-- END docbook -->
+<!-- END comparison -->
 
 </page>

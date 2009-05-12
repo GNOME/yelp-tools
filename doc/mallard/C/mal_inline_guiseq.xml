@@ -40,13 +40,22 @@ items.</p>
 <section id="notes">
   <title>Notes</title>
   <list type="bullet">
+    <item><p>The <code>guiseq</code> element can contain a mixture of text and
+    <code xref="mal_inline_gui">gui</code> elements.</p></item>
+
+    <item><p>The <code>guiseq</code> element can occur in any
+    general inline context, including inside most
+    <link xref="mal_inline">inline elements</link>, some
+    <link xref="mal_block#basic">basic block elements</link>, and certain
+    <link xref="mal_info">informational elements</link>.</p></item>
+
     <item><p>The <code>style</code> attribute takes a space-separated list of
     style hints.  Processing tools should adjust their behavior according to
     those style hints they understand.</p></item>
 
     <item><p>The <code>guiseq</code> element can have attributes from external
     namespaces.  See <link xref="mal_attr_external"/> for more information
-    on external-namespace attributes on inline elements.</p></item>
+    on external-namespace attributes.</p></item>
   </list>
 </section>
 <!-- END notes -->
@@ -66,7 +75,6 @@ a new document.
     <p>Select <guiseq><gui>File</gui><gui>New</gui></guiseq> to open
     a new document.</p>
   </example>
-
 </section>
 <!-- END examples -->
 
@@ -75,18 +83,23 @@ a new document.
 <section id="processing">
   <title>Processing Expectations</title>
 
-  <p>Display tools should show each of the child <code>gui</code> elements as
-  normal, adding a separator between them.  The exact separator may vary according
-  to the language and style preferences, but it will typically be some sort of
+  <p>Each of the child <code>key</code> elements and text nodes, except
+  whitespace-only text nodes, is displayed as described below, adding a
+  separator between them.  The exact separator may vary according to the
+  language and style preferences, but it will typically be some sort of
   right-pointing arrow or triangle, or left-pointing for right-to-left
   languages.</p>
+
+  <p>Child <code>gui</code> elements are shown as normal.  Text nodes
+  have their whitespace normalized to strip leading and trailing spaces.
+  Text nodes may be rendered using a font variation.</p>
 </section>
 <!-- END processing -->
 
 
-<!-- BEGIN docbook -->
-<section id="docbook">
-  <title>Comparison to DocBook</title>
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
   <p>The <code>guiseq</code> element is similar to the
   <code href="http://www.docbook.org/tdg/en/html/menuchoice.html">menuchoice</code>
   element in DocBook.  Since Mallard does not provide different elements for
@@ -97,6 +110,6 @@ a new document.
   element in DocBook.  It is recommended that shortcuts, when necessary, be
   written into prose separately.</p>
 </section>
-<!-- END docbook -->
+<!-- END comparison -->
 
 </page>

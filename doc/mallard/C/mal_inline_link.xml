@@ -23,20 +23,14 @@
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_inline_link = element link {
+  ( attribute xref { text } |
+    attribute href { text } |
+    ( attribute xref { text }, attribute href { text } )
+  ),
   attribute style { xsd:NMTOKENS } ?,
   attribute * - (mal:* | local:*) { text } *,
 
-  ( ( attribute xref { text },
-      <link xref="mal_inline">mal_inline</link> ?
-    ) |
-    ( attribute dref { text },
-      attribute href { text } ?,
-      <link xref="mal_inline">mal_inline</link>
-    ) |
-    ( attribute href { text },
-      <link xref="mal_inline">mal_inline</link>
-    )
-  )
+  <link xref="mal_inline">mal_inline</link>
 }
 </code></synopsis>
 
@@ -45,28 +39,53 @@ mal_inline_link = element link {
 <section id="notes">
   <title>Notes</title>
   <list type="bullet">
-    <item><p>The <code>style</code> attribute takes a space-separated list of
-    style hints.  Processing tools should adjust their behavior according to
-    those style hints they understand.</p></item>
+    <item><p>The <code>link</code> element can contain a mixture of text and
+    any <link xref="mal_inline">general inline elements</link>.</p></item>
 
-    <item><p>The <code>link</code> element can have attributes from external
-    namespaces.  See <link xref="mal_attr_external"/> for more information
-    on external-namespace attributes on inline elements.</p></item>
+    <item><p>The <code>link</code> element can occur in any
+    general inline context, including inside most
+    <link xref="mal_inline">inline elements</link>, some
+    <link xref="mal_block#basic">basic block elements</link>, and certain
+    <link xref="mal_info">informational elements</link>.</p></item>
 
     <item><p>The <code>xref</code> attribute creates a link to another page
     or section within the same document.  When text content is omitted, the
     content is automatically taken from the title of the page or section
     being linked to.</p></item>
 
-    <item><p>The <code>dref</code> attribute creates a link to a page or
-    section in another document.  An <code>href</code> attribute can be
-    provide as a fallback for systems that don't understand document
-    links.</p></item>
-
     <item><p>The <code>href</code> attribute creates a link to a web page
     or other network-accessible resource.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>link</code> element can have attributes from external
+    namespaces.  See <link xref="mal_attr_external"/> for more information
+    on external-namespace attributes.</p></item>
   </list>
 </section>
 <!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+</section>
+<!-- END comparison -->
 
 </page>

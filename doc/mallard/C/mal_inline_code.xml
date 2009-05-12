@@ -52,6 +52,18 @@ by the user.</p>
 <section id="notes">
   <title>Notes</title>
   <list type="bullet">
+    <item><p>The <code>code</code> element can contain a mixture of text and
+    any <link xref="mal_inline">general inline elements</link>.</p></item>
+
+    <item><p>The <code>code</code> element can occur in any
+    general inline context, including inside most
+    <link xref="mal_inline">inline elements</link>, some
+    <link xref="mal_block#basic">basic block elements</link>, and certain
+    <link xref="mal_info">informational elements</link>.</p></item>
+
+    <item><p>The <code>code</code> element can link to other pages or documents.
+    See <link xref="mal_attr_link"/> for more information.</p></item>
+
     <item><p>The <code>style</code> attribute takes a space-separated list of
     style hints.  Processing tools should adjust their behavior according to
     those style hints they understand.</p></item>
@@ -59,12 +71,9 @@ by the user.</p>
     <item><p>The <code>mime</code> attribute takes a valid MIME type.  Processing
     tools may adjust their behavior for particular MIME types.</p></item>
 
-    <item><p>The <code>code</code> element can link to other pages or documents.
-    See <link xref="mal_attr_link"/> for more information.</p></item>
-
     <item><p>The <code>code</code> element can have attributes from external
     namespaces.  See <link xref="mal_attr_external"/> for more information
-    on external-namespace attributes on inline elements.</p></item>
+    on external-namespace attributes.</p></item>
 
     <item><p>The <code>code</code> element may also be used in a block context.
     See <link xref="mal_block_code"/> for more information.</p></item>
@@ -133,9 +142,9 @@ up code with a placeholder for an argument the user should supply.
 <!-- END processing -->
 
 
-<!-- BEGIN docbook -->
-<section id="docbook">
-  <title>Comparison to DocBook</title>
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
   <p>The <code>code</code> element is similar to the
   <code href="http://www.docbook.org/tdg/en/html/code.html">code</code> element
   in DocBook.  Since Mallard does not attempt to model programming languages,
@@ -154,9 +163,7 @@ up code with a placeholder for an argument the user should supply.
   in place of the DocBook elements
   <code href="http://www.docbook.org/tdg/en/html/markup.html">markup</code> and
   <code href="http://www.docbook.org/tdg/en/html/sgmltag.html">sgmltag</code>.</p>
-
-  <p>See <link xref="principle-justenough"/> for more background.</p>
 </section>
-<!-- END docbook -->
+<!-- END comparison -->
 
 </page>

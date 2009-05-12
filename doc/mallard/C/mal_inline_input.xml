@@ -41,21 +41,30 @@ or into a text field in a graphical application.</p>
 <section id="notes">
   <title>Notes</title>
   <list type="bullet">
+    <item><p>The <code>input</code> element can contain a mixture of text and
+    any <link xref="mal_inline">general inline elements</link>.</p></item>
+
+    <item><p>The <code>input</code> element can occur in any
+    general inline context, including inside most
+    <link xref="mal_inline">inline elements</link>, some
+    <link xref="mal_block#basic">basic block elements</link>, and certain
+    <link xref="mal_info">informational elements</link>.</p></item>
+
+    <item><p>The <code>input</code> element can link to other pages or documents.
+    See <link xref="mal_attr_link"/> for more information.</p></item>
+
     <item><p>The <code>style</code> attribute takes a space-separated list of
     style hints.  Processing tools should adjust their behavior according to
     those style hints they understand.</p></item>
+
+    <item><p>The <code>input</code> element can have attributes from external
+    namespaces.  See <link xref="mal_attr_external"/> for more information
+    on external-namespace attributes.</p></item>
 
     <item><p>The <code>input</code> element, together with the
     <code xref="mal_inline_output">output</code> element, may be used to mark up
     the contents of a <code xref="mal_block_screen">screen</code> element,
     allowing processing tools to treat them differently.</p></item>
-
-    <item><p>The <code>input</code> element can link to other pages or documents.
-    See <link xref="mal_attr_link"/> for more information.</p></item>
-
-    <item><p>The <code>input</code> element can have attributes from external
-    namespaces.  See <link xref="mal_attr_external"/> for more information
-    on external-namespace attributes on inline elements.</p></item>
   </list>
 </section>
 <!-- END notes -->
@@ -75,21 +84,21 @@ or into a text field in a graphical application.</p>
 <section id="processing">
   <title>Processing Expectations</title>
 
-  <p>User input should be displayed in a fixed-width or wide font.  Fixed-width
+  <p>User input is displayed in a fixed-width or wide font.  Fixed-width
   fonts tend to have more distinction between visually similar characters.
-  Display tools may use a background color or border to make the beginning
-  and end of the input clear.</p>
+  A border or background color may be used to  make the beginning and end of
+  the intput clear.</p>
 </section>
 <!-- END processing -->
 
 
-<!-- BEGIN docbook -->
-<section id="docbook">
-  <title>Comparison to DocBook</title>
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
   <p>The <code>input</code> element is similar to the
   <code href="http://www.docbook.org/tdg/en/html/userinput.html">userinput</code>
   element in DocBook.</p>
 </section>
-<!-- END docbook -->
+<!-- END comparison -->
 
 </page>

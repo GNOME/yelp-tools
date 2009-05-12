@@ -15,12 +15,12 @@
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_block_media = element media {
   <link xref="mal_attr_link">mal_attr_link</link> ?,
+  attribute style { xsd:NMTOKENS } ?,
   attribute type { "image" | "video" | "audio" | "application" } ?,
   attribute mime { text } ?,
   attribute src { text },
   attribute height { text },
   attribute width { text },
-  attribute style { xsd:NMTOKENS } ?,
   attribute * - (mal:* | local:*) { text } *,
 
   <link xref="mal_inline">mal_inline</link>
@@ -38,6 +38,18 @@ for details on how fallback elements are handled.</p>
 <section id="notes">
   <title>Notes</title>
   <list type="bullet">
+    <item><p>The <code>media</code> element can contain a mixture of text and
+    any <link xref="mal_inline">general inline elements</link>.</p></item>
+
+    <item><p>The <code>media</code> element can occur in any
+    general inline context, including inside most
+    <link xref="mal_inline">inline elements</link>, some
+    <link xref="mal_block#basic">basic block elements</link>, and certain
+    <link xref="mal_info">informational elements</link>.</p></item>
+
+    <item><p>The <code>media</code> element can link to other pages or documents.
+    See <link xref="mal_attr_link"/> for more information.</p></item>
+
     <item><p>The <code>style</code> attribute takes a space-separated list of
     style hints.  Processing tools should adjust their behavior according to
     those style hints they understand.</p></item>
@@ -45,12 +57,9 @@ for details on how fallback elements are handled.</p>
     <item><p>The <code>mime</code> attribute takes a valid MIME type for the
     object that is being inserted.</p></item>
 
-    <item><p>The <code>media</code> element can link to other pages or documents.
-    See <link xref="mal_attr_link"/> for more information.</p></item>
-
     <item><p>The <code>media</code> element can have attributes from external
     namespaces.  See <link xref="mal_attr_external"/> for more information
-    on external-namespace attributes on inline elements.</p></item>
+    on external-namespace attributes.</p></item>
 
     <item><p>The <code>media</code> element may also be used in a block context.
     See <link xref="mal_block_media"/> for more information.</p></item>
@@ -83,10 +92,10 @@ Drake, the Mallard mascot
 <section id="processing">
   <title>Processing Expectations</title>
 
-  <p>When a <code>media</code> element occurs in an inline context, it should be
-  displayed as an inline element.  The exact rendering of a <code>media</code>
-  element will depend on the <code>type</code> and <code>mime</code> attributes.
-  Display tools may need to add controls for audio and video objects.</p>
+  <p>When a <code>media</code> element occurs in an inline context, it is displayed
+  inline.  The exact rendering of a <code>media</code> element will depend on the
+  <code>type</code> and <code>mime</code> attributes.  It may be necessary to add
+  controls for audio and video objects.</p>
 
   <p>The <code>application</code> type is intended for embedding interactive
   applications in documents.  There are currently no specific recommendations
@@ -100,7 +109,7 @@ Drake, the Mallard mascot
   reasons.</p>
 
   <p>When a display tool cannot display a <code>media</code> element, it
-  should display the child elements of the element, as if the <code>media</code>
+  displays the child elements of the element, as if the <code>media</code>
   element itself were replaced by its children.  The child elements may consist
   of simply another <code>media</code> element referencing a different type of
   content.  When processing any child <code>media</code> elements, display tools

@@ -56,6 +56,18 @@ by the user.</p>
 <section id="notes">
   <title>Notes</title>
   <list type="bullet">
+    <item><p>The <code>cmd</code> element can contain a mixture of text and
+    any <link xref="mal_inline">general inline elements</link>.</p></item>
+
+    <item><p>The <code>cmd</code> element can occur in any
+    general inline context, including inside most
+    <link xref="mal_inline">inline elements</link>, some
+    <link xref="mal_block#basic">basic block elements</link>, and certain
+    <link xref="mal_info">informational elements</link>.</p></item>
+
+    <item><p>The <code>cmd</code> element can link to other pages or documents.
+    See <link xref="mal_attr_link"/> for more information.</p></item>
+
     <item><p>The <code>style</code> attribute takes a space-separated list of
     style hints.  Processing tools should adjust their behavior according to
     those style hints they understand.</p></item>
@@ -74,12 +86,9 @@ by the user.</p>
       </tr></table>
     </item>
 
-    <item><p>The <code>cmd</code> element can link to other pages or documents.
-    See <link xref="mal_attr_link"/> for more information.</p></item>
-
     <item><p>The <code>cmd</code> element can have attributes from external
     namespaces.  See <link xref="mal_attr_external"/> for more information
-    on external-namespace attributes on inline elements.</p></item>
+    on external-namespace attributes.</p></item>
   </list>
 </section>
 <!-- END notes -->
@@ -131,7 +140,7 @@ you to filter files based on their modification times.
 <!-- BEGIN processing -->
 <section id="processing">
   <title>Processing Expectations</title>
-  <p>Commands should be displayed in a fixed-width font.  This mimics the look
+  <p>Commands are displayed in a fixed-width font.  This mimics the look
   of a typical environment where commands are executed.  More importantly,
   fixed-width fonts tend to have more distinction between visually similar
   characters.  This is particularly important in commands, since letters often
@@ -142,15 +151,15 @@ you to filter files based on their modification times.
   how to use them to a particular effect.  This can make it difficult to find
   the end of the command quickly.  Surrounding text content, especially
   punctuation, can sometimes be confused for part of the command.  For this
-  reason, it is recommended that display tools apply a border or background
-  color to commands.</p>
+  reason, it is recommended that commands be displayed with a border or
+  background color.</p>
 </section>
 <!-- END processing -->
 
 
-<!-- BEGIN docbook -->
-<section id="docbook">
-  <title>Comparison to DocBook</title>
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
 
   <p>The <code>cmd</code> element is similar to the
   <code href="http://www.docbook.org/tdg/en/html/command.html">command</code>
@@ -165,6 +174,6 @@ you to filter files based on their modification times.
 
   <p>See <link xref="principle-justenough"/> for more background.</p>
 </section>
-<!-- END docbook -->
+<!-- END comparison -->
 
 </page>
