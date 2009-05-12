@@ -28,6 +28,9 @@ REMARK: Describe this module
 -->
 
 
+<xsl:param name="mal2html.editor_mode" select="false()"/>
+
+
 <!--**==========================================================================
 mal2html.page.copyright
 Outputs the copyright notice at the bottom of a page
@@ -181,7 +184,7 @@ REMARK: Describe this template
           <xsl:with-param name="xref" select="$target/@id"/>
         </xsl:call-template>
 
-        <xsl:if test="true()">
+        <xsl:if test="$mal2html.editor_mode">
           <xsl:variable name="page" select="$target/ancestor-or-self::mal:page[1]"/>
           <xsl:variable name="date">
             <xsl:for-each select="$page/mal:info/mal:version">
@@ -265,7 +268,7 @@ REMARK: Describe this template
   <xsl:if test="$inlinks or $outlinks or $pagelinks or $guidelinks">
     <div class="section autolinkssection">
       <div class="header">
-        <xsl:element name="{concat('h', $depth)}">
+        <xsl:element name="{concat('h', $depth)}" namespace="{$mal2html.namespace}">
           <xsl:attribute name="class">
             <xsl:text>title</xsl:text>
           </xsl:attribute>
@@ -327,18 +330,7 @@ REMARK: Describe this template
 -->
 <xsl:template name="mal2html.page.autolink">
   <xsl:param name="page"/>
-  <xsl:param name="xref">
-    <xsl:choose>
-      <xsl:when test="$page/self::mal:section">
-        <xsl:value-of select="$page/ancestor::mal:page[1]/@id"/>
-        <xsl:text>#</xsl:text>
-        <xsl:value-of select="$page/@id"/>
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:value-of select="$page/@id"/>
-      </xsl:otherwise>
-    </xsl:choose>
-  </xsl:param>
+  <xsl:param name="xref" select="$page/@id"/>
   <li class="autolink">
     <a>
       <xsl:attribute name="href">
@@ -387,8 +379,7 @@ REMARK: Describe this template
       <xsl:call-template name="mal2html.css"/>
     </head>
     <body>
-      <!-- FIXME: only in editor mode -->
-      <xsl:if test="$version/@status != ''">
+      <xsl:if test="$mal2html.editor_mode and $version/@status != ''">
         <xsl:attribute name="class">
           <xsl:value-of select="concat(' status-', $version/@status)"/>
         </xsl:attribute>
@@ -439,9 +430,14 @@ REMARK: Describe this template
                          select="mal:title | mal:subtitle"/>
   </div>
   <div class="contents">
-    <xsl:apply-templates
-        mode="mal2html.block.mode"
-        select="*[not(self::mal:section | self::mal:title | self::mal:subtitle)]"/>
+    <xsl:for-each
+        select="mal:*[not(self::mal:section or self::mal:title or self::mal:subtitle)
+                and ($mal2html.editor_mode or not(self::mal:comment)
+                or processing-instruction('mal2html.show_comment'))]">
+      <xsl:apply-templates mode="mal2html.block.mode" select=".">
+        <xsl:with-param name="first_child" select="position() = 1"/>
+      </xsl:apply-templates>
+    </xsl:for-each>
     <xsl:if test="@type = 'guide'">
       <xsl:call-template name="mal2html.page.pagelinks"/>
     </xsl:if>
@@ -460,9 +456,14 @@ REMARK: Describe this template
                            select="mal:title | mal:subtitle"/>
     </div>
     <div class="contents">
-      <xsl:apply-templates
-          mode="mal2html.block.mode"
-          select="*[not(self::mal:section | self::mal:title | self::mal:subtitle)]"/>
+      <xsl:for-each
+          select="mal:*[not(self::mal:section or self::mal:title or self::mal:subtitle)
+                  and ($mal2html.editor_mode or not(self::mal:comment)
+                  or processing-instruction('mal2html.show_comment'))]">
+        <xsl:apply-templates mode="mal2html.block.mode" select=".">
+          <xsl:with-param name="first_child" select="position() = 1"/>
+        </xsl:apply-templates>
+      </xsl:for-each>
       <xsl:if test="/mal:page/@type = 'guide'">
         <xsl:call-template name="mal2html.page.pagelinks"/>
       </xsl:if>
@@ -483,7 +484,7 @@ REMARK: Describe this template
 <xsl:template mode="mal2html.title.mode" match="mal:title">
   <xsl:variable name="depth"
                 select="count(ancestor::mal:section) + 1"/>
-  <xsl:element name="{concat('h', $depth)}">
+  <xsl:element name="{concat('h', $depth)}" namespace="{$mal2html.namespace}">
     <xsl:attribute name="class">
       <xsl:text>title</xsl:text>
     </xsl:attribute>

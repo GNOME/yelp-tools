@@ -18,20 +18,14 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:mal="http://www.gnome.org/~shaunm/mallard"
-                xmlns:html="http://www.w3.org/1999/xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
                 exclude-result-prefixes="mal"
                 version="1.0">
 
-<xsl:output method="html"
-            doctype-public="-//W3C//DTD HTML 4.01 Transitional//EN"
-            doctype-system="http://www.w3.org/TR/html4/loose.dtd"/>
-<xsl:namespace-alias stylesheet-prefix="html" result-prefix="#default"/>
-
 <!--#@ mal2html.namespace -->
-<xsl:param name="mal2html.namespace" select="''"/>
+<xsl:param name="mal2html.namespace" select="'http://www.w3.org/1999/xhtml'"/>
 
-<xsl:param name="mal.extension" select="'.html'"/>
-
+<xsl:param name="mal.extension" select="'.xhtml'"/>
 
 <!--!!==========================================================================
 Mallard to HTML

@@ -3,7 +3,6 @@
       id="mal_block_screen">
 
 <info>
-  <link type="guide" xref="mal_block#elements"/>
   <link type="seealso" xref="mal_block_code"/>
 
   <version number="0.1" date="2009-04-16" status="review"/>
@@ -76,7 +75,7 @@ by the user.</p>
 
     <item><p>The <code>screen</code> element can have attributes from external
     namespaces.  See <link xref="mal_attr_external"/> for more information
-    on external-namespace attributes on inline elements.</p></item>
+    on external-namespace attributes on block elements.</p></item>
   </list>
 </section>
 <!-- END notes -->

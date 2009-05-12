@@ -3,8 +3,6 @@
       id="mal_block_synopsis">
 
 <info>
-  <link type="guide" xref="mal_block#elements"/>
-
   <version number="0.1" date="2007-02-21" status="incomplete"/>
 
   <credit type="author">
@@ -56,7 +54,7 @@ control element.</p>
 
     <item><p>The <code>synopsis</code> element can have attributes from external
     namespaces.  See <link xref="mal_attr_external"/> for more information
-    on external-namespace attributes on inline elements.</p></item>
+    on external-namespace attributes on block elements.</p></item>
   </list>
 </section>
 <!-- END notes -->

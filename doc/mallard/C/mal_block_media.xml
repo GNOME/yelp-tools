@@ -3,7 +3,6 @@
       id="mal_block_media">
 
 <info>
-  <link type="guide" xref="mal_block#elements"/>
   <link type="seealso" xref="mal_inline_media"/>
 
   <version number="0.1" date="2009-05-03" status="review"/>
@@ -58,7 +57,7 @@ for details on how fallback elements are handled.</p>
 
     <item><p>The <code>media</code> element can have attributes from external
     namespaces.  See <link xref="mal_attr_external"/> for more information
-    on external-namespace attributes on inline elements.</p></item>
+    on external-namespace attributes on block elements.</p></item>
 
     <item><p>The <code>media</code> element may also be used in an inline context.
     See <link xref="mal_inline_media"/> for more information.</p></item>
