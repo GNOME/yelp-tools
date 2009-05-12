@@ -64,7 +64,7 @@ key press.  You can use text without markup to indicate a class of keys, such as
     The default is <code>"combo"</code>.</p></item>
 
     <item><p>The <code>keyseq</code> element can have attributes from external
-    namespaces.  See <link xref="mal_attr_external"/> for more information
+    namespaces.  See <link xref="mal_external"/> for more information
     on external-namespace attributes.</p></item>
   </list>
 </section>

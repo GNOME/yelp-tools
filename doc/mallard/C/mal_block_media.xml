@@ -56,7 +56,7 @@ for details on how fallback elements are handled.</p>
     object that is being inserted.</p></item>
 
     <item><p>The <code>media</code> element can have attributes from external
-    namespaces.  See <link xref="mal_attr_external"/> for more information
+    namespaces.  See <link xref="mal_external"/> for more information
     on external-namespace attributes on block elements.</p></item>
 
     <item><p>The <code>media</code> element may also be used in an inline context.

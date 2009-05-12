@@ -42,7 +42,7 @@ mal_inline = mixed {
   <link xref="mal_inline_span">mal_inline_span</link> *,
   <link xref="mal_inline_sys">mal_inline_sys</link> *,
   <link xref="mal_inline_var">mal_inline_var</link> *,
-  element * - (mal:* | local:*) { text } *
+  element * - (mal:* | local:*) { mal_inline } *
 }
 </code></synopsis>
 
@@ -56,7 +56,7 @@ well.</p>
 richer information in their documents.  While this information may not
 be conveyed by display tools, it may be used for various internal tracking
 purposes.  Mallard allows elements to be extended with attributes from
-external namespaces.  See <link xref="mal_attr_external"/> for more
+external namespaces.  See <link xref="mal_external"/> for more
 information.</p>
 
 <p>Furthermore, Mallard allows elements from external namespaces to be
@@ -88,9 +88,9 @@ more information.</p>
   descendant elements, unless explicitly overridden.</p>
 
   <p>Mallard allows elements from external namespaces to be used in any inline
-  context.  Display tools may have special behavior for particular elements they
-  understand.  Otherwise, display tools should process an unknown element as if
-  the element were replaced by its child content.</p>
+  context.  Processing tools may have special behavior for particular elements
+  they understand.  Otherwise, an unknown inline element should be processed
+  as if it were replaced by its child content.</p>
 </section>
 <!-- END processing -->
 

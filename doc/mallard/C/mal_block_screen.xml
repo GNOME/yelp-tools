@@ -74,7 +74,7 @@ by the user.</p>
     </item>
 
     <item><p>The <code>screen</code> element can have attributes from external
-    namespaces.  See <link xref="mal_attr_external"/> for more information
+    namespaces.  See <link xref="mal_external"/> for more information
     on external-namespace attributes on block elements.</p></item>
   </list>
 </section>

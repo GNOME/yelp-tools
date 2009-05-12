@@ -61,7 +61,7 @@ use <code xref="mal_inline_cmd">cmd</code> for this purpose instead.</p>
     those style hints they understand.</p></item>
 
     <item><p>The <code>app</code> element can have attributes from external
-    namespaces.  See <link xref="mal_attr_external"/> for more information
+    namespaces.  See <link xref="mal_external"/> for more information
     on external-namespace attributes.</p></item>
   </list>
 </section>

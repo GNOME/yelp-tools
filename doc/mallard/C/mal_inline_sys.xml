@@ -44,7 +44,7 @@ mal_inline_sys = element sys {
     those style hints they understand.</p></item>
 
     <item><p>The <code>sys</code> element can have attributes from external
-    namespaces.  See <link xref="mal_attr_external"/> for more information
+    namespaces.  See <link xref="mal_external"/> for more information
     on external-namespace attributes.</p></item>
   </list>
 </section>

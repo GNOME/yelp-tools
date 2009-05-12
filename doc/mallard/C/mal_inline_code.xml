@@ -72,7 +72,7 @@ by the user.</p>
     tools may adjust their behavior for particular MIME types.</p></item>
 
     <item><p>The <code>code</code> element can have attributes from external
-    namespaces.  See <link xref="mal_attr_external"/> for more information
+    namespaces.  See <link xref="mal_external"/> for more information
     on external-namespace attributes.</p></item>
 
     <item><p>The <code>code</code> element may also be used in a block context.

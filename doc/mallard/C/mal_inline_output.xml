@@ -79,7 +79,7 @@ differently.</p>
     </item>
 
     <item><p>The <code>output</code> element can have attributes from external
-    namespaces.  See <link xref="mal_attr_external"/> for more information
+    namespaces.  See <link xref="mal_external"/> for more information
     on external-namespace attributes.</p></item>
 
     <item><p>The <code>output</code> element, together with the
