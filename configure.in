@@ -58,8 +58,6 @@ doc/gnome-doc-make/Makefile
 doc/xslt/Makefile
 po/Makefile.in
 tools/Makefile
-tools/gnome-doc-tool
-tools/gnome-doc-prepare
 tools/gnome-doc-utils.pc
 xslt/Makefile
 xml2po/Makefile
@@ -73,9 +71,9 @@ xslt/docbook/html/Makefile
 xslt/docbook/omf/Makefile
 xslt/docbook/utils/Makefile
 xslt/gettext/Makefile
-],[
-chmod +x tools/gnome-doc-tool
-chmod +x tools/gnome-doc-prepare
 ])
+
+AC_CONFIG_FILES([tools/gnome-doc-tool],[chmod +x tools/gnome-doc-tool])
+AC_CONFIG_FILES([tools/gnome-doc-prepare],[chmod +x tools/gnome-doc-prepare])
 
 AC_OUTPUT
