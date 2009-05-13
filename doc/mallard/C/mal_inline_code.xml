@@ -16,6 +16,8 @@
     <name>Shaun McCance</name>
   </copyright>
 
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
   <desc>Mark up code from a programming, markup, or other machine-readable format.</desc>
 </info>
 
@@ -128,7 +130,7 @@ up code with a placeholder for an argument the user should supply.
 <!-- BEGIN processing -->
 <section id="processing">
   <title>Processing Expectations</title>
-  <p>Code snippets should be displayed in a fixed-width font.  This mimics
+  <p>Code snippets are displayed in a fixed-width font.  This mimics
   the look of a typical environment where code is typed.  More importantly,
   fixed-width fonts tend to have more distinction between visually similar
   characters.  This is particularly important in code, since letters often

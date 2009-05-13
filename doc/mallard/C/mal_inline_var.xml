@@ -9,6 +9,17 @@
 
   <version number="0.1" date="2009-04-12" status="review"/>
 
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+  </credit>
+  <copyright>
+    <year>2007-2009</year>
+    <name>Shaun McCance</name>
+  </copyright>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
   <desc>Mark up placeholder text that should be replaced by the user.</desc>
 </info>
 

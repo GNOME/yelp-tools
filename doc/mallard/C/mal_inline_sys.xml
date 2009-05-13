@@ -5,6 +5,8 @@
 <info>
   <link type="guide" xref="mal_inline#elements"/>
 
+  <version number="0.1" date="2009-05-13" status="review"/>
+
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
@@ -14,7 +16,7 @@
     <name>Shaun McCance</name>
   </copyright>
 
-  <version number="0.1" date="2009-05-13" status="review"/>
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
 
   <desc>Mark up general identifiers found on computer systems.</desc>
 </info>

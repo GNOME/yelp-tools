@@ -5,16 +5,18 @@
 <info>
   <link type="guide" xref="mal_inline#elements"/>
 
+  <version number="0.1" date="2008-12-01" status="review"/>
+
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
   </credit>
   <copyright>
-    <year>2008</year>
+    <year>2008-2009</year>
     <name>Shaun McCance</name>
   </copyright>
 
-  <version number="0.1" date="2008-12-01" status="review"/>
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
 
   <desc>Mark up the name of a file or directory.</desc>
 </info>
