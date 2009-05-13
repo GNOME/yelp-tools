@@ -6,7 +6,18 @@
   <link type="guide" xref="mal_inline#elements"/>
   <link type="seealso" xref="mal_attr_link"/>
 
-  <version number="0.1" date="2007-02-21" status="stub"/>
+  <version number="0.1" date="2009-05-13" status="review"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+  </credit>
+  <copyright>
+    <year>2007-2009</year>
+    <name>Shaun McCance</name>
+  </copyright>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
 
   <desc>A generic inline element that can be used for semantic,
   localization, and styling purpose.</desc>
@@ -23,6 +34,11 @@ mal_inline_span = element span {
   <link xref="mal_inline">mal_inline</link>
 }
 </code></synopsis>
+
+<p>Use the <code>span</code> element to surround a run of text
+without using any of the semantic <link xref="mal_inline">inline
+elements</link>.  This is frequently necessary for extensions
+using attributes from external namespaces.</p>
 
 
 <!-- BEGIN notes -->
@@ -51,5 +67,44 @@ mal_inline_span = element span {
   </list>
 </section>
 <!-- END notes -->
+
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Use <code>span</code> with an external-namespace attribute to mark a word
+  as untranslatable using the
+  <link href="http://www.w3.org/TR/its/">Internationalization Tag Set</link>:</p>
+
+  <example>
+    <code><![CDATA[
+This <phrase its:translate="no">word</phrase> should not be translated.]]></code>
+    <p>This <phrase xmlns:its="http://www.w3.org/2005/11/its" its:version="1.0"
+    its:translate="no">word</phrase> should not be translated.</p>
+  </example>
+</section>
+<!-- END examples -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>No particular special rendering is required for <code>span</code> elements.
+  Processing tools may have special processing rules for certain style hints or
+  external-namespace attributes.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+  <p>The <code>span</code> element is similar to the
+  <code href="http://www.docbook.org/tdg/en/html/phrase.html">phrase</code>
+  element in DocBook.</p>
+</section>
+<!-- END comparison -->
 
 </page>

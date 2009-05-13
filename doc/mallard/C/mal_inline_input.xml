@@ -11,11 +11,11 @@
     <email>shaunm@gnome.org</email>
   </credit>
   <copyright>
-    <year>2008</year>
+    <year>2008-2009</year>
     <name>Shaun McCance</name>
   </copyright>
 
-  <version number="0.1" date="2008-12-16" status="incomplete"/>
+  <version number="0.1" date="2009-06-13" status="review"/>
 
   <desc>Mark up text the user should input into a computer program.</desc>
 </info>
@@ -74,8 +74,28 @@ or into a text field in a graphical application.</p>
 <section id="examples">
   <title>Examples</title>
 
-  <comment><cite date="2008-12-16"><name>Shaun McCance</name></cite>
-  <p>Add examples</p></comment>
+  <p>Use <code>input</code> to mark up a user response to a prompt:</p>
+
+  <example>
+    <code><![CDATA[Type <input>Y</input> at the prompt to proceed.]]></code>
+    <p>Type <input>Y</input> at the prompt to proceed.</p>
+  </example>
+
+  <p>Use <code>input</code> and <code xref="mal_inline_output">output</code>
+  inside a <code xref="mal_block_screen">screen</code> element:</p>
+
+  <example>
+    <code><![CDATA[
+<screen>
+<output style="prompt">$ </output><input>ls mal_inline_output.xml</input>
+<output>mal_inline_output.xml</output>
+</screen>
+]]></code>
+<screen>
+<output style="prompt">$ </output><input>ls mal_inline_output.xml</input>
+<output>mal_inline_output.xml</output>
+</screen>
+  </example>
 </section>
 <!-- END examples -->
 

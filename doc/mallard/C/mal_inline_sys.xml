@@ -5,7 +5,16 @@
 <info>
   <link type="guide" xref="mal_inline#elements"/>
 
-  <version number="0.1" date="2007-02-21" status="stub"/>
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+  </credit>
+  <copyright>
+    <year>2008-2009</year>
+    <name>Shaun McCance</name>
+  </copyright>
+
+  <version number="0.1" date="2009-05-13" status="review"/>
 
   <desc>Mark up general identifiers found on computer systems.</desc>
 </info>
@@ -21,6 +30,11 @@ mal_inline_sys = element sys {
   <link xref="mal_inline">mal_inline</link>
 }
 </code></synopsis>
+
+<p>Use the <code>sys</code> element to mark up any type of system item that
+isn't covered by other elements such as <code xref="mal_inline_file">file</code>,
+<code xref="mal_inline_cmd">cmd</code>, or
+<code xref="mal_inline_code">code</code>.</p>
 
 
 <!-- BEGIN notes -->
@@ -54,6 +68,13 @@ mal_inline_sys = element sys {
 <!-- BEGIN examples -->
 <section id="examples">
   <title>Examples</title>
+
+  <p>Use <code>sys</code> to mark up a domain name:</p>
+
+  <example>
+    <code><![CDATA[The Linux kernel is hosted on <sys>git.kernel.org</sys>.]]></code>
+    <p>The Linux kernel is hosted on <sys>git.kernel.org</sys>.</p>
+  </example>
 </section>
 <!-- END examples -->
 
@@ -61,6 +82,12 @@ mal_inline_sys = element sys {
 <!-- BEGIN processing -->
 <section id="processing">
   <title>Processing Expectations</title>
+
+  <p>System items are displayed in a fixed-width font.  Fixed-width fonts
+  tend to have more distinction between visually similar characters. This
+  is particularly important in system items, since letters often appear
+  without the context of a known word that helps make them discernable in
+  normal prose.</p>
 </section>
 <!-- END processing -->
 
@@ -75,8 +102,6 @@ mal_inline_sys = element sys {
   element.  Since Mallard does not provide the level of markup specificity
   that DocBook does, the <code>sys</code> element should be used in place
   of these and various other elements.</p>
-
-  <p>See <link xref="principle-justenough"/> for more background.</p>
 </section>
 <!-- END comparison -->
 
