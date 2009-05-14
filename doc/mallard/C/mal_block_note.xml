@@ -18,10 +18,19 @@ mal_block_note = element note {
 }
 </code></synopsis>
 
-<!-- BEGIN discussion -->
-<section id="discussion">
-  <title>Discussion</title>
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
   <list type="bullet">
+    <item><p>The <code>note</code> element contains an optional
+    <link xref="mal_title">title</link> element and  any
+    <link xref="mal_block">general block content</link>.</p></item>
+
+    <item><p>The <code>note</code> element can occur in any
+    general block context, including inside
+    <link xref="mal_page">pages</link>, <link xref="mal_section">sections</link>,
+    and certain <link xref="mal_block">block elements</link>.</p></item>
+
     <item><p>The <code>style</code> attribute takes a space-separated list of
     style hints.  Processing tools should adjust their behavior according to
     those style hints they understand.</p></item>
@@ -30,31 +39,31 @@ mal_block_note = element note {
       <p>The following style hints are recommended:</p>
       <table rules="rows">
         <tr>
-          <td><code>"advanced"</code></td>
+          <td><p><code>"advanced"</code></p></td>
           <td><p>information that advanced users may find useful</p></td>
         </tr>
         <tr>
-          <td><code>"bug"</code></td>
+          <td><p><code>"bug"</code></p></td>
           <td><p>a note about a known bug in the software</p></td>
         </tr>
         <tr>
-          <td><code>"tip"</code></td>
+          <td><p><code>"tip"</code></p></td>
           <td><p>a general tip that may help the reader perform an operation better</p></td>
         </tr>
         <tr>
-          <td><code>"warning"</code></td>
+          <td><p><code>"warning"</code></p></td>
           <td><p>a warning to the reader about a potentially dangerous operation</p></td>
         </tr>
       </table>
     </item>
-  </list>
 
-  <comment>
-    <cite date="2008-10-11"><name>shaunm</name></cite>
-    <p>Add discussion of content model</p>
-  </comment>
+    <item><p>The <code>note</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
 </section>
-<!-- END discussion -->
+<!-- END notes -->
+
 
 <!-- BEGIN examples -->
 <section id="examples">

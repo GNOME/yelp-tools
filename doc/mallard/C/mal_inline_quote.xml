@@ -62,6 +62,9 @@ mal_inline_quote = element quote {
     <item><p>The <code>quote</code> element can have attributes from external
     namespaces.  See <link xref="mal_external"/> for more information
     on external-namespace attributes.</p></item>
+
+    <item><p>The <code>quote</code> element may also be used in a block context.
+    See <link xref="mal_block_quote"/> for more information.</p></item>
   </list>
 </section>
 <!-- END notes -->

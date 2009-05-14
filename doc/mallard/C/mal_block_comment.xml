@@ -52,6 +52,16 @@ to provide a <code>date</code> attribute.</p>
 <section id="notes">
   <title>Notes</title>
   <list type="bullet">
+    <item><p>The <code>comment</code> element contains an optional
+    <link xref="mal_title">title</link> element, a
+    <link xref="mal_block_cite">cite</link> element, and  any
+    <link xref="mal_block">general block content</link>.</p></item>
+
+    <item><p>The <code>comment</code> element can occur in any
+    general block context, including inside
+    <link xref="mal_page">pages</link>, <link xref="mal_section">sections</link>,
+    and certain <link xref="mal_block">block elements</link>.</p></item>
+
     <item><p>The <code>style</code> attribute takes a space-separated list of
     style hints.  Processing tools should adjust their behavior according to
     those style hints they understand.</p></item>
