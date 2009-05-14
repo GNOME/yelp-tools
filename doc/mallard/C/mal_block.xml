@@ -5,16 +5,21 @@
 <info>
   <link type="guide" xref="spec"/>
 
+  <version number="0.1" date="2007-02-21" status="incomplete"/>
+
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
   </credit>
   <copyright>
-    <year>2008</year>
+    <year>2008-2009</year>
     <name>Shaun McCance</name>
   </copyright>
 
-  <version number="0.1" date="2007-02-21" status="incomplete"/>
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Paragraphs, lists, tables, and various semantic elements for
+  building simple yet stunning pages.</desc>
 </info>
 
 <title>Block Elements</title>
@@ -28,10 +33,18 @@ mal_block = (
 )
 </code></synopsis>
 
-<comment>
-  <cite date="2006-11-16"><name>Shaun McCance</name></cite>
-  <p>Add some intro text</p>
-</comment>
+<p>Block elements are the building blocks of pages.  Mallard provides block
+elements for most common needs in software documentation, from simple paragraphs
+to example blocks to powerful tables.  Pages and sections in Mallard are built
+up of block elements, which in turn contain either further block elements or
+inline content.</p>
+
+<p>Authors, editors, or other content producers sometimes need to supply
+richer information in their documents.  While this information may not
+be conveyed by display tools, it may be used for various internal tracking
+purposes.  Mallard allows elements to be extended with attributes from
+external namespaces.  See <link xref="mal_external"/> for more
+information.</p>
 
 
 <!-- BEGIN basic -->
@@ -53,13 +66,17 @@ mal_block_basic = (
   <link xref="mal_block_p">mal_block_p</link> |
   <link xref="mal_block_screen">mal_block_screen</link>
 )</code></synopsis>
+
+  <p>Basic block elements are elements that do not contain a title and which
+  have either general block content or <link xref="mal_inline">inline
+  content</link>.  Using basic block elements, you can build up simple pages
+  which convey information clearly.</p>
 </section>
 <!-- END basic -->
 
 
 <!-- BEGIN formal -->
 <section id="formal" style="2column">
-  <title>Formal Elements</title>
   <info>
     <title type="link">Formal Block Elements</title>
     <link type="topic" xref="mal_block_comment"/>
@@ -69,6 +86,7 @@ mal_block_basic = (
     <link type="topic" xref="mal_block_quote"/>
     <link type="topic" xref="mal_block_synopsis"/>
   </info>
+  <title>Formal Elements</title>
   <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_block_formal = (
   <link xref="mal_block_comment">mal_block_comment</link> |
@@ -78,24 +96,34 @@ mal_block_formal = (
   <link xref="mal_block_quote">mal_block_quote</link> |
   <link xref="mal_block_synopsis">mal_block_synopsis</link>
 )</code></synopsis>
+
+  <p>Formal block elements contain a <link xref="mal_title">title</link>
+  and general block content.  Formal block elements allow you to provide
+  richer information in your pages.</p>
 </section>
 <!-- END formal -->
 
 
 <!-- BEGIN lists -->
 <section id="lists">
-  <title>List Elements</title>
   <info>
     <link type="topic" xref="mal_block_dlist"/>
     <link type="topic" xref="mal_block_olist"/>
     <link type="topic" xref="mal_block_ulist"/>
   </info>
+  <title>List Elements</title>
   <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_block_list = (
   <link xref="mal_block_dlist">mal_block_dlist</link> |
   <link xref="mal_block_olist">mal_block_olist</link> |
-  <link xref="mal_block_ulist">mal_block_ulist</link>
+  <link xref="mal_block_ulist">mal_block_ulist</link> |
+  <link xref="mal_block_tree">mal_block_tree</link>
 )</code></synopsis>
+
+  <p>Mallard provides list elements for most common needs, including the common
+  defintion, ordered, and unordered lists.  Mallard also provides simple trees,
+  which are useful for representing heirarchies such as class inheritance or
+  directory layouts.</p>
 </section>
 <!-- END lists -->
 
@@ -106,17 +134,17 @@ mal_block_list = (
     <link type="topic" xref="mal_table"/>
   </info>
   <title>Tables</title>
-  <comment>
-    <cite date="2009-05-06"><name>Shaun McCance</name></cite>
-    <p>Add a blurb that just links to mal_table</p>
-  </comment>
+
+  <p>Mallard provides a simple table model based on HTML tables.  While not
+  allowing the level of styling flexibility as HTML and CSS, Mallard tables
+  provides simple solutions to common styling needs, such as alternate-row
+  shading.</p>
 </section>
 <!-- END tables -->
 
 
 <!-- BEGIN other -->
 <section id="other">
-  <title>Other Elements</title>
   <info>
     <title type="link">Other Block Elements</title>
     <link type="topic" xref="mal_title"/>
@@ -124,7 +152,32 @@ mal_block_list = (
     <link type="topic" xref="mal_block_desc"/>
     <link type="topic" xref="mal_block_cite"/>
   </info>
+  <title>Other Block-like Elements</title>
+
+  <p>Mallard contains various block-like elements which are only used in
+  specific contexts, and are not allowed in general block content.  These
+  elements allow for richer content models for the elements they appear
+  in.</p>
 </section>
 <!-- END other -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>Block elements all begin on a new line in rendered output.  Pages can
+  be visualized as a sequence of vertically-stacked block elements.  Some
+  block elements contain other block elements.  In these cases, the
+  containing element may introduce certain styling effects, and each of
+  the child elements is rendered as normal.</p>
+
+  <p>Each block element should be clearly distinguishable from its surrounding
+  block elements.  Typically, vertical padding is placed between block elements
+  to set them apart.  Certain block elements, especially those that have block
+  content, may use a border, background color, or other styling effects.  See
+  each block element's specification for more details.</p>
+</section>
+<!-- END processing -->
 
 </page>
