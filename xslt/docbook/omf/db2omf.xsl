@@ -375,7 +375,7 @@ REMARK: Document this
       <xsl:message terminate="yes">
         <xsl:text>db2omf: Could not construct the OMF date element.&#x000A;</xsl:text>
         <xsl:text>  Add either a revision element with revnumber and date,&#x000A;</xsl:text>
-        <xsl:text>  or a date element to </xsl:text>
+        <xsl:text>  or a pubdate element to </xsl:text>
         <xsl:value-of select="$db2omf.basename"/>
         <xsl:text>.xml.</xsl:text>
       </xsl:message>
