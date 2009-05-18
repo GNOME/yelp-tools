@@ -82,9 +82,9 @@ div.listing-contents { margin: 0; padding: 0; }
 div.note {
   padding: 0.5em 6px 0.5em 6px;
   border-top: solid 1px </xsl:text>
-    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
+    <xsl:value-of select="$theme.color.red_border"/><xsl:text>;
   border-bottom: solid 1px </xsl:text>
-    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
+    <xsl:value-of select="$theme.color.red_border"/><xsl:text>;
   background-color: </xsl:text>
     <xsl:value-of select="$theme.color.yellow_background"/><xsl:text>;
 }
@@ -98,10 +98,12 @@ div.note-inner {
   background-image: url("</xsl:text>
     <xsl:value-of select="$theme.icon.admon.note"/><xsl:text>");
 }
-div.note-advanced div.note-inner { background-image: url("</xsl:text>
-  <xsl:value-of select="$theme.icon.admon.tip"/><xsl:text>"); }
+div.note-advanced div.note-inner { <!-- background-image: url("</xsl:text>
+  <xsl:value-of select="$theme.icon.admon.advanced"/><xsl:text>"); --> }
 div.note-bug div.note-inner { background-image: url("</xsl:text>
   <xsl:value-of select="$theme.icon.admon.bug"/><xsl:text>"); }
+div.note-important div.note-inner { background-image: url("</xsl:text>
+  <xsl:value-of select="$theme.icon.admon.important"/><xsl:text>"); }
 div.note-tip div.note-inner { background-image: url("</xsl:text>
   <xsl:value-of select="$theme.icon.admon.tip"/><xsl:text>"); }
 div.note-warning div.note-inner { background-image: url("</xsl:text>
@@ -311,6 +313,9 @@ FIXME
       </xsl:when>
       <xsl:when test="contains(concat(' ', @style, ' '), ' bug ')">
         <xsl:text>bug</xsl:text>
+      </xsl:when>
+      <xsl:when test="contains(concat(' ', @style, ' '), ' important ')">
+        <xsl:text>important</xsl:text>
       </xsl:when>
       <xsl:when test="contains(concat(' ', @style, ' '), ' tip ')">
         <xsl:text>tip</xsl:text>
