@@ -40,10 +40,7 @@ div.title {
   margin: 0 0 0.2em 0;
   font-weight: bold;
   color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'text-light'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
 }
 div.desc { margin: 0 0 0.2em 0; }
 div.desc-listing, div.desc-synopsis { font-style: italic; }
@@ -52,74 +49,70 @@ pre.code {
   <!-- FIXME: theme -->
   background: url(mallard-icon-code.png) no-repeat top right;
   border: solid 2px </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'gray-border'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
   padding: 0.5em 1em 0.5em 1em;
 }
 div.example {
   border-left: solid 4px </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'gray-border'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
   padding-left: 1em;
 }
 div.figure {
   margin-left: 1.72em;
   padding: 4px;
   color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'text-light'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
   border: solid 1px </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'gray-border'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
   background-color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'gray-background'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
 }
 div.figure-contents {
   margin: 0;
   padding: 0.5em 1em 0.5em 1em;
   text-align: center;
   color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'text'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.text"/><xsl:text>;
   border: solid 1px </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'gray-border'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
   background-color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'background'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.background"/><xsl:text>;
 }
-div.listing-contents {
+div.listing-contents { margin: 0; padding: 0; }
+div.note {
+  padding: 0.5em 6px 0.5em 6px;
+  border-top: solid 1px </xsl:text>
+    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
+  border-bottom: solid 1px </xsl:text>
+    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
+  background-color: </xsl:text>
+    <xsl:value-of select="$theme.color.yellow_background"/><xsl:text>;
+}
+div.note-inner {
   margin: 0;
+  min-height: </xsl:text><xsl:value-of select="$theme.icon.admon.size"/><xsl:text>px;
+  padding-left: </xsl:text>
+    <xsl:value-of select="$theme.icon.admon.size + 12"/><xsl:text>px;
+  background-position: left top;
+  background-repeat: no-repeat;
+  background-image: url("</xsl:text>
+    <xsl:value-of select="$theme.icon.admon.note"/><xsl:text>");
 }
+div.note-advanced div.note-inner { background-image: url("</xsl:text>
+  <xsl:value-of select="$theme.icon.admon.tip"/><xsl:text>"); }
+div.note-bug div.note-inner { background-image: url("</xsl:text>
+  <xsl:value-of select="$theme.icon.admon.bug"/><xsl:text>"); }
+div.note-tip div.note-inner { background-image: url("</xsl:text>
+  <xsl:value-of select="$theme.icon.admon.tip"/><xsl:text>"); }
+div.note-warning div.note-inner { background-image: url("</xsl:text>
+  <xsl:value-of select="$theme.icon.admon.warning"/><xsl:text>"); }
+div.note-contents { margin: 0; padding: 0; }
 pre.screen {
   padding: 0.5em 1em 0.5em 1em;
   background-color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'gray-background'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
   border: solid 2px </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'gray-border'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
 }
 div.synopsis-contents {
   margin: 0;
@@ -127,15 +120,9 @@ div.synopsis-contents {
   border-top: solid 2px;
   border-bottom: solid 2px;
   border-color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'blue-border'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.blue_border"/><xsl:text>;
   background-color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'gray-background'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
 }
 div.synopsis pre.code {
   background: none;
@@ -310,6 +297,50 @@ FIXME
           <xsl:with-param name="first_child" select="position() = 1"/>
         </xsl:apply-templates>
       </xsl:for-each>
+    </div>
+  </div>
+</xsl:template>
+
+<!-- = note = -->
+<xsl:template mode="mal2html.block.mode" match="mal:note">
+  <xsl:param name="first_child" select="not(preceding-sibling::*)"/>
+  <xsl:variable name="notestyle">
+    <xsl:choose>
+      <xsl:when test="contains(concat(' ', @style, ' '), ' advanced ')">
+        <xsl:text>advanced</xsl:text>
+      </xsl:when>
+      <xsl:when test="contains(concat(' ', @style, ' '), ' bug ')">
+        <xsl:text>bug</xsl:text>
+      </xsl:when>
+      <xsl:when test="contains(concat(' ', @style, ' '), ' tip ')">
+        <xsl:text>tip</xsl:text>
+      </xsl:when>
+      <xsl:when test="contains(concat(' ', @style, ' '), ' warning ')">
+        <xsl:text>warning</xsl:text>
+      </xsl:when>
+    </xsl:choose>
+  </xsl:variable>
+  <div>
+    <xsl:attribute name="class">
+      <xsl:text>note</xsl:text>
+      <xsl:if test="normalize-space($notestyle) != ''">
+        <xsl:value-of select="concat(' note-', $notestyle)"/>
+      </xsl:if>
+      <xsl:if test="$first_child">
+        <xsl:text> first-child</xsl:text>
+      </xsl:if>
+    </xsl:attribute>
+    <div class="note-inner">
+      <xsl:apply-templates mode="mal2html.block.mode" select="mal:title"/>
+      <div class="note-contents">
+        <xsl:for-each select="mal:*[not(self::mal:title)
+                              and ($mal2html.editor_mode or not(self::mal:comment)
+                              or processing-instruction('mal2html.show_comment'))]">
+          <xsl:apply-templates mode="mal2html.block.mode" select=".">
+            <xsl:with-param name="first_child" select="position() = 1"/>
+          </xsl:apply-templates>
+        </xsl:for-each>
+      </div>
     </div>
   </div>
 </xsl:template>

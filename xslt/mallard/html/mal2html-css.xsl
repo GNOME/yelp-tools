@@ -91,10 +91,7 @@ body {
   direction: </xsl:text><xsl:call-template name="l10n.direction"/><xsl:text>;
   margin: 0px;
   background-color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'gray-background'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
   padding: 12px;
   min-height: 100%;
 }
@@ -104,17 +101,11 @@ div, pre, p, li { margin: 1em 0 0 0; padding: 0; }
 a {
   text-decoration: none;
   color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'link'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.link"/><xsl:text>;
 }
 a:visited {
   color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'link-visited'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.link_visited"/><xsl:text>;
 }
 a:hover { text-decoration: underline; }
 
@@ -125,24 +116,15 @@ div.body {
   min-height: 20em;
   -moz-border-radius: 6px;
   border: solid 1px </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'gray-border'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
   background-color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'background'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.background"/><xsl:text>;
 }
 div.copyrights {
   max-width: 48em;
   text-align: center;
   color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'text-light'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
 }
 div.section { margin-top: 2.4em; clear: both; }
 div.section div.section { margin-top: 1.72em; margin-left: 1.72em; }
@@ -150,15 +132,9 @@ div.section div.section div.section { margin-top: 1.44em; }
 div.header {
   margin: 0;
   color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'text-light'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
   border-bottom: solid 1px </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'gray-border'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
 }
 h1 {
   font-size: 1.44em;
@@ -174,10 +150,7 @@ div.autolinks ul { margin: 0; padding: 0; }
 div.autolinks div.title { margin: 1em 0 0 1em; }
 div.autolinks div.title span {
   border-bottom: solid 1px </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'gray-border'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
 }
 li.autolink { margin: 0.5em 0 0 0; padding: 0 0 0 1em; list-style-type: none; }
 
@@ -193,32 +166,20 @@ div.pagelink {
   padding: 0.5em;
   -moz-border-radius: 6px;
   border: solid 1px </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'background'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.background"/><xsl:text>;
 }
 div.pagelink:hover {
   border-color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'blue-border'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.blue_border"/><xsl:text>;
   background-color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'blue-background'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.blue_background"/><xsl:text>;
 }
 div.pagelinksep {
   margin: 0.5em;
   list-style-type: none;
   max-width: 24em;
   border-bottom: solid 1px </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'gray-border'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
 }
 </xsl:text>
 <xsl:call-template name="mal2html.css.editor"/>
@@ -246,40 +207,22 @@ FIXME
 <xsl:template name="mal2html.css.editor">
 <xsl:text>
 body.status-stub { background-color:  </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'red-background'"/>
-  </xsl:call-template>
-  <xsl:text>; }
+  <xsl:value-of select="$theme.color.red_background"/><xsl:text>; }
 body.status-draft { background-color:  </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'red-background'"/>
-  </xsl:call-template>
-  <xsl:text>; }
+  <xsl:value-of select="$theme.color.red_background"/><xsl:text>; }
 body.status-incomplete { background-color:  </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'red-background'"/>
-  </xsl:call-template>
-  <xsl:text>; }
+  <xsl:value-of select="$theme.color.red_background"/><xsl:text>; }
 body.status-review { background-color:  </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'yellow-background'"/>
-  </xsl:call-template>
-  <xsl:text>; }
+  <xsl:value-of select="$theme.color.yellow_background"/><xsl:text>; }
 div.version {
   margin: 0 0 1em 0;
   padding: 0.5em 1em 0.5em 1em;
   max-width: 48em;
   -moz-border-radius: 6px;
   border: solid 1px </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'gray-border'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
   background-color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'yellow-background'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.yellow_background"/><xsl:text>;
 }
 div.version p.version { margin-top: 0.2em; }
 div.pagelink div.title span.status {
@@ -288,56 +231,29 @@ div.pagelink div.title span.status {
   padding-left: 0.2em;
   padding-right: 0.2em;
   color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'text-light'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
   border: solid 1px </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'red-border'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.red_border"/><xsl:text>;
 }
 div.pagelink div.title span.status-stub { background-color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'red-background'"/>
-  </xsl:call-template>
-  <xsl:text>; }
+  <xsl:value-of select="$theme.color.red_background"/><xsl:text>; }
 div.pagelink div.title span.status-draft { background-color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'red-background'"/>
-  </xsl:call-template>
-  <xsl:text>; }
+  <xsl:value-of select="$theme.color.red_background"/><xsl:text>; }
 div.pagelink div.title span.status-incomplete { background-color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'red-background'"/>
-  </xsl:call-template>
-  <xsl:text>; }
+  <xsl:value-of select="$theme.color.red_background"/><xsl:text>; }
 div.pagelink div.title span.status-review { background-color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'yellow-background'"/>
-  </xsl:call-template>
-  <xsl:text>; }
+  <xsl:value-of select="$theme.color.yellow_background"/><xsl:text>; }
 div.pagelink div.desc {
   margin-top: 0.2em;
   color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'text-light'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
 }
 div.comment {
   padding: 0.5em;
   border: solid 2px </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'red-border'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.red_border"/><xsl:text>;
   background-color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'red-background'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.red_background"/><xsl:text>;
 }
 div.comment div.comment {
   margin: 1em 0 0 1em;

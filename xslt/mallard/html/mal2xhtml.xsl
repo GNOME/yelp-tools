@@ -43,7 +43,7 @@ REMARK: Describe this module
 <xsl:include href="mal2html-page.xsl"/>
 <xsl:include href="mal2html-table.xsl"/>
 
-<xsl:include href="theme.xsl"/>
+<xsl:include href="../../common/theme.xsl"/>
 <xsl:include href="util.xsl"/>
 
 <!-- FIXME -->

@@ -100,10 +100,7 @@ span.app { font-style: italic; }
 span.cmd {
   font-family: monospace;
   background-color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'gray-background'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
   padding: 0 0.2em 0 0.2em;
 }
 span.code { font-family: monospace; }
@@ -111,39 +108,23 @@ span.em { font-style: italic; }
 span.email { color: red; }
 span.file { font-family: monospace; }
 span.gui, span.guiseq { color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'text-light'"/>
-  </xsl:call-template>
-  <xsl:text>;
-}
+  <xsl:value-of select="$theme.color.text_light"/><xsl:text>; }
 span.input { font-family: monospace; }
 span.key {
   color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'text-light'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
   border: solid 1px </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'gray-border'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
   padding: 0 0.2em 0 0.2em;
 }
 span.keyseq {
   color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'text-light'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
 }
 span.output { font-family: monospace; }
 pre.screen span.output {
   color: </xsl:text>
-  <xsl:call-template name="theme.get_color">
-    <xsl:with-param name="id" select="'text-light'"/>
-  </xsl:call-template>
-  <xsl:text>;
+    <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
 }
 pre.screen span.output-error {
 <!-- FIXME: theme -->
