@@ -126,7 +126,7 @@ xsltproc -o mal_block_screen.html \
   <code href="http://www.docbook.org/tdg/en/html/example.html">example</code>
   element in DocBook.  In DocBook, the <code>example</code> element is a
   formal element.  In Mallard, <code>example</code> is a simple container
-  element, and does not allow a <code xref="mal_title">title</code>
+  element, and does not allow a <code xref="mal_block_title">title</code>
   element.</p>
 </section>
 <!-- END comparison -->

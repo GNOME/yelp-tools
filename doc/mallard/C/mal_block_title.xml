@@ -1,15 +1,15 @@
 <page xmlns="http://www.gnome.org/~shaunm/mallard"
       type="topic"
-      id="mal_subtitle">
+      id="mal_block_title">
 
 <info>
   <version number="0.1" date="2007-02-21" status="stub"/>
 </info>
 
-<title>Subtitles</title>
+<title>Titles</title>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
-mal_subtitle = element subtitle {
+mal_block_title = element title {
   <link xref="mal_inline">mal_inline</link>
 }
 </code></synopsis>

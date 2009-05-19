@@ -26,7 +26,7 @@ mal_block_note = element note {
   attribute style { xsd:NMTOKENS } ?,
   attribute * - (mal:* | local:*) { text } *,
 
-  <link xref="mal_title">mal_title</link> ?,
+  <link xref="mal_block_title">mal_block_title</link> ?,
   <link xref="mal_block">mal_block</link> +
 }
 </code></synopsis>
@@ -44,7 +44,7 @@ of your document.</p>
   <title>Notes</title>
   <list type="bullet">
     <item><p>The <code>note</code> element contains an optional
-    <link xref="mal_title">title</link> element and  any
+    <link xref="mal_block_title">title</link> element and  any
     <link xref="mal_block">general block content</link>.</p></item>
 
     <item><p>The <code>note</code> element can occur in any

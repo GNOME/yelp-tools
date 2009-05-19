@@ -26,7 +26,7 @@ mal_block_comment = element comment {
   attribute style { xsd:NMTOKENS } ?,
   attribute * - (mal:* | local:*) { text } *,
 
-  <link xref="mal_title">mal_title</link> ?,
+  <link xref="mal_block_title">mal_block_title</link> ?,
   <link xref="mal_block_cite">mal_block_cite</link>,
   <link xref="mal_block">mal_block</link> +
 }
@@ -39,7 +39,7 @@ end reader.  A <code>comment</code> element can contain other <code>comment</cod
 elements, allowing you to have a threaded discussion inside editorial comments.</p>
 
 <p>A <code>comment</code> element may optionally contain a
-<code xref="mal_title">title</code> element to provide a brief description
+<code xref="mal_block_title">title</code> element to provide a brief description
 of the subject of the comment.  Titles are encouraged in top-level comments,
 although they are usually unnecessary in replies.</p>
 
@@ -53,7 +53,7 @@ to provide a <code>date</code> attribute.</p>
   <title>Notes</title>
   <list type="bullet">
     <item><p>The <code>comment</code> element contains an optional
-    <link xref="mal_title">title</link> element, a
+    <link xref="mal_block_title">title</link> element, a
     <link xref="mal_block_cite">cite</link> element, and  any
     <link xref="mal_block">general block content</link>.</p></item>
 

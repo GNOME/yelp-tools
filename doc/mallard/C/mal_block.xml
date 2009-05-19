@@ -97,7 +97,7 @@ mal_block_formal = (
   <link xref="mal_block_synopsis">mal_block_synopsis</link>
 )</code></synopsis>
 
-  <p>Formal block elements contain a <link xref="mal_title">title</link>
+  <p>Formal block elements contain a <link xref="mal_block_title">title</link>
   and general block content.  Formal block elements allow you to provide
   richer information in your pages.</p>
 </section>
@@ -146,8 +146,8 @@ mal_block_list = (
 <!-- BEGIN other -->
 <section id="other">
   <info>
-    <link type="topic" xref="mal_title"/>
-    <link type="topic" xref="mal_subtitle"/>
+    <link type="topic" xref="mal_block_title"/>
+    <link type="topic" xref="mal_block_subtitle"/>
     <link type="topic" xref="mal_block_desc"/>
     <link type="topic" xref="mal_block_cite"/>
   </info>
