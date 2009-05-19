@@ -146,7 +146,6 @@ mal_block_list = (
 <!-- BEGIN other -->
 <section id="other">
   <info>
-    <title type="link">Other Block Elements</title>
     <link type="topic" xref="mal_title"/>
     <link type="topic" xref="mal_subtitle"/>
     <link type="topic" xref="mal_block_desc"/>

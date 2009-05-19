@@ -3,7 +3,11 @@
       id="mal_block_desc">
 
 <info>
-  <version number="0.1" date="2009-04-19" status="incomplete"/>
+  <link type="seealso" xref="mal_block_figure"/>
+  <link type="seealso" xref="mal_block_listing"/>
+  <link type="seealso" xref="mal_block_synopsis"/>
+
+  <version number="0.1" date="2009-05-19" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -16,7 +20,7 @@
 
   <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
 
-  <desc>FIXME</desc>
+  <desc>Provide a caption for a formal block element.</desc>
 </info>
 
 <title>Block Descriptions</title>
@@ -36,17 +40,45 @@ The description provided by <code>desc</code> is formatted as a caption
 for the formal element.</p>
 
 
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list type="bullet">
+    <item><p>The <code>desc</code> element can contain a mixture of text and
+    any <link xref="mal_inline">general inline elements</link>.</p></item>
+
+    <item><p>The <code>desc</code> element can occur in the formal block elements
+    <code xref="mal_block_figure">figure</code>,
+    <code xref="mal_block_listing">listing</code>, and
+    <code xref="mal_block_synopsis">synopsis</code>.</p></item>
+
+    <item><p>The <code>style</code> attribute takes a space-separated list of
+    style hints.  Processing tools should adjust their behavior according to
+    those style hints they understand.</p></item>
+
+    <item><p>The <code>desc</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+
+    <item><p>The <code>desc</code> element can also be used in an informational
+    context.  See <link xref="mal_info_desc"/> for more information.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
 <!-- BEGIN examples -->
 <section id="examples">
   <title>Examples</title>
 
-  <p>Use <code>desc</code> to provide a caption for a figure:</p>
+  <p>Use <code>desc</code> to provide a caption for a
+  <link xref="mal_block_figure">figure</link>:</p>
 
   <example>
     <code><![CDATA[
 <figure>
-  <media type="image" mime="image/png" src="figures/mallard.png"/>
   <desc>Drake, the Mallard mascot</desc>
+  <media type="image" mime="image/png" src="figures/mallard.png"/>
 </figure>
 ]]></code>
     <figure>
@@ -55,7 +87,33 @@ for the formal element.</p>
     </figure>
   </example>
 
-  <p>More exaples of figures can be found on the page <link xref="mal_block_figure"/>.</p>
+  <p>Use <code>desc</code> to provide a caption for a
+  <link xref="mal_block_figure">listing</link>:</p>
+
+  <example>
+    <code><![CDATA[
+<listing>
+  <desc>A first Mallard page</desc>
+  <code><![CDATA[
+<page xmlns="http://www.gnome.org/~shaunm/mallard"
+      type="guide"
+      id="index">
+  <!-- Content goes here -->
+</page>]]]>]><![CDATA[</code>
+</listing>]]></code>
+    <listing>
+      <desc>A first Mallard page</desc>
+      <code><![CDATA[
+<page xmlns="http://www.gnome.org/~shaunm/mallard"
+      type="guide"
+      id="index">
+  <!-- Content goes here -->
+</page>]]></code>
+    </listing>
+  </example>
+
+  <p>More exaples can be found on the pages <link xref="mal_block_figure"/>,
+  <link xref="mal_block_listing"/>, and <link xref="mal_block_synopsis"/>.</p>
 </section>
 <!-- END examples -->
 
@@ -65,14 +123,12 @@ for the formal element.</p>
   <title>Processing Expectations</title>
 
   <p>The exact display of a description will depend on how the enclosing formal
-  element is displayed.  A description is a block of text that should be displayed
+  element is displayed.  A description is a block of text that is displayed
   directly above or below the normal contents of the enclosing element.</p>
 
-  <p>Display tools should attempt to display the description in a way that makes it
-  clear that it belongs to the enclosing formal element.  For example, if a display
-  tool draws a frame around an enclosing figure, it may choose to place the description
-  inside that frame.  If the formal element is indented from its enclosing block, the
-  description should also be at the same indentation level.</p>
+  <p>A description should be displayed in a way that makes its role clearn and
+  which clearly distinguishes it from the normal block content of the enclosing
+  element.</p>
 </section>
 <!-- END processing -->
 
