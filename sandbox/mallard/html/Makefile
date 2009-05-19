@@ -2,8 +2,9 @@ xslts=$(wildcard ../../../xslt/mallard/common/*.xsl) $(wildcard ../../../xslt/ma
 specs=$(filter-out ../../../doc/mallard/C/legal.xml, $(wildcard ../../../doc/mallard/C/*.xml))
 pages=$(patsubst %.xml,%.html, $(notdir $(specs)))
 icons=admon-bug.png admon-caution.png admon-important.png admon-note.png admon-tip.png admon-warning.png
+marks=watermark-blockquote-201C.png watermark-code.png
 
-all: $(pages) $(icons) figures mallard.cache
+all: $(pages) $(icons) $(marks) figures mallard.cache
 
 mallard.cache : $(specs) $(xslts)
 	echo '<cache xmlns="http://www.gnome.org/~shaunm/mallard">' > $@.in
@@ -17,6 +18,8 @@ mallard.cache : $(specs) $(xslts)
 
 $(icons):
 	ln -sf ../../../data/icons/hicolor/24x24/$@ $@
+$(marks):
+	ln -sf ../../../data/watermarks/$@ $@
 
 $(pages) : mallard.cache $(xslts)
 $(pages) : %.html : ../../../doc/mallard/C/%.xml

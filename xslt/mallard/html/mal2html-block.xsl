@@ -46,8 +46,8 @@ div.desc { margin: 0 0 0.2em 0; }
 div.desc-listing, div.desc-synopsis { font-style: italic; }
 div.desc-figure { margin: 0.2em 0 0 0; }
 pre.code {
-  <!-- FIXME: theme -->
-  background: url(mallard-icon-code.png) no-repeat top right;
+  background: url('</xsl:text>
+    <xsl:value-of select="$theme.watermark.code"/><xsl:text>') no-repeat top right;
   border: solid 2px </xsl:text>
     <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
   padding: 0.5em 1em 0.5em 1em;
@@ -109,6 +109,34 @@ div.note-tip div.note-inner { background-image: url("</xsl:text>
 div.note-warning div.note-inner { background-image: url("</xsl:text>
   <xsl:value-of select="$theme.icon.admon.warning"/><xsl:text>"); }
 div.note-contents { margin: 0; padding: 0; }
+div.quote-inner {
+  margin: 0;
+  <!-- FIXME: i18n -->
+  background-image: url('</xsl:text>
+    <xsl:value-of select="$theme.watermark.blockquote"/><xsl:text>');
+  background-repeat: no-repeat;
+  background-position: top left;
+  padding: 0.5em;
+  padding-left: 4em;
+}
+div.title-quote {
+  margin-left: 4em;
+}
+blockquote {
+  margin: 0; padding: 0;
+}
+div.cite-comment {
+  margin-top: 0.5em;
+  color: </xsl:text><xsl:value-of select="$theme.color.text_light"/><xsl:text>;
+}
+div.cite-quote {
+  margin-top: 0.5em;
+  color: </xsl:text><xsl:value-of select="$theme.color.text_light"/><xsl:text>;
+}
+div.cite-quote::before {
+  <!-- FIXME: i18n -->
+  content: '&#x2015; ';
+}
 pre.screen {
   padding: 0.5em 1em 0.5em 1em;
   background-color: </xsl:text>
@@ -216,7 +244,7 @@ FIXME
 
 <!-- = comment/cite = -->
 <xsl:template mode="mal2html.block.mode" match="mal:comment/mal:cite">
-  <div class="cite">
+  <div class="cite cite-comment">
     <!-- FIXME: i18n -->
     <xsl:text>from </xsl:text>
     <xsl:choose>
@@ -365,6 +393,54 @@ FIXME
     </xsl:attribute>
     <xsl:apply-templates mode="mal2html.inline.mode"/>
   </p>
+</xsl:template>
+
+<!-- = quote = -->
+<xsl:template mode="mal2html.block.mode" match="mal:quote">
+  <xsl:param name="first_child" select="not(preceding-sibling::*)"/>
+  <div class="quote">
+    <xsl:attribute name="class">
+      <xsl:text>quote</xsl:text>
+      <xsl:if test="$first_child">
+        <xsl:text> first-child</xsl:text>
+      </xsl:if>
+    </xsl:attribute>
+    <xsl:apply-templates mode="mal2html.block.mode" select="mal:title"/>
+    <div class="quote-inner">
+      <blockquote class="quote-contents">
+        <xsl:for-each select="mal:*[not(self::mal:title or self::mal:cite)
+                              and ($mal2html.editor_mode or not(self::mal:comment)
+                              or processing-instruction('mal2html.show_comment'))]">
+          <xsl:apply-templates mode="mal2html.block.mode" select=".">
+            <xsl:with-param name="first_child" select="position() = 1"/>
+          </xsl:apply-templates>
+        </xsl:for-each>
+      </blockquote>
+      <xsl:apply-templates mode="mal2html.block.mode" select="mal:cite"/>
+    </div>
+  </div>
+</xsl:template>
+
+<!-- = quote/cite = -->
+<xsl:template mode="mal2html.block.mode" match="mal:quote/mal:cite">
+  <div class="cite cite-quote">
+    <xsl:choose>
+      <xsl:when test="@href">
+        <a href="{@href}">
+          <xsl:apply-templates mode="mal2html.inline.mode"/>
+        </a>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:apply-templates mode="mal2html.inline.mode"/>
+      </xsl:otherwise>
+    </xsl:choose>
+    <!-- FIXME: i18n -->
+    <xsl:if test="@date">
+      <xsl:text> (</xsl:text>
+      <xsl:value-of select="@date"/>
+      <xsl:text>)</xsl:text>
+    </xsl:if>
+  </div>
 </xsl:template>
 
 <!-- = screen = -->

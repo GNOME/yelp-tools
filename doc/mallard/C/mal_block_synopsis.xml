@@ -3,7 +3,9 @@
       id="mal_block_synopsis">
 
 <info>
-  <version number="0.1" date="2007-02-21" status="incomplete"/>
+  <link type="seealso" xref="mal_block_listing"/>
+
+  <version number="0.1" date="2009-05-19" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -110,10 +112,25 @@ int  count_beans ();
   it inside a colored box, with a border, or otherwise differently from
   the surrounding text.</p>
 
-  <p>If a <code xref="mal_block_title">title</code> element is provided, it
-  should appear at the top of the block and be clearly marked as the
-  title using font variations or other stylistic means.</p>
+  <p>When present, the title and description should be displayed in a
+  way that makes their respective roles clear.</p>
 </section>
 <!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>The <code>synopsis</code> element is similar to the
+  <code href="http://www.docbook.org/tdg/en/html/synopsis.html">synopsis</code>
+  element in DocBook, although the DocBook element is not a formal element.
+  DocBook also provides the
+  <code href="http://www.docbook.org/tdg/en/html/cmdsynopsis.html">cmdsynopsis</code> and
+  <code href="http://www.docbook.org/tdg/en/html/funcsynopsis.html">funcsynopsis</code>
+  elements, which attempt to model the data for command and function synopses,
+  respectively.  Mallard does not provide modelling elements.</p>
+</section>
+<!-- END comparison -->
 
 </page>
