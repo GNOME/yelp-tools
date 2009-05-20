@@ -38,7 +38,6 @@ mal_inline = mixed {
   <link xref="mal_inline_link">mal_inline_link</link> *,
   <link xref="mal_inline_media">mal_inline_media</link> *,
   <link xref="mal_inline_output">mal_inline_output</link> *,
-  <link xref="mal_inline_quote">mal_inline_quote</link> *,
   <link xref="mal_inline_span">mal_inline_span</link> *,
   <link xref="mal_inline_sys">mal_inline_sys</link> *,
   <link xref="mal_inline_var">mal_inline_var</link> *,
@@ -76,6 +75,9 @@ more information.</p>
 
 <!-- BEGIN processing -->
 <section id="processing">
+  <info>
+    <title type="link">Inline Processing Instructions</title>
+  </info>
   <title>Processing Expectations</title>
 
   <p>Inline elements occur within block elements or other inline elements.

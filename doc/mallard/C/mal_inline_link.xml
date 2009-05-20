@@ -5,7 +5,7 @@
 <info>
   <link type="guide" xref="mal_inline#elements"/>
 
-  <version number="0.1" date="2007-02-05" status="incomplete"/>
+  <version number="0.1" date="2007-05-20" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -17,6 +17,8 @@
   </copyright>
 
   <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Link to other pages, sections, or web pages.</desc>
 </info>
 
 <title>Hyperlinks</title>
@@ -34,6 +36,13 @@ mal_inline_link = element link {
   <link xref="mal_inline">mal_inline</link>
 }
 </code></synopsis>
+
+<p>Use the <code>link</code> to create a link to another page or section, or to
+an external resource such as a web page.  Most <link xref="mal_inline">inline
+elements</link> can act as links, but the <code>link</code> element allows you
+to create a link without any associated semantics.  The <code>link</code> element
+can also generate link text automatically for links to pages and sections within
+the same document.</p>
 
 
 <!-- BEGIN notes -->
@@ -77,6 +86,44 @@ mal_inline_link = element link {
 <!-- BEGIN examples -->
 <section id="examples">
   <title>Examples</title>
+
+  <p>Link to another page in the same document:</p>
+
+  <example>
+    <code><![CDATA[
+See <link xref="mal_attr_link"/> for information on linking attributes.
+]]></code>
+    <p>See <link xref="mal_attr_link"/> for information on linking attributes.</p>
+  </example>
+
+  <p>Link to a section in the same page:</p>
+
+  <example>
+    <code><![CDATA[
+See <link xref="#processing"/> for details on automatic link text.
+]]></code>
+    <p>See <link xref="#processing"/> for details on automatic link text.</p>
+  </example>
+
+  <p>Link to a section in another page:</p>
+
+  <example>
+    <code><![CDATA[
+See <link xref="mal_inline#processing"/> for more processing expectations.
+]]></code>
+    <p>See <link xref="mal_inline#processing"/> for more processing expectations.</p>
+  </example>
+
+  <p>Link to an external resource:</p>
+
+  <example>
+    <code><![CDATA[
+See the <link href="http://www.w3.org/TR/REC-xml-names/">XML Namespaces
+recommendation</link>.
+]]></code>
+    <p>See the <link href="http://www.w3.org/TR/REC-xml-names/">XML Namespaces
+    recommendation</link>.</p>
+  </example>
 </section>
 <!-- END examples -->
 

@@ -3,8 +3,6 @@
       id="mal_block_quote">
 
 <info>
-  <link type="seealso" xref="mal_inline_quote"/>
-
   <version number="0.1" date="2009-05-19" status="review"/>
 
   <credit type="author">
@@ -72,9 +70,6 @@ and have it automatically formatted by display tools.</p>
     <item><p>The <code>quote</code> element can have attributes from external
     namespaces.  See <link xref="mal_external"/> for more information
     on external-namespace attributes.</p></item>
-
-    <item><p>The <code>quote</code> element may also be used in an inline context.
-    See <link xref="mal_inline_quote"/> for more information.</p></item>
   </list>
 </section>
 <!-- END notes -->
