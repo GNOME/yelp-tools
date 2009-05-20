@@ -41,7 +41,7 @@ items.</p>
 <!-- BEGIN notes -->
 <section id="notes">
   <title>Notes</title>
-  <list type="bullet">
+  <ulist>
     <item><p>The <code>guiseq</code> element can contain a mixture of text and
     <code xref="mal_inline_gui">gui</code> elements.</p></item>
 
@@ -58,7 +58,7 @@ items.</p>
     <item><p>The <code>guiseq</code> element can have attributes from external
     namespaces.  See <link xref="mal_external"/> for more information
     on external-namespace attributes.</p></item>
-  </list>
+  </ulist>
 </section>
 <!-- END notes -->
 

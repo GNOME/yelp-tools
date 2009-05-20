@@ -44,7 +44,7 @@ using attributes from external namespaces.</p>
 <!-- BEGIN notes -->
 <section id="notes">
   <title>Notes</title>
-  <list type="bullet">
+  <ulist>
     <item><p>The <code>span</code> element can contain a mixture of text and
     any <link xref="mal_inline">general inline elements</link>.</p></item>
 
@@ -64,7 +64,7 @@ using attributes from external namespaces.</p>
     <item><p>The <code>span</code> element can have attributes from external
     namespaces.  See <link xref="mal_external"/> for more information
     on external-namespace attributes.</p></item>
-  </list>
+  </ulist>
 </section>
 <!-- END notes -->
 

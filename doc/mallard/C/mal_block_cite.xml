@@ -49,7 +49,7 @@ element.</p>
 <!-- BEGIN notes -->
 <section id="notes">
   <title>Notes</title>
-  <list type="bullet">
+  <ulist>
     <item><p>The <code>style</code> attribute takes a space-separated list of
     style hints.  Processing tools should adjust their behavior according to
     those style hints they understand.</p></item>
@@ -61,7 +61,7 @@ element.</p>
     <item><p>The <code>href</code> attribute provides a URL to identify the
     entity being cited.  It will frequently be a <sys>mailto:</sys> URL with
     a person's email address.</p></item>
-  </list>
+  </ulist>
 </section>
 <!-- END notes -->
 

@@ -20,13 +20,17 @@
 <title>Bullet Lists</title>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
-mal_list_bullet = element list {
-  attribute type { "bullet" } ?,
-  attribute style { text } ?,
+mal_block_ulist = element ulist {
+  attribute style { xsd:NMTOKENS } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
   <link xref="mal_block_title">mal_block_title</link> ?,
+
   element item {
-    <link xref="mal_block">mal_block</link> +,
-    <link xref="mal_list">mal_list</link> ?
+    attribute style { xsd:NMTOKENS } ?,
+    attribute * - (mal:* | local:*) { text } *,
+
+    <link xref="mal_block">mal_block</link> +
   } +
 }
 </code></synopsis>

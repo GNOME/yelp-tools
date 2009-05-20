@@ -45,7 +45,7 @@ an indicated argument.</p>
 <!-- BEGIN notes -->
 <section id="notes">
   <title>Notes</title>
-  <list type="bullet">
+  <ulist>
     <item><p>The <code>var</code> element can contain a mixture of text and
     any <link xref="mal_inline">general inline elements</link>.</p></item>
 
@@ -68,7 +68,7 @@ an indicated argument.</p>
 
     <item><p>See <link xref="mal_inline_cmd"/> and <link xref="mal_inline_code"/>
     for examples using <code>var</code>.</p></item>
-  </list>
+  </ulist>
 </section>
 <!-- END notes -->
 
