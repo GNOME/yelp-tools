@@ -43,7 +43,7 @@ for the formal element.</p>
 <!-- BEGIN notes -->
 <section id="notes">
   <title>Notes</title>
-  <ulist>
+  <list>
     <item><p>The <code>desc</code> element can contain a mixture of text and
     any <link xref="mal_inline">general inline elements</link>.</p></item>
 
@@ -62,7 +62,7 @@ for the formal element.</p>
 
     <item><p>The <code>desc</code> element can also be used in an informational
     context.  See <link xref="mal_info_desc"/> for more information.</p></item>
-  </ulist>
+  </list>
 </section>
 <!-- END notes -->
 

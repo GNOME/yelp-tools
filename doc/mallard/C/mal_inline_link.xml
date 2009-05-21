@@ -48,7 +48,7 @@ the same document.</p>
 <!-- BEGIN notes -->
 <section id="notes">
   <title>Notes</title>
-  <ulist>
+  <list>
     <item><p>The <code>link</code> element can contain a mixture of text and
     any <link xref="mal_inline">general inline elements</link>.</p></item>
 
@@ -78,7 +78,7 @@ the same document.</p>
     <item><p>The <code>link</code> element can have attributes from external
     namespaces.  See <link xref="mal_external"/> for more information
     on external-namespace attributes.</p></item>
-  </ulist>
+  </list>
 </section>
 <!-- END notes -->
 
@@ -147,11 +147,11 @@ recommendation</link>.
   displayed as normal.  Otherwise, automatic link text is generated
   as follows:</p>
 
-  <ulist>
+  <list>
     <item><p>If the <code>link</code> element has an <code>xref</code>
     attribute that points to a page or section in the same document:</p>
 
-    <ulist>
+    <list>
       <item><p>If the <code>link</code> element has a <code>role</code>
       attribute, and that page or section has an
       <link xref="mal_info_title">informational title</link> with the
@@ -168,7 +168,7 @@ recommendation</link>.
 
       <item><p>Otherwise, the contents of the primary title of that page
       page or section are used.</p></item>
-    </ulist>
+    </list>
     </item>
 
     <item><p>Otherwise, if the <code>link</code> element has an <code>xref</code>
@@ -176,7 +176,7 @@ recommendation</link>.
     tool knows how to generate link contents, that content is used.</p></item>
 
     <item><p>Otherwise, the link target is used as text content.</p></item>
-  </ulist>
+  </list>
 </section>
 <!-- END processing -->
 

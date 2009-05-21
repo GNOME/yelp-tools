@@ -53,7 +53,7 @@ by the user.</p>
 <!-- BEGIN notes -->
 <section id="notes">
   <title>Notes</title>
-  <ulist>
+  <list>
     <item><p>The <code>code</code> element can contain a mixture of text and
     any <link xref="mal_inline">general inline elements</link>.</p></item>
 
@@ -79,7 +79,7 @@ by the user.</p>
 
     <item><p>The <code>code</code> element may also be used in a block context.
     See <link xref="mal_block_code"/> for more information.</p></item>
-  </ulist>
+  </list>
 </section>
 <!-- END notes -->
 

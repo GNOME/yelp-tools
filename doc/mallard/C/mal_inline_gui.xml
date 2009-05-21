@@ -43,7 +43,7 @@ control is being marked up.</p>
 <!-- BEGIN notes -->
 <section id="notes">
   <title>Notes</title>
-  <ulist>
+  <list>
     <item><p>The <code>gui</code> element can contain a mixture of text and
     any <link xref="mal_inline">general inline elements</link>.</p></item>
 
@@ -103,7 +103,7 @@ control is being marked up.</p>
     <item><p>The <code>gui</code> element can have attributes from external
     namespaces.  See <link xref="mal_external"/> for more information
     on external-namespace attributes.</p></item>
-  </ulist>
+  </list>
 </section>
 <!-- END notes -->
 

@@ -46,7 +46,7 @@ by the user.</p>
 <!-- BEGIN notes -->
 <section id="notes">
   <title>Notes</title>
-  <ulist>
+  <list>
     <item><p>The <code>code</code> element can contain a mixture of text and
     any <link xref="mal_inline">general inline elements</link>.  Whitespace
     is interpreted literally.</p></item>
@@ -74,7 +74,7 @@ by the user.</p>
     <code xref="mal_block_listing">listing</code> element to provide a title
     and description for the code block.  This is frequently used to provide
     the name of the file whose contents are being shown.</p></item>
-  </ulist>
+  </list>
 </section>
 <!-- END notes -->
 

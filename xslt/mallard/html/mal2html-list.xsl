@@ -36,20 +36,15 @@ REMARK: Describe this template
 -->
 <xsl:template name="mal2html.list.css">
 <xsl:text>
-ul.ulist {
-  margin: 0; padding: 0;
-}
-ul.ulist li {
-  margin-left: 1.44em;
-}
+ul.list { margin: 0; padding: 0; }
+li.item-list { margin-left: 1.44em; }
+
 ul.tree {
   margin: 0; padding: 0;
   list-style-type: none;
 }
-ul.tree li {
-  margin: 0; padding: 0;
-}
-.item-tree { margin: 0; padding: 0; }
+li.item-tree { margin: 0; padding: 0; }
+div.item-tree { margin: 0; padding: 0; }
 ul.tree ul.tree {
   margin-left: 1.44em;
 }
@@ -63,41 +58,45 @@ div.tree-lines ul.tree ul.tree ul.tree {
 </xsl:template>
 
 
-<!-- == Bullet Lists == -->
-
-<xsl:template mode="mal2html.block.mode" match="mal:ulist">
+<!-- = list = -->
+<xsl:template mode="mal2html.block.mode" match="mal:list">
+  <xsl:param name="first_child" select="not(preceding-sibling::*)"/>
   <div>
     <xsl:attribute name="class">
-      <xsl:text>ulist</xsl:text>
-      <xsl:if test="not(preceding-sibling::*)">
+      <xsl:text>list</xsl:text>
+      <xsl:if test="$first_child">
         <xsl:text> first-child</xsl:text>
       </xsl:if>
     </xsl:attribute>
-    <ul class="ulist">
-      <xsl:apply-templates mode="mal2html.list.bullet.mode"/>
+    <ul class="list">
+      <xsl:apply-templates mode="mal2html.list.list.mode" select="mal:item"/>
     </ul>
   </div>
 </xsl:template>
 
-<xsl:template mode="mal2html.list.bullet.mode" match="mal:item">
+<!-- = list/item = -->
+<xsl:template mode="mal2html.list.list.mode" match="mal:item">
   <li>
-    <xsl:if test="not(preceding-sibling::mal:item)">
-      <xsl:attribute name="class">
-        <xsl:text>first-child</xsl:text>
-      </xsl:attribute>
-    </xsl:if>
-    <xsl:apply-templates mode="mal2html.block.mode"/>
+    <xsl:attribute name="class">
+      <xsl:text>item-list</xsl:text>
+      <xsl:if test="not(preceding-sibling::mal:item)">
+        <xsl:text> first-child</xsl:text>
+      </xsl:if>
+    </xsl:attribute>
+    <xsl:for-each
+        select="mal:*[
+                ($mal2html.editor_mode or not(self::mal:comment)
+                or processing-instruction('mal2html.show_comment'))]">
+      <xsl:apply-templates mode="mal2html.block.mode" select=".">
+        <xsl:with-param name="first_child" select="position() = 1"/>
+      </xsl:apply-templates>
+    </xsl:for-each>
   </li>
 </xsl:template>
 
-
-<!-- == Numbered Lists == -->
-
-<!-- == Definition Lists == -->
-
-<!-- == Tree Lists == -->
-
+<!-- = tree = -->
 <xsl:template mode="mal2html.block.mode" match="mal:tree">
+  <xsl:param name="first_child" select="not(preceding-sibling::*)"/>
   <xsl:variable name="lines" select="contains(concat(' ', @style, ' '), ' lines ')"/>
   <div>
     <xsl:attribute name="class">
@@ -105,22 +104,24 @@ div.tree-lines ul.tree ul.tree ul.tree {
       <xsl:if test="$lines">
         <xsl:text> tree-lines</xsl:text>
       </xsl:if>
-      <xsl:if test="not(preceding-sibling::*)">
+      <!-- FIXME -->
+      <xsl:if test="$first_child">
         <xsl:text> first-child</xsl:text>
       </xsl:if>
     </xsl:attribute>
     <ul class="tree">
-      <xsl:apply-templates mode="mal2html.list.tree.mode">
+      <xsl:apply-templates mode="mal2html.list.tree.mode" select="mal:item">
         <xsl:with-param name="lines" select="$lines"/>
       </xsl:apply-templates>
     </ul>
   </div>
 </xsl:template>
 
+<!-- = tree/item = -->
 <xsl:template mode="mal2html.list.tree.mode" match="mal:item">
   <xsl:param name="lines" select="false()"/>
-  <li class="item item-tree">
-    <div class="item item-tree">
+  <li class="item-tree">
+    <div class="item-tree">
       <xsl:if test="$lines and not(parent::mal:list)">
         <xsl:choose>
           <xsl:when test="following-sibling::mal:item">

@@ -39,11 +39,11 @@ mal_page_topic = element page {
 <!-- BEGIN notes -->
 <section id="notes">
   <title>Notes</title>
-  <ulist>
+  <list>
     <item><p>The <code>type</code> attribute takes the values <code>"guide"</code> and
     <code>"topic"</code>.  <link xref="#guide">Guide pages</link> and <link xref="#topic">topic
     pages</link> are discussed below.</p></item>
-  </ulist>
+  </list>
 </section>
 <!-- END notes -->
 

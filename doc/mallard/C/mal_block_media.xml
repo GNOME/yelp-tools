@@ -47,7 +47,7 @@ for details on how fallback elements are handled.</p>
 <!-- BEGIN notes -->
 <section id="notes">
   <title>Notes</title>
-  <ulist>
+  <list>
     <item><p>The <code>media</code> element can contain any
     <link xref="mal_block">general block content</link>.  The content is only
     used as a fallback or alternative.</p></item>
@@ -70,7 +70,7 @@ for details on how fallback elements are handled.</p>
 
     <item><p>The <code>media</code> element may also be used in an inline context.
     See <link xref="mal_inline_media"/> for more information.</p></item>
-  </ulist>
+  </list>
 </section>
 <!-- END notes -->
 

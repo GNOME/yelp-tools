@@ -42,7 +42,7 @@ or into a text field in a graphical application.</p>
 <!-- BEGIN notes -->
 <section id="notes">
   <title>Notes</title>
-  <ulist>
+  <list>
     <item><p>The <code>input</code> element can contain a mixture of text and
     any <link xref="mal_inline">general inline elements</link>.</p></item>
 
@@ -67,7 +67,7 @@ or into a text field in a graphical application.</p>
     <code xref="mal_inline_output">output</code> element, may be used to mark up
     the contents of a <code xref="mal_block_screen">screen</code> element,
     allowing processing tools to treat them differently.</p></item>
-  </ulist>
+  </list>
 </section>
 <!-- END notes -->
 
