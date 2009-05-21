@@ -110,6 +110,7 @@ mal_block_formal = (
     <link type="topic" xref="mal_block_dlist"/>
     <link type="topic" xref="mal_block_olist"/>
     <link type="topic" xref="mal_block_ulist"/>
+    <link type="topic" xref="mal_block_tree"/>
   </info>
   <title>List Elements</title>
   <synopsis><code mime="application/relax-ng-compact-syntax">
