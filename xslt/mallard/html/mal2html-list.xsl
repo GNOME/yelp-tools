@@ -36,7 +36,7 @@ REMARK: Describe this template
 -->
 <xsl:template name="mal2html.list.css">
 <xsl:text>
-ul.list { margin: 0; padding: 0; }
+ol.list, ul.list { margin: 0; padding: 0; }
 li.item-list { margin-left: 1.44em; }
 
 ul.tree {
@@ -61,6 +61,18 @@ div.tree-lines ul.tree ul.tree ul.tree {
 <!-- = list = -->
 <xsl:template mode="mal2html.block.mode" match="mal:list">
   <xsl:param name="first_child" select="not(preceding-sibling::*)"/>
+  <xsl:variable name="el">
+    <xsl:choose>
+      <xsl:when test="not(@type) or (@type = 'none') or (@type = 'box')
+                      or (@type = 'check') or (@type = 'circle') or (@type = 'diamond')
+                      or (@type = 'disc') or (@type = 'hyphen') or (@type = 'square')">
+        <xsl:text>ul</xsl:text>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:text>ol</xsl:text>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
   <div>
     <xsl:attribute name="class">
       <xsl:text>list</xsl:text>
@@ -68,9 +80,17 @@ div.tree-lines ul.tree ul.tree ul.tree {
         <xsl:text> first-child</xsl:text>
       </xsl:if>
     </xsl:attribute>
-    <ul class="list">
+    <xsl:element name="{$el}" namespace="{$mal2html.namespace}">
+      <xsl:attribute name="class">
+        <xsl:text>list</xsl:text>
+      </xsl:attribute>
+      <xsl:if test="@type">
+        <xsl:attribute name="style">
+          <xsl:value-of select="concat('list-style-type:', @type)"/>
+        </xsl:attribute>
+      </xsl:if>
       <xsl:apply-templates mode="mal2html.list.list.mode" select="mal:item"/>
-    </ul>
+    </xsl:element>
   </div>
 </xsl:template>
 
