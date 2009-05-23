@@ -1,9 +1,9 @@
 <license xmlns="http://www.gnome.org/~shaunm/mallard"
-         href="http://www.gnu.org/licenses/fdl.txt">
-<p>Permission is granted to copy, distribute and/or modify this document
-under the terms of the GNU Free Documentation License, Version 1.2 or any
-later version published by the Free Software Foundation; with no Invariant
-Sections, no Front-Cover Texts, and no Back-Cover Texts.  A copy of the
-license is included on the page
-<link xref="gfdl">GNU Free Documentation License</link>.</p>
+         href="http://creativecommons.org/licenses/by-sa/3.0/us/">
+<p>This work is licensed under a
+<link href="http://creativecommons.org/licenses/by-sa/3.0/us/">Creative Commons
+Attribution-Share Alike 3.0 United States License</link>.</p>
+<p>As a special exception, the copyright holders give you permission to copy,
+modify, and distribute the example code contained in this document under the
+terms of your choosing, without restriction.</p>
 </license>
