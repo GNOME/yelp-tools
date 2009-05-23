@@ -36,8 +36,27 @@ REMARK: Describe this template
 -->
 <xsl:template name="mal2html.list.css">
 <xsl:text>
+div.title-list { margin-bottom: 0.5em; }
 ol.list, ul.list { margin: 0; padding: 0; }
 li.item-list { margin-left: 1.44em; }
+
+div.steps {
+  padding: 0.5em 1em 0.5em 1em;
+  border-top: solid 2px;
+  border-bottom: solid 2px;
+  border-color: </xsl:text>
+    <xsl:value-of select="$theme.color.blue_border"/><xsl:text>;
+  background-color: </xsl:text>
+    <xsl:value-of select="$theme.color.yellow_background"/><xsl:text>;
+}
+div.steps div.steps {
+  padding: 0;
+  border: none;
+  background-color: none;
+}
+div.title-steps { margin-bottom: 0.5em; }
+ol.steps, ul.steps { margin: 0; padding: 0; }
+li.item-steps { margin-left: 1.44em; }
 
 ul.tree {
   margin: 0; padding: 0;
@@ -80,6 +99,7 @@ div.tree-lines ul.tree ul.tree ul.tree {
         <xsl:text> first-child</xsl:text>
       </xsl:if>
     </xsl:attribute>
+    <xsl:apply-templates mode="mal2html.block.mode" select="mal:title"/>
     <xsl:element name="{$el}" namespace="{$mal2html.namespace}">
       <xsl:attribute name="class">
         <xsl:text>list</xsl:text>
@@ -99,6 +119,43 @@ div.tree-lines ul.tree ul.tree ul.tree {
   <li>
     <xsl:attribute name="class">
       <xsl:text>item-list</xsl:text>
+      <xsl:if test="not(preceding-sibling::mal:item)">
+        <xsl:text> first-child</xsl:text>
+      </xsl:if>
+    </xsl:attribute>
+    <xsl:for-each
+        select="mal:*[
+                ($mal2html.editor_mode or not(self::mal:comment)
+                or processing-instruction('mal2html.show_comment'))]">
+      <xsl:apply-templates mode="mal2html.block.mode" select=".">
+        <xsl:with-param name="first_child" select="position() = 1"/>
+      </xsl:apply-templates>
+    </xsl:for-each>
+  </li>
+</xsl:template>
+
+<!-- = steps = -->
+<xsl:template mode="mal2html.block.mode" match="mal:steps">
+  <xsl:param name="first_child" select="not(preceding-sibling::*)"/>
+  <div>
+    <xsl:attribute name="class">
+      <xsl:text>steps</xsl:text>
+      <xsl:if test="$first_child">
+        <xsl:text> first-child</xsl:text>
+      </xsl:if>
+    </xsl:attribute>
+    <xsl:apply-templates mode="mal2html.block.mode" select="mal:title"/>
+    <ol class="steps">
+      <xsl:apply-templates mode="mal2html.list.steps.mode" select="mal:item"/>
+    </ol>
+  </div>
+</xsl:template>
+
+<!-- = list/item = -->
+<xsl:template mode="mal2html.list.steps.mode" match="mal:item">
+  <li>
+    <xsl:attribute name="class">
+      <xsl:text>item-steps</xsl:text>
       <xsl:if test="not(preceding-sibling::mal:item)">
         <xsl:text> first-child</xsl:text>
       </xsl:if>
