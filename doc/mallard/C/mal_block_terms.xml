@@ -71,6 +71,82 @@ mal_block_terms = element terms {
 <!-- BEGIN examples -->
 <section id="examples">
   <title>Examples</title>
+
+  <p>Create a simple definition list with a title:</p>
+
+  <example>
+    <code><![CDATA[
+<terms>
+  <title>Selected Basic Block Elements</title>
+  <item>
+    <title><code>code</code></title>
+    <p>Mark up a block of code or the contents of a file.</p>
+  </item>
+  <item>
+    <title><code>example</code></title>
+    <p>Mark up a group of block elements as being part of a single example.</p>
+  </item>
+  <item>
+    <title><code>screen</code></title>
+    <p>Mark up a textual user interface or an interactive shell session.</p>
+  </item>
+</terms>]]></code>
+    <terms>
+      <title>Selected Basic Block Elements</title>
+      <item>
+        <title><code>code</code></title>
+        <p>Mark up a block of code or the contents of a file.</p>
+      </item>
+      <item>
+        <title><code>example</code></title>
+        <p>Mark up a group of block elements as being part of a single example.</p>
+      </item>
+      <item>
+        <title><code>screen</code></title>
+        <p>Mark up a textual user interface or an interactive shell session.</p>
+      </item>
+    </terms>
+  </example>
+
+  <p>Create a definition list with multiple terms per entry:</p>
+
+  <example>
+    <code><![CDATA[
+<terms>
+  <item>
+    <title><code>comment</code></title>
+    <title><code>quote</code></title>
+    <p>Formal elements which allow a <code>cite</code> element.</p>
+  </item>
+  <item>
+    <title><code>figure</code></title>
+    <title><code>listing</code></title>
+    <title><code>synopsis</code></title>
+    <p>Formal elements which allow a <code>desc</code> element.</p>
+  </item>
+  <item>
+    <title><code>note</code></title>
+    <p>Formal elements which only allow a <code>title</code> element.</p>
+  </item>
+</terms>]]></code>
+    <terms>
+      <item>
+        <title><code>comment</code></title>
+        <title><code>quote</code></title>
+        <p>Formal elements which allow a <code>cite</code> element.</p>
+      </item>
+      <item>
+        <title><code>figure</code></title>
+        <title><code>listing</code></title>
+        <title><code>synopsis</code></title>
+        <p>Formal elements which allow a <code>desc</code> element.</p>
+      </item>
+      <item>
+        <title><code>note</code></title>
+        <p>Formal elements which only allow a <code>title</code> element.</p>
+      </item>
+    </terms>
+  </example>
 </section>
 <!-- END examples -->
 
@@ -86,6 +162,16 @@ mal_block_terms = element terms {
 <!-- BEGIN comparison -->
 <section id="comparison">
   <title>Comparison to Other Formats</title>
+  
+  <p>The <code>terms</code> element is similar to
+  <code href="http://www.docbook.org/tdg/en/html/variablelist.html">variablelist</code>
+  element in DocBook.  Like DocBook (and unlike HTML), Mallard groups terms with their
+  corresponding entries.  In DocBook, the entry must be wrapped with a
+  <code href="http://www.docbook.org/tdg/en/html/listitem.html">listitem</code>
+  element inside the
+  <code href="http://www.docbook.org/tdg/en/html/varlistentry.html">varlistentry</code>
+  element.  In Mallard, the entry is simply all of the block content except the
+  <code xref="mal_block_title">title</code> elements.</p>
 </section>
 <!-- END comparison -->
 

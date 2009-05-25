@@ -25,4 +25,62 @@ mal_tree_item = element item {
 }
 </code></synopsis>
 
+
+<!-- BEGIN examples -->
+<section id="examples">
+  <title>Examples</title>
+
+  <p>Use a tree to outline a class heirarchy inside a
+  <code xref="mal_block_synopsis">>synopsis</code> element:</p>
+
+  <example>
+    <code><![CDATA[
+<synopsis>
+  <tree>
+    <item>
+      <code>GtkBin</code>
+      <item>
+        <code>GtkButton</code>
+        <item><code>GtkToggleButton</code></item>
+        <item><code>GtkColorButton</code></item>
+        <item><code>GtkFontButton</code></item>
+        <item><code>GtkLinkButton</code></item>
+        <item><code>GtkOptionMenu</code></item>
+        <item><code>GtkScaleButton</code></item>
+      </item>
+    </item>
+  </tree>
+</synopsis>]]></code>
+    <synopsis>
+      <tree>
+        <item>
+          <code>GtkBin</code>
+          <item>
+            <code>GtkButton</code>
+            <item><code>GtkToggleButton</code></item>
+            <item><code>GtkColorButton</code></item>
+            <item><code>GtkFontButton</code></item>
+            <item><code>GtkLinkButton</code></item>
+            <item><code>GtkOptionMenu</code></item>
+            <item><code>GtkScaleButton</code></item>
+          </item>
+        </item>
+      </tree>
+    </synopsis>
+  </example>
+
+    <tree style="lines">
+      <item>
+        one
+        <item>do</item>
+        <item>re</item>
+        <item>mi</item>
+      </item>
+      <item>
+        two
+      </item>
+    </tree>
+</section>
+<!-- END examples -->
+
 </page>
