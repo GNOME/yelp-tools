@@ -196,6 +196,19 @@ Internationalization Tag Set</link>.</p>
   of Mallard.</p>
 </section>
 
+<section id="R015">
+  <title>R015: Attributes and Translatable Text</title>
+
+  <quote>
+    <cite href="http://www.w3.org/TR/itsreq/#transattr">W3C
+    Internationalization and Localization Markup Requirements</cite>
+    <p>[R015] Provisions must be taken to ensure that attributes with
+    translatable values do not impair the localization process.</p>
+  </quote>
+
+  <p>Mallard never places translatable text in attribute values.</p>
+</section>
+
 <section id="R017">
   <title>R017: Localization Notes</title>
 
@@ -235,6 +248,34 @@ Internationalization Tag Set</link>.</p>
   <link xref="mal_inline#processing">fallback processing expectations</link>
   are unlikely to produce satisfactory results for tools that do not support
   Ruby.  Future versions of this document should address this issue.</p>
+</section>
+
+<section id="R022">
+  <title>R022: Nested Elements</title>
+
+  <quote>
+    <cite href="http://www.w3.org/TR/itsreq/#nestedelems">W3C
+    Internationalization and Localization Markup Requirements</cite>
+    <p>[R022] Great care must be taken when defining or using nested
+    translatable elements.</p>
+  </quote>
+
+  <p>Mallard explicitly disallows mixing block and inline content,
+  except in well-defined cases which can easily be detected and
+  handled.  In Mallard, any block element which can contain text
+  directly is considered to be a translation unit.  Since these
+  elements do not allow general block content to be mixed into
+  the inline content, translation units can always be presented
+  to translators without the need for placeholders.</p>
+
+  <p>Note that this may not be the case if a translation tool chooses
+  to treat certain container elements as translation units.  For example,
+  under some circumstances a translation tool might choose to present
+  <link xref="mal_table">tables</link> or
+  <link xref="mal_block_list">lists</link> as translatable to allow
+  translators to reorder the rows or items.  In these cases, the block
+  content inside the entries or items would still constitute discrete
+  units of translations, making placeholders necessary.</p>
 </section>
 
 <section id="R025">
