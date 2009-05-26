@@ -60,9 +60,9 @@ and have it automatically formatted by display tools.</p>
       <p>The following style hints are recommended:</p>
       <table rules="rows">
         <tr>
-          <td><p><code>"epigraph"</code></p></td>
+          <td><p><code>epigraph</code></p></td>
           <td><p>an introductory or closing quote that is not part of the
-          running prose, generally formatted flush right.</p></td>
+          running prose, generally formatted flush right</p></td>
         </tr>
       </table>
     </item>

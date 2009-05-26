@@ -51,8 +51,9 @@ attribute to <code>"numbered"</code> instead.</p>
   <list>
     <item><p>The <code>steps</code> element can contain an optional
     <code xref="mal_block_title">title</code> element followed by one or more
-    <code>item</code> elements.  Each child <code>item</code> element contains
-    any <link xref="mal_inline">general inline elements</link>.</p></item>
+    <code>item</code> elements.  Each child <code>item</code> element can
+    contain a mixture of text and any
+    <link xref="mal_inline">general inline elements</link>.</p></item>
 
     <item><p>The <code>steps</code> element can occur in any
     general block context, including inside

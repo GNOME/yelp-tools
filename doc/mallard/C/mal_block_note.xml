@@ -60,23 +60,23 @@ of your document.</p>
       <p>The following style hints are recommended:</p>
       <table rules="rows">
         <tr>
-          <td><p><code>"advanced"</code></p></td>
+          <td><p><code>advanced</code></p></td>
           <td><p>information that advanced users may find useful</p></td>
         </tr>
         <tr>
-          <td><p><code>"bug"</code></p></td>
+          <td><p><code>bug</code></p></td>
           <td><p>a note about a known bug in the software</p></td>
         </tr>
         <tr>
-          <td><p><code>"important"</code></p></td>
+          <td><p><code>important</code></p></td>
           <td><p>important information highlighted in a note</p></td>
         </tr>
         <tr>
-          <td><p><code>"tip"</code></p></td>
+          <td><p><code>tip</code></p></td>
           <td><p>a general tip that may help the reader perform an operation better</p></td>
         </tr>
         <tr>
-          <td><p><code>"warning"</code></p></td>
+          <td><p><code>warning</code></p></td>
           <td><p>a warning to the reader about a potentially dangerous operation</p></td>
         </tr>
       </table>

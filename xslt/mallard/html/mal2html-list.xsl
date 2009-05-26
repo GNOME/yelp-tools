@@ -75,12 +75,7 @@ div.item-tree { margin: 0; padding: 0; }
 ul.tree ul.tree {
   margin-left: 1.44em;
 }
-div.tree-lines ul.tree ul.tree {
-  margin-left: 0.2em;
-}
-div.tree-lines ul.tree ul.tree ul.tree {
-  margin-left: 1.44em;
-}
+div.tree-lines ul.tree { margin-left: 0; }
 </xsl:text>
 </xsl:template>
 
@@ -256,26 +251,39 @@ div.tree-lines ul.tree ul.tree ul.tree {
 <!-- = tree/item = -->
 <xsl:template mode="mal2html.list.tree.mode" match="mal:item">
   <xsl:param name="lines" select="false()"/>
+  <xsl:param name="prefix" select="''"/>
   <li class="item-tree">
     <div class="item-tree">
-      <xsl:if test="$lines and not(parent::mal:list)">
-        <xsl:choose>
-          <xsl:when test="following-sibling::mal:item">
-            <xsl:text>&#x251C; </xsl:text>
-          </xsl:when>
-          <xsl:otherwise>
-            <xsl:text>&#x2514; </xsl:text>
-          </xsl:otherwise>
-        </xsl:choose>
+      <xsl:if test="$lines">
+        <xsl:value-of select="$prefix"/>
+        <xsl:text> </xsl:text>
       </xsl:if>
       <xsl:apply-templates mode="mal2html.inline.mode"
                            select="node()[not(self::mal:item)]"/>
     </div>
     <xsl:if test="mal:item">
       <ul class="tree">
-        <xsl:apply-templates mode="mal2html.list.tree.mode" select="mal:item">
-          <xsl:with-param name="lines" select="$lines"/>
-        </xsl:apply-templates>
+        <xsl:for-each select="mal:item">
+          <xsl:apply-templates mode="mal2html.list.tree.mode" select=".">
+            <xsl:with-param name="lines" select="$lines"/>
+            <xsl:with-param name="prefix">
+              <xsl:if test="$lines">
+                <xsl:value-of select="translate(
+                              translate($prefix, '&#x251C;', '&#x2502;'),
+                              '&#x2514;', '&#x202F;')"/>
+                <xsl:text>&#x202F;&#x202F;&#x202F;&#x202F;</xsl:text>
+                <xsl:choose>
+                  <xsl:when test="following-sibling::mal:item">
+                    <xsl:text>&#x251C;</xsl:text>
+                  </xsl:when>
+                  <xsl:otherwise>
+                    <xsl:text>&#x2514;</xsl:text>
+                  </xsl:otherwise>
+                </xsl:choose>
+              </xsl:if>
+            </xsl:with-param>
+          </xsl:apply-templates>
+        </xsl:for-each>
       </ul>
     </xsl:if>
   </li>
