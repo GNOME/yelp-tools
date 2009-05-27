@@ -1,0 +1,33 @@
+<page xmlns="http://www.gnome.org/~shaunm/mallard"
+      type="topic"
+      id="links">
+
+<info>
+  <link type="seealso" xref="mal_page"/>
+  <link type="seealso" xref="mal_section"/>
+
+  <version number="0.1" date="2008-02-21" status="stub"/>
+</info>
+
+<title>Automatic Links</title>
+
+
+<!-- BEGIN topic -->
+<section id="topic">
+  <title>Topic Links</title>
+</section>
+<!-- END topic -->
+
+<!-- BEGIN guide -->
+<section id="guide">
+  <title>Guide Links</title>
+</section>
+<!-- END guide -->
+
+<!-- BEGIN seealso -->
+<section id="seealso">
+  <title>See Also Links</title>
+</section>
+<!-- END seealso -->
+
+</page>
