@@ -251,6 +251,14 @@ Future versions may discuss more requirements.</p></note>
     the 'ruby' type.</p>
   </quote>
 
+  <p>All translatable content in Mallard is placed in element content, which
+  allows annotation markup to be used.  Mallard never places translatable
+  content in attribute values.  Note, however, that Mallard documents will
+  often be displayed by converting them to a format such as HTML.  If the
+  display format places textual content in attribute values (such as the
+  <code>alt</code> attribute of the <code>img</code> tag in HTML), then
+  annotations could be lost in rendering.</p>
+
   <p>Elements from external namespaces may be used in all
   <link xref="mal_inline">inline contexts</link>.  While this allows Ruby
   annotations to be embedded within a Mallard document, the
@@ -305,15 +313,17 @@ Future versions may discuss more requirements.</p></note>
 
   <list>
     <item>
-      <p>In Mallard, no elements contain “pernicious mixed content”: a
-      problematic content model wherein an element can contain either
-      inline content or block content, but not both.  Resolving such
-      content models generally involves testing for the existence of
-      one of a certain set of elements, which can be difficult as
-      content models grow.</p>
-      <p>In Mallard, pernicious mixed content would be particularly
-      problematic, since certain element names are used in both block
-      and inline contexts.</p>
+      <p>In Mallard, the content of any element, taken in context, is unambiguously
+      <link xref="mal_inline">general inline content</link>,
+      <link xref="mal_block">general block content</link>, or some particular
+      type of structured content.  It is never the case that processing tools
+      must probe the contents to determine the content model.</p>
+      <p>Note that, since some element names are used in both block and inline
+      contexts, such ambiguous content models would be particularly problematic
+      for Mallard.  Ambiguous content models could lead to situations where it
+      is not possible to determine the function of an element such as
+      <code>code</code>.  Thus, ambiguous content models are explicitly avoided.
+      This makes most processing tasks simpler.</p>
     </item>
 
     <item>
