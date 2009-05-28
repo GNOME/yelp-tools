@@ -3,7 +3,7 @@
       id="mal_block_terms">
 
 <info>
-  <version number="0.1" date="2007-02-21" status="stub"/>
+  <version number="0.1" date="2009-05-28" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
@@ -15,6 +15,8 @@
   </copyright>
 
   <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Create a list of terms and associated descriptions.</desc>
 </info>
 
 <title>Definition Lists</title>
@@ -36,23 +38,22 @@ mal_block_terms = element terms {
 }
 </code></synopsis>
 
-<comment>
-<cite date="2009-05-20">shaunm</cite>
-<p>add intro text</p>
-</comment>
+<p>The <code>terms</code> element creates a list of terms and associated
+definitions or descriptions.  This type of list is often called a definition
+list or a variable list.</p>
 
 <!-- BEGIN notes -->
 <section id="notes">
   <title>Notes</title>
   <list>
-    <item><p>The <code>dlist</code> element can contain an optional
+    <item><p>The <code>terms</code> element can contain an optional
     <code xref="mal_block_title">title</code> element followed by one or more
     <code>item</code> elements.  Each child <code>item</code> element can
     contain one or more <code xref="mal_block_title">title</code> elements
     followed by a mixture of text and any
     <link xref="mal_inline">general inline elements</link>.</p></item>
 
-    <item><p>The <code>dlist</code> element can occur in any
+    <item><p>The <code>terms</code> element can occur in any
     general block context, including inside
     <link xref="mal_page">pages</link>, <link xref="mal_section">sections</link>,
     and certain <link xref="mal_block">block elements</link>.</p></item>
@@ -61,7 +62,7 @@ mal_block_terms = element terms {
     style hints.  Processing tools should adjust their behavior according to
     those style hints they understand.</p></item>
 
-    <item><p>The <code>dlist</code> element can have attributes from external
+    <item><p>The <code>terms</code> element can have attributes from external
     namespaces.  See <link xref="mal_external"/> for more information
     on external-namespace attributes.</p></item>
   </list>
@@ -156,6 +157,13 @@ mal_block_terms = element terms {
 <section id="processing">
   <title>Processing Expectations</title>
 
+  <p>Definition lists are displayed as block elements, with each child
+  <code>item</code> displayed as some number of list items.  When present, the
+  title should be displayed in a way that makes it clear that it is the title
+  of the list.  Each <code>title</code> element of each list item is treated
+  as a term, and is displayed as a block element.  The remaining block content
+  is then treated as the description and displayed as normal.  The description
+  blocks should be indented from the terms.</p>
 </section>
 <!-- END processing -->
 
