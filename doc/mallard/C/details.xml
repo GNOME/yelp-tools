@@ -1,6 +1,6 @@
 <page xmlns="http://www.gnome.org/~shaunm/mallard"
-      type="topic"
-      id="tenminutes">
+      type="guide"
+      id="details">
 
 <info>
   <version number="0.1" date="2007-02-21" status="stub"/>
@@ -16,14 +16,18 @@
 
   <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
 
-  <desc>Create a multiple-page document in only ten minutes.</desc>
+  <desc>How to process and work with Mallard documents.</desc>
 </info>
 
-<title>Ten Minute Tour</title>
+<title>Processing Details</title>
 
 <comment>
-  <cite date="2007-01-30"><name>Shaun McCance</name></cite>
+  <cite date="2009-05-28">shaunm</cite>
   <p>Add content</p>
 </comment>
+
+<section id="i18n">
+  <title>Internationalization and Localization</title>
+</section>
 
 </page>
