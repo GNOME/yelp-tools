@@ -3,7 +3,8 @@
       id="mal_info_link">
 
 <info>
-  <link type="guide" xref="mal_info"/>
+  <link type="guide" xref="mal_info#elements"/>
+
   <version number="0.1" date="2007-02-21" status="stub"/>
 </info>
 

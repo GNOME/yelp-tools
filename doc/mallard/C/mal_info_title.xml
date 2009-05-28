@@ -1,0 +1,47 @@
+<page xmlns="http://www.gnome.org/~shaunm/mallard"
+      type="topic"
+      id="mal_info_title">
+
+<info>
+  <link type="guide" xref="mal_info#elements"/>
+
+  <version number="0.1" date="2009-05-28" status="stub"/>
+</info>
+
+<title>Tiltes</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_info_title = element title {
+  attribute type { xsd:NMTOKEN },
+  attribute role { xsd:NMTOKEN } ?,
+  attribute * - (mal:* | local:*) { text } *,
+
+  <link xref="mal_inline">mal_inline</link>
+}
+</code></synopsis>
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+</section>
+<!-- END notes -->
+
+<!-- BEGIN primary -->
+<section id="primary">
+  <title>Primary Titles</title>
+</section>
+<!-- END primary -->
+
+<!-- BEGIN link -->
+<section id="link">
+  <title>Link Titles</title>
+</section>
+<!-- END link -->
+
+<!-- BEGIN sort -->
+<section id="sort">
+  <title>Sort Titles</title>
+</section>
+<!-- END sort -->
+
+</page>

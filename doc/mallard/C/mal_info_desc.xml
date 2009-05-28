@@ -3,9 +3,11 @@
       id="mal_info_desc">
 
 <info>
+  <link type="guide" xref="mal_info#elements"/>
+
   <version number="0.1" date="2007-02-23" status="stub"/>
+
   <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
-  <link type="guide" xref="spec_info"/>
 </info>
 
 <title>FIXME</title>
