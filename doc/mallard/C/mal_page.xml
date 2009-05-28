@@ -3,7 +3,20 @@
       id="mal_page">
 
 <info>
-  <version number="0.1" date="2008-02-21" status="stub"/>
+  <version number="0.1" date="2009-05-28" status="review"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+  </credit>
+  <copyright>
+    <year>2008-2009</year>
+    <name>Shaun McCance</name>
+  </copyright>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Individual tutorials, overviews, references, and navigational guides.</desc>
 </info>
 
 <title>Pages</title>
@@ -122,6 +135,24 @@ guide pages serve as navigational aids.</p>
 <!-- BEGIN processing -->
 <section id="processing">
   <title>Processing Expectations</title>
+
+  <p>In on-screen media, a <code>page</code> element is displayed as a single
+  page.  In this case, <em>page</em> is used in the sense of <em>web page</em>:
+  something which can be read top-to-bottom by scrolling.  This should not be
+  confused with physical pages — one side of a leaf of paper — or with any
+  fixed-height electronic pages such as those used by word processors and
+  e-books.</p>
+
+  <p>The <code>info</code> child element is not displayed directly, although
+  certain informational elements may be displayed or affect aspects of the
+  page display.  In particular, the <code>info</code> element may contain
+  <code>link</code> elements which will cause automatic links to be inserted
+  into the displayed output.  See <link xref="links"/> for more information.</p>
+
+  <p>The title of a page is displayed prominently at the top, followed by any
+  child block content, and finally by each child section.  Note that automatic
+  links, style hints, or other special features may insert material or change
+  the way pages are displayed.</p>
 </section>
 <!-- END processing -->
 
