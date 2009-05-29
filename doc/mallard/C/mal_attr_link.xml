@@ -14,7 +14,7 @@
     <name>Shaun McCance</name>
   </copyright>
 
-  <version number="0.1" date="2008-02-19" status="incomplete"/>
+  <revision version="0.1" date="2008-02-19" status="incomplete"/>
 
   <desc>Link to other pages or documents directly from most inline elements.</desc>
 </info>

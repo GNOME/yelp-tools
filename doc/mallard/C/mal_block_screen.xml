@@ -5,7 +5,7 @@
 <info>
   <link type="seealso" xref="mal_block_code"/>
 
-  <version number="0.1" date="2009-04-16" status="review"/>
+  <revision version="0.1" date="2009-04-16" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>

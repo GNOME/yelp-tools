@@ -44,7 +44,7 @@ mal_table = element table {
 <!-- BEGIN content -->
 <section id="content">
   <info>
-    <version status="stub"/>
+    <revision status="stub"/>
   </info>
   <title>Content</title>
 </section>
@@ -54,7 +54,7 @@ mal_table = element table {
 <!-- BEGIN attributes -->
 <section id="attributes">
   <info>
-    <version status="stub"/>
+    <revision status="stub"/>
   </info>
   <title>Attributes</title>
 </section>
@@ -442,7 +442,7 @@ mal_table = element table {
 <!-- BEGIN design -->
 <section id="design">
   <info>
-    <version status="stub"/>
+    <revision status="stub"/>
   </info>
   <title>Design Notes</title>
 </section>
@@ -452,7 +452,7 @@ mal_table = element table {
 <!-- BEGIN html -->
 <section id="html">
   <info>
-    <version status="stub"/>
+    <revision status="stub"/>
   </info>
   <title>Comparison to HTML</title>
 </section>
@@ -462,7 +462,7 @@ mal_table = element table {
 <!-- BEGIN docbook -->
 <section id="docbook">
   <info>
-    <version status="stub"/>
+    <revision status="stub"/>
   </info>
   <title>Comparison to DocBook</title>
 </section>

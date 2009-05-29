@@ -5,7 +5,7 @@
 <info>
   <link type="seealso" xref="mal_inline_media"/>
 
-  <version number="0.1" date="2009-05-03" status="review"/>
+  <revision version="0.1" date="2009-05-03" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>

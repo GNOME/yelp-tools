@@ -5,7 +5,7 @@
 <info>
   <link type="guide" xref="mal_info#elements"/>
 
-  <version number="0.1" date="2009-05-29" status="review"/>
+  <revision version="0.1" date="2009-05-29" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>

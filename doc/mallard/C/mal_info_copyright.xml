@@ -16,7 +16,7 @@
 
   <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
 
-  <version number="0.1" date="2007-02-23" status="stub"/>
+  <revision version="0.1" date="2007-02-23" status="stub"/>
 </info>
 
 <title>Copyright Information</title>

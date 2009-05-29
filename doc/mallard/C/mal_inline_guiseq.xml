@@ -6,7 +6,7 @@
   <link type="guide" xref="mal_inline#elements"/>
   <link type="seealso" xref="mal_inline_gui"/>
 
-  <version number="0.1" date="2008-12-16" status="review"/>
+  <revision version="0.1" date="2008-12-16" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>

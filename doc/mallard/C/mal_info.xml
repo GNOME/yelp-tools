@@ -5,7 +5,7 @@
 <info>
   <link type="guide" xref="spec"/>
 
-  <version number="0.1" date="2008-02-21" status="stub"/>
+  <revision version="0.1" date="2008-02-21" status="stub"/>
 </info>
 
 <title>Page Information</title>
@@ -21,7 +21,7 @@ mal_info = element info {
 &amp; <link xref="mal_info_license">mal_info_license</link> *
 &amp; <link xref="mal_info_link">mal_info_link</link> *
 &amp; <link xref="mal_info_title">mal_info_title</link> *
-&amp; <link xref="mal_info_version">mal_info_version</link> *
+&amp; <link xref="mal_info_revision">mal_info_revision</link> *
 }
 </code></synopsis>
 <!--

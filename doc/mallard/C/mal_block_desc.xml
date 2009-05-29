@@ -7,7 +7,7 @@
   <link type="seealso" xref="mal_block_listing"/>
   <link type="seealso" xref="mal_block_synopsis"/>
 
-  <version number="0.1" date="2009-05-19" status="review"/>
+  <revision version="0.1" date="2009-05-19" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
