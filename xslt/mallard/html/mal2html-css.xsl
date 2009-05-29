@@ -158,6 +158,8 @@ div.linktrail {
   font-size: 0.83em;
   padding-left: 1.2em;
   margin: 0 1px 0.2em 1px;
+  color: </xsl:text>
+    <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
 }
 
 td.twocolumnleft { width: 48%; vertical-align: top; padding: 0; margin: 0; }
@@ -212,24 +214,20 @@ FIXME
 -->
 <xsl:template name="mal2html.css.editor">
 <xsl:text>
-body.status-stub { background-color:  </xsl:text>
-  <xsl:value-of select="$theme.color.red_background"/><xsl:text>; }
-body.status-draft { background-color:  </xsl:text>
-  <xsl:value-of select="$theme.color.red_background"/><xsl:text>; }
-body.status-incomplete { background-color:  </xsl:text>
-  <xsl:value-of select="$theme.color.red_background"/><xsl:text>; }
-body.status-review { background-color:  </xsl:text>
-  <xsl:value-of select="$theme.color.yellow_background"/><xsl:text>; }
 div.version {
-  margin: 0 0 1em 0;
+  position: absolute;
+  right: 12px;
+  opacity: 0.2;
+  margin-top: -1em;
   padding: 0.5em 1em 0.5em 1em;
-  max-width: 48em;
+  max-width: 24em;
   -moz-border-radius: 6px;
   border: solid 1px </xsl:text>
     <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
   background-color: </xsl:text>
     <xsl:value-of select="$theme.color.yellow_background"/><xsl:text>;
 }
+div.version:hover { opacity: 0.8; }
 div.version p.version { margin-top: 0.2em; }
 div.pagelink div.title span.status {
   font-size: 0.83em;

@@ -484,44 +484,41 @@ REMARK: Describe this template
       <xsl:call-template name="mal2html.css"/>
     </head>
     <body>
-      <xsl:if test="$mal2html.editor_mode and $version/@status != ''">
-        <xsl:attribute name="class">
-          <xsl:value-of select="concat(' status-', $version/@status)"/>
-        </xsl:attribute>
-        <div class="version">
-          <!-- FIXME: i18n -->
-          <div class="title">
-            <xsl:choose>
-              <xsl:when test="$version/@status = 'stub'">
-                <xsl:text>Stub</xsl:text>
-              </xsl:when>
-              <xsl:when test="$version/@status = 'incomplete'">
-                <xsl:text>Incomplete</xsl:text>
-              </xsl:when>
-              <xsl:when test="$version/@status = 'draft'">
-                <xsl:text>Draft</xsl:text>
-              </xsl:when>
-              <xsl:when test="$version/@status = 'review'">
-                <xsl:text>Ready for review</xsl:text>
-              </xsl:when>
-              <xsl:when test="$version/@status = 'final'">
-                <xsl:text>Final</xsl:text>
-              </xsl:when>
-            </xsl:choose>
-          </div>
-          <p class="version">
-            <xsl:text>Version </xsl:text>
-            <xsl:value-of select="$version/@number"/>
-            <xsl:text> on </xsl:text>
-            <xsl:value-of select="$version/@date"/>
-          </p>
-          <xsl:apply-templates mode="mal2html.block.mode" select="$version/*"/>
-        </div>
-      </xsl:if>
       <xsl:call-template name="mal2html.page.linktrails">
         <xsl:with-param name="node" select="mal:page"/>
       </xsl:call-template>
       <div class="body">
+        <xsl:if test="$mal2html.editor_mode and $version/@status != ''">
+          <div class="version">
+            <!-- FIXME: i18n -->
+            <div class="title">
+              <xsl:choose>
+                <xsl:when test="$version/@status = 'stub'">
+                  <xsl:text>Stub</xsl:text>
+                </xsl:when>
+                <xsl:when test="$version/@status = 'incomplete'">
+                  <xsl:text>Incomplete</xsl:text>
+                </xsl:when>
+                <xsl:when test="$version/@status = 'draft'">
+                  <xsl:text>Draft</xsl:text>
+                </xsl:when>
+                <xsl:when test="$version/@status = 'review'">
+                  <xsl:text>Ready for review</xsl:text>
+                </xsl:when>
+                <xsl:when test="$version/@status = 'final'">
+                  <xsl:text>Final</xsl:text>
+                </xsl:when>
+              </xsl:choose>
+            </div>
+            <p class="version">
+              <xsl:text>Version </xsl:text>
+              <xsl:value-of select="$version/@number"/>
+              <xsl:text> on </xsl:text>
+              <xsl:value-of select="$version/@date"/>
+            </p>
+            <xsl:apply-templates mode="mal2html.block.mode" select="$version/*"/>
+          </div>
+        </xsl:if>
         <xsl:apply-templates select="mal:page"/>
       </div>
       <xsl:call-template name="db2html.page.copyrights">
@@ -534,8 +531,8 @@ REMARK: Describe this template
 <!-- = page = -->
 <xsl:template match="mal:page">
   <div class="header">
-    <xsl:apply-templates mode="mal2html.title.mode"
-                         select="mal:title | mal:subtitle"/>
+    <xsl:apply-templates mode="mal2html.title.mode" select="mal:title"/>
+    <xsl:apply-templates mode="mal2html.title.mode" select="mal:subtitle"/>
   </div>
   <div class="contents">
     <xsl:for-each
@@ -560,8 +557,8 @@ REMARK: Describe this template
 <xsl:template match="mal:section">
   <div class="section" id="{@id}">
     <div class="header">
-      <xsl:apply-templates mode="mal2html.title.mode"
-                           select="mal:title | mal:subtitle"/>
+      <xsl:apply-templates mode="mal2html.title.mode" select="mal:title"/>
+      <xsl:apply-templates mode="mal2html.title.mode" select="mal:subtitle"/>
     </div>
     <div class="contents">
       <xsl:for-each
