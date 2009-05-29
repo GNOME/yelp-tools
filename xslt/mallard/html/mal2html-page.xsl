@@ -189,36 +189,36 @@ REMARK: Describe this template
         <xsl:if test="$mal2html.editor_mode">
           <xsl:variable name="page" select="$target/ancestor-or-self::mal:page[1]"/>
           <xsl:variable name="date">
-            <xsl:for-each select="$page/mal:info/mal:version">
+            <xsl:for-each select="$page/mal:info/mal:revision">
               <xsl:sort select="@date" data-type="text" order="descending"/>
               <xsl:if test="position() = 1">
                 <xsl:value-of select="@date"/>
               </xsl:if>
             </xsl:for-each>
           </xsl:variable>
-          <xsl:variable name="version"
-                        select="$page/mal:info/mal:version[@date = $date][last()]"/>
-          <xsl:if test="$version/@status != '' and $version/@status != 'final'">
+          <xsl:variable name="revision"
+                        select="$page/mal:info/mal:revision[@date = $date][last()]"/>
+          <xsl:if test="$revision/@status != '' and $revision/@status != 'final'">
             <xsl:text> </xsl:text>
             <span>
               <xsl:attribute name="class">
-                <xsl:value-of select="concat('status status-', $version/@status)"/>
+                <xsl:value-of select="concat('status status-', $revision/@status)"/>
               </xsl:attribute>
               <!-- FIXME: i18n -->
               <xsl:choose>
-                <xsl:when test="$version/@status = 'stub'">
+                <xsl:when test="$revision/@status = 'stub'">
                   <xsl:text>Stub</xsl:text>
                 </xsl:when>
-                <xsl:when test="$version/@status = 'incomplete'">
+                <xsl:when test="$revision/@status = 'incomplete'">
                   <xsl:text>Incomplete</xsl:text>
                 </xsl:when>
-                <xsl:when test="$version/@status = 'draft'">
+                <xsl:when test="$revision/@status = 'draft'">
                   <xsl:text>Draft</xsl:text>
                 </xsl:when>
-                <xsl:when test="$version/@status = 'review'">
+                <xsl:when test="$revision/@status = 'review'">
                   <xsl:text>Ready for review</xsl:text>
                 </xsl:when>
-                <xsl:when test="$version/@status = 'final'">
+                <xsl:when test="$revision/@status = 'final'">
                   <xsl:text>Final</xsl:text>
                 </xsl:when>
               </xsl:choose>
@@ -467,15 +467,15 @@ REMARK: Describe this template
 <xsl:template match="/">
   <!-- FIXME: find a way to just select the version element -->
   <xsl:variable name="date">
-    <xsl:for-each select="mal:page/mal:info/mal:version">
+    <xsl:for-each select="mal:page/mal:info/mal:revision">
       <xsl:sort select="@date" data-type="text" order="descending"/>
       <xsl:if test="position() = 1">
         <xsl:value-of select="@date"/>
       </xsl:if>
     </xsl:for-each>
   </xsl:variable>
-  <xsl:variable name="version"
-                select="mal:page/mal:info/mal:version[@date = $date][last()]"/>
+  <xsl:variable name="revision"
+                select="mal:page/mal:info/mal:revision[@date = $date][last()]"/>
   <html>
     <head>
       <title>
@@ -488,35 +488,35 @@ REMARK: Describe this template
         <xsl:with-param name="node" select="mal:page"/>
       </xsl:call-template>
       <div class="body">
-        <xsl:if test="$mal2html.editor_mode and $version/@status != ''">
+        <xsl:if test="$mal2html.editor_mode and $revision/@status != ''">
           <div class="version">
             <!-- FIXME: i18n -->
             <div class="title">
               <xsl:choose>
-                <xsl:when test="$version/@status = 'stub'">
+                <xsl:when test="$revision/@status = 'stub'">
                   <xsl:text>Stub</xsl:text>
                 </xsl:when>
-                <xsl:when test="$version/@status = 'incomplete'">
+                <xsl:when test="$revision/@status = 'incomplete'">
                   <xsl:text>Incomplete</xsl:text>
                 </xsl:when>
-                <xsl:when test="$version/@status = 'draft'">
+                <xsl:when test="$revision/@status = 'draft'">
                   <xsl:text>Draft</xsl:text>
                 </xsl:when>
-                <xsl:when test="$version/@status = 'review'">
+                <xsl:when test="$revision/@status = 'review'">
                   <xsl:text>Ready for review</xsl:text>
                 </xsl:when>
-                <xsl:when test="$version/@status = 'final'">
+                <xsl:when test="$revision/@status = 'final'">
                   <xsl:text>Final</xsl:text>
                 </xsl:when>
               </xsl:choose>
             </div>
             <p class="version">
               <xsl:text>Version </xsl:text>
-              <xsl:value-of select="$version/@number"/>
+              <xsl:value-of select="$revision/@version"/>
               <xsl:text> on </xsl:text>
-              <xsl:value-of select="$version/@date"/>
+              <xsl:value-of select="$revision/@date"/>
             </p>
-            <xsl:apply-templates mode="mal2html.block.mode" select="$version/*"/>
+            <xsl:apply-templates mode="mal2html.block.mode" select="$revision/*"/>
           </div>
         </xsl:if>
         <xsl:apply-templates select="mal:page"/>
