@@ -18,6 +18,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:mal="http://www.gnome.org/~shaunm/mallard"
+                xmlns:str="http://exslt.org/strings"
                 xmlns="http://www.w3.org/1999/xhtml"
                 version="1.0">
 
@@ -357,6 +358,109 @@ REMARK: Describe this template
 </xsl:template>
 
 
+<!--**==========================================================================
+mal2html.page.linktrails
+FIXME
+
+REMARK: Describe this template
+-->
+<xsl:template name="mal2html.page.linktrails">
+  <xsl:param name="node" select="."/>
+  <xsl:param name="id">
+    <xsl:choose>
+      <xsl:when test="$node/self::mal:page or contains($node/@id, '#')">
+        <xsl:value-of select="$node/@id"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$node/ancestor::mal:page/@id"/>
+        <xsl:text>#</xsl:text>
+        <xsl:value-of select="$node/@id"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:param>
+  <xsl:param name="trailid" select="$id"/>
+  <xsl:param name="trail" select="''"/>
+  <xsl:variable name="traillist" select="str:split($trail, ':')"/>
+  <xsl:if test="count($traillist) &lt; 5">
+    <xsl:choose>
+      <xsl:when test="$id = 'index'">
+        <xsl:if test="$trail != ''">
+          <xsl:variable name="fulltrail"
+                        select="str:split(concat($trailid, $trail), ':')"/>
+          <div class="linktrail">
+            <xsl:for-each select="$fulltrail">
+              <a class="linktrail">
+                <xsl:attribute name="href">
+                  <xsl:call-template name="mal.link.target">
+                    <xsl:with-param name="xref" select="."/>
+                  </xsl:call-template>
+                </xsl:attribute>
+                <xsl:call-template name="mal.link.content">
+                  <xsl:with-param name="xref" select="."/>
+                </xsl:call-template>
+              </a>
+              <xsl:text> » </xsl:text>
+            </xsl:for-each>
+          </div>
+        </xsl:if>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:variable name="guidelinks"
+                      select="$node/mal:info/mal:link[@type = 'guide']"/>
+        <xsl:variable name="pagelinks"
+                      select="$mal.cache//*[mal:info/mal:link[@type = 'topic'][@xref = $id]]"/>
+        <xsl:if test="not($guidelinks or $pagelinks) and $node/self::mal:section">
+          <xsl:call-template name="mal2html.page.linktrails">
+            <xsl:with-param name="node" select="$node/ancestor::mal:page"/>
+            <xsl:with-param name="trailid" select="$trailid"/>
+            <xsl:with-param name="trail" select="$trail"/>
+          </xsl:call-template>
+        </xsl:if>
+        <xsl:variable name="newtrail">
+          <xsl:choose>
+            <xsl:when test="$trail = ''">
+              <xsl:text>:</xsl:text>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="concat(':', $trailid, $trail)"/>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:variable>
+        <xsl:for-each select="$guidelinks">
+          <xsl:variable name="fullid">
+            <xsl:choose>
+              <xsl:when test="contains(@xref, '#')">
+                <xsl:variable name="pageid" select="substring-before(@xref, '#')"/>
+                <xsl:variable name="sectionid" select="substring-after(@xref, '#')"/>
+                <xsl:if test="$pageid = ''">
+                  <xsl:value-of select="ancestor::mal:page/@id"/>
+                </xsl:if>
+                <xsl:value-of select="concat($pageid, '#', $sectionid)"/>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:value-of select="@xref"/>
+              </xsl:otherwise>
+            </xsl:choose>
+          </xsl:variable>
+          <xsl:for-each select="$mal.cache">
+            <xsl:call-template name="mal2html.page.linktrails">
+              <xsl:with-param name="node" select="key('mal.cache.key', $fullid)"/>
+              <xsl:with-param name="trail" select="$newtrail"/>
+            </xsl:call-template>
+          </xsl:for-each>
+        </xsl:for-each>
+        <xsl:for-each select="$pagelinks">
+          <xsl:call-template name="mal2html.page.linktrails">
+            <xsl:with-param name="node" select="."/>
+            <xsl:with-param name="trail" select="$newtrail"/>
+          </xsl:call-template>
+        </xsl:for-each>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:if>
+</xsl:template>
+
+
 <!-- == Matched Templates == -->
 
 <!-- = / = -->
@@ -414,6 +518,9 @@ REMARK: Describe this template
           <xsl:apply-templates mode="mal2html.block.mode" select="$version/*"/>
         </div>
       </xsl:if>
+      <xsl:call-template name="mal2html.page.linktrails">
+        <xsl:with-param name="node" select="mal:page"/>
+      </xsl:call-template>
       <div class="body">
         <xsl:apply-templates select="mal:page"/>
       </div>
