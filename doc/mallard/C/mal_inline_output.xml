@@ -68,7 +68,7 @@ differently.</p>
 
     <item>
       <p>Typical values for the <code>style</code> attribute include:</p>
-      <table><tr>
+      <table rules="rows"><tr>
         <td><p><code>output</code></p></td>
         <td><p>Standard output from a running program</p></td>
       </tr><tr>

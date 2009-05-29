@@ -65,7 +65,7 @@ control is being marked up.</p>
     those style hints they understand.</p></item>
 
     <item><p>Typical style hints include:</p>
-    <table>
+    <table rules="rows">
       <tr>
         <td><p><code>button</code></p></td>
         <td><p>The text of a button</p></td>
