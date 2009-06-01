@@ -1,6 +1,7 @@
 xslts=$(wildcard ../../../xslt/mallard/common/*.xsl) $(wildcard ../../../xslt/mallard/html/*.xsl)
 specs=$(filter-out ../../../doc/mallard/C/legal.xml, $(wildcard ../../../doc/mallard/C/*.xml))
 pages=$(patsubst %.xml,%.html, $(notdir $(specs)))
+xhtmls=$(patsubst %.xml,%.xhtml, $(notdir $(specs)))
 icons=admon-bug.png admon-caution.png admon-important.png admon-note.png admon-tip.png admon-warning.png
 marks=watermark-blockquote-201C.png watermark-code.png
 
@@ -23,12 +24,23 @@ $(marks):
 
 $(pages) : mallard.cache $(xslts)
 $(pages) : %.html : ../../../doc/mallard/C/%.xml
-	xsltproc -o $@ \
+	xsltproc \
 	  --stringparam mal.cache.file `pwd`/mallard.cache \
 	  --stringparam theme.icon.admon.path '' \
+	  --param mal.chunk.chunk_top 1 \
 	  --param theme.icon.admon.size 24 \
 	  --param mal2html.editor_mode 1 \
 	  ../../../xslt/mallard/html/mal2html.xsl $<
+
+$(xhtmls) : mallard.cache $(xslts)
+$(xhtmls) : %.xhtml : ../../../doc/mallard/C/%.xml
+	xsltproc \
+	  --stringparam mal.cache.file `pwd`/mallard.cache \
+	  --stringparam theme.icon.admon.path '' \
+	  --param mal.chunk.chunk_top 1 \
+	  --param theme.icon.admon.size 24 \
+	  --param mal2html.editor_mode 1 \
+	  ../../../xslt/mallard/html/mal2xhtml.xsl $<
 
 figures:
 	if [ ! -d figures ]; then mkdir figures; fi

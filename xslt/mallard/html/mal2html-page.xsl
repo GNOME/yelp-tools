@@ -465,9 +465,23 @@ REMARK: Describe this template
 
 <!-- = / = -->
 <xsl:template match="/">
+  <xsl:choose>
+    <xsl:when test="$mal.chunk.chunk_top">
+      <xsl:call-template name="mal.chunk">
+        <xsl:with-param name="node" select="mal:page"/>
+      </xsl:call-template>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:apply-templates mode="mal.chunk.content.mode" select="mal:page"/>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+<!-- = mal:page % mal.chunk.content.mode = -->
+<xsl:template mode="mal.chunk.content.mode" match="mal:page">
   <!-- FIXME: find a way to just select the version element -->
   <xsl:variable name="date">
-    <xsl:for-each select="mal:page/mal:info/mal:revision">
+    <xsl:for-each select="mal:info/mal:revision">
       <xsl:sort select="@date" data-type="text" order="descending"/>
       <xsl:if test="position() = 1">
         <xsl:value-of select="@date"/>
@@ -475,17 +489,17 @@ REMARK: Describe this template
     </xsl:for-each>
   </xsl:variable>
   <xsl:variable name="revision"
-                select="mal:page/mal:info/mal:revision[@date = $date][last()]"/>
+                select="mal:info/mal:revision[@date = $date][last()]"/>
   <html>
     <head>
       <title>
-        <xsl:value-of select="mal:page/mal:title"/>
+        <xsl:value-of select="mal:title"/>
       </title>
       <xsl:call-template name="mal2html.css"/>
     </head>
     <body>
       <xsl:call-template name="mal2html.page.linktrails">
-        <xsl:with-param name="node" select="mal:page"/>
+        <xsl:with-param name="node" select="."/>
       </xsl:call-template>
       <div class="body">
         <xsl:if test="$mal2html.editor_mode and $revision/@status != ''">
@@ -519,10 +533,10 @@ REMARK: Describe this template
             <xsl:apply-templates mode="mal2html.block.mode" select="$revision/*"/>
           </div>
         </xsl:if>
-        <xsl:apply-templates select="mal:page"/>
+        <xsl:apply-templates select="."/>
       </div>
       <xsl:call-template name="db2html.page.copyrights">
-        <xsl:with-param name="node" select="mal:page"/>
+        <xsl:with-param name="node" select="."/>
       </xsl:call-template>
     </body>
   </html>

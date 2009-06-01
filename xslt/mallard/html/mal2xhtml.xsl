@@ -22,10 +22,23 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
                 exclude-result-prefixes="mal"
                 version="1.0">
 
+
+<xsl:import href="../../gettext/gettext.xsl"/>
+
+<!--#@ mal.chunk.doctype_public -->
+<xsl:param name="mal.chunk.doctype_public" select="'-//W3C//DTD XHTML 1.0 Strict//EN'"/>
+
+<!--#@ mal.chunk.doctype_system -->
+<xsl:param name="mal.chunk.doctype_system" select="'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'"/>
+
+<xsl:output method="xml"
+            doctype-public="-//W3C//DTD XHTML 1.0 Strict//EN"
+            doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"/>
+
 <!--#@ mal2html.namespace -->
 <xsl:param name="mal2html.namespace" select="'http://www.w3.org/1999/xhtml'"/>
 
-<xsl:param name="mal.extension" select="'.xhtml'"/>
+<xsl:param name="mal.chunk.extension" select="'.xhtml'"/>
 
 <!--!!==========================================================================
 Mallard to HTML
@@ -33,6 +46,7 @@ Mallard to HTML
 REMARK: Describe this module
 -->
 
+<xsl:include href="../common/mal-chunk.xsl"/>
 <xsl:include href="../common/mal-link.xsl"/>
 
 <xsl:include href="mal2html-block.xsl"/>

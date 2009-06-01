@@ -127,12 +127,12 @@ $href: The #{href} attribute of ${link}
       <xsl:variable name="pageid" select="substring-before($xref, '#')"/>
       <xsl:variable name="sectionid" select="substring-after($xref, '#')"/>
       <xsl:if test="$pageid != ''">
-        <xsl:value-of select="concat($pageid, $mal.extension)"/>
+        <xsl:value-of select="concat($pageid, $mal.chunk.extension)"/>
       </xsl:if>
       <xsl:value-of select="concat('#', $sectionid)"/>
     </xsl:when>
     <xsl:otherwise>
-      <xsl:value-of select="concat($xref, $mal.extension)"/>
+      <xsl:value-of select="concat($xref, $mal.chunk.extension)"/>
     </xsl:otherwise>
   </xsl:choose>
 </xsl:template>

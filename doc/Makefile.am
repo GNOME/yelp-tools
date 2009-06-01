@@ -1,1 +1,1 @@
-SUBDIRS = gnome-doc-make mallard xslt
+SUBDIRS = gnome-doc-make xslt #mallard
