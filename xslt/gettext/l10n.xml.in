@@ -10,7 +10,7 @@
   <!--
   Translate to default:RTL if your language should be displayed
   right-to-left, otherwise translate to default:LTR.  Do *not*
-  translate it to "predefinito:LTR", if it it isn't default:LTR
+  translate it to "predefinito:LTR", if it isn't default:LTR
   or default:RTL it will not work
   -->
   <_msg>default:LTR</_msg>

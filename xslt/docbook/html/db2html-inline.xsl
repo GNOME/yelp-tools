@@ -674,9 +674,24 @@ FIXME
 
 <!-- = menuchoice % db2html.inline.content.mode = -->
 <xsl:template mode="db2html.inline.content.mode" match="menuchoice">
+  <xsl:variable name="arrow">
+    <xsl:variable name="ltr">
+      <xsl:call-template name="l10n.gettext">
+        <xsl:with-param name="msgid" select="'default:LTR'"/>
+      </xsl:call-template>
+    </xsl:variable>
+    <xsl:choose>
+      <xsl:when test="$ltr = 'default:RTL'">
+        <xsl:text>&#x25C2;</xsl:text>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:text>&#x25B8;</xsl:text>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
   <xsl:for-each select="*[not(self::shortcut)]">
     <xsl:if test="position() != 1">
-      <xsl:text>&#x00A0;&#x25B8; </xsl:text>
+      <xsl:value-of select="concat('&#x00A0;', $arrow, ' ')"/>
     </xsl:if>
     <xsl:apply-templates select="."/>
   </xsl:for-each>
