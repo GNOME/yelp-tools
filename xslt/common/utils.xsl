@@ -27,7 +27,7 @@ REMARK: Describe this module
 
 
 <!--**==========================================================================
-util.strip_newlines
+utils.strip_newlines
 Strips leading or trailing newlines from a string
 $string: The string to strip newlines from
 $leading: Whether to strip leading newlines
@@ -37,7 +37,7 @@ This template strips at most one leading and one trailing newline from
 ${string}.  This is useful for preformatted block elements where leading and
 trailing newlines are ignored to make source formatting easier for authors.
 -->
-<xsl:template name="util.strip_newlines">
+<xsl:template name="utils.strip_newlines">
   <xsl:param name="string"/>
   <xsl:param name="leading" select="false()"/>
   <xsl:param name="trailing" select="false()"/>
@@ -55,7 +55,7 @@ trailing newlines are ignored to make source formatting easier for authors.
       </xsl:variable>
       <xsl:choose>
         <xsl:when test="$trailing">
-          <xsl:call-template name="util.strip_newlines">
+          <xsl:call-template name="utils.strip_newlines">
             <xsl:with-param name="string" select="$new"/>
             <xsl:with-param name="leading" select="false()"/>
             <xsl:with-param name="trailing" select="true()"/>

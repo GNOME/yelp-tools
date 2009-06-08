@@ -181,7 +181,7 @@ FIXME
       </xsl:if>
     </xsl:attribute>
     <xsl:if test="$first">
-      <xsl:call-template name="util.strip_newlines">
+      <xsl:call-template name="utils.strip_newlines">
         <xsl:with-param name="string" select="$first"/>
         <xsl:with-param name="leading" select="true()"/>
         <xsl:with-param name="trailing" select="count(node()) = 1"/>
@@ -190,7 +190,7 @@ FIXME
     <xsl:apply-templates mode="mal2html.inline.mode"
                          select="node()[not(self::text() and (position() = 1 or position() = last()))]"/>
     <xsl:if test="$last and (count(node()) != 1)">
-      <xsl:call-template name="util.strip_newlines">
+      <xsl:call-template name="utils.strip_newlines">
         <xsl:with-param name="string" select="$last"/>
         <xsl:with-param name="leading" select="false()"/>
         <xsl:with-param name="trailing" select="true()"/>

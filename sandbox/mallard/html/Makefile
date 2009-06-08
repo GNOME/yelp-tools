@@ -1,7 +1,7 @@
 xslts=$(wildcard ../../../xslt/mallard/common/*.xsl) $(wildcard ../../../xslt/mallard/html/*.xsl)
-specs=$(filter-out ../../../doc/mallard/C/legal.xml, $(wildcard ../../../doc/mallard/C/*.xml))
-pages=$(patsubst %.xml,%.html, $(notdir $(specs)))
-xhtmls=$(patsubst %.xml,%.xhtml, $(notdir $(specs)))
+specs=$(wildcard ../../../doc/mallard/C/*.page)
+pages=$(patsubst %.page,%.html, $(notdir $(specs)))
+xhtmls=$(patsubst %.page,%.xhtml, $(notdir $(specs)))
 icons=admon-bug.png admon-caution.png admon-important.png admon-note.png admon-tip.png admon-warning.png
 marks=watermark-blockquote-201C.png watermark-code.png
 
@@ -23,7 +23,7 @@ $(marks):
 	ln -sf ../../../data/watermarks/$@ $@
 
 $(pages) : mallard.cache $(xslts)
-$(pages) : %.html : ../../../doc/mallard/C/%.xml
+$(pages) : %.html : ../../../doc/mallard/C/%.page
 	xsltproc \
 	  --stringparam mal.cache.file `pwd`/mallard.cache \
 	  --stringparam theme.icon.admon.path '' \
@@ -33,7 +33,7 @@ $(pages) : %.html : ../../../doc/mallard/C/%.xml
 	  ../../../xslt/mallard/html/mal2html.xsl $<
 
 $(xhtmls) : mallard.cache $(xslts)
-$(xhtmls) : %.xhtml : ../../../doc/mallard/C/%.xml
+$(xhtmls) : %.xhtml : ../../../doc/mallard/C/%.page
 	xsltproc \
 	  --stringparam mal.cache.file `pwd`/mallard.cache \
 	  --stringparam theme.icon.admon.path '' \
