@@ -30,7 +30,7 @@ mal.cache.file
 The location of the cache file
 -->
 <xsl:param name="mal.cache.file"/>
-<xsl:variable name="mal.cache" select="document($mal.cache.file)"/>
+<xsl:param name="mal.cache" select="document($mal.cache.file)/mal:cache"/>
 <xsl:key name="mal.cache.key" match="mal:page | mal:section" use="@id"/>
 
 
