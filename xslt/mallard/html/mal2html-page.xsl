@@ -498,9 +498,11 @@ REMARK: Describe this template
       <xsl:call-template name="mal2html.css"/>
     </head>
     <body>
-      <xsl:call-template name="mal2html.page.linktrails">
-        <xsl:with-param name="node" select="."/>
-      </xsl:call-template>
+      <div class="head">
+        <xsl:call-template name="mal2html.page.linktrails">
+          <xsl:with-param name="node" select="."/>
+        </xsl:call-template>
+      </div>
       <div class="body">
         <xsl:if test="$mal2html.editor_mode and $revision/@status != ''">
           <div class="version">

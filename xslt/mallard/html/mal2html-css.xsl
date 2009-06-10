@@ -109,6 +109,7 @@ a:visited {
 }
 a:hover { text-decoration: underline; }
 
+div.head { margin: 0; }
 div.body {
   margin: 0;
   padding: 1em;
