@@ -1,4 +1,4 @@
-<page xmlns="http://www.gnome.org/~shaunm/mallard"
+<page xmlns="http://projectmallard.org/1.0/"
       type="topic"
       id="mal_page">
 
@@ -23,7 +23,7 @@
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 namespace local = ""
-default namespace mal = "http://www.gnome.org/~shaunm/mallard"
+default namespace mal = "http://projectmallard.org/1.0/"
 start = mal_page
 mal_page = element page {
   attribute id { xsd:ID },

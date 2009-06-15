@@ -1,4 +1,4 @@
-<page xmlns="http://www.gnome.org/~shaunm/mallard"
+<page xmlns="http://projectmallard.org/1.0/"
       type="topic"
       id="mal_block_listing">
 
@@ -82,7 +82,7 @@ element.</p>
   <title><file>index.page</file></title>
   <desc>A first Mallard page</desc>
   <code><![CDATA[
-<page xmlns="http://www.gnome.org/~shaunm/mallard"
+<page xmlns="http://projectmallard.org/1.0/"
       type="guide"
       id="index">
   <!-- Content goes here -->
@@ -92,7 +92,7 @@ element.</p>
       <title><file>index.page</file></title>
       <desc>A first Mallard page</desc>
       <code><![CDATA[
-<page xmlns="http://www.gnome.org/~shaunm/mallard"
+<page xmlns="http://projectmallard.org/1.0/"
       type="guide"
       id="index">
   <!-- Content goes here -->

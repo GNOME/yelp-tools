@@ -1,4 +1,4 @@
-<page xmlns="http://www.gnome.org/~shaunm/mallard"
+<page xmlns="http://projectmallard.org/1.0/"
       type="topic"
       id="mal_block_desc">
 
@@ -95,7 +95,7 @@ for the formal element.</p>
 <listing>
   <desc>A first Mallard page</desc>
   <code><![CDATA[
-<page xmlns="http://www.gnome.org/~shaunm/mallard"
+<page xmlns="http://projectmallard.org/1.0/"
       type="guide"
       id="index">
   <!-- Content goes here -->
@@ -104,7 +104,7 @@ for the formal element.</p>
     <listing>
       <desc>A first Mallard page</desc>
       <code><![CDATA[
-<page xmlns="http://www.gnome.org/~shaunm/mallard"
+<page xmlns="http://projectmallard.org/1.0/"
       type="guide"
       id="index">
   <!-- Content goes here -->

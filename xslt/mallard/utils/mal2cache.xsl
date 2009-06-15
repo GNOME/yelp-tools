@@ -17,8 +17,8 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 -->
 
 <xsl:stylesheet xmlns:xsl='http://www.w3.org/1999/XSL/Transform'
-                xmlns:mal='http://www.gnome.org/~shaunm/mallard'
-                xmlns='http://www.gnome.org/~shaunm/mallard'
+                xmlns:mal='http://projectmallard.org/1.0/'
+                xmlns='http://projectmallard.org/1.0/'
                 version='1.0'>
 
 <xsl:output omit-xml-declaration="yes"/>
