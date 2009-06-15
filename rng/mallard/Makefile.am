@@ -18,5 +18,7 @@ mallard.rng: mallard.rnc rnc2rng.awk
 	      -e 's/" ns=/"\n    ns=/' \
 	      -e 's/^<s/\n<s/' \
 	      -e 's/^<d/\n<d/' \
-	  > $@ || ( rm -f $@.tmp && exit 1 )
+	  > $@ || ( rm -f $@.tmp && exit 1 ) && rm -f $@.tmp
+
+EXTRA_DIST = mal2rnc.xsl rnc2rng.awk mallard.rnc mallard.rng
 
