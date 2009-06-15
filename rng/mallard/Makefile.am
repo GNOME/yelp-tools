@@ -1,11 +1,11 @@
 all: mallard.rnc mallard.rng
 
-specs1=$(top_srcdir)/doc/mallard/C/mal_page.xml   \
-       $(top_srcdir)/doc/mallard/C/mal_block.xml  $(wildcard $(top_srcdir)/doc/mallard/C/mal_block_*.xml) \
-       $(top_srcdir)/doc/mallard/C/mal_inline.xml $(wildcard $(top_srcdir)/doc/mallard/C/mal_inline_*.xml)
-specs=$(specs1) $(filter-out $(specs1), $(wildcard $(top_srcdir)/doc/mallard/C/*.xml))
+specs1=$(top_srcdir)/doc/mallard/C/mal_page.page   \
+       $(top_srcdir)/doc/mallard/C/mal_block.page  $(wildcard $(top_srcdir)/doc/mallard/C/mal_block_*.page) \
+       $(top_srcdir)/doc/mallard/C/mal_inline.page $(wildcard $(top_srcdir)/doc/mallard/C/mal_inline_*.page)
+specs=$(specs1) $(filter-out $(specs1), $(wildcard $(top_srcdir)/doc/mallard/C/*.page))
 
-mallard.rnc: $(wildcard $(top_srcdir)/doc/mallard/C/*.xml)
+mallard.rnc: $(wildcard $(top_srcdir)/doc/mallard/C/*.page)
 	for file in $(specs); do \
 	  xsltproc $(srcdir)/mal2rnc.xsl $$file; \
 	done > mallard.rnc
