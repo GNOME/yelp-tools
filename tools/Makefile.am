@@ -10,7 +10,7 @@ bin_SCRIPTS = gnome-doc-prepare gnome-doc-tool
 
 endif
 
-pkgconfigdir = $(libdir)/pkgconfig
+pkgconfigdir = $(datadir)/pkgconfig
 pkgconfig_DATA = gnome-doc-utils.pc
 
 EXTRA_DIST =			\

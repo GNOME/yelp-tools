@@ -1,0 +1,30 @@
+<page xmlns="http://www.gnome.org/~shaunm/mallard"
+      type="guide"
+      id="explore">
+
+<info>
+  <revision version="0.1" date="2007-02-21" status="stub"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+  </credit>
+  <copyright>
+    <year>2008-2009</year>
+    <name>Shaun McCance</name>
+  </copyright>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Explore more of what Mallard has to offer.</desc>
+</info>
+
+<title>Explore Mallard</title>
+
+<comment>
+  <cite date="2007-02-22"><name>Shaun McCance</name></cite>
+  <p>Add content</p>
+</comment>
+
+
+</page>

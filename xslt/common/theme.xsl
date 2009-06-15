@@ -255,4 +255,15 @@ document is written in.
   </xsl:call-template>
 </xsl:param>
 
+<!--@@==========================================================================
+theme.watermark.code
+The path for the code block watermark graphic
+
+This parameter specifies the graphic file used for code block watermarks.
+-->
+<xsl:param name="theme.watermark.code">
+  <xsl:value-of select="$theme.watermark.path"/>
+  <xsl:text>watermark-code.png</xsl:text>
+</xsl:param>
+
 </xsl:stylesheet>

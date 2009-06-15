@@ -1,0 +1,96 @@
+<page xmlns="http://www.gnome.org/~shaunm/mallard"
+      type="topic"
+      id="mal_info_copyright">
+
+<info>
+  <link type="guide" xref="mal_info#elements"/>
+
+  <revision version="0.1" date="2009-05-28" status="review"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+  </credit>
+  <copyright>
+    <year>2008</year>
+    <name>Shaun McCance</name>
+  </copyright>
+
+  <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
+
+  <desc>Record information about copyright holders.</desc>
+</info>
+
+<title>Copyright Information</title>
+
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_info_copyright = element copyright {
+  attribute * - (mal:* | local:*) { text } *,
+
+  ( element year { text } +
+  &amp; element name { <link xref="mal_inline">mal_inline</link> }
+  &amp; element email { <link xref="mal_inline">mal_inline</link> } ?
+  &amp; element * - (mal:* | local:*) { mal_inline } *
+  )
+}
+</code></synopsis>
+
+<p>Use the <code>copyright</code> element to include information about the
+copyright holders of the page or section.  You can record the name and email
+address of the copyright holder, as well as any years in which the holder
+contributed copyrighted material.</p>
+
+
+<!-- BEGIN notes -->
+<section id="notes">
+  <title>Notes</title>
+  <list>
+    <item><p>The <code>copyright</code> element contains one or more <code>year</code>
+    elements, a <code>name</code> element, and an optional <code>email</code> element.
+    The <code>copyright</code> element can also contain elements from external
+    namespaces.  The order of the child elements does not matter.</p></item>
+
+    <item><p>The <code>copyright</code> element can occur in any
+    <code xref="mal_info">info</code> element.</p></item>
+
+    <item><p>The <code>copyright</code> element can have attributes from external
+    namespaces.  See <link xref="mal_external"/> for more information
+    on external-namespace attributes.</p></item>
+  </list>
+</section>
+<!-- END notes -->
+
+
+<!-- BEGIN processing -->
+<section id="processing">
+  <title>Processing Expectations</title>
+
+  <p>There are no specific processing expectations for the <code>copyright</code>
+  element.  As an informational element, it is not necessarily displayed.  Some
+  tools, however, may choose to display copyrights at the bottom of a page, on a
+  separate information page, or in a dialog.</p>
+
+  <p>When processing the children of a <code>copyright</code> element, tools
+  should select the child elements they understand and ignore all other child
+  content.</p>
+</section>
+<!-- END processing -->
+
+
+<!-- BEGIN comparison -->
+<section id="comparison">
+  <title>Comparison to Other Formats</title>
+
+  <p>The <code>copyright</code> element is similar to the
+  <code href="http://www.docbook.org/tdg/en/html/copyright.html">copyright</code>
+  element in DocBook.  Mallard allows more information to be recorded about a
+  particular copyright holder through informational child elements.  In DocBook,
+  a single <code>copyright</code> element can have multiple
+  <code href="http://www.docbook.org/tdg/en/html/holder.html">holder</code>
+  children.  In Mallard, each <code>copyright</code> element is restricted to
+  a single copyright holder.</p>
+</section>
+<!-- END comparison -->
+
+
+</page>

@@ -57,6 +57,8 @@ doc/Makefile
 doc/gnome-doc-make/Makefile
 doc/xslt/Makefile
 po/Makefile.in
+rng/Makefile
+rng/mallard/Makefile
 tools/Makefile
 tools/gnome-doc-utils.pc
 xslt/Makefile
@@ -70,6 +72,10 @@ xslt/docbook/common/Makefile
 xslt/docbook/html/Makefile
 xslt/docbook/omf/Makefile
 xslt/docbook/utils/Makefile
+xslt/mallard/Makefile
+xslt/mallard/common/Makefile
+xslt/mallard/html/Makefile
+xslt/mallard/utils/Makefile
 xslt/gettext/Makefile
 ])
 

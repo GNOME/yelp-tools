@@ -1,0 +1,22 @@
+<page xmlns="http://www.gnome.org/~shaunm/mallard"
+      type="topic"
+      id="l10n">
+
+<info>
+  <link type="guide" xref="details#i18n"/>
+
+  <revision version="0.1" date="2009-05-26" status="stub"/>
+
+  <credit type="author">
+    <name>Shaun McCance</name>
+    <email>shaunm@gnome.org</email>
+  </credit>
+  <copyright>
+    <year>2009</year>
+    <name>Shaun McCance</name>
+  </copyright>
+</info>
+
+<title>Translation Notes</title>
+
+</page>
