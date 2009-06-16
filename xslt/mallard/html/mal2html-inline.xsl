@@ -18,6 +18,7 @@ Free Software Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:mal="http://projectmallard.org/1.0/"
+                xmlns:e="http://projectmallard.org/experimental/"
                 xmlns="http://www.w3.org/1999/xhtml"
                 version="1.0">
 
@@ -110,6 +111,10 @@ span.file { font-family: monospace; }
 span.gui, span.guiseq { color: </xsl:text>
   <xsl:value-of select="$theme.color.text_light"/><xsl:text>; }
 span.input { font-family: monospace; }
+span.hi {
+  background-color: </xsl:text>
+    <xsl:value-of select="$theme.color.yellow_background"/><xsl:text>;
+}
 span.key {
   color: </xsl:text>
     <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
@@ -197,6 +202,11 @@ span.var { font-style: italic; }
 
 <!-- = input = -->
 <xsl:template mode="mal2html.inline.mode" match="mal:input">
+  <xsl:call-template name="mal2html.span"/>
+</xsl:template>
+
+<!-- = hi = -->
+<xsl:template mode="mal2html.inline.mode" match="e:hi">
   <xsl:call-template name="mal2html.span"/>
 </xsl:template>
 
