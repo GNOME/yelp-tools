@@ -8,7 +8,7 @@ marks=watermark-blockquote-201C.png watermark-code.png
 all: $(pages) $(icons) $(marks) figures mallard.cache
 
 mallard.cache : $(specs) $(xslts)
-	echo '<cache xmlns="http://www.gnome.org/~shaunm/mallard">' > $@.in
+	echo '<cache xmlns="http://projectmallard.org/1.0/">' > $@.in
 	for file in $(specs); do \
 	  echo "<page href='$$file'/>" >> $@.in; \
 	done
