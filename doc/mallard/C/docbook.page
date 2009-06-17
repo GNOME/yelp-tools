@@ -204,6 +204,51 @@ recommendations for Mallard.</p>
       <td><p><code href="http://www.docbook.org/tdg/en/html/bookinfo.html">bookinfo</code></p></td>
     </tr>
   </tbody>
+  <tbody><tr>
+    <td><p><code href="http://www.docbook.org/tdg/en/html/bridgehead.html">bridgehead</code></p></td>
+    <td><p>No equivalent in Mallard</p></td>
+  </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/callout.html">callout</code></p></td>
+      <td rowspan="2"><p>Mallard does not support callouts</p></td>
+    </tr>
+    <tr><td><p><code href="http://www.docbook.org/tdg/en/html/calloutlist.html">calloutlist</code></p></td></tr>
+  </tbody>
+  <tbody><tr>
+    <td><p><code href="http://www.docbook.org/tdg/en/html/caption.html">caption</code></p></td>
+    <td><p>No direct equivalent; use <code xref="mal_block_desc">desc</code> on
+    <code xref="mal_block_media">media</code></p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://www.docbook.org/tdg/en/html/caution.html">caution</code></p></td>
+    <td><p><code xref="mal_block_note">note</code></p></td>
+  </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/chapter.html">chapter</code></p></td>
+      <td rowspan="2"><p>No direct equivalent in Mallard; use <code xref="mal_page">page</code>
+      and <code xref="mal_info">info</code> instead</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/chapterinfo.html">chapterinfo</code></p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/citation.html">citation</code></p></td>
+      <td rowspan="4"><p>Mallard does not currently have a structured environment for bibliographies</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/citebiblioid.html">citebiblioid</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/citerefentry.html">citerefentry</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/citetitle.html">citetitle</code></p></td>
+    </tr>
+  </tbody>
 </table>
 
 <comment>
