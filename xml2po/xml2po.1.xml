@@ -83,7 +83,7 @@
 				</term>
 				<listitem>
 					<para>
-						Automatically decides if tags are to be considered
+						Automatically decide if tags are to be considered
 						"final" or not.
 					</para>
 				</listitem>
@@ -183,7 +183,7 @@
 				</term>
 				<listitem>
 					<para>
-						Updates a PO file using <command>msgmerge</command>.
+						Update a PO file using <command>msgmerge</command>.
 					</para>
 				</listitem>
 			</varlistentry>
@@ -194,7 +194,7 @@
 				</term>
 				<listitem>
 					<para>
-						Explicitely set language of the translation.
+						Explicitly set language of the translation.
 					</para>
 				</listitem>
 			</varlistentry>
