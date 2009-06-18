@@ -1102,6 +1102,56 @@ available.</p>
       <td><p><code href="http://www.docbook.org/tdg/en/html/prefaceinfo.html">prefaceinfo</code></p></td>
     </tr>
   </tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/primary.html">primary</code></p></td>
+      <td rowspan="2"><p>Mallard does not currently have a structured environment for indexes.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/primaryie.html">primaryie</code></p></td>
+    </tr>
+  </tbody>
+  <tbody><tr>
+    <td><p><code href="http://www.docbook.org/tdg/en/html/printhistory.html">printhistory</code></p></td>
+    <td><p>No equivalent in Mallard.  <link xref="mal_external">External
+    namespace elements</link> may provide this information in
+    <code xref="mal_info">info</code> elements.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://www.docbook.org/tdg/en/html/procedure.html">procedure</code></p></td>
+    <td><p>See the <code xref="mal_block_steps">steps</code> element for details.</p></td>
+  </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/production.html">production</code></p></td>
+      <td rowspan="3"><p>Mallard does not have structured EBNF productions.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/productionrecap.html">productionrecap</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/productionset.html">productionset</code></p></td>
+    </tr>
+  </tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/productname.html">productname</code></p></td>
+      <td rowspan="2"><p>No equivalent in Mallard.  Inline, use plain text.
+      <link xref="mal_external">External namespace elements</link> may provide this information
+      in <code xref="mal_info">info</code> elements.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/productnumber.html">productnumber</code></p></td>
+    </tr>
+  </tbody>
+  <tbody><tr>
+    <td><p><code href="http://www.docbook.org/tdg/en/html/programlisting.html">programlisting</code></p></td>
+    <td><p>Similar to the block <code xref="mal_block_code">code</code> element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://www.docbook.org/tdg/en/html/programlistingco.html">programlistingco</code></p></td>
+    <td><p>Mallard does not support callouts.</p></td>
+  </tr></tbody>
 </table>
 
 <comment>
