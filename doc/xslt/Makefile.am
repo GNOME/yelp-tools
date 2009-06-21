@@ -75,4 +75,4 @@ EXTRA_DIST = xsldoc.awk xsldoc-fill.xsl xsldoc-check.xsl xsldoc-docbook.xsl
 DOC_MODULE = gnome-doc-xslt
 DOC_INCLUDES = legal.xml translating.xml $(patsubst %,%.xml,$(xsldoc_base))
 
-DOC_LINGUAS =
+DOC_LINGUAS = de
