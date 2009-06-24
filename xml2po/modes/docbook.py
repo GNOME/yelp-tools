@@ -43,7 +43,9 @@ try:
 except ImportError:
     from md5 import new as md5_new
 
-class docbookXmlMode:
+from basic import basicXmlMode
+
+class docbookXmlMode(basicXmlMode):
     """Class for special handling of DocBook document types.
 
     It sets lang attribute on article elements, and adds translators
@@ -76,10 +78,6 @@ class docbookXmlMode:
             'synopsis',
             'userinput'
             ]
-
-    def getTreatedAttributes(self):
-        "Returns array of tag attributes which content is to be translated"
-        return []
 
     def getStringForTranslators(self):
         """Returns string which will be used to credit translators."""

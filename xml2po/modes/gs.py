@@ -20,7 +20,9 @@
 # Special case Gnome Summary
 #
 
-class gsXmlMode:
+from basic import basicXmlMode
+
+class gsXmlMode(basicXmlMode):
     """Abstract class for special handling of document types."""
     def getIgnoredTags(self):
         "Returns array of tags to be ignored."
@@ -29,18 +31,6 @@ class gsXmlMode:
     def getFinalTags(self):
         "Returns array of tags to be considered 'final'."
         return ['title', 'para', 'name', 'desc' ]
-
-    def getSpacePreserveTags(self):
-        "Returns array of tags in which spaces are to be preserved."
-        return []
-
-    def getTreatedAttributes(self):
-        "Returns array of tag attributes which content is to be translated"
-        return []
-
-    def preProcessXml(self, doc, msg):
-        "Preprocess a document and perhaps adds some messages."
-        pass
 
     def _find_salute(self, node):
         if node.name == 'salute':

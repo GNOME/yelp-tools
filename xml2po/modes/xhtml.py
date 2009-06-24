@@ -1,5 +1,5 @@
 # Copyright (c) 2004, 2005, 2006 Danilo Segan <danilo@gnome.org>.
-# Copyright (c) 2006 Claude Paroz <paroz@email.ch>.
+# Copyright (c) 2006, 2009 Claude Paroz <claude@2xlibre.net>.
 #
 # This file is part of xml2po.
 #
@@ -21,12 +21,10 @@
 # This implements special instructions for handling XHTML documents
 # in a better way, particularly to extract some attributes in HTML tags
 
-class xhtmlXmlMode:
-    """Class for special handling of XHTML document types."""
-    def getIgnoredTags(self):
-        "Returns array of tags to be ignored."
-        return []
+from basic import basicXmlMode
 
+class xhtmlXmlMode(basicXmlMode):
+    """Class for special handling of XHTML document types."""
     def getFinalTags(self):
         "Returns array of tags to be considered 'final'."
         return ['p', 'li', 'pre']
@@ -38,27 +36,3 @@ class xhtmlXmlMode:
     def getSpacePreserveTags(self):
         "Returns array of tags in which spaces are to be preserved."
         return ['pre']
-
-    def preProcessXml(self, doc, msg):
-        "Preprocess a document and perhaps adds some messages."
-        pass
-
-    def postProcessXmlTranslation(self, doc, language, translators):
-        """Sets a language and translators in "doc" tree.
-
-        "translators" is a string consisted of translator credits.
-        "language" is a simple string.
-        "doc" is a libxml2.xmlDoc instance."""
-        pass
-
-    def getStringForTranslators(self):
-        """Returns None or a string to be added to PO files.
-
-        Common example is 'translator-credits'."""
-        return None
-
-    def getCommentForTranslators(self):
-        """Returns a comment to be added next to string for crediting translators.
-
-        It should explain the format of the string provided by getStringForTranslators()."""
-        return None
