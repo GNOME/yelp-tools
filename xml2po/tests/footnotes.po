@@ -29,7 +29,7 @@ msgstr "Сећаш се?"
 msgid "That means that if there is some ignorable content inside the footnote<placeholder-1/>, they would still not be shown in the output. This also applies to other cases of nested tags, but it was originally reported against footnotes as bug #172784."
 msgstr "Ово значи да ако има нешто занемарљивог садржаја унутар фусноте<placeholder-1/>, оне се и даље неће видети у излазу. Ово такође важи и за остале случајеве угњеждених тагова, али је првобитно пријављено за фусноте као грешка #172784."
 
-#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
 #: footnotes.xml:0(None) 
 msgid "translator-credits"
 msgstr ""

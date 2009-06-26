@@ -85,7 +85,7 @@ class docbookXmlMode(basicXmlMode):
 
     def getCommentForTranslators(self):
         """Returns a comment to be added next to string for crediting translators."""
-        return """Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2."""
+        return """Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2"""
 
     def _find_articleinfo(self, node):
         if node.name == 'articleinfo' or node.name == 'bookinfo':

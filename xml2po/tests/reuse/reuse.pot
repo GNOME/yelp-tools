@@ -67,7 +67,7 @@ msgstr ""
 msgid "<application>Bug Buddy</application> is a very structured program. At any stage you can continue forward or head backwards to correct earlier details, or you can click the <guibutton>Help button</guibutton> to bring up this document."
 msgstr ""
 
-#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
 #: docbook.xml:0(None) 
 msgid "translator-credits"
 msgstr ""

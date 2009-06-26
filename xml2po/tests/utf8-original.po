@@ -19,7 +19,7 @@ msgstr "A translated message (for a msgid with utf-8)."
 msgid "This is an untranslated message, with no UTF-8 characters."
 msgstr "A translated message (for a msgid with NO utf-8)."
 
-#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
 #: utf8-original.xml:0 (None)
 msgid "translator-credits"
 msgstr "Yeah."

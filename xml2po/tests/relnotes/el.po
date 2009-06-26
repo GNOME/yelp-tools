@@ -1689,7 +1689,7 @@ msgid "Formatting a floppy disk."
 msgstr "Μορφοποίηση δισκέτας."
 
 # "Frank Arnold <frank@scirocco-5v-turbo.de>, 2005."
-#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
 #: rnutilities.xml:0 (None)
 msgid "translator-credits"
 msgstr ""

@@ -21,7 +21,7 @@ msgstr ""
 msgid "&suselinux; <application>&suse-version;</application> is ..."
 msgstr ""
 
-#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
 #: adjacent-ents.xml:0(None) 
 msgid "translator-credits"
 msgstr ""

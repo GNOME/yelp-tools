@@ -17,7 +17,7 @@ msgstr "проба"
 msgid "This is just a <placeholder-1/>."
 msgstr "Ово је само <placeholder-1/>."
 
-#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
 #: attribute-entities.xml:0 (None)
 msgid "translator-credits"
 msgstr "Данило"

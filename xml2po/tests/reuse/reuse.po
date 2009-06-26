@@ -143,7 +143,7 @@ msgstr ""
 "унете детаље, или можете кликнути на <guibutton>дугме за помоћ</guibutton> "
 "да прикажете овај документ."
 
-#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
 #: docbook.xml:0 (None)
 msgid "translator-credits"
 msgstr ""

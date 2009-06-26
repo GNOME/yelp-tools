@@ -17,7 +17,7 @@ msgstr ""
 msgid "Something <something>nice and <placeholder-1/></something> ha!"
 msgstr ""
 
-#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
 #: deep-finals.xml:0(None) 
 msgid "translator-credits"
 msgstr ""

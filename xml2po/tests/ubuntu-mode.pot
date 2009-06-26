@@ -53,7 +53,7 @@ msgstr ""
 msgid "If you can't find what you are looking for here, try the excellent source of community contributed documentation on the <ulink url=\"https://wiki.ubuntu.com/UserDocumentation\">Ubuntu wiki</ulink>."
 msgstr ""
 
-#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
 #: ubuntu-mode.xml:0(None) 
 msgid "translator-credits"
 msgstr ""

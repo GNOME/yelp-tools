@@ -1024,7 +1024,7 @@ msgstr ""
 msgid "These release notes were assembled by Murray Cumming, Davyd Madeley, and the GNOME community."
 msgstr ""
 
-#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
 #: release-notes.xml:0(None) 
 msgid "translator-credits"
 msgstr ""

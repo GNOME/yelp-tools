@@ -79,7 +79,7 @@ msgid ""
 "com/UserDocumentation\">Ubuntu wiki</ulink>."
 msgstr ""
 
-#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
 #: website-index.xml:0(None)
 msgid "translator-credits"
 msgstr ""

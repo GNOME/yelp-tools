@@ -29,7 +29,7 @@ msgstr ""
 msgid "That means that if there is some ignorable content inside the footnote<placeholder-1/>, they would still not be shown in the output. This also applies to other cases of nested tags, but it was originally reported against footnotes as bug #172784."
 msgstr ""
 
-#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2.
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
 #: footnotes.xml:0(None) 
 msgid "translator-credits"
 msgstr ""
