@@ -713,9 +713,9 @@ if not os.path.exists('/dev/null'): NULL_STRING = 'NUL'
 import getopt, fileinput
 
 def usage (with_help = False):
-        print >> sys.stderr, "Usage:  %s [OPTIONS] [XMLFILE]..." % (sys.argv[0])
-	if (with_help):
-        	print >> sys.stderr, """
+    print >> sys.stderr, "Usage:  %s [OPTIONS] [XMLFILE]..." % (sys.argv[0])
+    if with_help:
+        print >> sys.stderr, """
 OPTIONS may be some of:
     -a    --automatic-tags     Automatically decides if tags are to be considered
                                  "final" or not
@@ -746,15 +746,18 @@ EXAMPLES:
         %s -p de.po chapter1.xml > chapter1.de.xml
         %s -p de.po chapter2.xml > chapter2.de.xml
 """ % (sys.argv[0], sys.argv[0], sys.argv[0])
-        sys.exit(0)
 
-if len(sys.argv) < 2: usage()
+if len(sys.argv) < 2:
+    usage()
+    sys.exit(2)
 
 args = sys.argv[1:]
 try: opts, args = getopt.getopt(args, 'avhkem:t:o:p:u:r:l:',
                            ['automatic-tags','version', 'help', 'keep-entities', 'expand-all-entities', 'mode=', 'translation=',
                             'output=', 'po-file=', 'update-translation=', 'reuse=', 'language=', 'mark-untranslated' ])
-except getopt.GetoptError: usage(True)
+except getopt.GetoptError:
+    usage(True)
+    sys.exit(2)
 
 for opt, arg in opts:
     if opt in ('-m', '--mode'):
@@ -789,7 +792,8 @@ for opt, arg in opts:
         print VERSION
         sys.exit(0)
     elif opt in ('-h', '--help'):
-    	usage(True)
+        usage(True)
+        sys.exit(0)
 
 # Treat remaining arguments as XML files
 while args:
