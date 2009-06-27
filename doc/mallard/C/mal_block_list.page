@@ -23,7 +23,7 @@
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_block_list = element list {
-  attribute type { xsl:NMTOKEN } ?,
+  attribute type { xsd:NMTOKEN } ?,
   attribute style { xsd:NMTOKENS } ?,
   attribute * - (mal:* | local:*) { text } *,
 
