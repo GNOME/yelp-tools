@@ -1152,6 +1152,133 @@ available.</p>
     <td><p><code href="http://www.docbook.org/tdg/en/html/programlistingco.html">programlistingco</code></p></td>
     <td><p>Mallard does not support callouts.</p></td>
   </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://www.docbook.org/tdg/en/html/prompt.html">prompt</code></p></td>
+    <td><p>No specific element in Mallard.  Use the inline <code xref="mal_inline_output">outut</code>
+    element instead.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://www.docbook.org/tdg/en/html/property.html">property</code></p></td>
+    <td><p>No specific element in Mallard.  Use the inline <code xref="mal_inline_sys">sys</code>
+    element instead.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://www.docbook.org/tdg/en/html/pubdate.html">pubdate</code></p></td>
+    <td><p>No equivalent in Mallard.  <link xref="mal_external">External
+    namespace elements</link> may provide this information in
+    <code xref="mal_info">info</code> elements.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://www.docbook.org/tdg/en/html/publisher.html">publisher</code></p></td>
+    <td><p>Use the common <code xref="mal_info_credit">credit</code> element.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://www.docbook.org/tdg/en/html/publishername.html">publishername</code></p></td>
+    <td><p>No equivalent in Mallard.  <link xref="mal_external">External
+    namespace elements</link> may provide this information for
+    <link xref="mal_info_credit">credits</link>.</p></td>
+  </tr></tbody>
+  <tbody><tr>
+    <td><p><code href="http://www.docbook.org/tdg/en/html/pubsnumber.html">pubsnumber</code></p></td>
+    <td><p>No equivalent in Mallard.  <link xref="mal_external">External
+    namespace elements</link> may provide this information in
+    <code xref="mal_info">info</code> elements.</p></td>
+  </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/qandadiv.html">qandadiv</code></p></td>
+      <td rowspan="4"><p>Mallard does not currently have a structured environment for question
+      and answer sessions.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/qandaentry.html">qandaentry</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/qandaset.html">qandaset</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/question.html">question</code></p></td>
+    </tr>
+  </tbody>
+  <tbody><tr>
+    <td><p><code href="http://www.docbook.org/tdg/en/html/pubsnumber.html">pubsnumber</code></p></td>
+    <td><p>No equivalent in Mallard.</p></td>
+  </tr></tbody>
+  <tbody>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/refclass.html">refclass</code></p></td>
+      <td rowspan="22"><p>Mallard does not currently have a structured environment for reference pages.</p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/refdescriptor.html">refdescriptor</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/refentry.html">refentry</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/refentryinfo.html">refentryinfo</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/refentrytitle.html">refentrytitle</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/reference.html">reference</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/referenceinfo.html">referenceinfo</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/refmeta.html">refmeta</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/refmiscinfo.html">refmiscinfo</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/refname.html">refname</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/refnamediv.html">refnamediv</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/refpurpose.html">refpurpose</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/refsect1.html">refsect1</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/refsect1info.html">refsect1info</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/refsect2.html">refsect2</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/refsect2info.html">refsect2info</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/refsect3.html">refsect3</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/refsect3info.html">refsect3info</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/refsection.html">refsection</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/refsectioninfo.html">refsectioninfo</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/refsynopsisdiv.html">refsynopsisdiv</code></p></td>
+    </tr>
+    <tr>
+      <td><p><code href="http://www.docbook.org/tdg/en/html/refsynopsisdivinfo.html">refsynopsisdivinfo</code></p></td>
+    </tr>
+  </tbody>
+  <tbody><tr>
+    <td><p><code href="http://www.docbook.org/tdg/en/html/releaseinfo.html">releaseinfo</code></p></td>
+    <td><p>No equivalent in Mallard.  <link xref="mal_external">External
+    namespace elements</link> may provide this information in
+    <code xref="mal_info">info</code> elements.</p></td>
+  </tr></tbody>
 </table>
 
 <comment>
