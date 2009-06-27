@@ -22,7 +22,7 @@
 <title>Design Principles</title>
 
 <comment>
-  <cite date="2008-11-10"><name>Shaun McCance</name></cite>
+  <cite date="2008-11-10">Shaun McCance</cite>
   <p>Add intro content</p>
   <p>Add principles: pluggability, implementation speed, l10n, digestible info</p>
 </comment>
@@ -46,7 +46,7 @@
   </info>
   <title>For the Writer</title>
   <comment>
-    <cite date="2007-02-27"><name>Shaun McCance</name></cite>
+    <cite date="2007-02-27">Shaun McCance</cite>
     <p>Add</p>
   </comment>
 </section>

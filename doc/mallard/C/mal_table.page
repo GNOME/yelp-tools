@@ -156,7 +156,7 @@ mal_table = element table {
 
   <example>
   <code><![CDATA[
-<table frame="all" rules="rowgroups columns">
+<table frame="all" rules="rowgroups cols">
   <tbody>
     <tr>
       <td><p>Mallard</p></td>  <td><p>Anas platyrhynchos</p></td>
@@ -178,7 +178,7 @@ mal_table = element table {
     </tr>
   </tbody>
 </table>]]></code>
-  <table frame="all" rules="rowgroups columns">
+  <table frame="all" rules="rowgroups cols">
     <tbody>
       <tr>
         <td><p>Mallard</p></td>  <td><p>Anas platyrhynchos</p></td>

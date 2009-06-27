@@ -28,8 +28,8 @@ mal_block_media = element media {
   attribute type { "image" | "video" | "audio" | "application" } ?,
   attribute mime { text } ?,
   attribute src { text },
-  attribute height { text },
-  attribute width { text },
+  attribute height { text } ?,
+  attribute width { text } ?,
   attribute style { xsd:NMTOKENS } ?,
   attribute * - (mal:* | local:*) { text } *,
 

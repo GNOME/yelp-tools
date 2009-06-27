@@ -25,7 +25,7 @@
 mal_block_cite = element cite {
   attribute style { xsd:NMTOKENS } ?,
   attribute * - (mal:* | local:*) { text } *,
-  attribute date { xsd:date } ?,
+  attribute date { text } ?,
   attribute href { text } ?,
 
   <link xref="mal_inline">mal_inline</link>
@@ -33,7 +33,7 @@ mal_block_cite = element cite {
 </code></synopsis>
 
 <comment>
-  <cite date="2007-02-08"><name>Shaun McCance</name></cite>
+  <cite date="2007-02-08">Shaun McCance</cite>
   <p>Possibly add source for block quote citations.</p>
 </comment>
 
@@ -42,7 +42,7 @@ mal_block_cite = element cite {
 element.</p>
 
 <comment>
-  <cite date="2007-02-08"><name>Shaun McCance</name></cite>
+  <cite date="2007-02-08">Shaun McCance</cite>
   <p>Add examples, processing expectations.</p>
 </comment>
 

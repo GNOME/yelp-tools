@@ -75,10 +75,10 @@ by the user.</p>
       <p>Typical values for the <code>mime</code> attribute include:</p>
       <table rules="rows"><tr>
         <td><p><code>application/x-sh</code></p></td>
-        <td>Command to execute with the Bourne shell</td>
+        <td><p>Command to execute with the Bourne shell</p></td>
       </tr><tr>
         <td><p><code>application/x-csh</code></p></td>
-        <td>Command to execute with the C shell</td>
+        <td><p>Command to execute with the C shell</p></td>
       </tr></table>
     </item>
 

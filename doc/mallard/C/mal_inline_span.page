@@ -79,9 +79,9 @@ using attributes from external namespaces.</p>
 
   <example>
     <code><![CDATA[
-This <phrase its:translate="no">word</phrase> should not be translated.]]></code>
-    <p>This <phrase xmlns:its="http://www.w3.org/2005/11/its" its:version="1.0"
-    its:translate="no">word</phrase> should not be translated.</p>
+This <span its:translate="no">word</span> should not be translated.]]></code>
+    <p>This <span xmlns:its="http://www.w3.org/2005/11/its" its:version="1.0"
+    its:translate="no">word</span> should not be translated.</p>
   </example>
 </section>
 <!-- END examples -->

@@ -29,7 +29,7 @@ mal_attr_link =
 </code></synopsis>
 
 <comment>
-  <cite date="2006-11-16"><name>Shaun McCance</name></cite>
+  <cite date="2006-11-16">Shaun McCance</cite>
   <p>The content model is perhaps not as clearly expressed as it could be.
   The <code>ref</code> attribute may need to be renamed.  The idea is that
   we can have a reference to a document within a help system, with a defined

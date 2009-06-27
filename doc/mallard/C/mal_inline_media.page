@@ -30,8 +30,8 @@ mal_inline_media = element media {
   attribute type { "image" | "video" | "audio" | "application" } ?,
   attribute mime { text } ?,
   attribute src { text },
-  attribute height { text },
-  attribute width { text },
+  attribute height { text } ?,
+  attribute width { text } ?,
   attribute * - (mal:* | local:*) { text } *,
 
   <link xref="mal_inline">mal_inline</link>

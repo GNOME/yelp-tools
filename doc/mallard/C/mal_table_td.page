@@ -12,6 +12,8 @@
 mal_table_td = element td {
   attribute style { xsd:NMTOKENS } ?,
   attribute * - (mal:* | local:*) { text } *,
+  attribute rowspan { text } ?,
+  attribute colspan { text } ?,
 
   <link xref="mal_block">mal_block</link> +
 }
