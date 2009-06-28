@@ -56,8 +56,6 @@ data/watermarks/Makefile
 doc/Makefile
 doc/gnome-doc-make/Makefile
 doc/mallard/Makefile
-doc/mallard/C/Makefile
-doc/mallard/C/figures/Makefile
 doc/xslt/Makefile
 po/Makefile.in
 rng/Makefile
