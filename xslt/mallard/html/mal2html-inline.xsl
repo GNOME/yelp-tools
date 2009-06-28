@@ -87,61 +87,6 @@ REMARK: Document this template
 </xsl:template>
 
 
-
-
-<!--**==========================================================================
-mal2html.inline.css
-Outputs CSS that controls the appearance of inline elements
-
-REMARK: Describe this template
--->
-<xsl:template name="mal2html.inline.css">
-<xsl:text>
-span.app { font-style: italic; }
-span.cmd {
-  font-family: monospace;
-  background-color: </xsl:text>
-    <xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
-  padding: 0 0.2em 0 0.2em;
-}
-span.code { font-family: monospace; }
-span.em { font-style: italic; }
-span.email { color: red; }
-span.file { font-family: monospace; }
-span.gui, span.guiseq { color: </xsl:text>
-  <xsl:value-of select="$theme.color.text_light"/><xsl:text>; }
-span.input { font-family: monospace; }
-span.hi {
-  background-color: </xsl:text>
-    <xsl:value-of select="$theme.color.yellow_background"/><xsl:text>;
-}
-span.key {
-  color: </xsl:text>
-    <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
-  border: solid 1px </xsl:text>
-    <xsl:value-of select="$theme.color.gray_border"/><xsl:text>;
-  padding: 0 0.2em 0 0.2em;
-}
-span.keyseq {
-  color: </xsl:text>
-    <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
-}
-span.output { font-family: monospace; }
-pre.screen span.output {
-  color: </xsl:text>
-    <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
-}
-pre.screen span.output-error {
-<!-- FIXME: theme -->
-  color: #ff0000;
-}
-pre.screen span.output-prompt { font-weight: bold; }
-span.sys { font-family: monospace; }
-span.var { font-style: italic; }
-</xsl:text>
-</xsl:template>
-
-
 <!-- == Matched Templates == -->
 
 <!-- = app = -->

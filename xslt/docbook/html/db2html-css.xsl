@@ -102,7 +102,7 @@ body {
   margin: 0px; padding: 12px;
   background-color: </xsl:text><xsl:value-of select="$theme.color.gray_background"/><xsl:text>;
   min-height: 100%;
-  direction: </xsl:text><xsl:call-template name="l10n.direction"/><xsl:text>;
+  direction: </xsl:text><xsl:value-of select="$direction"/><xsl:text>;
 }
 div, p, pre, blockquote { margin: 0; padding: 0; }
 p img { vertical-align: middle; }
@@ -302,7 +302,8 @@ div.warning-inner { background-image: url("</xsl:text>
   <xsl:value-of select="$theme.icon.admon.warning"/><xsl:text>"); }
 div.blockquote {
   <!-- FIXME: i18n -->
-  background-image: url('../../../data/icons/yelp-watermark-blockquote-201C.png');
+  background-image: url('</xsl:text>
+    <xsl:value-of select="$theme.watermark.blockquote"/><xsl:text>');
   background-repeat: no-repeat;
   background-position: top </xsl:text><xsl:value-of select="$left"/><xsl:text>;
   padding: 0.5em;

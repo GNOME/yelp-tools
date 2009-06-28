@@ -28,58 +28,6 @@ REMARK: Describe this module
 -->
 
 
-<!--**==========================================================================
-mal2html.list.css
-Outputs CSS that controls the appearance of lists
-
-REMARK: Describe this template
--->
-<xsl:template name="mal2html.list.css">
-<xsl:text>
-div.list-contents { margin: 0; padding: 0; }
-div.title-list { margin-bottom: 0.5em; }
-ol.list, ul.list { margin: 0; padding: 0; }
-li.item-list { margin-left: 1.44em; }
-
-div.steps-contents {
-  margin: 0;
-  padding: 0.5em 1em 0.5em 1em;
-  border-top: solid 2px;
-  border-bottom: solid 2px;
-  border-color: </xsl:text>
-    <xsl:value-of select="$theme.color.blue_border"/><xsl:text>;
-  background-color: </xsl:text>
-    <xsl:value-of select="$theme.color.yellow_background"/><xsl:text>;
-}
-div.steps-contents div.steps-contents {
-  padding: 0;
-  border: none;
-  background-color: none;
-}
-ol.steps, ul.steps { margin: 0; padding: 0; }
-li.item-steps { margin-left: 1.44em; }
-
-div.terms-contents { margin: 0; }
-dt.item-next { margin-top: 0; }
-dd.item-terms {
-  margin-top: 0.2em;
-  margin-left: 1.44em;
-}
-
-ul.tree {
-  margin: 0; padding: 0;
-  list-style-type: none;
-}
-li.item-tree { margin: 0; padding: 0; }
-div.item-tree { margin: 0; padding: 0; }
-ul.tree ul.tree {
-  margin-left: 1.44em;
-}
-div.tree-lines ul.tree { margin-left: 0; }
-</xsl:text>
-</xsl:template>
-
-
 <!-- = list = -->
 <xsl:template mode="mal2html.block.mode" match="mal:list">
   <xsl:param name="first_child" select="not(preceding-sibling::*)"/>

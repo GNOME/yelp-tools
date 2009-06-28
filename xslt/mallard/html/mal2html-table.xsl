@@ -30,29 +30,6 @@ REMARK: Describe this module
 -->
 
 
-<!--**==========================================================================
-mal2html.table.css
-Outputs CSS that controls the appearance of tables
-
-REMARK: Describe this template
--->
-<xsl:template name="mal2html.table.css">
-<xsl:text>
-table.table {
-  border-collapse: collapse;
-  border-color: #555753;
-  border-width: 1px;
-}
-table.table td {
-  padding: 0.1em 0.5em 0.1em 0.5em;
-  border-color: #888a85;
-  border-width: 1px;
-  vertical-align: top;
-}
-</xsl:text>
-</xsl:template>
-
-
 <!-- == Matched Templates == -->
 
 <!-- = table = -->
