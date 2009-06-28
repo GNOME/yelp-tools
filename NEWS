@@ -1,3 +1,18 @@
+Changes in 0.17.2:
+------------------
+* Added build magic for Mallard documents
+* Fixed various validity errors in the Mallard spec
+* Created a (not yet complete) DocBook->Mallard reference
+* Fixed various problems with the Mallard RNG schema
+* Various additions to (still incomplete) Mallard spec
+* Fixed DocBook menuchoice seperator in RTL, #579278
+* Install xml2po modes in /usr/lib/python2.x/ to respect FHS, #528099 (Arun Raghavan)
+* Remove ending dot in translator-credits comment [xml2po], #398541 (Claude Peroz)
+* Make all xml2po modes inherit from basic mode (Claude Peroz)
+* Fixed typos in xml2po man page, #586089 (Claude Peroz)
+* Updated translations:
+  de      (Mario Blättermann)
+
 Changes in 0.17.1:
 ------------------
 * Integrated Mallard support
