@@ -1,0 +1,8 @@
+*.omf
+C/*.xsldoc
+C/db*.xml
+C/gettext.xml
+C/l10n-numbers.xml
+C/theme.xml
+C/utils.xml
+de/*.xml
