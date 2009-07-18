@@ -9,3 +9,5 @@ $(srcdir)/C/make-ref.xml: $(top_srcdir)/tools/gnome-doc-utils.make
 	$(GDU_AWK) -f $(srcdir)/gnome-doc-make.awk $< > $@
 
 EXTRA_DIST = gnome-doc-make.awk
+
+DOC_LINGUAS = de
