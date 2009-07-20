@@ -104,7 +104,7 @@ interlinking.  We can have <file>index.page</file> link to <file>planting.page</
 <p>By the end of this page, you will be able to plant your magic
 beans and nurture them into a bean sprout.</p>
 <steps>
-  <item><p>Dig a hole 5cm deep.</p><item>
+  <item><p>Dig a hole 5cm deep.</p></item>
   <item><p>Place your magic beans in the hole.</p></item>
   <item><p>Fill the hole with clean dirt and pat it level.</p></item>
   <item><p>Water daily.</p></item>
