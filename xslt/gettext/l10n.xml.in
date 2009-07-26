@@ -2348,4 +2348,76 @@
   </_msg>
 </msgset>
 
+<!-- Mallard specific strings -->
+
+<msgset>
+  <msgid>Further Reading</msgid>
+  <!-- Automatic further reading section and links -->
+  <_msg>Further Reading</_msg>
+</msgset>
+<msgset>
+  <msgid>More About</msgid>
+  <!-- Automatic more about section and links -->
+  <_msg>More About</_msg>
+</msgset>
+<msgset>
+  <msgid>See Also</msgid>
+  <!-- Automatic see also section and links -->
+  <_msg>See Also</_msg>
+</msgset>
+<msgset>
+  <msgid>Stub</msgid>
+  <!--
+  This is used as a descrpition for the status of the document.
+  This will not be visibile to the users.
+
+  Stub: the document has little or basic content, it may have been
+  created by developers in order to have it included in the build.
+   -->
+  <_msg>Stub</_msg>
+</msgset>
+<msgset>
+  <msgid>Incomplete</msgid>
+  <!--
+  This is used as a descrpition for the status of the document.
+  This will not be visibile to the users.
+
+  Incomplete: the document has the basic structure in place, but the
+  authors have not yet written all the content.
+  -->
+  <_msg>Incomplete</_msg>
+</msgset>
+<msgset>
+  <msgid>Draft</msgid>
+  <!--
+  This is used as a descrpition for the status of the document.
+  This will not be visibile to the users.
+
+  Draft: the authors have written all the content, but they still need
+  to clean up the language or markup.
+  -->
+  <_msg>Draft</_msg>
+</msgset>
+<msgset>
+  <msgid>Ready for review</msgid>
+  <!--
+  This is used as a descrpition for the status of the document.
+  This will not be visibile to the users.
+
+  Review: the authors consider the document complete.
+  -->
+  <_msg>Ready for review</_msg>
+</msgset>
+<msgset>
+  <msgid>Final</msgid>
+  <!--
+  This is used as a descrpition for the status of the document.
+  This will not be visibile to the users.
+
+  Final: a senior member of the documentation team has reviewd the
+  document and approved it.
+  -->
+  <_msg>Final</_msg>
+</msgset>
+
 </l10n>

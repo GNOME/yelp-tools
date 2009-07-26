@@ -70,13 +70,4 @@ REMARK: Describe this module
   <xsl:apply-templates/>
 </xsl:template>
 
-<!-- FIXME -->
-<xsl:template name="l10n.gettext">
-  <xsl:param name="msgid" select="'email.tooltip'"/>
-  <xsl:value-of select="$msgid"/>
-</xsl:template>
-<xsl:template name="l10n.direction">
-  <xsl:text>ltr</xsl:text>
-</xsl:template>
-
 </xsl:stylesheet>

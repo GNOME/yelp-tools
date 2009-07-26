@@ -207,19 +207,29 @@ REMARK: Describe this template
               <!-- FIXME: i18n -->
               <xsl:choose>
                 <xsl:when test="$revision/@status = 'stub'">
-                  <xsl:text>Stub</xsl:text>
+                  <xsl:call-template name="l10n.gettext">
+                    <xsl:with-param name="msgid" select="'Stub'"/>
+                  </xsl:call-template>
                 </xsl:when>
                 <xsl:when test="$revision/@status = 'incomplete'">
-                  <xsl:text>Incomplete</xsl:text>
+                  <xsl:call-template name="l10n.gettext">
+                    <xsl:with-param name="msgid" select="'Incomplete'"/>
+                   </xsl:call-template>
                 </xsl:when>
                 <xsl:when test="$revision/@status = 'draft'">
-                  <xsl:text>Draft</xsl:text>
+                  <xsl:call-template name="l10n.gettext">
+                    <xsl:with-param name="msgid" select="'Draft'"/>
+                  </xsl:call-template>
                 </xsl:when>
                 <xsl:when test="$revision/@status = 'review'">
-                  <xsl:text>Ready for review</xsl:text>
+                  <xsl:call-template name="l10n.gettext">
+                    <xsl:with-param name="msgid" select="'Ready for review'"/>
+                  </xsl:call-template>
                 </xsl:when>
                 <xsl:when test="$revision/@status = 'final'">
-                  <xsl:text>Final</xsl:text>
+                  <xsl:call-template name="l10n.gettext">
+                    <xsl:with-param name="msgid" select="'Final'"/>
+                  </xsl:call-template>
                 </xsl:when>
               </xsl:choose>
             </span>
@@ -275,14 +285,18 @@ REMARK: Describe this template
             <xsl:text>title</xsl:text>
           </xsl:attribute>
           <!-- FIXME: i18n -->
-          <xsl:text>Further Reading</xsl:text>
+          <xsl:call-template name="l10n.gettext">
+            <xsl:with-param name="msgid" select="'Further Reading'"/>
+          </xsl:call-template>
         </xsl:element>
       </div>
       <div class="autolinks">
         <xsl:if test="$pagelinks or $guidelinks">
           <div class="title"><span>
             <!-- FIXME: i18n -->
-            <xsl:text>More About</xsl:text>
+            <xsl:call-template name="l10n.gettext">
+                <xsl:with-param name="msgid" select="'More About'"/>
+            </xsl:call-template>
           </span></div>
           <ul>
             <xsl:for-each select="$pagelinks">
@@ -302,7 +316,9 @@ REMARK: Describe this template
         <xsl:if test="$inlinks or $outlinks">
           <div class="title"><span>
             <!-- FIXME: i18n -->
-            <xsl:text>See Also</xsl:text>
+            <xsl:call-template name="l10n.gettext">
+                <xsl:with-param name="msgid" select="'See Also'"/>
+            </xsl:call-template>
           </span></div>
           <ul>
             <xsl:for-each select="$inlinks">
@@ -510,23 +526,34 @@ REMARK: Describe this template
             <div class="title">
               <xsl:choose>
                 <xsl:when test="$revision/@status = 'stub'">
-                  <xsl:text>Stub</xsl:text>
+                  <xsl:call-template name="l10n.gettext">
+                    <xsl:with-param name="msgid" select="'Stub'"/>
+                  </xsl:call-template>
                 </xsl:when>
                 <xsl:when test="$revision/@status = 'incomplete'">
-                  <xsl:text>Incomplete</xsl:text>
+                  <xsl:call-template name="l10n.gettext">
+                    <xsl:with-param name="msgid" select="'Incomplete'"/>
+                   </xsl:call-template>
                 </xsl:when>
                 <xsl:when test="$revision/@status = 'draft'">
-                  <xsl:text>Draft</xsl:text>
+                  <xsl:call-template name="l10n.gettext">
+                    <xsl:with-param name="msgid" select="'Draft'"/>
+                  </xsl:call-template>
                 </xsl:when>
                 <xsl:when test="$revision/@status = 'review'">
-                  <xsl:text>Ready for review</xsl:text>
+                  <xsl:call-template name="l10n.gettext">
+                    <xsl:with-param name="msgid" select="'Ready for review'"/>
+                  </xsl:call-template>
                 </xsl:when>
                 <xsl:when test="$revision/@status = 'final'">
-                  <xsl:text>Final</xsl:text>
+                  <xsl:call-template name="l10n.gettext">
+                    <xsl:with-param name="msgid" select="'Final'"/>
+                  </xsl:call-template>
                 </xsl:when>
               </xsl:choose>
             </div>
             <p class="version">
+              <!-- FIXME: i18n -->
               <xsl:text>Version </xsl:text>
               <xsl:value-of select="$revision/@version"/>
               <xsl:text> on </xsl:text>
