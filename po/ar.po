@@ -1,25 +1,24 @@
 # translation of gnome-doc-utils.HEAD.po to Arabic
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) 2005 THE PACKAGE'S COPYRIGHT HOLDER, 2005.
-#
 # Djihed Afifi <djihed@gmail.com>, 2006.
-# Khaled Hosny <khaledhosny@eglug.org>, 2006, 2008.
+# Khaled Hosny <khaledhosny@eglug.org>, 2006, 2008, 2009.
 # Anas Husseini <linux.anas@gmail.com>, 2007.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils.HEAD\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"doc-utils&component=general\n"
-"POT-Creation-Date: 2009-03-17 01:12+0000\n"
-"PO-Revision-Date: 2008-08-03 15:31+0300\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2009-07-26 09:38+0300\n"
+"PO-Revision-Date: 2009-07-26 09:50+0300\n"
 "Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
+"Language: ar\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.11.4\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Generator: Virtaal 0.4.0-rc1\n"
 
 #.
 #. This is used as a list item seperator for inline lists of exactly two
@@ -111,13 +110,13 @@ msgstr "<msgid>appendix.digit</msgid> <msgstr>A</msgstr>"
 #.
 #: ../xslt/gettext/l10n.xml.in.h:74
 msgid ""
-"<msgid>appendix.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
-"msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Appendix "
-"<number/></msgstr>"
+"<msgid>appendix.label</msgid> <msgstr "
+"role='header'><number/>.&#x2003;</msgstr> <msgstr "
+"role='li'><number/>.&#x2002;</msgstr> <msgstr>Appendix <number/></msgstr>"
 msgstr ""
-"<msgid>appendix.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
-"msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>ملحق <number/"
-"></msgstr>"
+"<msgid>appendix.label</msgid> <msgstr "
+"role='header'><number/>.&#x2003;</msgstr> <msgstr "
+"role='li'><number/>.&#x2002;</msgstr> <msgstr>ملحق <number/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -189,8 +188,7 @@ msgstr "<msgid>appendix.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 #: ../xslt/gettext/l10n.xml.in.h:139
 msgid ""
 "<msgid>appendix.xref</msgid> <msgstr>Appendix <number/> ― <title/></msgstr>"
-msgstr ""
-"<msgid>appendix.xref</msgid> <msgstr>ملحق <number/> ― <title/></msgstr>"
+msgstr "<msgid>appendix.xref</msgid> <msgstr>ملحق <number/> ― <title/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -220,8 +218,8 @@ msgid ""
 "<msgid>biblioentry.tooltip</msgid> <msgstr>View the bibliography entry "
 "<label/>.</msgstr>"
 msgstr ""
-"<msgid>biblioentry.tooltip</msgid> <msgstr>اعرض عنصر المَراجِع <label/>.</"
-"msgstr>"
+"<msgid>biblioentry.tooltip</msgid> <msgstr>اعرض عنصر المَراجِع "
+"<label/>.</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -405,13 +403,13 @@ msgstr "<msgid>chapter.digit</msgid> <msgstr>1</msgstr>"
 #.
 #: ../xslt/gettext/l10n.xml.in.h:329
 msgid ""
-"<msgid>chapter.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
-"msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Chapter "
-"<number/></msgstr>"
+"<msgid>chapter.label</msgid> <msgstr "
+"role='header'><number/>.&#x2003;</msgstr> <msgstr "
+"role='li'><number/>.&#x2002;</msgstr> <msgstr>Chapter <number/></msgstr>"
 msgstr ""
-"<msgid>chapter.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
-"msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>فصل <number/></"
-"msgstr>"
+"<msgid>chapter.label</msgid> <msgstr "
+"role='header'><number/>.&#x2003;</msgstr> <msgstr "
+"role='li'><number/>.&#x2002;</msgstr> <msgstr>فصل <number/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -581,7 +579,7 @@ msgstr ""
 msgid ""
 "<msgid>email.tooltip</msgid> <msgstr>Send email to ‘<string/>’.</msgstr>"
 msgstr ""
-"<msgid>email.tooltip</msgid> <msgstr>ارسل رسالة إلى ‘<string/>’.</msgstr>"
+"<msgid>email.tooltip</msgid> <msgstr>أرسل رسالة إلى ‘<string/>’.</msgstr>"
 
 #.
 #. The number formatter used for example numbers.  This can be one of
@@ -1970,7 +1968,7 @@ msgstr "A:&#x2003;"
 #. Used for links to the titlepage.
 #: ../xslt/gettext/l10n.xml.in.h:1647
 msgid "About This Document"
-msgstr "حول هذا المستند"
+msgstr "عن هذا المستند"
 
 #.
 #. http://www.docbook.org/tdg/en/html/affiliation.html
@@ -1983,7 +1981,7 @@ msgstr "حول هذا المستند"
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1657
 msgid "Affiliation"
-msgstr "الإنتساب"
+msgstr "الانتساب"
 
 #. Used as a title for a bibliography.
 #: ../xslt/gettext/l10n.xml.in.h:1659
@@ -1996,7 +1994,7 @@ msgstr "المَراجِع"
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1664
 msgid "Caution"
-msgstr "إنتباه"
+msgstr "انتباه"
 
 #.
 #. http://www.docbook.org/tdg/en/html/colophon.html
@@ -2017,7 +2015,18 @@ msgstr "المحتويات"
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1676
 msgid "Dedication"
-msgstr "الإخلاص"
+msgstr "الإهداء"
+
+#.
+#. This is used as a descrpition for the status of the document.
+#. This will not be visibile to the users.
+#.
+#. Draft: the authors have written all the content, but they still need
+#. to clean up the language or markup.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1684
+msgid "Draft"
+msgstr "مسوّدة"
 
 #.
 #. http://www.docbook.org/tdg/en/html/affiliation.html
@@ -2028,31 +2037,58 @@ msgstr "الإخلاص"
 #. Shaun McCance
 #. Email: shaunm@gnome.org
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1686
+#: ../xslt/gettext/l10n.xml.in.h:1694
 msgid "Email"
 msgstr "البريد الإلكتروني"
+
+#.
+#. This is used as a descrpition for the status of the document.
+#. This will not be visibile to the users.
+#.
+#. Final: a senior member of the documentation team has reviewd the
+#. document and approved it.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1702
+msgid "Final"
+msgstr "نهائي"
+
+#. Automatic further reading section and links
+#: ../xslt/gettext/l10n.xml.in.h:1704
+msgid "Further Reading"
+msgstr "المزيد من المطالعات"
 
 #.
 #. http://www.docbook.org/tdg/en/html/glossary.html
 #. This is used as a default title for glossary elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1691
+#: ../xslt/gettext/l10n.xml.in.h:1709
 msgid "Glossary"
-msgstr "المَسْرَد"
+msgstr "مُسرَد"
 
 #.
 #. http://www.docbook.org/tdg/en/html/important.html
 #. This is used as a default title for important elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1696
+#: ../xslt/gettext/l10n.xml.in.h:1714
 msgid "Important"
 msgstr "مُهمّ"
+
+#.
+#. This is used as a descrpition for the status of the document.
+#. This will not be visibile to the users.
+#.
+#. Incomplete: the document has the basic structure in place, but the
+#. authors have not yet written all the content.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1722
+msgid "Incomplete"
+msgstr "غير مكتمل"
 
 #.
 #. http://www.docbook.org/tdg/en/html/index.html
 #. This is used as a default title for index elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1701
+#: ../xslt/gettext/l10n.xml.in.h:1727
 msgid "Index"
 msgstr "فهرس"
 
@@ -2060,15 +2096,20 @@ msgstr "فهرس"
 #. http://www.docbook.org/tdg/en/html/legalnotice.html
 #. This is used as a default title for legalnotice elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1706
+#: ../xslt/gettext/l10n.xml.in.h:1732
 msgid "Legal Notice"
 msgstr "ملاحظة قانونية"
+
+#. Automatic more about section and links
+#: ../xslt/gettext/l10n.xml.in.h:1734
+msgid "More About"
+msgstr "المزيد عن"
 
 #.
 #. http://www.docbook.org/tdg/en/html/refnamediv.html
 #. This is used as the title for refnamediv elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1711
+#: ../xslt/gettext/l10n.xml.in.h:1739
 msgid "Name"
 msgstr "الاسم"
 
@@ -2076,7 +2117,7 @@ msgstr "الاسم"
 #. http://www.docbook.org/tdg/en/html/note.html
 #. This is used as a default title for note elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1716
+#: ../xslt/gettext/l10n.xml.in.h:1744
 msgid "Note"
 msgstr "ملاحظة"
 
@@ -2084,9 +2125,9 @@ msgstr "ملاحظة"
 #. http://www.docbook.org/tdg/en/html/preface.html
 #. This is used as a default title for preface elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1721
+#: ../xslt/gettext/l10n.xml.in.h:1749
 msgid "Preface"
-msgstr "مقدّمة"
+msgstr "تقديم"
 
 #.
 #. http://www.docbook.org/tdg/en/html/qandaentry.html
@@ -2097,15 +2138,25 @@ msgstr "مقدّمة"
 #. the labelling style for a qandaset.  If the labelling style is set
 #. to 'qanda', this string will be used to label questions.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1731
+#: ../xslt/gettext/l10n.xml.in.h:1759
 msgid "Q:&#x2003;"
 msgstr "Q:&#x2003;"
+
+#.
+#. This is used as a descrpition for the status of the document.
+#. This will not be visibile to the users.
+#.
+#. Review: the authors consider the document complete.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1766
+msgid "Ready for review"
+msgstr "جاهز للمراجعة"
 
 #.
 #. http://www.docbook.org/tdg/en/html/revhistory.html
 #. This is used as a header before the revision history.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1736
+#: ../xslt/gettext/l10n.xml.in.h:1771
 msgid "Revision History"
 msgstr "تاريخ المراجعة"
 
@@ -2113,23 +2164,31 @@ msgstr "تاريخ المراجعة"
 #. Used for the <see> element.
 #. FIXME: this should be a format string.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1741
+#: ../xslt/gettext/l10n.xml.in.h:1776
 msgid "See"
 msgstr "انظر"
 
-#.
-#. Used for the <seealso> element.
-#. FIXME: this should be a format string.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1746
+#. Automatic see also section and links
+#: ../xslt/gettext/l10n.xml.in.h:1778
 msgid "See Also"
 msgstr "انظر أيضا"
+
+#.
+#. This is used as a descrpition for the status of the document.
+#. This will not be visibile to the users.
+#.
+#. Stub: the document has little or basic content, it may have been
+#. created by developers in order to have it included in the build.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1786
+msgid "Stub"
+msgstr "بذرة"
 
 #.
 #. http://www.docbook.org/tdg/en/html/refsynopsisdiv.html
 #. This is used as the default title for refsynopsisdiv elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1751
+#: ../xslt/gettext/l10n.xml.in.h:1791
 msgid "Synopsis"
 msgstr "تلخيص"
 
@@ -2137,25 +2196,25 @@ msgstr "تلخيص"
 #. http://www.docbook.org/tdg/en/html/tip.html
 #. This is used as a default title for tip elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1756
+#: ../xslt/gettext/l10n.xml.in.h:1796
 msgid "Tip"
-msgstr "تلميحة"
+msgstr "فائدة"
 
 #.
 #. http://www.docbook.org/tdg/en/html/warning.html
 #. This is used as a default title for warning elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1761
+#: ../xslt/gettext/l10n.xml.in.h:1801
 msgid "Warning"
 msgstr "تحذير"
 
 #.
 #. Translate to default:RTL if your language should be displayed
 #. right-to-left, otherwise translate to default:LTR.  Do *not*
-#. translate it to "predefinito:LTR", if it it isn't default:LTR
+#. translate it to "predefinito:LTR", if it isn't default:LTR
 #. or default:RTL it will not work
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1768
+#: ../xslt/gettext/l10n.xml.in.h:1808
 msgid "default:LTR"
 msgstr "default:RTL"
 
@@ -2186,6 +2245,6 @@ msgstr "default:RTL"
 #. once found inside Yelp.  The watermark functionality has been moved to
 #. gnome-doc-utils.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1796
+#: ../xslt/gettext/l10n.xml.in.h:1836
 msgid "watermark-blockquote-201C.png"
-msgstr "watermark-blockquote-201C.png"
+msgstr "watermark-blockquote-201D.png"
