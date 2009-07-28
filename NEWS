@@ -1,3 +1,17 @@
+Changes in 0.17.3:
+------------------
+* Added initial work on a Mallard xml2po mode (Shaun McCance)
+* Internationalization work on Mallard stylesheets (Milo Casagrande)
+* Fixed example in Mallard document (Baptiste Mille-Mathias)
+* Preserve exiting PYTHONPATH in bootstrap (David Adam)
+* Addressed RTL issues in Mallard stylesheets (Shaun McCance)
+* Updated translations:
+  ar      (Khaled Hosny)
+  de      (Mario Blättermann)
+  et      (Ivar Smolin)
+  pt_BR   (Leonardo Ferreira Fontenelle)
+  sv      (Daniel Nylander)
+
 Changes in 0.17.2:
 ------------------
 * Added build magic for Mallard documents
