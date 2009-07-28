@@ -304,6 +304,8 @@ def isFinalNode(node):
             auto = not autoNodeIsFinal(parent)
             parent = parent.parent
         return auto
+    if CurrentXmlMode and hasattr(CurrentXmlMode, 'isFinalNode'):
+        return CurrentXmlMode.isFinalNode(node)
     #node.type =='text' or not node.children or
     if node.type == 'element' and node.name in ultimate_tags:
         return 1

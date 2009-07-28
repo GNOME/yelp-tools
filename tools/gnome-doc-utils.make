@@ -131,6 +131,7 @@ _DOC_ABS_SRCDIR = @abs_srcdir@
 ## Variables for Bootstrapping
 
 _xml2po ?= `which xml2po`
+_xml2po_mode = $(if $(DOC_ID),mallard,docbook)
 
 _db2html ?= `$(PKG_CONFIG) --variable db2html gnome-doc-utils`
 _db2omf  ?= `$(PKG_CONFIG) --variable db2omf gnome-doc-utils`
@@ -319,16 +320,16 @@ $(_DOC_POFILES):
 	done; \
 	if ! test -f $@; then \
 	  echo "(cd $(dir $@) && \
-	    $(_xml2po) -e $$docs > $(notdir $@).tmp && \
+	    $(_xml2po) -m $(_xml2po_mode) -e $$docs > $(notdir $@).tmp && \
 	    cp $(notdir $@).tmp $(notdir $@) && rm -f $(notdir $@).tmp)"; \
 	  (cd $(dir $@) && \
-	    $(_xml2po) -e $$docs > $(notdir $@).tmp && \
+	    $(_xml2po) -m $(_xml2po_mode) -e $$docs > $(notdir $@).tmp && \
 	    cp $(notdir $@).tmp $(notdir $@) && rm -f $(notdir $@).tmp); \
 	else \
 	  echo "(cd $(dir $@) && \
-	    $(_xml2po) -e -u $(notdir $@) $$docs)"; \
+	    $(_xml2po) -m $(_xml2po_mode) -e -u $(notdir $@) $$docs)"; \
 	  (cd $(dir $@) && \
-	    $(_xml2po) -e -u $(notdir $@) $$docs); \
+	    $(_xml2po) -m $(_xml2po_mode) -e -u $(notdir $@) $$docs); \
 	fi
 
 # FIXME: fix the dependancy
@@ -340,7 +341,7 @@ $(_DOC_LC_DOCS) : $(_DOC_C_DOCS)
 	po="$(dir $@)$(patsubst %/$(notdir $@),%,$@).po"; \
 	if [ -f "$${po}" ]; then po="../$${po}"; else po="$(_DOC_ABS_SRCDIR)/$${po}"; fi; \
 	(cd $(dir $@) && \
-	  $(_xml2po) -e -p "$${po}" \
+	  $(_xml2po) -m $(_xml2po_mode) -e -p "$${po}" \
 	    "$${d}C/$(notdir $@)" > $(notdir $@).tmp && \
 	    cp $(notdir $@).tmp $(notdir $@) && rm -f $(notdir $@).tmp)
 
@@ -350,7 +351,7 @@ _DOC_POT = $(if $(DOC_MODULE),$(DOC_MODULE).pot)
 .PHONY: pot
 pot: $(_DOC_POT)
 $(_DOC_POT): $(_DOC_C_DOCS_NOENT)
-	$(_xml2po) -e -o $@ $^
+	$(_xml2po) -m $(_xml2po_mode) -e -o $@ $^
 
 
 ################################################################################

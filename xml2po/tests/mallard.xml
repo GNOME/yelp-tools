@@ -1,0 +1,142 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide"
+      id="index">
+
+<info>
+  <copyright>
+    <year>2009</year>
+    <name>Drake Mallard</name>
+  </copyright>
+
+  <credit type="author">Drake Mallard</credit>
+
+  <link type="topic" xref="drake"/>
+
+  <title type="link">Drake the Mallard</title>
+</info>
+
+<title>Drake Mallard</title>
+
+<p>This is a paragraph with <app>application</app>, <cmd>command</cmd>, <code>code</code>,
+<em>emphasis</em>, <file>file name</file>, <gui>interface element</gui>, <input>user input</input>,
+<key>keyboard key</key>, <link xref="drake">link</link>, <output>computer output</output>,
+<span>span</span>, <sys>system item</sys>, and <var>variable</var> inline elements.</p>
+
+<p>Here is a key sequence: <keyseq><key>Ctrl</key><key>A</key></keyseq>.
+Here is a gui sequence: <guiseq><gui>File</gui><gui>New</gui></guiseq>.</p>
+
+<p>Here is inline media: <media type="image" mime="image/png" src="drake.png"/></p>
+
+<code>
+SMALL
+<span>BLOCK</span>
+OF
+<code>CODE</code>
+</code>
+
+<example>
+  <p>First example paragraph</p>
+  <p>Second example paragraph</p>
+</example>
+
+<p>Block media should follow:</p>
+
+<media type="image" mime="image/png" src="drake.png"/>
+
+<screen>
+This is a screen /
+It has a <cmd>command</cmd>
+</screen>
+
+<comment>
+  <title>Comment</title>
+  <cite>Drake</cite>
+  <p>Drake makes a comment!</p>
+</comment>
+
+<figure>
+  <title>Figure</title>
+  <desc>Here is a figure</desc>
+  <p>A paragraph in a figure?  How odd.</p>
+</figure>
+
+<listing>
+  <title>Listing</title>
+  <desc>Here is a listing</desc>
+  <p>A paragraph in a listing?  How odd.</p>
+</listing>
+
+<note>
+  <title>Note</title>
+  <p>This is the text of a note.</p>
+</note>
+
+<quote>
+  <title>Quote</title>
+  <cite>Drake</cite>
+  <p>Quack</p>
+</quote>
+
+<synopsis>
+  <title>Synopsis</title>
+  <desc>A synopsis with code</desc>
+  <code>
+    fe
+    fi
+    fo
+    fum
+  </code>
+</synopsis>
+
+<list>
+  <title>List Title</title>
+  <item><p>List 1</p></item>
+  <item><p>List 2</p></item>
+  <item><p>List 3.0</p><p>List 3.5</p></item>
+</list>
+
+<steps>
+  <title>Steps Title</title>
+  <item><p>Step 1</p></item>
+  <item><p>Step 2.0</p><p>Step 2.5</p></item>
+  <item><p>Step 3</p></item>
+</steps>
+
+<terms>
+  <title>Terms Title</title>
+  <item>
+    <title>Term One</title>
+    <p>Def One</p>
+  </item>
+  <item>
+    <title>Term Two</title>
+    <p>Def Two</p>
+  </item>
+</terms>
+
+<section id="tables">
+  <info>
+  </info>
+  <title>Tables</title>
+
+  <table frame="all" rules="rows">
+    <tr>
+      <td><p>Mallard</p></td>  <td><p>Anas platyrhynchos</p></td>
+      <td><p>56-65 cm</p></td> <td><p>900-1200 g</p></td>
+    </tr>
+    <tr>
+      <td><p>Eurasian Wigeon</p></td> <td><p>Anas penelope</p></td>
+      <td><p>45-50 cm</p></td>        <td><p>680 g</p></td>
+    </tr>
+    <tr>
+      <td><p>Common Teal</p></td>     <td><p>Anas crecca</p></td>
+      <td><p>34-43 cm</p></td>        <td><p>360 g</p></td>
+    </tr>
+    <tr>
+      <td><p>Northern Pintail</p></td> <td><p>Anas acuta</p></td>
+      <td><p>59-76 cm</p></td>         <td><p>450-1360 g</p></td>
+    </tr>
+  </table>
+</section>
+
+</page>
