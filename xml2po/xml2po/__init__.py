@@ -151,6 +151,7 @@ class XMLDocument(object):
             raise Exception("Error: I tried to open '%s' but got '%s' -- how did that happen?" % (filename, self.doc.name))
         if self.app.msg:
             self.app.msg.setFilename(filename)
+        self.isFinalNode = self.app.current_mode.isFinalNode
 
     def generate_messages(self):
         self.app.msg.setFilename(self.doc.name)
@@ -286,21 +287,6 @@ class XMLDocument(object):
         if not node:
             return False
         return node.name
-
-    def isFinalNode(self, node):
-        #node.type =='text' or not node.children or
-        if node.type == 'element' and node.name in self.app.current_mode.getFinalTags():
-            return True
-        elif node.children:
-            final_children = True
-            child = node.children
-            while child and final_children:
-                if not child.isBlankNode() and child.type != 'comment' and not self.isFinalNode(child):
-                    final_children = False
-                child = child.next
-            if final_children:
-                return True
-        return False
 
     def ignoreNode(self, node):
         if self.isFinalNode(node):

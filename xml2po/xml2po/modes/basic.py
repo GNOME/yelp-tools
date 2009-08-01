@@ -32,6 +32,21 @@ class basicXmlMode:
                 'date', 'itemizedlist', 'orderedlist',
                 'variablelist', 'varlistentry', 'term']
 
+    def isFinalNode(self, node):
+        #node.type =='text' or not node.children or
+        if node.type == 'element' and node.name in self.getFinalTags():
+            return True
+        elif node.children:
+            final_children = True
+            child = node.children
+            while child and final_children:
+                if not child.isBlankNode() and child.type != 'comment' and not self.isFinalNode(child):
+                    final_children = False
+                child = child.next
+            if final_children:
+                return True
+        return False
+
     def getSpacePreserveTags(self):
         "Returns array of tags in which spaces are to be preserved."
         return []
