@@ -20,6 +20,3 @@ class ubuntuXmlMode (docbookXmlMode):
         except:
             newent = doc.addDocEntity('language', libxml2.XML_INTERNAL_GENERAL_ENTITY, None, None, language)
 
-        
-
-        

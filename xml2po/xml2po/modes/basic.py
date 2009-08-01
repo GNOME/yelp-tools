@@ -17,57 +17,49 @@
 # 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #
 
-# Special case Gnome Summary
+# Basic default class; inherit from it to construct other special-handling classes
 #
 
-from basic import basicXmlMode
-
-class gsXmlMode(basicXmlMode):
+class basicXmlMode:
     """Abstract class for special handling of document types."""
     def getIgnoredTags(self):
         "Returns array of tags to be ignored."
-        return [ 'link', 'bug-stats', 'cvs-stats', 'unixname' ]
+        return ['itemizedlist', 'orderedlist', 'variablelist', 'varlistentry']
 
     def getFinalTags(self):
         "Returns array of tags to be considered 'final'."
-        return ['title', 'para', 'name', 'desc' ]
+        return ['para', 'title', 'releaseinfo', 'revnumber',
+                'date', 'itemizedlist', 'orderedlist',
+                'variablelist', 'varlistentry', 'term']
 
-    def _find_salute(self, node):
-        if node.name == 'salute':
-            return node
-        child = node.children
-        while child:
-            ret = self._find_salute(child)
-            if ret:
-                return ret
-            child = child.next
-        return None
+    def getSpacePreserveTags(self):
+        "Returns array of tags in which spaces are to be preserved."
+        return []
+
+    def getTreatedAttributes(self):
+        "Returns array of tag attributes which content is to be translated"
+        return []
+
+    def preProcessXml(self, doc, msg):
+        "Preprocess a document and perhaps adds some messages."
+        pass
 
     def postProcessXmlTranslation(self, doc, language, translators):
         """Sets a language and translators in "doc" tree.
-        
+
         "translators" is a string consisted of translator credits.
         "language" is a simple string.
         "doc" is a libxml2.xmlDoc instance."""
-        # Find "salute" tag and add a comment about translator.
-        if translators == self.getStringForTranslators():
-            return
-        else:
-            salute = self._find_salute(doc.getRootElement())
-            if salute and salute.name=='salute':
-                # found
-                salute.newChild(None, "para", translators)
-            else:
-                return
+        pass
 
     def getStringForTranslators(self):
         """Returns None or a string to be added to PO files.
 
         Common example is 'translator-credits'."""
-        return "translator-credits"
+        return None
 
     def getCommentForTranslators(self):
         """Returns a comment to be added next to string for crediting translators.
 
         It should explain the format of the string provided by getStringForTranslators()."""
-        return """Translators: enter a short paragraph creditting yourself and others who helped you with the translation."""
+        return None
