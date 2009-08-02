@@ -475,9 +475,9 @@ class XMLDocument(object):
                 node.setLang('C')
 
         if restart or worth:
-            for i, repl in enumerate(myrepl, 1):
+            for i, repl in enumerate(myrepl):
                 replacement = '<%s>%s</%s>' % (repl[0], repl[3], repl[2])
-                translation = translation.replace('<placeholder-%d/>' % i, replacement)
+                translation = translation.replace('<placeholder-%d/>' % (i+1), replacement)
 
             if worth:
                 if self.app.operation == 'merge':
