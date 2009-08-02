@@ -1,3 +1,5 @@
+AUTOMAKE_OPTIONS = -Wno-portability
+
 include $(top_srcdir)/tools/gnome-doc-utils.make
 include $(top_srcdir)/bootstrap.make
 dist-hook: doc-dist-hook
@@ -44,8 +46,10 @@ DOC_PAGES =				\
 	mal_info_copyright.page		\
 	mal_info_credit.page		\
 	mal_info_desc.page		\
+	mal_info_email.page		\
 	mal_info_license.page		\
 	mal_info_link.page		\
+	mal_info_name.page		\
 	mal_info.page			\
 	mal_info_revision.page		\
 	mal_info_title.page		\

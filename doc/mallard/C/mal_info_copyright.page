@@ -27,10 +27,11 @@
 mal_info_copyright = element copyright {
   attribute * - (mal:* | local:*) { text } *,
 
-  ( element year { text } +
-  &amp; element name { <link xref="mal_inline">mal_inline</link> }
-  &amp; element email { <link xref="mal_inline">mal_inline</link> } ?
-  &amp; element * - (mal:* | local:*) { mal_inline } *
+  (
+    element year { text } + &amp;
+    <link xref="mal_info_name">mal_info_name</link> &amp;
+    <link xref="mal_info_email">mal_info_email</link> ? &amp;
+    element * - (mal:* | local:*) { mal_inline } *
   )
 }
 </code></synopsis>

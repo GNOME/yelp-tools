@@ -8,7 +8,7 @@
   <revision version="0.1" date="2008-02-21" status="stub"/>
 </info>
 
-<title>Page Information</title>
+<title>Informational Elements</title>
 
 <synopsis><code mime="application/relax-ng-compact-syntax">
 mal_info = element info {
@@ -49,5 +49,14 @@ link (guide/page/seealso)
   <title>Informational Elements</title>
 </section>
 <!-- END elements -->
+
+<!-- BEGIN additional -->
+<section id="additional">
+  <info>
+    <title type="link">Additional Informational Elements</title>
+  </info>
+  <title>Additional Elements</title>
+</section>
+<!-- END additional -->
 
 </page>
