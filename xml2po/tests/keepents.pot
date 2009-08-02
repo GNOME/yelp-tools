@@ -9,12 +9,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: keepents.xml:6(title) 
+#: keepents.xml:6(title)
 msgid "&language; is best language!"
 msgstr ""
 
 #. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
-#: keepents.xml:0(None) 
+#: keepents.xml:0(None)
 msgid "translator-credits"
 msgstr ""
 

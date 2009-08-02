@@ -9,16 +9,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: attribute-entities.xml:2(a) 
+#: attribute-entities.xml:2(a)
 msgid "test"
 msgstr ""
 
-#: attribute-entities.xml:2(p) 
+#: attribute-entities.xml:2(p)
 msgid "This is just a <placeholder-1/>."
 msgstr ""
 
 #. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
-#: attribute-entities.xml:0(None) 
+#: attribute-entities.xml:0(None)
 msgid "translator-credits"
 msgstr ""
 

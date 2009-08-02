@@ -9,24 +9,24 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: xhtml.xml:4(title) 
+#: xhtml.xml:4(title)
 msgid "Sample XHTML page"
 msgstr ""
 
-#: xhtml.xml:6(p) 
+#: xhtml.xml:6(p)
 msgid "This is just an example."
 msgstr ""
 
-#: xhtml.xml:9(img:title) 
+#: xhtml.xml:9(img:title)
 msgid "Lovely image"
 msgstr ""
 
-#: xhtml.xml:9(img:alt) 
+#: xhtml.xml:9(img:alt)
 msgid "Image of nothing"
 msgstr ""
 
 #. Here nothing but a paragraph should be extracted.
-#: xhtml.xml:12(p) 
+#: xhtml.xml:12(p)
 msgid "Enough for a test, if you ask <a href=\"mailto:danilo\" title=\"Danilo\">me personally</a>."
 msgstr ""
 

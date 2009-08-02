@@ -9,20 +9,20 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: adjacent-ents.xml:8(title) 
+#: adjacent-ents.xml:8(title)
 msgid "&suselinux; &suse-version; Release Notes"
 msgstr ""
 
-#: adjacent-ents.xml:9(para) 
+#: adjacent-ents.xml:9(para)
 msgid "<application>SUSE Linux</application> &suse-version; is ..."
 msgstr ""
 
-#: adjacent-ents.xml:10(para) 
+#: adjacent-ents.xml:10(para)
 msgid "&suselinux; <application>&suse-version;</application> is ..."
 msgstr ""
 
 #. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
-#: adjacent-ents.xml:0(None) 
+#: adjacent-ents.xml:0(None)
 msgid "translator-credits"
 msgstr ""
 

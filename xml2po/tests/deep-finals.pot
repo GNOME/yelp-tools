@@ -9,16 +9,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: deep-finals.xml:2(para) 
+#: deep-finals.xml:2(para)
 msgid "beautiful"
 msgstr ""
 
-#: deep-finals.xml:2(para) 
+#: deep-finals.xml:2(para)
 msgid "Something <something>nice and <placeholder-1/></something> ha!"
 msgstr ""
 
 #. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
-#: deep-finals.xml:0(None) 
+#: deep-finals.xml:0(None)
 msgid "translator-credits"
 msgstr ""
 

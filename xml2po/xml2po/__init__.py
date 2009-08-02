@@ -124,7 +124,7 @@ msgstr ""
             references = ""
             for reference in self.linenos[k]:
                 references += "%s:%d(%s) " % (reference[0], reference[2], reference[1])
-            out.write("#: %s\n" % (references))
+            out.write("#: %s\n" % (references.strip()))
             if k in self.nowrap and self.nowrap[k]:
                 out.write("#, no-wrap\n")
             out.write("msgid \"%s\"\n" % (k))
