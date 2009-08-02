@@ -567,7 +567,7 @@ class Main(object):
                 sys.exit(1)
             else:
                 sys.stderr.write("Unable to load mode '%s'. Falling back to 'basic' mode with automatic detection (-a).\n" % modename)
-                return load_mode('basic')
+                return self.load_mode('basic')
 
     def to_pot(self, xmlfiles):
         """ Produce a pot file from the list of 'xmlfiles' """
