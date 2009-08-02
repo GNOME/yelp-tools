@@ -1,0 +1,270 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: mallard test\n"
+"POT-Creation-Date: 2009-08-02 22:14+0200\n"
+"PO-Revision-Date: 2009-08-02 22:24+0200\n"
+"Last-Translator: Claude <email@address>\n"
+"Language-Team: French <fr@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. When image changes, this message will be marked fuzzy or untranslated for you.
+#. It doesn't matter what you translate it to: it's not used at all.
+#: mallard.xml:28(None) mallard.xml:44(None) 
+msgid "@@image: 'drake.png'; md5=THIS FILE DOESN'T EXIST"
+msgstr "@@image: 'drake.png'; md5=THIS FILE DOESN'T EXIST"
+
+#: mallard.xml:7(year) 
+msgid "2009"
+msgstr "2009"
+
+#: mallard.xml:8(name) mallard.xml:11(credit) mallard.xml:18(title) 
+msgid "Drake Mallard"
+msgstr "Drake Mallard"
+
+#: mallard.xml:15(title) 
+msgid "Drake the Mallard"
+msgstr "Drake le Mallard"
+
+#: mallard.xml:20(p) 
+msgid "This is a paragraph with <app>application</app>, <cmd>command</cmd>, <code>code</code>, <em>emphasis</em>, <file>file name</file>, <gui>interface element</gui>, <input>user input</input>, <key>keyboard key</key>, <link xref=\"drake\">link</link>, <output>computer output</output>, <span>span</span>, <sys>system item</sys>, and <var>variable</var> inline elements."
+msgstr "Ceci est un paragraphe contenant des éléments en ligne <app>application</app>, <cmd>commande</cmd>, <code>code</code>, <em>mise en évidence</em>, <file>nom de fichier</file>, <gui>élément d'interface</gui>, <input>saisie d'utilisateur</input>, <key>touche de clavier</key>, <link xref=\"drake\">lien</link>, <output>sortie d'ordinateur</output>, <span>span</span>, <sys>élément système</sys> et <var>variable</var>."
+
+#: mallard.xml:25(p) 
+msgid "Here is a key sequence: <keyseq><key>Ctrl</key><key>A</key></keyseq>. Here is a gui sequence: <guiseq><gui>File</gui><gui>New</gui></guiseq>."
+msgstr "Voici une suite de touches : <keyseq><key>Ctrl</key><key>A</key></keyseq>. Voici une suite de l'interface utilisateur : <guiseq><gui>Fichier</gui><gui>Nouveau</gui></guiseq>."
+
+#: mallard.xml:28(p) 
+msgid "Here is inline media: <media type=\"image\" mime=\"image/png\" src=\"drake.png\"/>"
+msgstr "Voici un média en ligne : <media type=\"image\" mime=\"image/png\" src=\"drake.png\"/>"
+
+#: mallard.xml:32(span) 
+msgid "BLOCK"
+msgstr "BLOC"
+
+#: mallard.xml:34(code) 
+#, no-wrap
+msgid "CODE"
+msgstr "CODE"
+
+#: mallard.xml:30(code) 
+#, no-wrap
+msgid "\nSMALL\n<placeholder-1/>\nOF\n<placeholder-2/>\n"
+msgstr "\nPETIT\n<placeholder-1/>\nDE\n<placeholder-2/>\n"
+
+#: mallard.xml:38(p) 
+msgid "First example paragraph"
+msgstr "Premier paragraphe exemple"
+
+#: mallard.xml:39(p) 
+msgid "Second example paragraph"
+msgstr "Deuxième paragraphe exemple"
+
+#: mallard.xml:42(p) 
+msgid "Block media should follow:"
+msgstr "Un média « bloc » devrait suivre :"
+
+#: mallard.xml:46(screen) 
+#, no-wrap
+msgid "\nThis is a screen /\nIt has a <cmd>command</cmd>\n"
+msgstr "\nVoici un affichage écran /\nIl contient une <cmd>commande</cmd>\n"
+
+#: mallard.xml:52(title) 
+msgid "Comment"
+msgstr "Commentaire"
+
+#: mallard.xml:53(cite) mallard.xml:76(cite) 
+msgid "Drake"
+msgstr "Drake"
+
+#: mallard.xml:54(p) 
+msgid "Drake makes a comment!"
+msgstr "Drake effectue un commentaire !"
+
+#: mallard.xml:58(title) 
+msgid "Figure"
+msgstr "Figure"
+
+#: mallard.xml:59(desc) 
+msgid "Here is a figure"
+msgstr "Voici une figure"
+
+#: mallard.xml:60(p) 
+msgid "A paragraph in a figure? How odd."
+msgstr "Un paragraphe dans une figure ? Bizarre."
+
+#: mallard.xml:64(title) 
+msgid "Listing"
+msgstr "Liste"
+
+#: mallard.xml:65(desc) 
+msgid "Here is a listing"
+msgstr "Voici une liste"
+
+#: mallard.xml:66(p) 
+msgid "A paragraph in a listing? How odd."
+msgstr "Un paragraphe dans une liste ? Bizarre."
+
+#: mallard.xml:70(title) 
+msgid "Note"
+msgstr "Note"
+
+#: mallard.xml:71(p) 
+msgid "This is the text of a note."
+msgstr "Ceci est le texte d'une note."
+
+#: mallard.xml:75(title) 
+msgid "Quote"
+msgstr "Citation"
+
+#: mallard.xml:77(p) 
+msgid "Quack"
+msgstr "Quack"
+
+#: mallard.xml:81(title) 
+msgid "Synopsis"
+msgstr "Synopsis"
+
+#: mallard.xml:82(desc) 
+msgid "A synopsis with code"
+msgstr "Un synopsis avec du code"
+
+#: mallard.xml:83(code) 
+#, no-wrap
+msgid "\n    fe\n    fi\n    fo\n    fum\n  "
+msgstr "\n    fe\n    fi\n    fo\n    fum\n  "
+
+#: mallard.xml:92(title) 
+msgid "List Title"
+msgstr "Titre de liste"
+
+#: mallard.xml:93(p) 
+msgid "List 1"
+msgstr "Liste 1"
+
+#: mallard.xml:94(p) 
+msgid "List 2"
+msgstr "Liste 2"
+
+#: mallard.xml:95(p) 
+msgid "List 3.0"
+msgstr "Liste 3,0"
+
+#: mallard.xml:95(p) 
+msgid "List 3.5"
+msgstr "Liste 3,5"
+
+#: mallard.xml:99(title) 
+msgid "Steps Title"
+msgstr "Titre de procédures"
+
+#: mallard.xml:100(p) 
+msgid "Step 1"
+msgstr "Étape 1"
+
+#: mallard.xml:101(p) 
+msgid "Step 2.0"
+msgstr "Étape 2,0"
+
+#: mallard.xml:101(p) 
+msgid "Step 2.5"
+msgstr "Étape 2,5"
+
+#: mallard.xml:102(p) 
+msgid "Step 3"
+msgstr "Étape 3"
+
+#: mallard.xml:106(title) 
+msgid "Terms Title"
+msgstr "Titre de définition"
+
+#: mallard.xml:108(title) 
+msgid "Term One"
+msgstr "Premier terme"
+
+#: mallard.xml:109(p) 
+msgid "Def One"
+msgstr "Première définition"
+
+#: mallard.xml:112(title) 
+msgid "Term Two"
+msgstr "Deuxième terme"
+
+#: mallard.xml:113(p) 
+msgid "Def Two"
+msgstr "Deuxième définition"
+
+#: mallard.xml:120(title) 
+msgid "Tables"
+msgstr "Tableaux"
+
+#: mallard.xml:124(p) 
+msgid "Mallard"
+msgstr "Mallard"
+
+#: mallard.xml:124(p) 
+msgid "Anas platyrhynchos"
+msgstr "Anas platyrhynchos"
+
+#: mallard.xml:125(p) 
+msgid "56-65 cm"
+msgstr "56-65 cm"
+
+#: mallard.xml:125(p) 
+msgid "900-1200 g"
+msgstr "900-1200 g"
+
+#: mallard.xml:128(p) 
+msgid "Eurasian Wigeon"
+msgstr "Canard siffleur"
+
+#: mallard.xml:128(p) 
+msgid "Anas penelope"
+msgstr "Anas penelope"
+
+#: mallard.xml:129(p) 
+msgid "45-50 cm"
+msgstr "45-50 cm"
+
+#: mallard.xml:129(p) 
+msgid "680 g"
+msgstr "680 g"
+
+#: mallard.xml:132(p) 
+msgid "Common Teal"
+msgstr "Sarcelle d'hiver"
+
+#: mallard.xml:132(p) 
+msgid "Anas crecca"
+msgstr "Anas crecca"
+
+#: mallard.xml:133(p) 
+msgid "34-43 cm"
+msgstr "34-43 cm"
+
+#: mallard.xml:133(p) 
+msgid "360 g"
+msgstr "360 g"
+
+#: mallard.xml:136(p) 
+msgid "Northern Pintail"
+msgstr "Canard pilet"
+
+#: mallard.xml:136(p) 
+msgid "Anas acuta"
+msgstr "Anas acuta"
+
+#: mallard.xml:137(p) 
+msgid "59-76 cm"
+msgstr "59-76 cm"
+
+#: mallard.xml:137(p) 
+msgid "450-1360 g"
+msgstr "450-1360 g"
+
+#. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
+#: mallard.xml:0(None) 
+msgid "translator-credits"
+msgstr "Claude Paroz <adresse@email>"
+

@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="guide" id="index">
+
+<info>
+  <copyright>
+    <year>2009</year>
+    <name>Drake Mallard</name>
+  </copyright>
+
+  <credit type="author">Drake Mallard</credit>
+
+  <link type="topic" xref="drake"/>
+
+  <title type="link">Drake le Mallard</title>
+</info>
+
+<title>Drake Mallard</title>
+
+<p>Ceci est un paragraphe contenant des éléments en ligne <app>application</app>, <cmd>commande</cmd>, <code>code</code>, <em>mise en évidence</em>, <file>nom de fichier</file>, <gui>élément d'interface</gui>, <input>saisie d'utilisateur</input>, <key>touche de clavier</key>, <link xref="drake">lien</link>, <output>sortie d'ordinateur</output>, <span>span</span>, <sys>élément système</sys> et <var>variable</var>.</p>
+
+<p>Voici une suite de touches : <keyseq><key>Ctrl</key><key>A</key></keyseq>. Voici une suite de l'interface utilisateur : <guiseq><gui>Fichier</gui><gui>Nouveau</gui></guiseq>.</p>
+
+<p>Voici un média en ligne : <media type="image" mime="image/png" src="drake.png"/></p>
+
+<code>
+PETIT
+<span>BLOC</span>
+DE
+<code>CODE</code>
+</code>
+
+<example>
+  <p>Premier paragraphe exemple</p>
+  <p>Deuxième paragraphe exemple</p>
+</example>
+
+<p>Un média « bloc » devrait suivre :</p>
+
+<media type="image" mime="image/png" src="drake.png"/>
+
+<screen>
+Voici un affichage écran /
+Il contient une <cmd>commande</cmd>
+</screen>
+
+<comment>
+  <title>Commentaire</title>
+  <cite>Drake</cite>
+  <p>Drake effectue un commentaire !</p>
+</comment>
+
+<figure>
+  <title>Figure</title>
+  <desc>Voici une figure</desc>
+  <p>Un paragraphe dans une figure ? Bizarre.</p>
+</figure>
+
+<listing>
+  <title>Liste</title>
+  <desc>Voici une liste</desc>
+  <p>Un paragraphe dans une liste ? Bizarre.</p>
+</listing>
+
+<note>
+  <title>Note</title>
+  <p>Ceci est le texte d'une note.</p>
+</note>
+
+<quote>
+  <title>Citation</title>
+  <cite>Drake</cite>
+  <p>Quack</p>
+</quote>
+
+<synopsis>
+  <title>Synopsis</title>
+  <desc>Un synopsis avec du code</desc>
+  <code>
+    fe
+    fi
+    fo
+    fum
+  </code>
+</synopsis>
+
+<list>
+  <title>Titre de liste</title>
+  <item><p>Liste 1</p></item>
+  <item><p>Liste 2</p></item>
+  <item><p>Liste 3,0</p><p>Liste 3,5</p></item>
+</list>
+
+<steps>
+  <title>Titre de procédures</title>
+  <item><p>Étape 1</p></item>
+  <item><p>Étape 2,0</p><p>Étape 2,5</p></item>
+  <item><p>Étape 3</p></item>
+</steps>
+
+<terms>
+  <title>Titre de définition</title>
+  <item>
+    <title>Premier terme</title>
+    <p>Première définition</p>
+  </item>
+  <item>
+    <title>Deuxième terme</title>
+    <p>Deuxième définition</p>
+  </item>
+</terms>
+
+<section id="tables">
+  <info>
+  </info>
+  <title>Tableaux</title>
+
+  <table frame="all" rules="rows">
+    <tr>
+      <td><p>Mallard</p></td>  <td><p>Anas platyrhynchos</p></td>
+      <td><p>56-65 cm</p></td> <td><p>900-1200 g</p></td>
+    </tr>
+    <tr>
+      <td><p>Canard siffleur</p></td> <td><p>Anas penelope</p></td>
+      <td><p>45-50 cm</p></td>        <td><p>680 g</p></td>
+    </tr>
+    <tr>
+      <td><p>Sarcelle d'hiver</p></td>     <td><p>Anas crecca</p></td>
+      <td><p>34-43 cm</p></td>        <td><p>360 g</p></td>
+    </tr>
+    <tr>
+      <td><p>Canard pilet</p></td> <td><p>Anas acuta</p></td>
+      <td><p>59-76 cm</p></td>         <td><p>450-1360 g</p></td>
+    </tr>
+  </table>
+</section>
+
+</page>
