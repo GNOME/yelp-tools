@@ -15,4 +15,5 @@ xml2po_DATA = \
 	__init__.py
 
 EXTRA_DIST = \
+	$(xml2po_DATA) \
 	xml2po.py.in
