@@ -175,6 +175,7 @@ div.linktrail {
     <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
 }
 
+table.twocolumn { width: 100%; }
 td.twocolumnleft { width: 48%; vertical-align: top; padding: 0; margin: 0; }
 td.twocolumnright {
   width: 52%; vertical-align: top;
