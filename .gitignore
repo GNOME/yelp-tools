@@ -1,3 +1,4 @@
+*~
 .xml2po.mo
 INSTALL
 Makefile
@@ -14,3 +15,8 @@ intltool-extract.in
 intltool-merge.in
 intltool-update.in
 missing
+sandbox/mallard/html/mallard.cache
+sandbox/mallard/html/*.html
+sandbox/mallard/html/*.png
+sandbox/mallard/html/*.xhtml
+sandbox/mallard/html/figures/*.png
