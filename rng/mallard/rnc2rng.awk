@@ -1,5 +1,5 @@
 #!/bin/awk
-# -*- indent-tabs-mode: nil -*-
+# -*- indent-tabs-mode: nil; c-basic-offset: 2 -*-
 # rnc2rng.awk - Convert RELAX NG Compact Syntax to XML Syntax
 # Copyright (C) 2007 Shaun McCance <shaunm@gnome.org>
 #
@@ -34,11 +34,13 @@
 
 function parse_pattern (line) {
   sub(/^ */, "", line)
+  if (length(line) == 0) return;
   c = substr(line, 1, 1);
   if (c == "(" || c == "{") {
     stack[++stack_i] = substr(line, 1, 1);
     paren[++paren_i] = stack_i;
-    parse_pattern(substr(line, 2));
+    if (length(line) >= 2)
+      parse_pattern(substr(line, 2));
   }
   else if (c == ")" || c == "}") {
     open = stack[paren[paren_i]];
@@ -75,7 +77,7 @@ function parse_pattern (line) {
     paren_i--;
 
     if (oc == "{}") {
-      if (substr(stack[stack_i - 1], 1, 8) == "<element") {
+      if (match(stack[stack_i - 1], "^<element")) {
         tmp = stack[stack_i - 1] "\n";
         if (stack[stack_i] != "") {
           tmp = tmp stack[stack_i] "\n";
@@ -85,7 +87,7 @@ function parse_pattern (line) {
         tmp = tmp "</element>";
         stack[--stack_i] = tmp;
       }
-      else if (substr(stack[stack_i - 1], 1, 10) == "<attribute") {
+      else if (match(stack[stack_i - 1], "^<attribute")) {
         tmp = stack[stack_i - 1] "\n";
         if (stack[stack_i] != "") {
           tmp = tmp stack[stack_i] "\n";
@@ -111,38 +113,44 @@ function parse_pattern (line) {
     if (paren_i == 0) {
       mode = "grammar";
     }
-    parse_pattern(substr(line, 2));
+    if (length(line) >= 2)
+      parse_pattern(substr(line, 2));
   }
   else if (c == "|" || c == "&" || c == ",") {
     if (length(stack[paren[paren_i]]) == 1) {
       stack[paren[paren_i]] = stack[paren[paren_i]] c;
     }
-    else if (substr(stack[paren[paren_i]], 2) != c) {
+    else if (length(stack[paren[paren_i]]) < 2 || substr(stack[paren[paren_i]], 2) != c) {
       print "Mismatched infix operators on line " FNR | "cat 1>&2";
       error = 1;
       exit 1
     }
-    parse_pattern(substr(line, 2));
+    if (length(line) >= 2)
+      parse_pattern(substr(line, 2));
   }
   else if (c == "?") {
     stack[stack_i] = "<optional>" stack[stack_i] "</optional>"
-    parse_pattern(substr(line, 2));
+    if (length(line) >= 2)
+      parse_pattern(substr(line, 2));
   }
   else if (c == "*") {
     stack[stack_i] = "<zeroOrMore>" stack[stack_i] "</zeroOrMore>"
-    parse_pattern(substr(line, 2));
+    if (length(line) >= 2)
+      parse_pattern(substr(line, 2));
   }
   else if (c == "+") {
     stack[stack_i] = "<oneOrMore>" stack[stack_i] "</oneOrMore>"
-    parse_pattern(substr(line, 2));
+    if (length(line) >= 2)
+      parse_pattern(substr(line, 2));
   }
   else if (c == "\"") {
     txt = substr(line, 2);
     sub(/".*/, "", txt)
     stack[++stack_i] = "<value>" txt "</value>";
-    parse_pattern(substr(line, length(txt) + 3));
+    if (length(line) >= length(txt) + 3)
+      parse_pattern(substr(line, length(txt) + 3));
   }
-  else if (substr(line, 1, 8) == "element ") {
+  else if (match(line, "^element ")) {
     aft = substr(line, 8);
     sub(/^ */, "", aft);
     name = aft;
@@ -151,7 +159,7 @@ function parse_pattern (line) {
     name_class_i = stack_i;
     parse_name_class(name);
   }
-  else if (substr(line, 1, 10) == "attribute ") {
+  else if (match(line, "^attribute ")) {
     aft = substr(line, 10);
     sub(/^ */, "", aft);
     name = aft;
@@ -160,13 +168,13 @@ function parse_pattern (line) {
     name_class_i = stack_i;
     parse_name_class(name);
   }
-  else if (substr(line, 1, 5) == "list ") {
+  else if (match(line, "^list ")) {
     aft = substr(line, 5);
     sub(/^ */, "", aft);
     stack[++stack_i] = "<list>";
     if (aft != "") { parse_pattern(aft); }
   }
-  else if (substr(line, 1, 6) == "mixed ") {
+  else if (match(line, "^mixed ")) {
     aft = substr(line, 6);
     sub(/^ */, "", aft);
     stack[++stack_i] = "<mixed>";
@@ -178,17 +186,17 @@ function parse_pattern (line) {
     sub(/^ */, "", aft);
     if (aft != "") { parse_pattern(aft); }
   }
-  else if (substr(line, 1, 18) == "default namespace ") {
+  else if (match(line, "^default namespace ")) {
     print "default namespace appeared out of context on line " FNR | "cat 1>&2";
     error = 1;
     exit 1
   }
-  else if (substr(line, 1, 10) == "namespace ") {
+  else if (match(line, "^namespace ")) {
     print "namespace appeared out of context on line " FNR | "cat 1>&2";
     error = 1;
     exit 1
   }
-  else if (substr(line, 1, 6) == "start ") {
+  else if (match(line, "^start ")) {
     print "start appeared out of context on line " FNR | "cat 1>&2";
     error = 1;
     exit 1
@@ -197,17 +205,21 @@ function parse_pattern (line) {
     name = substr(line, 1);
     sub(/^xsd:/, "", name);
     sub(/[^A-Za-z_]+.*/, "", name);
-    aft = substr(line, length(name) + 5);
     stack[++stack_i] = sprintf("<data type='%s' datatypeLibrary='http://www.w3.org/2001/XMLSchema-datatypes'/>",
                                name);
-    parse_pattern(aft);
+    if (length(line) >= length(name) + 5) {
+      aft = substr(line, length(name) + 5);
+      parse_pattern(aft);
+    }
   }
   else if (match(line, /^[A-Za-z_]/)) {
     name = substr(line, 1);
     sub(/[^A-Za-z_]+.*/, "", name);
-    aft = substr(line, length(name) + 1);
     stack[++stack_i] = sprintf("<ref name='%s'/>", name);
-    parse_pattern(aft);
+    if (length(line) >= length(name) + 1) {
+      aft = substr(line, length(name) + 1);
+      parse_pattern(aft);
+    }
   }
 }
 
@@ -335,6 +347,7 @@ BEGIN {
   stack_i = 0;
   paren_i = 0;
   namespaces_i = 0;
+  error = 0;
 }
 
 END {
@@ -355,9 +368,7 @@ END {
 
 mode == "pattern" && paren_i == 0 && /.*=/ { mode = "grammar"; }
 mode == "grammar" && /.*=/ {
-  name = substr($0, 1, index($0, "=") - 1);
-  sub(/ /, "", name);
-  if (substr($0, 1, 18) == "default namespace ") {
+  if (match($0, "^default namespace ")) {
     namespace = substr($0, index($0, "=") + 1);
     nsname = substr($0, 19, index($0, "=") - 19);
     sub(/^ */, "", nsname);
@@ -370,7 +381,7 @@ mode == "grammar" && /.*=/ {
     }
     default_namespace = namespace
   }
-  else if (substr($0, 1, 10) == "namespace ") {
+  else if (match($0, "^namespace ")) {
     namespace = substr($0, index($0, "=") + 1);
     nsname = substr($0, 11, index($0, "=") - 11);
     sub(/^ */, "", nsname);
@@ -382,15 +393,18 @@ mode == "grammar" && /.*=/ {
       namespaces[namespaces_i] = namespace;
     }
   }
-  else if (name == "start") {
-    stack[++stack_i] = "<start>"
-    mode = "pattern";
-    parse_pattern(substr($0, index($0, "=") + 1))
-  }
   else {
-    stack[++stack_i] = sprintf("<define name='%s'>", name);
+    nameix = index($0, "=");
+    if (nameix < 1) next;
+    name = substr($0, 1, nameix - 1);
+    sub(/ /, "", name);
+    if (name == "start")
+      stack[++stack_i] = "<start>"
+    else
+      stack[++stack_i] = sprintf("<define name='%s'>", name);
     mode = "pattern";
-    parse_pattern(substr($0, index($0, "=") + 1))
+    if (length($0) >= nameix + 1)
+      parse_pattern(substr($0, nameix + 1))
   }
   next;
 }
