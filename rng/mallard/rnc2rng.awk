@@ -154,7 +154,7 @@ function parse_pattern (line) {
     aft = substr(line, 8);
     sub(/^ */, "", aft);
     name = aft;
-    stack[++stack_i] = "<element"
+    stack[++stack_i] = "<element";
     mode = "name_class";
     name_class_i = stack_i;
     parse_name_class(name);
@@ -163,7 +163,7 @@ function parse_pattern (line) {
     aft = substr(line, 10);
     sub(/^ */, "", aft);
     name = aft;
-    stack[++stack_i] = "<attribute"
+    stack[++stack_i] = "<attribute";
     mode = "name_class";
     name_class_i = stack_i;
     parse_name_class(name);
@@ -225,6 +225,7 @@ function parse_pattern (line) {
 
 function parse_name_class (line) {
   sub(/^ */, "", line)
+  if (length(line) == 0) return;
   c = substr(line, 1, 1);
   if (c == "{") {
     if (stack_i != name_class_i) {
@@ -297,15 +298,21 @@ function parse_name_class (line) {
   else if (match(line, /^[A-Za-z_]/)) {
     name = substr(line, 1);
     sub(/[^A-Za-z_]+.*/, "", name);
-    aft = substr(line, length(name) + 1);
-    if (substr(aft, 1, 2) == ":*") {
+    if (length(line) >= length(name) + 1)
+      aft = substr(line, length(name) + 1);
+    else
+      aft = "";
+    if (length(aft) >= 2 && substr(aft, 1, 2) == ":*") {
       for (i = 1; i <= namespaces_i; i++) {
         if (nsnames[i] == name) {
           stack[++stack_i] = sprintf("<nsName ns='%s'/>", namespaces[i])
           break;
         }
       }
-      aft = substr(aft, 3);
+      if (length(aft) >= 3)
+        aft = substr(aft, 3);
+      else
+        aft = "";
     }
     else if (stack[stack_i] == "<element" || stack[stack_i] == "<attribute") {
       stack[stack_i] = stack[stack_i] sprintf(" name='%s'>", name);
