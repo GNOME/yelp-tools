@@ -12,8 +12,13 @@ mallard.rnc: $(wildcard $(top_srcdir)/doc/mallard/C/*.page)
 	  xsltproc $(srcdir)/mal2rnc.xsl $$file; \
 	done > mallard.rnc
 
+# http://bugs.opensolaris.org/bugdatabase/view_bug.do?bug_id=1236105
+# This bug in gawk on solaris causes rnc2rng to fail it mysterious and
+# spectacular ways.  See comment #13 here for more details:
+# http://bugzilla.gnome.org/show_bug.cgi?id=590694
+# Unsetting LANG for the awk call works around this.
 mallard.rng: mallard.rnc rnc2rng.awk
-	$(GDU_AWK) -f $(srcdir)/rnc2rng.awk mallard.rnc > $@.tmp || ( rm -f $@.tmp && exit 1 )
+	LANG= $(GDU_AWK) -f $(srcdir)/rnc2rng.awk mallard.rnc > $@.tmp || ( rm -f $@.tmp && exit 1 )
 	xmllint --format $@.tmp | \
 	  sed -e 's/^  //' \
 	      -e 's/ xmlns/\n    xmlns/g' \
