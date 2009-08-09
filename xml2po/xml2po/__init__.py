@@ -559,7 +559,7 @@ class Main(object):
 
     def load_mode(self, modename):
         try:
-            module = __import__('xml2po.modes.%s' % modename, globals(), locals(), ['%sXmlMode' % modename], -1)
+            module = __import__('xml2po.modes.%s' % modename, globals(), locals(), ['%sXmlMode' % modename])
             return getattr(module, '%sXmlMode' % modename)
         except (ImportError, AttributeError):
             if modename == 'basic':
