@@ -2368,7 +2368,7 @@
 <msgset>
   <msgid>Stub</msgid>
   <!--
-  This is used as a descrpition for the status of the document.
+  This is used as a description for the status of the document.
   This will not be visibile to the users.
 
   Stub: the document has little or basic content, it may have been
@@ -2379,7 +2379,7 @@
 <msgset>
   <msgid>Incomplete</msgid>
   <!--
-  This is used as a descrpition for the status of the document.
+  This is used as a description for the status of the document.
   This will not be visibile to the users.
 
   Incomplete: the document has the basic structure in place, but the
@@ -2390,7 +2390,7 @@
 <msgset>
   <msgid>Draft</msgid>
   <!--
-  This is used as a descrpition for the status of the document.
+  This is used as a description for the status of the document.
   This will not be visibile to the users.
 
   Draft: the authors have written all the content, but they still need
@@ -2401,7 +2401,7 @@
 <msgset>
   <msgid>Ready for review</msgid>
   <!--
-  This is used as a descrpition for the status of the document.
+  This is used as a description for the status of the document.
   This will not be visibile to the users.
 
   Review: the authors consider the document complete.
@@ -2411,7 +2411,7 @@
 <msgset>
   <msgid>Final</msgid>
   <!--
-  This is used as a descrpition for the status of the document.
+  This is used as a description for the status of the document.
   This will not be visibile to the users.
 
   Final: a senior member of the documentation team has reviewd the
