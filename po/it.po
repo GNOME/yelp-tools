@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: gnome-doc-utils\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-08-12 14:15+0200\n"
-"PO-Revision-Date: 2009-08-12 14:13+0200\n"
+"PO-Revision-Date: 2009-08-15 10:51+0200\n"
 "Last-Translator: Milo Casagrande <milo@ubuntu.com>\n"
 "Language-Team: Italian <tp@lists.linux.it>\n"
 "MIME-Version: 1.0\n"
@@ -66,7 +66,7 @@ msgstr ", "
 #.
 #: ../xslt/gettext/l10n.xml.in.h:25
 msgid ", and "
-msgstr " and "
+msgstr " e "
 
 #.
 #. The number formatter used for appendix numbers.  This can be one of
@@ -2090,7 +2090,7 @@ msgstr "Incompleto"
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1727
 msgid "Index"
-msgstr "Indice"
+msgstr "Indice analitico"
 
 #.
 #. http://www.docbook.org/tdg/en/html/legalnotice.html
