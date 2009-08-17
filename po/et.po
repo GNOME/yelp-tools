@@ -2,12 +2,12 @@
 # Estonian translation for Gnome doc-utils.
 #
 # Copyright (C) 2005, 2006 Free Software Foundation, Inc.
-# Copyright (C) 2007 The GNOME Project
+# Copyright (C) 2007, 2009 The GNOME Project
 # This file is distributed under the same license as the gnome-doc-utils
 # package.
 #
 # Priit Laes <amd@store20.com>, 2005.
-# Ivar Smolin <okul@linux.ee>, 2005-2007.
+# Ivar Smolin <okul@linux.ee>, 2005-2007, 2009.
 #
 msgid ""
 msgstr ""
@@ -15,7 +15,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "doc-utils&component=general\n"
 "POT-Creation-Date: 2009-07-26 02:59+0000\n"
-"PO-Revision-Date: 2009-07-26 12:08+0300\n"
+"PO-Revision-Date: 2009-08-16 23:31+0300\n"
 "Last-Translator: Ivar Smolin <okul@linux.ee>\n"
 "Language-Team: Estonian <gnome-et@linux.ee>\n"
 "MIME-Version: 1.0\n"
@@ -2022,7 +2022,7 @@ msgstr "Autoriõiguse märge"
 
 #. Automatic more about section and links
 msgid "More About"
-msgstr ""
+msgstr "Lähemalt"
 
 #.
 #. http://www.docbook.org/tdg/en/html/refnamediv.html
@@ -2092,7 +2092,7 @@ msgstr "Vaata ka"
 #. created by developers in order to have it included in the build.
 #.
 msgid "Stub"
-msgstr ""
+msgstr "Alge"
 
 #.
 #. http://www.docbook.org/tdg/en/html/refsynopsisdiv.html
