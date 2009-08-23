@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2009-07-13 22:38+0200\n"
-"PO-Revision-Date: 2009-07-14 20:13+0100\n"
+"PO-Revision-Date: 2009-08-23 21:30+0100\n"
 "Last-Translator: Mario Blättermann <mariobl@gnome.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -347,6 +347,8 @@ msgstr "DOC_ENTITIES"
 #: gnome-doc-make.xml:163(para)
 msgid "List any files included in the help document using system entities."
 msgstr ""
+"Listet jegliche im Hilfedokument einbezogene Dateien auf, wobei die System-"
+"Entities verwendet werden."
 
 #: gnome-doc-make.xml:166(para)
 msgid "Example: <code>&lt;!ENTITY SYSTEM \"chapter1.xml\"&gt;</code>"
@@ -361,6 +363,8 @@ msgid ""
 "List any files that are included with the <ulink url=\"???\">Xinclude</ulink> "
 "specification."
 msgstr ""
+"Listet jegliche in der <ulink url=\"???\">Xinclude</ulink>-Spezifikation "
+"einbezogene Dateien auf."
 
 #: gnome-doc-make.xml:181(term)
 msgid "DOC_FIGURES"
@@ -379,6 +383,8 @@ msgid ""
 "List all the language codes for the languages in which the document is "
 "currently translated."
 msgstr ""
+"Listet alle Sprachcodes für die Sprachen auf, in welchen das Dokument derzeit "
+"verfügbar ist."
 
 #: gnome-doc-make.xml:202(title)
 msgid "Setting Up <filename>help/document-name.omf.in</filename>"
@@ -462,6 +468,14 @@ msgid ""
 "OMF file. For more information on this, please see the next section, <xref "
 "linkend=\"settingup-document-name.xml\"/>."
 msgstr ""
+"GNOME-Werkzeuge zur Erstellung von Dokumentation erstellen eine Datei "
+"<filename>document-name-C.omf</filename> und eine zusätzliche Datei "
+"<filename>document-name-&lt;locale&gt;.omf</filename> für jeden Sprachcode, "
+"der in der Variable DOC_LINGUAS in <filename>Makefile.am</filename> definiert "
+"ist. Abhängig von den verschiedenen im Dokument enthaltenen Elementen "
+"erzeugen die gnome-doc-utils zusätzliche Elemente in der OMF-Datei. Weitere "
+"Informationen darüber finden Sie im nächsten Abschnitt, <xref linkend="
+"\"settingup-document-name.xml\"/>."
 
 #: gnome-doc-make.xml:248(para)
 msgid ""
@@ -494,6 +508,8 @@ msgid ""
 "Setting up <filename id=\"settingup-document-name.xml\">help/C/document-name."
 "xml</filename>"
 msgstr ""
+"Einrichten von <filename id=\"settingup-document-name.xml\">help/C/document-"
+"name.xml</filename>"
 
 #: gnome-doc-make.xml:264(para)
 msgid ""
@@ -501,11 +517,16 @@ msgid ""
 "name.xml</filename> (replacing <literal>document-name</literal> with the "
 "actual document's name of course)."
 msgstr ""
+"Erstellen Sie Ihr Hilfedokument in <filename>help/C/document-name.xml</"
+"filename> oder verschieben Sie es dorthin. Vergessen Sie dabei nicht, "
+"<literal>document-name</literal> durch den Namen Ihres aktuellen Dokuments zu "
+"ersetzen."
 
 #: gnome-doc-make.xml:276(term)
 msgid ""
 "&lt;abstract role=\"description\"&gt;This application is...&lt;/abstract&gt;"
 msgstr ""
+"&lt;abstract role=\"description\"&gt;Diese Anwendung ist …&lt;/abstract&gt;"
 
 #: gnome-doc-make.xml:280(para)
 msgid ""
@@ -513,6 +534,10 @@ msgid ""
 "help document. Gnome-doc-utils will use this information to create a "
 "<code>&lt;description&gt;</code> element in the generated OMF file."
 msgstr ""
+"Fügen Sie dieses Element zum Abschnitt <code>&lt;articleinfo&gt;</code> Ihres "
+"Hilfedokuments hinzu. Gnome-doc-utils verwendet diese Information zum "
+"Erstellen des Elements <code>&lt;description&gt;</code> in der generierten "
+"OMF-Datei."
 
 #: gnome-doc-make.xml:289(term)
 msgid "&lt;author&gt;...&lt;/author&gt;"
@@ -525,12 +550,18 @@ msgid ""
 "articleinfo&gt;</code> element. Gnome-doc-utils will use this information to "
 "create the <code>&lt;creator&gt;</code> element in the generated OMF file."
 msgstr ""
+"Fügen Sie dieses Element (und zusätzlich Vor- und Zuname) zum Abschnitt "
+"<code>&lt;authorgroup&gt;</code> unter dem Element <code>&lt;articleinfo&gt;</"
+"code> hinzu. Gnome-doc-utils verwendet diese Information zum Erstellen des "
+"Elements <code>&lt;creator&gt;</code> in der generierten OMF-Datei."
 
 #: gnome-doc-make.xml:302(term)
 msgid ""
 "&lt;author&gt;, &lt;corpauthor&gt;, &lt;editor&gt;, &lt;othercredit&gt;, or "
 "&lt;publisher&gt; with the attribute role=\"maintainer\""
 msgstr ""
+"&lt;author&gt;, &lt;corpauthor&gt;, &lt;editor&gt;, &lt;othercredit&gt;, oder "
+"&lt;publisher&gt; mit dem Attribut role=\"maintainer\""
 
 #: gnome-doc-make.xml:307(para)
 msgid ""
@@ -538,10 +569,13 @@ msgid ""
 "elements so that gnome-docs-utils creates a <code>&lt;maintainer&gt;</code> "
 "element in the generated OMF file."
 msgstr ""
+"Fügen Sie das Attribut <code>role=\"maintainer\"</code> zu einem dieser "
+"Elemente hinzu, so dass die gnome-doc-utils ein <code>&lt;maintainer&gt;</"
+"code>-Element in der generierten OMF-Datei erstellen können."
 
 #: gnome-doc-make.xml:315(term)
 msgid "&lt;title&gt; element of the &lt;article&gt; or &lt;articleinfo&gt;"
-msgstr ""
+msgstr "&lt;title&gt;-Element von &lt;article&gt; oder &lt;articleinfo&gt;"
 
 #: gnome-doc-make.xml:319(para)
 msgid ""
@@ -555,6 +589,8 @@ msgstr ""
 msgid ""
 "&lt;date&gt; element in the last &lt;revision&gt; in your &lt;revhistory&gt;"
 msgstr ""
+"&lt;date&gt;-Element in der letzten &lt;revision&gt; in Ihrer &lt;"
+"revhistory&gt;"
 
 #: gnome-doc-make.xml:330(para)
 msgid ""
@@ -569,6 +605,8 @@ msgid ""
 "&lt;revnumber&gt; element in the last &lt;revision&gt; in your &lt;"
 "revhistory&gt;"
 msgstr ""
+"&lt;revnumber&gt;-Element in der letzten &lt;revision&gt; in Ihrer &lt;"
+"revhistory&gt;"
 
 #: gnome-doc-make.xml:341(para)
 msgid ""
@@ -888,6 +926,12 @@ msgid ""
 "this, you must do <command>make distcheck</command> after <command>make "
 "check</command>)."
 msgstr ""
+"Vergessen Sie nicht, <filename>m4</filename> zu <varname>EXTRA_DIST</varname> "
+"zur Datei <filename>Makefile.am</filename> der obersten Ebene hinzuzufügen, "
+"anderenfalls wird der Ordner nicht zum Paket hinzugefügt und "
+"<command>configure</command> wird scheitern. Um dies zu gewährleisten, müssen "
+"Sie <command>make distcheck</command> nach <command>make check</command> "
+"ausführen."
 
 #: gnome-doc-make.xml:527(title)
 msgid "Modifying the <filename>.cvsignore</filename> files"
