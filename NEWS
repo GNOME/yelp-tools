@@ -1,3 +1,26 @@
+Changes in 0.17.4:
+------------------
+* Don't let "twocolumn" tables collapse in Mallard documents (Shaun McCance)
+* Use AC_MSG_* when checking for gnome-doc-utils, #571300 (William Immendorf)
+* Work around buggy OpenSolaris awk (Shaun McCance)
+* Substantial changes to xml2po (Claude Paroz)
+* Work on xml2po Mallard mode (Shaun McCance)
+* Fix misspelling of 'description' (Tommi Vainikainen)
+* Updated translations:
+  bg    (Alexander Shopov)
+  de    (Mario Blättermann)
+  es    (Jorge González)
+  et    (Ivar Smolin)
+  fi    (Tommi Vainikainen)
+  fr    (Claude Paroz)
+  ga    (Seán de Búrca)
+  gl    (Antón Méixome)
+  hi    (Rajesh Ranjan)
+  it    (Milo Casagrande)
+  nb    (Kjartan Maraas)
+  ta    (drtvasudevan)
+  th    (Theppitak Karoonboonyanan)
+
 Changes in 0.17.3:
 ------------------
 * Added initial work on a Mallard xml2po mode (Shaun McCance)
