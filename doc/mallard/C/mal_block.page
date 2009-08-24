@@ -122,7 +122,7 @@ mal_block_lists = (
 )</code></synopsis>
 
   <p>Mallard provides list elements for most common needs, including the common
-  defintion, ordered, and unordered lists.  Mallard also provides simple trees,
+  definition, ordered, and unordered lists.  Mallard also provides simple trees,
   which are useful for representing heirarchies such as class inheritance or
   directory layouts.  Each of the list elements uses the <code>item</code>
   element, though the content model for <code>item</code> varies.  See the
