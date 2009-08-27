@@ -184,6 +184,7 @@ REMARK: Describe this template
         <xsl:call-template name="mal.link.content">
           <xsl:with-param name="link" select="$source"/>
           <xsl:with-param name="xref" select="$target/@id"/>
+          <xsl:with-param name="role" select="'topic'"/>
         </xsl:call-template>
 
         <xsl:if test="$mal2html.editor_mode">
@@ -301,13 +302,15 @@ REMARK: Describe this template
           <ul>
             <xsl:for-each select="$pagelinks">
               <xsl:call-template name="mal2html.page.autolink">
-                <xsl:with-param name="page" select="."/>
-              </xsl:call-template>
+                <xsl:with-param name="page" select="."/> 
+                <xsl:with-param name="role" select="'guide'"/>
+             </xsl:call-template>
             </xsl:for-each>
             <!-- FIXME: exclude pagelinks -->
             <xsl:for-each select="$guidelinks">
               <xsl:call-template name="mal2html.page.autolink">
                 <xsl:with-param name="xref" select="@xref"/>
+                <xsl:with-param name="role" select="'guide'"/>
               </xsl:call-template>
             </xsl:for-each>
           </ul>
@@ -324,11 +327,13 @@ REMARK: Describe this template
             <xsl:for-each select="$inlinks">
               <xsl:call-template name="mal2html.page.autolink">
                 <xsl:with-param name="page" select="."/>
+                <xsl:with-param name="role" select="'seealso'"/>
               </xsl:call-template>
             </xsl:for-each>
             <xsl:for-each select="$outlinks">
               <xsl:call-template name="mal2html.page.autolink">
                 <xsl:with-param name="xref" select="@xref"/>
+                <xsl:with-param name="role" select="'seealso'"/>
               </xsl:call-template>
             </xsl:for-each>
           </ul>
@@ -349,6 +354,7 @@ REMARK: Describe this template
 <xsl:template name="mal2html.page.autolink">
   <xsl:param name="page"/>
   <xsl:param name="xref" select="$page/@id"/>
+  <xsl:param name="role" select="''"/>
   <li class="autolink">
     <a>
       <xsl:attribute name="href">
@@ -359,6 +365,7 @@ REMARK: Describe this template
       <xsl:call-template name="mal.link.content">
         <xsl:with-param name="node" select="."/>
         <xsl:with-param name="xref" select="$xref"/>
+        <xsl:with-param name="role" select="$role"/>
       </xsl:call-template>
     </a>
     <xsl:for-each select="$mal.cache">
@@ -413,6 +420,7 @@ REMARK: Describe this template
                 </xsl:attribute>
                 <xsl:call-template name="mal.link.content">
                   <xsl:with-param name="xref" select="."/>
+                  <xsl:with-param name="role" select="'guide'"/>
                 </xsl:call-template>
               </a>
               <xsl:text> » </xsl:text>
