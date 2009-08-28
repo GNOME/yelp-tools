@@ -83,7 +83,7 @@ $role: A link role, used to select the appropriate title
         <xsl:variable name="titles" select="key('mal.cache.key', $fullid)
                                            /mal:info/mal:title[@type = 'link']"/>
         <xsl:choose>
-          <xsl:when test="$role != '' and $titles[@role = 'guide']">
+          <xsl:when test="$role != '' and $titles[@role = $role]">
             <xsl:apply-templates mode="mal.link.content.mode"
                                  select="$titles[@role = $role][1]/node()"/>
           </xsl:when>
