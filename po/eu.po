@@ -1,15 +1,15 @@
-# translation of gnome-doc-utils.HEAD.po to Basque
+# translation of eu.po to Basque
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 #
-# Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2006, 2008.
+# Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>, 2006, 2008, 2009.
 # Iñaki Larrañaga Murgoitio <dooteo@zundan.com>, 2007.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-doc-utils.HEAD\n"
+"Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-01-07 16:47+0100\n"
-"PO-Revision-Date: 2008-01-07 00:07+0100\n"
+"POT-Creation-Date: 2009-08-26 15:26+0200\n"
+"PO-Revision-Date: 2009-08-26 15:33+0200\n"
 "Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
 "MIME-Version: 1.0\n"
@@ -184,10 +184,8 @@ msgstr "<msgid>appendix.number</msgid><msgstr><parent/>.<digit/></msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:139
-msgid ""
-"<msgid>appendix.xref</msgid> <msgstr>Appendix <number/> ― <title/></msgstr>"
-msgstr ""
-"<msgid>appendix.xref</msgid><msgstr><number/>. eranskina:  <title/></msgstr>"
+msgid "<msgid>appendix.xref</msgid> <msgstr>Appendix <number/> ― <title/></msgstr>"
+msgstr "<msgid>appendix.xref</msgid><msgstr><number/>. eranskina:  <title/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -478,10 +476,8 @@ msgstr "<msgid>chapter.number</msgid><msgstr><parent/>.<digit/></msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:394
-msgid ""
-"<msgid>chapter.xref</msgid> <msgstr>Chapter <number/> ― <title/></msgstr>"
-msgstr ""
-"<msgid>chapter.xref</msgid><msgstr><number/>. kapitulua: <title/></msgstr>"
+msgid "<msgid>chapter.xref</msgid> <msgstr>Chapter <number/> ― <title/></msgstr>"
+msgstr "<msgid>chapter.xref</msgid><msgstr><number/>. kapitulua: <title/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -576,10 +572,8 @@ msgstr ""
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:477
-msgid ""
-"<msgid>email.tooltip</msgid> <msgstr>Send email to ‘<string/>’.</msgstr>"
-msgstr ""
-"<msgid>email.tooltip</msgid> <msgstr>Bidali mezua hona: <string/>.</msgstr>"
+msgid "<msgid>email.tooltip</msgid> <msgstr>Send email to ‘<string/>’.</msgstr>"
+msgstr "<msgid>email.tooltip</msgid> <msgstr>Bidali mezua hona: <string/>.</msgstr>"
 
 #.
 #. The number formatter used for example numbers.  This can be one of
@@ -1059,10 +1053,8 @@ msgstr "<msgid>glosssee.format</msgid> <msgstr>Ikusi <glosssee/>.</msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:896
-msgid ""
-"<msgid>glossseealso.format</msgid> <msgstr>See also <glosssee/>.</msgstr>"
-msgstr ""
-"<msgid>glossseealso.format</msgid> <msgstr>Ikus <glosssee/> ere.</msgstr>"
+msgid "<msgid>glossseealso.format</msgid> <msgstr>See also <glosssee/>.</msgstr>"
+msgstr "<msgid>glossseealso.format</msgid> <msgstr>Ikus <glosssee/> ere.</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1521,10 +1513,8 @@ msgstr "<msgid>refsection.number</msgid><msgstr><parent/>.<digit/></msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1293
-msgid ""
-"<msgid>refsection.xref</msgid> <msgstr>Section <number/> ― <title/></msgstr>"
-msgstr ""
-"<msgid>refsection.xref</msgid><msgstr><number/>. atala ― <title/></msgstr>"
+msgid "<msgid>refsection.xref</msgid> <msgstr>Section <number/> ― <title/></msgstr>"
+msgstr "<msgid>refsection.xref</msgid><msgstr><number/>. atala ― <title/></msgstr>"
 
 #.
 #. The number formatter used for section numbers.  This can be one of
@@ -1656,10 +1646,8 @@ msgstr "<msgid>section.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1408
-msgid ""
-"<msgid>section.xref</msgid> <msgstr>Section <number/> ― <title/></msgstr>"
-msgstr ""
-"<msgid>section.xref</msgid> <msgstr><number/>. atala ― <title/></msgstr>"
+msgid "<msgid>section.xref</msgid> <msgstr>Section <number/> ― <title/></msgstr>"
+msgstr "<msgid>section.xref</msgid> <msgstr><number/>. atala ― <title/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1920,10 +1908,8 @@ msgstr ""
 
 #. Used as a header before a list of copyrights.
 #: ../xslt/gettext/l10n.xml.in.h:1627
-msgid ""
-"<msgstr form='0'>Copyright</msgstr> <msgstr form='1'>Copyrights</msgstr>"
-msgstr ""
-"<msgstr form='0'>Copyright-a</msgstr> <msgstr form='1'>Copyright-ak</msgstr>"
+msgid "<msgstr form='0'>Copyright</msgstr> <msgstr form='1'>Copyrights</msgstr>"
+msgstr "<msgstr form='0'>Copyright-a</msgstr> <msgstr form='1'>Copyright-ak</msgstr>"
 
 #. Used as a header before a list of editors.
 #: ../xslt/gettext/l10n.xml.in.h:1629
@@ -1941,16 +1927,14 @@ msgstr ""
 
 #. Used as a header before a list of publishers.
 #: ../xslt/gettext/l10n.xml.in.h:1633
-msgid ""
-"<msgstr form='0'>Publisher</msgstr> <msgstr form='1'>Publishers</msgstr>"
+msgid "<msgstr form='0'>Publisher</msgstr> <msgstr form='1'>Publishers</msgstr>"
 msgstr ""
 "<msgstr form='0'>Argitaratzailea</msgstr> <msgstr form='1'>Argitaratzaileak</"
 "msgstr>"
 
 #. Used as a header before a list of translators.
 #: ../xslt/gettext/l10n.xml.in.h:1635
-msgid ""
-"<msgstr form='0'>Translator</msgstr> <msgstr form='1'>Translators</msgstr>"
+msgid "<msgstr form='0'>Translator</msgstr> <msgstr form='1'>Translators</msgstr>"
 msgstr ""
 "<msgstr form='0'>Itzultzailea</msgstr> <msgstr form='1'>Itzultzaileak</"
 "msgstr>"
@@ -2021,6 +2005,17 @@ msgid "Dedication"
 msgstr "Eskaintza"
 
 #.
+#. This is used as a description for the status of the document.
+#. This will not be visibile to the users.
+#.
+#. Draft: the authors have written all the content, but they still need
+#. to clean up the language or markup.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1684
+msgid "Draft"
+msgstr "Zirriborroa"
+
+#.
 #. http://www.docbook.org/tdg/en/html/affiliation.html
 #.
 #. This is used as a label before email addresses when listing
@@ -2029,15 +2024,31 @@ msgstr "Eskaintza"
 #. Shaun McCance
 #. Email: shaunm@gnome.org
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1686
+#: ../xslt/gettext/l10n.xml.in.h:1694
 msgid "Email"
 msgstr "Helb. el."
+
+#.
+#. This is used as a description for the status of the document.
+#. This will not be visibile to the users.
+#.
+#. Final: a senior member of the documentation team has reviewd the
+#. document and approved it.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1702
+msgid "Final"
+msgstr "Behin-betikoa"
+
+#. Automatic further reading section and links
+#: ../xslt/gettext/l10n.xml.in.h:1704
+msgid "Further Reading"
+msgstr "Irakurketa gehiago"
 
 #.
 #. http://www.docbook.org/tdg/en/html/glossary.html
 #. This is used as a default title for glossary elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1691
+#: ../xslt/gettext/l10n.xml.in.h:1709
 msgid "Glossary"
 msgstr "Glosategia"
 
@@ -2045,15 +2056,26 @@ msgstr "Glosategia"
 #. http://www.docbook.org/tdg/en/html/important.html
 #. This is used as a default title for important elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1696
+#: ../xslt/gettext/l10n.xml.in.h:1714
 msgid "Important"
 msgstr "Garrantzitsua"
+
+#.
+#. This is used as a description for the status of the document.
+#. This will not be visibile to the users.
+#.
+#. Incomplete: the document has the basic structure in place, but the
+#. authors have not yet written all the content.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1722
+msgid "Incomplete"
+msgstr "Osatu gabea"
 
 #.
 #. http://www.docbook.org/tdg/en/html/index.html
 #. This is used as a default title for index elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1701
+#: ../xslt/gettext/l10n.xml.in.h:1727
 msgid "Index"
 msgstr "Indizea"
 
@@ -2061,15 +2083,20 @@ msgstr "Indizea"
 #. http://www.docbook.org/tdg/en/html/legalnotice.html
 #. This is used as a default title for legalnotice elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1706
+#: ../xslt/gettext/l10n.xml.in.h:1732
 msgid "Legal Notice"
 msgstr "Lege oharra"
+
+#. Automatic more about section and links
+#: ../xslt/gettext/l10n.xml.in.h:1734
+msgid "More About"
+msgstr "Honi buruzko gehiago"
 
 #.
 #. http://www.docbook.org/tdg/en/html/refnamediv.html
 #. This is used as the title for refnamediv elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1711
+#: ../xslt/gettext/l10n.xml.in.h:1739
 msgid "Name"
 msgstr "Izena"
 
@@ -2077,7 +2104,7 @@ msgstr "Izena"
 #. http://www.docbook.org/tdg/en/html/note.html
 #. This is used as a default title for note elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1716
+#: ../xslt/gettext/l10n.xml.in.h:1744
 msgid "Note"
 msgstr "Oharra"
 
@@ -2085,7 +2112,7 @@ msgstr "Oharra"
 #. http://www.docbook.org/tdg/en/html/preface.html
 #. This is used as a default title for preface elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1721
+#: ../xslt/gettext/l10n.xml.in.h:1749
 msgid "Preface"
 msgstr "Hitzaurrea"
 
@@ -2098,15 +2125,25 @@ msgstr "Hitzaurrea"
 #. the labelling style for a qandaset.  If the labelling style is set
 #. to 'qanda', this string will be used to label questions.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1731
+#: ../xslt/gettext/l10n.xml.in.h:1759
 msgid "Q:&#x2003;"
 msgstr "G:&#x2003;"
+
+#.
+#. This is used as a description for the status of the document.
+#. This will not be visibile to the users.
+#.
+#. Review: the authors consider the document complete.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1766
+msgid "Ready for review"
+msgstr "Prest gainbegiratzeko"
 
 #.
 #. http://www.docbook.org/tdg/en/html/revhistory.html
 #. This is used as a header before the revision history.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1736
+#: ../xslt/gettext/l10n.xml.in.h:1771
 msgid "Revision History"
 msgstr "Berrikuste-zenbakia"
 
@@ -2114,23 +2151,31 @@ msgstr "Berrikuste-zenbakia"
 #. Used for the <see> element.
 #. FIXME: this should be a format string.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1741
+#: ../xslt/gettext/l10n.xml.in.h:1776
 msgid "See"
 msgstr "Ikus"
 
-#.
-#. Used for the <seealso> element.
-#. FIXME: this should be a format string.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1746
+#. Automatic see also section and links
+#: ../xslt/gettext/l10n.xml.in.h:1778
 msgid "See Also"
 msgstr "Ikus ere"
+
+#.
+#. This is used as a description for the status of the document.
+#. This will not be visibile to the users.
+#.
+#. Stub: the document has little or basic content, it may have been
+#. created by developers in order to have it included in the build.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1786
+msgid "Stub"
+msgstr "Hasi berria"
 
 #.
 #. http://www.docbook.org/tdg/en/html/refsynopsisdiv.html
 #. This is used as the default title for refsynopsisdiv elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1751
+#: ../xslt/gettext/l10n.xml.in.h:1791
 msgid "Synopsis"
 msgstr "Laburpena"
 
@@ -2138,7 +2183,7 @@ msgstr "Laburpena"
 #. http://www.docbook.org/tdg/en/html/tip.html
 #. This is used as a default title for tip elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1756
+#: ../xslt/gettext/l10n.xml.in.h:1796
 msgid "Tip"
 msgstr "Aholkua"
 
@@ -2146,17 +2191,17 @@ msgstr "Aholkua"
 #. http://www.docbook.org/tdg/en/html/warning.html
 #. This is used as a default title for warning elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1761
+#: ../xslt/gettext/l10n.xml.in.h:1801
 msgid "Warning"
 msgstr "Abisua"
 
 #.
 #. Translate to default:RTL if your language should be displayed
 #. right-to-left, otherwise translate to default:LTR.  Do *not*
-#. translate it to "predefinito:LTR", if it it isn't default:LTR
+#. translate it to "predefinito:LTR", if it isn't default:LTR
 #. or default:RTL it will not work
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1768
+#: ../xslt/gettext/l10n.xml.in.h:1808
 msgid "default:LTR"
 msgstr "default:LTR"
 
@@ -2187,6 +2232,7 @@ msgstr "default:LTR"
 #. once found inside Yelp.  The watermark functionality has been moved to
 #. gnome-doc-utils.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1796
+#: ../xslt/gettext/l10n.xml.in.h:1836
 msgid "watermark-blockquote-201C.png"
 msgstr "watermark-blockquote-201C.png"
+

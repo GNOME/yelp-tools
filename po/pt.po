@@ -1,14 +1,14 @@
 # gnome-doc-utils' Portuguese translation.
-# Copyright © 2004, 2005, 2006, 2007 gnome-doc-utils 
+# Copyright © 2004, 2005, 2006, 2007, 2009 gnome-doc-utils 
 # This file is distributed under the same license as the gnome-doc-utils package.
-# Duarte Loreto <happyguy_pt@hotmail.com>, 2004, 2005, 2006, 2007.
+# Duarte Loreto <happyguy_pt@hotmail.com>, 2004, 2005, 2006, 2007, 2009.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 2.20\n"
+"Project-Id-Version: 2.28\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-09-02 11:20+0100\n"
-"PO-Revision-Date: 2007-09-02 11:25+0000\n"
+"POT-Creation-Date: 2009-08-27 08:59+0100\n"
+"PO-Revision-Date: 2009-08-27 09:00+0000\n"
 "Last-Translator: Duarte Loreto <happyguy_pt@hotmail.com>\n"
 "Language-Team: Portuguese <gnome_pt@yahoogroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -2017,6 +2017,17 @@ msgid "Dedication"
 msgstr "Dedicatória"
 
 #.
+#. This is used as a description for the status of the document.
+#. This will not be visibile to the users.
+#.
+#. Draft: the authors have written all the content, but they still need
+#. to clean up the language or markup.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1684
+msgid "Draft"
+msgstr "Rascunho"
+
+#.
 #. http://www.docbook.org/tdg/en/html/affiliation.html
 #.
 #. This is used as a label before email addresses when listing
@@ -2025,15 +2036,31 @@ msgstr "Dedicatória"
 #. Shaun McCance
 #. Email: shaunm@gnome.org
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1686
+#: ../xslt/gettext/l10n.xml.in.h:1694
 msgid "Email"
 msgstr "Email"
+
+#.
+#. This is used as a description for the status of the document.
+#. This will not be visibile to the users.
+#.
+#. Final: a senior member of the documentation team has reviewd the
+#. document and approved it.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1702
+msgid "Final"
+msgstr "Final"
+
+#. Automatic further reading section and links
+#: ../xslt/gettext/l10n.xml.in.h:1704
+msgid "Further Reading"
+msgstr "Leitura Complementar"
 
 #.
 #. http://www.docbook.org/tdg/en/html/glossary.html
 #. This is used as a default title for glossary elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1691
+#: ../xslt/gettext/l10n.xml.in.h:1709
 msgid "Glossary"
 msgstr "Glossário"
 
@@ -2041,15 +2068,26 @@ msgstr "Glossário"
 #. http://www.docbook.org/tdg/en/html/important.html
 #. This is used as a default title for important elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1696
+#: ../xslt/gettext/l10n.xml.in.h:1714
 msgid "Important"
 msgstr "Importante"
+
+#.
+#. This is used as a description for the status of the document.
+#. This will not be visibile to the users.
+#.
+#. Incomplete: the document has the basic structure in place, but the
+#. authors have not yet written all the content.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1722
+msgid "Incomplete"
+msgstr "Incompleto"
 
 #.
 #. http://www.docbook.org/tdg/en/html/index.html
 #. This is used as a default title for index elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1701
+#: ../xslt/gettext/l10n.xml.in.h:1727
 msgid "Index"
 msgstr "Índice"
 
@@ -2057,15 +2095,20 @@ msgstr "Índice"
 #. http://www.docbook.org/tdg/en/html/legalnotice.html
 #. This is used as a default title for legalnotice elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1706
+#: ../xslt/gettext/l10n.xml.in.h:1732
 msgid "Legal Notice"
 msgstr "Nota Legal"
+
+#. Automatic more about section and links
+#: ../xslt/gettext/l10n.xml.in.h:1734
+msgid "More About"
+msgstr "Mais Sobre"
 
 #.
 #. http://www.docbook.org/tdg/en/html/refnamediv.html
 #. This is used as the title for refnamediv elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1711
+#: ../xslt/gettext/l10n.xml.in.h:1739
 msgid "Name"
 msgstr "Nome"
 
@@ -2073,7 +2116,7 @@ msgstr "Nome"
 #. http://www.docbook.org/tdg/en/html/note.html
 #. This is used as a default title for note elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1716
+#: ../xslt/gettext/l10n.xml.in.h:1744
 msgid "Note"
 msgstr "Nota"
 
@@ -2081,7 +2124,7 @@ msgstr "Nota"
 #. http://www.docbook.org/tdg/en/html/preface.html
 #. This is used as a default title for preface elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1721
+#: ../xslt/gettext/l10n.xml.in.h:1749
 msgid "Preface"
 msgstr "Prefácio"
 
@@ -2094,15 +2137,25 @@ msgstr "Prefácio"
 #. the labelling style for a qandaset.  If the labelling style is set
 #. to 'qanda', this string will be used to label questions.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1731
+#: ../xslt/gettext/l10n.xml.in.h:1759
 msgid "Q:&#x2003;"
 msgstr "P:&#x2003;"
+
+#.
+#. This is used as a description for the status of the document.
+#. This will not be visibile to the users.
+#.
+#. Review: the authors consider the document complete.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1766
+msgid "Ready for review"
+msgstr "Preparado para revisão"
 
 #.
 #. http://www.docbook.org/tdg/en/html/revhistory.html
 #. This is used as a header before the revision history.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1736
+#: ../xslt/gettext/l10n.xml.in.h:1771
 msgid "Revision History"
 msgstr "Histórico de Revisões"
 
@@ -2110,23 +2163,31 @@ msgstr "Histórico de Revisões"
 #. Used for the <see> element.
 #. FIXME: this should be a format string.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1741
+#: ../xslt/gettext/l10n.xml.in.h:1776
 msgid "See"
 msgstr "Consulte"
 
-#.
-#. Used for the <seealso> element.
-#. FIXME: this should be a format string.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1746
+#. Automatic see also section and links
+#: ../xslt/gettext/l10n.xml.in.h:1778
 msgid "See Also"
 msgstr "Consulte Também"
+
+#.
+#. This is used as a description for the status of the document.
+#. This will not be visibile to the users.
+#.
+#. Stub: the document has little or basic content, it may have been
+#. created by developers in order to have it included in the build.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1786
+msgid "Stub"
+msgstr "Esqueleto"
 
 #.
 #. http://www.docbook.org/tdg/en/html/refsynopsisdiv.html
 #. This is used as the default title for refsynopsisdiv elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1751
+#: ../xslt/gettext/l10n.xml.in.h:1791
 msgid "Synopsis"
 msgstr "Sinopse"
 
@@ -2134,7 +2195,7 @@ msgstr "Sinopse"
 #. http://www.docbook.org/tdg/en/html/tip.html
 #. This is used as a default title for tip elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1756
+#: ../xslt/gettext/l10n.xml.in.h:1796
 msgid "Tip"
 msgstr "Dica"
 
@@ -2142,17 +2203,17 @@ msgstr "Dica"
 #. http://www.docbook.org/tdg/en/html/warning.html
 #. This is used as a default title for warning elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1761
+#: ../xslt/gettext/l10n.xml.in.h:1801
 msgid "Warning"
 msgstr "Aviso"
 
 #.
 #. Translate to default:RTL if your language should be displayed
 #. right-to-left, otherwise translate to default:LTR.  Do *not*
-#. translate it to "predefinito:LTR", if it it isn't default:LTR
+#. translate it to "predefinito:LTR", if it isn't default:LTR
 #. or default:RTL it will not work
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1768
+#: ../xslt/gettext/l10n.xml.in.h:1808
 msgid "default:LTR"
 msgstr "default:LTR"
 
@@ -2183,7 +2244,7 @@ msgstr "default:LTR"
 #. once found inside Yelp.  The watermark functionality has been moved to
 #. gnome-doc-utils.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1796
+#: ../xslt/gettext/l10n.xml.in.h:1836
 msgid "watermark-blockquote-201C.png"
 msgstr "watermark-blockquote-201C.png"
 
@@ -2257,9 +2318,6 @@ msgstr "watermark-blockquote-201C.png"
 
 #~ msgid "Audience"
 #~ msgstr "Audiência"
-
-#~ msgid "Date"
-#~ msgstr "Data"
 
 #~ msgid "Level"
 #~ msgstr "Nível"

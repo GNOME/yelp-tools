@@ -207,7 +207,9 @@ REMARK: Document this template
       <xsl:apply-templates mode="mal2html.inline.mode"/>
     </xsl:when>
     <xsl:otherwise>
-      <xsl:call-template name="mal.link.content"/>
+      <xsl:call-template name="mal.link.content">
+        <xsl:with-param name="role" select="@role"/>
+      </xsl:call-template>
     </xsl:otherwise>
   </xsl:choose>
 </xsl:template>

@@ -1,5 +1,5 @@
 # Serbian translation of gnome-doc-utils
-# Courtesy of Prevod.org team (http://prevod.org/) -- 2004, 2005, 2006.
+# Courtesy of Prevod.org team (http://prevod.org/) -- 2004 - 2009.
 #
 # This file is distributed under the same license as the gnome-doc-utils package.
 #
@@ -9,8 +9,9 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-09-12 01:06+0200\n"
+"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
+"doc-utils&component=general\n"
+"POT-Creation-Date: 2009-07-26 02:59+0000\n"
 "PO-Revision-Date: 2007-09-12 01:09+0200\n"
 "Last-Translator: Slobodan D. Sredojević <slobo@akrep.be>\n"
 "Language-Team: Serbian (sr) <gnom@prevod.org>\n"
@@ -581,7 +582,8 @@ msgstr ""
 #: ../xslt/gettext/l10n.xml.in.h:477
 msgid ""
 "<msgid>email.tooltip</msgid> <msgstr>Send email to ‘<string/>’.</msgstr>"
-msgstr "<msgid>email.tooltip</msgid> <msgstr>Pošalji e-poštu na „<string/>“.</msgstr>"
+msgstr ""
+"<msgid>email.tooltip</msgid> <msgstr>Pošalji e-poštu na „<string/>“.</msgstr>"
 
 #.
 #. The number formatter used for example numbers.  This can be one of
@@ -1692,7 +1694,8 @@ msgstr ""
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1436
 msgid "<msgid>seealsoie.format</msgid> <msgstr>See also <seeie/>.</msgstr>"
-msgstr "<msgid>seealsoie.format</msgid> <msgstr>Pogledajte i <seeie/>.</msgstr>"
+msgstr ""
+"<msgid>seealsoie.format</msgid> <msgstr>Pogledajte i <seeie/>.</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -2014,6 +2017,18 @@ msgid "Dedication"
 msgstr "Posveta"
 
 #.
+#. This is used as a descrpition for the status of the document.
+#. This will not be visibile to the users.
+#.
+#. Draft: the authors have written all the content, but they still need
+#. to clean up the language or markup.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1684
+#| msgid "Date"
+msgid "Draft"
+msgstr "Nacrt"
+
+#.
 #. http://www.docbook.org/tdg/en/html/affiliation.html
 #.
 #. This is used as a label before email addresses when listing
@@ -2022,15 +2037,31 @@ msgstr "Posveta"
 #. Shaun McCance
 #. Email: shaunm@gnome.org
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1686
+#: ../xslt/gettext/l10n.xml.in.h:1694
 msgid "Email"
 msgstr "E-pošta"
+
+#.
+#. This is used as a descrpition for the status of the document.
+#. This will not be visibile to the users.
+#.
+#. Final: a senior member of the documentation team has reviewd the
+#. document and approved it.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1702
+msgid "Final"
+msgstr "Završni"
+
+#. Automatic further reading section and links
+#: ../xslt/gettext/l10n.xml.in.h:1704
+msgid "Further Reading"
+msgstr "Još za čitanje"
 
 #.
 #. http://www.docbook.org/tdg/en/html/glossary.html
 #. This is used as a default title for glossary elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1691
+#: ../xslt/gettext/l10n.xml.in.h:1709
 msgid "Glossary"
 msgstr "Pojmovnik"
 
@@ -2038,15 +2069,26 @@ msgstr "Pojmovnik"
 #. http://www.docbook.org/tdg/en/html/important.html
 #. This is used as a default title for important elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1696
+#: ../xslt/gettext/l10n.xml.in.h:1714
 msgid "Important"
 msgstr "Važno"
+
+#.
+#. This is used as a descrpition for the status of the document.
+#. This will not be visibile to the users.
+#.
+#. Incomplete: the document has the basic structure in place, but the
+#. authors have not yet written all the content.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1722
+msgid "Incomplete"
+msgstr "Nepotpuno"
 
 #.
 #. http://www.docbook.org/tdg/en/html/index.html
 #. This is used as a default title for index elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1701
+#: ../xslt/gettext/l10n.xml.in.h:1727
 msgid "Index"
 msgstr "Registar"
 
@@ -2054,15 +2096,20 @@ msgstr "Registar"
 #. http://www.docbook.org/tdg/en/html/legalnotice.html
 #. This is used as a default title for legalnotice elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1706
+#: ../xslt/gettext/l10n.xml.in.h:1732
 msgid "Legal Notice"
 msgstr "Zakonska poruka"
+
+#. Automatic more about section and links
+#: ../xslt/gettext/l10n.xml.in.h:1734
+msgid "More About"
+msgstr "Više o"
 
 #.
 #. http://www.docbook.org/tdg/en/html/refnamediv.html
 #. This is used as the title for refnamediv elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1711
+#: ../xslt/gettext/l10n.xml.in.h:1739
 msgid "Name"
 msgstr "Ime"
 
@@ -2070,7 +2117,7 @@ msgstr "Ime"
 #. http://www.docbook.org/tdg/en/html/note.html
 #. This is used as a default title for note elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1716
+#: ../xslt/gettext/l10n.xml.in.h:1744
 msgid "Note"
 msgstr "Beleška"
 
@@ -2078,7 +2125,7 @@ msgstr "Beleška"
 #. http://www.docbook.org/tdg/en/html/preface.html
 #. This is used as a default title for preface elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1721
+#: ../xslt/gettext/l10n.xml.in.h:1749
 msgid "Preface"
 msgstr "Predgovor"
 
@@ -2091,15 +2138,25 @@ msgstr "Predgovor"
 #. the labelling style for a qandaset.  If the labelling style is set
 #. to 'qanda', this string will be used to label questions.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1731
+#: ../xslt/gettext/l10n.xml.in.h:1759
 msgid "Q:&#x2003;"
 msgstr "P:&#x2003;"
+
+#.
+#. This is used as a descrpition for the status of the document.
+#. This will not be visibile to the users.
+#.
+#. Review: the authors consider the document complete.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1766
+msgid "Ready for review"
+msgstr "Spreman za pregled"
 
 #.
 #. http://www.docbook.org/tdg/en/html/revhistory.html
 #. This is used as a header before the revision history.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1736
+#: ../xslt/gettext/l10n.xml.in.h:1771
 msgid "Revision History"
 msgstr "Istorijat verzija"
 
@@ -2107,23 +2164,31 @@ msgstr "Istorijat verzija"
 #. Used for the <see> element.
 #. FIXME: this should be a format string.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1741
+#: ../xslt/gettext/l10n.xml.in.h:1776
 msgid "See"
 msgstr "Vidite"
 
-#.
-#. Used for the <seealso> element.
-#. FIXME: this should be a format string.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1746
+#. Automatic see also section and links
+#: ../xslt/gettext/l10n.xml.in.h:1778
 msgid "See Also"
 msgstr "Vidite i"
+
+#.
+#. This is used as a descrpition for the status of the document.
+#. This will not be visibile to the users.
+#.
+#. Stub: the document has little or basic content, it may have been
+#. created by developers in order to have it included in the build.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1786
+msgid "Stub"
+msgstr "U začetku"
 
 #.
 #. http://www.docbook.org/tdg/en/html/refsynopsisdiv.html
 #. This is used as the default title for refsynopsisdiv elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1751
+#: ../xslt/gettext/l10n.xml.in.h:1791
 msgid "Synopsis"
 msgstr "Siže"
 
@@ -2131,7 +2196,7 @@ msgstr "Siže"
 #. http://www.docbook.org/tdg/en/html/tip.html
 #. This is used as a default title for tip elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1756
+#: ../xslt/gettext/l10n.xml.in.h:1796
 msgid "Tip"
 msgstr "Savet"
 
@@ -2139,17 +2204,17 @@ msgstr "Savet"
 #. http://www.docbook.org/tdg/en/html/warning.html
 #. This is used as a default title for warning elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1761
+#: ../xslt/gettext/l10n.xml.in.h:1801
 msgid "Warning"
 msgstr "Upozorenje"
 
 #.
 #. Translate to default:RTL if your language should be displayed
 #. right-to-left, otherwise translate to default:LTR.  Do *not*
-#. translate it to "predefinito:LTR", if it it isn't default:LTR
+#. translate it to "predefinito:LTR", if it isn't default:LTR
 #. or default:RTL it will not work
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1768
+#: ../xslt/gettext/l10n.xml.in.h:1808
 msgid "default:LTR"
 msgstr "default:LTR"
 
@@ -2180,7 +2245,7 @@ msgstr "default:LTR"
 #. once found inside Yelp.  The watermark functionality has been moved to
 #. gnome-doc-utils.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1796
+#: ../xslt/gettext/l10n.xml.in.h:1836
 msgid "watermark-blockquote-201C.png"
 msgstr "watermark-blockquote-201E.png"
 
@@ -2300,9 +2365,6 @@ msgstr "watermark-blockquote-201E.png"
 
 #~ msgid "Audience"
 #~ msgstr "Ciljna grupa"
-
-#~ msgid "Date"
-#~ msgstr "Datum"
 
 #~ msgid "Level"
 #~ msgstr "Nivo"

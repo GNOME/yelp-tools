@@ -40,11 +40,13 @@ Generates the content for a #{link} element
 $link: The #{link} or other element creating the link
 $xref: The #{xref} attribute of ${link}
 $href: The #{href} attribute of ${link}
+$role: A link role, used to select the appropriate title
 -->
 <xsl:template name="mal.link.content">
   <xsl:param name="link" select="."/>
   <xsl:param name="xref" select="$link/@xref"/>
   <xsl:param name="href" select="$link/@href"/>
+  <xsl:param name="role" select="''"/>
   <xsl:choose>
     <xsl:when test="contains($xref, '/')">
       <!--
@@ -78,9 +80,18 @@ $href: The #{href} attribute of ${link}
         </xsl:choose>
       </xsl:variable>
       <xsl:for-each select="$mal.cache">
-        <xsl:apply-templates mode="mal.link.content.mode"
-                             select="key('mal.cache.key', $fullid)
-                                     /mal:info/mal:title[@type = 'link']/node()"/>
+        <xsl:variable name="titles" select="key('mal.cache.key', $fullid)
+                                           /mal:info/mal:title[@type = 'link']"/>
+        <xsl:choose>
+          <xsl:when test="$role != '' and $titles[@role = $role]">
+            <xsl:apply-templates mode="mal.link.content.mode"
+                                 select="$titles[@role = $role][1]/node()"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:apply-templates mode="mal.link.content.mode"
+                                 select="$titles[not(@role)][1]/node()"/>
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:for-each>
     </xsl:otherwise>
   </xsl:choose>
