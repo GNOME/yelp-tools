@@ -1,3 +1,20 @@
+Changes in 0.17.5:
+------------------
+* mal2html: Handle link roles on automatic and inline links (Shaun McCance)
+* Updated translations:
+  bn_IN     (Runa Bhattacharjee)
+  cs        (Petr Kovar)
+  eu        (Inaki Larranaga Murgoitio)
+  gu        (Sweta Kothari)
+  hu        (Gabor Kelemen)
+  pl        (Piotr Drąg)
+  pt        (Duarte Loreto)
+  sr        (Miloš Popović)
+  sr@latin  (Miloš Popović)
+  tr        (Baris Cicek)
+  zh_HK     (Chao-Hsiung Liao)
+  zh_TW     (Chao-Hsiung Liao)
+
 Changes in 0.17.4:
 ------------------
 * Don't let "twocolumn" tables collapse in Mallard documents (Shaun McCance)
