@@ -377,7 +377,8 @@ available.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://www.docbook.org/tdg/en/html/copyright.html">copyright</code></p></td>
-    <td><p>Similar to the <code xref="mal_info_copyright">copyright</code> element.</p></td>
+    <td rowspan="2"><p>Use the <code xref="mal_info_credit">credit</code> element to
+    record copyright information.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://www.docbook.org/tdg/en/html/coref.html">coref</code></p></td>
@@ -648,8 +649,9 @@ available.</p>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://www.docbook.org/tdg/en/html/holder.html">holder</code></p></td>
-    <td><p>Similar to the <link xref="mal_info_copyright">name</link> element in
-    a <link xref="mal_info_copyright">copyright</link> element.</p></td>
+    <td><p>Use the <code xref="mal_info_name">name</code> element in a
+    <code xref="mal_info_credit">credit</code> element.  Mallard records
+    copyright information in <code>credit</code> elements.</p></td>
   </tr></tbody>
   <tbody><tr>
     <td><p><code href="http://www.docbook.org/tdg/en/html/honorific.html">honorific</code></p></td>

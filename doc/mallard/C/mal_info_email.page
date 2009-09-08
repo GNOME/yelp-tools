@@ -5,16 +5,13 @@
 <info>
   <link type="guide" xref="mal_info#additional"/>
 
-  <revision version="0.1" date="2009-08-01" status="review"/>
+  <revision version="0.1" date="2009-09-08" status="review"/>
 
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
+    <years>2009</years>
   </credit>
-  <copyright>
-    <year>2009</year>
-    <name>Shaun McCance</name>
-  </copyright>
 
   <include href="legal.xml" xmlns="http://www.w3.org/2001/XInclude" />
 
@@ -31,8 +28,7 @@ mal_info_email = element email {
 </code></synopsis>
 
 <p>Use the <code>email</code> element to mark up the email address for a
-person or organization in a <code xref="mal_info_copyright">copyright</code>
-or <code xref="mal_info_credit">credit</code> element.</p>
+person or organization in a <code xref="mal_info_credit">credit</code> element.</p>
 
 
 <!-- BEGIN notes -->
@@ -42,8 +38,7 @@ or <code xref="mal_info_credit">credit</code> element.</p>
     <item><p>The <code>email</code> element can contain a mixture of text and
     any <link xref="mal_inline">general inline elements</link>.</p></item>
 
-    <item><p>The <code>email</code> element can occur in a
-    <code xref="mal_info_copyright">copyright</code> or
+    <item><p>The <code>email</code> element can occur in the
     <code xref="mal_info_credit">credit</code> element.</p></item>
 
     <item><p>The <code>email</code> element can have attributes from external
@@ -59,8 +54,7 @@ or <code xref="mal_info_credit">credit</code> element.</p>
   <title>Processing Expectations</title>
 
   <p>See the processing expectations for the
-  <code xref="mal_info_copyright">copyright</code> and
-  <code xref="mal_info_credit">credit</code> elements.</p>
+  <code xref="mal_info_credit">credit</code> element.</p>
 </section>
 <!-- END processing -->
 
@@ -70,7 +64,7 @@ or <code xref="mal_info_credit">credit</code> element.</p>
   <title>Comparison to Other Formats</title>
 
   <p>The <code>email</code> element is similar to the
-  <code href="http://www.docbook.org/tdg/en/html/email.html">code</code>
+  <code href="http://www.docbook.org/tdg/en/html/email.html">email</code>
   element in DocBook when that element is used in an informational context.
   The <code>email</code> element in Mallard does not double as an inline
   element.</p>

@@ -43,7 +43,6 @@ DOC_PAGES =				\
 	mal_block_title.page		\
 	mal_block_tree.page		\
 	mal_external.page		\
-	mal_info_copyright.page		\
 	mal_info_credit.page		\
 	mal_info_desc.page		\
 	mal_info_email.page		\
@@ -53,6 +52,7 @@ DOC_PAGES =				\
 	mal_info.page			\
 	mal_info_revision.page		\
 	mal_info_title.page		\
+	mal_info_years.page		\
 	mal_inline_app.page		\
 	mal_inline_cmd.page		\
 	mal_inline_code.page		\

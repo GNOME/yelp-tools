@@ -11,11 +11,8 @@
   <credit type="author">
     <name>Shaun McCance</name>
     <email>shaunm@gnome.org</email>
+    <years>2009</years>
   </credit>
-  <copyright>
-    <year>2009</year>
-    <name>Shaun McCance</name>
-  </copyright>
 
   <desc>Complete specification of the Mallard XML vocabulary.</desc>
 </info>

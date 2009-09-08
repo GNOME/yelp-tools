@@ -39,13 +39,13 @@ $node: The top-level #{page} element
 
 REMARK: Describe this template
 -->
-<xsl:template name="db2html.page.copyrights">
+<xsl:template name="mal2html.page.copyrights">
   <xsl:param name="node"/>
   <div class="copyrights">
-    <xsl:for-each select="$node/mal:info/mal:copyright">
+    <xsl:for-each select="$node/mal:info/mal:credit[mal:years]">
       <div class="copyright">
         <!-- FIXME: i18n, multi-year, email -->
-        <xsl:value-of select="concat('© ', mal:year, ' ', mal:name)"/>
+        <xsl:value-of select="concat('© ', mal:years, ' ', mal:name)"/>
       </div>
     </xsl:for-each>
   </div>
@@ -572,7 +572,7 @@ REMARK: Describe this template
         </xsl:if>
         <xsl:apply-templates select="."/>
       </div>
-      <xsl:call-template name="db2html.page.copyrights">
+      <xsl:call-template name="mal2html.page.copyrights">
         <xsl:with-param name="node" select="."/>
       </xsl:call-template>
     </body>
