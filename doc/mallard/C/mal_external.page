@@ -27,6 +27,17 @@
   <p>Add content</p>
 </comment>
 
+<synopsis><code mime="application/relax-ng-compact-syntax">
+mal_external = element * - (mal:* | local:*) {
+  attribute * { text } *,
+  mal_anything *
+}
+mal_anything = element * {
+  attribute * { text } *,
+  mal_anything *
+}
+</code></synopsis>
+
 
 <!-- BEGIN attributes -->
 <section id="attributes">

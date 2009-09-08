@@ -34,7 +34,7 @@ mal_info_credit = element credit {
   (
     <link xref="mal_info_name">mal_info_name</link> &amp;
     <link xref="mal_info_email">mal_info_email</link> ? &amp;
-    element * - (mal:* | local:*) { mal_inline } *
+    <link xref="mal_external">mal_external</link> *
   )
 }
 </code></synopsis>

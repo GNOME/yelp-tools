@@ -36,7 +36,7 @@ mal_info_revision = element revision {
 
   <link xref="mal_block_title">mal_block_title</link> ?,
   <link xref="mal_block_desc">mal_block_desc</link> ?,
-  element * - (mal:* | local:*) { mal_inline } *
+  <link xref="mal_external">mal_external</link> *
 }
 </code></synopsis>
 
