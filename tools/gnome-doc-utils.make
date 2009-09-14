@@ -398,7 +398,7 @@ clean-doc-lc:
 	    rm -f "$$lc/.xml2po.mo"; \
 	  fi; \
 	done
-clean-doc-dir:
+clean-doc-dir: clean-doc-lc
 	@for lc in C $(_DOC_REAL_LINGUAS); do \
 	  for dir in `find $$lc -depth -type d`; do \
 	    if ! test $$dir -ef $(srcdir)/$$dir; then \
