@@ -146,8 +146,6 @@
 					<para>
  						Specify a PO FILE containing translation and output 
 						XML document with translations merged in.
-						Using this option will overwrite the temporary
-						file <filename>.xml2po.mo</filename>.
 					</para>
 				</listitem>
 			</varlistentry>

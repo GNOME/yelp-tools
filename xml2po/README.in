@@ -150,6 +150,5 @@ not writeable, instead of showing an error, xml2po will replace every
 entity.
 
 Option "-p file.po" depends on program msgfmt being available and in
-the path, and also depends on a file .xml2po.mo being writeable in
-the current working directory.  If that fails, you'll see an error.
+the path.  If that fails, you'll see an error.
 

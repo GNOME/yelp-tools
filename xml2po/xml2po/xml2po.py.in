@@ -35,6 +35,7 @@ VERSION = "1.0.5"
 import sys
 import os
 import getopt
+import tempfile
 
 NULL_STRING = '/dev/null'
 if not os.path.exists('/dev/null'): NULL_STRING = 'NUL'
@@ -51,7 +52,6 @@ OPTIONS may be some of:
     -m    --mode=TYPE          Treat tags as type TYPE (default: docbook)
     -o    --output=FILE        Print resulting text (XML or POT) to FILE
     -p    --po-file=FILE       Specify PO file containing translation, and merge
-                                 Overwrites temporary file .xml2po.mo.
     -r    --reuse=FILE         Specify translated XML file with the same structure
     -t    --translation=FILE   Specify MO file containing translation, and merge
     -u    --update-translation=LANG.po   Updates a PO file using msgmerge program
@@ -97,7 +97,8 @@ def main(argv):
         'expand_all_entities' : False,
     }
     origxml = ''
-    mofile = ''
+    mofile = None
+    mofile_tmppath = None
 
     try: opts, remaining_args = getopt.getopt(argv, 'avhkem:t:o:p:u:r:l:',
                                ['automatic-tags','version', 'help', 'keep-entities', 'expand-all-entities', 'mode=', 'translation=',
@@ -130,12 +131,14 @@ def main(argv):
             operation = 'update'
             po_to_update = arg
         elif opt in ('-p', '--po-file'):
-            mofile = ".xml2po.mo"
+            mofile_handle, mofile_tmppath = tempfile.mkstemp()
+            os.close(mofile_handle)
             pofile = arg
             operation = 'merge'
             if 'translationlanguage' not in options:
                 options['translationlanguage'] = os.path.split(os.path.splitext(pofile)[0])[1]
-            os.system("msgfmt -o %s %s >%s" % (mofile, pofile, NULL_STRING)) and sys.exit(7)
+            os.system("msgfmt -o %s %s >%s" % (mofile_tmppath, pofile, NULL_STRING)) and sys.exit(7)
+            mofile = mofile_tmppath
         elif opt in ('-o', '--output'):
             output = arg
         elif opt in ('-v', '--version'):
@@ -179,6 +182,9 @@ def main(argv):
     else:
         # Standard POT producing
         xml2po_main.to_pot(filenames)
+
+    if mofile_tmppath:
+        os.remove(mofile_tmppath)
 
 # Main program start
 if __name__ == '__main__':
