@@ -1,4 +1,4 @@
-AC_INIT([gnome-doc-utils], [0.17.5],
+AC_INIT([gnome-doc-utils], [0.18.0],
         [http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-doc-utils])
 AM_INIT_AUTOMAKE([1.9 no-dist-gzip dist-bzip2])
 

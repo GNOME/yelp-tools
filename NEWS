@@ -1,3 +1,28 @@
+Changes in 0.18.0:
+------------------
+* Replaced Mallard copyright element with credit (Shaun McCance)
+* Fixed model for external-namespace elements in info context (Shaun McCance)
+* Fixed gnome-doc-utils.make parallel build failure, bug #595197 (Daniel Elstner)
+* Updated translations:
+  as    (Amitakhya Phukan)
+  da    (Ask H. Larsen)
+  de    (Mario Blättermann)
+  en_GB (Philip Withnall)
+  hi    (Rajesh Ranjan)
+  ja    (Takayuki KUSANO)
+  kn    (Shankar Prasad)
+  ko    (Changwoo Ryu)
+  lt    (Gintautas Miliauskas)
+  mai   (Rajesh Ranjan)
+  ml    (Ani)
+  mr    (Sandeep Shedmake)
+  or    (Manoj Kumar Giri)
+  pa    (A S Alam)
+  ro    (Adi Roiban)
+  sl    (Matej Urbančič)
+  te    (krishnababu k)
+  uk    (Maxim V. Dziumanenko)
+
 Changes in 0.17.5:
 ------------------
 * mal2html: Handle link roles on automatic and inline links (Shaun McCance)
