@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils.HEAD\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-07-26 09:38+0300\n"
-"PO-Revision-Date: 2009-07-26 09:50+0300\n"
+"POT-Creation-Date: 2009-09-25 17:06+0200\n"
+"PO-Revision-Date: 2009-09-25 17:13+0300\n"
 "Last-Translator: Khaled Hosny <khaledhosny@eglug.org>\n"
 "Language-Team: Arabic <doc@arabeyes.org>\n"
 "Language: ar\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
-"X-Generator: Virtaal 0.4.0-rc1\n"
+"X-Generator: Virtaal 0.4.0\n"
 
 #.
 #. This is used as a list item seperator for inline lists of exactly two
@@ -110,13 +110,13 @@ msgstr "<msgid>appendix.digit</msgid> <msgstr>A</msgstr>"
 #.
 #: ../xslt/gettext/l10n.xml.in.h:74
 msgid ""
-"<msgid>appendix.label</msgid> <msgstr "
-"role='header'><number/>.&#x2003;</msgstr> <msgstr "
-"role='li'><number/>.&#x2002;</msgstr> <msgstr>Appendix <number/></msgstr>"
+"<msgid>appendix.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
+"msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Appendix "
+"<number/></msgstr>"
 msgstr ""
-"<msgid>appendix.label</msgid> <msgstr "
-"role='header'><number/>.&#x2003;</msgstr> <msgstr "
-"role='li'><number/>.&#x2002;</msgstr> <msgstr>ملحق <number/></msgstr>"
+"<msgid>appendix.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
+"msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>ملحق <number/"
+"></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -188,7 +188,8 @@ msgstr "<msgid>appendix.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 #: ../xslt/gettext/l10n.xml.in.h:139
 msgid ""
 "<msgid>appendix.xref</msgid> <msgstr>Appendix <number/> ― <title/></msgstr>"
-msgstr "<msgid>appendix.xref</msgid> <msgstr>ملحق <number/> ― <title/></msgstr>"
+msgstr ""
+"<msgid>appendix.xref</msgid> <msgstr>ملحق <number/> ― <title/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -218,8 +219,8 @@ msgid ""
 "<msgid>biblioentry.tooltip</msgid> <msgstr>View the bibliography entry "
 "<label/>.</msgstr>"
 msgstr ""
-"<msgid>biblioentry.tooltip</msgid> <msgstr>اعرض عنصر المَراجِع "
-"<label/>.</msgstr>"
+"<msgid>biblioentry.tooltip</msgid> <msgstr>اعرض عنصر المَراجِع <label/>.</"
+"msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -403,13 +404,13 @@ msgstr "<msgid>chapter.digit</msgid> <msgstr>1</msgstr>"
 #.
 #: ../xslt/gettext/l10n.xml.in.h:329
 msgid ""
-"<msgid>chapter.label</msgid> <msgstr "
-"role='header'><number/>.&#x2003;</msgstr> <msgstr "
-"role='li'><number/>.&#x2002;</msgstr> <msgstr>Chapter <number/></msgstr>"
+"<msgid>chapter.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
+"msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>Chapter "
+"<number/></msgstr>"
 msgstr ""
-"<msgid>chapter.label</msgid> <msgstr "
-"role='header'><number/>.&#x2003;</msgstr> <msgstr "
-"role='li'><number/>.&#x2002;</msgstr> <msgstr>فصل <number/></msgstr>"
+"<msgid>chapter.label</msgid> <msgstr role='header'><number/>.&#x2003;</"
+"msgstr> <msgstr role='li'><number/>.&#x2002;</msgstr> <msgstr>فصل <number/></"
+"msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -770,7 +771,7 @@ msgid ""
 "i>&#x2003;</msgstr> <msgstr role='li'>Figure <number/>&#x2002;</msgstr> "
 "<msgstr>Figure <number/></msgstr>"
 msgstr ""
-"<msgid>figure.label</msgid> <msgstr role='header'><i>Figure <number/></"
+"<msgid>figure.label</msgid> <msgstr role='header'><i>شكل <number/></"
 "i>&#x2003;</msgstr> <msgstr role='li'>شكل <number/>&#x2002;</msgstr> "
 "<msgstr>شكل <number/></msgstr>"
 
@@ -1921,7 +1922,7 @@ msgstr ""
 msgid ""
 "<msgstr form='0'>Copyright</msgstr> <msgstr form='1'>Copyrights</msgstr>"
 msgstr ""
-"<msgstr form=\"0\">حقوق النسخ</msgstr> <msgstr form=\"1\">حقوق النسخ</msgstr>"
+"<msgstr form=\"0\">حقوق النشر</msgstr> <msgstr form=\"1\">حقوق النشر</msgstr>"
 
 #. Used as a header before a list of editors.
 #: ../xslt/gettext/l10n.xml.in.h:1629
@@ -2018,7 +2019,7 @@ msgid "Dedication"
 msgstr "الإهداء"
 
 #.
-#. This is used as a descrpition for the status of the document.
+#. This is used as a description for the status of the document.
 #. This will not be visibile to the users.
 #.
 #. Draft: the authors have written all the content, but they still need
@@ -2042,7 +2043,7 @@ msgid "Email"
 msgstr "البريد الإلكتروني"
 
 #.
-#. This is used as a descrpition for the status of the document.
+#. This is used as a description for the status of the document.
 #. This will not be visibile to the users.
 #.
 #. Final: a senior member of the documentation team has reviewd the
@@ -2074,7 +2075,7 @@ msgid "Important"
 msgstr "مُهمّ"
 
 #.
-#. This is used as a descrpition for the status of the document.
+#. This is used as a description for the status of the document.
 #. This will not be visibile to the users.
 #.
 #. Incomplete: the document has the basic structure in place, but the
@@ -2143,7 +2144,7 @@ msgid "Q:&#x2003;"
 msgstr "Q:&#x2003;"
 
 #.
-#. This is used as a descrpition for the status of the document.
+#. This is used as a description for the status of the document.
 #. This will not be visibile to the users.
 #.
 #. Review: the authors consider the document complete.
@@ -2174,7 +2175,7 @@ msgid "See Also"
 msgstr "انظر أيضا"
 
 #.
-#. This is used as a descrpition for the status of the document.
+#. This is used as a description for the status of the document.
 #. This will not be visibile to the users.
 #.
 #. Stub: the document has little or basic content, it may have been
