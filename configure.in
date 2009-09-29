@@ -50,7 +50,9 @@ data/Makefile
 data/icons/Makefile
 data/icons/hicolor/Makefile
 data/icons/hicolor/48x48/Makefile
+data/icons/hicolor/48x48/status/Makefile
 data/icons/hicolor/scalable/Makefile
+data/icons/hicolor/scalable/status/Makefile
 data/templates/Makefile
 data/watermarks/Makefile
 doc/Makefile

@@ -200,7 +200,7 @@ DO_html() {
 	for graphic in `echo $graphics | tr ' ' '\n' | grep '^admon-'`; do
 	    param="theme.icon."`echo $graphic | sed -e 's/\.png$//' -e 's/-/./'`;
 	    if [ "x$doc_admon_graphics_path" = "x" ]; then
-		cmd="cp \"$pkgdatadir/icons/hicolor/48x48/$graphic\" \"$doc_outdir/$graphic\""
+		cmd="cp \"$pkgdatadir/icons/hicolor/48x48/status/$graphic\" \"$doc_outdir/$graphic\""
 		echo_verbose "$cmd"
 		eval "$cmd"
 		params="$params --stringparam $param \"$graphic\""
