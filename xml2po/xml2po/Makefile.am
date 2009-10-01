@@ -11,9 +11,8 @@ xml2po: xml2po.py.in
 	  < $(srcdir)/xml2po.py.in > xml2po
 	chmod +x xml2po
 
-xml2po_DATA = \
+xml2po_PYTHON = \
 	__init__.py
 
 EXTRA_DIST = \
-	$(xml2po_DATA) \
 	xml2po.py.in
