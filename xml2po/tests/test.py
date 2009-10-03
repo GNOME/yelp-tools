@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-import sys, os
+import sys, os, time
 
 SIMPLETESTS = { 'deep-finals.xml' : {},
                 'deep-nonfinals.xml': {},
@@ -36,6 +36,7 @@ if len(sys.argv) > 1:
     if ret:
         print "Problem: merging translation into '%s'" % (input)
 else:
+    time_start = time.time()
     for t in SIMPLETESTS:
         myopts = SIMPLETESTS[t].get("options", "")
         if os.system("%s %s %s" % (sys.argv[0], t, myopts)):
@@ -44,4 +45,6 @@ else:
     for t in OTHERTESTS:
         if os.system("cd %s && ./%s" % (t[0], t[1])):
             print "WARNING: Test %s failed." % (t[0])
+    time_end = time.time()
+    print "%d tests executed in %2.2f secs" % (len(SIMPLETESTS)+len(OTHERTESTS), time_end-time_start)
     

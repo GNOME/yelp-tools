@@ -9,8 +9,9 @@ To run, try
   ./test.py 2>/dev/null
 
 (stderr redirection in order to avoid seeing "Warning: image not
-found" messages; there should be NO OUTPUT at all if all tests are
-successful!)
+found" messages)
+If all tests are successful, the ONLY output should be the number of
+tests and the time taken to run the tests!
 
 Simple tests are consisted of four files: original XML file, PO
 Template (untranslated PO file), PO file (translated) and translated
