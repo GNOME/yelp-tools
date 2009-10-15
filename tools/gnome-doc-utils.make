@@ -266,6 +266,13 @@ _DOC_POFILES = $(if $(DOC_MODULE)$(DOC_ID),					\
 .PHONY: po
 po: $(_DOC_POFILES)
 
+## @ _DOC_MOFILES
+## The .mo files used for translating the document
+_DOC_MOFILES = $(patsubst %.po,%.mo,$(_DOC_POFILES))
+
+.PHONY: mo
+mo: $(_DOC_MOFILES)
+
 ## @ _DOC_LC_MODULES
 ## The top-level documentation files in all other locales
 _DOC_LC_MODULES = $(if $(DOC_MODULE),						\
@@ -332,16 +339,19 @@ $(_DOC_POFILES):
 	    $(_xml2po) -m $(_xml2po_mode) -e -u $(notdir $@) $$docs); \
 	fi
 
+$(_DOC_MOFILES): %.mo: %.po
+	msgfmt -o $@ $<
+
 # FIXME: fix the dependancy
 # FIXME: hook xml2po up
-$(_DOC_LC_DOCS) : $(_DOC_POFILES)
+$(_DOC_LC_DOCS) : $(_DOC_MOFILES)
 $(_DOC_LC_DOCS) : $(_DOC_C_DOCS)
 	if ! test -d $(dir $@); then mkdir $(dir $@); fi
 	if [ -f "C/$(notdir $@)" ]; then d="../"; else d="$(_DOC_ABS_SRCDIR)/"; fi; \
-	po="$(dir $@)$(patsubst %/$(notdir $@),%,$@).po"; \
-	if [ -f "$${po}" ]; then po="../$${po}"; else po="$(_DOC_ABS_SRCDIR)/$${po}"; fi; \
+	mo="$(dir $@)$(patsubst %/$(notdir $@),%,$@).mo"; \
+	if [ -f "$${mo}" ]; then mo="../$${mo}"; else mo="$(_DOC_ABS_SRCDIR)/$${mo}"; fi; \
 	(cd $(dir $@) && \
-	  $(_xml2po) -m $(_xml2po_mode) -e -p "$${po}" \
+	  $(_xml2po) -m $(_xml2po_mode) -e -t "$${mo}" \
 	    "$${d}C/$(notdir $@)" > $(notdir $@).tmp && \
 	    cp $(notdir $@).tmp $(notdir $@) && rm -f $(notdir $@).tmp)
 
