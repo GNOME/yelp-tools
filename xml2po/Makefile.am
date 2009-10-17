@@ -1,6 +1,6 @@
 SUBDIRS = xml2po examples
 
-pkgconfigdir = $(libdir)/pkgconfig
+pkgconfigdir = $(datadir)/pkgconfig
 pkgconfig_DATA = xml2po.pc
 
 man_MANS = xml2po.1
