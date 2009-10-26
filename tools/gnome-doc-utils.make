@@ -396,12 +396,14 @@ clean-doc-omf: ; rm -f $(_DOC_OMF_DB) $(_DOC_OMF_HTML)
 clean-doc-dsk: ; rm -f $(_DOC_DSK_DB) $(_DOC_DSK_HTML)
 clean-doc-lc:
 	rm -f $(_DOC_LC_DOCS)
+	rm -f $(_DOC_MOFILES)
 	@list='$(_DOC_POFILES)'; for po in $$list; do \
 	  if ! test "$$po" -ef "$(srcdir)/$$po"; then \
 	    echo "rm -f $$po"; \
 	    rm -f "$$po"; \
 	  fi; \
 	done
+#	.xml2.po.mo cleaning is obsolete as of 0.18.1 and could be removed in 0.20.x
 	@for lc in C $(_DOC_REAL_LINGUAS); do \
 	  if test -f "$$lc/.xml2po.mo"; then \
 	    echo "rm -f $$lc/.xml2po.mo"; \
