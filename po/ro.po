@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: gnome-doc-utils\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "doc-utils&component=general\n"
-"POT-Creation-Date: 2009-09-08 13:47+0000\n"
+"POT-Creation-Date: 2009-11-04 19:45+0000\n"
 "PO-Revision-Date: 2009-09-08 18:56+0200\n"
 "Last-Translator: Adi Roiban <adi@roiban.ro>\n"
 "Language-Team: Gnome Romanian Team <gnomero-list@lists.sourceforge.net>\n"
@@ -947,7 +947,7 @@ msgstr "<msgid>glossentry.abbrev.format</msgid> <msgstr>(<node/>)</msgstr>"
 msgid ""
 "<msgid>glossentry.tooltip</msgid> <msgstr>Read the definition for "
 "‘<glossterm/>’.</msgstr>"
-msgstr "<msgstr>Citeşte definiţia pentru „<glossterm/>”.</msgstr>"
+msgstr "<msgstr>Citește definiția pentru „<glossterm/>”.</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1449,7 +1449,7 @@ msgid ""
 "<number/></msgstr>"
 msgstr ""
 "<msgstr role='header'><number/>.&#x2003;</msgstr> <msgstr role='li'><number/"
-">.&#x2002;</msgstr> <msgstr>Secţiunea <number/></msgstr>"
+">.&#x2002;</msgstr> <msgstr>Secțiunea <number/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1522,7 +1522,7 @@ msgstr "<msgstr><parent/>.<digit/></msgstr>"
 #: ../xslt/gettext/l10n.xml.in.h:1293
 msgid ""
 "<msgid>refsection.xref</msgid> <msgstr>Section <number/> ― <title/></msgstr>"
-msgstr "<msgstr>Secţiunea <number/> : <title/></msgstr>"
+msgstr "<msgstr>Secțiunea <number/> : <title/></msgstr>"
 
 #.
 #. The number formatter used for section numbers.  This can be one of
@@ -1582,7 +1582,7 @@ msgid ""
 "<number/></msgstr>"
 msgstr ""
 "<msgstr role='header'><number/>.&#x2003;</msgstr> <msgstr role='li'><number/"
-">.&#x2002;</msgstr> <msgstr>Secţiunea <number/></msgstr>"
+">.&#x2002;</msgstr> <msgstr>Secțiunea <number/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1655,7 +1655,7 @@ msgstr "<msgstr><parent/>.<digit/></msgstr>"
 #: ../xslt/gettext/l10n.xml.in.h:1408
 msgid ""
 "<msgid>section.xref</msgid> <msgstr>Section <number/> ― <title/></msgstr>"
-msgstr "<msgstr>Secţiunea <number/> : <title/></msgstr>"
+msgstr "<msgstr>Secțiunea <number/> : <title/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1932,7 +1932,7 @@ msgid ""
 "<msgstr form='0'>Other Contributor</msgstr> <msgstr form='1'>Other "
 "Contributors</msgstr>"
 msgstr ""
-"<msgstr form='0'>Alt contributor</msgstr> <msgstr form='1'>Alţi "
+"<msgstr form='0'>Alt contributor</msgstr> <msgstr form='1'>Alți "
 "contributori</msgstr>"
 
 #. Used as a header before a list of publishers.
@@ -1990,7 +1990,7 @@ msgstr "Bibliografie"
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1664
 msgid "Caution"
-msgstr "Atenţie"
+msgstr "Atenție"
 
 #.
 #. http://www.docbook.org/tdg/en/html/colophon.html
@@ -2011,7 +2011,7 @@ msgstr "Conținut"
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1676
 msgid "Dedication"
-msgstr "Dedicaţie"
+msgstr "Dedicație"
 
 #.
 #. This is used as a description for the status of the document.
@@ -2123,7 +2123,7 @@ msgstr "Notă"
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1749
 msgid "Preface"
-msgstr "Prefaţă"
+msgstr "Prefață"
 
 #.
 #. http://www.docbook.org/tdg/en/html/qandaentry.html
@@ -2167,7 +2167,7 @@ msgstr "Vezi"
 #. Automatic see also section and links
 #: ../xslt/gettext/l10n.xml.in.h:1778
 msgid "See Also"
-msgstr "Vezi şi"
+msgstr "Vezi și"
 
 #.
 #. This is used as a description for the status of the document.
