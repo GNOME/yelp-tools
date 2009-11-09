@@ -1,0 +1,298 @@
+# Shavian translation for gnome-doc-utils.
+# Copyright (C) 2009 The Gnome Foundation.
+# Thomas Thurman <tthurman@gnome.org>, 2009.
+msgid ""
+msgstr ""
+"Project-Id-Version: metacity\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2009-11-06 19:17+0200\n"
+"Last-Translator: Thomas Thurman <tthurman@gnome.org>\n"
+"Language-Team: Shavian <ubuntu-l10n-en-shaw@lists.launchpad.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#.
+#. This is used as a list item seperator for inline lists of exactly two
+#. elements.  A list of two names would be formatted as "Tom and Dick".
+#.
+#: ../xslt/gettext/l10n.xml.in.h:5
+msgid " and "
+msgstr " 𐑯 "
+
+#.
+#. This is used to offset an inline description from a title.  This is
+#. typically used on title and refpurpose of a refentry element, which
+#. models the structure of a man page.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:11
+msgid " — "
+msgstr " — "
+
+#.
+#. This is used a simple list item seperator in places where simple
+#. inline lists have to be constructed dynamically.  Using the default
+#. string of ", ", a list would look like this: A, B, C, D.  Using the
+#. nonsensical string " - ", a list would look like this: A - B - C - D.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:18
+msgid ", "
+msgstr ", "
+
+#.
+#. This is used as the final separator in an inline list of three or
+#. more elements.  The string ", " will be used to separate all but
+#. the last pair of elements.  Using these two strings, a list of
+#. names would be formatted as "Tom, Dick, and Harry".
+#.
+#: ../xslt/gettext/l10n.xml.in.h:25
+msgid ", and "
+msgstr ", 𐑯 "
+
+#.
+#. http://www.docbook.org/tdg/en/html/qandaentry.html
+#.
+#. This is used as a label before answers in a question-and-answer
+#. set.  Typically, answers are simply numbered and answers are not
+#. labelled at all.  However, DocBook allows document authors to set
+#. the labelling style for a qandaset.  If the labelling style is set
+#. to 'qanda', this string will be used to label answers.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1645
+msgid "A:&#x2003;"
+msgstr "𐑭:&#x2003;"
+
+#. Used for links to the titlepage.
+#: ../xslt/gettext/l10n.xml.in.h:1647
+msgid "About This Document"
+msgstr "𐑩𐑚𐑬𐑑 𐑞𐑦𐑕 𐑛𐑪𐑒𐑿𐑥𐑩𐑯𐑑"
+
+#.
+#. http://www.docbook.org/tdg/en/html/affiliation.html
+#.
+#. This is used as a label before affiliations when listing
+#. authors and other contributors to the document.  For example:
+#.
+#. Shaun McCance
+#. Affiliation: GNOME Documentation Project
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1657
+msgid "Affiliation"
+msgstr "𐑩𐑓𐑦𐑤𐑰𐑱𐑖𐑩𐑯"
+
+#. Used as a title for a bibliography.
+#: ../xslt/gettext/l10n.xml.in.h:1659
+msgid "Bibliography"
+msgstr "𐑚𐑦𐑚𐑤𐑰𐑭𐑜𐑮𐑩𐑓𐑰"
+
+#.
+#. http://www.docbook.org/tdg/en/html/caution.html
+#. This is used as a default title for caution elements.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1664
+msgid "Caution"
+msgstr "𐑒𐑷𐑖𐑩𐑯"
+
+#. Used as the title of the listing of subsections
+#: ../xslt/gettext/l10n.xml.in.h:1671
+msgid "Contents"
+msgstr "𐑒𐑪𐑯𐑑𐑩𐑯𐑑𐑕"
+
+#.
+#. http://www.docbook.org/tdg/en/html/dedication.html
+#. This is used as a default title for dedication elements.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1676
+msgid "Dedication"
+msgstr "𐑛𐑧𐑛𐑩𐑒𐑱𐑖𐑩𐑯"
+
+#.
+#. This is used as a description for the status of the document.
+#. This will not be visibile to the users.
+#.
+#. Draft: the authors have written all the content, but they still need
+#. to clean up the language or markup.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1684
+msgid "Draft"
+msgstr "𐑛𐑮𐑭𐑓𐑑"
+
+#.
+#. http://www.docbook.org/tdg/en/html/affiliation.html
+#.
+#. This is used as a label before email addresses when listing
+#. authors and other contributors to the document.  For example:
+#.
+#. Shaun McCance
+#. Email: shaunm@gnome.org
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1694
+msgid "Email"
+msgstr "𐑰𐑥𐑱𐑤"
+
+#.
+#. This is used as a description for the status of the document.
+#. This will not be visibile to the users.
+#.
+#. Final: a senior member of the documentation team has reviewd the
+#. document and approved it.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1702
+msgid "Final"
+msgstr "𐑓𐑲𐑯𐑩𐑤"
+
+#. Automatic further reading section and links
+#: ../xslt/gettext/l10n.xml.in.h:1704
+msgid "Further Reading"
+msgstr "𐑓𐑻𐑞𐑼 𐑮𐑰𐑛𐑦𐑙"
+
+#.
+#. http://www.docbook.org/tdg/en/html/glossary.html
+#. This is used as a default title for glossary elements.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1709
+msgid "Glossary"
+msgstr "𐑜𐑤𐑪𐑕𐑻𐑰"
+
+#.
+#. http://www.docbook.org/tdg/en/html/important.html
+#. This is used as a default title for important elements.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1714
+msgid "Important"
+msgstr "𐑦𐑥𐑐𐑹𐑑𐑩𐑯𐑑"
+
+#.
+#. This is used as a description for the status of the document.
+#. This will not be visibile to the users.
+#.
+#. Incomplete: the document has the basic structure in place, but the
+#. authors have not yet written all the content.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1722
+msgid "Incomplete"
+msgstr "𐑦𐑯𐑒𐑩𐑥𐑐𐑤𐑰𐑑"
+
+#.
+#. http://www.docbook.org/tdg/en/html/index.html
+#. This is used as a default title for index elements.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1727
+msgid "Index"
+msgstr "𐑦𐑯𐑛𐑧𐑒𐑕"
+
+#.
+#. http://www.docbook.org/tdg/en/html/legalnotice.html
+#. This is used as a default title for legalnotice elements.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1732
+msgid "Legal Notice"
+msgstr "𐑤𐑰𐑜𐑩𐑤 𐑯𐑴𐑑𐑦𐑕"
+
+#. Automatic more about section and links
+#: ../xslt/gettext/l10n.xml.in.h:1734
+msgid "More About"
+msgstr "𐑥𐑹 𐑩𐑚𐑬𐑑"
+
+#.
+#. http://www.docbook.org/tdg/en/html/refnamediv.html
+#. This is used as the title for refnamediv elements.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1739
+msgid "Name"
+msgstr "𐑯𐑱𐑥"
+
+#.
+#. http://www.docbook.org/tdg/en/html/note.html
+#. This is used as a default title for note elements.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1744
+msgid "Note"
+msgstr "𐑯𐑴𐑑"
+
+#.
+#. http://www.docbook.org/tdg/en/html/preface.html
+#. This is used as a default title for preface elements.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1749
+msgid "Preface"
+msgstr "𐑐𐑮𐑧𐑓𐑩𐑕"
+
+#.
+#. http://www.docbook.org/tdg/en/html/qandaentry.html
+#.
+#. This is used as a label before questions in a question-and-answer
+#. set.  Typically, questions are simply numbered and answers are not
+#. labelled at all.  However, DocBook allows document authors to set
+#. the labelling style for a qandaset.  If the labelling style is set
+#. to 'qanda', this string will be used to label questions.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1759
+msgid "Q:&#x2003;"
+msgstr "𐑒:&#x2003;"
+
+#.
+#. This is used as a description for the status of the document.
+#. This will not be visibile to the users.
+#.
+#. Review: the authors consider the document complete.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1766
+msgid "Ready for review"
+msgstr "𐑮𐑧𐑛𐑦 𐑓𐑹 𐑮𐑦𐑝𐑿"
+
+#.
+#. http://www.docbook.org/tdg/en/html/revhistory.html
+#. This is used as a header before the revision history.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1771
+msgid "Revision History"
+msgstr "𐑮𐑰𐑝𐑦𐑠𐑩𐑯 𐑣𐑦𐑕𐑑𐑼𐑦"
+
+#.
+#. Used for the <see> element.
+#. FIXME: this should be a format string.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1776
+msgid "See"
+msgstr "𐑕𐑰"
+
+#. Automatic see also section and links
+#: ../xslt/gettext/l10n.xml.in.h:1778
+msgid "See Also"
+msgstr "𐑕𐑰 𐑷𐑤𐑕𐑴"
+
+#.
+#. This is used as a description for the status of the document.
+#. This will not be visibile to the users.
+#.
+#. Stub: the document has little or basic content, it may have been
+#. created by developers in order to have it included in the build.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1786
+msgid "Stub"
+msgstr "𐑕𐑑𐑩𐑚"
+
+#.
+#. http://www.docbook.org/tdg/en/html/refsynopsisdiv.html
+#. This is used as the default title for refsynopsisdiv elements.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1791
+msgid "Synopsis"
+msgstr "𐑕𐑦𐑯𐑭𐑐𐑕𐑦𐑕"
+
+#.
+#. http://www.docbook.org/tdg/en/html/tip.html
+#. This is used as a default title for tip elements.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1796
+msgid "Tip"
+msgstr "𐑑𐑦𐑐"
+
+#.
+#. http://www.docbook.org/tdg/en/html/warning.html
+#. This is used as a default title for warning elements.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1801
+msgid "Warning"
+msgstr "𐑢𐑹𐑯𐑦𐑙"
