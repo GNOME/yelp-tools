@@ -340,6 +340,10 @@ $(_DOC_POFILES):
 	fi
 
 $(_DOC_MOFILES): %.mo: %.po
+	@if ! test -d $(dir $@); then \
+	  echo "mkdir $(dir $@)"; \
+	  mkdir "$(dir $@)"; \
+	fi
 	msgfmt -o $@ $<
 
 # FIXME: fix the dependancy
