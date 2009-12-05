@@ -33,6 +33,126 @@ datadir=@datadir@
 pkgdatadir=@datadir@/gnome-doc-utils
 xsltdir=@datadir@/xml/gnome/xslt
 
+XSL_ICONS='
+<xsl:stylesheet
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:mal="http://projectmallard.org/1.0/"
+  version="1.0">
+<xsl:import href="'$xsltdir'/gettext/gettext.xsl"/>
+<xsl:output method="text" encoding="utf-8"/>
+<xsl:template match="*">
+  <xsl:apply-templates/>
+</xsl:template>
+<xsl:template match="text()"/>
+<xsl:template match="caution">
+  <xsl:text>admon-caution&#x000A;</xsl:text>
+</xsl:template>
+<xsl:template match="important">
+  <xsl:text>admon-important&#x000A;</xsl:text>
+</xsl:template>
+<xsl:template match="note">
+  <xsl:choose>
+    <xsl:when test="@role='\''bug'\''">
+      <xsl:text>admon-bug&#x000A;</xsl:text>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:text>admon-note&#x000A;</xsl:text>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+<xsl:template match="tip">
+  <xsl:text>admon-tip&#x000A;</xsl:text>
+</xsl:template>
+<xsl:template match="warning">
+  <xsl:text>admon-warning&#x000A;</xsl:text>
+</xsl:template>
+<xsl:template match="mal:note">
+  <xsl:choose>
+    <xsl:when test="contains(concat('\'' '\'', @style, '\'' '\''), '\''advanced'\'')">
+      <xsl:text>admon-important&#x000A;</xsl:text>
+    </xsl:when>
+    <xsl:when test="contains(concat('\'' '\'', @style, '\'' '\''), '\''bug'\'')">
+      <xsl:text>admon-bug&#x000A;</xsl:text>
+    </xsl:when>
+    <xsl:when test="contains(concat('\'' '\'', @style, '\'' '\''), '\''important'\'')">
+      <xsl:text>admon-important&#x000A;</xsl:text>
+    </xsl:when>
+    <xsl:when test="contains(concat('\'' '\'', @style, '\'' '\''), '\''tip'\'')">
+      <xsl:text>admon-tip&#x000A;</xsl:text>
+    </xsl:when>
+    <xsl:when test="contains(concat('\'' '\'', @style, '\'' '\''), '\''warning'\'')">
+      <xsl:text>admon-warning&#x000A;</xsl:text>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:text>admon-note&#x000A;</xsl:text>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+<xsl:template match="/FALSE">
+  <xsl:if test="//blockquote[1]">
+    <xsl:call-template name="l10n.gettext">
+      <xsl:with-param name="msgid" select="'\''blockquote-watermark-201C'\''"/>
+    </xsl:call-template>
+    <xsl:text>&#x000A;</xsl:text>
+  </xsl:if>
+  <xsl:if test="//classsynopsis[@language = '"'"'cpp'"'"'][1] or //programlisting[@language = '"'"'cpp'"'"']">
+    <xsl:text>watermark-code-cpp&#x000A;</xsl:text>
+  </xsl:if>
+  <xsl:if test="//classsynopsis[@language = '"'"'python'"'"'][1] or //programlisting[@language = '"'"'python'"'"']">
+    <xsl:text>watermark-code-python&#x000A;</xsl:text>
+  </xsl:if>
+</xsl:template>
+</xsl:stylesheet>'
+
+XSL_CACHE_LS='
+<xsl:stylesheet
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:cache="http://projectmallard.org/1.0/"
+  xmlns:mal="http://projectmallard.org/1.0/"
+  version="1.0">
+<xsl:output method="text"/>
+<xsl:template match="/">
+  <xsl:for-each select="cache:cache/mal:page">
+    <xsl:value-of select="@href"/>
+    <xsl:text>&#x000A;</xsl:text>
+  </xsl:for-each>
+</xsl:template>
+</xsl:stylesheet>'
+
+XSL_DOCBOOK_MEDIA='
+<xsl:stylesheet
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  version="1.0">
+<xsl:output method="text" encoding="utf-8"/>
+<xsl:template match="/">
+  <xsl:for-each select="//audiodata|//imagedata|//videodata">
+    <xsl:choose>
+      <xsl:when test="@fileref">
+        <xsl:value-of select="@fileref"/>
+      </xsl:when>
+      <xsl:when test="@entityref">
+        <xsl:value-of select="unparsed-entity-uri(@entityref)"/>
+      </xsl:when>
+    </xsl:choose>
+    <xsl:text>&#x000A;</xsl:text>
+  </xsl:for-each>
+</xsl:template>
+</xsl:stylesheet>'
+
+XSL_MALLARD_MEDIA='
+<xsl:stylesheet
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:mal="http://projectmallard.org/1.0/"
+  version="1.0">
+<xsl:output method="text" encoding="utf-8"/>
+<xsl:template match="/">
+  <xsl:for-each select="//mal:media">
+    <xsl:value-of select="@src"/>
+    <xsl:text>&#x000A;</xsl:text>
+  </xsl:for-each>
+</xsl:template>
+</xsl:stylesheet>'
+
 error() {
     echo "$progname: $1" 1>&2;
     exit 1;
@@ -40,13 +160,15 @@ error() {
 
 print_help() {
     cat <<EOF
-Usage: $progname <COMMAND> [OPTIONS] FILE
+Usage: $progname <COMMAND> [OPTIONS] FILES...
 Process a documentation file.
 
 COMMAND is one of:
-  html       convert the document to HTML
-  xhtml      convert the document to XHTML
-  help       display this help and exit
+  list-icons   list automatic icons and watermarks
+  list-media   list all referenced media files
+  html         convert the documents to HTML
+  xhtml        convert the documents to XHTML
+  help         display this help and exit
 EOF
 }
 
@@ -59,15 +181,19 @@ Convert FILE into $upformat.
 
 Basic Output Control:
   -c, --css-file=FILE             file to output CSS to
-  -d, --chunk-depth=INT           how deep sections should be chunked
   -e, --extension=EXT             the extension to append to output files
   -n, --no-figures                do not copy figures into the output directory
   -o, --output=PATH               the file or directory to output to
 
-Formatting Control:
+Automatic Graphics:
   --copy-graphics                 copy graphics into the output directory
   --admon-graphics-path=PATH      the path to the admonition graphics
   --admon-graphics-size=INT       the size of the admonition graphics
+
+Docbook Chunking:
+  -d, --chunk-depth=INT           how deep sections should be chunked
+
+DocBook Styling:
   --classsynopsis-language=LANG   the default programming language to be used
                                   for classsynopsis elements
   --funcsynopsis-style=STYLE      the style to be used to render funcsynopsis
@@ -79,21 +205,267 @@ Miscellaneous:
   -h, --help                      display this help and exit
 EOF
 }
+
 echo_verbose() {
     if [ "x$doc_verbose" = "x1" ]; then echo $1; fi
 }
+
 mkdir_p() {
     __dir__='';
     echo $1 | sed -e 's/\//\n/g' | while read d; do
 	__dir__="$__dir__$d/"
 	if [ ! -d "$__dir__" ]; then
 	    echo_verbose "mkdir \"$__dir__\""
-	    mkdir "$__dir__"
+	    mkdir "$__dir__" || error "Could not create directory"
 	fi
-    done;
+    done || exit 1;
 }
 
-DO_html() {
+copy_icons() {
+    if [ "x$doc_copy_icons" = "x1" ]; then
+	if [ "x$doc_icons_admon_path" = "x" ]; then
+	    p="$pkgdatadir/icons/hicolor/"
+	    if [ "x$doc_icons_admon_size" != "x" ]; then
+		doc_icons_admon_path="${p}${doc_icons_admon_size}x${doc_icons_admon_size}/status"
+	    else
+		doc_icons_admon_path="${p}48x48/status"
+	    fi
+	    unset p
+	fi
+	for doc_icon in $(echo $doc_icons_to_copy | tr ' ' '\n' | grep '^admon-' | sort | uniq); do
+	    doc_icon_file="${doc_icon}.png"
+	    cmd="cp \"$doc_icons_admon_path/$doc_icon_file\" \"$doc_outdir/$doc_icon_file\""
+	    echo_verbose "$cmd"
+	    eval "$cmd"
+	done
+    fi
+}
+
+list_icons() {
+    while [ "$#" != "0" ]; do
+	if [ -d "$1" ]; then
+	    list_icons "$1/"*.page
+	else
+	    echo "$XSL_ICONS" | xsltproc --nonet --xinclude - "$1"
+	fi
+	shift
+    done | sort | uniq
+}
+
+list_media() {
+    if [ "x$(echo "$1" | sed -e 's/.*\.//')" = "xpage" -o -d "$1" ]; then
+	XSL_MEDIA="$XSL_MALLARD_MEDIA"
+    else
+	XSL_MEDIA="$XSL_DOCBOOK_MEDIA"
+    fi
+    while [ "$#" != "0" ]; do
+	if [ -d "$1" ]; then
+	    list_media "$1/"*.page
+	else
+	    doc_indir=$(dirname "$1")
+	    if [ "$doc_indir" = "." ]; then
+		doc_indir=""
+	    else
+		doc_indir="$doc_indir/"
+	    fi
+	    echo "$XSL_MEDIA" | xsltproc --nonet --xinclude - "$1" \
+		| while read doc_media; do
+		echo "$doc_indir$doc_media"
+	    done
+	fi
+	shift
+    done | sort | uniq
+}
+
+convert_docbook2html() {
+    if [ "x$doc_extension" = "x" ]; then doc_extension=".$doc_format"; fi
+    if [ "x$doc_output" = "x" ]; then
+	doc_outdir=`pwd`
+    elif [ -d "$doc_output" -o $(echo "$doc_output" | sed -e 's/.*\/$/\//') = "/" ]; then
+	mkdir_p "$doc_output"
+	doc_outdir=`(cd "$doc_output" && pwd)`
+    else
+	if [ "$#" != "1" ]; then
+	    error "With multiple input files, output must be a directory"
+	fi
+	dir=`dirname "$doc_output"`
+	mkdir_p "$dir"
+	doc_outdir=`(cd "$dir" && pwd)`
+	doc_outfile=`basename "$doc_output"`
+	doc_outfile_q="1"
+	if [ "x$doc_extension" = "x" ]; then
+	    doc_extension=`echo "$doc_outfile" | grep -o '\..*'`
+	fi;
+    fi;
+    while [ "$#" != "0" ]; do
+	doc_input="$1"
+	shift
+
+	if [ ! -f "$doc_input" ]; then error "$doc_input: No such file"; fi
+	doc_indir=$( (cd $(dirname "$doc_input") && pwd) )
+	doc_infile=$(basename "$doc_input")
+	doc_inbase=$(basename "$doc_infile" ".xml")
+	if [ "$doc_inbase" = "$doc_infile" ]; then
+	    doc_inbase=$(basename "$doc_infile" ".docbook")
+	fi;
+
+	if [ "x$doc_outfile_q" != "x1" ]; then
+	    doc_outfile="${doc_inbase}${doc_extension}"
+	fi
+	doc_outbase=$(basename "$doc_outfile" "$doc_extension")
+
+	params='--param db.chunk.chunk_top 0'
+	params="$params --stringparam db.chunk.basename \"$doc_outbase\""
+	params="$params --stringparam db.chunk.extension \"$doc_extension\""
+	if [ "x$doc_chunk_depth" != "x" ]; then
+	    params="$params --param db.chunk.max_depth $doc_chunk_depth"
+	fi
+	if [ "x$doc_css_file" != "x" ]; then
+	    params="$params --stringparam db2html.css.file \"$doc_css_file\""
+	fi
+
+	if [ "x$doc_copy_icons" = "x1" ]; then
+	    doc_icons=$(list_icons "$doc_indir/$doc_infile")
+	    doc_icons_to_copy="$doc_icons $doc_icons_to_copy"
+	    for doc_icon in $(echo $doc_icons | tr ' ' '\n' | grep '^admon-' | sort | uniq); do
+		param="theme.icon."$(echo $doc_icon | sed -e 's/-/./');
+		params="$params --stringparam $param \"$doc_icon\""
+	    done
+	fi
+	if [ "x$doc_copy_icons" != "x1" -a "x$doc_icons_path" != "x" ]; then
+	    params="$params --stringparam theme.icon.admon.path \"$doc_icons_admon_path\""
+	fi
+	if [ "x$doc_admon_graphics_size" != "x" ]; then
+	    params="$params --stringparam theme.icon.admon.size \"$doc_icons_admon_size\""
+	fi
+	if [ "x$doc_classsynopsis_language" != "x" ]; then
+	    params="$params --stringparam db2html.classsynopsis.language"
+	    params="$params \"$doc_classsynopsis_language\""
+	fi
+	if [ "x$doc_funcsynopsis_style" != "x" ]; then
+	    params="$params --stringparam db2html.funcsynopsis.style"
+	    params="$params \"$doc_funcsynopsis_style\""
+	fi
+
+	cmd="xmllint --nonet --xinclude \"$doc_indir/$doc_infile\" |\
+          xsltproc $params -o \"$doc_outdir/$doc_outfile\" \"$xsltdir/docbook/html/db2$doc_format.xsl\" -"
+	echo_verbose "$cmd"
+	eval "$cmd"
+	exit 0
+
+	if [ "x$doc_no_figures" != "x1" -a "$doc_indir" != "$doc_outdir" ]; then
+	    echo "$XSL_DOCBOOK_MEDIA" \
+		| xsltproc --nonet --xinclude - "$doc_indir/$doc_infile" \
+		| while read doc_media; do
+		mkdir_p "$doc_outdir/"`dirname "$fig"`
+		cmd="cp \"$doc_indir/$fig\" \"$doc_outdir/$fig\""
+		echo_verbose "$cmd"
+		eval "$cmd"
+	    done
+	fi
+    done
+    copy_icons
+}
+
+convert_mallard2html() {
+    if [ "x$doc_extension" = "x" ]; then doc_extension=".$doc_format"; fi
+    if [ "x$doc_output" = "x" ]; then
+	doc_outdir=`pwd`
+    elif [ -d "$doc_output" -o $(echo "$doc_output" | sed -e 's/.*\/$/\//') = "/" ]; then
+	mkdir_p "$doc_output"
+	doc_outdir=`(cd "$doc_output" && pwd)`
+    else
+	if [ "$#" != "1" -o -d "$1" ]; then
+	    error "With multiple input files, output must be a directory"
+	fi
+	dir=`dirname "$doc_output"`
+	mkdir_p "$dir"
+	doc_outdir=`(cd "$dir" && pwd)`
+	doc_outfile=`basename "$doc_output"`
+	doc_outfile_q="1"
+	if [ "x$doc_extension" = "x" ]; then
+	    doc_extension=`echo "$doc_outfile" | grep -o '\..*'`
+	fi;
+    fi;
+    doc_cache_in="$doc_outdir/index.cache.in"
+    doc_cache="$doc_outdir/index.cache"
+    doc_tmpfiles="$doc_tmpfiles doc_cache_in doc_cache_out"
+    (
+	echo '<cache:cache xmlns:cache="http://projectmallard.org/1.0/"'
+	echo '             xmlns="http://projectmallard.org/1.0/">'
+	while [ "$#" != "0" ]; do
+	    doc_input="$1"
+	    shift
+	    if [ -d "$doc_input" ]; then
+		doc_input_full=$(cd "$doc_input" && pwd)
+		for doc_input_file in "$doc_input_full/"*.page; do
+		    echo "$doc_input_file"
+		done
+		unset doc_input_full
+	    else
+		echo "$(pwd)/$doc_input"
+	    fi
+	done | while read doc_input; do
+	    # FIXME: We need a real urlencode.  Just escape space for now.
+	    doc_input_esc=$(echo "$doc_input" | sed -e 's/ /%20/g' -e 's/\&/\&amp;/g' -e 's/</\&lt;/g' -e "s/'/\&apos;/g")
+	    echo "<page href='file://$doc_input_esc'/>"
+	done
+	echo '</cache:cache>'
+    ) > "$doc_cache_in"
+    xsltproc -o "$doc_cache" "$xsltdir/mallard/utils/mal2cache.xsl" "$doc_cache_in"
+    rm "$doc_cache_in"
+    echo "$XSL_CACHE_LS" | xsltproc - "$doc_cache" | while read doc_input; do
+	doc_input=$(echo "$doc_input" | sed -e 's/%20/ /g' -e 's/^file:\/\///')
+	doc_indir=$( (cd $(dirname "$doc_input") && pwd) )
+	doc_infile=$(basename "$doc_input")
+	doc_inbase=$(basename "$doc_infile" ".page")
+
+	if [ "x$doc_outfile_q" != "x1" ]; then
+	    doc_outfile="${doc_inbase}${doc_extension}"
+	fi
+
+	params='--param mal.chunk.chunk_top 0'
+	params="$params --stringparam mal.cache.file \"$doc_cache\""
+
+	if [ "x$doc_css_file" != "x" ]; then
+	    params="$params --stringparam mal2html.css.file \"$doc_css_file\""
+	fi
+
+	if [ "x$doc_copy_icons" = "x1" ]; then
+	    doc_icons=$(list_icons "$doc_indir/$doc_infile")
+	    doc_icons_to_copy="$doc_icons $doc_icons_to_copy"
+	    for doc_icon in $(echo $doc_icons | tr ' ' '\n' | grep '^admon-' | sort | uniq); do
+		param="theme.icon."$(echo $doc_icon | sed -e 's/-/./');
+		params="$params --stringparam $param \"$doc_icon\""
+	    done
+	fi
+	if [ "x$doc_copy_icons" != "x1" -a "x$doc_icons_path" != "x" ]; then
+	    params="$params --stringparam theme.icon.admon.path \"$doc_icons_admon_path\""
+	fi
+	if [ "x$doc_admon_graphics_size" != "x" ]; then
+	    params="$params --stringparam theme.icon.admon.size \"$doc_icons_admon_size\""
+	fi
+
+	cmd="xsltproc --nonet --xinclude $params -o \"$doc_outdir/$doc_outfile\"\
+          \"$xsltdir/mallard/html/mal2$doc_format.xsl\" \"$doc_indir/$doc_infile\""
+	echo_verbose "$cmd"
+	eval "$cmd"
+
+	if [ "x$doc_no_figures" != "x1" -a "$doc_indir" != "$doc_outdir" ]; then
+	    echo "$XSL_MALLARD_MEDIA" \
+		| xsltproc --nonet --xinclude - "$doc_indir/$doc_infile" \
+		| while read doc_media; do
+		mkdir_p "$doc_outdir/"`dirname "$doc_media"`
+		cmd="cp \"$doc_indir/$doc_media\" \"$doc_outdir/$doc_media\""
+		echo_verbose "$cmd"
+		eval "$cmd"
+	    done
+	fi
+    done
+    copy_icons
+}
+
+convert_2html() {
     doc_format="$1"
     shift
     longopts='
@@ -128,11 +500,11 @@ DO_html() {
 		doc_output="$2";;
 
 	    --copy-graphics)
-		doc_copy_graphics="1";;
+		doc_copy_icons="1";;
 	    --admon-graphics-path)
-		doc_admon_graphics_path="$2";;
+		doc_icons_admon_path="$2";;
 	    --admon-graphics-size)
-		doc_admon_graphics_size="$2";;
+		doc_icons_admon_size="$2";;
 	    --classsynopsis-language)
 		doc_classsynopsis_language="$2";;
 	    --funcsynopsis-style)
@@ -155,93 +527,13 @@ DO_html() {
     done
     shift
 
-    if [ "$#" != "1" ]; then print_help_html $doc_format 1>& 2; exit 1; fi;
-    doc_input="$1"
-    if [ ! -f "$doc_input" ]; then error "$doc_input: No such file"; fi
-    doc_indir=$( (cd $(dirname "$doc_input") && pwd) )
-    doc_infile=$(basename "$doc_input")
-    doc_inbase=$(basename "$doc_infile" ".xml")
-    if [ "$doc_inbase" = "$doc_infile" ]; then
-      doc_inbase=$(basename "$doc_infile" ".docbook")
-    fi;
-
-    if [ "x$doc_output" = "x" ]; then
-	doc_outdir=`pwd`
-	if [ "x$doc_extension" = "x" ]; then doc_extension=".$doc_format"; fi
-	doc_outfile="${doc_inbase}${doc_extension}"
-    elif [ -d "$doc_output" -o $(echo "$doc_output" | sed -e 's/.*\/$/\//') = "/" ]; then
-	mkdir_p "$doc_output"
-	doc_outdir=`(cd "$doc_output" && pwd)`
-	if [ "x$doc_extension" = "x" ]; then doc_extension=".$doc_format"; fi
-	doc_outfile="${doc_inbase}${doc_extension}"
+    if [ "$#" = "0" ]; then print_help_html $doc_format 1>&2; exit 1; fi
+    if [ "x$(echo "$1" | sed -e 's/.*\.//')" = "xpage" -o -d "$1" ]; then
+	convert_mallard2html $@;
     else
-	dir=`dirname "$doc_output"`
-	mkdir_p "$dir"
-	doc_outdir=`(cd "$dir" && pwd)`
-	doc_outfile=`basename "$doc_output"`
-	if [ "x$doc_extension" = "x" ]; then
-	    doc_extension=`echo "$doc_outfile" | grep -o '\..*'`
-	fi;
-    fi;
-    doc_outbase=$(basename "$doc_outfile" "$doc_extension")
-
-    params='--param db.chunk.chunk_top 0'
-    params="$params --stringparam db.chunk.basename \"$doc_outbase\""
-    params="$params --stringparam db.chunk.extension \"$doc_extension\""
-    if [ "x$doc_chunk_depth" != "x" ]; then
-	params="$params --param db.chunk.max_depth $doc_chunk_depth"
+	convert_docbook2html $@;
     fi
-    if [ "x$doc_css_file" != "x" ]; then
-	params="$params --stringparam db2html.css.file \"$doc_css_file\""
-    fi
-    graphics=`xmllint --noent --xinclude "$doc_indir/$doc_infile" \
-      | xsltproc "$xsltdir/docbook/utils/graphics.xsl" -`;
-    if [ "x$doc_copy_graphics" = "x1" ]; then
-	for graphic in `echo $graphics | tr ' ' '\n' | grep '^admon-'`; do
-	    param="theme.icon."`echo $graphic | sed -e 's/\.png$//' -e 's/-/./'`;
-	    if [ "x$doc_admon_graphics_path" = "x" ]; then
-		cmd="cp \"$pkgdatadir/icons/hicolor/48x48/status/$graphic\" \"$doc_outdir/$graphic\""
-		echo_verbose "$cmd"
-		eval "$cmd"
-		params="$params --stringparam $param \"$graphic\""
-	    elif [ -f "$doc_admon_graphics_path/$graphic" ] ; then
-		cmd="cp \"$doc_admon_graphics_path/$graphic\" \"$doc_outdir/$graphic\""
-		echo_verbose "$cmd"
-		eval "$cmd"
-		params="$params --stringparam $param \"$graphic\""
-	    fi
-	done
-    fi
-    if [ "x$doc_copy_graphics" != "x1" -a "x$doc_admon_graphics_path" != "x" ]; then
-	params="$params --stringparam theme.icon.admon.path \"$doc_admon_graphics_path\""
-    fi
-    if [ "x$doc_admon_graphics_size" != "x" ]; then
-	params="$params --stringparam theme.icon.admon.size \"$doc_admon_graphics_size\""
-    fi
-    if [ "x$doc_classsynopsis_language" != "x" ]; then
-	params="$params --stringparam db2html.classsynopsis.language"
-	params="$params \"$doc_classsynopsis_language\""
-    fi
-    if [ "x$doc_funcsynopsis_style" != "x" ]; then
-	params="$params --stringparam db2html.funcsynopsis.style"
-	params="$params \"$doc_funcsynopsis_style\""
-    fi
-
-    cmd="xmllint --noent --xinclude \"$doc_indir/$doc_infile\" |\
-      xsltproc $params -o \"$doc_outdir/$doc_outfile\" \"$xsltdir/docbook/html/db2$doc_format.xsl\" -"
-    echo_verbose "$cmd"
-    eval "$cmd"
-
-    if [ "x$doc_no_figures" != "x1" -a "$doc_indir" != "$doc_outdir" ]; then
-	xmllint --noent --xinclude "$doc_indir/$doc_infile" \
-	    | xsltproc "$xsltdir/docbook/utils/figures.xsl" - \
-	    | while read fig; do
-	    mkdir_p "$doc_outdir/"`dirname "$fig"`
-	    cmd="cp \"$doc_indir/$fig\" \"$doc_outdir/$fig\""
-	    echo_verbose "$cmd"
-	    eval "$cmd"
-	done
-    fi
+    exit 0
 }
 
 
@@ -252,7 +544,11 @@ if [ "x$command" = "x" ]; then
 fi;
 shift;
 if [ "$command" = "html" -o "$command" = "xhtml" ]; then
-    DO_html "$command" $@;
+    convert_2html "$command" $@;
+elif [ "$command" = "list-icons" ]; then
+    list_icons $@;
+elif [ "$command" = "list-media" ]; then
+    list_media $@;
 elif [ "$command" = "-V" -o "$command" = "--version" ]; then
     echo "$PROGRAM ($PACKAGE) $VERSION";
     exit 0;
