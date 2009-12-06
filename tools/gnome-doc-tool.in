@@ -33,6 +33,10 @@ datadir=@datadir@
 pkgdatadir=@datadir@/gnome-doc-utils
 xsltdir=@datadir@/xml/gnome/xslt
 
+# This is important to make sure string manipulation is handled
+# byte-by-byte.
+export LANG=C
+
 XSL_ICONS='
 <xsl:stylesheet
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -221,6 +225,38 @@ mkdir_p() {
     done || exit 1;
 }
 
+urlencode() {
+    arg="$1"
+    i="0"
+    while [ "$i" -lt ${#arg} ]; do
+	c=${arg:$i:1}
+	if echo "$c" | grep -q '[a-zA-Z/:_\.\-]'; then
+	    echo -n "$c"
+	else
+	    echo -n "%"
+	    printf "%X" "'$c'"
+	fi
+	i=$((i+1))
+    done
+}
+
+urldecode() {
+    arg="$1"
+    i="0"
+    while [ "$i" -lt ${#arg} ]; do
+	c0=${arg:$i:1}
+	if [ "x$c0" = "x%" ]; then
+	    c1=${arg:$((i+1)):1}
+	    c2=${arg:$((i+2)):1}
+	    printf "\x$c1$c2"
+	    i=$((i+3))
+	else
+	    echo -n "$c0"
+	    i=$((i+1))
+	fi
+    done
+}
+
 copy_icons() {
     if [ "x$doc_copy_icons" = "x1" ]; then
 	if [ "x$doc_icons_admon_path" = "x" ]; then
@@ -406,8 +442,7 @@ convert_mallard2html() {
 		echo "$(pwd)/$doc_input"
 	    fi
 	done | while read doc_input; do
-	    # FIXME: We need a real urlencode.  Just escape space for now.
-	    doc_input_esc=$(echo "$doc_input" | sed -e 's/ /%20/g' -e 's/\&/\&amp;/g' -e 's/</\&lt;/g' -e "s/'/\&apos;/g")
+	    doc_input_esc=$(urlencode "$doc_input" | sed -e 's/\&/\&amp;/g' -e 's/</\&lt;/g' -e "s/'/\&apos;/g")
 	    echo "<page href='file://$doc_input_esc'/>"
 	done
 	echo '</cache:cache>'
@@ -415,7 +450,7 @@ convert_mallard2html() {
     xsltproc -o "$doc_cache" "$xsltdir/mallard/utils/mal2cache.xsl" "$doc_cache_in"
     rm "$doc_cache_in"
     echo "$XSL_CACHE_LS" | xsltproc - "$doc_cache" | while read doc_input; do
-	doc_input=$(echo "$doc_input" | sed -e 's/%20/ /g' -e 's/^file:\/\///')
+	doc_input=$(urldecode $(echo "$doc_input" | sed -e 's/^file:\/\///'))
 	doc_indir=$( (cd $(dirname "$doc_input") && pwd) )
 	doc_infile=$(basename "$doc_input")
 	doc_inbase=$(basename "$doc_infile" ".page")
