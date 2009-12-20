@@ -188,6 +188,7 @@ Basic Output Control:
   -e, --extension=EXT             the extension to append to output files
   -n, --no-figures                do not copy figures into the output directory
   -o, --output=PATH               the file or directory to output to
+  -x, --custom-xslt=PATH          custom XSLT to include in the transform
 
 Automatic Graphics:
   --copy-graphics                 copy graphics into the output directory
@@ -481,8 +482,16 @@ convert_mallard2html() {
 	    params="$params --stringparam theme.icon.admon.size \"$doc_icons_admon_size\""
 	fi
 
-	cmd="xsltproc --nonet --xinclude $params -o \"$doc_outdir/$doc_outfile\"\
-          \"$xsltdir/mallard/html/mal2$doc_format.xsl\" \"$doc_indir/$doc_infile\""
+	if [ "x$doc_custom_xslt" != "x" ]; then
+	    cmd="echo '<stylesheet xmlns=\"http://www.w3.org/1999/XSL/Transform\" version=\"1.0\">\
+                       <import href=\"$xsltdir/mallard/html/mal2$doc_format.xsl\"/>\
+                       <include href=\"$doc_custom_xslt\"/></stylesheet>' |\
+                 xsltproc --nonet --xinclude $params -o \"$doc_outdir/$doc_outfile\"\
+                 - \"$doc_indir/$doc_infile\""
+	else
+	    cmd="xsltproc --nonet --xinclude $params -o \"$doc_outdir/$doc_outfile\"\
+                 \"$xsltdir/mallard/html/mal2$doc_format.xsl\" \"$doc_indir/$doc_infile\""
+	fi
 	echo_verbose "$cmd"
 	eval "$cmd"
 
@@ -509,6 +518,7 @@ convert_2html() {
       -lextension:
       -lno-figures
       -loutput:
+      -lcustom-xslt:
       -lcopy-graphics
       -ladmon-graphics-path:
       -ladmon-graphics-size:
@@ -518,7 +528,7 @@ convert_2html() {
       -lversion
       -lhelp
     ';
-    options=`getopt -qn$progname $longopts -- c:d:e:o:nvVh "$@"`
+    options=`getopt -qn$progname $longopts -- c:d:e:o:x:nvVh "$@"`
     if [ "$?" != "0" ]; then print_help_html $doc_format 1>&2; exit 1; fi
     eval set -- "$options";
     while [ "$1" != "--" ]; do
@@ -533,6 +543,8 @@ convert_2html() {
 		doc_no_figures="1";;
 	    -o | --output)
 		doc_output="$2";;
+	    -x | --custom-xslt)
+		doc_custom_xslt="$2";;
 
 	    --copy-graphics)
 		doc_copy_icons="1";;
