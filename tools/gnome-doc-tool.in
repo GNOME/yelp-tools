@@ -111,13 +111,13 @@ XSL_ICONS='
 XSL_CACHE_LS='
 <xsl:stylesheet
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:cache="http://projectmallard.org/1.0/"
+  xmlns:cache="http://projectmallard.org/cache/1.0/"
   xmlns:mal="http://projectmallard.org/1.0/"
   version="1.0">
 <xsl:output method="text"/>
 <xsl:template match="/">
   <xsl:for-each select="cache:cache/mal:page">
-    <xsl:value-of select="@href"/>
+    <xsl:value-of select="@cache:href"/>
     <xsl:text>&#x000A;</xsl:text>
   </xsl:for-each>
 </xsl:template>
@@ -428,7 +428,7 @@ convert_mallard2html() {
     doc_cache="$doc_outdir/index.cache"
     doc_tmpfiles="$doc_tmpfiles doc_cache_in doc_cache_out"
     (
-	echo '<cache:cache xmlns:cache="http://projectmallard.org/1.0/"'
+	echo '<cache:cache xmlns:cache="http://projectmallard.org/cache/1.0/"'
 	echo '             xmlns="http://projectmallard.org/1.0/">'
 	while [ "$#" != "0" ]; do
 	    doc_input="$1"
@@ -444,11 +444,11 @@ convert_mallard2html() {
 	    fi
 	done | while read doc_input; do
 	    doc_input_esc=$(urlencode "$doc_input" | sed -e 's/\&/\&amp;/g' -e 's/</\&lt;/g' -e "s/'/\&apos;/g")
-	    echo "<page href='file://$doc_input_esc'/>"
+	    echo "<page cache:href='file://$doc_input_esc'/>"
 	done
 	echo '</cache:cache>'
     ) > "$doc_cache_in"
-    xsltproc -o "$doc_cache" "$xsltdir/mallard/utils/mal2cache.xsl" "$doc_cache_in"
+    xsltproc -o "$doc_cache" "$xsltdir/mallard/cache/mal-cache.xsl" "$doc_cache_in"
     rm "$doc_cache_in"
     echo "$XSL_CACHE_LS" | xsltproc - "$doc_cache" | while read doc_input; do
 	doc_input=$(urldecode $(echo "$doc_input" | sed -e 's/^file:\/\///'))

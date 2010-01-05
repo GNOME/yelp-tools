@@ -28,6 +28,31 @@ REMARK: Describe this module
 -->
 
 
+<!--%%==========================================================================
+mal2html.list.list.mode
+FIXME
+
+FIXME
+-->
+<!--%%==========================================================================
+mal2html.list.steps.mode
+FIXME
+
+FIXME
+-->
+<!--%%==========================================================================
+mal2html.list.terms.mode
+FIXME
+
+FIXME
+-->
+<!--%%==========================================================================
+mal2html.list.tree.mode
+FIXME
+
+FIXME
+-->
+
 <!-- = list = -->
 <xsl:template mode="mal2html.block.mode" match="mal:list">
   <xsl:param name="first_child" select="not(preceding-sibling::*)"/>
@@ -74,6 +99,9 @@ REMARK: Describe this module
       <xsl:text>item-list</xsl:text>
       <xsl:if test="not(preceding-sibling::mal:item)">
         <xsl:text> first-child</xsl:text>
+      </xsl:if>
+      <xsl:if test="contains(concat(' ', ../@style, ' '), ' condensed ')">
+        <xsl:text> condensed</xsl:text>
       </xsl:if>
     </xsl:attribute>
     <xsl:for-each

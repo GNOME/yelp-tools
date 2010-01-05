@@ -67,6 +67,13 @@ FIXME
 
 <!-- == Matched Templates == -->
 
+<!--%%==========================================================================
+mal2html.block.mode
+FIXME
+
+FIXME
+-->
+
 <!-- = desc = -->
 <xsl:template mode="mal2html.block.mode" match="mal:desc">
   <div class="desc desc-{local-name(..)}">

@@ -68,12 +68,12 @@ REMARK: Document this template
         <a>
           <xsl:attribute name="href">
             <xsl:call-template name="mal.link.target">
-              <xsl:with-param name="link" select="$node"/>
+              <xsl:with-param name="node" select="$node"/>
             </xsl:call-template>
           </xsl:attribute>
           <xsl:attribute name="title">
             <xsl:call-template name="mal.link.tooltip">
-              <xsl:with-param name="link" select="$node"/>
+              <xsl:with-param name="node" select="$node"/>
             </xsl:call-template>
           </xsl:attribute>
           <xsl:apply-templates mode="mal2html.inline.content.mode" select="$node"/>
@@ -250,6 +250,11 @@ REMARK: Document this template
   <xsl:text>"</xsl:text>
   <xsl:call-template name="mal2html.span"/>
   <xsl:text>"</xsl:text>
+</xsl:template>
+
+<!-- = span = -->
+<xsl:template mode="mal2html.inline.mode" match="mal:span">
+  <xsl:call-template name="mal2html.span"/>
 </xsl:template>
 
 <!-- = sys = -->

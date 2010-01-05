@@ -107,6 +107,7 @@ body {
 ul, ol, dl, dd { margin: 0; }
 div, pre, p, li, dt { margin: 1em 0 0 0; padding: 0; }
 .first-child { margin-top: 0; }
+li.condensed { margin-top: 0.2em; }
 a {
   text-decoration: none;
   color: </xsl:text>
@@ -118,7 +119,14 @@ a:visited {
 }
 a:hover { text-decoration: underline; }
 
-div.head { margin: 0; }
+div.headbar {
+  margin: 0;
+  max-width: 48em;
+}
+div.footbar {
+  margin: 0;
+  max-width: 48em;
+}
 div.body {
   margin: 0;
   padding: 1em;
@@ -131,7 +139,6 @@ div.body {
     <xsl:value-of select="$theme.color.background"/><xsl:text>;
 }
 div.copyrights {
-  max-width: 48em;
   text-align: center;
   color: </xsl:text>
     <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
@@ -167,6 +174,9 @@ div.autolinks div.title span {
 }
 li.autolink { margin: 0.5em 0 0 0; padding: 0 0 0 1em; list-style-type: none; }
 
+div.linktrails {
+  margin: 0;
+}
 div.linktrail {
   font-size: 0.83em;
   margin: 0 1px 0.2em 1px;
@@ -183,24 +193,24 @@ td.twocolumnright {
   padding-</xsl:text><xsl:value-of select="$left"/><xsl:text>: 1em;
 }
 
-div.pagelink div.title {
+div.linkdiv div.title {
   font-size: 1em;
   color: inherit;
 }
-div.pagelink {
+div.linkdiv {
   margin: 0;
   padding: 0.5em;
   -moz-border-radius: 6px;
   border: solid 1px </xsl:text>
     <xsl:value-of select="$theme.color.background"/><xsl:text>;
 }
-div.pagelink:hover {
+div.linkdiv:hover {
   border-color: </xsl:text>
     <xsl:value-of select="$theme.color.blue_border"/><xsl:text>;
   background-color: </xsl:text>
     <xsl:value-of select="$theme.color.blue_background"/><xsl:text>;
 }
-div.pagelinksep {
+div.linkdivsep {
   margin: 0.5em;
   list-style-type: none;
   max-width: 24em;
@@ -478,7 +488,7 @@ div.version {
 }
 div.version:hover { opacity: 0.8; }
 div.version p.version { margin-top: 0.2em; }
-div.pagelink div.title span.status {
+div.linkdiv div.title span.status {
   font-size: 0.83em;
   font-weight: normal;
   padding-left: 0.2em;
@@ -488,15 +498,15 @@ div.pagelink div.title span.status {
   border: solid 1px </xsl:text>
     <xsl:value-of select="$theme.color.red_border"/><xsl:text>;
 }
-div.pagelink div.title span.status-stub { background-color: </xsl:text>
+div.linkdiv div.title span.status-stub { background-color: </xsl:text>
   <xsl:value-of select="$theme.color.red_background"/><xsl:text>; }
-div.pagelink div.title span.status-draft { background-color: </xsl:text>
+div.linkdiv div.title span.status-draft { background-color: </xsl:text>
   <xsl:value-of select="$theme.color.red_background"/><xsl:text>; }
-div.pagelink div.title span.status-incomplete { background-color: </xsl:text>
+div.linkdiv div.title span.status-incomplete { background-color: </xsl:text>
   <xsl:value-of select="$theme.color.red_background"/><xsl:text>; }
-div.pagelink div.title span.status-review { background-color: </xsl:text>
+div.linkdiv div.title span.status-review { background-color: </xsl:text>
   <xsl:value-of select="$theme.color.yellow_background"/><xsl:text>; }
-div.pagelink div.desc {
+div.linkdiv div.desc {
   margin-top: 0.2em;
   color: </xsl:text>
     <xsl:value-of select="$theme.color.text_light"/><xsl:text>;
