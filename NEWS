@@ -1,3 +1,28 @@
+Changes in 0.19.1:
+------------------
+* Importing Mallard XSLT changes from yelp-xsl
+  - Added support for audio and video in Mallard HTML output
+  - Moved most automatic link logic into common XSLT
+  - Implemented sorting of link trails
+  - Implemented link groups on Mallard guide pages
+  - Added support for Mallard span element
+  - Added condensed list style for Mallard lists
+  - Made various parts of the Mallard XSLT more extensible
+  - Changed Mallard Cache files to use new namespace
+* Added Mallard HTML output to gnome-doc-tool
+* Added --custom-xslt option to gnome-doc-tool
+* Compile mo files before running xml2po (Martin von Gagern)
+* Properly clean mo files in build utilities (Claude Paroz)
+* Updated translations:
+  ar       (Khaled Hosny)
+  ca       (Gil Forcada)
+  de       (Mario Blättermann)
+  en@shaw  (Thomas Thurman)
+  es       (Jorge González)
+  ml       (Ani)
+  ro       (Lucian Grijincu)
+  zh_CN    (Aron Xu)
+
 Changes in 0.18.0:
 ------------------
 * Replaced Mallard copyright element with credit (Shaun McCance)
