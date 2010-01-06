@@ -203,6 +203,11 @@
   <_msg>Name</_msg>
 </msgset>
 <msgset>
+  <msgid>Next</msgid>
+  <!-- Used as link to the next page in a series. -->
+  <_msg>Next</_msg>
+</msgset>
+<msgset>
   <msgid>Note</msgid>
   <!--
   http://www.docbook.org/tdg/en/html/note.html
@@ -238,6 +243,11 @@
   This is used as a default title for preface elements.
   -->
   <_msg>Preface</_msg>
+</msgset>
+<msgset>
+  <msgid>Previous</msgid>
+  <!-- Used as link to the previous page in a series. -->
+  <_msg>Previous</_msg>
 </msgset>
 <msgset>
   <msgid>Publisher</msgid>

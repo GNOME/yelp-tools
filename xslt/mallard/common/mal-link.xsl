@@ -66,6 +66,9 @@ it to a file.  Those tools can use this parameter directly.
 mal.cache.key
 -->
 <xsl:key name="mal.cache.key" match="mal:page | mal:section" use="@id"/>
+<xsl:key name="mal.cache.link.key"
+         match="mal:info/mal:link[@type]"
+         use="concat(@type, ':', @xref)"/>
 
 
 <!--@@==========================================================================

@@ -138,6 +138,24 @@ div.body {
   background-color: </xsl:text>
     <xsl:value-of select="$theme.color.background"/><xsl:text>;
 }
+div.navbar {
+  margin: 0;
+  float: right;
+}
+a.navbar-prev::before {
+  content: '</xsl:text><xsl:choose>
+  <xsl:when test="$left = 'left'"><xsl:text>&#x25C0;&#x00A0;&#x00A0;</xsl:text></xsl:when>
+  <xsl:otherwise><xsl:text>&#x25B6;&#x00A0;&#x00A0;</xsl:text></xsl:otherwise>
+  </xsl:choose><xsl:text>';
+  color: </xsl:text><xsl:value-of select="$theme.color.text_light"/><xsl:text>;
+}
+a.navbar-next::after {
+  content: '</xsl:text><xsl:choose>
+  <xsl:when test="$left = 'left'"><xsl:text>&#x00A0;&#x00A0;&#x25B6;</xsl:text></xsl:when>
+  <xsl:otherwise><xsl:text>&#x00A0;&#x00A0;&#x25C0;</xsl:text></xsl:otherwise>
+  </xsl:choose><xsl:text>';
+  color: </xsl:text><xsl:value-of select="$theme.color.text_light"/><xsl:text>;
+}
 div.copyrights {
   text-align: center;
   color: </xsl:text>

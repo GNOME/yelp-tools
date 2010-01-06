@@ -261,12 +261,12 @@ REMARK: Describe this template
           <xsl:attribute name="class">
             <xsl:text>title</xsl:text>
           </xsl:attribute>
-          <!-- FIXME: i18n -->
           <xsl:call-template name="l10n.gettext">
             <xsl:with-param name="msgid" select="'Further Reading'"/>
           </xsl:call-template>
         </xsl:element>
       </div>
+      <!-- FIXME: For prev/next series, insert links to first/prev/next/last -->
       <div class="autolinks">
         <xsl:if test="$guidenodes">
           <div class="title"><span>
@@ -500,6 +500,47 @@ REMARK: Describe this template
         <xsl:with-param name="node" select="."/>
       </xsl:call-template>
       <div class="body">
+        <xsl:variable name="linkid">
+          <xsl:call-template name="mal.link.linkid"/>
+        </xsl:variable>
+        <xsl:variable name="next" select="mal:info/mal:link[@type='next']"/>
+        <xsl:for-each select="$mal.cache">
+          <xsl:variable name="prev" select="key('mal.cache.link.key', concat('next:', $linkid))"/>
+          <xsl:if test="$prev or $next">
+            <!-- FIXME: Get prev/next links in constant position -->
+            <div class="navbar">
+              <xsl:if test="$prev">
+                <a class="navbar-prev">
+                  <xsl:attribute name="href">
+                    <xsl:call-template name="mal.link.target">
+                      <xsl:with-param name="node" select="$prev"/>
+                      <xsl:with-param name="xref" select="$prev/../../@id"/>
+                    </xsl:call-template>
+                  </xsl:attribute>
+                  <xsl:call-template name="l10n.gettext">
+                    <xsl:with-param name="msgid" select="'Previous'"/>
+                  </xsl:call-template>
+                </a>
+              </xsl:if>
+              <xsl:if test="$prev and $next">
+                <xsl:text>&#x00A0;&#x00A0;|&#x00A0;&#x00A0;</xsl:text>
+              </xsl:if>
+              <xsl:if test="$next">
+                <a class="navbar-next">
+                  <xsl:attribute name="href">
+                    <xsl:call-template name="mal.link.target">
+                      <xsl:with-param name="node" select="$next"/>
+                      <xsl:with-param name="xref" select="$next/@xref"/>
+                    </xsl:call-template>
+                  </xsl:attribute>
+                  <xsl:call-template name="l10n.gettext">
+                    <xsl:with-param name="msgid" select="'Next'"/>
+                  </xsl:call-template>
+                </a>
+              </xsl:if>
+            </div>
+          </xsl:if>
+        </xsl:for-each>
         <xsl:if test="$mal2html.editor_mode and $revision/@status != ''">
           <div class="version">
             <!-- FIXME: i18n -->
