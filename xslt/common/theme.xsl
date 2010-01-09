@@ -64,7 +64,7 @@ The normal text color
 
 This parameter specifies the default color for normal text.
 -->
-<xsl:param name="theme.color.text" select="'#ffffff'"/>
+<xsl:param name="theme.color.text" select="'#000000'"/>
 
 <!--@@==========================================================================
 theme.color.text_light
