@@ -143,6 +143,20 @@ XSL_DOCBOOK_MEDIA='
 </xsl:template>
 </xsl:stylesheet>'
 
+XSL_MALLARD_CSS='
+<xsl:stylesheet
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:mal="http://projectmallard.org/1.0/"
+  version="1.0">
+<xsl:import href="'$xsltdir'/gettext/gettext.xsl"/>
+<xsl:import href="'$xsltdir'/common/theme.xsl"/>
+<xsl:import href="'$xsltdir'/mallard/html/mal2html-css.xsl"/>
+<xsl:output method="text"/>
+<xsl:template match="/">
+<xsl:call-template name="mal2html.css.content"/>
+</xsl:template>
+</xsl:stylesheet>'
+
 XSL_MALLARD_MEDIA='
 <xsl:stylesheet
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
@@ -172,7 +186,24 @@ COMMAND is one of:
   list-media   list all referenced media files
   html         convert the documents to HTML
   xhtml        convert the documents to XHTML
+  css          create a CSS file for a Mallard document
   help         display this help and exit
+EOF
+}
+
+print_help_css() {
+cat <<EOF
+Usage $progname css [OPTIONS] [FILE]
+Create a CSS file for a Mallard document.
+If FILE is not supplied, uses index.page as input.
+
+CSS Options:
+  -o, --output=PATH               the file to output to
+
+Miscellaneous:
+  -v, --verbose                   print all the commands executed
+  -V, --version                   print version information and exit
+  -h, --help                      display this help and exit
 EOF
 }
 
@@ -189,6 +220,7 @@ Basic Output Control:
   -n, --no-figures                do not copy figures into the output directory
   -o, --output=PATH               the file or directory to output to
   -x, --custom-xslt=PATH          custom XSLT to include in the transform
+                                  (currently only for Mallard)
 
 Automatic Graphics:
   --copy-graphics                 copy graphics into the output directory
@@ -509,6 +541,50 @@ convert_mallard2html() {
     copy_icons
 }
 
+create_css() {
+    longopts='
+      -loutput:
+      -lverbose
+      -lversion
+      -lhelp
+    ';
+    options=`getopt -qn$progname $longopts -- o:vVh "$@"`
+    if [ "$?" != "0" ]; then print_help_css 1>&2; exit 1; fi
+    eval set -- "$options";
+    while [ "$1" != "--" ]; do
+	case "$1" in
+	    -o | --output)
+		doc_output="$2";;
+
+	    -v | --verbose)
+		doc_verbose=1;;
+
+	    -V | --version)
+		echo "$PROGRAM ($PACKAGE) $VERSION"
+		exit 0;;
+	    -h | --help)
+		print_help_css
+		exit 0;;
+	    --)
+		print_help_css 1>&2
+		exit 1;;
+	esac
+	shift
+    done
+    shift
+
+    doc_input_page="$1"
+    if [ "x$doc_input_page" = "x" ]; then
+	doc_input_page="index.page"
+    fi
+    if [ "x$doc_output" = "x" ]; then
+	doc_output="index.css"
+    fi
+
+    echo_verbose "Creating $doc_output using $doc_input_page"
+    echo "$XSL_MALLARD_CSS" | xsltproc -o "$doc_output" - "$doc_input_page";
+}
+
 convert_2html() {
     doc_format="$1"
     shift
@@ -592,6 +668,8 @@ fi;
 shift;
 if [ "$command" = "html" -o "$command" = "xhtml" ]; then
     convert_2html "$command" $@;
+elif [ "$command" = "css" ]; then
+    create_css $@;
 elif [ "$command" = "list-icons" ]; then
     list_icons $@;
 elif [ "$command" = "list-media" ]; then
