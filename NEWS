@@ -1,3 +1,14 @@
+Changes in 0.19.2:
+------------------
+* Added 'css' command for Mallard documents
+* Fixed theme.color.text default, was white-on-white
+* Implemented previous and next links for Mallard documents
+* Updated translations:
+  sv    (Daniel Nylander)
+  de    (Mario Blättermann)
+  nb    (Kjartan Maraas)
+  es    (Jorge González)
+
 Changes in 0.19.1:
 ------------------
 * Importing Mallard XSLT changes from yelp-xsl
