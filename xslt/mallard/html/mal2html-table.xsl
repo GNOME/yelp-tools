@@ -189,7 +189,7 @@ REMARK: Describe this module
         <xsl:with-param name="rowshade" select="$rowshade"/>
         <xsl:with-param name="colshade" select="$colshade"/>
       </xsl:apply-templates>
-      <xsl:apply-templates select="mal:tr | mal:tbody">
+      <xsl:apply-templates select="mal:tr[1] | mal:tbody">
         <xsl:with-param name="cols" select="$cols"/>
         <xsl:with-param name="rowrules" select="$rowrules"/>
         <xsl:with-param name="colrules" select="$colrules"/>
@@ -208,7 +208,7 @@ REMARK: Describe this module
   <xsl:param name="rowshade"/>
   <xsl:param name="colshade"/>
   <tbody>
-    <xsl:apply-templates select="mal:tr">
+    <xsl:apply-templates select="mal:tr[1]">
       <xsl:with-param name="cols" select="$cols"/>
       <xsl:with-param name="rowrules" select="$rowrules"/>
       <xsl:with-param name="colrules" select="$colrules"/>
@@ -226,7 +226,7 @@ REMARK: Describe this module
   <xsl:param name="rowshade"/>
   <xsl:param name="colshade"/>
   <thead>
-    <xsl:apply-templates select="mal:tr">
+    <xsl:apply-templates select="mal:tr[1]">
       <xsl:with-param name="cols" select="$cols"/>
       <xsl:with-param name="rowrules" select="$rowrules"/>
       <xsl:with-param name="colrules" select="$colrules"/>
@@ -244,7 +244,7 @@ REMARK: Describe this module
   <xsl:param name="rowshade"/>
   <xsl:param name="colshade"/>
   <tfoot>
-    <xsl:apply-templates select="mal:tr">
+    <xsl:apply-templates select="mal:tr[1]">
       <xsl:with-param name="cols" select="$cols"/>
       <xsl:with-param name="rowrules" select="$rowrules"/>
       <xsl:with-param name="colrules" select="$colrules"/>
@@ -254,6 +254,18 @@ REMARK: Describe this module
   </tfoot>
 </xsl:template>
 
+<xsl:template name="repeat">
+  <xsl:param name="str" select="''"/>
+  <xsl:param name="num" select="0"/>
+  <xsl:if test="$num &gt; 0">
+    <xsl:value-of select="$str"/>
+    <xsl:call-template name="repeat">
+      <xsl:with-param name="str" select="$str"/>
+      <xsl:with-param name="num" select="$num - 1"/>
+    </xsl:call-template>
+  </xsl:if>
+</xsl:template>
+
 <!-- = tr = -->
 <xsl:template match="mal:tr">
   <xsl:param name="cols"/>
@@ -261,6 +273,17 @@ REMARK: Describe this module
   <xsl:param name="colrules"/>
   <xsl:param name="rowshade"/>
   <xsl:param name="colshade"/>
+  <xsl:param name="rowspans">
+    <xsl:for-each select="mal:td">
+      <xsl:text>0:</xsl:text>
+      <xsl:if test="@colspan">
+        <xsl:call-template name="repeat">
+          <xsl:with-param name="str" select="'0:'"/>
+          <xsl:with-param name="num" select="number(@colspan) - 1"/>
+        </xsl:call-template>
+      </xsl:if>
+    </xsl:for-each>
+  </xsl:param>
   <tr>
     <xsl:apply-templates select="mal:td">
       <xsl:with-param name="cols" select="$cols"/>
@@ -268,8 +291,80 @@ REMARK: Describe this module
       <xsl:with-param name="colrules" select="$colrules"/>
       <xsl:with-param name="rowshade" select="$rowshade"/>
       <xsl:with-param name="colshade" select="$colshade"/>
+      <xsl:with-param name="rowspans" select="$rowspans"/>
     </xsl:apply-templates>
   </tr>
+  <xsl:apply-templates select="following-sibling::mal:tr[1]">
+    <xsl:with-param name="cols" select="$cols"/>
+    <xsl:with-param name="rowrules" select="$rowrules"/>
+    <xsl:with-param name="colrules" select="$colrules"/>
+    <xsl:with-param name="rowshade" select="$rowshade"/>
+    <xsl:with-param name="colshade" select="$colshade"/>
+    <xsl:with-param name="rowspans">
+      <xsl:call-template name="rowspans">
+        <xsl:with-param name="spans" select="str:split($rowspans, ':')"/>
+      </xsl:call-template>
+    </xsl:with-param>
+  </xsl:apply-templates>
+</xsl:template>
+
+<xsl:template name="rowspans">
+  <xsl:param name="spans"/>
+  <xsl:param name="pos" select="1"/>
+  <xsl:param name="td" select="mal:td[1]"/>
+  <xsl:param name="times" select="1"/>
+  <xsl:variable name="span" select="number($spans[$pos])"/>
+
+  <xsl:choose>
+    <xsl:when test="$span &gt; 1">
+      <xsl:value-of select="$span - 1"/>
+      <xsl:text>:</xsl:text>
+      <xsl:if test="$pos &lt; count($spans)">
+        <xsl:call-template name="rowspans">
+          <xsl:with-param name="spans" select="$spans"/>
+          <xsl:with-param name="pos" select="$pos + 1"/>
+          <xsl:with-param name="td" select="$td"/>
+        </xsl:call-template>
+      </xsl:if>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:variable name="rowspan">
+        <xsl:choose>
+          <xsl:when test="$td/@rowspan">
+            <xsl:value-of select="number($td/@rowspan)"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="1"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:variable>
+      <xsl:variable name="colspan">
+        <xsl:choose>
+          <xsl:when test="$td/@colspan">
+            <xsl:value-of select="number($td/@colspan)"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="1"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:variable>
+      <xsl:call-template name="repeat">
+        <xsl:with-param name="str">
+          <xsl:value-of select="$rowspan - 1"/>
+          <xsl:text>:</xsl:text>
+        </xsl:with-param>
+        <xsl:with-param name="num" select="$colspan"/>
+      </xsl:call-template>
+      <xsl:variable name="nextpos" select="$pos + $colspan"/>
+      <xsl:if test="$nextpos &lt;= count($spans)">
+        <xsl:call-template name="rowspans">
+          <xsl:with-param name="spans" select="$spans"/>
+          <xsl:with-param name="pos" select="$nextpos"/>
+          <xsl:with-param name="td" select="$td/following-sibling::mal:td[1]"/>
+        </xsl:call-template>
+      </xsl:if>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
 <!-- = td = -->
@@ -279,8 +374,25 @@ REMARK: Describe this module
   <xsl:param name="colrules"/>
   <xsl:param name="rowshade"/>
   <xsl:param name="colshade"/>
+  <xsl:param name="rowspans"/>
   <xsl:variable name="trpos" select="count(../preceding-sibling::mal:tr) + 1"/>
-  <xsl:variable name="tdpos" select="count(preceding-sibling::mal:td) + 1"/>
+  <xsl:variable name="tdcnt" select="count(preceding-sibling::mal:td) + 1"/>
+  <xsl:variable name="spans" select="str:split($rowspans, ':')"/>
+  <xsl:variable name="tdstr">
+    <xsl:for-each select="$spans[. = '0'][$tdcnt]/preceding-sibling::*[not(. = '0')]">
+      <xsl:text>.</xsl:text>
+    </xsl:for-each>
+    <xsl:for-each select="preceding-sibling::mal:td">
+      <xsl:text>.</xsl:text>
+      <xsl:if test="@colspan">
+        <xsl:call-template name="repeat">
+          <xsl:with-param name="str" select="'.'"/>
+          <xsl:with-param name="num" select="number(@colspan) - 1"/>
+        </xsl:call-template>
+      </xsl:if>
+    </xsl:for-each>
+  </xsl:variable>
+  <xsl:variable name="tdpos" select="string-length($tdstr) + 1"/>
   <!-- FIXME: this all breaks with rowspan/colspan -->
   <xsl:variable name="shaderow">
     <xsl:choose>
