@@ -1,3 +1,11 @@
+Changes in 0.19.3:
+------------------
+* Fixed shading with rowspans, bug #606986
+* Implemented text titles
+* Updated translations:
+  bg    (Alexander Shopov)
+  bn    (Jamil Ahmed)
+
 Changes in 0.19.2:
 ------------------
 * Added 'css' command for Mallard documents
