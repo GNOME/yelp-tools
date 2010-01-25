@@ -491,7 +491,15 @@ REMARK: Describe this template
   <html>
     <head>
       <title>
-        <xsl:value-of select="mal:title"/>
+        <xsl:variable name="title" select="mal:info/mal:title[@type = 'text'][1]"/>
+        <xsl:choose>
+          <xsl:when test="$title">
+            <xsl:value-of select="$title"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="mal:title"/>
+          </xsl:otherwise>
+        </xsl:choose>
       </title>
       <xsl:call-template name="mal2html.css"/>
     </head>
