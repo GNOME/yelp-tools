@@ -2,20 +2,20 @@
 # Estonian translation for Gnome doc-utils.
 #
 # Copyright (C) 2005, 2006 Free Software Foundation, Inc.
-# Copyright (C) 2007, 2009 The GNOME Project
+# Copyright (C) 2007, 2009, 2010 The GNOME Project
 # This file is distributed under the same license as the gnome-doc-utils
 # package.
 #
 # Priit Laes <amd@store20.com>, 2005.
-# Ivar Smolin <okul@linux.ee>, 2005-2007, 2009.
+# Ivar Smolin <okul@linux.ee>, 2005-2007, 2009, 2010.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-doc-utils HEAD\n"
+"Project-Id-Version: gnome-doc-utils MASTER\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "doc-utils&component=general\n"
-"POT-Creation-Date: 2009-07-26 02:59+0000\n"
-"PO-Revision-Date: 2009-08-16 23:31+0300\n"
+"POT-Creation-Date: 2010-01-06 21:16+0000\n"
+"PO-Revision-Date: 2010-01-31 09:52+0200\n"
 "Last-Translator: Ivar Smolin <okul@linux.ee>\n"
 "Language-Team: Estonian <gnome-et@linux.ee>\n"
 "MIME-Version: 1.0\n"
@@ -1947,7 +1947,7 @@ msgid "Dedication"
 msgstr "Pühendus"
 
 #.
-#. This is used as a descrpition for the status of the document.
+#. This is used as a description for the status of the document.
 #. This will not be visibile to the users.
 #.
 #. Draft: the authors have written all the content, but they still need
@@ -1969,7 +1969,7 @@ msgid "Email"
 msgstr "E-post"
 
 #.
-#. This is used as a descrpition for the status of the document.
+#. This is used as a description for the status of the document.
 #. This will not be visibile to the users.
 #.
 #. Final: a senior member of the documentation team has reviewd the
@@ -1997,7 +1997,7 @@ msgid "Important"
 msgstr "Oluline"
 
 #.
-#. This is used as a descrpition for the status of the document.
+#. This is used as a description for the status of the document.
 #. This will not be visibile to the users.
 #.
 #. Incomplete: the document has the basic structure in place, but the
@@ -2031,6 +2031,10 @@ msgstr "Lähemalt"
 msgid "Name"
 msgstr "Nimi"
 
+#. Used as link to the next page in a series.
+msgid "Next"
+msgstr "Järgmine"
+
 #.
 #. http://www.docbook.org/tdg/en/html/note.html
 #. This is used as a default title for note elements.
@@ -2045,6 +2049,10 @@ msgstr "Märkus"
 msgid "Preface"
 msgstr "Eessõna"
 
+#. Used as link to the previous page in a series.
+msgid "Previous"
+msgstr "Eelmine"
+
 #.
 #. http://www.docbook.org/tdg/en/html/qandaentry.html
 #.
@@ -2058,7 +2066,7 @@ msgid "Q:&#x2003;"
 msgstr "K:&#x2003;"
 
 #.
-#. This is used as a descrpition for the status of the document.
+#. This is used as a description for the status of the document.
 #. This will not be visibile to the users.
 #.
 #. Review: the authors consider the document complete.
@@ -2085,7 +2093,7 @@ msgid "See Also"
 msgstr "Vaata ka"
 
 #.
-#. This is used as a descrpition for the status of the document.
+#. This is used as a description for the status of the document.
 #. This will not be visibile to the users.
 #.
 #. Stub: the document has little or basic content, it may have been
