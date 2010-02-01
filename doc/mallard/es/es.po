@@ -2,20 +2,18 @@
 # Spanish translation for gnome-doc-utils.
 # Copyright (C) 2009 gnome-doc-utils's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-doc-utils package.
-#
-# Jorge González González <aloriel@gmail.com>, 2009.
-# Jorge González <jorgegonz@svn.gnome.org>, 2009.
+# Jorge González <jorgegonz@svn.gnome.org>, 2009, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils.mallard.master\n"
-"POT-Creation-Date: 2009-10-26 15:14+0000\n"
-"PO-Revision-Date: 2009-11-04 20:42+0100\n"
+"POT-Creation-Date: 2009-12-14 19:53+0000\n"
+"PO-Revision-Date: 2010-02-01 19:45+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms:  nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: KBabel 1.11.4\n"
 
 #: C/legal.xml:3(p)
@@ -147,6 +145,9 @@ msgid ""
 "document. We will create a document for the fictitious <app>Beanstalk</app> "
 "application, which allows you to plant magic beans."
 msgstr ""
+"En esta página se presentará cómo crear un documento simple multipágina para "
+"Mallard. Se creará un documento para la aplicación ficticia <app>Beanstalk</"
+"app> que le permitirá plantar judías mágicas."
 
 #: C/tenminutes.page:31(p)
 msgid ""
@@ -168,7 +169,7 @@ msgstr ""
 
 #: C/tenminutes.page:44(file) C/mal_block_listing.page:89(file)
 msgid "index.page"
-msgstr ""
+msgstr "página.índice"
 
 #: C/tenminutes.page:53(p)
 msgid ""
@@ -214,35 +215,38 @@ msgstr "Completar la especificación del vocabulario XML de Mallard."
 
 #: C/spec.page:20(title)
 msgid "Language Specification"
-msgstr ""
+msgstr "Especificación de idioma"
 
 #: C/spec.page:24(p) C/index.page:27(p)
 msgid "Add some intro text"
-msgstr ""
+msgstr "Añadir algún texto introductorio"
 
 #: C/principles.page:16(desc)
 msgid "The guiding principles behind the design of Mallard."
-msgstr ""
+msgstr "Los principios guía detrás del diseño de Mallard."
 
 #: C/principles.page:19(title)
 msgid "Design Principles"
-msgstr ""
+msgstr "Principios de diseño"
 
 #: C/principles.page:23(p)
 msgid "Add intro content"
-msgstr ""
+msgstr "Añadir contenido introductorio"
 
 #: C/principles.page:24(p)
-msgid "Add principles: pluggability, implementation speed, l10n, digestible info"
+msgid ""
+"Add principles: pluggability, implementation speed, l10n, digestible info"
 msgstr ""
+"Añadir los principios: complementos, velocidad de implementación, l10n, "
+"información fácil de asimilar"
 
 #: C/principles.page:29(title)
 msgid "Principles for the Reader"
-msgstr ""
+msgstr "Principios para el lector"
 
 #: C/principles.page:32(title)
 msgid "For the Reader"
-msgstr ""
+msgstr "Para el lector"
 
 #: C/principles.page:34(p)
 msgid ""
@@ -589,7 +593,8 @@ msgid ""
 msgstr ""
 
 #: C/mal_section.page:16(desc)
-msgid "Break up pages into logical chunks to help readers find information quickly."
+msgid ""
+"Break up pages into logical chunks to help readers find information quickly."
 msgstr ""
 
 #: C/mal_section.page:20(title)
@@ -1631,7 +1636,8 @@ msgid ""
 msgstr ""
 
 #: C/mal_inline_link.page:52(p)
-msgid "For links within the same document, content can be automatically generated."
+msgid ""
+"For links within the same document, content can be automatically generated."
 msgstr ""
 
 #: C/mal_inline_link.page:55(p)
@@ -1673,7 +1679,8 @@ msgid "Link to another page in the same document:"
 msgstr ""
 
 #: C/mal_inline_link.page:93(p)
-msgid "See <link xref=\"mal_attr_link\"/> for information on linking attributes."
+msgid ""
+"See <link xref=\"mal_attr_link\"/> for information on linking attributes."
 msgstr ""
 
 #: C/mal_inline_link.page:96(p)
@@ -1689,7 +1696,8 @@ msgid "Link to a section in another page:"
 msgstr ""
 
 #: C/mal_inline_link.page:111(p)
-msgid "See <link xref=\"mal_inline#processing\"/> for more processing expectations."
+msgid ""
+"See <link xref=\"mal_inline#processing\"/> for more processing expectations."
 msgstr ""
 
 #: C/mal_inline_link.page:114(p)
@@ -2027,7 +2035,8 @@ msgid "Press <key>F9</key> to check for new messages."
 msgstr ""
 
 #: C/mal_inline_key.page:105(p)
-msgid "Use <code>key</code> to refer to a specific key by a textual description:"
+msgid ""
+"Use <code>key</code> to refer to a specific key by a textual description:"
 msgstr ""
 
 #: C/mal_inline_key.page:112(p)
@@ -2196,7 +2205,8 @@ msgid "Use <code>guiseq</code> to mark up a sequence of menu items:"
 msgstr ""
 
 #: C/mal_inline_guiseq.page:74(p)
-msgid "Select <guiseq><gui>File</gui><gui>New</gui></guiseq> to open a new document."
+msgid ""
+"Select <guiseq><gui>File</gui><gui>New</gui></guiseq> to open a new document."
 msgstr ""
 
 #: C/mal_inline_guiseq.page:85(p)
@@ -2591,7 +2601,8 @@ msgid ""
 msgstr ""
 
 #: C/mal_inline_code.page:18(desc)
-msgid "Mark up code from a programming, markup, or other machine-readable format."
+msgid ""
+"Mark up code from a programming, markup, or other machine-readable format."
 msgstr ""
 
 #: C/mal_inline_code.page:21(title)
@@ -3304,7 +3315,8 @@ msgid ""
 msgstr ""
 
 #: C/mal_info_revision.page:73(p)
-msgid "The <code>date</code> attribute records the date this revision was made."
+msgid ""
+"The <code>date</code> attribute records the date this revision was made."
 msgstr ""
 
 #: C/mal_info_revision.page:76(p)
@@ -4052,7 +4064,8 @@ msgid "GtkScaleButton"
 msgstr ""
 
 #: C/mal_block_tree.page:125(p)
-msgid "Use the <code>lines</code> style hint to visually show the tree structure:"
+msgid ""
+"Use the <code>lines</code> style hint to visually show the tree structure:"
 msgstr ""
 
 #: C/mal_block_tree.page:153(item)
@@ -4076,7 +4089,8 @@ msgid "Speculanas"
 msgstr ""
 
 #: C/mal_block_tree.page:149(item)
-msgid "Anatinae (dabbling ducks) <placeholder-1/><placeholder-2/><placeholder-3/>"
+msgid ""
+"Anatinae (dabbling ducks) <placeholder-1/><placeholder-2/><placeholder-3/>"
 msgstr ""
 
 #: C/mal_block_tree.page:162(item)
@@ -5219,7 +5233,8 @@ msgid "Warn the reader about dangerous operations:"
 msgstr ""
 
 #: C/mal_block_note.page:192(p)
-msgid "There is no way to recover files deleted with the <cmd>shred</cmd> command."
+msgid ""
+"There is no way to recover files deleted with the <cmd>shred</cmd> command."
 msgstr ""
 
 #: C/mal_block_note.page:202(p)
@@ -6693,7 +6708,8 @@ msgid "alt"
 msgstr "alt"
 
 #: C/docbook.page:56(p)
-msgid "No equivalent in Mallard, as Mallard does not currently support equations."
+msgid ""
+"No equivalent in Mallard, as Mallard does not currently support equations."
 msgstr ""
 
 #: C/docbook.page:59(code)
@@ -6814,7 +6830,8 @@ msgstr ""
 
 #: C/docbook.page:116(p) C/docbook.page:609(p) C/docbook.page:669(p)
 #: C/docbook.page:879(p)
-msgid "See the <code xref=\"mal_block_media\">media</code> element for details."
+msgid ""
+"See the <code xref=\"mal_block_media\">media</code> element for details."
 msgstr ""
 
 #: C/docbook.page:119(code)
@@ -6876,7 +6893,8 @@ msgid "bibliocoverage"
 msgstr ""
 
 #: C/docbook.page:149(p) C/docbook.page:243(p) C/docbook.page:1038(p)
-msgid "Mallard does not currently have a structured environment for bibliographies."
+msgid ""
+"Mallard does not currently have a structured environment for bibliographies."
 msgstr ""
 
 #: C/docbook.page:152(code)
@@ -6961,7 +6979,8 @@ msgid "blockquote"
 msgstr ""
 
 #: C/docbook.page:198(p)
-msgid "Similar to the block <code xref=\"mal_block_quote\">quote</code> element."
+msgid ""
+"Similar to the block <code xref=\"mal_block_quote\">quote</code> element."
 msgstr ""
 
 #: C/docbook.page:202(code)
@@ -7036,7 +7055,8 @@ msgid "citerefentry"
 msgstr ""
 
 #: C/docbook.page:251(p) C/docbook.page:862(p) C/docbook.page:1212(p)
-msgid "Mallard does not currently have a structured environment for reference pages."
+msgid ""
+"Mallard does not currently have a structured environment for reference pages."
 msgstr ""
 
 #: C/docbook.page:254(code)
@@ -8293,7 +8313,8 @@ msgid "procedure"
 msgstr ""
 
 #: C/docbook.page:1124(p)
-msgid "See the <code xref=\"mal_block_steps\">steps</code> element for details."
+msgid ""
+"See the <code xref=\"mal_block_steps\">steps</code> element for details."
 msgstr ""
 
 #: C/docbook.page:1128(code)
@@ -8510,7 +8531,9 @@ msgstr ""
 
 #: C/docbook.page:1288(p)
 msgid "This is a long list. Bear with me as I complete it."
-msgstr "Esta es una larga lista. Tratar con el editor de esta guía mientras se completa."
+msgstr ""
+"Esta es una larga lista. Tratar con el editor de esta guía mientras se "
+"completa."
 
 #: C/details.page:16(desc)
 msgid "How to process and work with Mallard documents."
@@ -8531,5 +8554,4 @@ msgstr "Material de referencia adicional"
 #. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
 #: C/index.page:0(None)
 msgid "translator-credits"
-msgstr "Jorge González <jorgegonz@svn.gnome.org>, 2009"
-
+msgstr "Jorge González <jorgegonz@svn.gnome.org>, 2009-2010"
