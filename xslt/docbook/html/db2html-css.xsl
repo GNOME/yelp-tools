@@ -355,6 +355,10 @@ div.screen .userinput {
   font-weight: bold;
   color: </xsl:text><xsl:value-of select="$theme.color.text_light"/><xsl:text>;
 }
+div.programlisting .userinput {
+  font-weight: bold;
+  color: </xsl:text><xsl:value-of select="$theme.color.text_light"/><xsl:text>;
+}
 pre.linenumbering {
   color: </xsl:text><xsl:value-of select="$theme.color.text_light"/><xsl:text>;
   margin: 0;
