@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils.mallard.master\n"
 "POT-Creation-Date: 2009-12-14 19:53+0000\n"
-"PO-Revision-Date: 2010-02-01 19:45+0100\n"
+"PO-Revision-Date: 2010-02-03 08:29+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -177,11 +177,14 @@ msgid ""
 "valid Mallard document, although it's rather useless. We can add another "
 "page to the document by creating a new page file."
 msgstr ""
+"Este simple ejemplo es una página válida de guía Mallard. Por si sola, "
+"también es un documento Mallard válido, aunque no sirve para nada. Se puede "
+"añadir otra página al documento creando un nuevo archivo de página."
 
 #: C/tenminutes.page:58(file) C/tenminutes.page:74(file)
 #: C/tenminutes.page:92(file)
 msgid "planting.page"
-msgstr ""
+msgstr "página.plantar"
 
 #: C/tenminutes.page:67(p)
 msgid ""
@@ -258,11 +261,11 @@ msgstr ""
 
 #: C/principles.page:42(title)
 msgid "Principles for the Writer"
-msgstr ""
+msgstr "Principios para el escritor"
 
 #: C/principles.page:44(title)
 msgid "For the Writer"
-msgstr ""
+msgstr "Para el escritor"
 
 #: C/principles.page:47(p)
 msgid "Add"
@@ -270,27 +273,27 @@ msgstr "Añadir"
 
 #: C/principles.page:53(title)
 msgid "Principles for the Hacker"
-msgstr ""
+msgstr "Principios para el programador"
 
 #: C/principles.page:55(title)
 msgid "For the Hacker"
-msgstr ""
+msgstr "Para el programador"
 
 #: C/principle-redundancy.page:8(desc)
 msgid "Avoid forcing writers to write the same thing twice"
-msgstr ""
+msgstr "Evitar forzar a los escritores para que escriban lo mismo dos veces"
 
 #: C/principle-redundancy.page:11(title)
 msgid "Reduce Redundancy"
-msgstr ""
+msgstr "Reducir la redundancia"
 
 #: C/principle-justenough.page:9(desc)
 msgid "Provide just enough markup to mark up what's important"
-msgstr ""
+msgstr "Proporcionar suficiente marcado para marcar lo importante"
 
 #: C/principle-justenough.page:12(title)
 msgid "Just Enough Markup"
-msgstr ""
+msgstr "Usar el marcado justo"
 
 #: C/principle-guide.page:6(desc)
 msgid "Ensure the reader doesn't get lost in a link swarm"
