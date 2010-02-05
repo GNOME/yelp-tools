@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils.mallard.master\n"
 "POT-Creation-Date: 2009-12-14 19:53+0000\n"
-"PO-Revision-Date: 2010-02-03 08:29+0100\n"
+"PO-Revision-Date: 2010-02-05 08:25+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -297,19 +297,19 @@ msgstr "Usar el marcado justo"
 
 #: C/principle-guide.page:6(desc)
 msgid "Ensure the reader doesn't get lost in a link swarm"
-msgstr ""
+msgstr "Asegurarse de que el lector no se pierde en una maraña de enlaces"
 
 #: C/principle-guide.page:13(title)
 msgid "Guide the Reader"
-msgstr ""
+msgstr "Guiar al lector"
 
 #: C/mal_TODO.page:8(title)
 msgid "TODO"
-msgstr ""
+msgstr "Por hacer"
 
 #: C/mal_table_tr.page:9(title)
 msgid "Rows and Row Groups"
-msgstr ""
+msgstr "Filas y grupos de filas"
 
 #: C/mal_table_tr.page:11(code)
 #, no-wrap
@@ -340,10 +340,35 @@ msgid ""
 "  mal_table_tr +\n"
 "}\n"
 msgstr ""
+"\n"
+"mal_table_tr = element tr {\n"
+"  attribute style { xsd:NMTOKENS } ?,\n"
+"  attribute * - (mal:* | local:*) { text } *,\n"
+"\n"
+"  <link xref=\"mal_table_td\">mal_table_td</link> *\n"
+"}\n"
+"mal_table_thead = element thead {\n"
+"  attribute style { xsd:NMTOKENS } ?,\n"
+"  attribute * - (mal:* | local:*) { text } *,\n"
+"\n"
+"  mal_table_tr +\n"
+"}\n"
+"mal_table_tbody = element tbody {\n"
+"  attribute style { xsd:NMTOKENS } ?,\n"
+"  attribute * - (mal:* | local:*) { text } *,\n"
+"\n"
+"  mal_table_tr +\n"
+"}\n"
+"mal_table_tfoot = element tfoot {\n"
+"  attribute style { xsd:NMTOKENS } ?,\n"
+"  attribute * - (mal:* | local:*) { text } *,\n"
+"\n"
+"  mal_table_tr +\n"
+"}\n"
 
 #: C/mal_table_td.page:9(title)
 msgid "Table Cells"
-msgstr ""
+msgstr "Celdas de tablas"
 
 #: C/mal_table_td.page:11(code)
 #, no-wrap
@@ -358,6 +383,15 @@ msgid ""
 "  <link xref=\"mal_block\">mal_block</link> +\n"
 "}\n"
 msgstr ""
+"\n"
+"mal_table_td = element td {\n"
+"  attribute style { xsd:NMTOKENS } ?,\n"
+"  attribute * - (mal:* | local:*) { text } *,\n"
+"  attribute rowspan { text } ?,\n"
+"  attribute colspan { text } ?,\n"
+"\n"
+"  <link xref=\"mal_block\">mal_block</link> +\n"
+"}\n"
 
 #: C/mal_table.page:8(title) C/mal_block.page:136(title)
 msgid "Tables"
@@ -398,6 +432,37 @@ msgid ""
 "  )\n"
 "}\n"
 msgstr ""
+"\n"
+"mal_table = element table {\n"
+"  attribute style { xsd:NMTOKENS } ?,\n"
+"  attribute * - (mal:* | local:*) { text } *,\n"
+"  attribute frame {\n"
+"    \"all\" | \"none\" |\n"
+"    list { (\"top\" | \"bottom\" | \"left\" | \"right\") * }\n"
+"  } ?,\n"
+"  attribute rules {\n"
+"    \"all\" | \"groups\" | \"none\" |\n"
+"    list { (\"rows\" | \"rowgroups\" | \"cols\" | \"colgroups\") * }\n"
+"  } ?,\n"
+"  attribute shade {\n"
+"    \"all\" | \"groups\" | \"none\" |\n"
+"    list { (\"rows\" | \"rowgroups\" | \"cols\" | \"colgroups\") * }\n"
+"  } ?,\n"
+"\n"
+"  <link xref=\"mal_block_title\">mal_block_title</link> ?,\n"
+"  <link xref=\"mal_block_desc\">mal_block_desc</link> ?,\n"
+"\n"
+"  ( <link xref=\"mal_table_col\">mal_table_col</link> + |\n"
+"    <link xref=\"mal_table_col\">mal_table_colgroup</link> +\n"
+"  ) ?,\n"
+"\n"
+"  ( <link xref=\"mal_table_tr\">mal_table_tr</link> + |\n"
+"    ( <link xref=\"mal_table_tr\">mal_table_thead</link> ?,\n"
+"      <link xref=\"mal_table_tr\">mal_table_tbody</link> +,\n"
+"      <link xref=\"mal_table_tr\">mal_table_tfoot</link> ?\n"
+"    )\n"
+"  )\n"
+"}\n"
 
 #: C/mal_table.page:49(title)
 msgid "Content"
@@ -428,11 +493,11 @@ msgstr "Ejemplos"
 
 #: C/mal_table.page:69(title)
 msgid "The <code>rules</code> Attribute"
-msgstr ""
+msgstr "El atributo <code>rules</code>"
 
 #: C/mal_table.page:71(p)
 msgid "Place rules between each row:"
-msgstr ""
+msgstr "Ponga reglas entre cada fila:"
 
 #: C/mal_table.page:95(p) C/mal_table.page:137(p) C/mal_table.page:184(p)
 #: C/mal_table.page:233(p) C/mal_table.page:280(p) C/mal_table.page:322(p)
@@ -445,107 +510,107 @@ msgstr "Malla"
 #: C/mal_table.page:233(p) C/mal_table.page:280(p) C/mal_table.page:322(p)
 #: C/mal_table.page:369(p) C/mal_table.page:419(p)
 msgid "Anas platyrhynchos"
-msgstr ""
+msgstr "Anas platyrhynchos"
 
 #: C/mal_table.page:96(p) C/mal_table.page:138(p) C/mal_table.page:185(p)
 #: C/mal_table.page:234(p) C/mal_table.page:281(p) C/mal_table.page:323(p)
 #: C/mal_table.page:370(p) C/mal_table.page:420(p)
 msgid "56-65 cm"
-msgstr ""
+msgstr "56-65 cm"
 
 #: C/mal_table.page:96(p) C/mal_table.page:138(p) C/mal_table.page:185(p)
 #: C/mal_table.page:234(p) C/mal_table.page:281(p) C/mal_table.page:323(p)
 #: C/mal_table.page:370(p) C/mal_table.page:420(p)
 msgid "900-1200 g"
-msgstr ""
+msgstr "900-1200 g"
 
 #: C/mal_table.page:99(p) C/mal_table.page:141(p) C/mal_table.page:188(p)
 #: C/mal_table.page:237(p) C/mal_table.page:284(p) C/mal_table.page:326(p)
 #: C/mal_table.page:373(p) C/mal_table.page:423(p)
 msgid "Eurasian Wigeon"
-msgstr ""
+msgstr "Silbón europeo"
 
 #: C/mal_table.page:99(p) C/mal_table.page:141(p) C/mal_table.page:188(p)
 #: C/mal_table.page:237(p) C/mal_table.page:284(p) C/mal_table.page:326(p)
 #: C/mal_table.page:373(p) C/mal_table.page:423(p)
 msgid "Anas penelope"
-msgstr ""
+msgstr "Anas penelope"
 
 #: C/mal_table.page:100(p) C/mal_table.page:142(p) C/mal_table.page:189(p)
 #: C/mal_table.page:238(p) C/mal_table.page:285(p) C/mal_table.page:327(p)
 #: C/mal_table.page:374(p) C/mal_table.page:424(p)
 msgid "45-50 cm"
-msgstr ""
+msgstr "45-50 cm"
 
 #: C/mal_table.page:100(p) C/mal_table.page:142(p) C/mal_table.page:189(p)
 #: C/mal_table.page:238(p) C/mal_table.page:285(p) C/mal_table.page:327(p)
 #: C/mal_table.page:374(p) C/mal_table.page:424(p)
 msgid "680 g"
-msgstr ""
+msgstr "680 g"
 
 #: C/mal_table.page:103(p) C/mal_table.page:145(p) C/mal_table.page:194(p)
 #: C/mal_table.page:241(p) C/mal_table.page:288(p) C/mal_table.page:330(p)
 #: C/mal_table.page:379(p) C/mal_table.page:427(p)
 msgid "Common Teal"
-msgstr ""
+msgstr "Cerceta común"
 
 #: C/mal_table.page:103(p) C/mal_table.page:145(p) C/mal_table.page:194(p)
 #: C/mal_table.page:241(p) C/mal_table.page:288(p) C/mal_table.page:330(p)
 #: C/mal_table.page:379(p) C/mal_table.page:427(p)
 msgid "Anas crecca"
-msgstr ""
+msgstr "Anas crecca"
 
 #: C/mal_table.page:104(p) C/mal_table.page:146(p) C/mal_table.page:195(p)
 #: C/mal_table.page:242(p) C/mal_table.page:289(p) C/mal_table.page:331(p)
 #: C/mal_table.page:380(p) C/mal_table.page:428(p)
 msgid "34-43 cm"
-msgstr ""
+msgstr "34-43 cm"
 
 #: C/mal_table.page:104(p) C/mal_table.page:146(p) C/mal_table.page:195(p)
 #: C/mal_table.page:242(p) C/mal_table.page:289(p) C/mal_table.page:331(p)
 #: C/mal_table.page:380(p) C/mal_table.page:428(p)
 msgid "360 g"
-msgstr ""
+msgstr "360 g"
 
 #: C/mal_table.page:107(p) C/mal_table.page:149(p) C/mal_table.page:198(p)
 #: C/mal_table.page:245(p) C/mal_table.page:292(p) C/mal_table.page:334(p)
 #: C/mal_table.page:383(p) C/mal_table.page:431(p)
 msgid "Northern Pintail"
-msgstr ""
+msgstr "Ánade rabudo"
 
 #: C/mal_table.page:107(p) C/mal_table.page:149(p) C/mal_table.page:198(p)
 #: C/mal_table.page:245(p) C/mal_table.page:292(p) C/mal_table.page:334(p)
 #: C/mal_table.page:383(p) C/mal_table.page:431(p)
 msgid "Anas acuta"
-msgstr ""
+msgstr "Anas acuta"
 
 #: C/mal_table.page:108(p) C/mal_table.page:150(p) C/mal_table.page:199(p)
 #: C/mal_table.page:246(p) C/mal_table.page:293(p) C/mal_table.page:335(p)
 #: C/mal_table.page:384(p) C/mal_table.page:432(p)
 msgid "59-76 cm"
-msgstr ""
+msgstr "59-76 cm"
 
 #: C/mal_table.page:108(p) C/mal_table.page:150(p) C/mal_table.page:199(p)
 #: C/mal_table.page:246(p) C/mal_table.page:293(p) C/mal_table.page:335(p)
 #: C/mal_table.page:384(p) C/mal_table.page:432(p)
 msgid "450-1360 g"
-msgstr ""
+msgstr "450-1360 g"
 
 #: C/mal_table.page:113(p)
 msgid "Place rules between each colum:"
-msgstr ""
+msgstr "Ponga reglas entre cada columna:"
 
 #: C/mal_table.page:155(p)
 msgid "Place rules between each row group:"
-msgstr ""
+msgstr "Ponga reglas entre cada grupo de filas:"
 
 #: C/mal_table.page:205(p)
 msgid "Place rules between each column group:"
-msgstr ""
+msgstr "Ponga reglas entre cada grupo de columnas:"
 
 #: C/mal_table.page:254(title)
 msgid "The <code>shade</code> Attribute"
-msgstr ""
+msgstr "El atributo <code>shade</code>"
 
 #: C/mal_table.page:256(p)
 msgid "Shade alternating rows:"
@@ -565,19 +630,19 @@ msgstr ""
 
 #: C/mal_table.page:447(title)
 msgid "Design Notes"
-msgstr ""
+msgstr "Notas de diseño"
 
 #: C/mal_table.page:457(title)
 msgid "Comparison to HTML"
-msgstr ""
+msgstr "Comparación con HTML"
 
 #: C/mal_table.page:467(title) C/mal_block_p.page:92(title)
 msgid "Comparison to DocBook"
-msgstr ""
+msgstr "Comparación con DocBook"
 
 #: C/mal_table_col.page:9(title)
 msgid "Columns and Column Groups"
-msgstr ""
+msgstr "Columnas y grupos de columnas"
 
 #: C/mal_table_col.page:11(code)
 #, no-wrap
@@ -594,15 +659,28 @@ msgid ""
 "  mal_table_col *\n"
 "}\n"
 msgstr ""
+"\n"
+"mal_table_col = element col {\n"
+"  attribute style { xsd:NMTOKENS } ?,\n"
+"  attribute * - (mal:* | local:*) { text } *\n"
+"}\n"
+"mal_table_colgroup = element colgroup {\n"
+"  attribute style { xsd:NMTOKENS } ?,\n"
+"  attribute * - (mal:* | local:*) { text } *,\n"
+"\n"
+"  mal_table_col *\n"
+"}\n"
 
 #: C/mal_section.page:16(desc)
 msgid ""
 "Break up pages into logical chunks to help readers find information quickly."
 msgstr ""
+"Rompa páginas en elementos lógicos para ayudar a que los lectores encuentren "
+"información rápidamente."
 
 #: C/mal_section.page:20(title)
 msgid "Sections"
-msgstr ""
+msgstr "Secciones"
 
 #: C/mal_section.page:22(code)
 #, no-wrap
@@ -619,6 +697,17 @@ msgid ""
 "  mal_section *\n"
 "}\n"
 msgstr ""
+"\n"
+"mal_section = element section {\n"
+"  attribute id { xsd:ID },\n"
+"  attribute style { xsd:NMTOKENS } ?,\n"
+"  attribute * - (mal:* | local:*) { text } *,\n"
+"\n"
+"  <link xref=\"mal_info\">mal_info</link> ?,\n"
+"  <link xref=\"mal_block_title\">mal_block_title</link>,\n"
+"  <link xref=\"mal_block\">mal_block</link> *,\n"
+"  mal_section *\n"
+"}\n"
 
 #: C/mal_section.page:35(p)
 msgid ""
@@ -728,7 +817,7 @@ msgstr ""
 #: C/mal_block_example.page:109(title) C/mal_block_desc.page:120(title)
 #: C/mal_block_comment.page:143(title) C/mal_block_code.page:105(title)
 msgid "Processing Expectations"
-msgstr ""
+msgstr "Procesar las expectativas"
 
 #: C/mal_section.page:73(p)
 msgid ""
@@ -753,6 +842,8 @@ msgstr ""
 #: C/mal_page.page:16(desc)
 msgid "Individual tutorials, overviews, references, and navigational guides."
 msgstr ""
+"Tutoriales individuales, visiones generales, referencias y guías de "
+"navegación."
 
 #: C/mal_page.page:19(title)
 msgid "Pages"
@@ -777,6 +868,21 @@ msgid ""
 "  <link xref=\"mal_section\">mal_section</link> *\n"
 "}\n"
 msgstr ""
+"\n"
+"namespace local = \"\"\n"
+"default namespace mal = \"http://projectmallard.org/1.0/\"\n"
+"start = mal_page\n"
+"mal_page = element page {\n"
+"  attribute id { xsd:ID },\n"
+"  attribute type { \"guide\" | \"topic\"} ?,\n"
+"  attribute style { xsd:NMTOKENS } ?,\n"
+"  attribute * - (mal:* | local:*) { text } *,\n"
+"\n"
+"  <link xref=\"mal_info\">mal_info</link> ?,\n"
+"  <link xref=\"mal_block_title\">mal_block_title</link>,\n"
+"  <link xref=\"mal_block\">mal_block</link> *,\n"
+"  <link xref=\"mal_section\">mal_section</link> *\n"
+"}\n"
 
 #: C/mal_page.page:38(p)
 msgid ""
