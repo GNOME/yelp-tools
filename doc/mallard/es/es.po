@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils.mallard.master\n"
 "POT-Creation-Date: 2009-12-14 19:53+0000\n"
-"PO-Revision-Date: 2010-02-05 08:25+0100\n"
+"PO-Revision-Date: 2010-02-07 12:24+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -158,6 +158,13 @@ msgid ""
 "\">Guide pages</link> serve as the navigational glue between topics, helping "
 "readers find and explore content."
 msgstr ""
+"Un documento Mallard está compuesto de múltiples páginas independientes. Las "
+"<link xref=\"mal_page#topic\">páginas de temas</link> proporcionan trozos de "
+"información al lector. Esto puede ser un tutorial, una vista general "
+"conceptual, material de referencia o cualquier otro tipo de información "
+"escrita. Las <link xref=\"mal_page#guide\">páginas de guía</link> sirven "
+"como la unión entre los temas, para facilitar la navegación y ayudar a los "
+"lectores a buscar y examinar el contenido."
 
 #: C/tenminutes.page:38(p)
 msgid ""
@@ -931,7 +938,7 @@ msgstr ""
 
 #: C/mal_page.page:81(title)
 msgid "Guide Pages"
-msgstr ""
+msgstr "Páginas de guía"
 
 #: C/mal_page.page:83(p)
 msgid ""
@@ -968,7 +975,7 @@ msgstr ""
 
 #: C/mal_page.page:109(title)
 msgid "Topic Pages"
-msgstr ""
+msgstr "Páginas de temas"
 
 #: C/mal_page.page:111(p)
 msgid ""
@@ -1034,11 +1041,11 @@ msgstr "2007-2009"
 
 #: C/mal_inline_var.page:20(desc)
 msgid "Mark up placeholder text that should be replaced by the user."
-msgstr ""
+msgstr "Marque el lugar del texto que debería ser reemplazado por el usuario."
 
 #: C/mal_inline_var.page:23(title)
 msgid "Variable Text"
-msgstr ""
+msgstr "Texto variable"
 
 #: C/mal_inline_var.page:25(code)
 #, no-wrap
@@ -1052,6 +1059,14 @@ msgid ""
 "  <link xref=\"mal_inline\">mal_inline</link>\n"
 "}\n"
 msgstr ""
+"\n"
+"mal_inline_var = element var {\n"
+"  <link xref=\"mal_attr_link\">mal_attr_link</link> ?,\n"
+"  attribute style { xsd:NMTOKENS } ?,\n"
+"  attribute * - (mal:* | local:*) { text } *,\n"
+"\n"
+"  <link xref=\"mal_inline\">mal_inline</link>\n"
+"}\n"
 
 #: C/mal_inline_var.page:35(p)
 msgid ""
@@ -1122,7 +1137,7 @@ msgstr ""
 #: C/mal_block_figure.page:103(title) C/mal_block_example.page:120(title)
 #: C/mal_block_comment.page:164(title) C/mal_block_code.page:122(title)
 msgid "Comparison to Other Formats"
-msgstr ""
+msgstr "Comparación con otros formatos"
 
 #: C/mal_inline_var.page:89(p)
 msgid ""
@@ -1133,11 +1148,11 @@ msgstr ""
 
 #: C/mal_inline_sys.page:18(desc)
 msgid "Mark up general identifiers found on computer systems."
-msgstr ""
+msgstr "Marque identificadores generales encontrados en los sistemas."
 
 #: C/mal_inline_sys.page:21(title)
 msgid "System Items"
-msgstr ""
+msgstr "Elementos del sistema"
 
 #: C/mal_inline_sys.page:23(code)
 #, no-wrap
@@ -1151,6 +1166,14 @@ msgid ""
 "  <link xref=\"mal_inline\">mal_inline</link>\n"
 "}\n"
 msgstr ""
+"\n"
+"mal_inline_sys = element sys {\n"
+"  <link xref=\"mal_attr_link\">mal_attr_link</link> ?,\n"
+"  attribute style { xsd:NMTOKENS } ?,\n"
+"  attribute * - (mal:* | local:*) { text } *,\n"
+"\n"
+"  <link xref=\"mal_inline\">mal_inline</link>\n"
+"}\n"
 
 #: C/mal_inline_sys.page:33(p)
 msgid ""
@@ -1193,7 +1216,7 @@ msgstr ""
 
 #: C/mal_inline_sys.page:75(p)
 msgid "The Linux kernel is hosted on <sys>git.kernel.org</sys>."
-msgstr ""
+msgstr "El núcleo de Linux está hospedado en <sys>git.kernel.org</sys>."
 
 #: C/mal_inline_sys.page:85(p)
 msgid ""
@@ -1236,6 +1259,14 @@ msgid ""
 "  <link xref=\"mal_inline\">mal_inline</link>\n"
 "}\n"
 msgstr ""
+"\n"
+"mal_inline_span = element span {\n"
+"  <link xref=\"mal_attr_link\">mal_attr_link</link> ?,\n"
+"  attribute style { xsd:NMTOKENS } ?,\n"
+"  attribute * - (mal:* | local:*) { text } *,\n"
+"\n"
+"  <link xref=\"mal_inline\">mal_inline</link>\n"
+"}\n"
 
 #: C/mal_inline_span.page:35(p)
 msgid ""
@@ -1300,7 +1331,7 @@ msgstr ""
 
 #: C/mal_inline.page:18(desc)
 msgid "Rich semantic elements for marking up inline content."
-msgstr ""
+msgstr "Elementos semánticos ricos para marcar el contenido en línea."
 
 #: C/mal_inline.page:21(title) C/mal_inline.page:67(title)
 msgid "Inline Elements"
@@ -1331,6 +1362,27 @@ msgid ""
 "  text ?\n"
 "}\n"
 msgstr ""
+"\n"
+"mal_inline = {\n"
+"  <link xref=\"mal_inline_app\">mal_inline_app</link> * &amp;\n"
+"  <link xref=\"mal_inline_cmd\">mal_inline_cmd</link> * &amp;\n"
+"  <link xref=\"mal_inline_code\">mal_inline_code</link> * &amp;\n"
+"  <link xref=\"mal_inline_em\">mal_inline_em</link> * &amp;\n"
+"  <link xref=\"mal_inline_file\">mal_inline_file</link> * &amp;\n"
+"  <link xref=\"mal_inline_gui\">mal_inline_gui</link> * &amp;\n"
+"  <link xref=\"mal_inline_guiseq\">mal_inline_guiseq</link> * &amp;\n"
+"  <link xref=\"mal_inline_input\">mal_inline_input</link> * &amp;\n"
+"  <link xref=\"mal_inline_key\">mal_inline_key</link> * &amp;\n"
+"  <link xref=\"mal_inline_keyseq\">mal_inline_keyseq</link> * &amp;\n"
+"  <link xref=\"mal_inline_link\">mal_inline_link</link> * &amp;\n"
+"  <link xref=\"mal_inline_media\">mal_inline_media</link> * &amp;\n"
+"  <link xref=\"mal_inline_output\">mal_inline_output</link> * &amp;\n"
+"  <link xref=\"mal_inline_span\">mal_inline_span</link> * &amp;\n"
+"  <link xref=\"mal_inline_sys\">mal_inline_sys</link> * &amp;\n"
+"  <link xref=\"mal_inline_var\">mal_inline_var</link> * &amp;\n"
+"  element * - (mal:* | local:*) { mal_inline } * &amp;\n"
+"  text ?\n"
+"}\n"
 
 #: C/mal_inline.page:46(p)
 msgid ""
@@ -1363,7 +1415,7 @@ msgstr "Elementos"
 
 #: C/mal_inline.page:77(title)
 msgid "Inline Processing Instructions"
-msgstr ""
+msgstr "Instrucciones de procesado en línea"
 
 #: C/mal_inline.page:81(p)
 msgid ""
@@ -1390,11 +1442,11 @@ msgstr ""
 
 #: C/mal_inline_output.page:18(desc)
 msgid "Mark up the output from a computer program."
-msgstr ""
+msgstr "Marcar la salida de un programa."
 
 #: C/mal_inline_output.page:21(title)
 msgid "Computer Output"
-msgstr ""
+msgstr "Salida del equipo"
 
 #: C/mal_inline_output.page:23(code)
 #, no-wrap
@@ -1408,6 +1460,14 @@ msgid ""
 "  <link xref=\"mal_inline\">mal_inline</link>\n"
 "}\n"
 msgstr ""
+"\n"
+"mal_inline_output = element output {\n"
+"  <link xref=\"mal_attr_link\">mal_attr_link</link> ?,\n"
+"  attribute style { xsd:NMTOKENS } ?,\n"
+"  attribute * - (mal:* | local:*) { text } *,\n"
+"\n"
+"  <link xref=\"mal_inline\">mal_inline</link>\n"
+"}\n"
 
 #: C/mal_inline_output.page:33(p)
 msgid ""
@@ -1454,11 +1514,11 @@ msgstr ""
 #: C/mal_inline_output.page:69(code)
 #, no-wrap
 msgid "output"
-msgstr ""
+msgstr "salida"
 
 #: C/mal_inline_output.page:70(p)
 msgid "Standard output from a running program"
-msgstr ""
+msgstr "Salida estándar de un programa en ejecución"
 
 #: C/mal_inline_output.page:72(code)
 #, no-wrap
@@ -1467,7 +1527,7 @@ msgstr "error"
 
 #: C/mal_inline_output.page:73(p)
 msgid "Standard error from a running program"
-msgstr ""
+msgstr "Error estándar de un programa en ejecución"
 
 #: C/mal_inline_output.page:75(code) C/docbook.page:1158(code)
 #, no-wrap
@@ -1508,6 +1568,8 @@ msgid ""
 "Use <code>output</code> and <code xref=\"mal_inline_input\">input</code> "
 "inside a <code xref=\"mal_block_screen\">screen</code> element:"
 msgstr ""
+"Use <code>output</code> y <code xref=\"mal_inline_input\">input</code> "
+"dentro del elemento <code xref=\"mal_block_screen\">screen</code>:"
 
 #: C/mal_inline_output.page:119(output) C/mal_inline_output.page:134(output)
 #: C/mal_inline_input.page:94(output)
@@ -1516,23 +1578,23 @@ msgstr "$"
 
 #: C/mal_inline_output.page:119(input) C/mal_inline_input.page:94(input)
 msgid "ls mal_inline_output.xml"
-msgstr ""
+msgstr "ls mal_inline_output.xml"
 
 #: C/mal_inline_output.page:120(output) C/mal_inline_input.page:95(output)
 msgid "mal_inline_output.xml"
-msgstr ""
+msgstr "mal_inline_output.xml"
 
 #: C/mal_inline_output.page:124(p)
 msgid "Use <code>output</code> for error text:"
-msgstr ""
+msgstr "Use <code>output</code> para el texto del error:"
 
 #: C/mal_inline_output.page:134(input)
 msgid "ls mal_inline_computeroutput.xml"
-msgstr ""
+msgstr "ls mal_inline_computeroutput.xml"
 
 #: C/mal_inline_output.page:135(output)
 msgid "ls: mal_inline_computerouput.xml: No such file or directory"
-msgstr ""
+msgstr "ls: mal_inline_computerouput.xml: No such file or directory"
 
 #: C/mal_inline_output.page:146(p)
 msgid ""
@@ -1561,7 +1623,7 @@ msgstr ""
 #: C/mal_inline_media.page:91(None) C/mal_block_media.page:87(None)
 #: C/mal_block_figure.page:83(None) C/mal_block_desc.page:83(None)
 msgid "@@image: 'figures/mallard.png'; md5=cad876c6dcbc63f3d050754f7e5ee7b1"
-msgstr ""
+msgstr "@@image: 'figures/mallard.png'; md5=cad876c6dcbc63f3d050754f7e5ee7b1"
 
 #: C/mal_inline_media.page:18(desc) C/mal_block_media.page:18(desc)
 msgid "Insert an image, video, or other multimedia object."
@@ -1569,7 +1631,7 @@ msgstr ""
 
 #: C/mal_inline_media.page:21(title)
 msgid "Inline Multimedia Objects"
-msgstr ""
+msgstr "Objetos multimedia en línea"
 
 #: C/mal_inline_media.page:23(code)
 #, no-wrap
@@ -1588,6 +1650,19 @@ msgid ""
 "  <link xref=\"mal_inline\">mal_inline</link>\n"
 "}\n"
 msgstr ""
+"\n"
+"mal_inline_media = element media {\n"
+"  <link xref=\"mal_attr_link\">mal_attr_link</link> ?,\n"
+"  attribute style { xsd:NMTOKENS } ?,\n"
+"  attribute type { \"image\" | \"video\" | \"audio\" | \"application\" } ?,\n"
+"  attribute mime { text } ?,\n"
+"  attribute src { text },\n"
+"  attribute height { text } ?,\n"
+"  attribute width { text } ?,\n"
+"  attribute * - (mal:* | local:*) { text } *,\n"
+"\n"
+"  <link xref=\"mal_inline\">mal_inline</link>\n"
+"}\n"
 
 #: C/mal_inline_media.page:38(p) C/mal_block_media.page:37(p)
 msgid ""
