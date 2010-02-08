@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils.mallard.master\n"
 "POT-Creation-Date: 2009-12-14 19:53+0000\n"
-"PO-Revision-Date: 2010-02-08 07:32+0100\n"
+"PO-Revision-Date: 2010-02-09 00:11+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -6803,11 +6803,11 @@ msgstr ""
 
 #: C/explore.page:19(title)
 msgid "Explore Mallard"
-msgstr ""
+msgstr "Explorar Mallard"
 
 #: C/docbook.page:9(title)
 msgid "DocBook Element Reference"
-msgstr ""
+msgstr "Referencia de elementos de DocBook"
 
 #: C/docbook.page:11(p)
 msgid ""
@@ -6819,28 +6819,30 @@ msgstr ""
 #: C/docbook.page:17(code)
 #, no-wrap
 msgid "abbrev"
-msgstr ""
+msgstr "abbrev"
 
 #: C/docbook.page:18(p) C/docbook.page:37(p) C/docbook.page:41(p)
 #: C/docbook.page:875(p) C/docbook.page:923(p)
 msgid "No equivalent in Mallard. Use plain text instead."
-msgstr ""
+msgstr "No existe equivalente en Mallard. En su lugar use texto plano."
 
 #: C/docbook.page:21(code)
 #, no-wrap
 msgid "abstract"
-msgstr ""
+msgstr "abstract"
 
 #: C/docbook.page:22(p)
 msgid ""
 "No equivalent in Mallard. The <code xref=\"mal_block_synopsis\">synopsis</"
 "code> element may be appropriate in some cases."
 msgstr ""
+"No existe equivalente en Mallard. Puede ser apropiado usar el elemento <code "
+"xref=\"mal_block_synopsis\">synopsis</code>."
 
 #: C/docbook.page:26(code)
 #, no-wrap
 msgid "accel"
-msgstr ""
+msgstr "accel"
 
 #: C/docbook.page:27(p)
 msgid ""
@@ -6851,7 +6853,7 @@ msgstr ""
 #: C/docbook.page:31(code)
 #, no-wrap
 msgid "ackno"
-msgstr ""
+msgstr "ackno"
 
 #: C/docbook.page:32(p)
 msgid ""
@@ -6862,17 +6864,17 @@ msgstr ""
 #: C/docbook.page:36(code)
 #, no-wrap
 msgid "acronym"
-msgstr ""
+msgstr "acronym"
 
 #: C/docbook.page:40(code)
 #, no-wrap
 msgid "action"
-msgstr "acción"
+msgstr "action"
 
 #: C/docbook.page:45(code)
 #, no-wrap
 msgid "address"
-msgstr ""
+msgstr "address"
 
 #: C/docbook.page:46(p)
 msgid ""
@@ -6884,7 +6886,7 @@ msgstr ""
 #: C/docbook.page:51(code)
 #, no-wrap
 msgid "affiliation"
-msgstr ""
+msgstr "affiliation"
 
 #: C/docbook.page:55(code)
 #, no-wrap
@@ -6899,7 +6901,7 @@ msgstr ""
 #: C/docbook.page:59(code)
 #, no-wrap
 msgid "anchor"
-msgstr ""
+msgstr "anchor"
 
 #: C/docbook.page:60(p) C/docbook.page:468(p) C/docbook.page:703(p)
 #: C/docbook.page:724(p) C/docbook.page:871(p) C/docbook.page:911(p)
@@ -6909,7 +6911,7 @@ msgstr ""
 #: C/docbook.page:63(code)
 #, no-wrap
 msgid "answer"
-msgstr ""
+msgstr "answer"
 
 #: C/docbook.page:64(p) C/docbook.page:808(p) C/docbook.page:1192(p)
 msgid ""
@@ -6920,7 +6922,7 @@ msgstr ""
 #: C/docbook.page:69(code)
 #, no-wrap
 msgid "appendix"
-msgstr ""
+msgstr "appendix"
 
 #: C/docbook.page:70(p) C/docbook.page:96(p) C/docbook.page:203(p)
 #: C/docbook.page:233(p) C/docbook.page:1056(p) C/docbook.page:1100(p)
@@ -6932,12 +6934,12 @@ msgstr ""
 #: C/docbook.page:74(code)
 #, no-wrap
 msgid "appendixinfo"
-msgstr ""
+msgstr "appendixinfo"
 
 #: C/docbook.page:78(code)
 #, no-wrap
 msgid "application"
-msgstr "aplicación"
+msgstr "application"
 
 #: C/docbook.page:79(p)
 msgid "Similar to the <code xref=\"mal_inline_app\">app</code> element."
@@ -6946,7 +6948,7 @@ msgstr ""
 #: C/docbook.page:83(code)
 #, no-wrap
 msgid "area"
-msgstr ""
+msgstr "area"
 
 #: C/docbook.page:84(p) C/docbook.page:217(p) C/docbook.page:283(p)
 #: C/docbook.page:385(p) C/docbook.page:613(p) C/docbook.page:677(p)
@@ -6957,36 +6959,36 @@ msgstr ""
 #: C/docbook.page:86(code)
 #, no-wrap
 msgid "areaset"
-msgstr ""
+msgstr "areaset"
 
 #: C/docbook.page:87(code)
 #, no-wrap
 msgid "areaspec"
-msgstr ""
+msgstr "areaspec"
 
 #: C/docbook.page:90(code)
 #, no-wrap
 msgid "arg"
-msgstr ""
+msgstr "arg"
 
 #: C/docbook.page:91(p) C/docbook.page:617(p)
 msgid "Mallard does not have a structured environment for command synopses."
-msgstr ""
+msgstr "Mallard no tiene un entorno estructurado para resúmenes de comandos."
 
 #: C/docbook.page:95(code)
 #, no-wrap
 msgid "article"
-msgstr ""
+msgstr "article"
 
 #: C/docbook.page:100(code)
 #, no-wrap
 msgid "articleinfo"
-msgstr ""
+msgstr "articleinfo"
 
 #: C/docbook.page:104(code)
 #, no-wrap
 msgid "artpagenums"
-msgstr ""
+msgstr "artpagenums"
 
 #: C/docbook.page:105(p) C/docbook.page:325(p) C/docbook.page:364(p)
 #: C/docbook.page:429(p) C/docbook.page:747(p) C/docbook.page:767(p)
@@ -7001,42 +7003,44 @@ msgstr ""
 #: C/docbook.page:110(code)
 #, no-wrap
 msgid "attribution"
-msgstr ""
+msgstr "attribution"
 
 #: C/docbook.page:111(p)
 msgid "Similar to the <code xref=\"mal_block_cite\">cite</code> element."
-msgstr ""
+msgstr "Similar al elemento <code xref=\"mal_block_cite\">cite</code>."
 
 #: C/docbook.page:115(code)
 #, no-wrap
 msgid "audiodata"
-msgstr ""
+msgstr "audiodata"
 
 #: C/docbook.page:116(p) C/docbook.page:609(p) C/docbook.page:669(p)
 #: C/docbook.page:879(p)
 msgid ""
 "See the <code xref=\"mal_block_media\">media</code> element for details."
 msgstr ""
+"Consulte el elemento <code xref=\"mal_block_media\">media</code> para "
+"obtener más detalles."
 
 #: C/docbook.page:119(code)
 #, no-wrap
 msgid "audioobject"
-msgstr ""
+msgstr "audioobject"
 
 #: C/docbook.page:123(code)
 #, no-wrap
 msgid "author"
-msgstr ""
+msgstr "author"
 
 #: C/docbook.page:124(p) C/docbook.page:299(p) C/docbook.page:390(p)
 #: C/docbook.page:434(p) C/docbook.page:1023(p) C/docbook.page:1175(p)
 msgid "Use the common <code xref=\"mal_info_credit\">credit</code> element."
-msgstr ""
+msgstr "Use el elemento común <code xref=\"mal_info_credit\">credit</code>."
 
 #: C/docbook.page:127(code)
 #, no-wrap
 msgid "authorblurb"
-msgstr ""
+msgstr "authorblurb"
 
 #: C/docbook.page:128(p) C/docbook.page:138(p) C/docbook.page:259(p)
 #: C/docbook.page:403(p) C/docbook.page:499(p) C/docbook.page:518(p)
@@ -7052,29 +7056,29 @@ msgstr ""
 #: C/docbook.page:133(code)
 #, no-wrap
 msgid "authorgroup"
-msgstr ""
+msgstr "authorgroup"
 
 #: C/docbook.page:134(p) C/docbook.page:144(p) C/docbook.page:212(p)
 #: C/docbook.page:255(p) C/docbook.page:308(p) C/docbook.page:420(p)
 #: C/docbook.page:544(p) C/docbook.page:854(p) C/docbook.page:915(p)
 #: C/docbook.page:1000(p) C/docbook.page:1207(p)
 msgid "No equivalent in Mallard."
-msgstr ""
+msgstr "No existe equivalente en Mallard."
 
 #: C/docbook.page:137(code)
 #, no-wrap
 msgid "authorinitials"
-msgstr ""
+msgstr "authorinitials"
 
 #: C/docbook.page:143(code)
 #, no-wrap
 msgid "beginpage"
-msgstr ""
+msgstr "beginpage"
 
 #: C/docbook.page:148(code)
 #, no-wrap
 msgid "bibliocoverage"
-msgstr ""
+msgstr "bibliocoverage"
 
 #: C/docbook.page:149(p) C/docbook.page:243(p) C/docbook.page:1038(p)
 msgid ""
@@ -7084,72 +7088,72 @@ msgstr ""
 #: C/docbook.page:152(code)
 #, no-wrap
 msgid "bibliodiv"
-msgstr ""
+msgstr "bibliodiv"
 
 #: C/docbook.page:155(code)
 #, no-wrap
 msgid "biblioentry"
-msgstr ""
+msgstr "biblioentry"
 
 #: C/docbook.page:158(code)
 #, no-wrap
 msgid "bibliography"
-msgstr ""
+msgstr "bibliography"
 
 #: C/docbook.page:161(code)
 #, no-wrap
 msgid "bibliographyinfo"
-msgstr ""
+msgstr "bibliographyinfo"
 
 #: C/docbook.page:164(code)
 #, no-wrap
 msgid "biblioid"
-msgstr ""
+msgstr "biblioid"
 
 #: C/docbook.page:167(code)
 #, no-wrap
 msgid "bibliolist"
-msgstr ""
+msgstr "bibliolist"
 
 #: C/docbook.page:170(code)
 #, no-wrap
 msgid "bibliomisc"
-msgstr ""
+msgstr "bibliomisc"
 
 #: C/docbook.page:173(code)
 #, no-wrap
 msgid "bibliomixed"
-msgstr ""
+msgstr "bibliomixed"
 
 #: C/docbook.page:176(code)
 #, no-wrap
 msgid "bibliomset"
-msgstr ""
+msgstr "bibliomset"
 
 #: C/docbook.page:179(code)
 #, no-wrap
 msgid "biblioref"
-msgstr ""
+msgstr "biblioref"
 
 #: C/docbook.page:182(code)
 #, no-wrap
 msgid "bibliorelation"
-msgstr ""
+msgstr "bibliorelation"
 
 #: C/docbook.page:185(code)
 #, no-wrap
 msgid "biblioset"
-msgstr ""
+msgstr "biblioset"
 
 #: C/docbook.page:188(code)
 #, no-wrap
 msgid "bibliosource"
-msgstr ""
+msgstr "bibliosource"
 
 #: C/docbook.page:192(code)
 #, no-wrap
 msgid "blockinfo"
-msgstr ""
+msgstr "blockinfo"
 
 #: C/docbook.page:193(p) C/docbook.page:974(p)
 msgid ""
@@ -7160,42 +7164,42 @@ msgstr ""
 #: C/docbook.page:197(code)
 #, no-wrap
 msgid "blockquote"
-msgstr ""
+msgstr "blockquote"
 
 #: C/docbook.page:198(p)
 msgid ""
 "Similar to the block <code xref=\"mal_block_quote\">quote</code> element."
-msgstr ""
+msgstr "Similar al elemento <code xref=\"mal_block_quote\">quite</code>."
 
 #: C/docbook.page:202(code)
 #, no-wrap
 msgid "book"
-msgstr "libro"
+msgstr "book"
 
 #: C/docbook.page:207(code)
 #, no-wrap
 msgid "bookinfo"
-msgstr ""
+msgstr "bookinfo"
 
 #: C/docbook.page:211(code)
 #, no-wrap
 msgid "bridgehead"
-msgstr ""
+msgstr "bridgehead"
 
 #: C/docbook.page:216(code)
 #, no-wrap
 msgid "callout"
-msgstr ""
+msgstr "callout"
 
 #: C/docbook.page:219(code)
 #, no-wrap
 msgid "calloutlist"
-msgstr ""
+msgstr "calloutlist"
 
 #: C/docbook.page:222(code)
 #, no-wrap
 msgid "caption"
-msgstr "descripción"
+msgstr "caption"
 
 #: C/docbook.page:223(p)
 msgid ""
@@ -7207,36 +7211,36 @@ msgstr ""
 #: C/docbook.page:227(code)
 #, no-wrap
 msgid "caution"
-msgstr ""
+msgstr "caution"
 
 #: C/docbook.page:228(p) C/docbook.page:681(p) C/docbook.page:970(p)
 msgid "Use the common <code xref=\"mal_block_note\">note</code> element."
-msgstr ""
+msgstr "Use el elemento común <code xref=\"mal_block_note\">note</code>."
 
 #: C/docbook.page:232(code)
 #, no-wrap
 msgid "chapter"
-msgstr ""
+msgstr "chapter"
 
 #: C/docbook.page:237(code)
 #, no-wrap
 msgid "chapterinfo"
-msgstr ""
+msgstr "chapterinfo"
 
 #: C/docbook.page:242(code)
 #, no-wrap
 msgid "citation"
-msgstr ""
+msgstr "citation"
 
 #: C/docbook.page:246(code)
 #, no-wrap
 msgid "citebiblioid"
-msgstr ""
+msgstr "citebiblioid"
 
 #: C/docbook.page:250(code)
 #, no-wrap
 msgid "citerefentry"
-msgstr ""
+msgstr "citerefentry"
 
 #: C/docbook.page:251(p) C/docbook.page:862(p) C/docbook.page:1212(p)
 msgid ""
@@ -7246,17 +7250,17 @@ msgstr ""
 #: C/docbook.page:254(code)
 #, no-wrap
 msgid "citetitle"
-msgstr ""
+msgstr "citetitle"
 
 #: C/docbook.page:258(code)
 #, no-wrap
 msgid "city"
-msgstr ""
+msgstr "city"
 
 #: C/docbook.page:264(code)
 #, no-wrap
 msgid "classname"
-msgstr ""
+msgstr "classname"
 
 #: C/docbook.page:265(p) C/docbook.page:494(p) C/docbook.page:567(p)
 #: C/docbook.page:741(p) C/docbook.page:866(p) C/docbook.page:897(p)
@@ -7265,11 +7269,13 @@ msgid ""
 "No specific element in Mallard. Use the inline <code xref=\"mal_inline_code"
 "\">code</code> element instead."
 msgstr ""
+"No existe el elemento específico en Mallard. En su lugar use el elemento en "
+"línea <code xref=\"mal_inline_code\">code</code>."
 
 #: C/docbook.page:270(code)
 #, no-wrap
 msgid "classsynopsis"
-msgstr ""
+msgstr "classsynopsis"
 
 #: C/docbook.page:271(p) C/docbook.page:549(p)
 msgid ""
@@ -7281,49 +7287,49 @@ msgstr ""
 #: C/docbook.page:275(code)
 #, no-wrap
 msgid "classsynopsisinfo"
-msgstr ""
+msgstr "classsynopsisinfo"
 
 #: C/docbook.page:278(code)
 #, no-wrap
 msgid "cmdsynopsis"
-msgstr ""
+msgstr "cmdsynopsis"
 
 #: C/docbook.page:282(code)
 #, no-wrap
 msgid "co"
-msgstr ""
+msgstr "co"
 
 #: C/docbook.page:287(p)
 msgid "Similar to the <code xref=\"mal_inline_code\">code</code> element."
-msgstr ""
+msgstr "Similar al elemento <code xref=\"mal_inline_code\">code</code>."
 
 #: C/docbook.page:290(code)
 #, no-wrap
 msgid "col"
-msgstr ""
+msgstr "col"
 
 #: C/docbook.page:291(p)
 msgid "Similar to the <code xref=\"mal_table_col\">col</code> element."
-msgstr ""
+msgstr "Similar al elemento <code xref=\"mal_table_col\">col</code>."
 
 #: C/docbook.page:294(code)
 #, no-wrap
 msgid "colgroup"
-msgstr ""
+msgstr "colgroup"
 
 #: C/docbook.page:295(p)
 msgid "Similar to the <code xref=\"mal_table_col\">colgroup</code> element."
-msgstr ""
+msgstr "Similar al elemento <code xref=\"mal_table_col\">colgroup</code>."
 
 #: C/docbook.page:298(code)
 #, no-wrap
 msgid "collab"
-msgstr ""
+msgstr "collab"
 
 #: C/docbook.page:302(code)
 #, no-wrap
 msgid "collabname"
-msgstr ""
+msgstr "collabname"
 
 #: C/docbook.page:303(p) C/docbook.page:398(p)
 msgid ""
@@ -7334,12 +7340,12 @@ msgstr ""
 #: C/docbook.page:307(code)
 #, no-wrap
 msgid "colophon"
-msgstr ""
+msgstr "colophon"
 
 #: C/docbook.page:311(code)
 #, no-wrap
 msgid "colspec"
-msgstr ""
+msgstr "colspec"
 
 #: C/docbook.page:312(p) C/docbook.page:449(p)
 msgid "Mallard does not use the CALS table model."
@@ -7348,50 +7354,50 @@ msgstr ""
 #: C/docbook.page:315(code)
 #, no-wrap
 msgid "command"
-msgstr "comando"
+msgstr "command"
 
 #: C/docbook.page:316(p)
 msgid "Similar to the <code xref=\"mal_inline_cmd\">cmd</code> element."
-msgstr ""
+msgstr "Similar al elemento <code xref=\"mal_inline_cmd\">cmd</code>."
 
 #: C/docbook.page:319(code)
 #, no-wrap
 msgid "computeroutput"
-msgstr ""
+msgstr "computeroutput"
 
 #: C/docbook.page:320(p)
 msgid "Similar to the <code xref=\"mal_inline_output\">output</code> element."
-msgstr ""
+msgstr "Similar al elemento <code xref=\"mal_inline_output\">output</code>."
 
 #: C/docbook.page:324(code)
 #, no-wrap
 msgid "confdates"
-msgstr ""
+msgstr "confdates"
 
 #: C/docbook.page:330(code)
 #, no-wrap
 msgid "confgroup"
-msgstr ""
+msgstr "confgroup"
 
 #: C/docbook.page:333(code)
 #, no-wrap
 msgid "confnum"
-msgstr ""
+msgstr "confnum"
 
 #: C/docbook.page:336(code)
 #, no-wrap
 msgid "confsponsor"
-msgstr ""
+msgstr "confsponsor"
 
 #: C/docbook.page:339(code)
 #, no-wrap
 msgid "conftitle"
-msgstr ""
+msgstr "conftitle"
 
 #: C/docbook.page:343(code)
 #, no-wrap
 msgid "constant"
-msgstr ""
+msgstr "constant"
 
 #: C/docbook.page:344(p) C/docbook.page:844(p)
 msgid ""
@@ -7402,7 +7408,7 @@ msgstr ""
 #: C/docbook.page:349(code)
 #, no-wrap
 msgid "constraint"
-msgstr ""
+msgstr "constraint"
 
 #: C/docbook.page:350(p) C/docbook.page:820(p) C/docbook.page:966(p)
 #: C/docbook.page:1129(p)
@@ -7412,12 +7418,12 @@ msgstr ""
 #: C/docbook.page:353(code)
 #, no-wrap
 msgid "constraintdef"
-msgstr ""
+msgstr "constraintdef"
 
 #: C/docbook.page:357(code)
 #, no-wrap
 msgid "constructorsynopsis"
-msgstr ""
+msgstr "constructorsynopsis"
 
 #: C/docbook.page:358(p) C/docbook.page:424(p) C/docbook.page:505(p)
 #: C/docbook.page:906(p)
@@ -7430,17 +7436,17 @@ msgstr ""
 #: C/docbook.page:363(code)
 #, no-wrap
 msgid "contractnum"
-msgstr ""
+msgstr "contractnum"
 
 #: C/docbook.page:369(code)
 #, no-wrap
 msgid "contractsponsor"
-msgstr ""
+msgstr "contractsponsor"
 
 #: C/docbook.page:373(code)
 #, no-wrap
 msgid "contrib"
-msgstr ""
+msgstr "contrib"
 
 #: C/docbook.page:374(p)
 msgid ""
@@ -7463,32 +7469,32 @@ msgstr ""
 #: C/docbook.page:384(code)
 #, no-wrap
 msgid "coref"
-msgstr ""
+msgstr "coref"
 
 #: C/docbook.page:389(code)
 #, no-wrap
 msgid "corpauthor"
-msgstr ""
+msgstr "corpauthor"
 
 #: C/docbook.page:393(code)
 #, no-wrap
 msgid "corpcredit"
-msgstr ""
+msgstr "corpcredit"
 
 #: C/docbook.page:397(code)
 #, no-wrap
 msgid "corpname"
-msgstr ""
+msgstr "corpname"
 
 #: C/docbook.page:402(code)
 #, no-wrap
 msgid "country"
-msgstr ""
+msgstr "country"
 
 #: C/docbook.page:408(code)
 #, no-wrap
 msgid "database"
-msgstr "base de datos"
+msgstr "database"
 
 #: C/docbook.page:409(p) C/docbook.page:457(p) C/docbook.page:642(p)
 #: C/docbook.page:783(p) C/docbook.page:792(p) C/docbook.page:1033(p)
@@ -7497,11 +7503,13 @@ msgid ""
 "No specific element in Mallard. Use the inline <code xref=\"mal_inline_sys"
 "\">sys</code> element instead."
 msgstr ""
+"No existe el elemento específico en Mallard. En su lugar use el elemento en "
+"línea <code xref=\"mal_inline_sys\">sys</code>."
 
 #: C/docbook.page:413(code)
 #, no-wrap
 msgid "date"
-msgstr "fecha"
+msgstr "date"
 
 #: C/docbook.page:414(p)
 msgid ""
@@ -7514,17 +7522,17 @@ msgstr ""
 #: C/docbook.page:419(code)
 #, no-wrap
 msgid "dedication"
-msgstr ""
+msgstr "dedication"
 
 #: C/docbook.page:423(code)
 #, no-wrap
 msgid "destructorsynopsis"
-msgstr ""
+msgstr "destructorsynopsis"
 
 #: C/docbook.page:428(code)
 #, no-wrap
 msgid "edition"
-msgstr "edición"
+msgstr "edition"
 
 #: C/docbook.page:433(code)
 #, no-wrap
@@ -7534,7 +7542,7 @@ msgstr "editor"
 #: C/docbook.page:437(code)
 #, no-wrap
 msgid "email"
-msgstr "correo-e"
+msgstr "email"
 
 #: C/docbook.page:438(p)
 msgid ""
@@ -7546,31 +7554,31 @@ msgstr ""
 #: C/docbook.page:443(code)
 #, no-wrap
 msgid "emphasis"
-msgstr ""
+msgstr "emphasis"
 
 #: C/docbook.page:444(p)
 msgid "Similar to the <code xref=\"mal_inline_em\">em</code> element."
-msgstr ""
+msgstr "Similar al elemento <code xref=\"mal_inline_em\">em</code>."
 
 #: C/docbook.page:448(code)
 #, no-wrap
 msgid "entry"
-msgstr "entrada"
+msgstr "entry"
 
 #: C/docbook.page:452(code)
 #, no-wrap
 msgid "entrytbl"
-msgstr ""
+msgstr "entrytbl"
 
 #: C/docbook.page:456(code)
 #, no-wrap
 msgid "envar"
-msgstr "variable de entorno"
+msgstr "envar"
 
 #: C/docbook.page:461(code)
 #, no-wrap
 msgid "epigrah"
-msgstr "epígrafe"
+msgstr "epigrah"
 
 #: C/docbook.page:462(p)
 msgid ""
@@ -7582,12 +7590,12 @@ msgstr ""
 #: C/docbook.page:467(code)
 #, no-wrap
 msgid "equation"
-msgstr "ecuación"
+msgstr "equation"
 
 #: C/docbook.page:472(code)
 #, no-wrap
 msgid "errorcode"
-msgstr "código del error"
+msgstr "errorcode"
 
 #: C/docbook.page:473(p)
 msgid ""
@@ -7599,17 +7607,17 @@ msgstr ""
 #: C/docbook.page:478(code)
 #, no-wrap
 msgid "errorname"
-msgstr "nombre del error"
+msgstr "errorname"
 
 #: C/docbook.page:481(code)
 #, no-wrap
 msgid "errortext"
-msgstr "texto del error"
+msgstr "errortext"
 
 #: C/docbook.page:484(code)
 #, no-wrap
 msgid "errortype"
-msgstr "tipo de error"
+msgstr "errortype"
 
 #: C/docbook.page:489(p)
 msgid ""
@@ -7620,40 +7628,40 @@ msgstr ""
 #: C/docbook.page:493(code)
 #, no-wrap
 msgid "exceptionname"
-msgstr ""
+msgstr "exceptionname"
 
 #: C/docbook.page:498(code)
 #, no-wrap
 msgid "fax"
-msgstr ""
+msgstr "fax"
 
 #: C/docbook.page:504(code)
 #, no-wrap
 msgid "fieldsynopsis"
-msgstr ""
+msgstr "fieldsynopsis"
 
 #: C/docbook.page:510(p) C/docbook.page:711(p)
 msgid "Similar to the <code xref=\"mal_block_figure\">figure</code> element."
-msgstr ""
+msgstr "Similar al elemento <code xref=\"mal_block_figure\">figure</code>."
 
 #: C/docbook.page:513(code)
 #, no-wrap
 msgid "filename"
-msgstr "nombre de archivo"
+msgstr "filename"
 
 #: C/docbook.page:514(p)
 msgid "Similar to the <code xref=\"mal_inline_file\">file</code> element."
-msgstr ""
+msgstr "Similar al elemento <code xref=\"mal_inline_file\">file</code>."
 
 #: C/docbook.page:517(code)
 #, no-wrap
 msgid "firstname"
-msgstr ""
+msgstr "firstname"
 
 #: C/docbook.page:523(code)
 #, no-wrap
 msgid "firstterm"
-msgstr ""
+msgstr "firstterm"
 
 #: C/docbook.page:524(p)
 msgid ""
@@ -7664,7 +7672,7 @@ msgstr ""
 #: C/docbook.page:529(code)
 #, no-wrap
 msgid "footnote"
-msgstr ""
+msgstr "footnote"
 
 #: C/docbook.page:530(p)
 msgid ""
@@ -7675,12 +7683,12 @@ msgstr ""
 #: C/docbook.page:534(code)
 #, no-wrap
 msgid "footnoteref"
-msgstr ""
+msgstr "footnoteref"
 
 #: C/docbook.page:538(code)
 #, no-wrap
 msgid "foreignphrase"
-msgstr ""
+msgstr "foreignphrase"
 
 #: C/docbook.page:539(p)
 msgid ""
@@ -7691,42 +7699,42 @@ msgstr ""
 #: C/docbook.page:543(code)
 #, no-wrap
 msgid "formalpara"
-msgstr ""
+msgstr "formalpara"
 
 #: C/docbook.page:548(code)
 #, no-wrap
 msgid "funcdef"
-msgstr "definición de función"
+msgstr "funcdef"
 
 #: C/docbook.page:553(code)
 #, no-wrap
 msgid "funcparams"
-msgstr ""
+msgstr "funcparams"
 
 #: C/docbook.page:556(code)
 #, no-wrap
 msgid "funcprototype"
-msgstr ""
+msgstr "funcprototype"
 
 #: C/docbook.page:559(code)
 #, no-wrap
 msgid "funcsynopsis"
-msgstr ""
+msgstr "funcsynopsis"
 
 #: C/docbook.page:562(code)
 #, no-wrap
 msgid "funcsynopsisinfo"
-msgstr ""
+msgstr "funcsynopsisinfo"
 
 #: C/docbook.page:566(code)
 #, no-wrap
 msgid "function"
-msgstr "función"
+msgstr "function"
 
 #: C/docbook.page:572(code)
 #, no-wrap
 msgid "glossary"
-msgstr ""
+msgstr "glossary"
 
 #: C/docbook.page:573(p)
 msgid ""
@@ -7738,12 +7746,12 @@ msgstr ""
 #: C/docbook.page:578(code)
 #, no-wrap
 msgid "glossaryinfo"
-msgstr ""
+msgstr "glossaryinfo"
 
 #: C/docbook.page:583(code)
 #, no-wrap
 msgid "glossdef"
-msgstr ""
+msgstr "glossdef"
 
 #: C/docbook.page:584(p)
 msgid ""
@@ -7755,86 +7763,86 @@ msgstr ""
 #: C/docbook.page:589(code)
 #, no-wrap
 msgid "glossdiv"
-msgstr ""
+msgstr "glossdiv"
 
 #: C/docbook.page:592(code)
 #, no-wrap
 msgid "glossentry"
-msgstr ""
+msgstr "glossentry"
 
 #: C/docbook.page:595(code)
 #, no-wrap
 msgid "glosslist"
-msgstr ""
+msgstr "glosslist"
 
 #: C/docbook.page:598(code)
 #, no-wrap
 msgid "glosssee"
-msgstr ""
+msgstr "glosssee"
 
 #: C/docbook.page:601(code)
 #, no-wrap
 msgid "glossseealso"
-msgstr ""
+msgstr "glossseealso"
 
 #: C/docbook.page:604(code)
 #, no-wrap
 msgid "glossterm"
-msgstr ""
+msgstr "glossterm"
 
 #: C/docbook.page:608(code)
 #, no-wrap
 msgid "graphic"
-msgstr ""
+msgstr "graphic"
 
 #: C/docbook.page:612(code)
 #, no-wrap
 msgid "graphicco"
-msgstr ""
+msgstr "graphicco"
 
 #: C/docbook.page:621(code)
 #, no-wrap
 msgid "guibutton"
-msgstr ""
+msgstr "guibutton"
 
 #: C/docbook.page:622(p) C/docbook.page:737(p)
 msgid "Use the common <code xref=\"mal_inline_gui\">gui</code> element."
-msgstr ""
+msgstr "Use el elemento común <code xref=\"mal_inline_gui\">gui</code>."
 
 #: C/docbook.page:625(code)
 #, no-wrap
 msgid "guiicon"
-msgstr ""
+msgstr "guiicon"
 
 #: C/docbook.page:628(code)
 #, no-wrap
 msgid "guilabel"
-msgstr ""
+msgstr "guilabel"
 
 #: C/docbook.page:631(code)
 #, no-wrap
 msgid "guimenu"
-msgstr ""
+msgstr "guimenu"
 
 #: C/docbook.page:634(code)
 #, no-wrap
 msgid "guimenuitem"
-msgstr ""
+msgstr "guimenuitem"
 
 #: C/docbook.page:637(code)
 #, no-wrap
 msgid "guisubmenu"
-msgstr ""
+msgstr "guisubmenu"
 
 #: C/docbook.page:641(code)
 #, no-wrap
 msgid "hardware"
-msgstr ""
+msgstr "hardware"
 
 #: C/docbook.page:646(code)
 #, no-wrap
 msgid "highlights"
-msgstr ""
+msgstr "highlights"
 
 #: C/docbook.page:647(p)
 msgid ""
@@ -7845,7 +7853,7 @@ msgstr ""
 #: C/docbook.page:651(code)
 #, no-wrap
 msgid "holder"
-msgstr ""
+msgstr "holder"
 
 #: C/docbook.page:652(p)
 msgid ""
@@ -7857,12 +7865,12 @@ msgstr ""
 #: C/docbook.page:657(code)
 #, no-wrap
 msgid "honorific"
-msgstr ""
+msgstr "honorific"
 
 #: C/docbook.page:663(code)
 #, no-wrap
 msgid "html:form"
-msgstr ""
+msgstr "html:form"
 
 #: C/docbook.page:664(p)
 msgid "Mallard does not support forms."
@@ -7871,123 +7879,125 @@ msgstr "Mallard no soporta formularios."
 #: C/docbook.page:668(code)
 #, no-wrap
 msgid "imagedata"
-msgstr "datos de la imagen"
+msgstr "imagedata"
 
 #: C/docbook.page:672(code)
 #, no-wrap
 msgid "imageobject"
-msgstr "objeto de imagen"
+msgstr "imageobject"
 
 #: C/docbook.page:676(code)
 #, no-wrap
 msgid "imageobjectco"
-msgstr ""
+msgstr "imageobjectco"
 
 #: C/docbook.page:685(code)
 #, no-wrap
 msgid "index"
-msgstr "índice"
+msgstr "index"
 
 #: C/docbook.page:686(p) C/docbook.page:1110(p)
 msgid "Mallard does not currently have a structured environment for indexes."
-msgstr ""
+msgstr "Mallard no tiene un entorno estructurado para índices."
 
 #: C/docbook.page:689(code)
 #, no-wrap
 msgid "indexdiv"
-msgstr ""
+msgstr "indexdiv"
 
 #: C/docbook.page:692(code)
 #, no-wrap
 msgid "indexentry"
-msgstr "entrada del índice"
+msgstr "indexentry"
 
 #: C/docbook.page:695(code)
 #, no-wrap
 msgid "indexinfo"
-msgstr "información del índice"
+msgstr "indexinfo"
 
 #: C/docbook.page:698(code)
 #, no-wrap
 msgid "indexterm"
-msgstr "término del índice"
+msgstr "indexterm"
 
 #: C/docbook.page:702(code)
 #, no-wrap
 msgid "informalequation"
-msgstr ""
+msgstr "informalequation"
 
 #: C/docbook.page:706(code)
 #, no-wrap
 msgid "informalexample"
-msgstr ""
+msgstr "informalexample"
 
 #: C/docbook.page:707(p)
 msgid "Similar to the <code xref=\"mal_block_example\">example</code> element."
-msgstr ""
+msgstr "Similar al elemento <code xref=\"mal_block_example\">example</code>."
 
 #: C/docbook.page:710(code)
 #, no-wrap
 msgid "informalfigure"
-msgstr ""
+msgstr "informalfigure"
 
 #: C/docbook.page:714(code)
 #, no-wrap
 msgid "informaltable"
-msgstr ""
+msgstr "informaltable"
 
 #: C/docbook.page:715(p)
 msgid ""
 "Similar to the <code xref=\"mal_table\">table</code> element. Mallard does "
 "not use the CALS table model."
 msgstr ""
-"Similar al elemento <code xref=\"mal_table\">tabla</code>. Mallard no usa el "
+"Similar al elemento <code xref=\"mal_table\">table</code>. Mallard no usa el "
 "modelo de tablas CALS."
 
 #: C/docbook.page:719(code)
 #, no-wrap
 msgid "initializer"
-msgstr "inicializador"
+msgstr "initializer"
 
 #: C/docbook.page:720(p)
 msgid "Mallard does not have a structured environment for field synopses."
-msgstr ""
+msgstr "Mallard no tiene un entorno estructurado para resúmenes de campos."
 
 #: C/docbook.page:723(code)
 #, no-wrap
 msgid "inlineequation"
-msgstr ""
+msgstr "inlineequation"
 
 #: C/docbook.page:728(code)
 #, no-wrap
 msgid "inlinegraphic"
-msgstr ""
+msgstr "inlinegraphic"
 
 #: C/docbook.page:729(p)
 msgid ""
 "See the inline <code xref=\"mal_inline_media\">media</code> element for "
 "details."
 msgstr ""
+"Consulte el elemento en línea <code xref=\"mal_inline_media\">media</code> "
+"para obtener más detalles."
 
 #: C/docbook.page:732(code)
 #, no-wrap
 msgid "inlinemediaobject"
-msgstr ""
+msgstr "inlinemediaobject"
 
 #: C/docbook.page:736(code)
 #, no-wrap
 msgid "interface"
-msgstr "interfaz"
+msgstr "interface"
 
 #: C/docbook.page:740(code)
 #, no-wrap
 msgid "interfacename"
-msgstr ""
+msgstr "interfacename"
 
 #: C/docbook.page:746(code)
 #, no-wrap
 msgid "invpartnumber"
-msgstr ""
+msgstr "invpartnumber"
 
 #: C/docbook.page:752(code)
 #, no-wrap
@@ -8002,74 +8012,76 @@ msgstr "issn"
 #: C/docbook.page:758(code)
 #, no-wrap
 msgid "issuenum"
-msgstr ""
+msgstr "issuenum"
 
 #: C/docbook.page:762(code)
 #, no-wrap
 msgid "itemizedlist"
-msgstr ""
+msgstr "itemizedlist"
 
 #: C/docbook.page:763(p)
 msgid "See the <code xref=\"mal_block_list\">list</code> element for details."
 msgstr ""
+"Consulte el elemento <code xref=\"mal_block_list\">list</code> para obtener "
+"más detalles."
 
 #: C/docbook.page:766(code)
 #, no-wrap
 msgid "itermset"
-msgstr ""
+msgstr "itermset"
 
 #: C/docbook.page:772(code)
 #, no-wrap
 msgid "jobtitle"
-msgstr ""
+msgstr "jobtitle"
 
 #: C/docbook.page:778(code)
 #, no-wrap
 msgid "keycap"
-msgstr ""
+msgstr "keycap"
 
 #: C/docbook.page:779(p)
 msgid "Similar to the <code xref=\"mal_inline_key\">key</code> element."
-msgstr ""
+msgstr "Similar al elemento <code xref=\"mal_inline_key\">key</code>."
 
 #: C/docbook.page:782(code)
 #, no-wrap
 msgid "keycode"
-msgstr ""
+msgstr "keycode"
 
 #: C/docbook.page:787(code)
 #, no-wrap
 msgid "keycombo"
-msgstr ""
+msgstr "keycombo"
 
 #: C/docbook.page:788(p)
 msgid "Similar to the <code xref=\"mal_inline_keyseq\">keyseq</code> element."
-msgstr ""
+msgstr "Similar al elemento <code xref=\"mal_inline_keyseq\">keyseq</code>."
 
 #: C/docbook.page:791(code)
 #, no-wrap
 msgid "keysym"
-msgstr ""
+msgstr "keysym"
 
 #: C/docbook.page:797(code)
 #, no-wrap
 msgid "keyword"
-msgstr "palabra clave"
+msgstr "keyword"
 
 #: C/docbook.page:803(code)
 #, no-wrap
 msgid "keywordset"
-msgstr "conjunto de palabras clave"
+msgstr "keywordset"
 
 #: C/docbook.page:807(code)
 #, no-wrap
 msgid "label"
-msgstr "etiqueta"
+msgstr "label"
 
 #: C/docbook.page:812(code)
 #, no-wrap
 msgid "legalnotice"
-msgstr "nota legal"
+msgstr "legalnotice"
 
 #: C/docbook.page:813(p)
 msgid ""
@@ -8082,17 +8094,17 @@ msgstr ""
 #: C/docbook.page:819(code)
 #, no-wrap
 msgid "lhs"
-msgstr ""
+msgstr "lhs"
 
 #: C/docbook.page:823(code)
 #, no-wrap
 msgid "lineage"
-msgstr ""
+msgstr "lineage"
 
 #: C/docbook.page:829(code)
 #, no-wrap
 msgid "lineannotation"
-msgstr ""
+msgstr "lineannotation"
 
 #: C/docbook.page:830(p)
 msgid ""
@@ -8103,7 +8115,7 @@ msgstr ""
 #: C/docbook.page:834(code)
 #, no-wrap
 msgid "link"
-msgstr "enlace"
+msgstr "link"
 
 #: C/docbook.page:835(p) C/docbook.page:979(p)
 msgid "See the <code xref=\"mal_inline_link\">link</code> element for details."
@@ -8112,7 +8124,7 @@ msgstr ""
 #: C/docbook.page:838(code)
 #, no-wrap
 msgid "listitem"
-msgstr ""
+msgstr "listitem"
 
 #: C/docbook.page:839(p)
 msgid ""
@@ -8128,7 +8140,7 @@ msgstr "literal"
 #: C/docbook.page:848(code)
 #, no-wrap
 msgid "literallayout"
-msgstr ""
+msgstr "literallayout"
 
 #: C/docbook.page:849(p)
 msgid ""
@@ -8139,72 +8151,74 @@ msgstr ""
 #: C/docbook.page:853(code)
 #, no-wrap
 msgid "lot"
-msgstr ""
+msgstr "lot"
 
 #: C/docbook.page:857(code)
 #, no-wrap
 msgid "lotentry"
-msgstr ""
+msgstr "lotentry"
 
 #: C/docbook.page:861(code)
 #, no-wrap
 msgid "manvolnum"
-msgstr ""
+msgstr "manvolnum"
 
 #: C/docbook.page:865(code)
 #, no-wrap
 msgid "markup"
-msgstr "marcado"
+msgstr "markup"
 
 #: C/docbook.page:870(code)
 #, no-wrap
 msgid "mathprase"
-msgstr ""
+msgstr "mathprase"
 
 #: C/docbook.page:874(code)
 #, no-wrap
 msgid "medialabel"
-msgstr "etiqueta del medio"
+msgstr "medialabel"
 
 #: C/docbook.page:878(code)
 #, no-wrap
 msgid "mediaobject"
-msgstr "objeto multimedia"
+msgstr "mediaobject"
 
 #: C/docbook.page:882(code)
 #, no-wrap
 msgid "mediaobjectco"
-msgstr ""
+msgstr "mediaobjectco"
 
 #: C/docbook.page:886(code)
 #, no-wrap
 msgid "member"
-msgstr "miembro"
+msgstr "member"
 
 #: C/docbook.page:887(p)
 msgid ""
 "No equivalent in Mallard to DocBook's <code href=\"http://www.docbook.org/"
 "tdg/en/html/simplelist.html\">simplelist</code> element."
 msgstr ""
+"No existe un equivalente en Mallard al elemento de DocBook <code href="
+"\"http://www.docbook.org/tdg/en/html/simplelist.html\">simplelist</code>."
 
 #: C/docbook.page:892(code)
 #, no-wrap
 msgid "menuchoice"
-msgstr ""
+msgstr "menuchoice"
 
 #: C/docbook.page:893(p)
 msgid "Similar to the <code xref=\"mal_inline_guiseq\">guiseq</code> element."
-msgstr ""
+msgstr "Similar al elemento <code xref=\"mal_inline_guiseq\">guiseq</code>."
 
 #: C/docbook.page:896(code)
 #, no-wrap
 msgid "methodname"
-msgstr "nombre del método"
+msgstr "methodname"
 
 #: C/docbook.page:901(code)
 #, no-wrap
 msgid "methodparam"
-msgstr "parámetro del método"
+msgstr "methodparam"
 
 #: C/docbook.page:902(p)
 msgid "Mallard does not have a structured environment for method synopses."
@@ -8214,146 +8228,148 @@ msgstr ""
 #: C/docbook.page:905(code)
 #, no-wrap
 msgid "methodsynopsis"
-msgstr "resumen del método"
+msgstr "methodsynopsis"
 
 #: C/docbook.page:910(code)
 #, no-wrap
 msgid "mml:math"
-msgstr ""
+msgstr "mml:math"
 
 #: C/docbook.page:914(code)
 #, no-wrap
 msgid "modespec"
-msgstr ""
+msgstr "modespec"
 
 #: C/docbook.page:918(code)
 #, no-wrap
 msgid "modifier"
-msgstr "modificador"
+msgstr "modifier"
 
 #: C/docbook.page:919(p) C/docbook.page:984(p)
 msgid "Mallard does not have a structured environment for code synopses."
-msgstr ""
+msgstr "Mallard no tiene un entorno estructurado para resúmenes de código."
 
 #: C/docbook.page:922(code)
 #, no-wrap
 msgid "mousebutton"
-msgstr ""
+msgstr "mousebutton"
 
 #: C/docbook.page:927(code)
 #, no-wrap
 msgid "msg"
-msgstr "mensaje"
+msgstr "msg"
 
 #: C/docbook.page:928(p)
 msgid "Mallard does not have a structured environment for messages."
-msgstr ""
+msgstr "Mallard no tiene un entorno estructurado para mensajes."
 
 #: C/docbook.page:931(code)
 #, no-wrap
 msgid "msgaud"
-msgstr ""
+msgstr "msgaud"
 
 #: C/docbook.page:934(code)
 #, no-wrap
 msgid "msgentry"
-msgstr ""
+msgstr "msgentry"
 
 #: C/docbook.page:937(code)
 #, no-wrap
 msgid "msgexplan"
-msgstr ""
+msgstr "msgexplan"
 
 #: C/docbook.page:940(code)
 #, no-wrap
 msgid "msginfo"
-msgstr ""
+msgstr "msginfo"
 
 #: C/docbook.page:943(code)
 #, no-wrap
 msgid "msglevel"
-msgstr ""
+msgstr "msglevel"
 
 #: C/docbook.page:946(code)
 #, no-wrap
 msgid "msgmain"
-msgstr ""
+msgstr "msgmain"
 
 #: C/docbook.page:949(code)
 #, no-wrap
 msgid "msgorig"
-msgstr ""
+msgstr "msgorig"
 
 #: C/docbook.page:952(code)
 #, no-wrap
 msgid "msgrel"
-msgstr ""
+msgstr "msgrel"
 
 #: C/docbook.page:955(code)
 #, no-wrap
 msgid "msgset"
-msgstr ""
+msgstr "msgset"
 
 #: C/docbook.page:958(code)
 #, no-wrap
 msgid "msgsub"
-msgstr ""
+msgstr "msgsub"
 
 #: C/docbook.page:961(code)
 #, no-wrap
 msgid "msgtext"
-msgstr ""
+msgstr "msgtext"
 
 #: C/docbook.page:965(code)
 #, no-wrap
 msgid "nonterminal"
-msgstr ""
+msgstr "nonterminal"
 
 #: C/docbook.page:973(code)
 #, no-wrap
 msgid "objectinfo"
-msgstr "información del objeto"
+msgstr "objectinfo"
 
 #: C/docbook.page:978(code)
 #, no-wrap
 msgid "olink"
-msgstr ""
+msgstr "olink"
 
 #: C/docbook.page:983(code)
 #, no-wrap
 msgid "ooclass"
-msgstr ""
+msgstr "ooclass"
 
 #: C/docbook.page:987(code)
 #, no-wrap
 msgid "ooexception"
-msgstr ""
+msgstr "ooexception"
 
 #: C/docbook.page:990(code)
 #, no-wrap
 msgid "oointerface"
-msgstr ""
+msgstr "oointerface"
 
 #: C/docbook.page:994(code)
 #, no-wrap
 msgid "option"
-msgstr "opción"
+msgstr "option"
 
 #: C/docbook.page:995(p)
 msgid ""
 "No specific element in Mallard. Use the <code xref=\"mal_inline_cmd\">cmd</"
 "code> element instead."
 msgstr ""
+"No existe el elemento específico en Mallard. En su lugar use el elemento en "
+"línea <code xref=\"mal_inline_cmd\">cmd</code>."
 
 #: C/docbook.page:999(code)
 #, no-wrap
 msgid "optional"
-msgstr "opcional"
+msgstr "optional"
 
 #: C/docbook.page:1003(code)
 #, no-wrap
 msgid "orderedlist"
-msgstr ""
+msgstr "orderedlist"
 
 #: C/docbook.page:1004(p)
 msgid ""
@@ -8364,51 +8380,51 @@ msgstr ""
 #: C/docbook.page:1009(code)
 #, no-wrap
 msgid "orgdiv"
-msgstr ""
+msgstr "orgdiv"
 
 #: C/docbook.page:1015(code)
 #, no-wrap
 msgid "orgname"
-msgstr "nombre original"
+msgstr "orgname"
 
 #: C/docbook.page:1018(code)
 #, no-wrap
 msgid "otheraddr"
-msgstr "otra dirección"
+msgstr "otheraddr"
 
 #: C/docbook.page:1022(code)
 #, no-wrap
 msgid "othercredit"
-msgstr ""
+msgstr "othercredit"
 
 #: C/docbook.page:1026(code)
 #, no-wrap
 msgid "othername"
-msgstr "otro nombre"
+msgstr "othername"
 
 #: C/docbook.page:1032(code)
 #, no-wrap
 msgid "package"
-msgstr "paquete"
+msgstr "package"
 
 #: C/docbook.page:1037(code)
 #, no-wrap
 msgid "pagenums"
-msgstr ""
+msgstr "pagenums"
 
 #: C/docbook.page:1041(code)
 #, no-wrap
 msgid "para"
-msgstr "parra"
+msgstr "para"
 
 #: C/docbook.page:1042(p)
 msgid "Similar to the <code xref=\"mal_block_p\">p</code> element."
-msgstr ""
+msgstr "Similar al elemento <code xref=\"mal_block_p\">p</code>."
 
 #: C/docbook.page:1045(code)
 #, no-wrap
 msgid "paramdef"
-msgstr "definición del parámetro"
+msgstr "paramdef"
 
 #: C/docbook.page:1046(p)
 msgid "Mallard does not have a structured environment for function prototypes."
@@ -8417,22 +8433,22 @@ msgstr "Mallard no tiene un entorno estructurado para prototipos de funciones."
 #: C/docbook.page:1049(code)
 #, no-wrap
 msgid "parameter"
-msgstr "parámetro"
+msgstr "parameter"
 
 #: C/docbook.page:1055(code)
 #, no-wrap
 msgid "part"
-msgstr "parte"
+msgstr "part"
 
 #: C/docbook.page:1060(code)
 #, no-wrap
 msgid "partinfo"
-msgstr "información de la parte"
+msgstr "partinfo"
 
 #: C/docbook.page:1064(code) C/docbook.page:1083(code)
 #, no-wrap
 msgid "partintro"
-msgstr ""
+msgstr "partintro"
 
 #: C/docbook.page:1065(p)
 msgid ""
@@ -8443,88 +8459,88 @@ msgstr ""
 #: C/docbook.page:1070(code)
 #, no-wrap
 msgid "personblurb"
-msgstr ""
+msgstr "personblurb"
 
 #: C/docbook.page:1076(code)
 #, no-wrap
 msgid "personname"
-msgstr "nombre de la persona"
+msgstr "personname"
 
 #: C/docbook.page:1079(code)
 #, no-wrap
 msgid "phone"
-msgstr "teléfono"
+msgstr "phone"
 
 #: C/docbook.page:1084(p)
 msgid "Similar to the <code xref=\"mal_inline_span\">span</code> element."
-msgstr ""
+msgstr "Similar al elemento <code xref=\"mal_inline_span\">span</code>."
 
 #: C/docbook.page:1088(code)
 #, no-wrap
 msgid "pob"
-msgstr ""
+msgstr "pob"
 
 #: C/docbook.page:1094(code)
 #, no-wrap
 msgid "postcode"
-msgstr "código postal"
+msgstr "postcode"
 
 #: C/docbook.page:1099(code)
 #, no-wrap
 msgid "preface"
-msgstr "prefacio"
+msgstr "preface"
 
 #: C/docbook.page:1104(code)
 #, no-wrap
 msgid "prefaceinfo"
-msgstr "información del prefacio"
+msgstr "prefaceinfo"
 
 #: C/docbook.page:1109(code)
 #, no-wrap
 msgid "primary"
-msgstr "primario"
+msgstr "primary"
 
 #: C/docbook.page:1113(code)
 #, no-wrap
 msgid "primaryie"
-msgstr ""
+msgstr "primaryie"
 
 #: C/docbook.page:1117(code)
 #, no-wrap
 msgid "printhistory"
-msgstr "histórico de publicaciones"
+msgstr "printhistory"
 
 #: C/docbook.page:1123(code)
 #, no-wrap
 msgid "procedure"
-msgstr "procedimiento"
+msgstr "procedure"
 
 #: C/docbook.page:1124(p)
 msgid ""
 "See the <code xref=\"mal_block_steps\">steps</code> element for details."
 msgstr ""
-"Consulte el elemento <code xref=\"mal_block_steps\">pasos</code> para "
+"Consulte el elemento <code xref=\"mal_block_steps\">steps</code> para "
 "obtener más detalles."
 
 #: C/docbook.page:1128(code)
 #, no-wrap
 msgid "production"
-msgstr "producción"
+msgstr "production"
 
 #: C/docbook.page:1132(code)
 #, no-wrap
 msgid "productionrecap"
-msgstr ""
+msgstr "productionrecap"
 
 #: C/docbook.page:1135(code)
 #, no-wrap
 msgid "productionset"
-msgstr ""
+msgstr "productionset"
 
 #: C/docbook.page:1140(code)
 #, no-wrap
 msgid "productname"
-msgstr ""
+msgstr "productname"
 
 #: C/docbook.page:1141(p)
 msgid ""
@@ -8536,187 +8552,190 @@ msgstr ""
 #: C/docbook.page:1146(code)
 #, no-wrap
 msgid "productnumber"
-msgstr ""
+msgstr "productnumber"
 
 #: C/docbook.page:1150(code)
 #, no-wrap
 msgid "programlisting"
-msgstr ""
+msgstr "programlisting"
 
 #: C/docbook.page:1151(p)
 msgid "Similar to the block <code xref=\"mal_block_code\">code</code> element."
 msgstr ""
+"Similar al elemento de bloque <code xref=\"mal_block_code\">code</code>."
 
 #: C/docbook.page:1154(code)
 #, no-wrap
 msgid "programlistingco"
-msgstr ""
+msgstr "programlistingco"
 
 #: C/docbook.page:1159(p)
 msgid ""
 "No specific element in Mallard. Use the inline <code xref=\"mal_inline_output"
 "\">outut</code> element instead."
 msgstr ""
+"No existe el elemento específico en Mallard. En su lugar use el elemento en "
+"línea <code xref=\"mal_inline_output\">outut</code>."
 
 #: C/docbook.page:1163(code)
 #, no-wrap
 msgid "property"
-msgstr "propiedad"
+msgstr "property"
 
 #: C/docbook.page:1168(code)
 #, no-wrap
 msgid "pubdate"
-msgstr "fecha de publicación"
+msgstr "pubdate"
 
 #: C/docbook.page:1174(code)
 #, no-wrap
 msgid "publisher"
-msgstr "editor"
+msgstr "publisher"
 
 #: C/docbook.page:1178(code)
 #, no-wrap
 msgid "publishername"
-msgstr "nombre del editor"
+msgstr "publishername"
 
 #: C/docbook.page:1184(code) C/docbook.page:1206(code)
 #, no-wrap
 msgid "pubsnumber"
-msgstr "número del editor"
+msgstr "pubsnumber"
 
 #: C/docbook.page:1191(code)
 #, no-wrap
 msgid "qandadiv"
-msgstr ""
+msgstr "qandadiv"
 
 #: C/docbook.page:1196(code)
 #, no-wrap
 msgid "qandaentry"
-msgstr ""
+msgstr "qandaentry"
 
 #: C/docbook.page:1199(code)
 #, no-wrap
 msgid "qandaset"
-msgstr ""
+msgstr "qandaset"
 
 #: C/docbook.page:1202(code)
 #, no-wrap
 msgid "question"
-msgstr "interrogación"
+msgstr "question"
 
 #: C/docbook.page:1211(code)
 #, no-wrap
 msgid "refclass"
-msgstr "clase de la referencia"
+msgstr "refclass"
 
 #: C/docbook.page:1215(code)
 #, no-wrap
 msgid "refdescriptor"
-msgstr "descriptor de la referencia"
+msgstr "refdescriptor"
 
 #: C/docbook.page:1218(code)
 #, no-wrap
 msgid "refentry"
-msgstr "entrada de referencia"
+msgstr "refentry"
 
 #: C/docbook.page:1221(code)
 #, no-wrap
 msgid "refentryinfo"
-msgstr "información de la entrada de referencia"
+msgstr "refentryinfo"
 
 #: C/docbook.page:1224(code)
 #, no-wrap
 msgid "refentrytitle"
-msgstr "título de la entrada de referencia"
+msgstr "refentrytitle"
 
 #: C/docbook.page:1227(code)
 #, no-wrap
 msgid "reference"
-msgstr "referencia"
+msgstr "reference"
 
 #: C/docbook.page:1230(code)
 #, no-wrap
 msgid "referenceinfo"
-msgstr ""
+msgstr "referenceinfo"
 
 #: C/docbook.page:1233(code)
 #, no-wrap
 msgid "refmeta"
-msgstr ""
+msgstr "refmeta"
 
 #: C/docbook.page:1236(code)
 #, no-wrap
 msgid "refmiscinfo"
-msgstr "información miscelánea de la referencia"
+msgstr "refmiscinfo"
 
 #: C/docbook.page:1239(code)
 #, no-wrap
 msgid "refname"
-msgstr "nombre de la referencia"
+msgstr "refname"
 
 #: C/docbook.page:1242(code)
 #, no-wrap
 msgid "refnamediv"
-msgstr ""
+msgstr "refnamediv"
 
 #: C/docbook.page:1245(code)
 #, no-wrap
 msgid "refpurpose"
-msgstr ""
+msgstr "refpurpose"
 
 #: C/docbook.page:1248(code)
 #, no-wrap
 msgid "refsect1"
-msgstr ""
+msgstr "refsect1"
 
 #: C/docbook.page:1251(code)
 #, no-wrap
 msgid "refsect1info"
-msgstr ""
+msgstr "refsect1info"
 
 #: C/docbook.page:1254(code)
 #, no-wrap
 msgid "refsect2"
-msgstr ""
+msgstr "refsect2"
 
 #: C/docbook.page:1257(code)
 #, no-wrap
 msgid "refsect2info"
-msgstr ""
+msgstr "refsect2info"
 
 #: C/docbook.page:1260(code)
 #, no-wrap
 msgid "refsect3"
-msgstr ""
+msgstr "refsect3"
 
 #: C/docbook.page:1263(code)
 #, no-wrap
 msgid "refsect3info"
-msgstr ""
+msgstr "refsect3info"
 
 #: C/docbook.page:1266(code)
 #, no-wrap
 msgid "refsection"
-msgstr ""
+msgstr "refsection"
 
 #: C/docbook.page:1269(code)
 #, no-wrap
 msgid "refsectioninfo"
-msgstr ""
+msgstr "refsectioninfo"
 
 #: C/docbook.page:1272(code)
 #, no-wrap
 msgid "refsynopsisdiv"
-msgstr ""
+msgstr "refsynopsisdiv"
 
 #: C/docbook.page:1275(code)
 #, no-wrap
 msgid "refsynopsisdivinfo"
-msgstr ""
+msgstr "refsynopsisdivinfo"
 
 #: C/docbook.page:1279(code)
 #, no-wrap
 msgid "releaseinfo"
-msgstr "información de publicación"
+msgstr "releaseinfo"
 
 #: C/docbook.page:1288(p)
 msgid "This is a long list. Bear with me as I complete it."
