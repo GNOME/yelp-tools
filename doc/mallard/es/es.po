@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils.mallard.master\n"
 "POT-Creation-Date: 2009-12-14 19:53+0000\n"
-"PO-Revision-Date: 2010-02-07 12:24+0100\n"
+"PO-Revision-Date: 2010-02-08 07:32+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -7524,7 +7524,7 @@ msgstr ""
 #: C/docbook.page:428(code)
 #, no-wrap
 msgid "edition"
-msgstr ""
+msgstr "edición"
 
 #: C/docbook.page:433(code)
 #, no-wrap
@@ -7534,7 +7534,7 @@ msgstr "editor"
 #: C/docbook.page:437(code)
 #, no-wrap
 msgid "email"
-msgstr ""
+msgstr "correo-e"
 
 #: C/docbook.page:438(p)
 msgid ""
@@ -7565,12 +7565,12 @@ msgstr ""
 #: C/docbook.page:456(code)
 #, no-wrap
 msgid "envar"
-msgstr ""
+msgstr "variable de entorno"
 
 #: C/docbook.page:461(code)
 #, no-wrap
 msgid "epigrah"
-msgstr ""
+msgstr "epígrafe"
 
 #: C/docbook.page:462(p)
 msgid ""
@@ -7582,12 +7582,12 @@ msgstr ""
 #: C/docbook.page:467(code)
 #, no-wrap
 msgid "equation"
-msgstr ""
+msgstr "ecuación"
 
 #: C/docbook.page:472(code)
 #, no-wrap
 msgid "errorcode"
-msgstr ""
+msgstr "código del error"
 
 #: C/docbook.page:473(p)
 msgid ""
@@ -7599,17 +7599,17 @@ msgstr ""
 #: C/docbook.page:478(code)
 #, no-wrap
 msgid "errorname"
-msgstr ""
+msgstr "nombre del error"
 
 #: C/docbook.page:481(code)
 #, no-wrap
 msgid "errortext"
-msgstr ""
+msgstr "texto del error"
 
 #: C/docbook.page:484(code)
 #, no-wrap
 msgid "errortype"
-msgstr ""
+msgstr "tipo de error"
 
 #: C/docbook.page:489(p)
 msgid ""
@@ -7696,7 +7696,7 @@ msgstr ""
 #: C/docbook.page:548(code)
 #, no-wrap
 msgid "funcdef"
-msgstr ""
+msgstr "definición de función"
 
 #: C/docbook.page:553(code)
 #, no-wrap
@@ -7866,17 +7866,17 @@ msgstr ""
 
 #: C/docbook.page:664(p)
 msgid "Mallard does not support forms."
-msgstr ""
+msgstr "Mallard no soporta formularios."
 
 #: C/docbook.page:668(code)
 #, no-wrap
 msgid "imagedata"
-msgstr ""
+msgstr "datos de la imagen"
 
 #: C/docbook.page:672(code)
 #, no-wrap
 msgid "imageobject"
-msgstr ""
+msgstr "objeto de imagen"
 
 #: C/docbook.page:676(code)
 #, no-wrap
@@ -7886,7 +7886,7 @@ msgstr ""
 #: C/docbook.page:685(code)
 #, no-wrap
 msgid "index"
-msgstr ""
+msgstr "índice"
 
 #: C/docbook.page:686(p) C/docbook.page:1110(p)
 msgid "Mallard does not currently have a structured environment for indexes."
@@ -7900,17 +7900,17 @@ msgstr ""
 #: C/docbook.page:692(code)
 #, no-wrap
 msgid "indexentry"
-msgstr ""
+msgstr "entrada del índice"
 
 #: C/docbook.page:695(code)
 #, no-wrap
 msgid "indexinfo"
-msgstr ""
+msgstr "información del índice"
 
 #: C/docbook.page:698(code)
 #, no-wrap
 msgid "indexterm"
-msgstr ""
+msgstr "término del índice"
 
 #: C/docbook.page:702(code)
 #, no-wrap
@@ -7941,11 +7941,13 @@ msgid ""
 "Similar to the <code xref=\"mal_table\">table</code> element. Mallard does "
 "not use the CALS table model."
 msgstr ""
+"Similar al elemento <code xref=\"mal_table\">tabla</code>. Mallard no usa el "
+"modelo de tablas CALS."
 
 #: C/docbook.page:719(code)
 #, no-wrap
 msgid "initializer"
-msgstr ""
+msgstr "inicializador"
 
 #: C/docbook.page:720(p)
 msgid "Mallard does not have a structured environment for field synopses."
@@ -7975,7 +7977,7 @@ msgstr ""
 #: C/docbook.page:736(code)
 #, no-wrap
 msgid "interface"
-msgstr ""
+msgstr "interfaz"
 
 #: C/docbook.page:740(code)
 #, no-wrap
@@ -7990,12 +7992,12 @@ msgstr ""
 #: C/docbook.page:752(code)
 #, no-wrap
 msgid "isbn"
-msgstr ""
+msgstr "isbn"
 
 #: C/docbook.page:755(code)
 #, no-wrap
 msgid "issn"
-msgstr ""
+msgstr "issn"
 
 #: C/docbook.page:758(code)
 #, no-wrap
@@ -8057,7 +8059,7 @@ msgstr "palabra clave"
 #: C/docbook.page:803(code)
 #, no-wrap
 msgid "keywordset"
-msgstr ""
+msgstr "conjunto de palabras clave"
 
 #: C/docbook.page:807(code)
 #, no-wrap
@@ -8067,7 +8069,7 @@ msgstr "etiqueta"
 #: C/docbook.page:812(code)
 #, no-wrap
 msgid "legalnotice"
-msgstr ""
+msgstr "nota legal"
 
 #: C/docbook.page:813(p)
 msgid ""
@@ -8121,7 +8123,7 @@ msgstr ""
 #: C/docbook.page:843(code)
 #, no-wrap
 msgid "literal"
-msgstr ""
+msgstr "literal"
 
 #: C/docbook.page:848(code)
 #, no-wrap
@@ -8152,7 +8154,7 @@ msgstr ""
 #: C/docbook.page:865(code)
 #, no-wrap
 msgid "markup"
-msgstr ""
+msgstr "marcado"
 
 #: C/docbook.page:870(code)
 #, no-wrap
@@ -8162,12 +8164,12 @@ msgstr ""
 #: C/docbook.page:874(code)
 #, no-wrap
 msgid "medialabel"
-msgstr ""
+msgstr "etiqueta del medio"
 
 #: C/docbook.page:878(code)
 #, no-wrap
 msgid "mediaobject"
-msgstr ""
+msgstr "objeto multimedia"
 
 #: C/docbook.page:882(code)
 #, no-wrap
@@ -8177,7 +8179,7 @@ msgstr ""
 #: C/docbook.page:886(code)
 #, no-wrap
 msgid "member"
-msgstr ""
+msgstr "miembro"
 
 #: C/docbook.page:887(p)
 msgid ""
@@ -8197,21 +8199,22 @@ msgstr ""
 #: C/docbook.page:896(code)
 #, no-wrap
 msgid "methodname"
-msgstr ""
+msgstr "nombre del método"
 
 #: C/docbook.page:901(code)
 #, no-wrap
 msgid "methodparam"
-msgstr ""
+msgstr "parámetro del método"
 
 #: C/docbook.page:902(p)
 msgid "Mallard does not have a structured environment for method synopses."
 msgstr ""
+"Mallard no tiene un entorno estructurado para los resúmenes de métodos."
 
 #: C/docbook.page:905(code)
 #, no-wrap
 msgid "methodsynopsis"
-msgstr ""
+msgstr "resumen del método"
 
 #: C/docbook.page:910(code)
 #, no-wrap
@@ -8226,7 +8229,7 @@ msgstr ""
 #: C/docbook.page:918(code)
 #, no-wrap
 msgid "modifier"
-msgstr ""
+msgstr "modificador"
 
 #: C/docbook.page:919(p) C/docbook.page:984(p)
 msgid "Mallard does not have a structured environment for code synopses."
@@ -8240,7 +8243,7 @@ msgstr ""
 #: C/docbook.page:927(code)
 #, no-wrap
 msgid "msg"
-msgstr ""
+msgstr "mensaje"
 
 #: C/docbook.page:928(p)
 msgid "Mallard does not have a structured environment for messages."
@@ -8309,7 +8312,7 @@ msgstr ""
 #: C/docbook.page:973(code)
 #, no-wrap
 msgid "objectinfo"
-msgstr ""
+msgstr "información del objeto"
 
 #: C/docbook.page:978(code)
 #, no-wrap
@@ -8334,7 +8337,7 @@ msgstr ""
 #: C/docbook.page:994(code)
 #, no-wrap
 msgid "option"
-msgstr ""
+msgstr "opción"
 
 #: C/docbook.page:995(p)
 msgid ""
@@ -8345,7 +8348,7 @@ msgstr ""
 #: C/docbook.page:999(code)
 #, no-wrap
 msgid "optional"
-msgstr ""
+msgstr "opcional"
 
 #: C/docbook.page:1003(code)
 #, no-wrap
@@ -8366,12 +8369,12 @@ msgstr ""
 #: C/docbook.page:1015(code)
 #, no-wrap
 msgid "orgname"
-msgstr ""
+msgstr "nombre original"
 
 #: C/docbook.page:1018(code)
 #, no-wrap
 msgid "otheraddr"
-msgstr ""
+msgstr "otra dirección"
 
 #: C/docbook.page:1022(code)
 #, no-wrap
@@ -8381,12 +8384,12 @@ msgstr ""
 #: C/docbook.page:1026(code)
 #, no-wrap
 msgid "othername"
-msgstr ""
+msgstr "otro nombre"
 
 #: C/docbook.page:1032(code)
 #, no-wrap
 msgid "package"
-msgstr ""
+msgstr "paquete"
 
 #: C/docbook.page:1037(code)
 #, no-wrap
@@ -8405,26 +8408,26 @@ msgstr ""
 #: C/docbook.page:1045(code)
 #, no-wrap
 msgid "paramdef"
-msgstr ""
+msgstr "definición del parámetro"
 
 #: C/docbook.page:1046(p)
 msgid "Mallard does not have a structured environment for function prototypes."
-msgstr ""
+msgstr "Mallard no tiene un entorno estructurado para prototipos de funciones."
 
 #: C/docbook.page:1049(code)
 #, no-wrap
 msgid "parameter"
-msgstr ""
+msgstr "parámetro"
 
 #: C/docbook.page:1055(code)
 #, no-wrap
 msgid "part"
-msgstr ""
+msgstr "parte"
 
 #: C/docbook.page:1060(code)
 #, no-wrap
 msgid "partinfo"
-msgstr ""
+msgstr "información de la parte"
 
 #: C/docbook.page:1064(code) C/docbook.page:1083(code)
 #, no-wrap
@@ -8445,12 +8448,12 @@ msgstr ""
 #: C/docbook.page:1076(code)
 #, no-wrap
 msgid "personname"
-msgstr ""
+msgstr "nombre de la persona"
 
 #: C/docbook.page:1079(code)
 #, no-wrap
 msgid "phone"
-msgstr ""
+msgstr "teléfono"
 
 #: C/docbook.page:1084(p)
 msgid "Similar to the <code xref=\"mal_inline_span\">span</code> element."
@@ -8464,22 +8467,22 @@ msgstr ""
 #: C/docbook.page:1094(code)
 #, no-wrap
 msgid "postcode"
-msgstr ""
+msgstr "código postal"
 
 #: C/docbook.page:1099(code)
 #, no-wrap
 msgid "preface"
-msgstr ""
+msgstr "prefacio"
 
 #: C/docbook.page:1104(code)
 #, no-wrap
 msgid "prefaceinfo"
-msgstr ""
+msgstr "información del prefacio"
 
 #: C/docbook.page:1109(code)
 #, no-wrap
 msgid "primary"
-msgstr ""
+msgstr "primario"
 
 #: C/docbook.page:1113(code)
 #, no-wrap
@@ -8489,22 +8492,24 @@ msgstr ""
 #: C/docbook.page:1117(code)
 #, no-wrap
 msgid "printhistory"
-msgstr ""
+msgstr "histórico de publicaciones"
 
 #: C/docbook.page:1123(code)
 #, no-wrap
 msgid "procedure"
-msgstr ""
+msgstr "procedimiento"
 
 #: C/docbook.page:1124(p)
 msgid ""
 "See the <code xref=\"mal_block_steps\">steps</code> element for details."
 msgstr ""
+"Consulte el elemento <code xref=\"mal_block_steps\">pasos</code> para "
+"obtener más detalles."
 
 #: C/docbook.page:1128(code)
 #, no-wrap
 msgid "production"
-msgstr ""
+msgstr "producción"
 
 #: C/docbook.page:1132(code)
 #, no-wrap
@@ -8556,27 +8561,27 @@ msgstr ""
 #: C/docbook.page:1163(code)
 #, no-wrap
 msgid "property"
-msgstr ""
+msgstr "propiedad"
 
 #: C/docbook.page:1168(code)
 #, no-wrap
 msgid "pubdate"
-msgstr ""
+msgstr "fecha de publicación"
 
 #: C/docbook.page:1174(code)
 #, no-wrap
 msgid "publisher"
-msgstr ""
+msgstr "editor"
 
 #: C/docbook.page:1178(code)
 #, no-wrap
 msgid "publishername"
-msgstr ""
+msgstr "nombre del editor"
 
 #: C/docbook.page:1184(code) C/docbook.page:1206(code)
 #, no-wrap
 msgid "pubsnumber"
-msgstr ""
+msgstr "número del editor"
 
 #: C/docbook.page:1191(code)
 #, no-wrap
@@ -8601,27 +8606,27 @@ msgstr "interrogación"
 #: C/docbook.page:1211(code)
 #, no-wrap
 msgid "refclass"
-msgstr ""
+msgstr "clase de la referencia"
 
 #: C/docbook.page:1215(code)
 #, no-wrap
 msgid "refdescriptor"
-msgstr ""
+msgstr "descriptor de la referencia"
 
 #: C/docbook.page:1218(code)
 #, no-wrap
 msgid "refentry"
-msgstr ""
+msgstr "entrada de referencia"
 
 #: C/docbook.page:1221(code)
 #, no-wrap
 msgid "refentryinfo"
-msgstr ""
+msgstr "información de la entrada de referencia"
 
 #: C/docbook.page:1224(code)
 #, no-wrap
 msgid "refentrytitle"
-msgstr ""
+msgstr "título de la entrada de referencia"
 
 #: C/docbook.page:1227(code)
 #, no-wrap
@@ -8641,12 +8646,12 @@ msgstr ""
 #: C/docbook.page:1236(code)
 #, no-wrap
 msgid "refmiscinfo"
-msgstr ""
+msgstr "información miscelánea de la referencia"
 
 #: C/docbook.page:1239(code)
 #, no-wrap
 msgid "refname"
-msgstr ""
+msgstr "nombre de la referencia"
 
 #: C/docbook.page:1242(code)
 #, no-wrap
@@ -8711,7 +8716,7 @@ msgstr ""
 #: C/docbook.page:1279(code)
 #, no-wrap
 msgid "releaseinfo"
-msgstr ""
+msgstr "información de publicación"
 
 #: C/docbook.page:1288(p)
 msgid "This is a long list. Bear with me as I complete it."
