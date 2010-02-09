@@ -1,3 +1,12 @@
+Changes in 0.19.4:
+------------------
+* Bold userinput inside programlisting (Shaun McCance)
+* Updated translations:
+  es    (Jorge González)
+  et    (Ivar Smolin)
+  sl    (Matej Urbančič)
+  th    (Theppitak Karoonboonyanan)
+
 Changes in 0.19.3:
 ------------------
 * Fixed shading with rowspans, bug #606986
