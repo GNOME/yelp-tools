@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils.mallard.master\n"
 "POT-Creation-Date: 2009-12-14 19:53+0000\n"
-"PO-Revision-Date: 2010-02-09 00:11+0100\n"
+"PO-Revision-Date: 2010-02-09 07:38+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -5467,6 +5467,18 @@ msgid ""
 "  <link xref=\"mal_block\">mal_block</link> *\n"
 "}\n"
 msgstr ""
+"\n"
+"mal_block_media = element media {\n"
+"  attribute type { \"image\" | \"video\" | \"audio\" | \"application\" } ?,\n"
+"  attribute mime { text } ?,\n"
+"  attribute src { text },\n"
+"  attribute height { text } ?,\n"
+"  attribute width { text } ?,\n"
+"  attribute style { xsd:NMTOKENS } ?,\n"
+"  attribute * - (mal:* | local:*) { text } *,\n"
+"\n"
+"  <link xref=\"mal_block\">mal_block</link> *\n"
+"}\n"
 
 #: C/mal_block_media.page:48(p)
 msgid ""
@@ -5530,11 +5542,11 @@ msgstr ""
 
 #: C/mal_block_list.page:16(desc)
 msgid "Create a basic bulleted or numbered list."
-msgstr ""
+msgstr "Crear una lista básica de topos o numerada."
 
 #: C/mal_block_list.page:19(title)
 msgid "Basic Lists"
-msgstr ""
+msgstr "Listas básicas"
 
 #: C/mal_block_list.page:21(code)
 #, no-wrap
@@ -5555,6 +5567,21 @@ msgid ""
 "  } +\n"
 "}\n"
 msgstr ""
+"\n"
+"mal_block_list = element list {\n"
+"  attribute type { xsd:NMTOKEN } ?,\n"
+"  attribute style { xsd:NMTOKENS } ?,\n"
+"  attribute * - (mal:* | local:*) { text } *,\n"
+"\n"
+"  <link xref=\"mal_block_title\">mal_block_title</link> ?,\n"
+"\n"
+"  element item {\n"
+"    attribute style { xsd:NMTOKENS } ?,\n"
+"    attribute * - (mal:* | local:*) { text } *,\n"
+"\n"
+"    <link xref=\"mal_block\">mal_block</link> +\n"
+"  } +\n"
+"}\n"
 
 #: C/mal_block_list.page:38(p)
 msgid ""
@@ -5609,44 +5636,44 @@ msgstr ""
 
 #: C/mal_block_list.page:89(p)
 msgid "Create a basic unordered list:"
-msgstr ""
+msgstr "Crear una lista básica sin ordenar:"
 
 #: C/mal_block_list.page:102(code) C/mal_block_list.page:125(code)
 #, no-wrap
 msgid "GTK_MESSAGE_INFO"
-msgstr ""
+msgstr "GTK_MESSAGE_INFO"
 
 #: C/mal_block_list.page:103(code) C/mal_block_list.page:126(code)
 #, no-wrap
 msgid "GTK_MESSAGE_WARNING"
-msgstr ""
+msgstr "GTK_MESSAGE_WARNING"
 
 #: C/mal_block_list.page:104(code) C/mal_block_list.page:127(code)
 #, no-wrap
 msgid "GTK_MESSAGE_QUESTION"
-msgstr ""
+msgstr "GTK_MESSAGE_QUESTION"
 
 #: C/mal_block_list.page:105(code) C/mal_block_list.page:128(code)
 #, no-wrap
 msgid "GTK_MESSAGE_ERROR"
-msgstr ""
+msgstr "GTK_MESSAGE_ERROR"
 
 #: C/mal_block_list.page:106(code) C/mal_block_list.page:129(code)
 #, no-wrap
 msgid "GTK_MESSAGE_OTHER"
-msgstr ""
+msgstr "GTK_MESSAGE_OTHER"
 
 #: C/mal_block_list.page:110(p)
 msgid "Create an unordered list with a title:"
-msgstr ""
+msgstr "Crear una lista sin ordenar con título:"
 
 #: C/mal_block_list.page:124(title)
 msgid "Message Types"
-msgstr ""
+msgstr "Tipos de mensajes"
 
 #: C/mal_block_list.page:133(p)
 msgid "Create a simple numbered list:"
-msgstr ""
+msgstr "Crear una simple lista numerada:"
 
 #: C/mal_block_list.page:144(p) C/mal_block_list.page:161(p)
 msgid "First"
@@ -5658,11 +5685,11 @@ msgstr "Segundo"
 
 #: C/mal_block_list.page:146(p) C/mal_block_list.page:163(p)
 msgid "Third"
-msgstr ""
+msgstr "Tercero"
 
 #: C/mal_block_list.page:150(p)
 msgid "Create a numbered list with Roman numerals:"
-msgstr ""
+msgstr "Crear listas numeradas con numerales romanos:"
 
 #: C/mal_block_list.page:174(p)
 msgid ""
@@ -5699,10 +5726,12 @@ msgstr ""
 #: C/mal_block_listing.page:19(desc)
 msgid "Provide a name and description for a code block or other content."
 msgstr ""
+"Proporcione un nombre y una descripción para un bloque de código u otro "
+"contenido."
 
 #: C/mal_block_listing.page:22(title)
 msgid "Listings"
-msgstr ""
+msgstr "Listados"
 
 #: C/mal_block_listing.page:24(code)
 #, no-wrap
@@ -5717,6 +5746,15 @@ msgid ""
 "  <link xref=\"mal_block\">mal_block</link> +\n"
 "}\n"
 msgstr ""
+"\n"
+"mal_block_listing = element listing {\n"
+"  attribute style { xsd:NMTOKENS } ?,\n"
+"  attribute * - (mal:* | local:*) { text } *,\n"
+"\n"
+"  <link xref=\"mal_block_title\">mal_block_title</link> ?,\n"
+"  <link xref=\"mal_block_desc\">mal_block_desc</link> ?,\n"
+"  <link xref=\"mal_block\">mal_block</link> +\n"
+"}\n"
 
 #: C/mal_block_listing.page:35(p)
 msgid ""
@@ -5757,6 +5795,8 @@ msgid ""
 "Use <code>listing</code> to provide a file name and description for a code "
 "block:"
 msgstr ""
+"Use <code>listing</code> para proporcionar un nombre de archivo y una "
+"descripción para el bloque de código:"
 
 #: C/mal_block_listing.page:77(code)
 #, no-wrap
@@ -5773,10 +5813,21 @@ msgid ""
 "</page>]]]>]&gt;<![CDATA[</code>\n"
 "</listing>]]>"
 msgstr ""
+"<![CDATA[\n"
+"<listing>\n"
+"  <title><file>index.page</file></title>\n"
+"  <desc>A first Mallard page</desc>\n"
+"  <code><![CDATA[\n"
+"<page xmlns=\"http://projectmallard.org/1.0/\"\n"
+"      type=\"guide\"\n"
+"      id=\"index\">\n"
+"  <!-- Content goes here -->\n"
+"</page>]]]>]&gt;<![CDATA[</code>\n"
+"</listing>]]>"
 
 #: C/mal_block_listing.page:90(desc) C/mal_block_desc.page:102(desc)
 msgid "A first Mallard page"
-msgstr ""
+msgstr "Una primera página en Mallard"
 
 #: C/mal_block_listing.page:107(p)
 msgid ""
@@ -5806,6 +5857,15 @@ msgid ""
 "  <link xref=\"mal_block\">mal_block</link> +\n"
 "}\n"
 msgstr ""
+"\n"
+"mal_block_figure = element figure {\n"
+"  attribute style { xsd:NMTOKENS } ?,\n"
+"  attribute * - (mal:* | local:*) { text } *,\n"
+"\n"
+"  <link xref=\"mal_block_title\">mal_block_title</link> ?,\n"
+"  <link xref=\"mal_block_desc\">mal_block_desc</link> ?,\n"
+"  <link xref=\"mal_block\">mal_block</link> +\n"
+"}\n"
 
 #: C/mal_block_figure.page:35(p)
 msgid ""
@@ -5882,6 +5942,13 @@ msgid ""
 "  <link xref=\"mal_block\">mal_block</link> +\n"
 "}\n"
 msgstr ""
+"\n"
+"mal_block_example = element example {\n"
+"  attribute style { xsd:NMTOKENS } ?,\n"
+"  attribute * - (mal:* | local:*) { text } *,\n"
+"\n"
+"  <link xref=\"mal_block\">mal_block</link> +\n"
+"}\n"
 
 #: C/mal_block_example.page:30(p)
 msgid ""
@@ -5941,6 +6008,24 @@ msgid ""
 "</example>\n"
 "]]>"
 msgstr ""
+"<![CDATA[\n"
+"<example>\n"
+"<code><![CDATA[\n"
+"<screen>\n"
+"xsltproc -o mal_block_screen.html \\\n"
+"  --stringparam mal.cache.file `pwd`/mallard.cache \\\n"
+"  `pkg-config --variable mal2html gnome-doc-utils` \\\n"
+"  mal_block_screen.html\n"
+"</screen>\n"
+"]]>]<![CDATA[]></code>\n"
+"<screen>\n"
+"xsltproc -o mal_block_screen.html \\\n"
+"  --stringparam mal.cache.file `pwd`/mallard.cache \\\n"
+"  `pkg-config --variable mal2html gnome-doc-utils` \\\n"
+"  mal_block_screen.html\n"
+"</screen>\n"
+"</example>\n"
+"]]>"
 
 #: C/mal_block_example.page:96(screen)
 #, no-wrap
@@ -5951,6 +6036,11 @@ msgid ""
 "  `pkg-config --variable mal2html gnome-doc-utils` \\\n"
 "  mal_block_screen.html\n"
 msgstr ""
+"\n"
+"xsltproc -o mal_block_screen.html \\\n"
+"  --stringparam mal.cache.file `pwd`/mallard.cache \\\n"
+"  `pkg-config --variable mal2html gnome-doc-utils` \\\n"
+"  mal_block_screen.html\n"
 
 #: C/mal_block_example.page:111(p)
 msgid ""
@@ -5974,7 +6064,7 @@ msgstr ""
 
 #: C/mal_block_desc.page:23(title)
 msgid "Block Descriptions"
-msgstr ""
+msgstr "Descripciones de bloques"
 
 #: C/mal_block_desc.page:25(code)
 #, no-wrap
@@ -5987,6 +6077,13 @@ msgid ""
 "  <link xref=\"mal_inline\">mal_inline</link>\n"
 "}\n"
 msgstr ""
+"\n"
+"mal_block_desc = element desc {\n"
+"  attribute style { xsd:NMTOKENS } ?,\n"
+"  attribute * - (mal:* | local:*) { text } *,\n"
+"\n"
+"  <link xref=\"mal_inline\">mal_inline</link>\n"
+"}\n"
 
 #: C/mal_block_desc.page:34(p)
 msgid ""
@@ -6035,12 +6132,25 @@ msgid ""
 "</page>]]]>]&gt;<![CDATA[</code>\n"
 "</listing>]]>"
 msgstr ""
+"<![CDATA[\n"
+"<listing>\n"
+"  <desc>A first Mallard page</desc>\n"
+"  <code><![CDATA[\n"
+"<page xmlns=\"http://projectmallard.org/1.0/\"\n"
+"      type=\"guide\"\n"
+"      id=\"index\">\n"
+"  <!-- Content goes here -->\n"
+"</page>]]]>]&gt;<![CDATA[</code>\n"
+"</listing>]]>"
 
 #: C/mal_block_desc.page:112(p)
 msgid ""
 "More exaples can be found on the pages <link xref=\"mal_block_figure\"/>, "
 "<link xref=\"mal_block_listing\"/>, and <link xref=\"mal_block_synopsis\"/>."
 msgstr ""
+"Se pueden encontrar más ejemplos en las páginas <link xref=\"mal_block_figure"
+"\"/>, <link xref=\"mal_block_listing\"/> y <link xref=\"mal_block_synopsis\"/"
+">."
 
 #: C/mal_block_desc.page:122(p)
 msgid ""
@@ -6058,11 +6168,11 @@ msgstr ""
 
 #: C/mal_block_comment.page:16(desc)
 msgid "Include an editorial comment that's hidden from normal readers."
-msgstr ""
+msgstr "Incluya un comentario de redacción oculto para lectores normales."
 
 #: C/mal_block_comment.page:19(title)
 msgid "Editorial Comments"
-msgstr ""
+msgstr "Comentarios de redacción"
 
 #: C/mal_block_comment.page:21(code)
 #, no-wrap
@@ -6077,6 +6187,15 @@ msgid ""
 "  <link xref=\"mal_block\">mal_block</link> +\n"
 "}\n"
 msgstr ""
+"\n"
+"mal_block_comment = element comment {\n"
+"  attribute style { xsd:NMTOKENS } ?,\n"
+"  attribute * - (mal:* | local:*) { text } *,\n"
+"\n"
+"  <link xref=\"mal_block_title\">mal_block_title</link> ?,\n"
+"  <link xref=\"mal_block_cite\">mal_block_cite</link>,\n"
+"  <link xref=\"mal_block\">mal_block</link> +\n"
+"}\n"
 
 #: C/mal_block_comment.page:32(p)
 msgid ""
@@ -6128,7 +6247,7 @@ msgstr ""
 
 #: C/mal_block_comment.page:78(p)
 msgid "Provide a comment:"
-msgstr ""
+msgstr "Proporcione un comentario:"
 
 #: C/mal_block_comment.page:90(title) C/mal_block_comment.page:119(title)
 msgid "Mallards Are Dabbling Ducks"
@@ -6142,11 +6261,11 @@ msgstr ""
 
 #: C/mal_block_comment.page:97(p)
 msgid "Use <code>comment</code> to carry out a threaded discussion:"
-msgstr ""
+msgstr "Use <code>comment</code> para llevar discusiones en hilos."
 
 #: C/mal_block_comment.page:125(cite)
 msgid "Rupert"
-msgstr ""
+msgstr "Roberto"
 
 #: C/mal_block_comment.page:126(p)
 msgid "But I saw a mallard dive just the other day."
@@ -6157,6 +6276,8 @@ msgid ""
 "Rupert, please see the <link href=\"http://en.wikipedia.org/wiki/Mallard"
 "\">Wikipedia entry</link>."
 msgstr ""
+"Roberto, lee la <link href=\"http://en.wikipedia.org/wiki/Mallard\">entrada "
+"en la Wikipedia</link>."
 
 #: C/mal_block_comment.page:145(p)
 msgid ""
@@ -6193,7 +6314,7 @@ msgstr ""
 
 #: C/mal_block_code.page:21(title)
 msgid "Code Blocks"
-msgstr ""
+msgstr "Bloques de código"
 
 #: C/mal_block_code.page:23(code)
 #, no-wrap
@@ -6207,6 +6328,14 @@ msgid ""
 "  <link xref=\"mal_inline\">mal_inline</link>\n"
 "}\n"
 msgstr ""
+"\n"
+"mal_block_code = element code {\n"
+"  attribute style { xsd:NMTOKENS } ?,\n"
+"  attribute mime { text } ?,\n"
+"  attribute * - (mal:* | local:*) { text } *,\n"
+"\n"
+"  <link xref=\"mal_inline\">mal_inline</link>\n"
+"}\n"
 
 #: C/mal_block_code.page:33(p)
 msgid ""
@@ -6247,7 +6376,7 @@ msgstr ""
 
 #: C/mal_block_code.page:83(p)
 msgid "Use <code>code</code> to mark up a class definition:"
-msgstr ""
+msgstr "Use <code>code</code> para marcar la definición de una clase:"
 
 #: C/mal_block_code.page:92(code)
 #, no-wrap
@@ -6259,6 +6388,12 @@ msgid ""
 "  int count_beans();\n"
 "}"
 msgstr ""
+"\n"
+"class BeanStalk {\n"
+"public:\n"
+"  void add_bean(Bean bean);\n"
+"  int count_beans();\n"
+"}"
 
 #: C/mal_block_code.page:107(p)
 msgid ""
@@ -6312,10 +6447,19 @@ msgid ""
 "  <link xref=\"mal_inline\">mal_inline</link>\n"
 "}\n"
 msgstr ""
+"\n"
+"mal_block_cite = element cite {\n"
+"  attribute style { xsd:NMTOKENS } ?,\n"
+"  attribute * - (mal:* | local:*) { text } *,\n"
+"  attribute date { text } ?,\n"
+"  attribute href { text } ?,\n"
+"\n"
+"  <link xref=\"mal_inline\">mal_inline</link>\n"
+"}\n"
 
 #: C/mal_block_cite.page:34(p)
 msgid "Possibly add source for block quote citations."
-msgstr ""
+msgstr "Posibilidad de añadir código para las citas de bloques de código."
 
 #: C/mal_block_cite.page:37(p)
 msgid ""
@@ -6359,6 +6503,11 @@ msgid ""
 "  | { attribute dref { text } ?, attribute href { text } ? }\n"
 "  )\n"
 msgstr ""
+"\n"
+"mal_attr_link =\n"
+"  ( attribute xref { text } ?\n"
+"  | { attribute dref { text } ?, attribute href { text } ? }\n"
+"  )\n"
 
 #: C/mal_attr_link.page:30(p)
 msgid ""
@@ -6370,23 +6519,23 @@ msgstr ""
 
 #: C/links.page:19(title)
 msgid "Automatic Links"
-msgstr ""
+msgstr "Enlaces automáticos"
 
 #: C/links.page:24(title)
 msgid "Topic Links"
-msgstr ""
+msgstr "Enlaces de temas"
 
 #: C/links.page:30(title)
 msgid "Guide Links"
-msgstr ""
+msgstr "Enlaces de guía"
 
 #: C/links.page:36(title)
 msgid "See Also Links"
-msgstr ""
+msgstr "Enlaces «Ver también»"
 
 #: C/l10n.page:17(title)
 msgid "Translation Notes"
-msgstr ""
+msgstr "Notas de traducción"
 
 #: C/its.page:16(desc)
 msgid ""
@@ -6795,11 +6944,11 @@ msgstr "2007"
 
 #: C/i18n.page:17(title)
 msgid "Internationalization Notes"
-msgstr ""
+msgstr "Notas de internacionalización"
 
 #: C/explore.page:16(desc)
 msgid "Explore more of what Mallard has to offer."
-msgstr ""
+msgstr "Explorar más de lo que Mallard ofrece."
 
 #: C/explore.page:19(title)
 msgid "Explore Mallard"
@@ -6815,6 +6964,9 @@ msgid ""
 "recommendations for equivalent or similar functionality in Mallard, when "
 "available."
 msgstr ""
+"La siguiente tabla lista todos los elementos en DocBook y proporciona "
+"recomendaciones para equivalentes o funcionalidades similares en Mallard, "
+"siempre que estén disponibles."
 
 #: C/docbook.page:17(code)
 #, no-wrap
@@ -6860,6 +7012,8 @@ msgid ""
 "No equivalent in Mallard. Simply put acknowledgements in a regular <link "
 "xref=\"mal_block_p\">paragraph</link>."
 msgstr ""
+"No existe equivalente en Mallard. Simplemente ponga los agradecimientos en "
+"un <link xref=\"mal_block_p\">paragraph</link> regular."
 
 #: C/docbook.page:36(code)
 #, no-wrap
@@ -6897,6 +7051,7 @@ msgstr "alt"
 msgid ""
 "No equivalent in Mallard, as Mallard does not currently support equations."
 msgstr ""
+"No existe equivalente en Mallard ya que actualmente no soporta ecuaciones."
 
 #: C/docbook.page:59(code)
 #, no-wrap
@@ -6907,6 +7062,8 @@ msgstr "anchor"
 #: C/docbook.page:724(p) C/docbook.page:871(p) C/docbook.page:911(p)
 msgid "Currently no equivalent in Mallard. Future versions may address this."
 msgstr ""
+"Actualmente no existe equivalente en Mallard. Versiones futuras pueden "
+"incluirlo."
 
 #: C/docbook.page:63(code)
 #, no-wrap
@@ -6943,7 +7100,7 @@ msgstr "application"
 
 #: C/docbook.page:79(p)
 msgid "Similar to the <code xref=\"mal_inline_app\">app</code> element."
-msgstr ""
+msgstr "Similar al elemento <code xref=\"mal_inline_app\">app</code>."
 
 #: C/docbook.page:83(code)
 #, no-wrap
@@ -7349,7 +7506,7 @@ msgstr "colspec"
 
 #: C/docbook.page:312(p) C/docbook.page:449(p)
 msgid "Mallard does not use the CALS table model."
-msgstr ""
+msgstr "Mallard no usa el modelo te tablas CALS."
 
 #: C/docbook.page:315(code)
 #, no-wrap
@@ -7624,6 +7781,8 @@ msgid ""
 "Similar to the <code xref=\"mal_block_example\">example</code> element, "
 "except that examples in Mallard are not formal elements."
 msgstr ""
+"Similar al elemento <code xref=\"mal_block_example\">example</code> excepto "
+"que los ejemplos en Mallard no son elementos formales."
 
 #: C/docbook.page:493(code)
 #, no-wrap
@@ -8376,6 +8535,9 @@ msgid ""
 "See the <code xref=\"mal_block_list\">list</code> element for details. See "
 "also the <code xref=\"mal_block_steps\">steps</code> element."
 msgstr ""
+"Para obtener más detalles consulte el elemento <code xref=\"mal_block_list"
+"\">lista</code>. Consulte también el elemento <code xref=\"mal_block_steps"
+"\">steps</code>."
 
 #: C/docbook.page:1009(code)
 #, no-wrap
@@ -8455,6 +8617,9 @@ msgid ""
 "No direct equivalent in Mallard. The <code xref=\"mal_page\">page</code> or "
 "<code xref=\"mal_section\">section</code> element may be appropriate."
 msgstr ""
+"No existe un equivalente directo en Mallard. Los elementos <code xref="
+"\"mal_page\">page</code> o <code xref=\"mal_section\">section</code> pueden "
+"ser apropiados."
 
 #: C/docbook.page:1070(code)
 #, no-wrap
@@ -8548,6 +8713,10 @@ msgid ""
 "\">External namespace elements</link> may provide this information in <code "
 "xref=\"mal_info\">info</code> elements."
 msgstr ""
+"No existe un elemento equivalente en Mallard. Use texto plano en línea. Los "
+"<link xref=\"mal_external\">elementos del espacio de nombres externo</link> "
+"pueden proporcionar información con los elementos <code xref=\"mal_info"
+"\">info</code>."
 
 #: C/docbook.page:1146(code)
 #, no-wrap
