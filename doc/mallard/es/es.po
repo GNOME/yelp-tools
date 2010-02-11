@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils.mallard.master\n"
 "POT-Creation-Date: 2009-12-14 19:53+0000\n"
-"PO-Revision-Date: 2010-02-09 07:38+0100\n"
+"PO-Revision-Date: 2010-02-11 07:08+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -7838,6 +7838,8 @@ msgid ""
 "Mallard does not currently have support for footnotes. Future versions may "
 "add annotations."
 msgstr ""
+"Actualmente Mallard no tiene soporte para notas al pie. Futuras versiones "
+"pueden añadir anotaciones."
 
 #: C/docbook.page:534(code)
 #, no-wrap
@@ -7854,6 +7856,8 @@ msgid ""
 "No specific element in Mallard. If necessary, use the <code xref="
 "\"mal_inline_em\">em</code> element to emphasize a foreign phrase."
 msgstr ""
+"No existe el elemento específico en Mallard. Si es necesario use el elemento "
+"<code xref=\"mal_inline_em\">em</code> para enfatizar una frase externa."
 
 #: C/docbook.page:543(code)
 #, no-wrap
@@ -7901,6 +7905,9 @@ msgid ""
 "and <code xref=\"mal_info\">info</code> elements instead. Future versions "
 "may address glossaries directly."
 msgstr ""
+"No existe equivalente directo en Mallard. En su lugar use los elementos "
+"<code xref=\"mal_page\">page</code> e <code xref=\"mal_info\">info</code>. "
+"Versiones futuras pueden tratar el problema de los glosarios directamente."
 
 #: C/docbook.page:578(code)
 #, no-wrap
@@ -8008,6 +8015,8 @@ msgid ""
 "Currently no equivalent in Mallard. Future versions may support marking the "
 "introductory text of a topic."
 msgstr ""
+"Actualmente no existe un equivalente en Mallard. Versiones futuras pueden "
+"soportarlo usando el texto introductorio de un tema."
 
 #: C/docbook.page:651(code)
 #, no-wrap
@@ -8020,6 +8029,9 @@ msgid ""
 "\"mal_info_credit\">credit</code> element. Mallard records copyright "
 "information in <code>credit</code> elements."
 msgstr ""
+"Use el elemento <code xref=\"mal_info_name\">name</code> en un elemento "
+"<code xref=\"mal_info_credit\">credit</code>. Mallard graba la información "
+"de copyright en los elementos <code>credit</code>."
 
 #: C/docbook.page:657(code)
 #, no-wrap
@@ -8249,6 +8261,11 @@ msgid ""
 "xref=\"mal_info\">info</code> elements. For license information, use the "
 "<code xref=\"mal_info_license\">license</code> element."
 msgstr ""
+"No existe una nota legal de propósito general en Mallard. <link xref="
+"\"mal_external\">elementos del espacio de nombres externo</link> puede "
+"proporcionar esta información en los elementos <code xref=\"mal_info\">info</"
+"code>. Para la información de la licencia use el elemento <code xref="
+"\"mal_info_license\">license</code>."
 
 #: C/docbook.page:819(code)
 #, no-wrap
@@ -8270,6 +8287,8 @@ msgid ""
 "Currently no equivalent in Mallard. You may use <link xref=\"mal_inline_em"
 "\">inline emphasis</link> for a similar effect."
 msgstr ""
+"Actualmente no existe un equivalente en Mallard. Puede usar <link xref="
+"\"mal_inline_em\">inline emphasis</link> para un efecto similar."
 
 #: C/docbook.page:834(code)
 #, no-wrap
@@ -8279,6 +8298,8 @@ msgstr "link"
 #: C/docbook.page:835(p) C/docbook.page:979(p)
 msgid "See the <code xref=\"mal_inline_link\">link</code> element for details."
 msgstr ""
+"Para obtener más detalles consulte el elemento <code xref=\"mal_inline_link"
+"\">link</code>."
 
 #: C/docbook.page:838(code)
 #, no-wrap
@@ -8290,6 +8311,8 @@ msgid ""
 "See the <code>item</code> element for each <link xref=\"mal_block#list"
 "\">list element</link> for details."
 msgstr ""
+"Para obtener más detalles consulte el elemento <code>item</code> para cada "
+"<link xref=\"mal_block#list\">list element</link>."
 
 #: C/docbook.page:843(code)
 #, no-wrap
@@ -8306,6 +8329,8 @@ msgid ""
 "Currently no general-purpose literal layout in Mallard. Future versions may "
 "address this."
 msgstr ""
+"Actualmente no existe una distribución literal de propósito general en "
+"Mallard. Las versiones futuras pueden incluirlo."
 
 #: C/docbook.page:853(code)
 #, no-wrap
