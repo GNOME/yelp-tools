@@ -11,19 +11,18 @@
 # Os comentários, bem como os documentos referenciados pelos comentários.
 #
 # Procurei seguir as normas da ABNT para formatação de texto. Pense duas vezes
-# antes de consertar o que parece um deslize ;) 
+# antes de consertar o que parece um deslize ;)
 #
-# Além disso, procurei usar os mesmos termos que a Wikipédia para os mesmos 
+# Além disso, procurei usar os mesmos termos que a Wikipédia para os mesmos
 # conceitos (p. ex. "stub"). -- Leonardo Fontenelle, 2009
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils\n"
-"Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
-"doc-utils&component=general\n"
-"POT-Creation-Date: 2009-07-26 02:59+0000\n"
-"PO-Revision-Date: 2007-08-22 23:24-0300\n"
-"Last-Translator: Leonardo Ferreira Fontenelle <leonardof@gnome.org>\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2010-02-14 11:13-0200\n"
+"PO-Revision-Date: 2010-02-12 21:05-0300\n"
+"Last-Translator: Vladimir Melo <vmelo@gnome.org>\n"
 "Language-Team: Brazilian Portuguese <gnome-pt_br-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -606,7 +605,7 @@ msgstr ""
 msgid "<msgid>example.digit</msgid> <msgstr>1</msgstr>"
 msgstr "<msgid>example.digit</msgid> <msgstr>1</msgstr>"
 
-# Optei por formatar exemplos, figuras e gráficos usando as regras para 
+# Optei por formatar exemplos, figuras e gráficos usando as regras para
 # formatação de tabelas. O principal motivo é que o travessão fica melhor com
 # numeração multinível (p. ex. "Exemplo 4.4 – Exemplo exemplar"). – Leonardo
 #.
@@ -741,7 +740,7 @@ msgstr "<msgid>example.xref</msgid> <msgstr>Exemplo <number/></msgstr>"
 msgid "<msgid>figure.digit</msgid> <msgstr>1</msgstr>"
 msgstr "<msgid>figure.digit</msgid> <msgstr>1</msgstr>"
 
-# Optei por formatar exemplos, figuras e gráficos usando as regras para 
+# Optei por formatar exemplos, figuras e gráficos usando as regras para
 # formatação de tabelas. O principal motivo é que o travessão fica melhor com
 # numeração multinível (p. ex. "Exemplo 4.4 – Exemplo exemplar"). – Leonardo
 #.
@@ -1035,7 +1034,7 @@ msgstr "<msgid>glossentry.xref</msgid> <msgstr><i><glossterm/></i></msgstr>"
 msgid "<msgid>glosssee.format</msgid> <msgstr>See <glosssee/>.</msgstr>"
 msgstr "<msgid>glosssee.format</msgid> <msgstr>Veja <glosssee/>.</msgstr>"
 
-# Nesse caso a Wikipédia oscila entre "Ver também" e "Veja também". Como a 
+# Nesse caso a Wikipédia oscila entre "Ver também" e "Veja também". Como a
 # equipe brasileira de tradução do GNOME padronizou o tom pessoal ("veja"),
 # optei por essa forma. — Leonardo
 #.
@@ -1110,7 +1109,7 @@ msgstr ""
 msgid "<msgid>manvolnum.format</msgid> <msgstr>(<node/>)</msgstr>"
 msgstr "<msgid>manvolnum.format</msgid> <msgstr>(<node/>)</msgstr>"
 
-# Não existe esse conceito nas normas da ABNT. Optei por formatar as partes de 
+# Não existe esse conceito nas normas da ABNT. Optei por formatar as partes de
 # forma análoga à das seções, mas com numeração distinta. – Leonardo
 #.
 #. The number formatter used for part numbers.  This can be one of
@@ -1130,7 +1129,7 @@ msgstr "<msgid>manvolnum.format</msgid> <msgstr>(<node/>)</msgstr>"
 msgid "<msgid>part.digit</msgid> <msgstr>I</msgstr>"
 msgstr "<msgid>part.digit</msgid> <msgstr>I</msgstr>"
 
-# Não existe esse conceito nas normas da ABNT. Optei por formatar as partes de 
+# Não existe esse conceito nas normas da ABNT. Optei por formatar as partes de
 # forma análoga à das seções, mas com numeração distinta. – Leonardo
 #.
 #. This is a special format message.  Please read the full translator
@@ -1173,7 +1172,7 @@ msgstr ""
 "<msgid>part.label</msgid> <msgstr role='header'><number/>&#x2003;</msgstr> "
 "<msgstr role='li'><number/>&#x2002;</msgstr> <msgstr>Parte <number/></msgstr>"
 
-# Não existe esse conceito nas normas da ABNT. Optei por formatar as partes de 
+# Não existe esse conceito nas normas da ABNT. Optei por formatar as partes de
 # forma análoga à das seções, mas com numeração distinta. – Leonardo
 #.
 #. This is a special format message.  Please read the full translator
@@ -1265,7 +1264,7 @@ msgstr "<msgid>preface.xref</msgid> <msgstr><title/></msgstr>"
 msgid "<msgid>question.digit</msgid> <msgstr>1</msgstr>"
 msgstr "<msgid>question.digit</msgid> <msgstr>1</msgstr>"
 
-# Esse caso não está previsto, que eu saiba, nas normas da ABNT. Mantive o 
+# Esse caso não está previsto, que eu saiba, nas normas da ABNT. Mantive o
 # original por considerá-lo sufucientemente claro e conciso. – Leonardo
 #.
 #. This is a special format message.  Please read the full translator
@@ -1430,7 +1429,7 @@ msgstr "<msgid>refentry.xref</msgid> <msgstr><title/></msgstr>"
 msgid "<msgid>refsection.digit</msgid> <msgstr>1</msgstr>"
 msgstr "<msgid>refsection.digit</msgid> <msgstr>1</msgstr>"
 
-# Optei por formatar as seções de referências de forma análoga à das seções 
+# Optei por formatar as seções de referências de forma análoga à das seções
 # comuns. – Leonardo
 #.
 #. This is a special format message.  Please read the full translator
@@ -1813,7 +1812,7 @@ msgstr "<msgid>synopfragment.label</msgid> <msgstr>(<number/>)</msgstr>"
 msgid "<msgid>table.digit</msgid> <msgstr>1</msgstr>"
 msgstr "<msgid>table.digit</msgid> <msgstr>1</msgstr>"
 
-# Optei por formatar exemplos, figuras e gráficos usando as regras para 
+# Optei por formatar exemplos, figuras e gráficos usando as regras para
 # formatação de tabelas. O principal motivo é que o travessão fica melhor com
 # numeração multinível (p. ex. "Exemplo 4.4 – Exemplo exemplar"). – Leonardo
 #.
@@ -2043,7 +2042,7 @@ msgid "Dedication"
 msgstr "Dedicatória"
 
 #.
-#. This is used as a descrpition for the status of the document.
+#. This is used as a description for the status of the document.
 #. This will not be visibile to the users.
 #.
 #. Draft: the authors have written all the content, but they still need
@@ -2067,7 +2066,7 @@ msgid "Email"
 msgstr "E-mail"
 
 #.
-#. This is used as a descrpition for the status of the document.
+#. This is used as a description for the status of the document.
 #. This will not be visibile to the users.
 #.
 #. Final: a senior member of the documentation team has reviewd the
@@ -2077,7 +2076,7 @@ msgstr "E-mail"
 msgid "Final"
 msgstr "Final"
 
-# Essa seção parece não existir na Wikipédia lusófona. Na anglófona, é 
+# Essa seção parece não existir na Wikipédia lusófona. Na anglófona, é
 # diferente de "See Also"
 #. Automatic further reading section and links
 #: ../xslt/gettext/l10n.xml.in.h:1704
@@ -2101,7 +2100,7 @@ msgid "Important"
 msgstr "Importante"
 
 #.
-#. This is used as a descrpition for the status of the document.
+#. This is used as a description for the status of the document.
 #. This will not be visibile to the users.
 #.
 #. Incomplete: the document has the basic structure in place, but the
@@ -2140,11 +2139,16 @@ msgstr "Mais sobre"
 msgid "Name"
 msgstr "Nome"
 
+#. Used as link to the next page in a series.
+#: ../xslt/gettext/l10n.xml.in.h:1741
+msgid "Next"
+msgstr "Próxima"
+
 #.
 #. http://www.docbook.org/tdg/en/html/note.html
 #. This is used as a default title for note elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1744
+#: ../xslt/gettext/l10n.xml.in.h:1746
 msgid "Note"
 msgstr "Nota"
 
@@ -2152,9 +2156,14 @@ msgstr "Nota"
 #. http://www.docbook.org/tdg/en/html/preface.html
 #. This is used as a default title for preface elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1749
+#: ../xslt/gettext/l10n.xml.in.h:1751
 msgid "Preface"
 msgstr "Prefácio"
+
+#. Used as link to the previous page in a series.
+#: ../xslt/gettext/l10n.xml.in.h:1753
+msgid "Previous"
+msgstr "Anterior"
 
 #.
 #. http://www.docbook.org/tdg/en/html/qandaentry.html
@@ -2165,17 +2174,17 @@ msgstr "Prefácio"
 #. the labelling style for a qandaset.  If the labelling style is set
 #. to 'qanda', this string will be used to label questions.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1759
+#: ../xslt/gettext/l10n.xml.in.h:1763
 msgid "Q:&#x2003;"
 msgstr "P:&#x2003;"
 
 #.
-#. This is used as a descrpition for the status of the document.
+#. This is used as a description for the status of the document.
 #. This will not be visibile to the users.
 #.
 #. Review: the authors consider the document complete.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1766
+#: ../xslt/gettext/l10n.xml.in.h:1770
 msgid "Ready for review"
 msgstr "Pronto para revisão"
 
@@ -2183,7 +2192,7 @@ msgstr "Pronto para revisão"
 #. http://www.docbook.org/tdg/en/html/revhistory.html
 #. This is used as a header before the revision history.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1771
+#: ../xslt/gettext/l10n.xml.in.h:1775
 msgid "Revision History"
 msgstr "Histórico de revisão"
 
@@ -2191,23 +2200,23 @@ msgstr "Histórico de revisão"
 #. Used for the <see> element.
 #. FIXME: this should be a format string.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1776
+#: ../xslt/gettext/l10n.xml.in.h:1780
 msgid "See"
 msgstr "Veja"
 
 #. Automatic see also section and links
-#: ../xslt/gettext/l10n.xml.in.h:1778
+#: ../xslt/gettext/l10n.xml.in.h:1782
 msgid "See Also"
 msgstr "Veja também"
 
 #.
-#. This is used as a descrpition for the status of the document.
+#. This is used as a description for the status of the document.
 #. This will not be visibile to the users.
 #.
 #. Stub: the document has little or basic content, it may have been
 #. created by developers in order to have it included in the build.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1786
+#: ../xslt/gettext/l10n.xml.in.h:1790
 msgid "Stub"
 msgstr "Esboço"
 
@@ -2215,7 +2224,7 @@ msgstr "Esboço"
 #. http://www.docbook.org/tdg/en/html/refsynopsisdiv.html
 #. This is used as the default title for refsynopsisdiv elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1791
+#: ../xslt/gettext/l10n.xml.in.h:1795
 msgid "Synopsis"
 msgstr "Sinopse"
 
@@ -2223,7 +2232,7 @@ msgstr "Sinopse"
 #. http://www.docbook.org/tdg/en/html/tip.html
 #. This is used as a default title for tip elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1796
+#: ../xslt/gettext/l10n.xml.in.h:1800
 msgid "Tip"
 msgstr "Dica"
 
@@ -2231,7 +2240,7 @@ msgstr "Dica"
 #. http://www.docbook.org/tdg/en/html/warning.html
 #. This is used as a default title for warning elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1801
+#: ../xslt/gettext/l10n.xml.in.h:1805
 msgid "Warning"
 msgstr "Aviso"
 
@@ -2241,7 +2250,7 @@ msgstr "Aviso"
 #. translate it to "predefinito:LTR", if it isn't default:LTR
 #. or default:RTL it will not work
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1808
+#: ../xslt/gettext/l10n.xml.in.h:1812
 msgid "default:LTR"
 msgstr "default:LTR"
 
@@ -2272,7 +2281,7 @@ msgstr "default:LTR"
 #. once found inside Yelp.  The watermark functionality has been moved to
 #. gnome-doc-utils.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1836
+#: ../xslt/gettext/l10n.xml.in.h:1840
 msgid "watermark-blockquote-201C.png"
 msgstr "watermark-blockquote-201C.png"
 
