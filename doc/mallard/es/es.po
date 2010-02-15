@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils.mallard.master\n"
 "POT-Creation-Date: 2009-12-14 19:53+0000\n"
-"PO-Revision-Date: 2010-02-11 07:08+0100\n"
+"PO-Revision-Date: 2010-02-15 21:26+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -6768,7 +6768,7 @@ msgstr ""
 
 #: C/its.page:206(title)
 msgid "R015: Attributes and Translatable Text"
-msgstr ""
+msgstr "R015: Atributos y texto traducible"
 
 #: C/its.page:211(p)
 msgid ""
@@ -6778,11 +6778,11 @@ msgstr ""
 
 #: C/its.page:215(p)
 msgid "Mallard never places translatable text in attribute values."
-msgstr ""
+msgstr "Mallard nunca ubica texto traducible en valores de atributos."
 
 #: C/its.page:219(title)
 msgid "R017: Localization Notes"
-msgstr ""
+msgstr "R017: Notas de localización"
 
 #: C/its.page:224(p)
 msgid ""
@@ -6810,7 +6810,7 @@ msgstr ""
 
 #: C/its.page:242(title)
 msgid "R020: Annotation Markup"
-msgstr ""
+msgstr "R020: Marcado de anotaciones"
 
 #: C/its.page:247(p)
 msgid ""
@@ -6841,7 +6841,7 @@ msgstr ""
 
 #: C/its.page:268(title)
 msgid "R022: Nested Elements"
-msgstr ""
+msgstr "R022: Elementos encadenados"
 
 #: C/its.page:273(p)
 msgid ""
@@ -7493,6 +7493,9 @@ msgid ""
 "Varies with use. The <code xref=\"mal_info_credit\">name</code> element in a "
 "<code xref=\"mal_info_credit\">credit</code> element may be appropriate."
 msgstr ""
+"Varía con el uso. El elemnto <code xref=\"mal_info_credit\">name</code> en "
+"un elemento <code xref=\"mal_info_credit\">credit</code> puede resultar "
+"apropiado."
 
 #: C/docbook.page:307(code)
 #, no-wrap
@@ -7561,6 +7564,9 @@ msgid ""
 "No specific element in Mallard. Use an inline <code xref=\"mal_inline_code"
 "\">code</code> or <code xref=\"mal_inline_sys\">sys</code> element instead."
 msgstr ""
+"No existe el elemento específico en Mallard. En su lugar use el elemento en "
+"línea <code xref=\"mal_inline_code\">code</code> o <code xref="
+"\"mal_inline_sys\">sys</code>."
 
 #: C/docbook.page:349(code)
 #, no-wrap
@@ -7570,7 +7576,7 @@ msgstr "constraint"
 #: C/docbook.page:350(p) C/docbook.page:820(p) C/docbook.page:966(p)
 #: C/docbook.page:1129(p)
 msgid "Mallard does not have structured EBNF productions."
-msgstr ""
+msgstr "Mallard no tiene un entorno estructurado para producciones EBNF."
 
 #: C/docbook.page:353(code)
 #, no-wrap
@@ -7827,6 +7833,8 @@ msgid ""
 "No specific element in Mallard. Use the <code xref=\"mal_inline_em\">em</"
 "code> element to emphasize the first usage of a term."
 msgstr ""
+"No existe el elemnto específico en Mallard. Use el elemento <code xref="
+"\"mal_inline_em\">em</code> para enfatizar el primer uso de un término."
 
 #: C/docbook.page:529(code)
 #, no-wrap
@@ -7925,6 +7933,9 @@ msgid ""
 "the <code xref=\"mal_block_terms\">terms</code> element instead. Future "
 "versions may address glossaries directly."
 msgstr ""
+"Actualmente Mallard no tiene un entorno estructurado para glosarios. En su "
+"lugar use el elemento <code xref=\"mal_block_terms\">terms</code>. Futuras "
+"versiones pueden soportar directamente entradas de glosario."
 
 #: C/docbook.page:589(code)
 #, no-wrap
