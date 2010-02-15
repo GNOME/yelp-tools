@@ -6,14 +6,15 @@
 # Ignacio Casal Quinteiro <icq@svn.gnome.org>, 2008.
 # Mancomún - Centro de Referencia e Servizos de Software Libre <g11n@mancomun.org>, 2009.
 # Antón Méixome <meixome@mancomun.org>, 2009.
+# Fran Diéguez <frandieguez@ubuntu.com>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils.master\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-10 16:52+0200\n"
-"PO-Revision-Date: 2009-08-03 14:49+0200\n"
-"Last-Translator: Antón Méixome <meixome@mancomun.org>\n"
-"Language-Team: Galician <gnome@mancomun.org>\n"
+"POT-Creation-Date: 2010-02-15 17:20+0100\n"
+"PO-Revision-Date: 2010-02-12 01:47+0100\n"
+"Last-Translator: Fran Diéguez <frandieguez@ubuntu.com>\n"
+"Language-Team: Gallician <proxecto@trasno.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -2028,7 +2029,7 @@ msgid "Dedication"
 msgstr "Dedicatoria"
 
 #.
-#. This is used as a descrpition for the status of the document.
+#. This is used as a description for the status of the document.
 #. This will not be visibile to the users.
 #.
 #. Draft: the authors have written all the content, but they still need
@@ -2052,7 +2053,7 @@ msgid "Email"
 msgstr "Correo electrónico"
 
 #.
-#. This is used as a descrpition for the status of the document.
+#. This is used as a description for the status of the document.
 #. This will not be visibile to the users.
 #.
 #. Final: a senior member of the documentation team has reviewd the
@@ -2084,7 +2085,7 @@ msgid "Important"
 msgstr "Importante"
 
 #.
-#. This is used as a descrpition for the status of the document.
+#. This is used as a description for the status of the document.
 #. This will not be visibile to the users.
 #.
 #. Incomplete: the document has the basic structure in place, but the
@@ -2113,7 +2114,7 @@ msgstr "Aviso legal"
 #. Automatic more about section and links
 #: ../xslt/gettext/l10n.xml.in.h:1734
 msgid "More About"
-msgstr "Máis acerca de"
+msgstr "Máis sobre"
 
 #.
 #. http://www.docbook.org/tdg/en/html/refnamediv.html
@@ -2123,11 +2124,16 @@ msgstr "Máis acerca de"
 msgid "Name"
 msgstr "Nome"
 
+#. Used as link to the next page in a series.
+#: ../xslt/gettext/l10n.xml.in.h:1741
+msgid "Next"
+msgstr "Seguinte"
+
 #.
 #. http://www.docbook.org/tdg/en/html/note.html
 #. This is used as a default title for note elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1744
+#: ../xslt/gettext/l10n.xml.in.h:1746
 msgid "Note"
 msgstr "Nota"
 
@@ -2135,9 +2141,14 @@ msgstr "Nota"
 #. http://www.docbook.org/tdg/en/html/preface.html
 #. This is used as a default title for preface elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1749
+#: ../xslt/gettext/l10n.xml.in.h:1751
 msgid "Preface"
 msgstr "Prefacio"
+
+#. Used as link to the previous page in a series.
+#: ../xslt/gettext/l10n.xml.in.h:1753
+msgid "Previous"
+msgstr "Anterior"
 
 #.
 #. http://www.docbook.org/tdg/en/html/qandaentry.html
@@ -2148,17 +2159,17 @@ msgstr "Prefacio"
 #. the labelling style for a qandaset.  If the labelling style is set
 #. to 'qanda', this string will be used to label questions.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1759
+#: ../xslt/gettext/l10n.xml.in.h:1763
 msgid "Q:&#x2003;"
 msgstr "P:&#x2003;"
 
 #.
-#. This is used as a descrpition for the status of the document.
+#. This is used as a description for the status of the document.
 #. This will not be visibile to the users.
 #.
 #. Review: the authors consider the document complete.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1766
+#: ../xslt/gettext/l10n.xml.in.h:1770
 msgid "Ready for review"
 msgstr "Listo para revisión"
 
@@ -2166,7 +2177,7 @@ msgstr "Listo para revisión"
 #. http://www.docbook.org/tdg/en/html/revhistory.html
 #. This is used as a header before the revision history.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1771
+#: ../xslt/gettext/l10n.xml.in.h:1775
 msgid "Revision History"
 msgstr "Historial de revisións"
 
@@ -2174,23 +2185,23 @@ msgstr "Historial de revisións"
 #. Used for the <see> element.
 #. FIXME: this should be a format string.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1776
+#: ../xslt/gettext/l10n.xml.in.h:1780
 msgid "See"
 msgstr "Vexa"
 
 #. Automatic see also section and links
-#: ../xslt/gettext/l10n.xml.in.h:1778
+#: ../xslt/gettext/l10n.xml.in.h:1782
 msgid "See Also"
 msgstr "Vexa tamén"
 
 #.
-#. This is used as a descrpition for the status of the document.
+#. This is used as a description for the status of the document.
 #. This will not be visibile to the users.
 #.
 #. Stub: the document has little or basic content, it may have been
 #. created by developers in order to have it included in the build.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1786
+#: ../xslt/gettext/l10n.xml.in.h:1790
 msgid "Stub"
 msgstr "Stub"
 
@@ -2198,7 +2209,7 @@ msgstr "Stub"
 #. http://www.docbook.org/tdg/en/html/refsynopsisdiv.html
 #. This is used as the default title for refsynopsisdiv elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1791
+#: ../xslt/gettext/l10n.xml.in.h:1795
 msgid "Synopsis"
 msgstr "Sinopse"
 
@@ -2206,7 +2217,7 @@ msgstr "Sinopse"
 #. http://www.docbook.org/tdg/en/html/tip.html
 #. This is used as a default title for tip elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1796
+#: ../xslt/gettext/l10n.xml.in.h:1800
 msgid "Tip"
 msgstr "Suxestión"
 
@@ -2214,7 +2225,7 @@ msgstr "Suxestión"
 #. http://www.docbook.org/tdg/en/html/warning.html
 #. This is used as a default title for warning elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1801
+#: ../xslt/gettext/l10n.xml.in.h:1805
 msgid "Warning"
 msgstr "Aviso"
 
@@ -2224,7 +2235,7 @@ msgstr "Aviso"
 #. translate it to "predefinito:LTR", if it isn't default:LTR
 #. or default:RTL it will not work
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1808
+#: ../xslt/gettext/l10n.xml.in.h:1812
 msgid "default:LTR"
 msgstr "default:LTR"
 
@@ -2255,6 +2266,6 @@ msgstr "default:LTR"
 #. once found inside Yelp.  The watermark functionality has been moved to
 #. gnome-doc-utils.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1836
+#: ../xslt/gettext/l10n.xml.in.h:1840
 msgid "watermark-blockquote-201C.png"
 msgstr "watermark-blockquote-201C.png"
