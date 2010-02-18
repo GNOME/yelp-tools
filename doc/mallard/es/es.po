@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils.mallard.master\n"
 "POT-Creation-Date: 2009-12-14 19:53+0000\n"
-"PO-Revision-Date: 2010-02-15 21:26+0100\n"
+"PO-Revision-Date: 2010-02-18 19:18+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -173,10 +173,15 @@ msgid ""
 "its purpose is to help users navigate to other content. In Mallard, the "
 "front page of any document is named <file>index.page</file>."
 msgstr ""
+"Se puede comenzar un documento Mallard escribiendo una página frontal para "
+"la documentación. Generalmente la página frontal de cualquier documento será "
+"una página de guía, ya que su propósito es ayudar a los usuarios a navegar "
+"por otros contenidos. En Mallard, la página frontal de cualquier documento "
+"se llama <file>index.page</file>."
 
 #: C/tenminutes.page:44(file) C/mal_block_listing.page:89(file)
 msgid "index.page"
-msgstr "página.índice"
+msgstr "index.page"
 
 #: C/tenminutes.page:53(p)
 msgid ""
@@ -191,7 +196,7 @@ msgstr ""
 #: C/tenminutes.page:58(file) C/tenminutes.page:74(file)
 #: C/tenminutes.page:92(file)
 msgid "planting.page"
-msgstr "página.plantar"
+msgstr "plantando.page"
 
 #: C/tenminutes.page:67(p)
 msgid ""
@@ -6111,12 +6116,16 @@ msgid ""
 "Use <code>desc</code> to provide a caption for a <link xref="
 "\"mal_block_figure\">figure</link>:"
 msgstr ""
+"Use <code>desc</code> para proporcionar un consejo para un elemento <link "
+"xref=\"mal_block_figure\">figure</link>:"
 
 #: C/mal_block_desc.page:87(p)
 msgid ""
 "Use <code>desc</code> to provide a caption for a <link xref="
 "\"mal_block_figure\">listing</link>:"
 msgstr ""
+"Use <code>desc</code> para proporcionar un consejo para un elemento <link "
+"xref=\"mal_block_figure\">listing</link>:"
 
 #: C/mal_block_desc.page:91(code)
 #, no-wrap
@@ -6429,10 +6438,13 @@ msgid ""
 "oasis-open.org/dita/v1.1/CS01/langspec/langref/codeblock.html\">codeblock</"
 "code> element in DITA."
 msgstr ""
+"El elemento <code>code</code> es similar al elemento <code href=\"http://"
+"docs.oasis-open.org/dita/v1.1/CS01/langspec/langref/codeblock.html"
+"\">codeblock</code> en DITA."
 
 #: C/mal_block_cite.page:19(title)
 msgid "Citations"
-msgstr ""
+msgstr "Citas"
 
 #: C/mal_block_cite.page:21(code)
 #, no-wrap
@@ -6467,10 +6479,13 @@ msgid ""
 "<code xref=\"mal_quote\">quote</code> or a <code xref=\"mal_block_comment"
 "\">comment</code> element."
 msgstr ""
+"El elemento <code>cite</code> proporciona información acerca del origen de "
+"un elemento <code xref=\"mal_quote\">quote</code> o <code xref="
+"\"mal_block_comment\">comment</code>."
 
 #: C/mal_block_cite.page:43(p)
 msgid "Add examples, processing expectations."
-msgstr ""
+msgstr "Añadir ejemplos, procesar las expectativas."
 
 #: C/mal_block_cite.page:54(p)
 msgid ""
@@ -6593,7 +6608,7 @@ msgstr ""
 
 #: C/its.page:52(title)
 msgid "R004: Unique Identifier"
-msgstr ""
+msgstr "R004: Identificador único"
 
 #: C/its.page:57(p)
 msgid ""
@@ -6616,7 +6631,7 @@ msgstr ""
 
 #: C/its.page:73(title)
 msgid "R006: Identifying Language/Locale"
-msgstr ""
+msgstr "R006: Identificar idioma o configuración regional"
 
 #: C/its.page:78(p)
 msgid ""
@@ -6649,7 +6664,7 @@ msgstr ""
 
 #: C/its.page:102(title)
 msgid "R007: Identifying Terms"
-msgstr ""
+msgstr "R007: Identificar términos"
 
 #: C/its.page:107(p)
 msgid ""
@@ -6694,7 +6709,7 @@ msgstr ""
 
 #: C/its.page:143(title)
 msgid "R011: Bidirectional Text Support"
-msgstr ""
+msgstr "R011: Soporte para texto bidireccional"
 
 #: C/its.page:148(p)
 msgid ""
@@ -6712,7 +6727,7 @@ msgstr ""
 
 #: C/its.page:159(title)
 msgid "R012: Indicator of Translatability"
-msgstr ""
+msgstr "R012: Indicador de traducción"
 
 #: C/its.page:164(p)
 msgid ""
@@ -6738,7 +6753,7 @@ msgstr ""
 
 #: C/its.page:181(title)
 msgid "R014: Limited Impact"
-msgstr ""
+msgstr "R014: Impacto limitado"
 
 #: C/its.page:186(p)
 msgid ""
@@ -7075,6 +7090,8 @@ msgid ""
 "Mallard does not currently have a structured environment for question and "
 "answer sessions."
 msgstr ""
+"Actualmente Mallard no tiene un entorno estructurado para sesiones de "
+"preguntas y respuestas."
 
 #: C/docbook.page:69(code)
 #, no-wrap
@@ -7087,6 +7104,8 @@ msgid ""
 "No direct equivalent in Mallard. Use the <code xref=\"mal_page\">page</code> "
 "and <code xref=\"mal_info\">info</code> elements instead."
 msgstr ""
+"No existe equivalente directo en Mallard. En su lugar use los elementos "
+"<code xref=\"mal_page\">page</code> e <code xref=\"mal_info\">info</code>."
 
 #: C/docbook.page:74(code)
 #, no-wrap
@@ -7241,6 +7260,7 @@ msgstr "bibliocoverage"
 msgid ""
 "Mallard does not currently have a structured environment for bibliographies."
 msgstr ""
+"Actualmente Mallard no tiene un entorno estructurado para bibliografías."
 
 #: C/docbook.page:152(code)
 #, no-wrap
@@ -7403,6 +7423,8 @@ msgstr "citerefentry"
 msgid ""
 "Mallard does not currently have a structured environment for reference pages."
 msgstr ""
+"Actualmente Mallard no tiene un entorno estructurado para páginas de "
+"referencia."
 
 #: C/docbook.page:254(code)
 #, no-wrap
@@ -7628,6 +7650,8 @@ msgid ""
 "Use the <code xref=\"mal_info_credit\">credit</code> element to record "
 "copyright information."
 msgstr ""
+"Use el elemento <code xref=\"mal_info_credit\">credit</code> para guardar "
+"información acerca del copyright."
 
 #: C/docbook.page:384(code)
 #, no-wrap
@@ -7749,6 +7773,9 @@ msgid ""
 "<code>epigraph</code> style hint on the block <code xref=\"mal_block_quote"
 "\">quote</code> element."
 msgstr ""
+"No existe equivalente directo en Mallard. Algunas herramientas de procesado "
+"pueden soportar el estilo de sugerencia <code>epigraph</code> en el elemento "
+"de bloque <code xref=\"mal_block_quote\">quote</code>."
 
 #: C/docbook.page:467(code)
 #, no-wrap
@@ -7766,6 +7793,9 @@ msgid ""
 "\">sys</code> element. For error text, the <code xref=\"mal_inline_output"
 "\">output</code> may be appropriate."
 msgstr ""
+"No existen elementos específicos en Mallard. Use el elemento en línea <code "
+"xref=\"mal_inline_sys\">sys</code>. Para textos de error <code xref="
+"\"mal_inline_output\">output</code> puede ser apropiado."
 
 #: C/docbook.page:478(code)
 #, no-wrap
