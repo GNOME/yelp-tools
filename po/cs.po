@@ -1,24 +1,25 @@
 # Czech translation for gnome-doc-utils.
-# Copyright (C) 2004, 2005, 2006, 2008, 2009 the author(s) of gnome-doc-utils.
+# Copyright (C) 2004, 2005, 2006, 2008, 2009, 2010 the author(s) of gnome-doc-utils.
 # Copyright (C) 2004, 2005, 2006 Miloslav Trmac <mitr@volny.cz>.
 # Copyright (C) 2006 Lukas Novotny <lukasnov@cvs.gnome.org>.
 # This file is distributed under the same license as the gnome-doc-utils package.
 # Miloslav Trmac <mitr@volny.cz>, 2004, 2005, 2006.
 # Lukas Novotny <lukasnov@cvs.gnome.org>, 2006.
 # Lucas Lommer <llommer@svn.gnome.org>, 2008.
-# Petr Kovar <pknbe@volny.cz>, 2008, 2009.
+# Petr Kovar <pknbe@volny.cz>, 2008, 2009, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-29 21:44+0200\n"
-"PO-Revision-Date: 2009-08-29 21:36+0200\n"
+"POT-Creation-Date: 2010-02-21 22:26+0100\n"
+"PO-Revision-Date: 2010-02-21 22:24+0100\n"
 "Last-Translator: Petr Kovar <pknbe@volny.cz>\n"
 "Language-Team: Czech <gnome-cs-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Lokalize 1.0\n"
 
 #.
 #. This is used as a list item seperator for inline lists of exactly two
@@ -2103,11 +2104,16 @@ msgstr "Více o tématu"
 msgid "Name"
 msgstr "Jméno"
 
+#. Used as link to the next page in a series.
+#: ../xslt/gettext/l10n.xml.in.h:1741
+msgid "Next"
+msgstr "Následující"
+
 #.
 #. http://www.docbook.org/tdg/en/html/note.html
 #. This is used as a default title for note elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1744
+#: ../xslt/gettext/l10n.xml.in.h:1746
 msgid "Note"
 msgstr "Upozornění"
 
@@ -2115,9 +2121,14 @@ msgstr "Upozornění"
 #. http://www.docbook.org/tdg/en/html/preface.html
 #. This is used as a default title for preface elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1749
+#: ../xslt/gettext/l10n.xml.in.h:1751
 msgid "Preface"
 msgstr "Předmluva"
+
+#. Used as link to the previous page in a series.
+#: ../xslt/gettext/l10n.xml.in.h:1753
+msgid "Previous"
+msgstr "Předchozí"
 
 #.
 #. http://www.docbook.org/tdg/en/html/qandaentry.html
@@ -2128,7 +2139,7 @@ msgstr "Předmluva"
 #. the labelling style for a qandaset.  If the labelling style is set
 #. to 'qanda', this string will be used to label questions.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1759
+#: ../xslt/gettext/l10n.xml.in.h:1763
 msgid "Q:&#x2003;"
 msgstr "Ot.:&#x2003;"
 
@@ -2138,7 +2149,7 @@ msgstr "Ot.:&#x2003;"
 #.
 #. Review: the authors consider the document complete.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1766
+#: ../xslt/gettext/l10n.xml.in.h:1770
 msgid "Ready for review"
 msgstr "Připraveno na kontrolu"
 
@@ -2146,7 +2157,7 @@ msgstr "Připraveno na kontrolu"
 #. http://www.docbook.org/tdg/en/html/revhistory.html
 #. This is used as a header before the revision history.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1771
+#: ../xslt/gettext/l10n.xml.in.h:1775
 msgid "Revision History"
 msgstr "Historie revizí"
 
@@ -2154,12 +2165,12 @@ msgstr "Historie revizí"
 #. Used for the <see> element.
 #. FIXME: this should be a format string.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1776
+#: ../xslt/gettext/l10n.xml.in.h:1780
 msgid "See"
 msgstr "Viz"
 
 #. Automatic see also section and links
-#: ../xslt/gettext/l10n.xml.in.h:1778
+#: ../xslt/gettext/l10n.xml.in.h:1782
 msgid "See Also"
 msgstr "Viz také"
 
@@ -2171,7 +2182,7 @@ msgstr "Viz také"
 #. Stub: the document has little or basic content, it may have been
 #. created by developers in order to have it included in the build.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1786
+#: ../xslt/gettext/l10n.xml.in.h:1790
 msgid "Stub"
 msgstr "Pahýl"
 
@@ -2179,7 +2190,7 @@ msgstr "Pahýl"
 #. http://www.docbook.org/tdg/en/html/refsynopsisdiv.html
 #. This is used as the default title for refsynopsisdiv elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1791
+#: ../xslt/gettext/l10n.xml.in.h:1795
 msgid "Synopsis"
 msgstr "Souhrn"
 
@@ -2187,7 +2198,7 @@ msgstr "Souhrn"
 #. http://www.docbook.org/tdg/en/html/tip.html
 #. This is used as a default title for tip elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1796
+#: ../xslt/gettext/l10n.xml.in.h:1800
 msgid "Tip"
 msgstr "Tip"
 
@@ -2195,7 +2206,7 @@ msgstr "Tip"
 #. http://www.docbook.org/tdg/en/html/warning.html
 #. This is used as a default title for warning elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1801
+#: ../xslt/gettext/l10n.xml.in.h:1805
 msgid "Warning"
 msgstr "Varování"
 
@@ -2205,7 +2216,7 @@ msgstr "Varování"
 #. translate it to "predefinito:LTR", if it isn't default:LTR
 #. or default:RTL it will not work
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1808
+#: ../xslt/gettext/l10n.xml.in.h:1812
 msgid "default:LTR"
 msgstr "default:LTR"
 
@@ -2236,6 +2247,6 @@ msgstr "default:LTR"
 #. once found inside Yelp.  The watermark functionality has been moved to
 #. gnome-doc-utils.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1836
+#: ../xslt/gettext/l10n.xml.in.h:1840
 msgid "watermark-blockquote-201C.png"
 msgstr "watermark-blockquote-201E.png"
