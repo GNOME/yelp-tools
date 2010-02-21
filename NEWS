@@ -1,3 +1,17 @@
+Changes in 0.19.5:
+------------------
+* Updated the Mallard RNG schema (Shaun McCance)
+* Updated translations:
+  cs      (Petr Kovar)
+  es      (Jorge González)
+  gl      (Fran Diéguez)
+  pl      (Piotr Drąg)
+  pt_BR   (Vladimir Melo)
+  ro      (Lucian Adrian Grijincu)
+  ta      (vasudeven)
+  zh_HK   (Chao-Hsiung Liao)
+  zh_TW   (Chao-Hsiung Liao)
+
 Changes in 0.19.4:
 ------------------
 * Bold userinput inside programlisting (Shaun McCance)
