@@ -57,7 +57,6 @@ data/templates/Makefile
 data/watermarks/Makefile
 doc/Makefile
 doc/gnome-doc-make/Makefile
-doc/mallard/Makefile
 doc/xslt/Makefile
 po/Makefile.in
 rng/Makefile
