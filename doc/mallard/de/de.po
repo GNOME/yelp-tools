@@ -1,11 +1,11 @@
 # German translation of the Mallard documentation.
-# Mario Blättermann <mariobl@gnome.org>, 2009.
+# Mario Blättermann <mariobl@gnome.org>, 2009, 2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: mallard\n"
-"POT-Creation-Date: 2009-10-03 19:24+0000\n"
-"PO-Revision-Date: 2009-10-04 14:59+0100\n"
+"POT-Creation-Date: 2009-12-14 19:53+0000\n"
+"PO-Revision-Date: 2010-02-23 23:15+0100\n"
 "Last-Translator: Mario Blättermann <mariobl@gnome.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -21,8 +21,8 @@ msgid ""
 "States License</link>."
 msgstr ""
 "Dieses Werk wird unter einer <link href=\"http://creativecommons.org/licenses/"
-"by-sa/3.0/de/legalcode\">Creative Commons Attribution-Share Alike 3.0 United States "
-"License</link> veröffentlicht."
+"by-sa/3.0/de/legalcode\">Creative Commons Attribution-Share Alike 3.0 United "
+"States License</link> veröffentlicht."
 
 #: C/legal.xml:6(p)
 msgid ""
@@ -30,9 +30,9 @@ msgid ""
 "modify, and distribute the example code contained in this document under the "
 "terms of your choosing, without restriction."
 msgstr ""
-"Als besondere Ausnahme erteilen Ihnen die Urheberrechtsinhaber die Genehmigung, "
-"den in diesem Dokument enthaltenen Beispielcode ohne Einschränkung unter den "
-"Bedingungen Ihrer Wahl zu verbreiten."
+"Als besondere Ausnahme erteilen Ihnen die Urheberrechtsinhaber die "
+"Genehmigung, den in diesem Dokument enthaltenen Beispielcode ohne "
+"Einschränkung unter den Bedingungen Ihrer Wahl zu verbreiten."
 
 #: C/tenminutes.page:10(name) C/spec.page:12(name) C/spec.page:23(cite)
 #: C/principles.page:9(name) C/principles.page:22(cite)
@@ -138,10 +138,6 @@ msgid "This is draft material. I'm not happy with the tone yet."
 msgstr "Dies ist ein Entwurf. Ich bin noch nicht wirklich zufrieden damit."
 
 #: C/tenminutes.page:27(p)
-#| msgid ""
-#| "In this page, we will present how to create a simple multiple-page Mallard "
-#| "document. We will create a document for the fictitious <placeholder-1/> "
-#| "application, which allows you to plant magic beans."
 msgid ""
 "In this page, we will present how to create a simple multiple-page Mallard "
 "document. We will create a document for the fictitious <app>Beanstalk</app> "
@@ -152,12 +148,6 @@ msgstr ""
 "<app>Beanstalk</app>-Anwendung, welche zum Anbau magischer Bohnen dient. "
 
 #: C/tenminutes.page:31(p)
-#| msgid ""
-#| "A Mallard document is composed of multiple independent pages. <placeholder-"
-#| "1/> present some piece of information to the reader. This might be a "
-#| "tutorial, a conceptual overview, reference material, or any other type of "
-#| "written content. <placeholder-2/> serve as the navigational glue between "
-#| "topics, helping readers find and explore content."
 msgid ""
 "A Mallard document is composed of multiple independent pages. <link xref="
 "\"mal_page#topic\">Topic pages</link> present some piece of information to "
@@ -175,11 +165,6 @@ msgstr ""
 "Themen, die dem Leser das Auffinden und Entdecken des Inhalts ermöglichen."
 
 #: C/tenminutes.page:38(p)
-#| msgid ""
-#| "We can begin making a Mallard document by writing a front page for our "
-#| "document. Generally, the front page of any document will be a guide page, "
-#| "as its purpose is to help users navigate to other content. In Mallard, the "
-#| "front page of any document is named <placeholder-1/>."
 msgid ""
 "We can begin making a Mallard document by writing a front page for our "
 "document. Generally, the front page of any document will be a guide page, as "
@@ -213,13 +198,6 @@ msgid "planting.page"
 msgstr "planting.page"
 
 #: C/tenminutes.page:67(p)
-#| msgid ""
-#| "Notice that we have set the <placeholder-1/> attribute to <placeholder-2/> "
-#| "in <placeholder-3/> and to <placeholder-4/> in <placeholder-5/>. This "
-#| "specifies that <placeholder-6/> is a guide page, which will allow it to "
-#| "have automatic links to other pages. Currently, we have two standalone "
-#| "pages without interlinking. We can have <placeholder-7/> link to "
-#| "<placeholder-8/>."
 msgid ""
 "Notice that we have set the <code>type</code> attribute to <code>\"guide\"</"
 "code> in <file>index.page</file> and to <code>\"topic\"</code> in "
@@ -353,7 +331,6 @@ msgstr "Zeilen und Zeilengruppen"
 
 #: C/mal_table_tr.page:11(code)
 #, no-wrap
-#| msgid "mal_table_tr = element tr { attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-1/> * } mal_table_thead = element thead { attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, mal_table_tr + } mal_table_tbody = element tbody { attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, mal_table_tr + } mal_table_tfoot = element tfoot { attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, mal_table_tr + }"
 msgid ""
 "\n"
 "mal_table_tr = element tr {\n"
@@ -413,7 +390,6 @@ msgstr "Tabellenzellen"
 
 #: C/mal_table_td.page:11(code)
 #, no-wrap
-#| msgid "mal_table_td = element td { attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, attribute rowspan { text } ?, attribute colspan { text } ?, <placeholder-1/> + }"
 msgid ""
 "\n"
 "mal_table_td = element td {\n"
@@ -441,7 +417,6 @@ msgstr "Tabellen"
 
 #: C/mal_table.page:10(code)
 #, no-wrap
-#| msgid "mal_table = element table { attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, attribute frame { \"all\" | \"none\" | list { (\"top\" | \"bottom\" | \"left\" | \"right\") * } } ?, attribute rules { \"all\" | \"groups\" | \"none\" | list { (\"rows\" | \"rowgroups\" | \"cols\" | \"colgroups\") * } } ?, attribute shade { \"all\" | \"groups\" | \"none\" | list { (\"rows\" | \"rowgroups\" | \"cols\" | \"colgroups\") * } } ?, <placeholder-1/> ?, <placeholder-2/> ?, ( <placeholder-3/> + | <placeholder-4/> + ) ?, ( <placeholder-5/> + | ( <placeholder-6/> ?, <placeholder-7/> +, <placeholder-8/> ? ) ) }"
 msgid ""
 "\n"
 "mal_table = element table {\n"
@@ -689,7 +664,6 @@ msgstr "Spalten und Spaltengruppen"
 
 #: C/mal_table_col.page:11(code)
 #, no-wrap
-#| msgid "mal_table_col = element col { attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } * } mal_table_colgroup = element colgroup { attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, mal_table_col * }"
 msgid ""
 "\n"
 "mal_table_col = element col {\n"
@@ -728,7 +702,6 @@ msgstr "Abschnitte"
 
 #: C/mal_section.page:22(code)
 #, no-wrap
-#| msgid "mal_section = element section { attribute id { xsd:ID }, attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-1/> ?, <placeholder-2/>, <placeholder-3/> *, mal_section * }"
 msgid ""
 "\n"
 "mal_section = element section {\n"
@@ -900,7 +873,6 @@ msgstr "Seiten"
 
 #: C/mal_page.page:21(code)
 #, no-wrap
-#| msgid "namespace local = \"\" default namespace mal = \"http://projectmallard.org/1.0/\" start = mal_page mal_page = element page { attribute id { xsd:ID }, attribute type { \"guide\" | \"topic\"} ?, attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-1/> ?, <placeholder-2/>, <placeholder-3/> *, <placeholder-4/> * }"
 msgid ""
 "\n"
 "namespace local = \"\"\n"
@@ -1101,7 +1073,6 @@ msgstr "Variabler Text"
 
 #: C/mal_inline_var.page:25(code)
 #, no-wrap
-#| msgid "mal_inline_var = element var { <placeholder-1/> ?, attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-2/> }"
 msgid ""
 "\n"
 "mal_inline_var = element var {\n"
@@ -1137,9 +1108,6 @@ msgstr ""
 "indizierten Argument herzustellen."
 
 #: C/mal_inline_var.page:46(p)
-#| msgid ""
-#| "The <placeholder-1/> element can contain a mixture of text, <placeholder-2/"
-#| "> elements, and other <placeholder-3/> elements."
 msgid ""
 "The <code>var</code> element can contain a mixture of text and any <link xref="
 "\"mal_inline\">general inline elements</link>."
@@ -1226,7 +1194,6 @@ msgstr "Systemobjekte"
 
 #: C/mal_inline_sys.page:23(code)
 #, no-wrap
-#| msgid "mal_inline_key = element key { <placeholder-1/> ?, attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-2/> }"
 msgid ""
 "\n"
 "mal_inline_sys = element sys {\n"
@@ -1286,7 +1253,6 @@ msgid ""
 msgstr ""
 
 #: C/mal_inline_sys.page:71(p)
-#| msgid "Use <placeholder-1/> to mark up a long command:"
 msgid "Use <code>sys</code> to mark up a domain name:"
 msgstr "Verwenden Sie <code>sys</code>, um einen Domänennamen hervorzuheben:"
 
@@ -1325,7 +1291,6 @@ msgstr ""
 
 #: C/mal_inline_span.page:25(code)
 #, no-wrap
-#| msgid "mal_inline_span = element span { <placeholder-1/> ?, attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-2/> }"
 msgid ""
 "\n"
 "mal_inline_span = element span {\n"
@@ -1353,9 +1318,6 @@ msgid ""
 msgstr ""
 
 #: C/mal_inline_span.page:45(p)
-#| msgid ""
-#| "The <placeholder-1/> element can contain a mixture of text, <placeholder-2/"
-#| "> elements, and other <placeholder-3/> elements."
 msgid ""
 "The <code>span</code> element can contain a mixture of text and any <link "
 "xref=\"mal_inline\">general inline elements</link>."
@@ -1535,7 +1497,6 @@ msgstr "Computerausgaben"
 
 #: C/mal_inline_output.page:23(code)
 #, no-wrap
-#| msgid "mal_inline_output = element output { <placeholder-1/> ?, attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-2/> }"
 msgid ""
 "\n"
 "mal_inline_output = element output {\n"
@@ -1594,7 +1555,6 @@ msgid ""
 msgstr ""
 
 #: C/mal_inline_output.page:67(p)
-#| msgid "Typical values for the <placeholder-1/> attribute include:"
 msgid "Typical values for the <code>style</code> attribute include:"
 msgstr "Typische Werte für das <code>style</code>-Attribut sind:"
 
@@ -1645,9 +1605,6 @@ msgid "Use <code>ouptut</code> to mark up text generated by a program:"
 msgstr ""
 
 #: C/mal_inline_output.page:104(p)
-#| msgid ""
-#| "The output of <placeholder-1/> is <placeholder-2/> if you use the Bourne-"
-#| "again shell."
 msgid ""
 "The output of <cmd>echo $SHELL</cmd> is <output>/bin/bash</output> if you use "
 "the Bourne-again shell."
@@ -1725,7 +1682,6 @@ msgstr "Eingebettete Multimedia-Objekte"
 
 #: C/mal_inline_media.page:23(code)
 #, no-wrap
-#| msgid "mal_inline_media = element media { <placeholder-1/> ?, attribute style { xsd:NMTOKENS } ?, attribute type { \"image\" | \"video\" | \"audio\" | \"application\" } ?, attribute mime { text } ?, attribute src { text }, attribute height { text } ?, attribute width { text } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-2/> }"
 msgid ""
 "\n"
 "mal_inline_media = element media {\n"
@@ -1783,6 +1739,8 @@ msgid ""
 "The <code>media</code> element can link to other pages or documents. See "
 "<link xref=\"mal_attr_link\"/> for more information."
 msgstr ""
+"Das <code>media</code>-Element kann auf andere Seiten oder Dokumente "
+"verweisen. Siehe <link xref=\"mal_attr_link\"/> für weitere Informationen."
 
 #: C/mal_inline_media.page:65(p) C/mal_block_media.page:61(p)
 msgid ""
@@ -1879,7 +1837,6 @@ msgstr "Hyperlinks"
 
 #: C/mal_inline_link.page:23(code)
 #, no-wrap
-#| msgid "mal_block_media = element media { attribute type { \"image\" | \"video\" | \"audio\" | \"application\" } ?, attribute mime { text } ?, attribute src { text }, attribute height { text } ?, attribute width { text } ?, attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-1/> * }"
 msgid ""
 "\n"
 "mal_inline_link = element link {\n"
@@ -1999,6 +1956,8 @@ msgid ""
 "See the <link href=\"http://www.w3.org/TR/REC-xml-names/\">XML Namespaces "
 "recommendation</link>."
 msgstr ""
+"Siehe die <link href=\"http://www.w3.org/TR/REC-xml-names/\">Empfehlung für "
+"XML-Namensräume</link>."
 
 #: C/mal_inline_link.page:132(p)
 msgid ""
@@ -2098,7 +2057,6 @@ msgstr "Tastensequenzen"
 
 #: C/mal_inline_keyseq.page:24(code)
 #, no-wrap
-#| msgid "mal_inline_keyseq = element keyseq { attribute style { xsd:NMTOKENS } ?, attribute type { \"combo\" | \"sequence\" } ?, attribute * - (mal:* | local:*) { text } *, mixed { (<placeholder-1/> | mal_inline_keyseq) * } }"
 msgid ""
 "\n"
 "mal_inline_keyseq = element keyseq {\n"
@@ -2131,9 +2089,6 @@ msgid ""
 msgstr ""
 
 #: C/mal_inline_keyseq.page:46(p)
-#| msgid ""
-#| "The <placeholder-1/> element can contain a mixture of text, <placeholder-2/"
-#| "> elements, and other <placeholder-3/> elements."
 msgid ""
 "The <code>keyseq</code> element can contain a mixture of text, <code xref="
 "\"mal_inline_key\">key</code> elements, and other <code>keyseq</code> "
@@ -2193,7 +2148,6 @@ msgid "<keyseq><key>Shift</key>click</keyseq> to make a continuous selection."
 msgstr ""
 
 #: C/mal_inline_keyseq.page:106(p)
-#| msgid "Use nested <placeholder-1/> elements for complex key commands:"
 msgid "Use nested <code>keyseq</code> elements for complex key commands:"
 msgstr ""
 "Verwenden Sie verschachtelte <code>keyseq</code>-Elemente, um komplexe "
@@ -2259,7 +2213,6 @@ msgstr "Zugriffstaste"
 
 #: C/mal_inline_key.page:23(code)
 #, no-wrap
-#| msgid "mal_inline_key = element key { <placeholder-1/> ?, attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-2/> }"
 msgid ""
 "\n"
 "mal_inline_key = element key {\n"
@@ -2337,7 +2290,6 @@ msgid ""
 msgstr ""
 
 #: C/mal_inline_key.page:87(p)
-#| msgid "Use <placeholder-1/> to mark up a long command:"
 msgid "Use <code>key</code> to mark up a letter key:"
 msgstr "Verwenden Sie <code>key</code>, um eine Buchstabentaste hervorzuheben:"
 
@@ -2348,7 +2300,6 @@ msgstr ""
 "markieren."
 
 #: C/mal_inline_key.page:96(p)
-#| msgid "Use <placeholder-1/> to mark up a long command:"
 msgid "Use <code>key</code> to mark up a function key:"
 msgstr "Verwenden Sie <code>key</code>, um eine Funktionstaste hervorzuheben:"
 
@@ -2362,7 +2313,6 @@ msgid ""
 msgstr ""
 
 #: C/mal_inline_key.page:112(p)
-#| msgid "Press the <placeholder-1/> key to select the next item."
 msgid "Press the <key>Down</key> key to select the next item."
 msgstr ""
 "Drücken Sie die Taste <key>Pfeiltaste ab</key>, um das nächste Objekt "
@@ -2376,11 +2326,6 @@ msgid ""
 msgstr ""
 
 #: C/mal_inline_key.page:132(p)
-#| msgid ""
-#| "The <placeholder-1/> element is similar to the <placeholder-2/> element in "
-#| "DocBook. Mallard does not provide elements analogous to the DocBook "
-#| "elements <placeholder-3/> and <placeholder-4/>. In most cases, these "
-#| "should be marked simply with the <placeholder-5/> element."
 msgid ""
 "The <code>key</code> element is similar to the <code href=\"http://www."
 "docbook.org/tdg/en/html/keycap.html\">keycap</code> element in DocBook. "
@@ -2408,7 +2353,6 @@ msgstr "Benutzereingabe"
 
 #: C/mal_inline_input.page:24(code)
 #, no-wrap
-#| msgid "mal_inline_input = element input { <placeholder-1/> ?, attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-2/> }"
 msgid ""
 "\n"
 "mal_inline_input = element input {\n"
@@ -2508,7 +2452,6 @@ msgstr "Abläufe in der Benutzeroberfläche"
 
 #: C/mal_inline_guiseq.page:24(code)
 #, no-wrap
-#| msgid "mal_inline_guiseq = element guiseq { attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, mixed { <placeholder-1/> + } }"
 msgid ""
 "\n"
 "mal_inline_guiseq = element guiseq {\n"
@@ -2534,9 +2477,6 @@ msgid ""
 msgstr ""
 
 #: C/mal_inline_guiseq.page:42(p)
-#| msgid ""
-#| "The <placeholder-1/> element can contain a mixture of text, <placeholder-2/"
-#| "> elements, and other <placeholder-3/> elements."
 msgid ""
 "The <code>guiseq</code> element can contain a mixture of text and <code xref="
 "\"mal_inline_gui\">gui</code> elements."
@@ -2606,7 +2546,6 @@ msgstr "Beschriftungen der Benutzeroberfläche"
 
 #: C/mal_inline_gui.page:23(code)
 #, no-wrap
-#| msgid "mal_inline_gui = element gui { <placeholder-1/> ?, attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-2/> }"
 msgid ""
 "\n"
 "mal_inline_gui = element gui {\n"
@@ -2745,7 +2684,6 @@ msgid ""
 msgstr ""
 
 #: C/mal_inline_gui.page:112(p)
-#| msgid "Use <placeholder-1/> to mark up the name of an application:"
 msgid "Use <code>gui</code> to mark up the text of a button:"
 msgstr ""
 "Verwenden Sie <code>gui</code>, um den Text eines Knopfes hervorzuheben:"
@@ -2756,7 +2694,6 @@ msgstr ""
 "Klicken Sie auf den <gui>Schließen</gui>-Knopf, um das Fenster zu schließen."
 
 #: C/mal_inline_gui.page:121(p)
-#| msgid "Use <placeholder-1/> to mark up the name of an application:"
 msgid "Use <code>gui</code> to mark up the label on a tab:"
 msgstr ""
 "Verwenden Sie <code>gui</code>, um die Beschriftung eines Reiters "
@@ -2813,7 +2750,6 @@ msgstr "Dateinamen"
 
 #: C/mal_inline_file.page:23(code)
 #, no-wrap
-#| msgid "mal_inline_file = element file { <placeholder-1/> ?, attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-2/> }"
 msgid ""
 "\n"
 "mal_inline_file = element file {\n"
@@ -2891,7 +2827,6 @@ msgstr ""
 
 #: C/mal_inline_em.page:23(code)
 #, no-wrap
-#| msgid "mal_inline_em = element em { <placeholder-1/> ?, attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-2/> }"
 msgid ""
 "\n"
 "mal_inline_em = element em {\n"
@@ -3001,7 +2936,6 @@ msgstr "Code-Beispiele"
 
 #: C/mal_inline_code.page:23(code)
 #, no-wrap
-#| msgid "mal_inline_code = element code { <placeholder-1/> ?, attribute style { xsd:NMTOKENS } ?, attribute mime { text } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-2/> }"
 msgid ""
 "\n"
 "mal_inline_code = element code {\n"
@@ -3046,9 +2980,6 @@ msgid ""
 msgstr ""
 
 #: C/mal_inline_code.page:54(p)
-#| msgid ""
-#| "The <placeholder-1/> element can contain a mixture of text, <placeholder-2/"
-#| "> elements, and other <placeholder-3/> elements."
 msgid ""
 "The <code>code</code> element can contain a mixture of text and any <link "
 "xref=\"mal_inline\">general inline elements</link>."
@@ -3174,7 +3105,6 @@ msgstr "Befehle"
 
 #: C/mal_inline_cmd.page:24(code)
 #, no-wrap
-#| msgid "mal_inline_cmd = element cmd { <placeholder-1/> ?, attribute style { xsd:NMTOKENS } ?, attribute mime { text } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-2/> }"
 msgid ""
 "\n"
 "mal_inline_cmd = element cmd {\n"
@@ -3241,7 +3171,6 @@ msgid ""
 msgstr ""
 
 #: C/mal_inline_cmd.page:76(p) C/mal_block_screen.page:72(p)
-#| msgid "Typical values for the <placeholder-1/> attribute include:"
 msgid "Typical values for the <code>mime</code> attribute include:"
 msgstr "Typische Werte für das <code>mime</code>-Attribut sind:"
 
@@ -3271,15 +3200,12 @@ msgid ""
 msgstr ""
 
 #: C/mal_inline_cmd.page:98(p)
-#| msgid "Use <placeholder-1/> to mark up a long command:"
 msgid "Use <code>cmd</code> to mark up a simple command to run:"
 msgstr ""
 "Verwenden Sie <code>cmd</code>, um einen einfachen auszuführenden Befehl "
 "hervorzuheben:"
 
 #: C/mal_inline_cmd.page:105(p) C/mal_inline_app.page:79(p)
-#| msgid ""
-#| "To start <placeholder-1/>, enter <placeholder-2/> at the command line."
 msgid ""
 "To start <app>Totem Movie Player</app>, enter <cmd>totem</cmd> at the command "
 "line."
@@ -3301,7 +3227,6 @@ msgid ""
 msgstr ""
 
 #: C/mal_inline_cmd.page:122(p)
-#| msgid "Use <placeholder-1/> to mark up command names and options:"
 msgid "Use <code>cmd</code> to mark up command names and options:"
 msgstr ""
 "Verwenden Sie <code>cmd</code> zur Hervorhebung von Befehlsnamen und Optionen:"
@@ -3363,7 +3288,6 @@ msgstr "Anwendungsnamen"
 
 #: C/mal_inline_app.page:24(code)
 #, no-wrap
-#| msgid "mal_inline_app = element app { <placeholder-1/> ?, attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-2/> }"
 msgid ""
 "\n"
 "mal_inline_app = element app {\n"
@@ -3419,18 +3343,15 @@ msgid ""
 msgstr ""
 
 #: C/mal_inline_app.page:72(p)
-#| msgid "Use <placeholder-1/> to mark up the name of an application:"
 msgid "Use <code>app</code> to mark up the name of an application:"
 msgstr ""
 "Verwenden Sie <code>guiseq</code>, um den Namen einer Anwendung hervorzuheben:"
 
 #: C/mal_inline_app.page:83(p)
-#| msgid "Use <placeholder-1/> to refer to a window:"
 msgid "Use <code>app</code> to refer to a window:"
 msgstr "Verwenden Sie <code>app</app>, um auf ein Fenster zu verweisen:"
 
 #: C/mal_inline_app.page:90(p)
-#| msgid "Use the <placeholder-1/> window to adjust the look of your desktop."
 msgid ""
 "Use the <app>Theme Preferences</app> window to adjust the look of your "
 "desktop."
@@ -3482,7 +3403,6 @@ msgstr ""
 
 #: C/mal_info_years.page:23(code)
 #, no-wrap
-#| msgid "mal_info_years = element years { attribute * - (mal:* | local:*) { text } *, <placeholder-1/> }"
 msgid ""
 "\n"
 "mal_info_years = element years {\n"
@@ -3509,8 +3429,6 @@ msgid ""
 msgstr ""
 
 #: C/mal_info_years.page:41(p)
-#| msgid ""
-#| "The <placeholder-1/> element can occur in the <placeholder-2/> element."
 msgid ""
 "The <code>years</code> element can occur in the <code xref=\"mal_info_credit"
 "\">credit</code> element."
@@ -3551,7 +3469,6 @@ msgstr ""
 
 #: C/mal_info_title.page:23(code)
 #, no-wrap
-#| msgid "mal_info_title = element title { attribute type { xsd:NMTOKEN }, attribute role { xsd:NMTOKEN } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-1/> }"
 msgid ""
 "\n"
 "mal_info_title = element title {\n"
@@ -3586,8 +3503,6 @@ msgid ""
 msgstr ""
 
 #: C/mal_info_title.page:46(p)
-#| msgid ""
-#| "The <placeholder-1/> element can occur in any <placeholder-2/> element."
 msgid ""
 "The <code>title</code> element can occur in any <code xref=\"mal_info\">info</"
 "code> element."
@@ -3707,7 +3622,6 @@ msgstr "Versionsinformation"
 
 #: C/mal_info_revision.page:23(code)
 #, no-wrap
-#| msgid "mal_info_revision = element revision { attribute version { text } ?, attribute docversion { text } ?, attribute pkgversion { text } ?, attribute date { xsd:date } ?, attribute status { \"stub\" | \"incomplete\" | \"draft\" | \"outdated\" | \"review\" | \"candidate\" | \"final\" } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-1/> ?, <placeholder-2/> ?, <placeholder-3/> * }"
 msgid ""
 "\n"
 "mal_info_revision = element revision {\n"
@@ -3768,8 +3682,6 @@ msgid ""
 msgstr ""
 
 #: C/mal_info_revision.page:61(p)
-#| msgid ""
-#| "The <placeholder-1/> element can occur in any <placeholder-2/> element."
 msgid ""
 "The <code>revision</code> element can occur in any <code xref=\"mal_info"
 "\">info</code> element."
@@ -3946,7 +3858,6 @@ msgstr "Namen"
 
 #: C/mal_info_name.page:23(code)
 #, no-wrap
-#| msgid "mal_info_name = element name { attribute * - (mal:* | local:*) { text } *, <placeholder-1/> }"
 msgid ""
 "\n"
 "mal_info_name = element name {\n"
@@ -3973,8 +3884,6 @@ msgid ""
 msgstr ""
 
 #: C/mal_info_name.page:41(p)
-#| msgid ""
-#| "The <placeholder-1/> element can occur in the <placeholder-2/> element."
 msgid ""
 "The <code>name</code> element can occur in the <code xref=\"mal_info_credit"
 "\">credit</code> element."
@@ -4004,7 +3913,6 @@ msgstr ""
 
 #: C/mal_info_link.page:13(code)
 #, no-wrap
-#| msgid "mal_info_link = element link { attribute type { \"guide\" | \"topic\" | \"seealso\" }, attribute xref { text }, attribute weight { text } ? }"
 msgid ""
 "\n"
 "mal_info_link = element link {\n"
@@ -4031,7 +3939,6 @@ msgstr "Lizenzinformationen"
 
 #: C/mal_info_license.page:23(code)
 #, no-wrap
-#| msgid "mal_info_license = element license { attribute href { text } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-1/> + }"
 msgid ""
 "\n"
 "mal_info_license = element license {\n"
@@ -4063,8 +3970,6 @@ msgid ""
 msgstr ""
 
 #: C/mal_info_license.page:43(p)
-#| msgid ""
-#| "The <placeholder-1/> element can occur in any <placeholder-2/> element."
 msgid ""
 "The <code>license</code> element can occur in any <code xref=\"mal_info"
 "\">info</code> element."
@@ -4121,7 +4026,6 @@ msgstr "E-Mail-Adressen"
 
 #: C/mal_info_email.page:23(code)
 #, no-wrap
-#| msgid "mal_info_email = element email { attribute * - (mal:* | local:*) { text } *, <placeholder-1/> }"
 msgid ""
 "\n"
 "mal_info_email = element email {\n"
@@ -4148,8 +4052,6 @@ msgid ""
 msgstr ""
 
 #: C/mal_info_email.page:41(p)
-#| msgid ""
-#| "The <placeholder-1/> element can occur in the <placeholder-2/> element."
 msgid ""
 "The <code>email</code> element can occur in the <code xref=\"mal_info_credit"
 "\">credit</code> element."
@@ -4182,7 +4084,6 @@ msgstr "Seitenbeschreibungen"
 
 #: C/mal_info_desc.page:23(code)
 #, no-wrap
-#| msgid "mal_info_desc = element desc { attribute * - (mal:* | local:*) { text } *, <placeholder-1/> }"
 msgid ""
 "\n"
 "mal_info_desc = element desc {\n"
@@ -4213,8 +4114,6 @@ msgid ""
 msgstr ""
 
 #: C/mal_info_desc.page:44(p)
-#| msgid ""
-#| "The <placeholder-1/> element can occur in any <placeholder-2/> element."
 msgid ""
 "The <code>desc</code> element can occur in any <code xref=\"mal_info\">info</"
 "code> element."
@@ -4260,7 +4159,6 @@ msgstr ""
 
 #: C/mal_info_credit.page:23(code)
 #, no-wrap
-#| msgid "mal_info_credit = element credit { attribute type { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, ( <placeholder-1/> &amp; <placeholder-2/> ? &amp; <placeholder-3/> ? &amp; <placeholder-4/> * ) }"
 msgid ""
 "\n"
 "mal_info_credit = element credit {\n"
@@ -4298,11 +4196,6 @@ msgid ""
 msgstr ""
 
 #: C/mal_info_credit.page:48(p)
-#| msgid ""
-#| "The <placeholder-1/> element contains a <placeholder-2/> element, an "
-#| "optional <placeholder-3/> element, and an optional <placeholder-4/> "
-#| "element. The <placeholder-5/> element can also contain elements from "
-#| "external namespaces. The order of the child elements does not matter."
 msgid ""
 "The <code>credit</code> element contains a <code xref=\"mal_info_name\">name</"
 "code> element, an optional <code xref=\"mal_info_email\">&gt;email</code> "
@@ -4318,8 +4211,6 @@ msgstr ""
 "keine Rolle."
 
 #: C/mal_info_credit.page:55(p)
-#| msgid ""
-#| "The <placeholder-1/> element can occur in any <placeholder-2/> element."
 msgid ""
 "The <code>credit</code> element can occur in any <code xref=\"mal_info"
 "\">info</code> element."
@@ -4461,7 +4352,6 @@ msgstr "Inhalt hinzufügen"
 
 #: C/mal_external.page:27(code)
 #, no-wrap
-#| msgid "mal_external = element * - (mal:* | local:*) { attribute * { text } *, mal_anything * } mal_anything = element * { attribute * { text } *, mal_anything * }"
 msgid ""
 "\n"
 "mal_external = element * - (mal:* | local:*) {\n"
@@ -4528,7 +4418,6 @@ msgstr "Baumlisten"
 
 #: C/mal_block_tree.page:21(code)
 #, no-wrap
-#| msgid "mal_block_tree = element tree { attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-1/> ?, mal_tree_item + } mal_tree_item = element item { attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-2/>, mal_tree_item * }"
 msgid ""
 "\n"
 "mal_block_tree = element tree {\n"
@@ -4717,7 +4606,6 @@ msgstr "Titel"
 
 #: C/mal_block_title.page:11(code)
 #, no-wrap
-#| msgid "mal_block_title = element title { <placeholder-1/> }"
 msgid ""
 "\n"
 "mal_block_title = element title {\n"
@@ -4740,7 +4628,6 @@ msgstr "Definitionslisten"
 
 #: C/mal_block_terms.page:21(code)
 #, no-wrap
-#| msgid "mal_block_terms = element terms { attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-1/> ?, element item { attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-2/> +, <placeholder-3/> + } + }"
 msgid ""
 "\n"
 "mal_block_terms = element terms {\n"
@@ -4919,7 +4806,6 @@ msgstr ""
 
 #: C/mal_block_synopsis.page:23(code)
 #, no-wrap
-#| msgid "mal_block_synopsis = element synopsis { attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-1/> ?, <placeholder-2/> ?, <placeholder-3/> + }"
 msgid ""
 "\n"
 "mal_block_synopsis = element synopsis {\n"
@@ -4977,7 +4863,6 @@ msgid ""
 msgstr ""
 
 #: C/mal_block_synopsis.page:76(p)
-#| msgid "Use <placeholder-1/> to create an overview of functions:"
 msgid "Use <code>synopsis</code> to create an overview of functions:"
 msgstr ""
 "Verwenden Sie <code>synopsis</code>, um einen Überblick der Funktionen zu "
@@ -4988,13 +4873,11 @@ msgid "Beanstalk Functions"
 msgstr "Beanstalk-Funktionen"
 
 #: C/mal_block_synopsis.page:90(desc)
-#| msgid "Use these methods on a <placeholder-1/> object."
 msgid "Use these methods on a <code>beanstalk</code> object."
 msgstr "Wenden Sie diese Methoden auf ein <code>beanstalk</code>-Objekt an."
 
 #: C/mal_block_synopsis.page:91(code)
 #, no-wrap
-#| msgid "void add_bean (Bean bean); int count_beans ();"
 msgid ""
 "\n"
 "void add_bean    (Bean bean);\n"
@@ -5039,7 +4922,6 @@ msgstr "Untertitel"
 
 #: C/mal_block_subtitle.page:11(code)
 #, no-wrap
-#| msgid "mal_block_subtitle = element subtitle { <placeholder-1/> }"
 msgid ""
 "\n"
 "mal_block_subtitle = element subtitle {\n"
@@ -5063,7 +4945,6 @@ msgstr "Prozeduren"
 
 #: C/mal_block_steps.page:21(code)
 #, no-wrap
-#| msgid "mal_block_steps = element steps { attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-1/> ?, element item { attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-2/> + } + }"
 msgid ""
 "\n"
 "mal_block_steps = element steps {\n"
@@ -5203,9 +5084,6 @@ msgid ""
 msgstr ""
 
 #: C/mal_block_steps.page:166(p)
-#| msgid ""
-#| "The <placeholder-1/> element is similar to the <placeholder-2/> element in "
-#| "DocBook. Note the following differences:"
 msgid ""
 "The <code>steps</code> element is similar to the <code href=\"http://www."
 "docbook.org/tdg/en/html/procedure.html\">procedure</code> element in DocBook. "
@@ -5216,9 +5094,6 @@ msgstr ""
 "Sie die folgenden Unterschiede:"
 
 #: C/mal_block_steps.page:171(p)
-#| msgid ""
-#| "Instead of a separate <placeholder-1/> element, Mallard simply uses the "
-#| "common <placeholder-2/> element for each step."
 msgid ""
 "Instead of a separate <code href=\"http://www.docbook.org/tdg/en/html/step."
 "html\">step</code> element, Mallard simply uses the common <code>item</code> "
@@ -5236,9 +5111,6 @@ msgid ""
 msgstr ""
 
 #: C/mal_block_steps.page:180(p)
-#| msgid ""
-#| "Mallard provides no equivalent to the <placeholder-1/> element. Use a "
-#| "<placeholder-2/> with introductory text when this is needed."
 msgid ""
 "Mallard provides no equivalent to the <code href=\"http://www.docbook.org/tdg/"
 "en/html/stepalternatives.html\">stepalternatives</code> element. Use a <code "
@@ -5263,7 +5135,6 @@ msgstr ""
 
 #: C/mal_block_screen.page:23(code)
 #, no-wrap
-#| msgid "mal_block_screen = element screen { attribute style { xsd:NMTOKENS } ?, attribute mime { text } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-1/> }"
 msgid ""
 "\n"
 "mal_block_screen = element screen {\n"
@@ -5356,7 +5227,6 @@ msgid ""
 msgstr ""
 
 #: C/mal_block_screen.page:116(p)
-#| msgid "Use <placeholder-1/> to mark up a long command:"
 msgid "Use <code>screen</code> to mark up a long command:"
 msgstr ""
 "Verwenden Sie <code>screen</code>, um einen langen Befehl hervorzuheben:"
@@ -5437,7 +5307,6 @@ msgstr ""
 
 #: C/mal_block_quote.page:21(code)
 #, no-wrap
-#| msgid "mal_block_quote = element quote { attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-1/> ?, <placeholder-2/>, <placeholder-3/> + }"
 msgid ""
 "\n"
 "mal_block_quote = element quote {\n"
@@ -5557,7 +5426,6 @@ msgstr "Absätze"
 
 #: C/mal_block_p.page:21(code)
 #, no-wrap
-#| msgid "mal_block_p = element p { attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-1/> }"
 msgid ""
 "\n"
 "mal_block_p = element p {\n"
@@ -5584,9 +5452,6 @@ msgstr ""
 "<code>p</code>-Element erzeugt in der formatierten Ausgabe einen Absatz."
 
 #: C/mal_block_p.page:39(p)
-#| msgid ""
-#| "The <placeholder-1/> element can contain a mixture of text, <placeholder-2/"
-#| "> elements, and other <placeholder-3/> elements."
 msgid ""
 "The <code>p</code> element can contain a mixture of text and any <link xref="
 "\"mal_inline\">general inline elements</link>."
@@ -5822,7 +5687,6 @@ msgstr ""
 
 #: C/mal_block_note.page:21(code)
 #, no-wrap
-#| msgid "mal_block_note = element note { attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-1/> ?, <placeholder-2/> + }"
 msgid ""
 "\n"
 "mal_block_note = element note {\n"
@@ -5977,7 +5841,6 @@ msgstr ""
 
 #: C/mal_block_note.page:161(code)
 #, no-wrap
-#| msgid "git config --global user.name <placeholder-1/> git config --global user.email <placeholder-2/>"
 msgid ""
 "\n"
 "git config --global user.name <var>full_name</var>\n"
@@ -6042,7 +5905,6 @@ msgstr "Multimedia-Objekte"
 
 #: C/mal_block_media.page:23(code)
 #, no-wrap
-#| msgid "mal_block_media = element media { attribute type { \"image\" | \"video\" | \"audio\" | \"application\" } ?, attribute mime { text } ?, attribute src { text }, attribute height { text } ?, attribute width { text } ?, attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-1/> * }"
 msgid ""
 "\n"
 "mal_block_media = element media {\n"
@@ -6140,7 +6002,6 @@ msgstr ""
 
 #: C/mal_block_list.page:21(code)
 #, no-wrap
-#| msgid "mal_block_list = element list { attribute type { xsd:NMTOKEN } ?, attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-1/> ?, element item { attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-2/> + } + }"
 msgid ""
 "\n"
 "mal_block_list = element list {\n"
@@ -6324,7 +6185,6 @@ msgstr "Listen"
 
 #: C/mal_block_listing.page:24(code)
 #, no-wrap
-#| msgid "mal_block_listing = element listing { attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-1/> ?, <placeholder-2/> ?, <placeholder-3/> + }"
 msgid ""
 "\n"
 "mal_block_listing = element listing {\n"
@@ -6434,7 +6294,6 @@ msgstr "Abbildungen"
 
 #: C/mal_block_figure.page:24(code)
 #, no-wrap
-#| msgid "mal_block_figure = element figure { attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-1/> ?, <placeholder-2/> ?, <placeholder-3/> + }"
 msgid ""
 "\n"
 "mal_block_figure = element figure {\n"
@@ -6522,7 +6381,6 @@ msgstr ""
 
 #: C/mal_block_example.page:21(code)
 #, no-wrap
-#| msgid "mal_block_example = element example { attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-1/> + }"
 msgid ""
 "\n"
 "mal_block_example = element example {\n"
@@ -6657,7 +6515,6 @@ msgstr "Blockbeschreibungen"
 
 #: C/mal_block_desc.page:25(code)
 #, no-wrap
-#| msgid "mal_block_desc = element desc { attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-1/> }"
 msgid ""
 "\n"
 "mal_block_desc = element desc {\n"
@@ -6684,10 +6541,6 @@ msgid ""
 msgstr ""
 
 #: C/mal_block_desc.page:47(p)
-#| msgid ""
-#| "More exaples can be found on the pages <link xref=\"mal_block_figure\"/>, "
-#| "<link xref=\"mal_block_listing\"/>, and <link xref=\"mal_block_synopsis\"/"
-#| ">."
 msgid ""
 "The <code>desc</code> element can occur in the formal block elements <code "
 "xref=\"mal_block_figure\">figure</code>, <code xref=\"mal_block_listing"
@@ -6772,7 +6625,6 @@ msgstr ""
 
 #: C/mal_block_comment.page:21(code)
 #, no-wrap
-#| msgid "mal_block_comment = element comment { attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-1/> ?, <placeholder-2/>, <placeholder-3/> + }"
 msgid ""
 "\n"
 "mal_block_comment = element comment {\n"
@@ -6913,7 +6765,6 @@ msgstr "Code-Blöcke"
 
 #: C/mal_block_code.page:23(code)
 #, no-wrap
-#| msgid "mal_block_code = element code { attribute style { xsd:NMTOKENS } ?, attribute mime { text } ?, attribute * - (mal:* | local:*) { text } *, <placeholder-1/> }"
 msgid ""
 "\n"
 "mal_block_code = element code {\n"
@@ -6971,14 +6822,12 @@ msgid ""
 msgstr ""
 
 #: C/mal_block_code.page:83(p)
-#| msgid "Use <placeholder-1/> to mark up command names and options:"
 msgid "Use <code>code</code> to mark up a class definition:"
 msgstr ""
 "Verwenden Sie <code>code</code> zur Hervorhebung einer Klassendefinition:"
 
 #: C/mal_block_code.page:92(code)
 #, no-wrap
-#| msgid "class BeanStalk { public: void add_bean(Bean bean); int count_beans(); }"
 msgid ""
 "\n"
 "class BeanStalk {\n"
@@ -7035,7 +6884,6 @@ msgstr "Zitate"
 
 #: C/mal_block_cite.page:21(code)
 #, no-wrap
-#| msgid "mal_block_cite = element cite { attribute style { xsd:NMTOKENS } ?, attribute * - (mal:* | local:*) { text } *, attribute date { text } ?, attribute href { text } ?, <placeholder-1/> }"
 msgid ""
 "\n"
 "mal_block_cite = element cite {\n"
@@ -7096,7 +6944,6 @@ msgstr ""
 
 #: C/mal_attr_link.page:21(code)
 #, no-wrap
-#| msgid "mal_attr_link = ( attribute xref { text } ? | { attribute dref { text } ?, attribute href { text } ? } )"
 msgid ""
 "\n"
 "mal_attr_link =\n"
@@ -7330,9 +7177,6 @@ msgid ""
 msgstr ""
 
 #: C/its.page:174(p)
-#| msgid ""
-#| "Additionally, the <placeholder-1/> element may be used in any <placeholder-"
-#| "2/> element to provide translatability rules for a page or section."
 msgid ""
 "Additionally, the <code href=\"http://www.w3.org/TR/its/#basic-concepts-"
 "selection-global\">its:rules</code> element may be used in any <code xref="
@@ -7594,9 +7438,6 @@ msgid "abstract"
 msgstr "abstract"
 
 #: C/docbook.page:22(p)
-#| msgid ""
-#| "No equivalent in Mallard. The <placeholder-1/> element may be appropriate "
-#| "in some cases."
 msgid ""
 "No equivalent in Mallard. The <code xref=\"mal_block_synopsis\">synopsis</"
 "code> element may be appropriate in some cases."
@@ -7621,9 +7462,6 @@ msgid "ackno"
 msgstr "ackno"
 
 #: C/docbook.page:32(p)
-#| msgid ""
-#| "No equivalent in Mallard. Simply put acknowledgements in a regular "
-#| "<placeholder-1/>."
 msgid ""
 "No equivalent in Mallard. Simply put acknowledgements in a regular <link xref="
 "\"mal_block_p\">paragraph</link>."
@@ -7647,9 +7485,6 @@ msgid "address"
 msgstr "address"
 
 #: C/docbook.page:46(p)
-#| msgid ""
-#| "No equivalent in Mallard. <placeholder-1/> may provide this information "
-#| "for <placeholder-2/>"
 msgid ""
 "No equivalent in Mallard. <link xref=\"mal_external\">External namespace "
 "elements</link> may provide this information for <link xref=\"mal_info_credit"
@@ -7706,9 +7541,6 @@ msgstr "appendix"
 
 #: C/docbook.page:70(p) C/docbook.page:96(p) C/docbook.page:203(p)
 #: C/docbook.page:233(p) C/docbook.page:1056(p) C/docbook.page:1100(p)
-#| msgid ""
-#| "No direct equivalent in Mallard. Use the <placeholder-1/> and <placeholder-"
-#| "2/> elements instead."
 msgid ""
 "No direct equivalent in Mallard. Use the <code xref=\"mal_page\">page</code> "
 "and <code xref=\"mal_info\">info</code> elements instead."
@@ -7727,7 +7559,6 @@ msgid "application"
 msgstr "application"
 
 #: C/docbook.page:79(p)
-#| msgid "Similar to the <placeholder-1/> element."
 msgid "Similar to the <code xref=\"mal_inline_app\">app</code> element."
 msgstr "Ähnlich dem <code xref=\"mal_inline_app\">app</code>-Element."
 
@@ -7792,7 +7623,6 @@ msgid "attribution"
 msgstr "attribution"
 
 #: C/docbook.page:111(p)
-#| msgid "Similar to the <placeholder-1/> element."
 msgid "Similar to the <code xref=\"mal_block_cite\">cite</code> element."
 msgstr "Ähnlich dem <code xref=\"mal_block_cite\">cite</code>-Element."
 
@@ -7831,9 +7661,6 @@ msgstr "authorblurb"
 #: C/docbook.page:658(p) C/docbook.page:773(p) C/docbook.page:824(p)
 #: C/docbook.page:1010(p) C/docbook.page:1027(p) C/docbook.page:1071(p)
 #: C/docbook.page:1089(p) C/docbook.page:1179(p)
-#| msgid ""
-#| "No equivalent in Mallard. <placeholder-1/> may provide this information "
-#| "for <placeholder-2/>"
 msgid ""
 "No equivalent in Mallard. <link xref=\"mal_external\">External namespace "
 "elements</link> may provide this information for <link xref=\"mal_info_credit"
@@ -8055,8 +7882,6 @@ msgstr "classname"
 #: C/docbook.page:265(p) C/docbook.page:494(p) C/docbook.page:567(p)
 #: C/docbook.page:741(p) C/docbook.page:866(p) C/docbook.page:897(p)
 #: C/docbook.page:1050(p)
-#| msgid ""
-#| "No specific element in Mallard. Use the <placeholder-1/> element instead."
 msgid ""
 "No specific element in Mallard. Use the inline <code xref=\"mal_inline_code"
 "\">code</code> element instead."
@@ -8092,7 +7917,6 @@ msgid "co"
 msgstr "co"
 
 #: C/docbook.page:287(p)
-#| msgid "Similar to the <placeholder-1/> element."
 msgid "Similar to the <code xref=\"mal_inline_code\">code</code> element."
 msgstr "Ähnlich dem <code xref=\"mal_inline_code\">code</code>-Element."
 
@@ -8102,7 +7926,6 @@ msgid "col"
 msgstr "col"
 
 #: C/docbook.page:291(p)
-#| msgid "Similar to the <placeholder-1/> element."
 msgid "Similar to the <code xref=\"mal_table_col\">col</code> element."
 msgstr "Ähnlich dem <code xref=\"mal_table_col\">col</code>-Element."
 
@@ -8112,7 +7935,6 @@ msgid "colgroup"
 msgstr "colgroup"
 
 #: C/docbook.page:295(p)
-#| msgid "Similar to the <placeholder-1/> element."
 msgid "Similar to the <code xref=\"mal_table_col\">colgroup</code> element."
 msgstr "Ähnlich dem <code xref=\"mal_table_col\">colgroup</code>-Element."
 
@@ -8152,7 +7974,6 @@ msgid "command"
 msgstr "command"
 
 #: C/docbook.page:316(p)
-#| msgid "Similar to the <placeholder-1/> element."
 msgid "Similar to the <code xref=\"mal_inline_cmd\">cmd</code> element."
 msgstr "Ähnlich dem <code xref=\"mal_inline_cmd\">cmd</code>-Element."
 
@@ -8301,8 +8122,6 @@ msgstr "database"
 #: C/docbook.page:409(p) C/docbook.page:457(p) C/docbook.page:642(p)
 #: C/docbook.page:783(p) C/docbook.page:792(p) C/docbook.page:1033(p)
 #: C/docbook.page:1164(p)
-#| msgid ""
-#| "No specific element in Mallard. Use the <placeholder-1/> element instead."
 msgid ""
 "No specific element in Mallard. Use the inline <code xref=\"mal_inline_sys"
 "\">sys</code> element instead."
@@ -8361,7 +8180,6 @@ msgid "emphasis"
 msgstr "emphasis"
 
 #: C/docbook.page:444(p)
-#| msgid "Similar to the <placeholder-1/> element."
 msgid "Similar to the <code xref=\"mal_inline_em\">em</code> element."
 msgstr "Ähnlich dem <code xref=\"mal_inline_em\">em</code>-Element."
 
@@ -8455,7 +8273,6 @@ msgid "filename"
 msgstr "filename"
 
 #: C/docbook.page:514(p)
-#| msgid "Similar to the <placeholder-1/> element."
 msgid "Similar to the <code xref=\"mal_inline_file\">file</code> element."
 msgstr "Ähnlich dem <code xref=\"mal_inline_file\">file</code>-Element."
 
@@ -8470,8 +8287,6 @@ msgid "firstterm"
 msgstr "firstterm"
 
 #: C/docbook.page:524(p)
-#| msgid ""
-#| "No specific element in Mallard. Use the <placeholder-1/> element instead."
 msgid ""
 "No specific element in Mallard. Use the <code xref=\"mal_inline_em\">em</"
 "code> element to emphasize the first usage of a term."
@@ -8502,8 +8317,6 @@ msgid "foreignphrase"
 msgstr "foreignphrase"
 
 #: C/docbook.page:539(p)
-#| msgid ""
-#| "No specific element in Mallard. Use the <placeholder-1/> element instead."
 msgid ""
 "No specific element in Mallard. If necessary, use the <code xref="
 "\"mal_inline_em\">em</code> element to emphasize a foreign phrase."
@@ -8747,7 +8560,6 @@ msgid "informalexample"
 msgstr "informalexample"
 
 #: C/docbook.page:707(p)
-#| msgid "Similar to the <placeholder-1/> element."
 msgid "Similar to the <code xref=\"mal_block_example\">example</code> element."
 msgstr "Ähnlich dem <code xref=\"mal_block_example\">example</code>-Element."
 
@@ -8793,6 +8605,7 @@ msgid ""
 "See the inline <code xref=\"mal_inline_media\">media</code> element for "
 "details."
 msgstr ""
+"Details finden Sie im <code xref=\"mal_inline_media\">media</code>-Element."
 
 #: C/docbook.page:732(code)
 #, no-wrap
@@ -8854,7 +8667,6 @@ msgid "keycap"
 msgstr "keycap"
 
 #: C/docbook.page:779(p)
-#| msgid "Similar to the <placeholder-1/> element."
 msgid "Similar to the <code xref=\"mal_inline_key\">key</code> element."
 msgstr "Ähnlich dem <code xref=\"mal_inline_key\">key</code>-Element."
 
@@ -8925,6 +8737,9 @@ msgid ""
 "Currently no equivalent in Mallard. You may use <link xref=\"mal_inline_em"
 "\">inline emphasis</link> for a similar effect."
 msgstr ""
+"Gegenwärtig keine Entsprechung in Mallard. Sie können <link xref="
+"\"mal_inline_em\">inline emphasis</link> verwenden, um einen ähnlichen Effekt "
+"zu erzielen."
 
 #: C/docbook.page:834(code)
 #, no-wrap
@@ -9012,6 +8827,8 @@ msgid ""
 "No equivalent in Mallard to DocBook's <code href=\"http://www.docbook.org/tdg/"
 "en/html/simplelist.html\">simplelist</code> element."
 msgstr ""
+"Keine Entsprechung in Mallard zum <code href=\"http://www.docbook.org/tdg/en/"
+"html/simplelist.html\">simplelist</code>-Element in DocBook."
 
 #: C/docbook.page:892(code)
 #, no-wrap
@@ -9165,8 +8982,6 @@ msgid "option"
 msgstr "option"
 
 #: C/docbook.page:995(p)
-#| msgid ""
-#| "No specific element in Mallard. Use the <placeholder-1/> element instead."
 msgid ""
 "No specific element in Mallard. Use the <code xref=\"mal_inline_cmd\">cmd</"
 "code> element instead."
@@ -9189,6 +9004,8 @@ msgid ""
 "See the <code xref=\"mal_block_list\">list</code> element for details. See "
 "also the <code xref=\"mal_block_steps\">steps</code> element."
 msgstr ""
+"Details finden Sie im <code xref=\"mal_block_list\">list</code>-Element, "
+"außderdem im <code xref=\"mal_block_steps\">steps</code>-Element."
 
 #: C/docbook.page:1009(code)
 #, no-wrap
@@ -9231,7 +9048,6 @@ msgid "para"
 msgstr "para"
 
 #: C/docbook.page:1042(p)
-#| msgid "Similar to the <placeholder-1/> element."
 msgid "Similar to the <code xref=\"mal_block_p\">p</code> element."
 msgstr "Ähnlich dem <code xref=\"mal_block_p\">p</code>-Element."
 
@@ -9267,9 +9083,6 @@ msgid "partintro"
 msgstr "partintro"
 
 #: C/docbook.page:1065(p)
-#| msgid ""
-#| "No direct equivalent in Mallard. The <placeholder-1/> or <placeholder-2/> "
-#| "element may be appropriate."
 msgid ""
 "No direct equivalent in Mallard. The <code xref=\"mal_page\">page</code> or "
 "<code xref=\"mal_section\">section</code> element may be appropriate."
@@ -9294,7 +9107,6 @@ msgid "phone"
 msgstr "phone"
 
 #: C/docbook.page:1084(p)
-#| msgid "Similar to the <placeholder-1/> element."
 msgid "Similar to the <code xref=\"mal_inline_span\">span</code> element."
 msgstr "Ähnlich dem <code xref=\"mal_inline_span\">span</code>-Element."
 
@@ -9341,6 +9153,7 @@ msgstr "procedure"
 #: C/docbook.page:1124(p)
 msgid "See the <code xref=\"mal_block_steps\">steps</code> element for details."
 msgstr ""
+"Details finden Sie im <code xref=\"mal_block_steps\">steps</code>-Element."
 
 #: C/docbook.page:1128(code)
 #, no-wrap
@@ -9383,7 +9196,6 @@ msgid "programlisting"
 msgstr "programlisting"
 
 #: C/docbook.page:1151(p)
-#| msgid "Similar to the <placeholder-1/> element."
 msgid "Similar to the block <code xref=\"mal_block_code\">code</code> element."
 msgstr "Ähnlich dem <code xref=\"mal_block_code\">code</code>-Blockelement."
 
@@ -9393,8 +9205,6 @@ msgid "programlistingco"
 msgstr "programlistingco"
 
 #: C/docbook.page:1159(p)
-#| msgid ""
-#| "No specific element in Mallard. Use the <placeholder-1/> element instead."
 msgid ""
 "No specific element in Mallard. Use the inline <code xref=\"mal_inline_output"
 "\">outut</code> element instead."
@@ -9585,7 +9395,7 @@ msgstr "Zusätzliches Referenzmaterial"
 #. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
 #: C/index.page:0(None)
 msgid "translator-credits"
-msgstr "Mario Blättermann <mariobl@gnome.org>, 2009"
+msgstr "Mario Blättermann <mariobl@gnome.org>, 2009, 2010"
 
 #~ msgid "Beanstalk"
 #~ msgstr "Beanstalk"
