@@ -3,19 +3,21 @@
 # This file is distributed under the same license as the gnome-doc-utilspackage.
 # David Lodge <dave@cirt.net>, 2004.
 # Philip Withnall <philip@tecnocode.co.uk>, 2009.
-#
-#
+# Bruce Cowan <bcowan@fastmail.co.uk>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-09-12 23:38+0100\n"
-"PO-Revision-Date: 2007-09-14 07:18-0000\n"
-"Last-Translator: Philip Withnall <philip@tecnocode.co.uk>\n"
+"POT-Creation-Date: 2010-02-24 17:05+0000\n"
+"PO-Revision-Date: 2010-02-24 17:06+0100\n"
+"Last-Translator: Bruce Cowan <bcowan@fastmail.co.uk>\n"
 "Language-Team: British English <en@li.org>\n"
+"Language: en_GB\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Virtaal 0.5.2\n"
 
 #.
 #. This is used as a list item seperator for inline lists of exactly two
@@ -2112,11 +2114,16 @@ msgstr "More About"
 msgid "Name"
 msgstr "Name"
 
+#. Used as link to the next page in a series.
+#: ../xslt/gettext/l10n.xml.in.h:1741
+msgid "Next"
+msgstr "Next"
+
 #.
 #. http://www.docbook.org/tdg/en/html/note.html
 #. This is used as a default title for note elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1744
+#: ../xslt/gettext/l10n.xml.in.h:1746
 msgid "Note"
 msgstr "Note"
 
@@ -2124,9 +2131,14 @@ msgstr "Note"
 #. http://www.docbook.org/tdg/en/html/preface.html
 #. This is used as a default title for preface elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1749
+#: ../xslt/gettext/l10n.xml.in.h:1751
 msgid "Preface"
 msgstr "Preface"
+
+#. Used as link to the previous page in a series.
+#: ../xslt/gettext/l10n.xml.in.h:1753
+msgid "Previous"
+msgstr "Previous"
 
 #.
 #. http://www.docbook.org/tdg/en/html/qandaentry.html
@@ -2137,7 +2149,7 @@ msgstr "Preface"
 #. the labelling style for a qandaset.  If the labelling style is set
 #. to 'qanda', this string will be used to label questions.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1759
+#: ../xslt/gettext/l10n.xml.in.h:1763
 msgid "Q:&#x2003;"
 msgstr "Q:&#x2003;"
 
@@ -2147,7 +2159,7 @@ msgstr "Q:&#x2003;"
 #.
 #. Review: the authors consider the document complete.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1766
+#: ../xslt/gettext/l10n.xml.in.h:1770
 msgid "Ready for review"
 msgstr "Ready for review"
 
@@ -2155,7 +2167,7 @@ msgstr "Ready for review"
 #. http://www.docbook.org/tdg/en/html/revhistory.html
 #. This is used as a header before the revision history.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1771
+#: ../xslt/gettext/l10n.xml.in.h:1775
 msgid "Revision History"
 msgstr "Revision History"
 
@@ -2163,12 +2175,12 @@ msgstr "Revision History"
 #. Used for the <see> element.
 #. FIXME: this should be a format string.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1776
+#: ../xslt/gettext/l10n.xml.in.h:1780
 msgid "See"
 msgstr "See"
 
 #. Automatic see also section and links
-#: ../xslt/gettext/l10n.xml.in.h:1778
+#: ../xslt/gettext/l10n.xml.in.h:1782
 msgid "See Also"
 msgstr "See Also"
 
@@ -2179,7 +2191,7 @@ msgstr "See Also"
 #. Stub: the document has little or basic content, it may have been
 #. created by developers in order to have it included in the build.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1786
+#: ../xslt/gettext/l10n.xml.in.h:1790
 msgid "Stub"
 msgstr "Stub"
 
@@ -2187,7 +2199,7 @@ msgstr "Stub"
 #. http://www.docbook.org/tdg/en/html/refsynopsisdiv.html
 #. This is used as the default title for refsynopsisdiv elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1791
+#: ../xslt/gettext/l10n.xml.in.h:1795
 msgid "Synopsis"
 msgstr "Synopsis"
 
@@ -2195,7 +2207,7 @@ msgstr "Synopsis"
 #. http://www.docbook.org/tdg/en/html/tip.html
 #. This is used as a default title for tip elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1796
+#: ../xslt/gettext/l10n.xml.in.h:1800
 msgid "Tip"
 msgstr "Tip"
 
@@ -2203,7 +2215,7 @@ msgstr "Tip"
 #. http://www.docbook.org/tdg/en/html/warning.html
 #. This is used as a default title for warning elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1801
+#: ../xslt/gettext/l10n.xml.in.h:1805
 msgid "Warning"
 msgstr "Warning"
 
@@ -2213,7 +2225,7 @@ msgstr "Warning"
 #. translate it to "predefinito:LTR", if it isn't default:LTR
 #. or default:RTL it will not work
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1808
+#: ../xslt/gettext/l10n.xml.in.h:1812
 msgid "default:LTR"
 msgstr "default:LTR"
 
@@ -2244,7 +2256,7 @@ msgstr "default:LTR"
 #. once found inside Yelp.  The watermark functionality has been moved to
 #. gnome-doc-utils.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1836
+#: ../xslt/gettext/l10n.xml.in.h:1840
 msgid "watermark-blockquote-201C.png"
 msgstr "watermark-blockquote-201C.png"
 
