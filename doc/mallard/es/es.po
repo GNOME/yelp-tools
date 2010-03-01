@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils.mallard.master\n"
 "POT-Creation-Date: 2009-12-14 19:53+0000\n"
-"PO-Revision-Date: 2010-02-18 19:18+0100\n"
+"PO-Revision-Date: 2010-03-01 08:11+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -207,6 +207,12 @@ msgid ""
 "Currently, we have two standalone pages without interlinking. We can have "
 "<file>index.page</file> link to <file>planting.page</file>."
 msgstr ""
+"Note que se ha establecido el atributo <code>type</code> a <code>\"guide\"</"
+"code> en <file>index.page</file> y a <code>\"topic\"</code> en "
+"<file>plantando.page</file>. Esto especifica que <file>index.page</file> es "
+"una página de guía, que automáticamente tendrá enlaces a otras páginas. "
+"Actualmente hay dos páginas independientes sin interenlaces. Se puede hacer "
+"que <file>index.page</file> enlace a <file>plantando.page</file>."
 
 #: C/tenminutes.page:88(p)
 msgid "Explain the linking and introduce the next example."
@@ -270,6 +276,11 @@ msgid ""
 "doesn't help the reader to find the information she needs quickly. The needs "
 "of the reader trump all other requirements."
 msgstr ""
+"Los lectores son los últimos árbitros de la calidad de un sistema de "
+"documentación. Los mejores esfuerzos de los escritores y hackers son en vano "
+"si la documentación no ayuda al lector a encontrar rápidamente la "
+"información que necesita. Las necesidades del lector están por encima del "
+"resto de requerimientos."
 
 #: C/principles.page:42(title)
 msgid "Principles for the Writer"
@@ -626,19 +637,19 @@ msgstr "El atributo <code>shade</code>"
 
 #: C/mal_table.page:256(p)
 msgid "Shade alternating rows:"
-msgstr ""
+msgstr "Sombrear filas alternativas:"
 
 #: C/mal_table.page:298(p)
 msgid "Shade alternating columns:"
-msgstr ""
+msgstr "Sombrear columnas alternativas:"
 
 #: C/mal_table.page:340(p)
 msgid "Shade alternating row groups:"
-msgstr ""
+msgstr "Sombrear grupos de filas alternativas:"
 
 #: C/mal_table.page:390(p)
 msgid "Shade alternating column groups:"
-msgstr ""
+msgstr "Sombrear grupos de columnas alternativas:"
 
 #: C/mal_table.page:447(title)
 msgid "Design Notes"
@@ -798,6 +809,9 @@ msgid ""
 "hints. Processing tools should adjust their behavior according to those "
 "style hints they understand."
 msgstr ""
+"El atributo <code>style</code> toma una lista de sugerencias de estilo "
+"separados por espacios. Las herramientas de procesado deberán ajustar su "
+"comportamiento acorde con esas sugerencias de estilo."
 
 #: C/mal_section.page:61(p)
 msgid ""
@@ -805,6 +819,9 @@ msgid ""
 "namespaces. See <link xref=\"mal_external\"/> for more information on "
 "external-namespace attributes."
 msgstr ""
+"El elemento <code>section</code> puede tener atributos de espacios de "
+"nombres externos. Para obtener más información acerca de atributos de "
+"espacios de nombres externos consulte la <link xref=\"mal_external\"/>."
 
 #: C/mal_section.page:71(title) C/mal_page.page:134(title)
 #: C/mal_inline_var.page:75(title) C/mal_inline_sys.page:83(title)
@@ -1320,6 +1337,8 @@ msgid ""
 "This <span version=\"1.0\" translate=\"no\">word</span> should not be "
 "translated."
 msgstr ""
+"Esta <span version=\"1.0\" translate=\"no\">palabra</span> no se debería "
+"traducir"
 
 #: C/mal_inline_span.page:91(p)
 msgid ""
@@ -1327,6 +1346,9 @@ msgid ""
 "Processing tools may have special processing rules for certain style hints "
 "or external-namespace attributes."
 msgstr ""
+"No se necesita un renderizado especial para los elementos <code>span</code>. "
+"Las herramientas de procesado pueden tener reglas de procesado especiales "
+"para ciertos sugerencias o atributos de espacios de nombre externos."
 
 #: C/mal_inline_span.page:101(p)
 msgid ""
