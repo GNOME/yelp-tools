@@ -1,22 +1,25 @@
+# translation of ru.po to Russian
 # translation for gnome-doc-utils to Russian
 # Copyright (C) 2005 GNOME Documentation project
 # This file is distributed under the same license as the gnome-doc-utils package.
 #
-# Nickolay V. Shmyrev <nshmyrev@yandex.ru> 2005
-# Leonid Kanter <leon@asplinux.ru>, 2006.
+# Leonid Kanter <leon@asplinux.ru>, 2006, 2010.
+# Nickolay V. Shmyrev <nshmyrev@yandex.ru> 2005, 2009.
+# Alexander Saprykin <xelfium@gmail.com>, 2009.
+# Yuri Kozlov <yuray@komyakino.ru>, 2010.
 msgid ""
 msgstr ""
-"Project-Id-Version: gnome-doc-utils trunk\n"
+"Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2007-09-16 19:52+0400\n"
-"PO-Revision-Date: 2007-09-16 19:02+0300\n"
-"Last-Translator: Nickolay V. Shmyrev <nshmyrev@yandex.ru>\n"
-"Language-Team: Russian <gnome-cyr@gnome.org>\n"
+"POT-Creation-Date: 2010-03-04 11:18+0200\n"
+"PO-Revision-Date: 2010-03-04 11:19+0200\n"
+"Last-Translator: Leonid Kanter <leon@asplinux.ru>\n"
+"Language-Team: Russian <ru@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%"
-"10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms:  nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: KBabel 1.11.4\n"
 
 #.
 #. This is used as a list item seperator for inline lists of exactly two
@@ -184,10 +187,8 @@ msgstr "<msgid>appendix.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:139
-msgid ""
-"<msgid>appendix.xref</msgid> <msgstr>Appendix <number/> ― <title/></msgstr>"
-msgstr ""
-"<msgid>appendix.xref</msgid> <msgstr>Дополнение <number/> ― <title/></msgstr>"
+msgid "<msgid>appendix.xref</msgid> <msgstr>Appendix <number/> ― <title/></msgstr>"
+msgstr "<msgid>appendix.xref</msgid> <msgstr>Дополнение <number/> ― <title/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -478,10 +479,8 @@ msgstr "<msgid>chapter.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:394
-msgid ""
-"<msgid>chapter.xref</msgid> <msgstr>Chapter <number/> ― <title/></msgstr>"
-msgstr ""
-"<msgid>chapter.xref</msgid> <msgstr>Глава <number/> ― <title/></msgstr>"
+msgid "<msgid>chapter.xref</msgid> <msgstr>Chapter <number/> ― <title/></msgstr>"
+msgstr "<msgid>chapter.xref</msgid> <msgstr>Глава <number/> ― <title/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -576,8 +575,7 @@ msgstr ""
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:477
-msgid ""
-"<msgid>email.tooltip</msgid> <msgstr>Send email to ‘<string/>’.</msgstr>"
+msgid "<msgid>email.tooltip</msgid> <msgstr>Send email to ‘<string/>’.</msgstr>"
 msgstr ""
 "<msgid>email.tooltip</msgid> <msgstr>Отправить сообщение адресату ‘<string/"
 ">’.</msgstr>"
@@ -1060,8 +1058,7 @@ msgstr "<msgid>glosssee.format</msgid> <msgstr>Смотрите <glosssee/>.</ms
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:896
-msgid ""
-"<msgid>glossseealso.format</msgid> <msgstr>See also <glosssee/>.</msgstr>"
+msgid "<msgid>glossseealso.format</msgid> <msgstr>See also <glosssee/>.</msgstr>"
 msgstr ""
 "<msgid>glossseealso.format</msgid> <msgstr>Также смотрите <glosssee/>.</"
 "msgstr>"
@@ -1523,10 +1520,8 @@ msgstr "<msgid>refsection.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1293
-msgid ""
-"<msgid>refsection.xref</msgid> <msgstr>Section <number/> ― <title/></msgstr>"
-msgstr ""
-"<msgid>refsection.xref</msgid> <msgstr>Раздел <number/> ― <title/></msgstr>"
+msgid "<msgid>refsection.xref</msgid> <msgstr>Section <number/> ― <title/></msgstr>"
+msgstr "<msgid>refsection.xref</msgid> <msgstr>Раздел <number/> ― <title/></msgstr>"
 
 #.
 #. The number formatter used for section numbers.  This can be one of
@@ -1658,10 +1653,8 @@ msgstr "<msgid>section.number</msgid> <msgstr><parent/>.<digit/></msgstr>"
 #. to mark text as italic, bold, and monospace.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1408
-msgid ""
-"<msgid>section.xref</msgid> <msgstr>Section <number/> ― <title/></msgstr>"
-msgstr ""
-"<msgid>section.xref</msgid> <msgstr>Раздел <number/> ― <title/></msgstr>"
+msgid "<msgid>section.xref</msgid> <msgstr>Section <number/> ― <title/></msgstr>"
+msgstr "<msgid>section.xref</msgid> <msgstr>Раздел <number/> ― <title/></msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1692,8 +1685,7 @@ msgstr ""
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1436
 msgid "<msgid>seealsoie.format</msgid> <msgstr>See also <seeie/>.</msgstr>"
-msgstr ""
-"<msgid>seealsoie.format</msgid> <msgstr>Смотрите также <seeie/>.</msgstr>"
+msgstr "<msgid>seealsoie.format</msgid> <msgstr>Смотрите также <seeie/>.</msgstr>"
 
 #.
 #. This is a special format message.  Please read the full translator
@@ -1925,8 +1917,7 @@ msgstr ""
 
 #. Used as a header before a list of copyrights.
 #: ../xslt/gettext/l10n.xml.in.h:1627
-msgid ""
-"<msgstr form='0'>Copyright</msgstr> <msgstr form='1'>Copyrights</msgstr>"
+msgid "<msgstr form='0'>Copyright</msgstr> <msgstr form='1'>Copyrights</msgstr>"
 msgstr ""
 "<msgstr form='0'>Авторские права</msgstr> <msgstr form='1'>Авторские права</"
 "msgstr> <msgstr form='2'>Авторские права</msgstr>"
@@ -1949,16 +1940,14 @@ msgstr ""
 
 #. Used as a header before a list of publishers.
 #: ../xslt/gettext/l10n.xml.in.h:1633
-msgid ""
-"<msgstr form='0'>Publisher</msgstr> <msgstr form='1'>Publishers</msgstr>"
+msgid "<msgstr form='0'>Publisher</msgstr> <msgstr form='1'>Publishers</msgstr>"
 msgstr ""
 "<msgstr form='0'>Распространитель</msgstr> <msgstr "
 "form='1'>Распространители</msgstr> <msgstr form='2'>Распространители</msgstr>"
 
 #. Used as a header before a list of translators.
 #: ../xslt/gettext/l10n.xml.in.h:1635
-msgid ""
-"<msgstr form='0'>Translator</msgstr> <msgstr form='1'>Translators</msgstr>"
+msgid "<msgstr form='0'>Translator</msgstr> <msgstr form='1'>Translators</msgstr>"
 msgstr ""
 "<msgstr form='0'>Переводчик</msgstr> <msgstr form='1'>Переводчики</msgstr> "
 "<msgstr form='2'>Переводчики</msgstr>"
@@ -2029,6 +2018,17 @@ msgid "Dedication"
 msgstr "Посвящение"
 
 #.
+#. This is used as a description for the status of the document.
+#. This will not be visibile to the users.
+#.
+#. Draft: the authors have written all the content, but they still need
+#. to clean up the language or markup.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1684
+msgid "Draft"
+msgstr "Черновик"
+
+#.
 #. http://www.docbook.org/tdg/en/html/affiliation.html
 #.
 #. This is used as a label before email addresses when listing
@@ -2037,15 +2037,31 @@ msgstr "Посвящение"
 #. Shaun McCance
 #. Email: shaunm@gnome.org
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1686
+#: ../xslt/gettext/l10n.xml.in.h:1694
 msgid "Email"
-msgstr "Эл. почта"
+msgstr "Email"
+
+#.
+#. This is used as a description for the status of the document.
+#. This will not be visibile to the users.
+#.
+#. Final: a senior member of the documentation team has reviewd the
+#. document and approved it.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1702
+msgid "Final"
+msgstr "Завершено"
+
+#. Automatic further reading section and links
+#: ../xslt/gettext/l10n.xml.in.h:1704
+msgid "Further Reading"
+msgstr "Для дальнейшего чтения"
 
 #.
 #. http://www.docbook.org/tdg/en/html/glossary.html
 #. This is used as a default title for glossary elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1691
+#: ../xslt/gettext/l10n.xml.in.h:1709
 msgid "Glossary"
 msgstr "Словарь терминов"
 
@@ -2053,15 +2069,26 @@ msgstr "Словарь терминов"
 #. http://www.docbook.org/tdg/en/html/important.html
 #. This is used as a default title for important elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1696
+#: ../xslt/gettext/l10n.xml.in.h:1714
 msgid "Important"
 msgstr "Важно"
+
+#.
+#. This is used as a description for the status of the document.
+#. This will not be visibile to the users.
+#.
+#. Incomplete: the document has the basic structure in place, but the
+#. authors have not yet written all the content.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1722
+msgid "Incomplete"
+msgstr "Не завершено"
 
 #.
 #. http://www.docbook.org/tdg/en/html/index.html
 #. This is used as a default title for index elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1701
+#: ../xslt/gettext/l10n.xml.in.h:1727
 msgid "Index"
 msgstr "Оглавление"
 
@@ -2069,23 +2096,33 @@ msgstr "Оглавление"
 #. http://www.docbook.org/tdg/en/html/legalnotice.html
 #. This is used as a default title for legalnotice elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1706
+#: ../xslt/gettext/l10n.xml.in.h:1732
 msgid "Legal Notice"
 msgstr "Юридический статус"
+
+#. Automatic more about section and links
+#: ../xslt/gettext/l10n.xml.in.h:1734
+msgid "More About"
+msgstr "Больше информации"
 
 #.
 #. http://www.docbook.org/tdg/en/html/refnamediv.html
 #. This is used as the title for refnamediv elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1711
+#: ../xslt/gettext/l10n.xml.in.h:1739
 msgid "Name"
 msgstr "Название"
+
+#. Used as link to the next page in a series.
+#: ../xslt/gettext/l10n.xml.in.h:1741
+msgid "Next"
+msgstr "Следующая"
 
 #.
 #. http://www.docbook.org/tdg/en/html/note.html
 #. This is used as a default title for note elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1716
+#: ../xslt/gettext/l10n.xml.in.h:1746
 msgid "Note"
 msgstr "Заметка"
 
@@ -2093,9 +2130,14 @@ msgstr "Заметка"
 #. http://www.docbook.org/tdg/en/html/preface.html
 #. This is used as a default title for preface elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1721
+#: ../xslt/gettext/l10n.xml.in.h:1751
 msgid "Preface"
 msgstr "Вступление"
+
+#. Used as link to the previous page in a series.
+#: ../xslt/gettext/l10n.xml.in.h:1753
+msgid "Previous"
+msgstr "Предыдущая"
 
 #.
 #. http://www.docbook.org/tdg/en/html/qandaentry.html
@@ -2106,39 +2148,57 @@ msgstr "Вступление"
 #. the labelling style for a qandaset.  If the labelling style is set
 #. to 'qanda', this string will be used to label questions.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1731
+#: ../xslt/gettext/l10n.xml.in.h:1763
 msgid "Q:&#x2003;"
 msgstr "В:&#x2003;"
+
+#.
+#. This is used as a description for the status of the document.
+#. This will not be visibile to the users.
+#.
+#. Review: the authors consider the document complete.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1770
+msgid "Ready for review"
+msgstr "Готово для проверки"
 
 #.
 #. http://www.docbook.org/tdg/en/html/revhistory.html
 #. This is used as a header before the revision history.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1736
+#: ../xslt/gettext/l10n.xml.in.h:1775
 msgid "Revision History"
-msgstr "История создания"
+msgstr "История изменений"
 
 #.
 #. Used for the <see> element.
 #. FIXME: this should be a format string.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1741
+#: ../xslt/gettext/l10n.xml.in.h:1780
 msgid "See"
 msgstr "Смотрите"
 
-#.
-#. Used for the <seealso> element.
-#. FIXME: this should be a format string.
-#.
-#: ../xslt/gettext/l10n.xml.in.h:1746
+#. Automatic see also section and links
+#: ../xslt/gettext/l10n.xml.in.h:1782
 msgid "See Also"
 msgstr "Смотрите также"
+
+#.
+#. This is used as a description for the status of the document.
+#. This will not be visibile to the users.
+#.
+#. Stub: the document has little or basic content, it may have been
+#. created by developers in order to have it included in the build.
+#.
+#: ../xslt/gettext/l10n.xml.in.h:1790
+msgid "Stub"
+msgstr "Начато"
 
 #.
 #. http://www.docbook.org/tdg/en/html/refsynopsisdiv.html
 #. This is used as the default title for refsynopsisdiv elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1751
+#: ../xslt/gettext/l10n.xml.in.h:1795
 msgid "Synopsis"
 msgstr "Аннотация"
 
@@ -2146,7 +2206,7 @@ msgstr "Аннотация"
 #. http://www.docbook.org/tdg/en/html/tip.html
 #. This is used as a default title for tip elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1756
+#: ../xslt/gettext/l10n.xml.in.h:1800
 msgid "Tip"
 msgstr "Подсказка"
 
@@ -2154,17 +2214,17 @@ msgstr "Подсказка"
 #. http://www.docbook.org/tdg/en/html/warning.html
 #. This is used as a default title for warning elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1761
+#: ../xslt/gettext/l10n.xml.in.h:1805
 msgid "Warning"
 msgstr "Предупреждение"
 
 #.
 #. Translate to default:RTL if your language should be displayed
 #. right-to-left, otherwise translate to default:LTR.  Do *not*
-#. translate it to "predefinito:LTR", if it it isn't default:LTR
+#. translate it to "predefinito:LTR", if it isn't default:LTR
 #. or default:RTL it will not work
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1768
+#: ../xslt/gettext/l10n.xml.in.h:1812
 msgid "default:LTR"
 msgstr "default:LTR"
 
@@ -2195,6 +2255,7 @@ msgstr "default:LTR"
 #. once found inside Yelp.  The watermark functionality has been moved to
 #. gnome-doc-utils.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1796
+#: ../xslt/gettext/l10n.xml.in.h:1840
 msgid "watermark-blockquote-201C.png"
 msgstr "watermark-blockquote-00AB.png"
+
