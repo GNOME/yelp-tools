@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils.mallard.master\n"
 "POT-Creation-Date: 2009-12-14 19:53+0000\n"
-"PO-Revision-Date: 2010-03-01 08:11+0100\n"
+"PO-Revision-Date: 2010-03-08 07:44+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -4123,7 +4123,7 @@ msgstr ""
 
 #: C/mal_external.page:42(title)
 msgid "External Namespace Attributes"
-msgstr ""
+msgstr "Atributos de espacios de nombres externos"
 
 #: C/mal_external.page:46(p)
 msgid ""
@@ -7073,6 +7073,9 @@ msgid ""
 "elements</link> may provide this information for <link xref=\"mal_info_credit"
 "\">credits</link>"
 msgstr ""
+"No existe el equivalente en Mallard. <link xref=\"mal_external\">Elementos "
+"de espacios de nombres externos</link> pueden proporcionar esta información "
+"para <link xref=\"mal_info_credit\">credits</link>."
 
 #: C/docbook.page:51(code)
 #, no-wrap
@@ -7197,6 +7200,9 @@ msgid ""
 "elements</link> may provide this information in <code xref=\"mal_info"
 "\">info</code> elements."
 msgstr ""
+"No existe equivalente en Mallard. <link xref=\"mal_external\">Elementos de "
+"espacios de nombres externos</link> pueden proporcionar esta información "
+"para <code xref=\"mal_info\">info</code>."
 
 #: C/docbook.page:110(code)
 #, no-wrap
@@ -7250,6 +7256,9 @@ msgid ""
 "elements</link> may provide this information for <link xref=\"mal_info_credit"
 "\">credits</link>."
 msgstr ""
+"No existe equivalente en Mallard. <link xref=\"mal_external\">Elementos de "
+"espacios de nombres externos</link> pueden proporcionar esta información "
+"para <link xref=\"mal_info_credit\">credits</link>."
 
 #: C/docbook.page:133(code)
 #, no-wrap
@@ -7406,6 +7415,9 @@ msgid ""
 "code> element in a <code xref=\"mal_block_figure\">figure</code> element for "
 "a similar effect."
 msgstr ""
+"No existe equivalente directo en Mallard. Para obtener un resultado similar "
+"use el elemento <code xref=\"mal_block_desc\">desc</code> en un elemento "
+"<code xref=\"mal_block_figure\">figure</code>."
 
 #: C/docbook.page:227(code)
 #, no-wrap
@@ -7484,6 +7496,9 @@ msgid ""
 "\">code</code> element instead, possibly inside a <code xref="
 "\"mal_block_synopsis\">synopsis</code> element."
 msgstr ""
+"No existe un equivalente directo en Mallard. En su lugar use el bloque <code "
+"xref=\"mal_block_code\">code</code>, posiblemente dentro de un elemento "
+"<code xref=\"mal_block_synopsis\">synopsis</code>."
 
 #: C/docbook.page:275(code)
 #, no-wrap
@@ -7639,6 +7654,9 @@ msgid ""
 "\">code</code> element instead, possibly inside a <code xref="
 "\"mal_block_synopsis\">synopsis</code> element."
 msgstr ""
+"No existe el elemento específico en Mallard. En su lugar use el bloque <code "
+"xref=\"mal_block_code\">code</code>, posiblemente dentro de un elemento "
+"<code xref=\"mal_block_synopsis\">synopsis</code>."
 
 #: C/docbook.page:363(code)
 #, no-wrap
@@ -7661,6 +7679,10 @@ msgid ""
 "elements</link> may provide this information in <code xref=\"mal_info"
 "\">info</code> elements or for <link xref=\"mal_info_credit\">credits</link>."
 msgstr ""
+"No existe equivalente en Mallard. <link xref=\"mal_external\">Espacios de "
+"nombres externos</link> pueden proporcionar esta información en elementos "
+"<code xref=\"mal_info\">info</code> o para <link xref=\"mal_info_credit"
+"\">credits</link>."
 
 #: C/docbook.page:379(code)
 #, no-wrap
@@ -7727,6 +7749,10 @@ msgid ""
 "namespace elements</link> may provide this information in <code xref="
 "\"mal_info\">info</code> elements."
 msgstr ""
+"Varía con el uso. Para <link xref=\"mal_info_revision\">revisions</link> use "
+"el atributo <code>date</code>. <link xref=\"mal_external\">Elementos de "
+"espacios de nombres externos</link> pueden proporcionar esta información en "
+"elementos <link xref=\"mal_info_revision\">info</link>."
 
 #: C/docbook.page:419(code)
 #, no-wrap
@@ -7759,6 +7785,9 @@ msgid ""
 "in a <code xref=\"mal_info_credit\">credit</code> element in an "
 "informational context. Inline, use <code xref=\"mal_inline_sys\">sys</code>."
 msgstr ""
+"Varía con el uso. Use el elemento <code xref=\"mal_info_credit\">name</code> "
+"en un elemento <code xref=\"mal_info_credit\">credit</code> dentro de un "
+"contexto informal. En línea, use <code xref=\"mal_inline_sys\">sys</code>."
 
 #: C/docbook.page:443(code)
 #, no-wrap
@@ -8325,7 +8354,7 @@ msgid ""
 "<code xref=\"mal_info_license\">license</code> element."
 msgstr ""
 "No existe una nota legal de propósito general en Mallard. <link xref="
-"\"mal_external\">elementos del espacio de nombres externo</link> puede "
+"\"mal_external\">Elementos de espacios de nombres externos</link> pueden "
 "proporcionar esta información en los elementos <code xref=\"mal_info\">info</"
 "code>. Para la información de la licencia use el elemento <code xref="
 "\"mal_info_license\">license</code>."
@@ -8802,7 +8831,7 @@ msgid ""
 "xref=\"mal_info\">info</code> elements."
 msgstr ""
 "No existe un elemento equivalente en Mallard. Use texto plano en línea. Los "
-"<link xref=\"mal_external\">elementos del espacio de nombres externo</link> "
+"<link xref=\"mal_external\">elementos de espacios de nombres externos</link> "
 "pueden proporcionar información con los elementos <code xref=\"mal_info"
 "\">info</code>."
 
