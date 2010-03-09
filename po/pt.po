@@ -1,14 +1,14 @@
 # gnome-doc-utils' Portuguese translation.
-# Copyright © 2004, 2005, 2006, 2007, 2009 gnome-doc-utils 
+# Copyright © 2004, 2005, 2006, 2007, 2009, 2010 gnome-doc-utils 
 # This file is distributed under the same license as the gnome-doc-utils package.
-# Duarte Loreto <happyguy_pt@hotmail.com>, 2004, 2005, 2006, 2007, 2009.
+# Duarte Loreto <happyguy_pt@hotmail.com>, 2004, 2005, 2006, 2007, 2009, 2010.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: 2.28\n"
+"Project-Id-Version: 2.30\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-08-27 08:59+0100\n"
-"PO-Revision-Date: 2009-08-27 09:00+0000\n"
+"POT-Creation-Date: 2010-03-09 01:42+0000\n"
+"PO-Revision-Date: 2010-03-09 01:45+0000\n"
 "Last-Translator: Duarte Loreto <happyguy_pt@hotmail.com>\n"
 "Language-Team: Portuguese <gnome_pt@yahoogroups.com>\n"
 "MIME-Version: 1.0\n"
@@ -2112,11 +2112,16 @@ msgstr "Mais Sobre"
 msgid "Name"
 msgstr "Nome"
 
+#. Used as link to the next page in a series.
+#: ../xslt/gettext/l10n.xml.in.h:1741
+msgid "Next"
+msgstr "Seguinte"
+
 #.
 #. http://www.docbook.org/tdg/en/html/note.html
 #. This is used as a default title for note elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1744
+#: ../xslt/gettext/l10n.xml.in.h:1746
 msgid "Note"
 msgstr "Nota"
 
@@ -2124,9 +2129,14 @@ msgstr "Nota"
 #. http://www.docbook.org/tdg/en/html/preface.html
 #. This is used as a default title for preface elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1749
+#: ../xslt/gettext/l10n.xml.in.h:1751
 msgid "Preface"
 msgstr "Prefácio"
+
+#. Used as link to the previous page in a series.
+#: ../xslt/gettext/l10n.xml.in.h:1753
+msgid "Previous"
+msgstr "Anterior"
 
 #.
 #. http://www.docbook.org/tdg/en/html/qandaentry.html
@@ -2137,7 +2147,7 @@ msgstr "Prefácio"
 #. the labelling style for a qandaset.  If the labelling style is set
 #. to 'qanda', this string will be used to label questions.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1759
+#: ../xslt/gettext/l10n.xml.in.h:1763
 msgid "Q:&#x2003;"
 msgstr "P:&#x2003;"
 
@@ -2147,7 +2157,7 @@ msgstr "P:&#x2003;"
 #.
 #. Review: the authors consider the document complete.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1766
+#: ../xslt/gettext/l10n.xml.in.h:1770
 msgid "Ready for review"
 msgstr "Preparado para revisão"
 
@@ -2155,7 +2165,7 @@ msgstr "Preparado para revisão"
 #. http://www.docbook.org/tdg/en/html/revhistory.html
 #. This is used as a header before the revision history.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1771
+#: ../xslt/gettext/l10n.xml.in.h:1775
 msgid "Revision History"
 msgstr "Histórico de Revisões"
 
@@ -2163,12 +2173,12 @@ msgstr "Histórico de Revisões"
 #. Used for the <see> element.
 #. FIXME: this should be a format string.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1776
+#: ../xslt/gettext/l10n.xml.in.h:1780
 msgid "See"
 msgstr "Consulte"
 
 #. Automatic see also section and links
-#: ../xslt/gettext/l10n.xml.in.h:1778
+#: ../xslt/gettext/l10n.xml.in.h:1782
 msgid "See Also"
 msgstr "Consulte Também"
 
@@ -2179,7 +2189,7 @@ msgstr "Consulte Também"
 #. Stub: the document has little or basic content, it may have been
 #. created by developers in order to have it included in the build.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1786
+#: ../xslt/gettext/l10n.xml.in.h:1790
 msgid "Stub"
 msgstr "Esqueleto"
 
@@ -2187,7 +2197,7 @@ msgstr "Esqueleto"
 #. http://www.docbook.org/tdg/en/html/refsynopsisdiv.html
 #. This is used as the default title for refsynopsisdiv elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1791
+#: ../xslt/gettext/l10n.xml.in.h:1795
 msgid "Synopsis"
 msgstr "Sinopse"
 
@@ -2195,7 +2205,7 @@ msgstr "Sinopse"
 #. http://www.docbook.org/tdg/en/html/tip.html
 #. This is used as a default title for tip elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1796
+#: ../xslt/gettext/l10n.xml.in.h:1800
 msgid "Tip"
 msgstr "Dica"
 
@@ -2203,7 +2213,7 @@ msgstr "Dica"
 #. http://www.docbook.org/tdg/en/html/warning.html
 #. This is used as a default title for warning elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1801
+#: ../xslt/gettext/l10n.xml.in.h:1805
 msgid "Warning"
 msgstr "Aviso"
 
@@ -2213,7 +2223,7 @@ msgstr "Aviso"
 #. translate it to "predefinito:LTR", if it isn't default:LTR
 #. or default:RTL it will not work
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1808
+#: ../xslt/gettext/l10n.xml.in.h:1812
 msgid "default:LTR"
 msgstr "default:LTR"
 
@@ -2244,7 +2254,7 @@ msgstr "default:LTR"
 #. once found inside Yelp.  The watermark functionality has been moved to
 #. gnome-doc-utils.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1836
+#: ../xslt/gettext/l10n.xml.in.h:1840
 msgid "watermark-blockquote-201C.png"
 msgstr "watermark-blockquote-201C.png"
 
