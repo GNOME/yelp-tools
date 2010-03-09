@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils.mallard.master\n"
 "POT-Creation-Date: 2009-12-14 19:53+0000\n"
-"PO-Revision-Date: 2010-03-08 07:44+0100\n"
+"PO-Revision-Date: 2010-03-09 20:54+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -1131,6 +1131,8 @@ msgid ""
 "See <link xref=\"mal_inline_cmd\"/> and <link xref=\"mal_inline_code\"/> for "
 "examples using <code>var</code>."
 msgstr ""
+"Consulte la <link xref=\"mal_inline_cmd\"/> y la <link xref=\"mal_inline_code"
+"\"/> para ver ejemplos del uso de <code>var</code>."
 
 #: C/mal_inline_var.page:77(p)
 msgid ""
@@ -1167,6 +1169,8 @@ msgid ""
 "docbook.org/tdg/en/html/replaceable.html\">replaceable</code> element in "
 "DocBook."
 msgstr ""
+"El elemento <code>var</code> es similar al elemento <code href=\"http://www."
+"docbook.org/tdg/en/html/replaceable.html\">replaceable</code> en DocBook."
 
 #: C/mal_inline_sys.page:18(desc)
 msgid "Mark up general identifiers found on computer systems."
@@ -1210,6 +1214,8 @@ msgid ""
 "The <code>sys</code> element can contain a mixture of text and any <link "
 "xref=\"mal_inline\">general inline elements</link>."
 msgstr ""
+"El elemento <code>sys</code> puede contener una mezcla de texto y cualquier "
+"<link xref=\"mal_inline\">elemento general en línea</link>."
 
 #: C/mal_inline_sys.page:46(p)
 msgid ""
@@ -1224,6 +1230,8 @@ msgid ""
 "The <code>sys</code> element can link to other pages or documents. See <link "
 "xref=\"mal_attr_link\"/> for more information."
 msgstr ""
+"El elemento <code>sys</code> puede enlazar a otras páginas o documentos. "
+"Para obtener más información consulte la <link xref=\"mal_attr_link\"/>."
 
 #: C/mal_inline_sys.page:59(p)
 msgid ""
@@ -1234,7 +1242,7 @@ msgstr ""
 
 #: C/mal_inline_sys.page:71(p)
 msgid "Use <code>sys</code> to mark up a domain name:"
-msgstr ""
+msgstr "Use <code>sys</code> para marcar un nombre de dominio:"
 
 #: C/mal_inline_sys.page:75(p)
 msgid "The Linux kernel is hosted on <sys>git.kernel.org</sys>."
@@ -1264,6 +1272,8 @@ msgid ""
 "A generic inline element that can be used for semantic, localization, and "
 "styling purpose."
 msgstr ""
+"Un elemento genérico en línea que se puede usar para propósitos semánticos, "
+"de localización y de estilo."
 
 #: C/mal_inline_span.page:23(title)
 msgid "Spans"
@@ -6974,6 +6984,14 @@ msgid ""
 "in context. Thus, it is important that tools always process elements in "
 "context to handle them correctly."
 msgstr ""
+"Es importante marcar que Mallard usa algunos nombres de elementos tanto en "
+"el contexto en bloque como en línea. Los elementos <code xref="
+"\"mal_block_code\">code</code> y <code xref=\"mal_block_media\">media</code> "
+"son dos ejemplos de ello. Ya que Mallard nunca permite que un bloque de "
+"contenido general se mezcle con el contenido general en línea, el ojetivo de "
+"esos elementos no es ambiguo al procesarlos en contexto. Por ello, es "
+"importante que las herramientas siempre procesen los elementos en contexto "
+"para gestionarlos correctamente."
 
 #: C/index.page:17(years)
 msgid "2007"
@@ -7038,6 +7056,8 @@ msgid ""
 "No equivalent in Mallard, as marking the accelerator in the help text is not "
 "considered important."
 msgstr ""
+"No existe equivalente en Mallard ya que marcar el acelerador en el texto de "
+"la ayuda no se considera importante."
 
 #: C/docbook.page:31(code)
 #, no-wrap
@@ -7155,7 +7175,7 @@ msgstr "area"
 #: C/docbook.page:385(p) C/docbook.page:613(p) C/docbook.page:677(p)
 #: C/docbook.page:883(p) C/docbook.page:1155(p)
 msgid "Mallard does not support callouts."
-msgstr ""
+msgstr "Mallard no soporta «callout»."
 
 #: C/docbook.page:86(code)
 #, no-wrap
@@ -7368,6 +7388,9 @@ msgid ""
 "No equivalent in Mallard. Future versions may add metadata holders for block "
 "elements to record credits and licensing information for external resources."
 msgstr ""
+"No existe equivalente en Mallard. Versiones futuras pueden añadir "
+"manejadores de metadatos para elementos de bloques para guardar los créditos "
+"y la información de la licencia de recursos externos."
 
 #: C/docbook.page:197(code)
 #, no-wrap
