@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils.mallard.master\n"
 "POT-Creation-Date: 2009-12-14 19:53+0000\n"
-"PO-Revision-Date: 2010-03-09 20:54+0100\n"
+"PO-Revision-Date: 2010-03-11 08:37+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -987,6 +987,9 @@ msgid ""
 "Guides also have see also links generated automatically. See <link xref="
 "\"links#seealso\"/> for more information."
 msgstr ""
+"Las páginas de guía también tienen enlaces «Ver también» generados "
+"automáticamente. Para obtener más información consulte la <link xref="
+"\"links#seealso\"/>."
 
 #: C/mal_page.page:100(p)
 msgid ""
@@ -1025,6 +1028,8 @@ msgid ""
 "Topics also have see also links generated automatically. See <link xref="
 "\"links#seealso\"/> for more information."
 msgstr ""
+"Los temas también tienen enlaces «Ver también» generados automáticamente. "
+"Para obtener más información consulte la <link xref=\"links#seealso\"/>."
 
 #: C/mal_page.page:136(p)
 msgid ""
@@ -1125,6 +1130,9 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"El elemento <code>var</code> puede tener atributos de espacios de nombres "
+"externos. Para obtener más información acerca de atributos de espacios de "
+"nombres externos consulte la <link xref=\"mal_external\"/>."
 
 #: C/mal_inline_var.page:66(p)
 msgid ""
@@ -1313,6 +1321,8 @@ msgid ""
 "The <code>span</code> element can contain a mixture of text and any <link "
 "xref=\"mal_inline\">general inline elements</link>."
 msgstr ""
+"El elemento <code>span</code> puede contener una mezcla de texto y cualquier "
+"<link xref=\"mal_inline\">elemento general en línea</link>."
 
 #: C/mal_inline_span.page:48(p)
 msgid ""
@@ -1327,6 +1337,8 @@ msgid ""
 "The <code>span</code> element can link to other pages or documents. See "
 "<link xref=\"mal_attr_link\"/> for more information."
 msgstr ""
+"El elemento <code>span</code> puede enlazar a otras páginas o documentos. "
+"Para obtener más información consulte la <link xref=\"mal_attr_link\"/>."
 
 #: C/mal_inline_span.page:61(p)
 msgid ""
@@ -1334,6 +1346,9 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"El elemento <code>span</code> puede tener atributos de espacios de nombres "
+"externos. Para obtener más información acerca de atributos de espacios de "
+"nombres externos consulte la <link xref=\"mal_external\"/>."
 
 #: C/mal_inline_span.page:73(p)
 msgid ""
@@ -1365,6 +1380,8 @@ msgid ""
 "The <code>span</code> element is similar to the <code href=\"http://www."
 "docbook.org/tdg/en/html/phrase.html\">phrase</code> element in DocBook."
 msgstr ""
+"El elemento <code>span</code> es similar al elemento <code href=\"http://www."
+"docbook.org/tdg/en/html/phrase.html\">phrase</code> en DocBook."
 
 #: C/mal_inline.page:18(desc)
 msgid "Rich semantic elements for marking up inline content."
@@ -1529,6 +1546,8 @@ msgid ""
 "The <code>output</code> element can contain a mixture of text and any <link "
 "xref=\"mal_inline\">general inline elements</link>."
 msgstr ""
+"El elemento <code>output</code> puede contener una mezcla de texto y "
+"cualquier <link xref=\"mal_inline\">elemento general en línea</link>."
 
 #: C/mal_inline_output.page:53(p)
 msgid ""
@@ -1543,10 +1562,12 @@ msgid ""
 "The <code>output</code> element can link to other pages or documents. See "
 "<link xref=\"mal_attr_link\"/> for more information."
 msgstr ""
+"El elemento <code>output</code> puede enlazar a otras páginas o documentos. "
+"Para obtener más información consulte la <link xref=\"mal_attr_link\"/>."
 
 #: C/mal_inline_output.page:67(p)
 msgid "Typical values for the <code>style</code> attribute include:"
-msgstr ""
+msgstr "Los valores típicos para el atributo <code>style</code> incluyen:"
 
 #: C/mal_inline_output.page:69(code)
 #, no-wrap
