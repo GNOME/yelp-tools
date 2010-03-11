@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils.mallard.master\n"
 "POT-Creation-Date: 2009-12-14 19:53+0000\n"
-"PO-Revision-Date: 2010-03-11 18:18+0100\n"
+"PO-Revision-Date: 2010-03-11 18:39+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -778,8 +778,8 @@ msgid ""
 "The <code>section</code> can occur in <code xref=\"mal_page\">page</code> "
 "elements and other <code>section</code> elements."
 msgstr ""
-"El elemento <code>section</code> puede suceder en los elementos <code xref="
-"\"mal_page\">page</code> y en otros elementos <code>section</code>."
+"El elemento <code>section</code> puede encontrarse en los elementos <code "
+"xref=\"mal_page\">page</code> y en otros elementos <code>section</code>."
 
 #: C/mal_section.page:52(p)
 msgid ""
@@ -939,7 +939,7 @@ msgid ""
 "file, and cannot occur in any other elements."
 msgstr ""
 "El elemento <code>page</code> es el elemento de nivel superior en cualquier "
-"archivo de página Mallard, no puede suceder en ningún otro elemento."
+"archivo de página Mallard, no puede encontrarse en ningún otro elemento."
 
 #: C/mal_page.page:58(p)
 msgid ""
@@ -1878,11 +1878,11 @@ msgstr ""
 
 #: C/mal_inline_link.page:18(desc)
 msgid "Link to other pages, sections, or web pages."
-msgstr ""
+msgstr "Enlazar otras páginas, secciones o páginas web."
 
 #: C/mal_inline_link.page:21(title) C/mal_info_link.page:11(title)
 msgid "Hyperlinks"
-msgstr ""
+msgstr "Hiperenlaces"
 
 #: C/mal_inline_link.page:23(code)
 #, no-wrap
@@ -1900,6 +1900,18 @@ msgid ""
 "  <link xref=\"mal_inline\">mal_inline</link>\n"
 "}\n"
 msgstr ""
+"\n"
+"mal_inline_link = element link {\n"
+"  ( attribute xref { texto } |\n"
+"    attribute href { texto } |\n"
+"    ( attribute xref { texto }, attribute href { texto } )\n"
+"  ),\n"
+"  attribute role { texto } ?,\n"
+"  attribute style { xsd:NMTOKENS } ?,\n"
+"  attribute * - (mal:* | local:*) { text } *,\n"
+"\n"
+"  <link xref=\"mal_inline\">mal_inline</link>\n"
+"}\n"
 
 #: C/mal_inline_link.page:37(p)
 msgid ""
@@ -1916,11 +1928,15 @@ msgid ""
 "The <code>link</code> element can contain a mixture of text and any <link "
 "xref=\"mal_inline\">general inline elements</link>."
 msgstr ""
+"El elemento <code>link</code> puede contener una mezcla de texto y cualquier "
+"<link xref=\"mal_inline\">elemento general en línea</link>."
 
 #: C/mal_inline_link.page:52(p)
 msgid ""
 "For links within the same document, content can be automatically generated."
 msgstr ""
+"Para enlaces hacia el mismo documento, el contenido se puede generar "
+"automáticamente."
 
 #: C/mal_inline_link.page:55(p)
 msgid ""
@@ -1942,12 +1958,17 @@ msgid ""
 "The <code>href</code> attribute creates a link to a web page or other "
 "network-accessible resource."
 msgstr ""
+"El atributo <code>href</code> crea un enlace a una página web u otro recurso "
+"accesible en la red."
 
 #: C/mal_inline_link.page:68(p)
 msgid ""
 "The <code>role</code> attribute can be used to select alternative titles of "
 "the target page or section to be used as automatic content."
 msgstr ""
+"El atributo <code>role</code> se puede usar para seleccionar títulos "
+"alternativos de la página o sección objetivo para usar como contenido "
+"automático."
 
 #: C/mal_inline_link.page:75(p)
 msgid ""
@@ -1955,23 +1976,30 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"El elemento <code>link</code> puede tener atributos de espacios de nombres "
+"externos. Para obtener más información acerca de atributos de espacios de "
+"nombres externos consulte la <link xref=\"mal_external\"/>."
 
 #: C/mal_inline_link.page:87(p)
 msgid "Link to another page in the same document:"
-msgstr ""
+msgstr "Enlazar a otra página en el mismo documento:"
 
 #: C/mal_inline_link.page:93(p)
 msgid ""
 "See <link xref=\"mal_attr_link\"/> for information on linking attributes."
 msgstr ""
+"Para información acerca de los atributos de enlazado consulte <link xref="
+"\"mal_attr_link\"/>."
 
 #: C/mal_inline_link.page:96(p)
 msgid "Link to a section in the same page:"
-msgstr ""
+msgstr "Enlazar a una sección en la misma página:"
 
 #: C/mal_inline_link.page:102(p)
 msgid "See <link xref=\"#processing\"/> for details on automatic link text."
 msgstr ""
+"Para detalles acerca del texto de enlace automático consulte <link xref="
+"\"#processing\"/>."
 
 #: C/mal_inline_link.page:105(p)
 msgid "Link to a section in another page:"
@@ -3769,6 +3797,8 @@ msgid ""
 "The <code>name</code> element can occur in the <code xref=\"mal_info_credit"
 "\">credit</code> element."
 msgstr ""
+"El elemento <code>name</code> puede encontrarse en el elemento <code xref="
+"\"mal_info_credit\">credit</code>."
 
 #: C/mal_info_name.page:44(p)
 msgid ""
@@ -3776,6 +3806,9 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"El elemento <code>name</code> puede tener atributos de espacios de nombres "
+"externos. Para obtener más información acerca de atributos de espacios de "
+"nombres externos consulte la <link xref=\"mal_external\"/>."
 
 #: C/mal_info_name.page:66(p)
 msgid ""
@@ -6203,6 +6236,9 @@ msgid ""
 "The <code>desc</code> element can also be used in an informational context. "
 "See <link xref=\"mal_info_desc\"/> for more information."
 msgstr ""
+"El elemento <code>desc</code> también se puede usar en un contexto "
+"informativo. Para obtener más información consulte la <link xref="
+"\"mal_info_desc\"/>."
 
 #: C/mal_block_desc.page:71(p)
 msgid ""
@@ -6267,6 +6303,8 @@ msgid ""
 "which clearly distinguishes it from the normal block content of the "
 "enclosing element."
 msgstr ""
+"Se debería mostrar una descripción de forma que deje el rol claro y que lo "
+"distinga del bloque normal de contenido del elemento adjunto."
 
 #: C/mal_block_comment.page:16(desc)
 msgid "Include an editorial comment that's hidden from normal readers."
@@ -6346,6 +6384,9 @@ msgid ""
 "namespaces. See <link xref=\"mal_external\"/> for more information on "
 "external-namespace attributes."
 msgstr ""
+"El elemento <code>comment</code> puede tener atributos de espacios de "
+"nombres externos. Para obtener más información acerca de atributos de "
+"espacios de nombres externos consulte la <link xref=\"mal_external\"/>."
 
 #: C/mal_block_comment.page:78(p)
 msgid "Provide a comment:"
@@ -6353,13 +6394,15 @@ msgstr "Proporcione un comentario:"
 
 #: C/mal_block_comment.page:90(title) C/mal_block_comment.page:119(title)
 msgid "Mallards Are Dabbling Ducks"
-msgstr ""
+msgstr "Los ánades reales son patos anatinos"
 
 #: C/mal_block_comment.page:92(p) C/mal_block_comment.page:121(p)
 msgid ""
 "The information in this section is wrong. Mallards are dabbling ducks, not "
 "diving ducks."
 msgstr ""
+"La información en esta página es incorrecta. Los ánades reales son patos "
+"anatinos no aytinos."
 
 #: C/mal_block_comment.page:97(p)
 msgid "Use <code>comment</code> to carry out a threaded discussion:"
@@ -6372,6 +6415,8 @@ msgstr "Roberto"
 #: C/mal_block_comment.page:126(p)
 msgid "But I saw a mallard dive just the other day."
 msgstr ""
+"Pero el otro día vi ánade real aytino. (N. del T.: el texto original habla "
+"de «mallard»; «dabbling duck» y «diving duck».)"
 
 #: C/mal_block_comment.page:130(p)
 msgid ""
@@ -6387,6 +6432,9 @@ msgid ""
 "may be displayed under various circumstances, such as for writing and "
 "editing purposes."
 msgstr ""
+"En el procesado normal no se muestran los elementos <code>comment</code>. "
+"Puede que se muestren bajo diversas circunstancias, propósitos tales como "
+"escritura y edición."
 
 #: C/mal_block_comment.page:149(p)
 msgid ""
@@ -6467,6 +6515,8 @@ msgid ""
 "The <code>code</code> element may also be used in an inline context. See "
 "<link xref=\"mal_inline_code\"/> for more information."
 msgstr ""
+"El elemento <code>code</code> también se puede usar en un contexto en línea. "
+"Para obtener más información consulte la <link xref=\"mal_inline_code\"/>."
 
 #: C/mal_block_code.page:70(p)
 msgid ""
@@ -6586,6 +6636,9 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"El elemento <code>cite</code> puede tener atributos de espacios de nombres "
+"externos. Para obtener más información acerca de atributos de espacios de "
+"nombres externos consulte la <link xref=\"mal_external\"/>."
 
 #: C/mal_block_cite.page:58(p)
 msgid ""
@@ -6593,10 +6646,15 @@ msgid ""
 "cited. It will frequently be a <sys>mailto:</sys> URL with a person's email "
 "address."
 msgstr ""
+"El atributo <code>href</code> proporciona un URL para identificar la entidad "
+"citada. Frecuentemente será un URL <sys>mailto:</sys> con la dirección de "
+"correo electrónico de una persona."
 
 #: C/mal_attr_link.page:16(desc)
 msgid "Link to other pages or documents directly from most inline elements."
 msgstr ""
+"Enlazar otras páginas o documentos directamente desde la mayoría de "
+"elementos en línea."
 
 #: C/mal_attr_link.page:19(title)
 msgid "Ubiquitous Linking"
@@ -6682,6 +6740,7 @@ msgstr ""
 #: C/its.page:299(cite)
 msgid "W3C Internationalization and Localization Markup Requirements"
 msgstr ""
+"Requerimientos de marcado para localización e internacionalización del W3C"
 
 #: C/its.page:38(p)
 msgid ""
@@ -6742,6 +6801,8 @@ msgid ""
 "Mallard allows the standard <code>xml:lang</code> attribute to be used on "
 "all elements."
 msgstr ""
+"Mallar permite el atributo estándar <code>xml:lang</code> para usarlo en "
+"todos los elementos."
 
 #: C/its.page:91(p)
 msgid ""
@@ -6809,6 +6870,8 @@ msgid ""
 "[R011] Markup should be available to support the needs of bidirectional "
 "scripts."
 msgstr ""
+"[R011] Debería estar disponible el marcado para soportar las necesidades de "
+"«scripts» bidireccionales."
 
 #: C/its.page:152(p)
 msgid ""
@@ -6827,6 +6890,8 @@ msgid ""
 "[R012] Methods must exist to allow to specify the parts of a document that "
 "are to be translated or not."
 msgstr ""
+"[R012] Deben existir métodos para permitir especificar las partes de un "
+"documento que se deben traducir y las que no."
 
 #: C/its.page:168(p)
 msgid ""
@@ -6883,6 +6948,8 @@ msgid ""
 "[R015] Provisions must be taken to ensure that attributes with translatable "
 "values do not impair the localization process."
 msgstr ""
+"[R015] Se deben tomar medidas para asegurarse de que los atributos con "
+"valores traducibles no entorpecen el proceso de localización."
 
 #: C/its.page:215(p)
 msgid "Mallard never places translatable text in attribute values."
