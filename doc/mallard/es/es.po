@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils.mallard.master\n"
 "POT-Creation-Date: 2009-12-14 19:53+0000\n"
-"PO-Revision-Date: 2010-03-11 18:39+0100\n"
+"PO-Revision-Date: 2010-03-11 18:59+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -2003,22 +2003,26 @@ msgstr ""
 
 #: C/mal_inline_link.page:105(p)
 msgid "Link to a section in another page:"
-msgstr ""
+msgstr "Enlazar a una sección otra página:"
 
 #: C/mal_inline_link.page:111(p)
 msgid ""
 "See <link xref=\"mal_inline#processing\"/> for more processing expectations."
 msgstr ""
+"Para más opciones de procesado consulte la <link xref=\"mal_inline#processing"
+"\"/>."
 
 #: C/mal_inline_link.page:114(p)
 msgid "Link to an external resource:"
-msgstr ""
+msgstr "Enlazar un recurso externo:"
 
 #: C/mal_inline_link.page:121(p)
 msgid ""
 "See the <link href=\"http://www.w3.org/TR/REC-xml-names/\">XML Namespaces "
 "recommendation</link>."
 msgstr ""
+"Consulte la <link href=\"http://www.w3.org/TR/REC-xml-names/\">recomendación "
+"de espacios de nombres XML</link>."
 
 #: C/mal_inline_link.page:132(p)
 msgid ""
@@ -2072,6 +2076,8 @@ msgid ""
 "Otherwise, the contents of the primary title of that page page or section "
 "are used."
 msgstr ""
+"De otra forma se usará el contenido del título primario de la pagina.page o "
+"sección"
 
 #: C/mal_inline_link.page:171(p)
 msgid ""
@@ -2082,7 +2088,7 @@ msgstr ""
 
 #: C/mal_inline_link.page:175(p)
 msgid "Otherwise, the link target is used as text content."
-msgstr ""
+msgstr "De otra forma se usará como contenido de texto el objetivo del enlace."
 
 #: C/mal_inline_link.page:185(p)
 msgid ""
@@ -2107,7 +2113,7 @@ msgstr ""
 
 #: C/mal_inline_keyseq.page:14(years)
 msgid "&gt;2008-2009"
-msgstr ""
+msgstr "&gt;2008-2009"
 
 #: C/mal_inline_keyseq.page:19(desc)
 msgid "Mark up a key combination or sequence."
@@ -2115,7 +2121,7 @@ msgstr ""
 
 #: C/mal_inline_keyseq.page:22(title)
 msgid "Key Sequences"
-msgstr ""
+msgstr "Secuencias de teclas"
 
 #: C/mal_inline_keyseq.page:24(code)
 #, no-wrap
@@ -2168,32 +2174,39 @@ msgid ""
 "namespaces. See <link xref=\"mal_external\"/> for more information on "
 "external-namespace attributes."
 msgstr ""
+"El elemento <code>keyseq</code> puede tener atributos de espacios de nombres "
+"externos. Para obtener más información acerca de atributos de espacios de "
+"nombres externos consulte la <link xref=\"mal_external\"/>."
 
 #: C/mal_inline_keyseq.page:77(p)
 msgid "Use <code>keyseq</code> to mark up a keyboard shortcut:"
-msgstr ""
+msgstr "Use <code>keyseq</code> para marcar un atajo de teclado:"
 
 #: C/mal_inline_keyseq.page:83(p)
 msgid "Press <keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit."
-msgstr ""
+msgstr "Pulse <keyseq><key>Ctrl</key><key>Q</key></keyseq> para salir."
 
 #: C/mal_inline_keyseq.page:86(p)
 msgid "Use <code>keyseq</code> with text for classes of keys:"
-msgstr ""
+msgstr "Use <code>keyseq</code> con un texto para clases de teclas:"
 
 #: C/mal_inline_keyseq.page:93(p)
 msgid ""
 "Press <keyseq><key>Shift</key>arrow keys</keyseq> to make a continuous "
 "selection as you move the keyboard focus."
 msgstr ""
+"Pulse <keyseq><key>Mayús</key>teclas de flechas</keyseq> para realizar una "
+"selección continua al mover el foco del teclado."
 
 #: C/mal_inline_keyseq.page:97(p)
 msgid "Use <code>keyseq</code> with text for mouse actions:"
-msgstr ""
+msgstr "Use <code>keyseq</code> con texto para acciones del ratón:"
 
 #: C/mal_inline_keyseq.page:103(p)
 msgid "<keyseq><key>Shift</key>click</keyseq> to make a continuous selection."
 msgstr ""
+"<keyseq><key>Mayús</key>pulsación del ratón</keyseq> para realizar una "
+"selección continua."
 
 #: C/mal_inline_keyseq.page:106(p)
 msgid "Use nested <code>keyseq</code> elements for complex key commands:"
@@ -2300,6 +2313,8 @@ msgid ""
 "The <code>key</code> element can contain a mixture of text and any <link "
 "xref=\"mal_inline\">general inline elements</link>."
 msgstr ""
+"El elemento <code>key</code> puede contener una mezcla de texto y cualquier "
+"<link xref=\"mal_inline\">elemento general en línea</link>."
 
 #: C/mal_inline_key.page:58(p)
 msgid ""
@@ -2320,6 +2335,8 @@ msgid ""
 "The <code>key</code> element can link to other pages or documents. See <link "
 "xref=\"mal_attr_link\"/> for more information."
 msgstr ""
+"El elemento <code>key</code> puede enlazar a otras páginas o documentos. "
+"Para obtener más información consulte la <link xref=\"mal_attr_link\"/>."
 
 #: C/mal_inline_key.page:75(p)
 msgid ""
@@ -2327,22 +2344,25 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"El elemento <code>key</code> puede tener atributos de espacios de nombres "
+"externos. Para obtener más información acerca de atributos de espacios de "
+"nombres externos consulte la <link xref=\"mal_external\"/>."
 
 #: C/mal_inline_key.page:87(p)
 msgid "Use <code>key</code> to mark up a letter key:"
-msgstr ""
+msgstr "Use <code>key</code> para macar la letra de una tecla:"
 
 #: C/mal_inline_key.page:93(p)
 msgid "Press <key>M</key> to mark the selected message as read."
-msgstr ""
+msgstr "Pulse <key>M</key> para marcar el mensaje seleccionado como leído."
 
 #: C/mal_inline_key.page:96(p)
 msgid "Use <code>key</code> to mark up a function key:"
-msgstr ""
+msgstr "Use <code>key</code> para macar una tecla de función:"
 
 #: C/mal_inline_key.page:102(p)
 msgid "Press <key>F9</key> to check for new messages."
-msgstr ""
+msgstr "Pulse <key>F9</key> para comprobar si hay mensajes nuevos."
 
 #: C/mal_inline_key.page:105(p)
 msgid ""
@@ -2377,7 +2397,7 @@ msgstr ""
 
 #: C/mal_inline_input.page:22(title)
 msgid "User Input"
-msgstr ""
+msgstr "Entrada del usuario"
 
 #: C/mal_inline_input.page:24(code)
 #, no-wrap
@@ -2404,6 +2424,8 @@ msgid ""
 "The <code>input</code> element can contain a mixture of text and any <link "
 "xref=\"mal_inline\">general inline elements</link>."
 msgstr ""
+"El elemento <code>input</code> puede contener una mezcla de texto y "
+"cualquier <link xref=\"mal_inline\">elemento general en línea</link>."
 
 #: C/mal_inline_input.page:46(p)
 msgid ""
@@ -2418,6 +2440,8 @@ msgid ""
 "The <code>input</code> element can link to other pages or documents. See "
 "<link xref=\"mal_attr_link\"/> for more information."
 msgstr ""
+"El elemento <code>input</code> puede enlazar a otras páginas o documentos. "
+"Para obtener más información consulte la <link xref=\"mal_attr_link\"/>."
 
 #: C/mal_inline_input.page:59(p)
 msgid ""
@@ -2425,6 +2449,9 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"El elemento <code>input</code> puede tener atributos de espacios de nombres "
+"externos. Para obtener más información acerca de atributos de espacios de "
+"nombres externos consulte la <link xref=\"mal_external\"/>."
 
 #: C/mal_inline_input.page:63(p)
 msgid ""
@@ -2440,13 +2467,15 @@ msgstr ""
 
 #: C/mal_inline_input.page:80(p)
 msgid "Type <input>Y</input> at the prompt to proceed."
-msgstr ""
+msgstr "Para proceder pulse <input>S</input> en la pregunta."
 
 #: C/mal_inline_input.page:83(p)
 msgid ""
 "Use <code>input</code> and <code xref=\"mal_inline_output\">output</code> "
 "inside a <code xref=\"mal_block_screen\">screen</code> element:"
 msgstr ""
+"Use <code>input</code> y <code xref=\"mal_inline_input\">output</code> "
+"dentro del elemento <code xref=\"mal_block_screen\">screen</code>:"
 
 #: C/mal_inline_input.page:106(p)
 msgid ""
@@ -2468,7 +2497,7 @@ msgstr ""
 
 #: C/mal_inline_guiseq.page:22(title)
 msgid "GUI Sequences"
-msgstr ""
+msgstr "Secuencias del IGU"
 
 #: C/mal_inline_guiseq.page:24(code)
 #, no-wrap
@@ -2509,6 +2538,9 @@ msgid ""
 "namespaces. See <link xref=\"mal_external\"/> for more information on "
 "external-namespace attributes."
 msgstr ""
+"El elemento <code>guiseq</code> puede tener atributos de espacios de nombres "
+"externos. Para obtener más información acerca de atributos de espacios de "
+"nombres externos consulte la <link xref=\"mal_external\"/>."
 
 #: C/mal_inline_guiseq.page:67(p)
 msgid "Use <code>guiseq</code> to mark up a sequence of menu items:"
