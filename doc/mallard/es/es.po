@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils.mallard.master\n"
 "POT-Creation-Date: 2009-12-14 19:53+0000\n"
-"PO-Revision-Date: 2010-03-11 18:59+0100\n"
+"PO-Revision-Date: 2010-03-12 09:20+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -2117,7 +2117,7 @@ msgstr "&gt;2008-2009"
 
 #: C/mal_inline_keyseq.page:19(desc)
 msgid "Mark up a key combination or sequence."
-msgstr ""
+msgstr "Marcar una combinación o secuencia de teclas"
 
 #: C/mal_inline_keyseq.page:22(title)
 msgid "Key Sequences"
@@ -2210,7 +2210,7 @@ msgstr ""
 
 #: C/mal_inline_keyseq.page:106(p)
 msgid "Use nested <code>keyseq</code> elements for complex key commands:"
-msgstr ""
+msgstr "Use elementos <code>keyseq</code> encadenados para comandos complejos:"
 
 #: C/mal_inline_keyseq.page:114(p)
 msgid ""
@@ -2218,6 +2218,9 @@ msgid ""
 "keyseq><keyseq><key>C</key><key>s</key></keyseq></keyseq> to save a file in "
 "<app>Emacs</app>."
 msgstr ""
+"Pulse <keyseq type=\"sequence\"><keyseq><key>C</key><key>x</key></"
+"keyseq><keyseq><key>C</key><key>s</key></keyseq></keyseq> para guardar un "
+"archivo en <app>Emacs</app>."
 
 #: C/mal_inline_keyseq.page:119(p)
 msgid ""
@@ -2232,6 +2235,8 @@ msgid ""
 "There are various ways to modify drag behavior by using "
 "<keyseq><keyseq>modifier</keyseq>drag</keyseq>."
 msgstr ""
+"Existe varias formas de modificar el comportamiento de arrastrado usando "
+"<keyseq>arrastrado<keyseq>modificado</keyseq></keyseq>."
 
 #: C/mal_inline_keyseq.page:140(p)
 msgid ""
@@ -2372,6 +2377,7 @@ msgstr ""
 #: C/mal_inline_key.page:112(p)
 msgid "Press the <key>Down</key> key to select the next item."
 msgstr ""
+"Pulse la tecla <key>Abajo</key> para seleccionar el siguiente elemento."
 
 #: C/mal_inline_key.page:122(p)
 msgid ""
@@ -2585,7 +2591,7 @@ msgstr ""
 
 #: C/mal_inline_gui.page:21(title)
 msgid "GUI Labels"
-msgstr ""
+msgstr "Etiquetas del IGU («gui»)"
 
 #: C/mal_inline_gui.page:23(code)
 #, no-wrap
@@ -2614,6 +2620,8 @@ msgid ""
 "The <code>gui</code> element can contain a mixture of text and any <link "
 "xref=\"mal_inline\">general inline elements</link>."
 msgstr ""
+"El elemento <code>gui</code> puede contener una mezcla de texto y cualquier "
+"<link xref=\"mal_inline\">elemento general en línea</link>."
 
 #: C/mal_inline_gui.page:47(p)
 msgid ""
@@ -2634,19 +2642,21 @@ msgid ""
 "The <code>gui</code> element can link to other pages or documents. See <link "
 "xref=\"mal_attr_link\"/> for more information."
 msgstr ""
+"El elemento <code>gui</code> puede enlazar a otras páginas o documentos. "
+"Para obtener más información consulte la <link xref=\"mal_attr_link\"/>."
 
 #: C/mal_inline_gui.page:64(p)
 msgid "Typical style hints include:"
-msgstr ""
+msgstr "Los estilos típicos de sugerencias incluyen:"
 
 #: C/mal_inline_gui.page:67(code)
 #, no-wrap
 msgid "button"
-msgstr "botón"
+msgstr ""
 
 #: C/mal_inline_gui.page:68(p)
 msgid "The text of a button"
-msgstr ""
+msgstr "El texto de un botón"
 
 #: C/mal_inline_gui.page:71(code)
 #, no-wrap
@@ -2655,7 +2665,7 @@ msgstr ""
 
 #: C/mal_inline_gui.page:72(p)
 msgid "The label for a check box"
-msgstr ""
+msgstr "La etiqueta para una caja de verificación"
 
 #: C/mal_inline_gui.page:75(code) C/docbook.page:616(code)
 #, no-wrap
