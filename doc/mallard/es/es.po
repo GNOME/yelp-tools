@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils.mallard.master\n"
 "POT-Creation-Date: 2009-12-14 19:53+0000\n"
-"PO-Revision-Date: 2010-03-15 08:16+0100\n"
+"PO-Revision-Date: 2010-03-16 22:56+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -5750,7 +5750,7 @@ msgstr ""
 
 #: C/mal_block_note.page:167(p)
 msgid "Provide a helpful but non-essential tip:"
-msgstr ""
+msgstr "Proporcione un consejo que ayude pero que no sea esencial:"
 
 #: C/mal_block_note.page:177(p)
 msgid ""
@@ -5795,7 +5795,7 @@ msgstr ""
 
 #: C/mal_block_media.page:21(title)
 msgid "Multimedia Objects"
-msgstr ""
+msgstr "Objetos multimedia"
 
 #: C/mal_block_media.page:23(code)
 #, no-wrap
@@ -5846,6 +5846,9 @@ msgid ""
 "The <code>media</code> element may also be used in an inline context. See "
 "<link xref=\"mal_inline_media\"/> for more information."
 msgstr ""
+"El elemento <code>media</code> también se puede usar en un contexto en "
+"línea. Para obtener más información consulte la <link xref=\"mal_inline_media"
+"\"/>."
 
 #: C/mal_block_media.page:100(p)
 msgid ""
@@ -5979,6 +5982,9 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"El elemento <code>list</code> puede tener atributos de espacios de nombres "
+"externos. Para obtener más información acerca de atributos de espacios de "
+"nombres externos consulte la <link xref=\"mal_external\"/>."
 
 #: C/mal_block_list.page:89(p)
 msgid "Create a basic unordered list:"
@@ -6135,6 +6141,9 @@ msgid ""
 "namespaces. See <link xref=\"mal_external\"/> for more information on "
 "external-namespace attributes."
 msgstr ""
+"El elemento <code>listing</code> puede tener atributos de espacios de "
+"nombres externos. Para obtener más información acerca de atributos de "
+"espacios de nombres externos consulte la <link xref=\"mal_external\"/>."
 
 #: C/mal_block_listing.page:73(p)
 msgid ""
@@ -6184,7 +6193,7 @@ msgstr ""
 
 #: C/mal_block_figure.page:19(desc)
 msgid "Provide a title or caption for a multimedia object."
-msgstr ""
+msgstr "Proporcione un título o descripción para un objeto multimedia."
 
 #: C/mal_block_figure.page:22(title)
 msgid "Figures"
@@ -6244,19 +6253,24 @@ msgid ""
 "namespaces. See <link xref=\"mal_external\"/> for more information on "
 "external-namespace attributes."
 msgstr ""
+"El elemento <code>figure</code> puede tener atributos de espacios de nombres "
+"externos. Para obtener más información acerca de atributos de espacios de "
+"nombres externos consulte la <link xref=\"mal_external\"/>."
 
 #: C/mal_block_figure.page:70(p)
 msgid "Use <code>figure</code> to provide a title and caption for an image:"
 msgstr ""
+"Use <code>figure</code> para proporcionar un título y una descripción para "
+"una imagen:"
 
 #: C/mal_block_figure.page:81(title) C/mal_block_comment.page:91(cite)
 #: C/mal_block_comment.page:120(cite) C/mal_block_comment.page:129(cite)
 msgid "Drake"
-msgstr ""
+msgstr "Drake"
 
 #: C/mal_block_figure.page:82(desc)
 msgid "Drake is the Mallard mascot."
-msgstr ""
+msgstr "Drake es la mascota de Mallard."
 
 #: C/mal_block_figure.page:94(p)
 msgid ""
@@ -6276,6 +6290,7 @@ msgstr ""
 #: C/mal_block_example.page:16(desc)
 msgid "Mark a group of block elements as being part of a single example."
 msgstr ""
+"Marque un grupo de bloques de elementos que forman parte de un solo ejemplo."
 
 #: C/mal_block_example.page:21(code)
 #, no-wrap
@@ -6310,6 +6325,8 @@ msgid ""
 "The <code>example</code> element can contain any <link xref=\"mal_block"
 "\">general block content</link>."
 msgstr ""
+"El elemento <code>example</code> puede contener cualquier <link xref="
+"\"mal_block\">bloque de contenido general</link>."
 
 #: C/mal_block_example.page:44(p)
 msgid ""
@@ -6325,12 +6342,17 @@ msgid ""
 "namespaces. See <link xref=\"mal_external\"/> for more information on "
 "external-namespace attributes."
 msgstr ""
+"El elemento <code>example</code> puede tener atributos de espacios de "
+"nombres externos. Para obtener más información acerca de atributos de "
+"espacios de nombres externos consulte la <link xref=\"mal_external\"/>."
 
 #: C/mal_block_example.page:65(p)
 msgid ""
 "Use <code>example</code> to show how to use the <code>screen</code> element, "
 "grouping the input and formatted result:"
 msgstr ""
+"Use <code>example</code> para mostrar cómo usar el elemento <code>screen</"
+"code>, agrupando la entrada y el resultado formateado:"
 
 #: C/mal_block_example.page:69(code)
 #, no-wrap
@@ -7262,7 +7284,7 @@ msgstr ""
 
 #: C/its.page:296(title)
 msgid "R025: Elements and Segmentation"
-msgstr ""
+msgstr "R025: Elementos y segmentación"
 
 #: C/its.page:301(p)
 msgid ""
