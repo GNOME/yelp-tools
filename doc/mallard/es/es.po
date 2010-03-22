@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils.mallard.master\n"
 "POT-Creation-Date: 2009-12-14 19:53+0000\n"
-"PO-Revision-Date: 2010-03-22 07:59+0100\n"
+"PO-Revision-Date: 2010-03-22 23:22+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -5497,7 +5497,7 @@ msgstr ""
 
 #: C/mal_block.page:57(title)
 msgid "Basic Elements"
-msgstr ""
+msgstr "Elementos básicos"
 
 #: C/mal_block.page:58(code)
 #, no-wrap
@@ -5522,11 +5522,11 @@ msgstr ""
 
 #: C/mal_block.page:78(title)
 msgid "Formal Block Elements"
-msgstr ""
+msgstr "Elementos formales de bloques"
 
 #: C/mal_block.page:86(title)
 msgid "Formal Elements"
-msgstr ""
+msgstr "Elementos formales"
 
 #: C/mal_block.page:87(code)
 #, no-wrap
@@ -5585,7 +5585,7 @@ msgstr ""
 
 #: C/mal_block.page:154(title)
 msgid "Other Block-like Elements"
-msgstr ""
+msgstr "Otros elementos de tipo bloque"
 
 #: C/mal_block.page:156(p)
 msgid ""
@@ -5657,29 +5657,29 @@ msgstr ""
 #: C/mal_block_note.page:60(code)
 #, no-wrap
 msgid "advanced"
-msgstr ""
+msgstr "avanzado"
 
 #: C/mal_block_note.page:61(p)
 msgid "information that advanced users may find useful"
-msgstr ""
+msgstr "información que usuarios avanzados pueden encontrar útil"
 
 #: C/mal_block_note.page:64(code)
 #, no-wrap
 msgid "bug"
-msgstr ""
+msgstr "error"
 
 #: C/mal_block_note.page:65(p)
 msgid "a note about a known bug in the software"
-msgstr ""
+msgstr "una nota acerca de un error conocido en el software"
 
 #: C/mal_block_note.page:68(code) C/docbook.page:680(code)
 #, no-wrap
 msgid "important"
-msgstr ""
+msgstr "importante"
 
 #: C/mal_block_note.page:69(p)
 msgid "important information highlighted in a note"
-msgstr ""
+msgstr "información importante resaltada en una nota"
 
 #: C/mal_block_note.page:72(code)
 #, no-wrap
@@ -5689,15 +5689,17 @@ msgstr "csj"
 #: C/mal_block_note.page:73(p)
 msgid "a general tip that may help the reader perform an operation better"
 msgstr ""
+"una sugerencia general que puede ayudar al lector para realizar mejor una "
+"operación"
 
 #: C/mal_block_note.page:76(code)
 #, no-wrap
 msgid "warning"
-msgstr "atención"
+msgstr "aviso"
 
 #: C/mal_block_note.page:77(p)
 msgid "a warning to the reader about a potentially dangerous operation"
-msgstr ""
+msgstr "un aviso al lector acerca de una operación potencialmente peligrosa"
 
 #: C/mal_block_note.page:82(p)
 msgid ""
@@ -5705,14 +5707,17 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"El elemento <code>note</code> puede tener atributos de espacios de nombres "
+"externos. Para obtener más información acerca de atributos de espacios de "
+"nombres externos consulte la <link xref=\"mal_external\"/>."
 
 #: C/mal_block_note.page:94(p)
 msgid "Insert a basic note into your document:"
-msgstr ""
+msgstr "Insertar una nota básica en su documento:"
 
 #: C/mal_block_note.page:103(p)
 msgid "Information in this section is non-normative."
-msgstr ""
+msgstr "La información en esta sección no es normativa."
 
 #: C/mal_block_note.page:107(p)
 msgid "Include a note with extra information for advanced readers:"
@@ -5730,7 +5735,7 @@ msgstr ""
 
 #: C/mal_block_note.page:134(title)
 msgid "Cannot Save Files"
-msgstr ""
+msgstr "No se pueden guardar los archivos"
 
 #: C/mal_block_note.page:135(p)
 msgid ""
@@ -6753,6 +6758,9 @@ msgid ""
 "xref=\"mal_inline\">general inline elements</link>. Whitespace is "
 "interpreted literally."
 msgstr ""
+"El elemento <code>code</code> puede contener una mezcla de texto y cualquier "
+"<link xref=\"mal_inline\">elemento general en línea</link>. El espacio en "
+"blanco se interpreta de forma literal."
 
 #: C/mal_block_code.page:51(p)
 msgid ""
@@ -7244,6 +7252,8 @@ msgid ""
 "[R020] There must be a way to support markup up of text annotations of the "
 "'ruby' type."
 msgstr ""
+"[R020] Debe existir una forma para soportar marcado de anotaciones de texto "
+"de tipo «ruby»."
 
 #: C/its.page:251(p)
 msgid ""
@@ -7275,6 +7285,8 @@ msgid ""
 "[R022] Great care must be taken when defining or using nested translatable "
 "elements."
 msgstr ""
+"[R022] Se debe tener mucho cuidado al definir o usar elementos traducibles "
+"anidados."
 
 #: C/its.page:277(p)
 msgid ""
@@ -7343,6 +7355,12 @@ msgid ""
 "implementors, because it reduces the need to use placeholders for separate "
 "translation units."
 msgstr ""
+"Generalmente, en Mallard, los elementos contienen bloques de contenido o "
+"contenido en línea. Por ello, por ejemplo, no puede ubicar un párrafo dentro "
+"de un párrafo. Esto es más simple para los traductores, así como para los "
+"implementadores de herramientas de traducción porque reduce la necesidad de "
+"usar marcadores de lugares («placeholders») para unidades de traducción "
+"separadas."
 
 #: C/its.page:335(p)
 msgid ""
