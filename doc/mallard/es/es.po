@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils.mallard.master\n"
 "POT-Creation-Date: 2009-12-14 19:53+0000\n"
-"PO-Revision-Date: 2010-03-16 22:56+0100\n"
+"PO-Revision-Date: 2010-03-22 07:59+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -2088,12 +2088,17 @@ msgid ""
 "If the <code>link</code> element is non-empty, its contents are displayed as "
 "normal. Otherwise, automatic link text is generated as follows:"
 msgstr ""
+"Si el elemento <code>link</code> no está vacío, se muestra de forma normal "
+"su contenido. De otra forma se genera un texto de enlace automático como "
+"sigue:"
 
 #: C/mal_inline_link.page:148(p)
 msgid ""
 "If the <code>link</code> element has an <code>xref</code> attribute that "
 "points to a page or section in the same document:"
 msgstr ""
+"Si el elemento <code>link</code> tiene un atributo <code>xref</code> que "
+"apunta a una página o sección en el mismo documento:"
 
 #: C/mal_inline_link.page:152(p)
 msgid ""
@@ -2317,7 +2322,7 @@ msgstr ""
 
 #: C/mal_inline_key.page:18(desc)
 msgid "Mark up a key to be pressed on the user's keyboard."
-msgstr ""
+msgstr "Marcar una tecla para que se pulse en el teclado del usuario."
 
 #: C/mal_inline_key.page:21(title)
 msgid "Key Strokes"
@@ -2386,6 +2391,9 @@ msgid ""
 "The <code>key</code> element can also occur inside the <code xref="
 "\"mal_inline_keyseq\">keyseq</code> element, where it has special meaning."
 msgstr ""
+"El elemento <code>key</code> puede encontrarse dentro del elemento <code "
+"xref=\"mal_inline_keyseq\">keyseq</code>, donde tiene un significado "
+"especial."
 
 #: C/mal_inline_key.page:68(p)
 msgid ""
@@ -2425,6 +2433,8 @@ msgstr "Pulse <key>F9</key> para comprobar si hay mensajes nuevos."
 msgid ""
 "Use <code>key</code> to refer to a specific key by a textual description:"
 msgstr ""
+"Use <code>key</code> para referirse a una tecla especial en una descripción "
+"textual:"
 
 #: C/mal_inline_key.page:112(p)
 msgid "Press the <key>Down</key> key to select the next item."
@@ -2451,7 +2461,7 @@ msgstr ""
 
 #: C/mal_inline_input.page:19(desc)
 msgid "Mark up text the user should input into a computer program."
-msgstr ""
+msgstr "Marcar texto que el usuario debe introducir en un programa del equipo."
 
 #: C/mal_inline_input.page:22(title)
 msgid "User Input"
@@ -2556,7 +2566,7 @@ msgstr ""
 
 #: C/mal_inline_guiseq.page:19(desc)
 msgid "Mark up a sequence of interface controls to navigate."
-msgstr ""
+msgstr "Marcar una secuencia de controles de interfaz para navegación."
 
 #: C/mal_inline_guiseq.page:22(title)
 msgid "GUI Sequences"
@@ -2586,6 +2596,8 @@ msgid ""
 "The <code>guiseq</code> element can contain a mixture of text and <code xref="
 "\"mal_inline_gui\">gui</code> elements."
 msgstr ""
+"El elemento <code>guiseq</code> puede contener una mezcla de texto y "
+"cualquier elemento <link xref=\"mal_inline_gui\">gui</link>."
 
 #: C/mal_inline_guiseq.page:45(p)
 msgid ""
@@ -2613,11 +2625,14 @@ msgstr ""
 #: C/mal_inline_guiseq.page:67(p)
 msgid "Use <code>guiseq</code> to mark up a sequence of menu items:"
 msgstr ""
+"Use <code>guiseq</code> para marcar una secuencia de elemento del menú:"
 
 #: C/mal_inline_guiseq.page:74(p)
 msgid ""
 "Select <guiseq><gui>File</gui><gui>New</gui></guiseq> to open a new document."
 msgstr ""
+"Para abrir un documento nuevo seleccione <guiseq><gui>Archivo</"
+"gui><gui>Nuevo</gui></guiseq>."
 
 #: C/mal_inline_guiseq.page:85(p)
 msgid ""
