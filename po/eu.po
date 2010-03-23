@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: eu\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2010-03-12 10:51+0100\n"
-"PO-Revision-Date: 2010-03-12 10:51+0100\n"
+"PO-Revision-Date: 2010-03-23 12:54+0100\n"
 "Last-Translator: Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>\n"
 "Language-Team: Basque <itzulpena@euskalgnu.org>\n"
 "MIME-Version: 1.0\n"
@@ -2050,7 +2050,7 @@ msgstr "Irakurketa gehiago"
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1709
 msgid "Glossary"
-msgstr "Glosategia"
+msgstr "Glosarioa"
 
 #.
 #. http://www.docbook.org/tdg/en/html/important.html
