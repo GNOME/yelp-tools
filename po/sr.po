@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: gnome-doc-utils\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "doc-utils&component=general\n"
-"POT-Creation-Date: 2009-07-26 02:59+0000\n"
-"PO-Revision-Date: 2007-09-12 01:09+0200\n"
+"POT-Creation-Date: 2010-03-23 14:07+0000\n"
+"PO-Revision-Date: 2010-03-24 00:27+0100\n"
 "Last-Translator: Слободан Д. Средојевић <slobo@akrep.be>\n"
 "Language-Team: Serbian (sr) <gnom@prevod.org>\n"
 "MIME-Version: 1.0\n"
@@ -2017,14 +2017,13 @@ msgid "Dedication"
 msgstr "Посвета"
 
 #.
-#. This is used as a descrpition for the status of the document.
+#. This is used as a description for the status of the document.
 #. This will not be visibile to the users.
 #.
 #. Draft: the authors have written all the content, but they still need
 #. to clean up the language or markup.
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1684
-#| msgid "Date"
 msgid "Draft"
 msgstr "Нацрт"
 
@@ -2042,7 +2041,7 @@ msgid "Email"
 msgstr "Е-пошта"
 
 #.
-#. This is used as a descrpition for the status of the document.
+#. This is used as a description for the status of the document.
 #. This will not be visibile to the users.
 #.
 #. Final: a senior member of the documentation team has reviewd the
@@ -2074,7 +2073,7 @@ msgid "Important"
 msgstr "Важно"
 
 #.
-#. This is used as a descrpition for the status of the document.
+#. This is used as a description for the status of the document.
 #. This will not be visibile to the users.
 #.
 #. Incomplete: the document has the basic structure in place, but the
@@ -2113,11 +2112,16 @@ msgstr "Више о"
 msgid "Name"
 msgstr "Име"
 
+#. Used as link to the next page in a series.
+#: ../xslt/gettext/l10n.xml.in.h:1741
+msgid "Next"
+msgstr "Следеће"
+
 #.
 #. http://www.docbook.org/tdg/en/html/note.html
 #. This is used as a default title for note elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1744
+#: ../xslt/gettext/l10n.xml.in.h:1746
 msgid "Note"
 msgstr "Белешка"
 
@@ -2125,9 +2129,14 @@ msgstr "Белешка"
 #. http://www.docbook.org/tdg/en/html/preface.html
 #. This is used as a default title for preface elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1749
+#: ../xslt/gettext/l10n.xml.in.h:1751
 msgid "Preface"
 msgstr "Предговор"
+
+#. Used as link to the previous page in a series.
+#: ../xslt/gettext/l10n.xml.in.h:1753
+msgid "Previous"
+msgstr "Претходно"
 
 #.
 #. http://www.docbook.org/tdg/en/html/qandaentry.html
@@ -2138,17 +2147,17 @@ msgstr "Предговор"
 #. the labelling style for a qandaset.  If the labelling style is set
 #. to 'qanda', this string will be used to label questions.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1759
+#: ../xslt/gettext/l10n.xml.in.h:1763
 msgid "Q:&#x2003;"
 msgstr "П:&#x2003;"
 
 #.
-#. This is used as a descrpition for the status of the document.
+#. This is used as a description for the status of the document.
 #. This will not be visibile to the users.
 #.
 #. Review: the authors consider the document complete.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1766
+#: ../xslt/gettext/l10n.xml.in.h:1770
 msgid "Ready for review"
 msgstr "Спреман за преглед"
 
@@ -2156,7 +2165,7 @@ msgstr "Спреман за преглед"
 #. http://www.docbook.org/tdg/en/html/revhistory.html
 #. This is used as a header before the revision history.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1771
+#: ../xslt/gettext/l10n.xml.in.h:1775
 msgid "Revision History"
 msgstr "Историјат верзија"
 
@@ -2164,23 +2173,23 @@ msgstr "Историјат верзија"
 #. Used for the <see> element.
 #. FIXME: this should be a format string.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1776
+#: ../xslt/gettext/l10n.xml.in.h:1780
 msgid "See"
 msgstr "Видите"
 
 #. Automatic see also section and links
-#: ../xslt/gettext/l10n.xml.in.h:1778
+#: ../xslt/gettext/l10n.xml.in.h:1782
 msgid "See Also"
 msgstr "Видите и"
 
 #.
-#. This is used as a descrpition for the status of the document.
+#. This is used as a description for the status of the document.
 #. This will not be visibile to the users.
 #.
 #. Stub: the document has little or basic content, it may have been
 #. created by developers in order to have it included in the build.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1786
+#: ../xslt/gettext/l10n.xml.in.h:1790
 msgid "Stub"
 msgstr "У зачетку"
 
@@ -2188,7 +2197,7 @@ msgstr "У зачетку"
 #. http://www.docbook.org/tdg/en/html/refsynopsisdiv.html
 #. This is used as the default title for refsynopsisdiv elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1791
+#: ../xslt/gettext/l10n.xml.in.h:1795
 msgid "Synopsis"
 msgstr "Сиже"
 
@@ -2196,7 +2205,7 @@ msgstr "Сиже"
 #. http://www.docbook.org/tdg/en/html/tip.html
 #. This is used as a default title for tip elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1796
+#: ../xslt/gettext/l10n.xml.in.h:1800
 msgid "Tip"
 msgstr "Савет"
 
@@ -2204,7 +2213,7 @@ msgstr "Савет"
 #. http://www.docbook.org/tdg/en/html/warning.html
 #. This is used as a default title for warning elements.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1801
+#: ../xslt/gettext/l10n.xml.in.h:1805
 msgid "Warning"
 msgstr "Упозорење"
 
@@ -2214,7 +2223,7 @@ msgstr "Упозорење"
 #. translate it to "predefinito:LTR", if it isn't default:LTR
 #. or default:RTL it will not work
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1808
+#: ../xslt/gettext/l10n.xml.in.h:1812
 msgid "default:LTR"
 msgstr "default:LTR"
 
@@ -2245,7 +2254,7 @@ msgstr "default:LTR"
 #. once found inside Yelp.  The watermark functionality has been moved to
 #. gnome-doc-utils.
 #.
-#: ../xslt/gettext/l10n.xml.in.h:1836
+#: ../xslt/gettext/l10n.xml.in.h:1840
 msgid "watermark-blockquote-201C.png"
 msgstr "watermark-blockquote-201Е.png"
 
