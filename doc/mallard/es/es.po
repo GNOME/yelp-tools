@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils.mallard.master\n"
 "POT-Creation-Date: 2009-12-14 19:53+0000\n"
-"PO-Revision-Date: 2010-03-22 23:22+0100\n"
+"PO-Revision-Date: 2010-03-24 08:52+0100\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -527,7 +527,7 @@ msgstr "Ponga reglas entre cada fila:"
 #: C/mal_table.page:369(p) C/mal_table.page:419(p)
 #: C/mal_block_tree.page:155(item) C/index.page:23(title)
 msgid "Mallard"
-msgstr "Malla"
+msgstr "Ánade real"
 
 #: C/mal_table.page:95(p) C/mal_table.page:137(p) C/mal_table.page:184(p)
 #: C/mal_table.page:233(p) C/mal_table.page:280(p) C/mal_table.page:322(p)
@@ -5721,7 +5721,7 @@ msgstr "La información en esta sección no es normativa."
 
 #: C/mal_block_note.page:107(p)
 msgid "Include a note with extra information for advanced readers:"
-msgstr ""
+msgstr "Incluya una nota con información adicional para lectores avanzados:"
 
 #: C/mal_block_note.page:117(p)
 msgid ""
@@ -5731,7 +5731,7 @@ msgstr ""
 
 #: C/mal_block_note.page:122(p)
 msgid "Mention a known bug the reader is likely to encounter:"
-msgstr ""
+msgstr "Mencione un error conocido que es probable que el lector se encuentre:"
 
 #: C/mal_block_note.page:134(title)
 msgid "Cannot Save Files"
@@ -5752,7 +5752,7 @@ msgstr ""
 
 #: C/mal_block_note.page:157(title)
 msgid "Supply Your Name and Email Address"
-msgstr ""
+msgstr "Proporcione su nombre y su dirección de correo-e"
 
 #: C/mal_block_note.page:158(p)
 msgid ""
@@ -5777,15 +5777,19 @@ msgid ""
 "Press <keyseq><key>Ctrl</key><key>J</key></keyseq> to jump to the currently "
 "playing track."
 msgstr ""
+"Pulse <keyseq><key>Ctrl</key><key>S</key></keyseq> para saltar a la pista "
+"actualmente en reproducción."
 
 #: C/mal_block_note.page:182(p)
 msgid "Warn the reader about dangerous operations:"
-msgstr ""
+msgstr "Avisar al lector acerca de operaciones peligrosas:"
 
 #: C/mal_block_note.page:192(p)
 msgid ""
 "There is no way to recover files deleted with the <cmd>shred</cmd> command."
 msgstr ""
+"No existe forma de recuperar los archivos eliminados con el comando "
+"<cmd>shred</cmd>."
 
 #: C/mal_block_note.page:202(p)
 msgid ""
@@ -6448,7 +6452,7 @@ msgstr ""
 
 #: C/mal_block_desc.page:20(desc)
 msgid "Provide a caption for a formal block element."
-msgstr ""
+msgstr "Proporcionar una descripción para un elemento de bloque formal."
 
 #: C/mal_block_desc.page:23(title)
 msgid "Block Descriptions"
@@ -6618,6 +6622,9 @@ msgid ""
 "that specifies the person making the comment. Writers are highly encouraged "
 "to provide a <code>date</code> attribute."
 msgstr ""
+"El elemento <code xref=\"mal_block_cite\">cite</code> es un elemento "
+"necesario que especifica la persona que hace el comentario. Se anima a los "
+"escritores a proporcionar un atributo <code>date</code>."
 
 #: C/mal_block_comment.page:52(p)
 msgid ""
@@ -6626,6 +6633,10 @@ msgid ""
 "\">cite</link> element, and any <link xref=\"mal_block\">general block "
 "content</link>."
 msgstr ""
+"El elemento <code>comment</code> contiene un elemento opcional <link xref="
+"\"mal_block_title\">title</link>, un elemento <link xref=\"mal_block_cite"
+"\">cite</link> y cualquier <link xref=\"mal_block\">bloque de contenido "
+"general</link>."
 
 #: C/mal_block_comment.page:57(p)
 msgid ""
@@ -7224,6 +7235,8 @@ msgid ""
 "[R017] A method must exist for authors to communicate information to "
 "localizers about a particular item of content."
 msgstr ""
+"[R017] Debe existir un método para que los autores comuniquen información a "
+"los traductores acerca del contenido en particular de un elemento."
 
 #: C/its.page:228(p)
 msgid ""
