@@ -5,15 +5,16 @@
 # Samia Niamatullah <mailsamia2001@yahoo.com>, 2005.
 # Jamil Ahmed <itsjamil@gmail.com>, 2006.
 # Sadia Afroz <sadia@ankur.org.bd>, 2010.
+# Israt Jahan <israt@ankur.org.bd>, 2010.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: bn\n"
 "Report-Msgid-Bugs-To: http://bugzilla.gnome.org/enter_bug.cgi?product=gnome-"
 "doc-utils&component=general\n"
-"POT-Creation-Date: 2010-01-06 21:16+0000\n"
-"PO-Revision-Date: 2010-01-21 16:02+0600\n"
-"Last-Translator: Sadia Afroz <sadia@ankur.org.bd>\n"
+"POT-Creation-Date: 2010-03-16 21:57+0000\n"
+"PO-Revision-Date: 2010-03-23 16:02+0600\n"
+"Last-Translator: Israt Jahan <israt@ankur.org.bd>\n"
 "Language-Team: Bengali <ankur-bd-l10n@googlegroups.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1941,7 +1942,7 @@ msgstr "<msgid>table.xref</msgid> <msgstr>টেবিল <number/></msgstr>"
 #. Used as a header before a list of authors.
 #: ../xslt/gettext/l10n.xml.in.h:1623
 msgid "<msgstr form='0'>Author</msgstr> <msgstr form='1'>Authors</msgstr>"
-msgstr "<msgstr form='0'>Author</msgstr> <msgstr form='1'>লেখক</msgstr>"
+msgstr "<msgstr form='0'>লেখক</msgstr> <msgstr form='1'>লেখক</msgstr>"
 
 # sam:
 # <msgstr form='0'>সাহায্যকারী</msgstr> <msgstr form='1'>সাহায্যকারী</msgstr>
@@ -2087,7 +2088,7 @@ msgstr "খসড়া"
 #.
 #: ../xslt/gettext/l10n.xml.in.h:1694
 msgid "Email"
-msgstr "ই-মেইল"
+msgstr "ইমেইল"
 
 # Translated by sadia
 #.
