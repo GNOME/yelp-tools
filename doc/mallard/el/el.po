@@ -3,12 +3,13 @@
 # This file is distributed under the same license as the gnome-doc-utils package.
 #
 # Simos Xenitellis <simos@gnome.org>, 2010.
+# Marios Zindilis <m.zindilis@dmajor.org>, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils master\n"
-"POT-Creation-Date: 2010-03-23 11:49+0000\n"
-"PO-Revision-Date: 2010-03-23 16:04+0200\n"
-"Last-Translator: Simos Xenitellis <simos@gnome.org>\n"
+"POT-Creation-Date: 2010-03-25 19:16+0000\n"
+"PO-Revision-Date: 2010-03-28 16:00+0300\n"
+"Last-Translator: Marios Zindilis <m.zindilis@dmajor.org>\n"
 "Language-Team: Greek <team@gnome.gr>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,6 +23,8 @@ msgid ""
 "licenses/by-sa/3.0/us/\">Creative Commons Attribution-Share Alike 3.0 United "
 "States License</link>."
 msgstr ""
+"Αυτό το έργο διατίθεται υπό την <link href=\"http://creativecommons.org/licenses/by-sa/3.0/us/\">Άδεια "
+"Creative Commons Attribution-Share Alike 3.0 United States</link>."
 
 #: C/legal.xml:6(p)
 msgid ""
@@ -120,13 +123,12 @@ msgid "2008-2009"
 msgstr "2008-2009"
 
 #: C/tenminutes.page:17(desc)
-#, fuzzy
 msgid "Create a multiple-page document in only ten minutes."
-msgstr "Δημιουργία νέου εγγράφου σε υπάρχουσα εκτέλεση του gedit"
+msgstr "Δημιουργία ενός πολυσέλιδου εγγράφου σε μόνο δέκα λεπτά."
 
 #: C/tenminutes.page:20(title)
 msgid "Ten Minute Tour"
-msgstr ""
+msgstr "Ξενάγηση των δέκα λεπτών"
 
 #: C/tenminutes.page:23(cite) C/tenminutes.page:87(cite)
 #: C/tenminutes.page:113(cite) C/docbook.page:1287(cite)
@@ -136,7 +138,7 @@ msgstr "shaunm"
 
 #: C/tenminutes.page:24(p)
 msgid "This is draft material. I'm not happy with the tone yet."
-msgstr ""
+msgstr "Αυτό το υλικό είναι υπό κατασκευή."
 
 #: C/tenminutes.page:27(p)
 msgid ""
@@ -144,6 +146,8 @@ msgid ""
 "document. We will create a document for the fictitious <app>Beanstalk</app> "
 "application, which allows you to plant magic beans."
 msgstr ""
+"Σ' αυτή τη σελίδα θα παρουσιάσουμε τη δημιουργία ενός πολυσέλιδου εγγράφου Mallard. Θα δημιουργήσουμε ένα "
+"έγγραφο για τη φανταστική εφαρμογή <app>Φασίολος</app>, η οποία σας επιτρέπει να φυτεύετε μαγικά φασόλια."
 
 #: C/tenminutes.page:31(p)
 msgid ""
@@ -154,6 +158,11 @@ msgid ""
 "\">Guide pages</link> serve as the navigational glue between topics, helping "
 "readers find and explore content."
 msgstr ""
+"Ένα έγγραφο Mallard συντίθεται από πολλαπλές ξεχωριστές σελίδες. Οι <link xref=\"mal_page#topic\">Σελίδες "
+"θεμάτων</link> παρουσιάζουν κάποια πληροφορία στον αναγνώστη. Αυτή η πληροφορία μπορεί να είναι ένα "
+"βοήθημα, μια επισκόπηση, υλικό αναφοράς ή οποιοδήποτε άλλο γραπτό περιεχόμενο. Οι <link "
+"xref=\"mal_page#guide\">Σελίδες οδηγιών</link> λαμβάνουν το ρόλο του συνδετικού υλικού ανάμεσα στα θέματα, "
+"κάνοντας πιο εύκολη την περιήγηση, την εύρεση και την εξερεύνηση του περιεχομένου."
 
 #: C/tenminutes.page:38(p)
 msgid ""
@@ -162,11 +171,14 @@ msgid ""
 "its purpose is to help users navigate to other content. In Mallard, the "
 "front page of any document is named <file>index.page</file>."
 msgstr ""
+"Μπορούμε να ξεκινήσουμε να φτιάχνουμε ένα έγγραφο Mallard γράφοντας το εξώφυλλο του εγγράφου μας. Γενικά, "
+"το εξώφυλλο οποιουδήποτε εγγράφου θα είναι μια σελίδα οδηγιών, καθώς ο σκοπός του είναι να βοηθήσει τους "
+"χρήστες να περιηγηθούν στο περιεχόμενο. Στο Mallard, η πρώτη σελίδα κάθε εγγράφου ονομάζεται <file>index."
+"page</file>."
 
 #: C/tenminutes.page:44(file) C/mal_block_listing.page:89(file)
-#, fuzzy
 msgid "index.page"
-msgstr "ευρετήριο,τιμή,"
+msgstr "index.page"
 
 #: C/tenminutes.page:53(p)
 msgid ""
@@ -174,11 +186,14 @@ msgid ""
 "valid Mallard document, although it's rather useless. We can add another "
 "page to the document by creating a new page file."
 msgstr ""
+"Αυτό το απλό παράδειγμα είναι μια έγκυρη σελίδα οδηγιών του Mallard. Από μόνη της είναι επίσης και ένα "
+"έγκυρο έγγραφο Mallard, παρόλο που ως τέτοιο, είναι κάπως άχρηστο. Μπορούμε να προσθέσουμε μια ακόμα "
+"σελίδα στο έγγραφο δημιουργόνται ένα νέο αρχείο .page."
 
 #: C/tenminutes.page:58(file) C/tenminutes.page:74(file)
 #: C/tenminutes.page:92(file)
 msgid "planting.page"
-msgstr ""
+msgstr "planting.page"
 
 #: C/tenminutes.page:67(p)
 msgid ""
@@ -189,15 +204,19 @@ msgid ""
 "Currently, we have two standalone pages without interlinking. We can have "
 "<file>index.page</file> link to <file>planting.page</file>."
 msgstr ""
+"Σημειώστε ότι ορίζουμε την ιδιότητα <code>type</code> σε <code>\"guide\"</code> στο <file>index.page</file>"
+" και σε <code>\"topic\"</code> στο <file>planting.page</file>. Αυτό καθορίζει ότι η <file>index.page</file>"
+" είναι μια σελίδα οδηγιών, το οποίο θα της επιτρέψει να έχει αυτόματους συνδέσμους προς άλλες σελίδες. "
+"Προς το παρόν έχουμε δύο σελίδες χωρίς να αλληλοσυνδέονται. Μπορούμε να έχουμε στην <file>index.page</file>"
+" ένα σύνδεσμο προς την <file>planting.page</file>."
 
 #: C/tenminutes.page:88(p)
 msgid "Explain the linking and introduce the next example."
-msgstr ""
+msgstr "Επεξήγηση των συνδέσμων και εισαγωγή στο επόμενο παράδειγμα."
 
 #: C/tenminutes.page:114(p)
-#, fuzzy
 msgid "Fill in more content."
-msgstr "Γραμμή επικεφαλίδας του περιεχομένου"
+msgstr "Συμπλήρωση περισσότερου περιεχομένου."
 
 #: C/spec.page:14(years) C/mal_inline.page:13(years)
 #: C/mal_info_years.page:13(years) C/mal_info_name.page:13(years)
@@ -209,44 +228,42 @@ msgstr "2009"
 
 #: C/spec.page:17(desc)
 msgid "Complete specification of the Mallard XML vocabulary."
-msgstr ""
+msgstr "Πλήρης ορισμός του XML λεξιλογίου του Mallard."
 
 #: C/spec.page:20(title)
-#, fuzzy
 msgid "Language Specification"
-msgstr "Ειδοποίηση Zenity"
+msgstr "Ορισμός γλώσσας"
 
 # Using standard translation for "default" for consistency, although
 # it is not quite suitable in this context...
 #: C/spec.page:24(p) C/index.page:27(p)
-#, fuzzy
 msgid "Add some intro text"
-msgstr "Προσθήκη εξ' ορισμού εντολών"
+msgstr "Προσθήκη εισαγωγικού κειμένου"
 
 #: C/principles.page:16(desc)
 msgid "The guiding principles behind the design of Mallard."
-msgstr ""
+msgstr "Οι σχεδιαστικές αρχές πίσω από το σχεδιασμό του Mallard."
 
 #: C/principles.page:19(title)
 msgid "Design Principles"
 msgstr "Αρχές σχεδίασης"
 
 #: C/principles.page:23(p)
-#, fuzzy
 msgid "Add intro content"
-msgstr "Προσθήκη προσαρμοσμένου περιεχομένου κουμπιού"
+msgstr "Προσθήκη εισαγωγικού περιεχομένου"
 
 #: C/principles.page:24(p)
 msgid "Add principles: pluggability, implementation speed, l10n, digestible info"
 msgstr ""
+"Προσθήκη αρχών: δυνατότητα πρόσθετων λειτουργιών, ταχύτητα υλοποίησης, τοπικοποίηση, ευνόητες πληροφορίες"
 
 #: C/principles.page:29(title)
 msgid "Principles for the Reader"
-msgstr ""
+msgstr "Αρχές για τον Αναγνώστη"
 
 #: C/principles.page:32(title)
 msgid "For the Reader"
-msgstr ""
+msgstr "Για τον Αναγνώστη"
 
 #: C/principles.page:34(p)
 msgid ""
@@ -255,61 +272,62 @@ msgid ""
 "doesn't help the reader to find the information she needs quickly. The needs "
 "of the reader trump all other requirements."
 msgstr ""
+"Οι αναγνώστες είναι οι τελικοί κριτές της ποιότητας ενός συστήματος τεκμηρίωσης. Και οι καλύτερες ακόμα "
+"προσπάθειες των συγγραφέων και των προγραμματιστών πάνε χαμένες αν η τεκμηρίωση δε βοηθά τον αναγνώστη να "
+"βρει τις πληροφορίες που θέλει γρήγορα. Οι ανάγκες του χρήστη υπερκαλύπτουν οποιεσδήποτε άλλες απαιτήσεις."
 
 #: C/principles.page:42(title)
 msgid "Principles for the Writer"
-msgstr ""
+msgstr "Αρχές για το Συγγραφέα"
 
 #: C/principles.page:44(title)
-#, fuzzy
 msgid "For the Writer"
-msgstr "Σύστημα υποστήριξης εκτυπωτή"
+msgstr "Για το συγγραφέα"
 
 # #-#-#-#-#  libgda.master.el.po (gnome-db 0.0.91)  #-#-#-#-#: C/principles.page:47(p)
+#: C/principles.page:47(p)
 msgid "Add"
 msgstr "Προσθήκη"
 
 #: C/principles.page:53(title)
 msgid "Principles for the Hacker"
-msgstr ""
+msgstr "Αρχές για τον Προγραμματιστή"
 
 #: C/principles.page:55(title)
 msgid "For the Hacker"
-msgstr ""
+msgstr "Για τον Προγραμματιστή"
 
 #: C/principle-redundancy.page:8(desc)
 msgid "Avoid forcing writers to write the same thing twice"
-msgstr ""
+msgstr "Δεν είναι ανάγκη οι συγγραφείς να γράφουν τα ίδια πράγματα δυο φορές"
 
 #: C/principle-redundancy.page:11(title)
 msgid "Reduce Redundancy"
-msgstr ""
+msgstr "Μειώνεται η πολλαπλότητα"
 
 #: C/principle-justenough.page:9(desc)
 msgid "Provide just enough markup to mark up what's important"
-msgstr ""
+msgstr "Παρέχονται ακριβώς τόσες ετικέτες (markup) για να σημειώνουν ό,τι είναι σημαντικό"
 
 #: C/principle-justenough.page:12(title)
 msgid "Just Enough Markup"
-msgstr ""
+msgstr "Μόνο όσες ετικέτες (markup) χρειάζονται"
 
 #: C/principle-guide.page:6(desc)
 msgid "Ensure the reader doesn't get lost in a link swarm"
-msgstr ""
+msgstr "Βεβαίωση ότι ο αναγνώστης δε χάνεται σε ένα πέλαγος από συνδέσμους"
 
 #: C/principle-guide.page:13(title)
-#, fuzzy
 msgid "Guide the Reader"
-msgstr " Απόκρυψη Πλευρικής στήλης"
+msgstr "Ο αναγνώστης καθοδηγείται"
 
 #: C/mal_TODO.page:8(title)
 msgid "TODO"
-msgstr ""
+msgstr "TODO"
 
 #: C/mal_table_tr.page:9(title)
-#, fuzzy
 msgid "Rows and Row Groups"
-msgstr "Χρήστες και Ομάδες"
+msgstr "Σειρές και ομάδες σειρών"
 
 #: C/mal_table_tr.page:11(code)
 #, no-wrap
@@ -367,9 +385,8 @@ msgstr ""
 "}\n"
 
 #: C/mal_table_td.page:9(title)
-#, fuzzy
 msgid "Table Cells"
-msgstr "Κελί πίνακα"
+msgstr "Κελία πίνακα"
 
 #: C/mal_table_td.page:11(code)
 #, no-wrap
@@ -398,7 +415,7 @@ msgstr ""
 #
 #: C/mal_table.page:8(title) C/mal_block.page:136(title)
 msgid "Tables"
-msgstr "Tables"
+msgstr "Πίνακες"
 
 #: C/mal_table.page:10(code)
 #, no-wrap
@@ -468,6 +485,7 @@ msgstr ""
 "}\n"
 
 # #-#-#-#-#  balsa.master.el.po (balsa 2.0.13)  #-#-#-#-#: C/mal_table.page:49(title)
+#: C/mal_table.page:49(title)
 msgid "Content"
 msgstr "Περιεχόμενο"
 
@@ -496,11 +514,11 @@ msgstr "Παραδείγματα"
 
 #: C/mal_table.page:69(title)
 msgid "The <code>rules</code> Attribute"
-msgstr ""
+msgstr "Η ιδιότητα <code>rules</code>"
 
 #: C/mal_table.page:71(p)
 msgid "Place rules between each row:"
-msgstr ""
+msgstr "Τοποθετήστε τους κανόνες (rules) ανάμεσα σε κάθε σειρά:"
 
 #: C/mal_table.page:95(p) C/mal_table.page:137(p) C/mal_table.page:184(p)
 #: C/mal_table.page:233(p) C/mal_table.page:280(p) C/mal_table.page:322(p)
@@ -531,7 +549,7 @@ msgstr "900-1200 g"
 #: C/mal_table.page:237(p) C/mal_table.page:284(p) C/mal_table.page:326(p)
 #: C/mal_table.page:373(p) C/mal_table.page:423(p)
 msgid "Eurasian Wigeon"
-msgstr ""
+msgstr "Eurasian Wigeon"
 
 #: C/mal_table.page:99(p) C/mal_table.page:141(p) C/mal_table.page:188(p)
 #: C/mal_table.page:237(p) C/mal_table.page:284(p) C/mal_table.page:326(p)
@@ -554,9 +572,8 @@ msgstr "680 g"
 #: C/mal_table.page:103(p) C/mal_table.page:145(p) C/mal_table.page:194(p)
 #: C/mal_table.page:241(p) C/mal_table.page:288(p) C/mal_table.page:330(p)
 #: C/mal_table.page:379(p) C/mal_table.page:427(p)
-#, fuzzy
 msgid "Common Teal"
-msgstr "Συνηθισμένες εργασίες"
+msgstr "Common Teal"
 
 #: C/mal_table.page:103(p) C/mal_table.page:145(p) C/mal_table.page:194(p)
 #: C/mal_table.page:241(p) C/mal_table.page:288(p) C/mal_table.page:330(p)
@@ -579,9 +596,8 @@ msgstr "360 g"
 #: C/mal_table.page:107(p) C/mal_table.page:149(p) C/mal_table.page:198(p)
 #: C/mal_table.page:245(p) C/mal_table.page:292(p) C/mal_table.page:334(p)
 #: C/mal_table.page:383(p) C/mal_table.page:431(p)
-#, fuzzy
 msgid "Northern Pintail"
-msgstr "Βόρεια Αφρική"
+msgstr "Northern Pintail"
 
 #: C/mal_table.page:107(p) C/mal_table.page:149(p) C/mal_table.page:198(p)
 #: C/mal_table.page:245(p) C/mal_table.page:292(p) C/mal_table.page:334(p)
@@ -602,73 +618,52 @@ msgid "450-1360 g"
 msgstr "450-1360 g"
 
 #: C/mal_table.page:113(p)
-#, fuzzy
 msgid "Place rules between each colum:"
-msgstr "Χάρακες μεταξύ γραμμών και στηλών"
+msgstr "Τοποθέτηση κανόνων (rules) μεταξύ στηλών:"
 
 #: C/mal_table.page:155(p)
 msgid "Place rules between each row group:"
-msgstr ""
+msgstr "Τοποθέτηση κανόνων (rules) μεταξύ κάθε ομάδας γραμμών:"
 
 #: C/mal_table.page:205(p)
 msgid "Place rules between each column group:"
-msgstr ""
+msgstr "Τοποθέτηση κανόνων (rules) μεταξύ κάθε ομάδας γραμμών:"
 
 #: C/mal_table.page:254(title)
 msgid "The <code>shade</code> Attribute"
-msgstr ""
+msgstr "Η ιδιότητα <code>shade</code>"
 
 #: C/mal_table.page:256(p)
-#, fuzzy
 msgid "Shade alternating rows:"
-msgstr ""
-"#-#-#-#-#  aisleriot.master.el.po (aisleriot.gnome-2-26)  #-#-#-#-#\n"
-"Εναλλασσόμενο χρώμα\n"
-"#-#-#-#-#  gnome-games.master.el.po (gnome-games.HEAD.el)  #-#-#-#-#\n"
-"Εναλλασσόμενα χρώματα"
+msgstr "Χρωματική εναλλαγή στις γραμμές:"
 
 #: C/mal_table.page:298(p)
-#, fuzzy
 msgid "Shade alternating columns:"
-msgstr ""
-"#-#-#-#-#  aisleriot.master.el.po (aisleriot.gnome-2-26)  #-#-#-#-#\n"
-"Εναλλασσόμενο χρώμα\n"
-"#-#-#-#-#  gnome-games.master.el.po (gnome-games.HEAD.el)  #-#-#-#-#\n"
-"Εναλλασσόμενα χρώματα"
+msgstr "Χρωματική εναλλαγή στις στήλες:"
 
 #: C/mal_table.page:340(p)
-#, fuzzy
 msgid "Shade alternating row groups:"
-msgstr "Εναλλαγές γραμμές χρωμάτων"
+msgstr "Χρωματική εναλλαγή στις ομάδες γραμμών:"
 
 #: C/mal_table.page:390(p)
-#, fuzzy
 msgid "Shade alternating column groups:"
-msgstr "Ρύθμιση στηλών στο %s"
+msgstr "Χρωματική εναλλαγή στις ομάδες στηλών:"
 
-#
 #: C/mal_table.page:447(title)
-#, fuzzy
 msgid "Design Notes"
-msgstr "Σχεδιαστής"
+msgstr "Σημειώσεις σχεδίασης"
 
 #: C/mal_table.page:457(title)
-#, fuzzy
 msgid "Comparison to HTML"
-msgstr ""
-"#-#-#-#-#  drgeo.master.el.po (dr-genius 0.5.5)  #-#-#-#-#\n"
-"Σύγκριση\n"
-"#-#-#-#-#  genius.master.el.po (el)  #-#-#-#-#\n"
-"Σύγκριση (<=>)"
+msgstr "Σύγκριση με την HTML"
 
 #: C/mal_table.page:467(title) C/mal_block_p.page:92(title)
 msgid "Comparison to DocBook"
-msgstr "Σύγκριση με DocBook"
+msgstr "Σύγκριση με το DocBook"
 
 #: C/mal_table_col.page:9(title)
-#, fuzzy
 msgid "Columns and Column Groups"
-msgstr "Διάστημα στηλών στήλης"
+msgstr "Στήλες και ομάδες στηλών"
 
 #: C/mal_table_col.page:11(code)
 #, no-wrap
@@ -699,11 +694,12 @@ msgstr ""
 
 #: C/mal_section.page:16(desc)
 msgid "Break up pages into logical chunks to help readers find information quickly."
-msgstr ""
+msgstr "Σπάσιμο των σελίδων σε λογικά κομμάτια για βοήθεια του αναγνώστη στη γρήγορη εύρεση πληροφοριών."
 
 # #-#-#-#-#  orca.master.el.po (orca.HEAD)  #-#-#-#-# #-#-#-#-#  libgnomeui.HEAD.el.po (el)  #-#-#-#-# #-#-#-#-#  gnome-libs-el.po (gnome-libs 1.2.12)  #-#-#-#-# #-#-#-#-#  libgda-el.po (gnome-db 0.0.91)  #-#-#-#-# #-#-#-#-#  toutdoux-el.po (toutdoux 1.0)  #-#-#-#-# #-#-#-#-#  pitivi.master.el.po (el)  #-#-#-#-# #-#-#-#-#  bug-buddy.gnome-2-14.el.po (el)  #-#-#-#-#: C/mal_section.page:20(title)
+#: C/mal_section.page:20(title)
 msgid "Sections"
-msgstr "Τμήματα"
+msgstr "Ενότητες"
 
 #: C/mal_section.page:22(code)
 #, no-wrap
@@ -739,6 +735,10 @@ msgid ""
 "Mallard, sections can take part in <link xref=\"links\">automatic linking</"
 "link> just as pages can."
 msgstr ""
+"Μια ενότητα είναι το κατ' εξοχήν λογικό μέρος μιας σελίδας ή μιας άλλης ενότητας. Το σπάσιμο του "
+"περιεχομένου σε ενότητες μπορεί να βοηθήσει τους χρήστες να βρουν πληροφορίες πιο γρήγορα. Στο Mallard, οι "
+"ενότητες μπορούν να λαμβάνουν μέρους στους <link xref=\"links\">αυτόματους συνδέσμους</link> όπως και οι "
+"σελίδες."
 
 #: C/mal_section.page:42(title) C/mal_page.page:48(title)
 #: C/mal_inline_var.page:44(title) C/mal_inline_sys.page:41(title)
@@ -772,12 +772,17 @@ msgid ""
 "element, any <link xref=\"mal_block\">general block content</link>, and any "
 "number of <code xref=\"mal_section\">section</code> elements."
 msgstr ""
+"Το στοιχείο <code>section</code> περιέχει ένα προαιρετικό στοιχείο <code xref=\"mal_info\">info</code>, "
+"ένα στοιχείο <code xref=\"mal_block_title\">title</code>, οποιαδήποτε <link xref=\"mal_block\">γενικά "
+"μπλοκ περιεχομένου</link> και οποιοδήποτε αριθμό από στοιχεία <code xref=\"mal_section\">section</code>."
 
 #: C/mal_section.page:49(p)
 msgid ""
 "The <code>section</code> can occur in <code xref=\"mal_page\">page</code> "
 "elements and other <code>section</code> elements."
 msgstr ""
+"Το <code>section</code> μπορεί να βρίσκεται μέσα σε στοιχεία <code xref=\"mal_page\">page</code> και μέσα "
+"σε άλλα στοιχεία <code>section</code>."
 
 #: C/mal_section.page:52(p)
 msgid ""
@@ -786,6 +791,10 @@ msgid ""
 "including those on other <code>section</code> elements and on the containing "
 "<code xref=\"mal_page\">page</code> element."
 msgstr ""
+"Η ιδιότητα <code>id</code> δέχεται ένα μοναδικό αναγνωριστικό. Θα πρέπει να είναι διαφορετική από "
+"οποιαδήποτε άλλη ιδιότητα <code>id</code> μέσα στην ίδια σελίδα, συμπεριλαμβανομένων και εκείνων μέσα σε "
+"άλλα στοιχεία <code>section</code>, και μέσα στο στοιχείο <code xref=\"mal_page\">page</code> που τα "
+"περιέχει."
 
 #: C/mal_section.page:57(p) C/mal_page.page:67(p) C/mal_inline_var.page:58(p)
 #: C/mal_inline_sys.page:55(p) C/mal_inline_span.page:57(p)
@@ -809,6 +818,9 @@ msgid ""
 "hints. Processing tools should adjust their behavior according to those "
 "style hints they understand."
 msgstr ""
+"Η ιδιότητα <code>style</code> δέχεται μια λίστα από υποδείξεις στυλ, χωρισμένες με διάστημα. Τα εργαλεία "
+"επεξεργασίας θα πρέπει να προσαρμόζουν τη συμπεριφορά τους ανάλογα με τις υποδείξεις στυλ που "
+"καταλαβαίνουν."
 
 #: C/mal_section.page:61(p)
 msgid ""
@@ -816,6 +828,8 @@ msgid ""
 "namespaces. See <link xref=\"mal_external\"/> for more information on "
 "external-namespace attributes."
 msgstr ""
+"Το στοιχείο <code>section</code> μπορεί να έχει ιδιότητες από ένα εξωτερικό namespace. Δείτε το <link "
+"xref=\"mal_external\"/> για περισσότερες πληροφορίες σχετικά με τις ιδιότητες από εξωτερικά namespace."
 
 #: C/mal_section.page:71(title) C/mal_page.page:134(title)
 #: C/mal_inline_var.page:75(title) C/mal_inline_sys.page:83(title)
@@ -839,9 +853,8 @@ msgstr ""
 #: C/mal_block_listing.page:105(title) C/mal_block_figure.page:92(title)
 #: C/mal_block_example.page:109(title) C/mal_block_desc.page:120(title)
 #: C/mal_block_comment.page:143(title) C/mal_block_code.page:105(title)
-#, fuzzy
 msgid "Processing Expectations"
-msgstr "Εντολή προεπεξεργαστή"
+msgstr "Προσδοκίες επεξεργασίας"
 
 #: C/mal_section.page:73(p)
 msgid ""
@@ -853,6 +866,12 @@ msgid ""
 "and ending of each section obvious. The depth of each section should be "
 "clear, although this may not be feasible for deeply nested sections."
 msgstr ""
+"Κάθε ενότητα εμφανίζεται ως μπλοκ. Ο τίτλος κάθε ενότητας εμφανίζεται πιο έντονα, ακολουθούμενος από "
+"οποιαδήποτε θυγατρικά στοιχεία περιεχομένου, και τέλος από κάθε θυγατρική ενότητα. Σημειώστε ότι αυτόματοι "
+"σύνδεσμοι, υποδείξεις στυλ ή άλλα ειδικά χαρακτηριστικά μπορεί να εισάγουν περιεχόμενο ή να αλλάζουν τον "
+"τρόπο που εμφανίζονται οι σελίδες. Οι ενότητες θα πρέπει να είναι ξεχωριστές από το περιεχόμενο που τις "
+"περιβάλλει για να είναι προφανές πού αρχίζει και πού τελειώνει μια ενότητα. Το βάθος κάθε ενότητας πρέπει "
+"να είναι ξεκάθαρο, αν και αυτό μπορεί να μην είναι εφικτό για ενότητες με πολλαπλή εμφώλευση."
 
 #: C/mal_section.page:81(p)
 msgid ""
@@ -862,10 +881,15 @@ msgid ""
 "Sections in guide pages have topic links inserted following their block "
 "content. See <link xref=\"links#topic\"/> for more information."
 msgstr ""
+"Οι ενότητες μπορούν να έχουν συνδέσμους που να σχετίζονται μαζί τους. Όλες οι ενότητες πρέπει να έχουν "
+"συνδέσμους οδηγιών και συνδέσμους «δείτε επίσης» όπου εφαρμόζεται. Δείτε το <link xref=\"links#guide\"/> "
+"και το <link xref=\"links#seealso\"/> για περισσότερες πληροφορίες. Οι ενότητες σε σελίδες οδηγιών έχουν "
+"συνδέσμους θεμάτων μετά από το μπλοκ περιεχομένου τους. Δείτε το <link xref=\"links#topic\"/> για "
+"περισσότερες πληροφορίες."
 
 #: C/mal_page.page:16(desc)
 msgid "Individual tutorials, overviews, references, and navigational guides."
-msgstr ""
+msgstr "Ξεχωριστά βοηθήματα, επισκοπήσεις, αναφορές και οδηγοί περιήγησης."
 
 #: C/mal_page.page:19(title)
 msgid "Pages"
@@ -915,6 +939,11 @@ msgid ""
 "pages</link>. Topic pages contain the bulk of the material discussed in a "
 "document, whereas guide pages serve as navigational aids."
 msgstr ""
+"Το στοιχείο <code>page</code> είναι το ριζικό στοιχείο κάθε αρχείου σελίδας του Mallard. Στο Mallard, τα "
+"έγγραφα συντίθενται από ξεχωριστές σελίδες οι οποίες αλληλοσυνδέονται χρησιμοποιώντας διάφορους "
+"μηχανισμούς σύνδεσης. Υπάρχουν δύο τύποι σελίδων στο Mallard: οι <link xref=\"#guide\">σελίδες οδηγιών<"
+"/link> και οι <link xref=\"#topic\">σελίδες θεμάτων</link>. Οι σελίδες θεμάτων περιέχουν την πλειοψηφία "
+"του περιεχομένου που διαπραγματεύεται ένα έγγραφο, ενώ οι σελίδες οδηγιών αποτελούν βοηθήματα περιήγησης."
 
 #: C/mal_page.page:50(p)
 msgid ""
@@ -923,18 +952,25 @@ msgid ""
 "element, any <link xref=\"mal_block\">general block content</link>, and any "
 "number of <code xref=\"mal_section\">section</code> elements."
 msgstr ""
+"Το στοιχείο <code>page</code> περιέχει ένα προαιρετικό στοιχείο <code xref=\"mal_info\">info</code>, ένα "
+"στοιχείο <code xref=\"mal_block_title\">title</code>, οποιαδήποτε <link xref=\"mal_block\">γενικά μπλοκ "
+"περιεχομένου</link> και οποιοδήποτε αριθμό από στοιχεία <code xref=\"mal_section\">section</code>."
 
 #: C/mal_page.page:55(p)
 msgid ""
 "The <code>page</code> element is the top-level element in any Mallard page "
 "file, and cannot occur in any other elements."
 msgstr ""
+"Το στοιχείο <code>page</code> είναι ιεραρχικά το ανώτερο στοιχείο σε οποιαδήποτε σελίδα αρχείου του "
+"Mallard, και δε μπορεί να βρίσκεται μέσα σε οποιοδήποτε άλλο στοιχείο."
 
 #: C/mal_page.page:58(p)
 msgid ""
 "The <code>id</code> attribute takes a unique identifier, which should match "
 "the base file name (without extension) of the file containing the page."
 msgstr ""
+"Η ιδιότητα <code>id</code> παίρνει ένα μοναδικό αναγνωριστικό, το οποίο πρέπει να ταιριάζει με το βασικό "
+"όνομα αρχείου (χωρίς την επέκταση) του αρχείου που περιέχει τη σελίδα."
 
 #: C/mal_page.page:62(p)
 msgid ""
@@ -943,6 +979,9 @@ msgid ""
 "xref=\"#topic\">topic pages</link> are discussed below. If the <code>type</"
 "code> attribute is omitted, it is assumed to be <code>\"topic\"</code>."
 msgstr ""
+"Η ιδιότητα <code>type</code> παίρνει τις τιμές <code>\"guide\"</code> και <code>\"topic\"</code>. Οι <link "
+"xref=\"#guide\">σελίδες οδηγιών</link> και οι <link xref=\"#topic\">σελίδες θεμάτων</link> περιγράφονται "
+"παρακάτω. Αν παραληφθεί ή ιδιότητα <code>type</code> τότε εννοείται ότι είναι <code>\"topic\"</code>."
 
 #: C/mal_page.page:71(p)
 msgid ""
@@ -950,11 +989,12 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"Το στοιχείο <code>page</code> μπορεί να έχει ιδιότητες από εξωτερικά namespace. Δείτε το <link "
+"xref=\"mal_external\"/> για περισσότερες πληροφορίες πάνω στις ιδιότητες από εξωτερικά namespace."
 
 #: C/mal_page.page:81(title)
-#, fuzzy
 msgid "Guide Pages"
-msgstr "Οδηγοί"
+msgstr "Σελίδες οδηγιών"
 
 #: C/mal_page.page:83(p)
 msgid ""
@@ -965,6 +1005,11 @@ msgid ""
 "multiple guides, however, readers are able to reach the same content by "
 "navigating different paths."
 msgstr ""
+"Οι σελίδες οδηγιών έχουν την ιδιότητα <code>type</code> ορισμένη σε <code>\"guide\"</code>. Εξυπηρετούν το "
+"σκοπό βοηθημάτων περιήγησης, συνδέοντας σε θέματα και σε άλλες σελίδες οδηγιών. Οι αναγνώστες μπορούν να "
+"περιηγηθούν μέσω των οδηγιών όπως θα περιηγούνταν μέσα στις ενότητες περιεχομένου σε ένα γραμμικό έγγραφο. "
+"Αφού μια σελίδα μπορεί να συμπεριληφθεί σε πολλές σελίδες οδηγιών, οι αναγνώστες μπορούν να φτάσουν στο "
+"ίδιο περιεχόμενο ακολουθώντας διαφορετικές διαδρομές."
 
 #: C/mal_page.page:90(p)
 msgid ""
@@ -975,15 +1020,19 @@ msgid ""
 "section in a guide page has automatic links inserted as well. See <link xref="
 "\"links#topic\"/> for details on automatic topic links."
 msgstr ""
+"Στο περιεχόμενο των σελίδων οδηγιών εισάγονται αυτόματα σύνδεσμοι βάσει συνδέσμων θεμάτων μέσα στα δικά "
+"τους στοιχεία <code xref=\"mal_info\">info</code> και βάσει συνδέσμων οδηγιών μέσα στα στοιχεία <code>"
+"info</code> άλλων σελίδων και ενονήτων. Οι σελίδες οδηγιών μπορούν να περιέχουν ενότητες για την οργάνωση "
+"του περιεχομένου. Κάθε ενότητα σε μια σελίδα οδηγιών επίσης έχει συνδέσμους που εισάγονται αυτόματα. Δείτε "
+"το <link xref=\"links#topic\"/> για λεπτομέρειες πάνω στους αυτόματους συνδέσμους θεμάτων."
 
 #: C/mal_page.page:97(p)
-#, fuzzy
 msgid ""
 "Guides also have see also links generated automatically. See <link xref="
 "\"links#seealso\"/> for more information."
 msgstr ""
-"Λήψη στιγμιότυπου για ολόκληρη την επιφάνεια εργασίας. Δείτε την <xref "
-"linkend=\"tools-screenshot\"/> για περισσότερες λεπτομέρειες."
+"Οι σελίδες οδηγιών έχουν επίσης συνδέσμους «δείτε ακόμα» που δημιουργούνται αυτόματα. Δείτε το <link "
+"xref=\"links#seealso\"/> για περισσότερες λεπτομέρειες."
 
 #: C/mal_page.page:100(p)
 msgid ""
@@ -991,11 +1040,12 @@ msgid ""
 "readers understand the topics being presented. Introductory content should "
 "be short and concise."
 msgstr ""
+"Γενικά, οι σελίδες οδηγιών θα περιέχουν κάποιο εισαγωγικό περιεχόμενο για να βοηθήσουν τους αναγνώστες να "
+"καταλάβουν τα θέματα που παρουσιάζονται. Το εισαγωγικό κείμενο θα πρέπει να είναι σύντομο και περιεκτικό."
 
 #: C/mal_page.page:109(title)
-#, fuzzy
 msgid "Topic Pages"
-msgstr "Θέματα"
+msgstr "Σελίδες θεμάτων"
 
 #: C/mal_page.page:111(p)
 msgid ""
@@ -1008,6 +1058,12 @@ msgid ""
 "only in that their primary purpose is to convey information, whereas guides "
 "serve as navigational aids."
 msgstr ""
+"Οι σελίδες θεμάτων είτε έχουν την ιδιότητα <code>type</code> ορισμένη σε <code>\"topic\"</code>, είτε δεν "
+"έχουν καθόλου ορισμένη την ιδιότητα <code>type</code>. Τα θέματα περιέχουν την πλειοψηφία του υλικού σε "
+"ένα έγγραφο. Ένα Θέμα μπορεί να είναι ένα βοήθημα, μια επισκόπηση, υλικό αναφοράς ή άλλος τύπος "
+"περιεχομένου. Το Mallard δε διακρίνει μεταξύ διαφορετικών τύπων περιεχομένου, παρότι διάφορα εργαλεία "
+"μπορεί να εισάγουν ειδική μορφοποίηση βάσει υποδείξεων στυλ. Τα θέματα διακρίνονται από τους οδηγούς μόνο "
+"στο ότι ο βασικός τους σκοπός είναι να μεταφέρουν πληροφορίες, ενώ οι οδηγοί βοηθούν την περιήγηση."
 
 #: C/mal_page.page:120(p)
 msgid ""
@@ -1017,15 +1073,19 @@ msgid ""
 "page has automatic guide links inserted as well. See <link xref=\"links#guide"
 "\"/> for details on automatic guide links."
 msgstr ""
+"Στις σελίδες θεμάτων εισάγονται αυτόματα σύνδεσμοι προς όλους τους οδηγούς που συνδέουν σ' αυτές. Οι "
+"σελίδες θεμάτων μπορούν να περιέχουν ενότητες που βοηθούν στην οργάνωση του υλικού και παρουσιάζουν "
+"λεπτομερέστερες πληροφορίες στον αναγνώστη. Κάθε ενότητα σε ένα θέμα έχει επίσης συνδέσμους που εισάγονται "
+"αυτόματα. Δείτε το <link xref=\"links#guide\"/> για περισσότερες πληροφορίες πάνω στους αυτόματους "
+"συνδέσμους οδηγιών."
 
 #: C/mal_page.page:126(p)
-#, fuzzy
 msgid ""
 "Topics also have see also links generated automatically. See <link xref="
 "\"links#seealso\"/> for more information."
 msgstr ""
-"Λήψη στιγμιότυπου για ολόκληρη την επιφάνεια εργασίας. Δείτε την <xref "
-"linkend=\"tools-screenshot\"/> για περισσότερες λεπτομέρειες."
+"Τα θέματα έχουν επίσης αυτόματα δημιουργημένους συνδέσμους «δείτε ακόμα». Δείτε το <link "
+"xref=\"links#seealso\"/> για περισότερες πληροφορίες."
 
 #: C/mal_page.page:136(p)
 msgid ""
@@ -1036,6 +1096,11 @@ msgid ""
 "fixed-height electronic pages such as those used by word processors and e-"
 "books."
 msgstr ""
+"Σε μέσα που προβάλλουν στην οθόνη, ένα στοιχείο <code>page</code> προβάλλεται ως μια μοναδική σελίδα. Σ' "
+"αυτή την περίπτωση, το <em>page</em> χρησιμοποιείται υπό μορφή <em>ιστοσελίδας</em>: κάτι που μπορεί να "
+"διαβαστεί από την αρχή μέχρι το τέλος με κύλιση. Αυτό δεν πρέπει να συγχίζεται με φυσικές σελίδες -που "
+"καταλαμβάνουν τη μια πλευρά ενός φύλλου χαρτιού- ή με οποιουδήποτε είδους ηλεκτρονικές σελίδες σταθερού "
+"ύψους όπως εκείνες που χρησιμοποιούνται από τους επεξεργαστές κειμένου και τα ηλεκτρονικά βιβλία."
 
 #: C/mal_page.page:143(p)
 msgid ""
@@ -1045,6 +1110,10 @@ msgid ""
 "<code>link</code> elements which will cause automatic links to be inserted "
 "into the displayed output. See <link xref=\"links\"/> for more information."
 msgstr ""
+"Το θυγατρικό στοιχείο <code>info</code> δεν εμφανίζεται άμεσα, παρότι μερικά πληροφοριακά στοιχεία μπορεί "
+"να εμφανίζονται ή να επηρεάζουν πτυχές της εμφάνισης της σελίδας. Συγκεκριμένα, το στοιχείο <code>info<"
+"/code> μπορεί να περιέχει στοιχεία <code>link</code> τα οποία θα προκαλέσουν την αυτόματη εισαγωγή "
+"συνδέσμων στην έξοδο που εμφανίζεται. Δείτε το <link xref=\"links\"/> για περισσότερες πληροφορίες."
 
 #: C/mal_page.page:149(p)
 msgid ""
@@ -1053,6 +1122,10 @@ msgid ""
 "links, style hints, or other special features may insert material or change "
 "the way pages are displayed."
 msgstr ""
+"Ο τίτλος μιας σελίδας εμφανίζεται έντονα στο πάνω μέρος, ακολουθούμενος από οποιοδήποτε θυγατρικό μπλοκ "
+"περιεχομένου, και τέλος από κάθε θυγατρική ενότητα. Σημειώστε ότι αυτόματοι σύνδεσμοι, υποδείξεις στυλ ή "
+"άλλα ειδικά χαρακτηριστικά μπορεί να εισάγουν περιεχόμενο ή να αλλάζουν τον τρόπο που εμφανίζονται οι "
+"σελίδες."
 
 #: C/mal_inline_var.page:15(years) C/mal_inline_span.page:14(years)
 #: C/mal_inline_media.page:13(years) C/mal_inline_link.page:13(years)
@@ -1063,15 +1136,12 @@ msgid "2007-2009"
 msgstr "2007-2009"
 
 #: C/mal_inline_var.page:20(desc)
-#, fuzzy
 msgid "Mark up placeholder text that should be replaced by the user."
-msgstr "Αν το σύστημα αρχείων θα έχει ιδιοκτήτη τον χρήστη"
+msgstr "Σημείωση κειμένου που καταλαμβάνει το χώρο κειμένου που πρέπει να αντικατασταθεί από το χρήστη."
 
-#
 #: C/mal_inline_var.page:23(title)
-#, fuzzy
 msgid "Variable Text"
-msgstr "Λίστα μεταβλητών:"
+msgstr "Μεταβλητό κείμενο"
 
 #: C/mal_inline_var.page:25(code)
 #, no-wrap
@@ -1102,12 +1172,18 @@ msgid ""
 "element to indicate a replaceable argument, or within running prose to refer "
 "to an indicated argument."
 msgstr ""
+"Χρησιμοποιήστε το στοιχείο <code>var</code> για να σημειώσετε κείμενο που καταλαμβάνει το χώρο κειμένου "
+"που πρέπει να αντικατασταθεί από το χρήστη. Αυτό τυπικά θα χρησιμοποιείται μέσα σε στοιχεία <code "
+"xref=\"mal_inline_cmd\">cmd</code> ή <code xref=\"mal_inline_code\">code</code> για να υποδείξει κείμενο "
+"προς αντικατάσταση, ή μέσα σε τρέχον κείμενο για να υποδείξει ένα όρισμα."
 
 #: C/mal_inline_var.page:46(p)
 msgid ""
 "The <code>var</code> element can contain a mixture of text and any <link "
 "xref=\"mal_inline\">general inline elements</link>."
 msgstr ""
+"Το στοιχείο <code>var</code> μπορεί να περιέχει ένα μίγμα από κείμενο και οποιαδήποτε <link "
+"xref=\"mal_inline\">γενικά συγγραμμικά στοιχεία</link>."
 
 #: C/mal_inline_var.page:49(p)
 msgid ""
@@ -1116,12 +1192,18 @@ msgid ""
 "<link xref=\"mal_block#basic\">basic block elements</link>, and certain "
 "<link xref=\"mal_info\">informational elements</link>."
 msgstr ""
+"Το στοιχείο <code>var</code> συναντάται σε οποιοδήποτε γενικό συγγραμμικό περιεχόμενο, συμπεριλαμβανομένων "
+"των περισσότερων <link xref=\"mal_inline\">συγγραμμικών στοιχείων</link>, μερικών <link "
+"xref=\"mal_block#basic\">βασικών στοιχείων μπλοκ</link> και μερικών <link xref=\"mal_info\">πληροφοριακών "
+"στοιχείων</link>."
 
 #: C/mal_inline_var.page:55(p)
 msgid ""
 "The <code>var</code> element can link to other pages or documents. See <link "
 "xref=\"mal_attr_link\"/> for more information."
 msgstr ""
+"Το στοιχείο <code>var</code> μπορεί να συνδέει σε άλλες σελίδες ή έγγραφα. Δείτε το <link "
+"xref=\"mal_attr_link\"/> για περισσότερες πληροφορίες."
 
 #: C/mal_inline_var.page:62(p)
 msgid ""
@@ -1129,12 +1211,16 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"Το στοιχείο <code>var</code> μπορεί να έχει ιδιότητες από εξωτερικά namespace. Δείτε το <link "
+"xref=\"mal_external\"/> για περισσότερες πληροφορίες για τις ιδιότητες από εξωτερικά namespace."
 
 #: C/mal_inline_var.page:66(p)
 msgid ""
 "See <link xref=\"mal_inline_cmd\"/> and <link xref=\"mal_inline_code\"/> for "
 "examples using <code>var</code>."
 msgstr ""
+"Δείτε τα <link xref=\"mal_inline_cmd\"/> και <link xref=\"mal_inline_code\"/> για παραδείγματα χρήσης του "
+"<code>var</code>."
 
 #: C/mal_inline_var.page:77(p)
 msgid ""
@@ -1144,6 +1230,10 @@ msgid ""
 "fixed-width font. In running prose, however, the <code>var</code> element "
 "does not cause its contents to be displayed in a fixed-width font."
 msgstr ""
+"Το μεταβλητό κείμενο τυπικά εμφανίζεται σε πλάγιο κείμενο. Όταν χρησιμοποιείται μέσα σε ένα στοιχείο "
+"σταθερού πλάτους όπως το <code xref=\"mal_inline_cmd\">cmd</code> ή το <code xref=\"mal_inline_code\">"
+"code</code>, τότε κληρονομεί τη γραμματοσειρά σταθερού πλάτους. Σε τρέχοντα λόγο όμως, το στοιχείο <code>"
+"var</code> δεν κάνει τα περιεχόμενά του να εμφανίζονται με σταθερού πλάτους γραμματοσειρά."
 
 #: C/mal_inline_var.page:88(title) C/mal_inline_sys.page:96(title)
 #: C/mal_inline_span.page:100(title) C/mal_inline_output.page:155(title)
@@ -1162,9 +1252,8 @@ msgstr ""
 #: C/mal_block_media.page:140(title) C/mal_block_list.page:193(title)
 #: C/mal_block_figure.page:103(title) C/mal_block_example.page:120(title)
 #: C/mal_block_comment.page:164(title) C/mal_block_code.page:122(title)
-#, fuzzy
 msgid "Comparison to Other Formats"
-msgstr "Για να μετατρέψετε ένα συμπιεσμένο αρχείο σε άλλη μορφή"
+msgstr "Σύγκριση με άλλες μορφές"
 
 #: C/mal_inline_var.page:89(p)
 msgid ""
@@ -1172,16 +1261,16 @@ msgid ""
 "docbook.org/tdg/en/html/replaceable.html\">replaceable</code> element in "
 "DocBook."
 msgstr ""
+"Το στοιχείο <code>var</code> είναι όμοιο με το στοιχείο <code href=\"http://www.docbook."
+"org/tdg/en/html/replaceable.html\">replaceable</code> του DocBook."
 
 #: C/mal_inline_sys.page:18(desc)
-#, fuzzy
 msgid "Mark up general identifiers found on computer systems."
-msgstr "Μία μοναδική αριθμητική ταυτότητα για έναν υπολογιστή σε ένα δίκτυο."
+msgstr "Σημείωση γενικών αναγνωριστικών που συναντούνται σε συστήματα υπολογιστών."
 
 #: C/mal_inline_sys.page:21(title)
-#, fuzzy
 msgid "System Items"
-msgstr "Ώρα συστήματος"
+msgstr "Αντικείμενα συστήματος"
 
 #: C/mal_inline_sys.page:23(code)
 #, no-wrap
@@ -1211,12 +1300,18 @@ msgid ""
 "code>, <code xref=\"mal_inline_cmd\">cmd</code>, or <code xref="
 "\"mal_inline_code\">code</code>."
 msgstr ""
+"Χρησιμοποιήστε το στοιχείο <code>sys</code> για να σημειώσετε οποιοδήποτε τύπο αντικειμένου συστήματος το "
+"οποίο δεν καλύπτεται από άλλα στοιχεία όπως τα <code xref=\"mal_inline_file\">file</"
+"code>, <code xref=\"mal_inline_cmd\">cmd</code>, ή <code xref="
+"\"mal_inline_code\">code</code>."
 
 #: C/mal_inline_sys.page:43(p)
 msgid ""
 "The <code>sys</code> element can contain a mixture of text and any <link "
 "xref=\"mal_inline\">general inline elements</link>."
 msgstr ""
+"Το στοιχείο <code>sys</code> μπορεί να περιέχει ένα μίγμα από κείμενο και οποιοαδήποτε άλλα <link "
+"xref=\"mal_inline\">γενικά συγγραμμικά στοιχεία</link>."
 
 #: C/mal_inline_sys.page:46(p)
 msgid ""
@@ -1225,12 +1320,18 @@ msgid ""
 "<link xref=\"mal_block#basic\">basic block elements</link>, and certain "
 "<link xref=\"mal_info\">informational elements</link>."
 msgstr ""
+"Το στοιχείο <code>sys</code> συναντάται σε οποιοδήποτε γενικό συγγραμμικό περιεχόμενο, συμπεριλαμβανομένων "
+"των περισσότερων <link xref=\"mal_inline\">συγγραμμικών στοιχείων</link>, μερικών <link "
+"xref=\"mal_block#basic\">βασικών στοιχείων μπλοκ</link> και μερικών <link xref=\"mal_info\">πληροφοριακών "
+"στοιχείων</link>."
 
 #: C/mal_inline_sys.page:52(p)
 msgid ""
 "The <code>sys</code> element can link to other pages or documents. See <link "
 "xref=\"mal_attr_link\"/> for more information."
 msgstr ""
+"Το στοιχείο <code>sys</code> μπορεί να συνδέει σε άλλες σελίδες ή έγγραφα. Δείτε το <link "
+"xref=\"mal_attr_link\"/> για περισσότερες πληροφορίες."
 
 #: C/mal_inline_sys.page:59(p)
 msgid ""
@@ -1238,14 +1339,16 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"Το στοιχείο <code>sys</code> μπορεί να έχει ιδιότητες από εξωτερικά namespace. Δείτε το <link "
+"xref=\"mal_external\"/> για περισσότερες πληροφορίες για τις ιδιότητες από εξωτερικά namespace."
 
 #: C/mal_inline_sys.page:71(p)
 msgid "Use <code>sys</code> to mark up a domain name:"
-msgstr ""
+msgstr "Χρησιμοποιήστε το <code>sys</code> για να σημειώσετε ένα όνομα τομέα:"
 
 #: C/mal_inline_sys.page:75(p)
 msgid "The Linux kernel is hosted on <sys>git.kernel.org</sys>."
-msgstr ""
+msgstr "Ο πυρήνας του Linux φιλοξενείται στο <sys>git.kernel.org</sys>."
 
 #: C/mal_inline_sys.page:85(p)
 msgid ""
@@ -1254,6 +1357,10 @@ msgid ""
 "particularly important in system items, since letters often appear without "
 "the context of a known word that helps make them discernable in normal prose."
 msgstr ""
+"Τα αντικείμενα συστήματος εμφανίζονται με γραμματοσειρά σταθερού πλάτους. Οι γραμματοσειρές σταθερού "
+"πλάτους τείνουν να διακρίνουν καλύτερα οπτικά όμοιους χαρακτήρες. Αυτό είναι ιδιαίτερα σημαντικό σε "
+"αντικείμενα συστήματος, αφού τα γράμματα συχνά εμφανίζονται χωρίς τα συμφραζόμενά τους που βοηθούν να τα "
+"κάνουν αντιληπτά σε ρέοντα λόγο."
 
 #: C/mal_inline_sys.page:97(p)
 msgid ""
@@ -1265,16 +1372,23 @@ msgid ""
 "does, the <code>sys</code> element should be used in place of these and "
 "various other elements."
 msgstr ""
+"Το στοιχείο <code>sys</code> είναι όμοιο με το στοιχείο <code href=\"http://www."
+"docbook.org/tdg/en/html/systemitem.html\">systemitem</code> στο DocBook. Το DocBook έχει αρκετά στοιχεία "
+"το οποία κάποτε σημειώνονταν με χρήση της ιδιότητας <code>class</code> του στοιχείου <code>systemitem<"
+"/code>. Αφού όμως το Mallard δεν παρέχει το επίπεδο εξειδίκευσης των ετικετών που παρέχει το DocBook, το "
+"στοιχείο  <code>sys</code> θα πρέπει να χρησιμοποιείται στη θέση εκείνων και μερικών ακόμα στοιχείων."
 
 #: C/mal_inline_span.page:19(desc)
 msgid ""
 "A generic inline element that can be used for semantic, localization, and "
 "styling purpose."
 msgstr ""
+"Ένα γενικό συγγραμμικό στοιχείο το οποίο μπορεί να χρησιμοποιηθεί για σκοπούς σήμανσης, τοπικοποίησης και "
+"στυλ."
 
 #: C/mal_inline_span.page:23(title)
 msgid "Spans"
-msgstr "Γεφύρωμα"
+msgstr "Στοιχεία span"
 
 #: C/mal_inline_span.page:25(code)
 #, no-wrap
@@ -1304,12 +1418,17 @@ msgid ""
 "is frequently necessary for extensions using attributes from external "
 "namespaces."
 msgstr ""
+"Χρησιμοποιήστε το στοιχείο <code>span</code> για να περιβάλετε κάποιο κείμενο χωρίς τη χρήση κάποιων "
+"σημαντικών <link xref=\"mal_inline\">συγγραμμικών στοιχείων</link>. Αυτό είναι συχνά χρήσιμο για "
+"επεκτάσεις που χρησιμοποιούν ιδιότητες από εξωτερικά namespace."
 
 #: C/mal_inline_span.page:45(p)
 msgid ""
 "The <code>span</code> element can contain a mixture of text and any <link "
 "xref=\"mal_inline\">general inline elements</link>."
 msgstr ""
+"Το στοιχείο <code>span</code> μπορεί να περιέχει ένα μίγμα από κείμενο και οποιαδήποτε <link "
+"xref=\"mal_inline\">γενικά συγγραμμικά στοιχεία</link>."
 
 #: C/mal_inline_span.page:48(p)
 msgid ""
@@ -1318,12 +1437,18 @@ msgid ""
 "<link xref=\"mal_block#basic\">basic block elements</link>, and certain "
 "<link xref=\"mal_info\">informational elements</link>."
 msgstr ""
+"Το στοιχείο <code>span</code> συναντάται σε οποιοδήποτε γενικό συγγραμμικό περιεχόμενο, "
+"συμπεριλαμβανομένων των περισσότερων <link xref=\"mal_inline\">συγγραμμικών στοιχείων</link>, μερικών <"
+"link xref=\"mal_block#basic\">βασικών στοιχείων μπλοκ</link> και μερικών <link xref=\"mal_info\">"
+"πληροφοριακών στοιχείων</link>."
 
 #: C/mal_inline_span.page:54(p)
 msgid ""
 "The <code>span</code> element can link to other pages or documents. See "
 "<link xref=\"mal_attr_link\"/> for more information."
 msgstr ""
+"Το στοιχείο <code>span</code> μπορεί να συνδέει σε άλλες σελίδες ή έγγραφα. Δείτε το <link "
+"xref=\"mal_attr_link\"/> για περισσότερες πληροφορίες."
 
 #: C/mal_inline_span.page:61(p)
 msgid ""
@@ -1331,6 +1456,8 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"Το στοιχείο <code>span</code> μπορεί να έχει ιδιότητες από εξωτερικά namespace. Δείτε το <link "
+"xref=\"mal_external\"/> για περισσότερες πληροφορίες για τις ιδιότητες από εξωτερικά namespace."
 
 #: C/mal_inline_span.page:73(p)
 msgid ""
@@ -1338,12 +1465,15 @@ msgid ""
 "untranslatable using the <link href=\"http://www.w3.org/TR/its/"
 "\">Internationalization Tag Set</link>:"
 msgstr ""
+"Χρησιμοποιήστε το <code>span</code> με μια ιδιότητα από εξωτερικό namespace για να σημειώσετε μια λέξη ως "
+"μη μεταφράσιμη χρησιμοποιώντας την <link href=\"http://www.w3.org/TR/its/"
+"\">Ομάδα ετικετών διεθνοποίησης</link>:"
 
 #: C/mal_inline_span.page:80(p)
 msgid ""
 "This <span version=\"1.0\" translate=\"no\">word</span> should not be "
 "translated."
-msgstr ""
+msgstr "Αυτή η <span version=\"1.0\" translate=\"no\">word</span> δεν πρέπει να μεταφράζεται."
 
 #: C/mal_inline_span.page:91(p)
 msgid ""
@@ -1351,22 +1481,24 @@ msgid ""
 "Processing tools may have special processing rules for certain style hints "
 "or external-namespace attributes."
 msgstr ""
+"Δε χρειάζεται ειδική απεικόνιση των στοιχείων <code>span</code>. Τα εργαλεία επεξεργασίας μπορεί να έχουν "
+"ειδικούς κανόνες επεξεργασίας για μερικές υποδείξεις στυλ ή για ιδιότητες από εξωτερικά namespace."
 
 #: C/mal_inline_span.page:101(p)
 msgid ""
 "The <code>span</code> element is similar to the <code href=\"http://www."
 "docbook.org/tdg/en/html/phrase.html\">phrase</code> element in DocBook."
 msgstr ""
+"Το στοιχείο <code>span</code> είναι όμοιο με το στοιχείο <code href=\"http://www."
+"docbook.org/tdg/en/html/phrase.html\">phrase</code> του DocBook."
 
 #: C/mal_inline.page:18(desc)
-#, fuzzy
 msgid "Rich semantic elements for marking up inline content."
-msgstr "Λείπει απαιτούμενο περιεχόμενο από ένα στοιχείο <%s>."
+msgstr "Εμπλουτισμένα σημαντικά στοιχεία για σημείωση συγγραμμικού περιεχομένου."
 
 #: C/mal_inline.page:21(title) C/mal_inline.page:67(title)
-#, fuzzy
 msgid "Inline Elements"
-msgstr "Στοιχεία GUI"
+msgstr "Συγγραμμικά στοιχεία"
 
 #: C/mal_inline.page:23(code)
 #, no-wrap
@@ -1423,6 +1555,10 @@ msgid ""
 "this specification will serve most software documentation writers' needs "
 "well."
 msgstr ""
+"Το Mallard παρέχει μια μικρή αλλά πλούσια ομάδα από σημαντικά συγγραμμικά στοιχεία. Τα στοιχεία που "
+"παρέχονται επιλέχθηκαν από την εμπειρία με την τεκμηρίωση λογισμικού και άλλες μορφές εγγράφων. Τα "
+"συγγραμμικά στοιχεία που ορίζονται στην προδιαγραφή θα εξυπηρετήσουν καλά τις ανάγκες των περισσότερων "
+"συγγραφέων τεκμηρίωσης λογισμικού."
 
 #: C/mal_inline.page:52(p) C/mal_block.page:39(p)
 msgid ""
@@ -1432,6 +1568,11 @@ msgid ""
 "Mallard allows elements to be extended with attributes from external "
 "namespaces. See <link xref=\"mal_external\"/> for more information."
 msgstr ""
+"Οι συγγραφείς, οι επιμελητές και άλλοι παραγωγοί περιεχομένου χρειάζονται μερικές φορές να παρέχουν πιο "
+"πλούσιες πληροφορίες στα έγγραφά τους. Παρότι οι πληροφορίες αυτές μπορεί να μη λαμβάνονται από τα "
+"εργαλεία απεικόνισης, μπορούν να χρησικμοποιηθούν για διάφορους εσωτερικούς σκοπούς. Το Mallard επιτρέπει "
+"στα στοιχεία να επεκτείνονται με ιδιότητες από εξωτερικά namespace. Δείτε το <link xref=\"mal_external\"/> "
+"για περισσότερες πληροφορίες."
 
 #: C/mal_inline.page:59(p)
 msgid ""
@@ -1439,15 +1580,16 @@ msgid ""
 "any inline context. See <link xref=\"#processing\"/> below for more "
 "information."
 msgstr ""
+"Επιπλέον, το Mallard επιτρέπει σε στοιχεία από εξωτερικά namespace να χρησιμοποιούνται σε οποιοδήποτε "
+"συγγραμμικό κείμενο. Δείτε το <link xref=\"#processing\"/> πιο κάτω για περισσότερες πληροφορίες."
 
 #: C/mal_inline.page:69(title) C/mal_external.page:79(title)
 msgid "Elements"
 msgstr "Στοιχεία"
 
 #: C/mal_inline.page:77(title)
-#, fuzzy
 msgid "Inline Processing Instructions"
-msgstr "Εντολή XML Processing"
+msgstr "Συγγραμμικές οδηγίες επεξεργασίας"
 
 #: C/mal_inline.page:81(p)
 msgid ""
@@ -1455,6 +1597,9 @@ msgid ""
 "Mallard never allows block elements within inline elements. Inline elements "
 "should never introduce a line break in the rendered output."
 msgstr ""
+"Τα συγγραμμικά στοιχεία συναντιούνται μέσα σε στοιχεία μπλοκ ή μέσα σε άλλα συγγραμμικά στοιχεία. Το "
+"Mallard δεν επιτρέπει ποτέ στοιχεία μπλοκ μέσα σε συγγραμμικά στοιχεία. Τα συγγραμμικά στοιχεία δεν πρέπει "
+"ποτέ να εισάγουν μια αλλαγή γραμμής μέσα στη έξοδο που απεικονίζεται."
 
 #: C/mal_inline.page:85(p)
 msgid ""
@@ -1463,6 +1608,9 @@ msgid ""
 "a styling effect is set for a particular element, it is in effect for all "
 "descendant elements, unless explicitly overridden."
 msgstr ""
+"Διαφορετικά συγγραμμικά στοιχεία μπορεί να εισάγουν διαφορετικά εφέ στο στυλ, όπως διαφορές στις "
+"γραμματοσειρές, χρώματα κειμένου και παρασκηνίου, και παρασκήνια. Γενικά, αν ένα εφέ στυλ ορίζεται για ένα "
+"συγκεκριμένο στοιχείο, ισχύει και για όλα τα θυγατρικά του στοιχεία εκτός και αν παρακάμπτεται ρητά."
 
 #: C/mal_inline.page:90(p)
 msgid ""
@@ -1471,14 +1619,18 @@ msgid ""
 "they understand. Otherwise, an unknown inline element should be processed as "
 "if it were replaced by its child content."
 msgstr ""
+"Το Mallard επιτρέπει στοιχεία από εξωτερικά namespace να χρησιμοποιούνται σε οποιοδήποτε συγγραμμικά "
+"περιεχόμενο. Τα εργαλεία επεξεργασίας μπορεί να έχουν ειδική συμπεριφορά για ειδικά στοιχεία τα οποία "
+"καταλαβαίνουν. Σε αντίθετη περίπτωση, ένα άγνωστο συγγραμμικό στοιχείο θα πρέπει να αντιμετωπίζεται σαν να "
+"αντικαθίσταται από το θυγατρικό του περιεχόμενο."
 
 #: C/mal_inline_output.page:18(desc)
 msgid "Mark up the output from a computer program."
-msgstr ""
+msgstr "Σημείωση της εξόδου από ένα πρόγραμμα υπολογιστή."
 
 #: C/mal_inline_output.page:21(title)
 msgid "Computer Output"
-msgstr ""
+msgstr "Έξοδος υπολογιστή"
 
 #: C/mal_inline_output.page:23(code)
 #, no-wrap
@@ -1510,6 +1662,11 @@ msgid ""
 "application. For messages and other labels in a graphical applicaiton, use "
 "the <code xref=\"mal_inline_gui\">gui</code> element."
 msgstr ""
+"Χρησιμοποιήστε το στοιχείο <code>output</code> για να σημειώσετε το κείμενο που εξάγεται από ένα πρόγραμμα "
+"υπολογιστή. Τυπικά, αυτό θα είναι έξοδος κειμένου σε ένα περιβάλλον γραμμής εντολών, παρότι μπορείτε να "
+"χρησιμοποιήσετε το στοιχείο <code>output</code> για κείμενο που παράγεται από τον υπολογιστή σε ένα πεδίο "
+"κειμένου ή σε παρόμοιο στοιχείο ελέγχου σε μια γραφική εφαρμογή. Για μηνύματα και άλλες ετικέτες σε "
+"γραφικές εφαρμογές, χρησιμοποιήστε το στοιχείο <code xref=\"mal_inline_gui\">gui</code>."
 
 #: C/mal_inline_output.page:40(p)
 msgid ""
@@ -1518,12 +1675,17 @@ msgid ""
 "element, this may be used to format normal text, error text, and prompts "
 "differently."
 msgstr ""
+"Μπορείτε να χρησιμοποιήσετε την ιδιότητα <code>style</code> για να υποδείξετε τον τύπο του κειμένου που "
+"σημειώνετε. Μέσα σε ένα στοιχείο <code xref=\"mal_block_screen\">screen</code>, αυτό μπορεί να "
+"χρησιμοποιηθεί για να μορφοποιήσετε διαφορετικά κανονικό κείμενο, κείμενο σφάλματος ή κείμενο προτροπής."
 
 #: C/mal_inline_output.page:50(p)
 msgid ""
 "The <code>output</code> element can contain a mixture of text and any <link "
 "xref=\"mal_inline\">general inline elements</link>."
 msgstr ""
+"Το στοιχείο <code>output</code> μπορεί να περιέχει ένα μίγμα από κείμενο και οποιαδήποτε <link "
+"xref=\"mal_inline\">γενικά συγγραμμικά στοιχεία</link>."
 
 #: C/mal_inline_output.page:53(p)
 msgid ""
@@ -1532,46 +1694,49 @@ msgid ""
 "<link xref=\"mal_block#basic\">basic block elements</link>, and certain "
 "<link xref=\"mal_info\">informational elements</link>."
 msgstr ""
+"Το στοιχείο <code>output</code> συναντάται σε οποιοδήποτε γενικό συγγραμμικό περιεχόμενο, "
+"συμπεριλαμβανομένων των περισσότερων <link xref=\"mal_inline\">συγγραμμικών στοιχείων</link>, μερικών <"
+"link xref=\"mal_block#basic\">βασικών στοιχείων μπλοκ</link> και μερικών <link xref=\"mal_info\">"
+"πληροφοριακών στοιχείων</link>."
 
 #: C/mal_inline_output.page:59(p)
 msgid ""
 "The <code>output</code> element can link to other pages or documents. See "
 "<link xref=\"mal_attr_link\"/> for more information."
 msgstr ""
+"Το στοιχείο <code>output</code> μπορεί να συνδέει σε άλλες σελίδες ή έγγραφα. Δείτε το <link "
+"xref=\"mal_attr_link\"/> για περισσότερες πληροφορίες."
 
 #: C/mal_inline_output.page:67(p)
 msgid "Typical values for the <code>style</code> attribute include:"
-msgstr ""
+msgstr "Τυπικές τιμές για την ιδιότητα <code>style</code> μπορεί να είναι:"
 
 #: C/mal_inline_output.page:69(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "output"
-msgstr "(αρχείο εξόδου)"
+msgstr "output"
 
 #: C/mal_inline_output.page:70(p)
-#, fuzzy
 msgid "Standard output from a running program"
-msgstr "Εκκίνηση εφαρμογής αποσφαλμάτωσης και σύνδεσή της σε εκτελούμενο πρόγραμμα"
+msgstr "Πρότυπη έξοδος από εκτελούμενο πρόγραμμα"
 
 #: C/mal_inline_output.page:72(code)
 #, no-wrap
 msgid "error"
-msgstr "σφάλμα"
+msgstr "error"
 
 #: C/mal_inline_output.page:73(p)
-#, fuzzy
 msgid "Standard error from a running program"
-msgstr "Εκκίνηση εφαρμογής αποσφαλμάτωσης και σύνδεσή της σε εκτελούμενο πρόγραμμα"
+msgstr "Πρότυπο σφάλμα από εκτελούμενο πρόγραμμα"
 
 #: C/mal_inline_output.page:75(code) C/docbook.page:1158(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "prompt"
-msgstr "Προαγωγή"
+msgstr "prompt"
 
 #: C/mal_inline_output.page:76(p)
-#, fuzzy
 msgid "The command prompt for an interactive shell"
-msgstr "Η προσαρμοσμένη εντολή που χρησιμοποιείται αντί για το κέλυφος"
+msgstr "Η προτροπή εντολής για ένα διαδραστικό κέλυφος"
 
 #: C/mal_inline_output.page:80(p)
 msgid ""
@@ -1579,6 +1744,8 @@ msgid ""
 "namespaces. See <link xref=\"mal_external\"/> for more information on "
 "external-namespace attributes."
 msgstr ""
+"Το στοιχείο <code>output</code> μπορεί να έχει ιδιότητες από εξωτερικά namespace. Δείτε το <link "
+"xref=\"mal_external\"/> για περισσότερες πληροφορίες για τις ιδιότητες από εξωτερικά namespace."
 
 #: C/mal_inline_output.page:84(p)
 msgid ""
@@ -1587,22 +1754,29 @@ msgid ""
 "contents of a <code xref=\"mal_block_screen\">screen</code> element, "
 "allowing processing tools to treat them differently."
 msgstr ""
+"Το στοιχείο <code>output</code> μαζί με το στοιχείο <code xref=\"mal_inline_input\">input</code>, μπορούν "
+"να χρησιμοποιηθούν για να σημειώσουν τα περιεχόμενα ενός στοιχείου <code xref=\"mal_block_screen\">screen<"
+"/code>, επιτρέποντας στα εργαλεία επεξεργασίας να τα χειρίζονται διαφορετικά."
 
 #: C/mal_inline_output.page:97(p)
 msgid "Use <code>ouptut</code> to mark up text generated by a program:"
-msgstr ""
+msgstr "Χρησιμοποιήστε το <code>ouptut</code> για να σημειώσετε κείμενο που παράγεται από ένα πρόγραμμα:"
 
 #: C/mal_inline_output.page:104(p)
 msgid ""
 "The output of <cmd>echo $SHELL</cmd> is <output>/bin/bash</output> if you "
 "use the Bourne-again shell."
 msgstr ""
+"Η έξοδος της εντολής <cmd>echo $SHELL</cmd> είναι <output>/bin/bash</output> αν χρησιμοποιείτε το κέλυφος "
+"Bourne-again."
 
 #: C/mal_inline_output.page:108(p)
 msgid ""
 "Use <code>output</code> and <code xref=\"mal_inline_input\">input</code> "
 "inside a <code xref=\"mal_block_screen\">screen</code> element:"
 msgstr ""
+"Χρησιμοποιήστε το <code>output</code> και το <code xref=\"mal_inline_input\">input</code> μέσα σε ένα "
+"στοιχείο <code xref=\"mal_block_screen\">screen</code>:"
 
 #: C/mal_inline_output.page:119(output) C/mal_inline_output.page:134(output)
 #: C/mal_inline_input.page:94(output)
@@ -1611,24 +1785,23 @@ msgstr "$"
 
 #: C/mal_inline_output.page:119(input) C/mal_inline_input.page:94(input)
 msgid "ls mal_inline_output.xml"
-msgstr ""
+msgstr "ls mal_inline_output.xml"
 
 #: C/mal_inline_output.page:120(output) C/mal_inline_input.page:95(output)
 msgid "mal_inline_output.xml"
-msgstr ""
+msgstr "mal_inline_output.xml"
 
 #: C/mal_inline_output.page:124(p)
 msgid "Use <code>output</code> for error text:"
-msgstr ""
+msgstr "Χρησιμοποιήστε το <code>output</code> για κείμενο σφάλματος:"
 
 #: C/mal_inline_output.page:134(input)
 msgid "ls mal_inline_computeroutput.xml"
-msgstr ""
+msgstr "ls mal_inline_computeroutput.xml"
 
 #: C/mal_inline_output.page:135(output)
-#, fuzzy
 msgid "ls: mal_inline_computerouput.xml: No such file or directory"
-msgstr "%s: %d: Δεν υπάρχει τέτοιο αρχείο ή κατάλογος"
+msgstr "ls: mal_inline_computerouput.xml: Δεν υπάρχει τέτοιο αρχείο ή φάκελος"
 
 #: C/mal_inline_output.page:146(p)
 msgid ""
@@ -1637,6 +1810,9 @@ msgid ""
 "border or background color may be used to make the beginning and end of the "
 "ouptut clear."
 msgstr ""
+"Η έξοδος του υπολογιστή εμφανίζεται με γραμματοσειρά σταθερού πλάτους ή με πλατιά γραμματοσειρά. Οι "
+"γραμματοσειρές σταθερού πλάτους τείνουν να διακρίνουν καλύτερα τους όμοιους χαρακτήρες. Ένα περίγραμμα ή "
+"χρώμα παρασκηνίου μπορεί να χρησιμοποιηθεί για να κάνει την αρχή και το τέλος της εξόδου πιο καθαρό."
 
 #: C/mal_inline_output.page:156(p)
 msgid ""
@@ -1651,6 +1827,15 @@ msgid ""
 "tdg/en/html/errorname.html\">errorname</code> and <code href=\"http://www."
 "docbook.org/tdg/en/html/errortext.html\">errortext</code> elements."
 msgstr ""
+"Το στοιχείο <code>output</code> είναι παρόμοιο με το στοιχείο <code href=\"http://www."
+"docbook.org/tdg/en/html/computeroutput.html\">computeroutput</code> του DocBook. Όταν είναι αναγκαίο, το "
+"στοιχείο <code>output</code> μπορεί να χρησιμοποιηθεί με την ιδιότητα <code>style</code> ορισμένη σε <code>"
+"\"prompt\"</code> στη θέση του στοιχείου <code href=\"http://www.docbook.org/tdg/en/html/prompt.html\">"
+"prompt</code> του DocBook. Σε μερικές περιπτώσεις μπορεί να είναι κατάλληλο να χρησιμοποιήσετε το στοιχείο "
+"<code>output</code> με την ιδιότητα <code>style</code> ορισμένη σε <code>\"error\"</code> στη θέση των "
+"στοιχείων <code href=\"http://www.docbook.org/tdg/en/html/errorname.html\">errorname</code> και <code "
+"href=\"http://www."
+"docbook.org/tdg/en/html/errortext.html\">errortext</code> του DocBook."
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
@@ -1661,12 +1846,11 @@ msgstr "@@image: 'figures/mallard.png'; md5=cad876c6dcbc63f3d050754f7e5ee7b1"
 
 #: C/mal_inline_media.page:18(desc) C/mal_block_media.page:18(desc)
 msgid "Insert an image, video, or other multimedia object."
-msgstr ""
+msgstr "Εισαγωγή μιας εικόνας, βίντεο ή άλλου αντικειμένου πολυμέσων."
 
 #: C/mal_inline_media.page:21(title)
-#, fuzzy
 msgid "Inline Multimedia Objects"
-msgstr "Πλήκτρα πολυμέσων"
+msgstr "Συγγραμμικά αντικείμενα πολυμέσων"
 
 #: C/mal_inline_media.page:23(code)
 #, no-wrap
@@ -1707,12 +1891,18 @@ msgid ""
 "the contents of a <code>media</code> element. See <link xref=\"#processing\"/"
 "> for details on how fallback elements are handled."
 msgstr ""
+"Χρησιμοποιήστε το στοιχείο <code>media</code> για να εισάγετε μια εικόνα, ένα βίντεο ή άλλο αντικείμενο "
+"πολυμέσων στο έγγραφό σας. Μια που δε θα είναι ικανά όλα τα εργαλεία προβολής να εμφανίσουν όλους τους "
+"τύπους αντικειμένων, μπορείτε να παρέχετε εναλλακτικά στοιχεία στο στοιχείο <code>media</code>. Δείτε το <"
+"link xref=\"#processing\"/> για λεπτομέρειες πάνω στο χειρισμό των εναλλακτικών στοιχείων."
 
 #: C/mal_inline_media.page:49(p)
 msgid ""
 "The <code>media</code> element can contain a mixture of text and any <link "
 "xref=\"mal_inline\">general inline elements</link>."
 msgstr ""
+"Το στοιχείο <code>media</code> μπορεί να περιέχει ένα μίγμα από κείμενο και οποιοδήποτε <link "
+"xref=\"mal_inline\">γενικό συγγραμμικό στοιχείο</link>."
 
 #: C/mal_inline_media.page:52(p)
 msgid ""
@@ -1721,18 +1911,24 @@ msgid ""
 "<link xref=\"mal_block#basic\">basic block elements</link>, and certain "
 "<link xref=\"mal_info\">informational elements</link>."
 msgstr ""
+"Το στοιχείο <code>media</code> συναντάται σε οποιοδήποτε γενικό συγγραμμικό περιεχόμενο, "
+"συμπεριλαμβανομένων των περισσότερων <link xref=\"mal_inline\">συγγραμμικών στοιχείων</link>, μερικών <"
+"link xref=\"mal_block#basic\">βασικών στοιχείων μπλοκ</link> και μερικών <link xref=\"mal_info\">"
+"πληροφοριακών στοιχείων</link>."
 
 #: C/mal_inline_media.page:58(p)
 msgid ""
 "The <code>media</code> element can link to other pages or documents. See "
 "<link xref=\"mal_attr_link\"/> for more information."
 msgstr ""
+"Το στοιχείο <code>media</code> μπορεί να συνδέει σε άλλες σελίδες ή έγγραφα. Δείτε το <link "
+"xref=\"mal_attr_link\"/> για περισσότερες πληροφορίες."
 
 #: C/mal_inline_media.page:65(p) C/mal_block_media.page:61(p)
 msgid ""
 "The <code>mime</code> attribute takes a valid MIME type for the object that "
 "is being inserted."
-msgstr ""
+msgstr "Η ιδιότητα <code>mime</code> παίρνει έναν έγκυρο τύπο MIME για το αντικείμενο που εισάγεται."
 
 #: C/mal_inline_media.page:68(p) C/mal_block_media.page:64(p)
 msgid ""
@@ -1740,21 +1936,25 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"Το στοιχείο <code>media</code> μπορεί να έχει ιδιότητες από εξωτερικά namespace. Δείτε το <link "
+"xref=\"mal_external\"/> για περισσότερες πληροφορίες για τις ιδιότητες από εξωτερικά namespace."
 
 #: C/mal_inline_media.page:72(p)
 msgid ""
 "The <code>media</code> element may also be used in a block context. See "
 "<link xref=\"mal_block_media\"/> for more information."
 msgstr ""
+"Το στοιχείο <code>media</code> μπορεί επίσης να χρησιμοποιηθεί σε περιεχόμενο μπλοκ. Δείτε το <link "
+"xref=\"mal_block_media\"/> για περισσότερες λεπτομέρειες."
 
 #: C/mal_inline_media.page:83(p) C/mal_block_media.page:79(p)
 msgid "Use <code>media</code> to insert an image into your document:"
-msgstr ""
+msgstr "Χρησιμοποιήστε το <code>media</code> για να εισάγετε μια εικόνα στο έγγραφό σας:"
 
 #: C/mal_inline_media.page:91(media) C/mal_block_media.page:88(p)
 #: C/mal_block_desc.page:82(desc)
 msgid "Drake, the Mallard mascot"
-msgstr ""
+msgstr "Ο Drake, η μασκότ του Mallard"
 
 #: C/mal_inline_media.page:103(p)
 msgid ""
@@ -1763,6 +1963,9 @@ msgid ""
 "depend on the <code>type</code> and <code>mime</code> attributes. It may be "
 "necessary to add controls for audio and video objects."
 msgstr ""
+"Όταν ένα στοιχείο <code>media</code> συναντάται σε συγγραμμικό περιεχόμενο, προβάλλεται συγγραμμικά. Η "
+"ακριβής προβολή του στοιχείου <code>media</code> εξαρτάται από τις ιδιότητες <code>type</code> και <code>"
+"mime</code>. Μπορεί να είναι αναγκαίο να προσθέσετε ελέγχους για αντικείμενα ή ήχου και βίντεο."
 
 #: C/mal_inline_media.page:108(p) C/mal_block_media.page:105(p)
 msgid ""
@@ -1771,6 +1974,9 @@ msgid ""
 "for displaying application objects. Behavior may vary according to the type "
 "of application being embedded."
 msgstr ""
+"Ο τύπος <code>application</code> αποσκοπεί στην ενσωμάτωση διαδραστικών εφαρμογών στα έγγραφα. Προς το "
+"παρόν δεν υπάρχουν συγκεκριμένες συστάσεις για την εμφάνιση αντικειμένων εφαρμογών. Η συμπεριφορά μπορεί "
+"να ποικίλει ανάλογα με τον τύπο της εφαρμογής που ενσωματώνεται."
 
 #: C/mal_inline_media.page:113(p) C/mal_block_media.page:110(p)
 msgid ""
@@ -1779,6 +1985,10 @@ msgid ""
 "audio. Even when a display tool can display the type of object, it may not "
 "be able to work with the given MIME type for technical or other reasons."
 msgstr ""
+"Μερικά εργαλεία προβολής δε θα μπορούν να εμφανίσουν όλους τους τύπους αντικειμένων. Για παράδειγμα, ένα "
+"εκτυπωμένο κείμενο δε θα μπορεί να εμφανίζει βίντεο ή να αναπαράγει ήχο. Ακόμα και όταν ένα εργαλείο "
+"προβολής μπορεί να εμφανίσει τον τύπο του αντικειμένου, μπορεί να μην είναι ικανό να λειτουργήσει με τον "
+"δεδομένο τύπο MIME για τεχνικούς ή άλλους λόγους."
 
 #: C/mal_inline_media.page:119(p)
 msgid ""
@@ -1789,6 +1999,11 @@ msgid ""
 "content. When processing any child <code>media</code> elements, display "
 "tools may need to fall back further to their child elements."
 msgstr ""
+"Όταν ένα εργαλείο προβολής δε μπορεί να εμφανίσει ένα στοιχείο <code>media</code>, εμφανίζει τα θυγατρικά "
+"του στοιχεία, σαν να αντικαθίσταται το στοιχείο <code>media</code> από τα θυγατρικά του. Τα θυγατρικά "
+"στοιχεία μπορεί να συνίστανται απλά από άλλα στοιχεία <code>media</code> που αναφέρονται σε ένα "
+"διαφορετικό τύπο περιεχομένου. Όταν επεξεργάζονται οποιαδήποτε θυγατρικά στοιχεία <code>media</code>, τα "
+"εργαλεία προβολής μπορεί να χρειαστεί να τα αντικαταστήσουν και αυτά με τα θυγατρικά τους."
 
 #: C/mal_inline_media.page:126(p) C/mal_block_media.page:128(p)
 msgid ""
@@ -1799,6 +2014,12 @@ msgid ""
 "its child elements, and recursively processing any child <code>media</code> "
 "elements, as if it can not display any types of <code>media</code> elements."
 msgstr ""
+"Σε μερικά μέσα προβολής, τα αντικείμενα πολυμέσων μπορεί να έχουν εναλλακτικό κείμενο. Αυτό μπορεί να "
+"εμφανίζεται όταν ο χρήστης κρατήσει το δείκτη του ποντικιού πάνω από το αντικείμενο, ή μπορεί να παρέχεται "
+"σε βοηθητικές τεχνολογίες. Όταν εμφανίζονται σε τέτοια μέσα, τα εργαλεία προβολής θα πρέπει να εξάγουν το "
+"κείμενο ενός στοιχείου <code>media</code> επεξεργαζόμενα τα θυγατρικά του στοιχεία, και επαναληπτικά να "
+"εξετάζουν το κάθε θυγατρικό στοιχείο <code>media</code> σαν να μη μπορούν να εμφανίσουν οποιοδήποτε τύπο "
+"στοιχείου <code>media</code>."
 
 #: C/mal_inline_media.page:140(p)
 msgid ""
@@ -1812,10 +2033,18 @@ msgid ""
 "Mallard, alternative objects are nested, obviating the need for a container "
 "element."
 msgstr ""
+"Το στοιχείο <code>media</code> μπορεί να χρησιμοποιηθεί στη θέση των στοιχείων <code xref=\"http://www."
+"docbook.org/tdg/en/html/audiooobject.html"
+"\">audioobject</code>, <code xref=\"http://www.docbook.org/tdg/en/html/"
+"imageobject.html\">imageobject</code>, and <code xref=\"http://www.docbook."
+"org/tdg/en/html/videoobject.html\">videoobject</code> του DocBook. Το DocBook χρησιμοποιεί το στοιχείο <"
+"code xref=\"http://www.docbook.org/tdg/en/html/inlinemediaobject.html"
+"\">inlinemediaobject</code> για να παρέχει εναλλακτικά αντικείμενα. Στο Mallard, τα εναλλακτικά "
+"αντικείμενα εμφωλεύονται, αναιρώντας έτσι την ανάγκη για ένα στοιχείο που να τα περιέχει."
 
 #: C/mal_inline_link.page:18(desc)
 msgid "Link to other pages, sections, or web pages."
-msgstr ""
+msgstr "Σύνδεση σε άλλες σελίδες, ενότητες ή ιστοσελίδες."
 
 #: C/mal_inline_link.page:21(title) C/mal_info_link.page:11(title)
 msgid "Hyperlinks"
@@ -1859,16 +2088,23 @@ msgid ""
 "<code>link</code> element can also generate link text automatically for "
 "links to pages and sections within the same document."
 msgstr ""
+"Χρησιμοποιήστε το <code>link</code> για να δημιουργήσετε ένα σύνδεσμο προς μια άλλη σελίδα ή ενότητα, ή "
+"προς έναν εξωτερικό πόρο, όπως μια ιστοσελίδα. Τα περισσότερα <link xref=\"mal_inline\">συγγραμμικά "
+"στοιχεία</link> μπορούν να λειτουργούν ως σύνδεσμοι, αλλά το στοιχείο <code>link</code> σας επιτρέπει να "
+"δημιουργείτε συνδέσμους χωρίς συσχετισμένη σημειολογία. Το στοιχείο <code>link</code> μπορεί επίσης να "
+"παράγει συνδέσμους αυτόματα προς σελίδες και ενότητες μέσα στο ίδιο έγγραφο."
 
 #: C/mal_inline_link.page:49(p)
 msgid ""
 "The <code>link</code> element can contain a mixture of text and any <link "
 "xref=\"mal_inline\">general inline elements</link>."
 msgstr ""
+"Το στοιψείο <code>link</code> μπορείτ να περιέχει ένα μίγμα από κείμενο και οποιοδήποτε <link "
+"xref=\"mal_inline\">γενικό συγγραμμικό στοιχείο</link>."
 
 #: C/mal_inline_link.page:52(p)
 msgid "For links within the same document, content can be automatically generated."
-msgstr ""
+msgstr "Για συνδέσμους μέσα στο ίδιο έγγραφο, το περιεχόμενο μπορεί να παράγεται αυτόματα."
 
 #: C/mal_inline_link.page:55(p)
 msgid ""
@@ -1877,6 +2113,10 @@ msgid ""
 "<link xref=\"mal_block#basic\">basic block elements</link>, and certain "
 "<link xref=\"mal_info\">informational elements</link>."
 msgstr ""
+"Το στοιχείο <code>link</code> συναντάται σε οποιοδήποτε γενικό συγγραμμικό περιεχόμενο, "
+"συμπεριλαμβανομένων των περισσότερων <link xref=\"mal_inline\">συγγραμμικών στοιχείων</link>, μερικών <"
+"link xref=\"mal_block#basic\">βασικών στοιχείων μπλοκ</link> και μερικών <link xref=\"mal_info\">"
+"πληροφοριακών στοιχείων</link>."
 
 #: C/mal_inline_link.page:61(p)
 msgid ""
@@ -1884,18 +2124,24 @@ msgid ""
 "within the same document, or to an external resource in some document "
 "management system."
 msgstr ""
+"Η ιδιότητα <code>xref</code> δημιουργεί ένα σύνδεσμο προς μια άλλη σελίδα ή ενότητα μέσα στο ίδιο έγγραφο, "
+"ή προς έναν εξωτερικό πόσο σε κάποιο σύστημα διαχείρισης εγγράφων."
 
 #: C/mal_inline_link.page:65(p)
 msgid ""
 "The <code>href</code> attribute creates a link to a web page or other "
 "network-accessible resource."
 msgstr ""
+"Η ιδιότητα <code>href</code> δημιουργεί ένα σύνδεσμο προς μια ιστοσελίδα ή προς άλλο πόρο προσβάσιμο μέσω "
+"δικτύου."
 
 #: C/mal_inline_link.page:68(p)
 msgid ""
 "The <code>role</code> attribute can be used to select alternative titles of "
 "the target page or section to be used as automatic content."
 msgstr ""
+"Η ιδιότητα <code>role</code> μπορεί να χρησιμοποιηθεί για επιλογή εναλλακτικών τίτλων των σελίδων "
+"προορισμού ή των ενοτήτων, οι οποίοι θα χρησιμοποιηθούν ως αυτόματο περιεχόμενο."
 
 #: C/mal_inline_link.page:75(p)
 msgid ""
@@ -1903,29 +2149,21 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"Το στοιχείο <code>link</code> μπορεί να έχει ιδιότητες από εξωτερικά namespace. Δείτε το <link "
+"xref=\"mal_external\"/> για περισσότερες πληροφορίες για τις ιδιότητες από εξωτερικά namespace."
 
 #: C/mal_inline_link.page:87(p)
-#, fuzzy
 msgid "Link to another page in the same document:"
-msgstr ""
-"#-#-#-#-#  evince.master.el.po (evince.HEAD)  #-#-#-#-#\n"
-"Εύρεση μίας λέξης ή μίας φράσης μέσα στη σελίδα\n"
-"#-#-#-#-#  gnome-utils.master.el.po (gnome-utils.gnome-2-26)  #-#-#-#-#\n"
-"Εύρεση μια λέξης ή φράσης στο κείμενο\n"
-"#-#-#-#-#  evince-help.master.el.po (evince greek help 1)  #-#-#-#-#\n"
-"Εύρεση λέξης ή φράσης μέσα στο έγγραφο"
+msgstr "Σύνδεσμος προς μια άλλη σελίδα στο ίδιο έγγραφο:"
 
 #: C/mal_inline_link.page:93(p)
-#, fuzzy
 msgid "See <link xref=\"mal_attr_link\"/> for information on linking attributes."
 msgstr ""
-"Δείτε την <link xref=\"irc-join-room\"/> για περισσότερες πληροφορίες "
-"σχετικά με την είσοδο σε δωμάτια IRC."
+"Δείτε το <link xref=\"mal_attr_link\"/> για περισσότερες πληροφορίες πάνω στις ιδιότητες των συνδέσμων."
 
 #: C/mal_inline_link.page:96(p)
-#, fuzzy
 msgid "Link to a section in the same page:"
-msgstr "Μετάβαση στην ίδια θέση με την επιπρόσθετη στήλη"
+msgstr "Σύνδεσμος προς μια ενότητα στην ίδια σελίδα:"
 
 #: C/mal_inline_link.page:102(p)
 msgid "See <link xref=\"#processing\"/> for details on automatic link text."
@@ -1933,22 +2171,21 @@ msgstr ""
 
 #: C/mal_inline_link.page:105(p)
 msgid "Link to a section in another page:"
-msgstr ""
+msgstr "Σύνδεσμος προς μια ενότητα σε άλλη σελίδα:"
 
 #: C/mal_inline_link.page:111(p)
 msgid "See <link xref=\"mal_inline#processing\"/> for more processing expectations."
-msgstr ""
+msgstr "Δείτε το <link xref=\"mal_inline#processing\"/> για περισσότερες προσδοκίες επεξεργασίας."
 
 #: C/mal_inline_link.page:114(p)
-#, fuzzy
 msgid "Link to an external resource:"
-msgstr "εξωτερικός πόρος"
+msgstr "Σύνδεσμος προς εξωτερικό πόρο:"
 
 #: C/mal_inline_link.page:121(p)
 msgid ""
 "See the <link href=\"http://www.w3.org/TR/REC-xml-names/\">XML Namespaces "
 "recommendation</link>."
-msgstr ""
+msgstr "Δείτε τις <link href=\"http://www.w3.org/TR/REC-xml-names/\">συστάσεις XML Namespace</link>."
 
 #: C/mal_inline_link.page:132(p)
 msgid ""
@@ -1958,6 +2195,10 @@ msgid ""
 "make links activatable. In these cases, the target of the link may be "
 "displayed in the rendered output."
 msgstr ""
+"Ένα στοιχείο <code>link</code> εμφανίζεται ως υπερσύνδεσμος ο οποίος μπορεί να πατηθεί ή να ενεργοποιηθεί "
+"με άλλο τρόπο για να πάρει το χρήστη σε μια άλλη σελίδα, έγγραφο ή πόρο. Σε μερικά περιβάλλοντα, όπως στην "
+"εκτύπωση, μπορεί να είναι μην είναι δυνατό να κάνετε τους συνδέσμους ενεργοποιήσιμους. Σε τέτοιες "
+"περιπτώσεις, ο στόχος του συνδέσμου μπορεί να εμφανίζεται στην εικονιζόμενη έξοδο."
 
 #: C/mal_inline_link.page:138(p)
 msgid ""
@@ -1966,18 +2207,25 @@ msgid ""
 "<link xref=\"mal_attr_link\"/> for information on determining the link "
 "target."
 msgstr ""
+"Ο στόχος ενός στοιχείου <code>link</code> καθορίζεται από το <code>xref</code> και το <code>href</code> "
+"ακριβώς όπως και για άλλα συγγραμμικά στοιχεία. Δείτε το <link xref=\"mal_attr_link\"/> για περισσότερες "
+"λεπτομέρειες πάνω στον καθορισμό του στόχου του συνδέσμου."
 
 #: C/mal_inline_link.page:143(p)
 msgid ""
 "If the <code>link</code> element is non-empty, its contents are displayed as "
 "normal. Otherwise, automatic link text is generated as follows:"
 msgstr ""
+"Αν το στοιχείο <code>link</code> δεν είναι άδειο, τότε τα περιεχόμενά του εμφανίζονται κανονικά. Αλλιώς, "
+"παράγεται αυτόματα κείμενο συνδέσμου ως εξής:"
 
 #: C/mal_inline_link.page:148(p)
 msgid ""
 "If the <code>link</code> element has an <code>xref</code> attribute that "
 "points to a page or section in the same document:"
 msgstr ""
+"Αν το στοιχείο <code>link</code> έχει μια ιδιότητα <code>xref</code> η οποία συνδέει με μια σελίδα ή "
+"ενότητα στο ίδιο έγγραφο:"
 
 #: C/mal_inline_link.page:152(p)
 msgid ""
@@ -1988,6 +2236,11 @@ msgid ""
 "attribute of the <code>link</code> element, then the contents of that "
 "<code>title</code> element are used."
 msgstr ""
+"Αν το στοιχείο <code>link</code> έχει μια ιδιότητα <code>role</code>, και εκείνη η σελίδα ή ενότητα έχει "
+"έναν <link xref=\"mal_info_title\">πληροφοριακό τίτλο</link> με την ιδιότητα <code>type</code> ορισμένη σε "
+"<code>\"link\"</code> και τη <code>role</code> ορισμένη στην ίδια τιμή όπως την ιδιότητα <code>role</code> "
+"του στοιχείου <code>link</code>, τότε χρησιμοποιούνται τα περιεχόμενα εκείνου του στοιχείου <code>title<"
+"/code>."
 
 #: C/mal_inline_link.page:160(p)
 msgid ""
@@ -1996,12 +2249,15 @@ msgid ""
 "<code>\"link\"</code> and without a <code>role</code> attribute, the "
 "contents of that <code>title</code> element are used."
 msgstr ""
+"Αλλιώς, αν εκείνη η σελίδα ή ενότητα έχει έναν <link xref=\"mal_info_title\">πληροφοριακό τίτλο</link> με "
+"την ιδιότητα <code>type</code> ορισμένη σε <code>\"link\"</code> και χωρίς ιδιότητα <code>role</code>, "
+"τότε χρησιμοποιούνται τα περιεχόμενα εκείνου του στοιχείου <code>title</code>."
 
 #: C/mal_inline_link.page:166(p)
 msgid ""
 "Otherwise, the contents of the primary title of that page page or section "
 "are used."
-msgstr ""
+msgstr "Αλλιώς, χρησιμοποιούνται τα περιεχόμενα του πρωτεύοντος τίτλου εκείνης της σελίδας ή ενότητας."
 
 #: C/mal_inline_link.page:171(p)
 msgid ""
@@ -2009,10 +2265,13 @@ msgid ""
 "attribute that points to a portion of another document, and the processing "
 "tool knows how to generate link contents, that content is used."
 msgstr ""
+"Αλλιώς, αν το στοιχείο <code>link</code> έχει μια ιδιότητα <code>xref</code> η οποία δείχνει σε ένα μέρος "
+"άλλου εγγράφου, και το εργαλείο επεξεργασίας ξέρει πώς να παράγξει περιεχόμενα συνδέσμου, τότε "
+"χρησιμοποιείται εκείνο το περιεχόμενο."
 
 #: C/mal_inline_link.page:175(p)
 msgid "Otherwise, the link target is used as text content."
-msgstr ""
+msgstr "Αλλιώς, ο στόχος του συνδέσμου χρησιμοποιείται ως περιεχόμενο κειμένου."
 
 #: C/mal_inline_link.page:185(p)
 msgid ""
@@ -2025,6 +2284,13 @@ msgid ""
 "from which to take content. Mallard does not provide this feature, although "
 "it allows you to select from alternative titles for the linked-to element."
 msgstr ""
+"Το στοιχείο code>link</code> συνδυάζει τη λειτουργικότητα των στοιχείων <code href="
+"\"http://www.docbook.org/tdg/en/html/link.html\">link</code>, <code href="
+"\"http://www.docbook.org/tdg/en/html/xref.html\">xref</code>, και <code href="
+"\"http://www.docbook.org/tdg/en/html/ulink.html\">ulink</code> του DocBook. Για τα στοιχεία <code>link<"
+"/code> και <code>xref</code> το DocBook παρέχει την ιδιότητα <code>endterm</code> για να επιλέξει ένα "
+"εναλλακτικό στοιχείο από το οποίο να πάρει περιεχόμενο. Το Mallard δεν παρέχει αυτή τη δυνατότητα, παρότι "
+"σας επιτρέπει να επιλέξετε ανάμεσα σε εναλλακτικούς τίτλους για το συνδεδεμένο περιεχόμενο."
 
 #: C/mal_inline_link.page:195(p)
 msgid ""
@@ -2034,24 +2300,22 @@ msgid ""
 "to specify exact alternative link contents. Alternative link contents are "
 "important in languages with case declensions."
 msgstr ""
+"Το DocBook παρέχει την ιδιότητα <code>xrefstyle</code> για να ελέγχει πώς παράγεται το αυτόματο κείμενο. Η "
+"συμπεριφορά αυτής της ιδιότητες δεν έχει προδιαγραφεί. Αντί να προσπαθεί να χρησιμοποιήσει υποδείξεις "
+"στυλ, το Mallard επιτρέπει στους συγγραφείς να καθορίσουν ακριβές εναλλακτικό περιεχόμενο του συνδέσμου. "
+"Τα εναλλακτικά περιεχόμενα των συνδέσμων είναι σημαντικά σε γλώσσες με κλίσεις ή πτώσεις."
 
 #: C/mal_inline_keyseq.page:14(years)
 msgid "&gt;2008-2009"
 msgstr "&gt;2008-2009"
 
 #: C/mal_inline_keyseq.page:19(desc)
-#, fuzzy
 msgid "Mark up a key combination or sequence."
-msgstr "Εισάγετε το συνδυασμό πλήκτρων για να δημιουργήσετε μία νέα σημείωση."
+msgstr "Σημείωση ενός συνδυασμού ή μιας ακολουθίας πλήκτρων."
 
-# #-#-#-#-#  libgda.master.el.po (gnome-db 0.0.91)  #-#-#-#-#
-#
-# #-#-#-#-#  libgnomedb.master.el.po (el)  #-#-#-#-#
-#
-#: C/mal_inline_keyseq.page:22(title)
-#, fuzzy
+# #-#-#-#-#  libgda.master.el.po (gnome-db 0.0.91)  #-#-#-#-# #-#-#-#-#  libgnomedb.master.el.po (el)  #-#-#-#-#: C/mal_inline_keyseq.page:22(title)
 msgid "Key Sequences"
-msgstr "Ακολουθίες"
+msgstr "Ακολουθίες πλήκτρων"
 
 #: C/mal_inline_keyseq.page:24(code)
 #, no-wrap
@@ -2085,6 +2349,10 @@ msgid ""
 "up each individual key press. You can use text without markup to indicate a "
 "class of keys, such as <em>arrow keys</em>, or to indicate a mouse action."
 msgstr ""
+"Χρησιμοποιήστε το στοιχείο <code>keyseq</code> για να σημειώσετε ένα συνδυασμό ή ακολουθία πλήκτρων. "
+"Χρησιμοποιηστε το στοιχείο <code xref=\"mal_inline_key\">key</code> για να σημειώσετε κάθε ξεχωριστό "
+"πάτημα πλήκτρου. Μπορείτε να χρησιμοποιήσετε κείμενο χωρίς σημείωση για να υποδείξετε μια κατηγορία "
+"πλήκτρων, όπως <em>βελάκια</em>, ή για να υποδείξετε μια ενέργεια του ποντικιού."
 
 #: C/mal_inline_keyseq.page:46(p)
 msgid ""
@@ -2092,6 +2360,8 @@ msgid ""
 "\"mal_inline_key\">key</code> elements, and other <code>keyseq</code> "
 "elements."
 msgstr ""
+"Το στοιχείο <code>keyseq</code> μπορεί να περιέχει ένα μίγμα από κείμενο, στοιχεία <code "
+"xref=\"mal_inline_key\">key</code>, και άλλα στοιχεία <code>keyseq</code>."
 
 #: C/mal_inline_keyseq.page:50(p)
 msgid ""
@@ -2100,6 +2370,10 @@ msgid ""
 "<link xref=\"mal_block#basic\">basic block elements</link>, and certain "
 "<link xref=\"mal_info\">informational elements</link>."
 msgstr ""
+"Το στοιχείο <code>keyseq</code> συναντάται σε οποιοδήποτε γενικό συγγραμμικό περιεχόμενο, "
+"συμπεριλαμβανομένων των περισσότερων <link xref=\"mal_inline\">συγγραμμικών στοιχείων</link>, μερικών <"
+"link xref=\"mal_block#basic\">βασικών στοιχείων μπλοκ</link> και μερικών <link xref=\"mal_info\">"
+"πληροφοριακών στοιχείων</link>."
 
 #: C/mal_inline_keyseq.page:61(p)
 msgid ""
@@ -2107,6 +2381,8 @@ msgid ""
 "together (<code>\"combo\"</code>) or in sequence (<code>\"sequence\"</"
 "code>). The default is <code>\"combo\"</code>."
 msgstr ""
+"Το στοιχείο <code>type</code> υποδεικνύει αν τα πλήκτρα θα πρέπει να πιεστούν ταυτόχρονα (<code>\"combo\"<"
+"/code>) ή διαδοχικά (<code>\"sequence\"</code>). Η προεπιλογή είναι <code>\"combo\"</code>."
 
 #: C/mal_inline_keyseq.page:65(p)
 msgid ""
@@ -2114,37 +2390,40 @@ msgid ""
 "namespaces. See <link xref=\"mal_external\"/> for more information on "
 "external-namespace attributes."
 msgstr ""
+"Το στοιχείο <code>keyseq</code> μπορεί να έχει ιδιότητες από εξωτερικά namespace. Δείτε το <link "
+"xref=\"mal_external\"/> για περισσότερες πληροφορίες για τις ιδιότητες από εξωτερικά namespace."
 
 #: C/mal_inline_keyseq.page:77(p)
 msgid "Use <code>keyseq</code> to mark up a keyboard shortcut:"
-msgstr ""
+msgstr "Χρησιμοποιήστε το <code>keyseq</code> για να σημειώσετε μια συντόμευση πληκτρολογίου:"
 
 #: C/mal_inline_keyseq.page:83(p)
-#, fuzzy
 msgid "Press <keyseq><key>Ctrl</key><key>Q</key></keyseq> to quit."
-msgstr "Πατήστε <keycombo><keycap>Ctrl</keycap><keycap>O</keycap></keycombo>."
+msgstr "Πιέστε <keyseq><key>Ctrl</key><key>Q</key></keyseq> για κλείσιμο."
 
 #: C/mal_inline_keyseq.page:86(p)
 msgid "Use <code>keyseq</code> with text for classes of keys:"
-msgstr ""
+msgstr "Χρησιμοποιήστε το <code>keyseq</code> με κείμενο για κατηγορίες πλήκτρων:"
 
 #: C/mal_inline_keyseq.page:93(p)
 msgid ""
 "Press <keyseq><key>Shift</key>arrow keys</keyseq> to make a continuous "
 "selection as you move the keyboard focus."
 msgstr ""
+"Πιέστε <keyseq><key>Shift</key>βελάκια</keyseq> για να κάνετε συνεχόμενη επιλογή καθώς μετακινείτε την "
+"εστίαση του πληκτρολογίου."
 
 #: C/mal_inline_keyseq.page:97(p)
 msgid "Use <code>keyseq</code> with text for mouse actions:"
-msgstr ""
+msgstr "Χρησιμοποιήστε το <code>keyseq</code> με κείμενο για ενέργειες του ποντικιού:"
 
 #: C/mal_inline_keyseq.page:103(p)
 msgid "<keyseq><key>Shift</key>click</keyseq> to make a continuous selection."
-msgstr ""
+msgstr "<keyseq><key>Shift</key>κλικ</keyseq> για να κάνετε μια συνεχή επιλογή."
 
 #: C/mal_inline_keyseq.page:106(p)
 msgid "Use nested <code>keyseq</code> elements for complex key commands:"
-msgstr ""
+msgstr "Χρησιμοποιήστε εμφωλευμένα στοιχεία <code>keyseq</code> για πολύπλοκες εντολές πλήκτρων:"
 
 #: C/mal_inline_keyseq.page:114(p)
 msgid ""
@@ -2152,6 +2431,9 @@ msgid ""
 "keyseq><keyseq><key>C</key><key>s</key></keyseq></keyseq> to save a file in "
 "<app>Emacs</app>."
 msgstr ""
+"Πιέστε <keyseq type=\"sequence\"><keyseq><key>C</key><key>x</key></"
+"keyseq><keyseq><key>C</key><key>s</key></keyseq></keyseq> για να αποθηκεύσετε ένα αρχείο στον <app>Emacs<"
+"/app>."
 
 #: C/mal_inline_keyseq.page:119(p)
 msgid ""
@@ -2198,14 +2480,12 @@ msgid ""
 msgstr ""
 
 #: C/mal_inline_key.page:18(desc)
-#, fuzzy
 msgid "Mark up a key to be pressed on the user's keyboard."
-msgstr "Χρησιμοποιήστε τα κουμπιά βέλους ή το πλήκτρο διαστήματος του πληκτρολογίου."
+msgstr "Σημειώστε ένα πλήκτρο που θα πιεστεί στο πληκτρολόγιο του χρήστη."
 
 #: C/mal_inline_key.page:21(title)
-#, fuzzy
 msgid "Key Strokes"
-msgstr "Γραμμές Κίν-Ιαπ-Κορ"
+msgstr "Πατήματα πλήκτρων"
 
 #: C/mal_inline_key.page:23(code)
 #, no-wrap
@@ -2290,9 +2570,8 @@ msgid "Use <code>key</code> to mark up a letter key:"
 msgstr ""
 
 #: C/mal_inline_key.page:93(p)
-#, fuzzy
 msgid "Press <key>M</key> to mark the selected message as read."
-msgstr "Σήμανση των επιλεγμένων μηνυμάτων ως σημαντικά"
+msgstr "Πιέστε <key>M</key> για να σημειώσετε το επιλεγμένο μήνυμα ως αναγνωσμένο."
 
 #: C/mal_inline_key.page:96(p)
 msgid "Use <code>key</code> to mark up a function key:"
@@ -2431,14 +2710,9 @@ msgstr ""
 msgid "Mark up a sequence of interface controls to navigate."
 msgstr ""
 
-# #-#-#-#-#  libgda.master.el.po (gnome-db 0.0.91)  #-#-#-#-#
-#
-# #-#-#-#-#  libgnomedb.master.el.po (el)  #-#-#-#-#
-#
-#: C/mal_inline_guiseq.page:22(title)
-#, fuzzy
+# #-#-#-#-#  libgda.master.el.po (gnome-db 0.0.91)  #-#-#-#-# #-#-#-#-#  libgnomedb.master.el.po (el)  #-#-#-#-#: C/mal_inline_guiseq.page:22(title)
 msgid "GUI Sequences"
-msgstr "Ακολουθίες"
+msgstr "Ακολουθίες γραφικού περιβάλλοντος"
 
 #: C/mal_inline_guiseq.page:24(code)
 #, no-wrap
@@ -2492,11 +2766,8 @@ msgid "Use <code>guiseq</code> to mark up a sequence of menu items:"
 msgstr ""
 
 #: C/mal_inline_guiseq.page:74(p)
-#, fuzzy
 msgid "Select <guiseq><gui>File</gui><gui>New</gui></guiseq> to open a new document."
-msgstr ""
-"Επιλέξτε <guiseq><gui>Δωμάτιο</gui><gui>Είσοδος στα αγαπημένα</gui></guiseq> "
-"για να μπείτε σε όλα τα αγαπημένα σας δωμάτια."
+msgstr "Επιλέξτε <guiseq><gui>Αρχείο</gui><gui>Νέο</gui></guiseq> για να ανοίξετε ένα νέο έγγραφο."
 
 #: C/mal_inline_guiseq.page:85(p)
 msgid ""
@@ -2527,14 +2798,12 @@ msgid ""
 msgstr ""
 
 #: C/mal_inline_gui.page:18(desc)
-#, fuzzy
 msgid "Mark up control labels from a graphical user interface."
-msgstr "από τη γραφική διεπαφή του χρήστη"
+msgstr "Σημειώστε ετικέτες ελέγχου από ένα γραφικό περιβάλλον."
 
 #: C/mal_inline_gui.page:21(title)
-#, fuzzy
 msgid "GUI Labels"
-msgstr "Ετικέτες"
+msgstr "Ετικέτες γραφικού περιβάλλοντος"
 
 #: C/mal_inline_gui.page:23(code)
 #, no-wrap
@@ -2548,6 +2817,14 @@ msgid ""
 "  <link xref=\"mal_inline\">mal_inline</link>\n"
 "}\n"
 msgstr ""
+"\n"
+"mal_inline_gui = element gui {\n"
+"  <link xref=\"mal_attr_link\">mal_attr_link</link> ?,\n"
+"  attribute style { xsd:NMTOKENS } ?,\n"
+"  attribute * - (mal:* | local:*) { text } *,\n"
+"\n"
+"  <link xref=\"mal_inline\">mal_inline</link>\n"
+"}\n"
 
 #: C/mal_inline_gui.page:33(p)
 msgid ""
@@ -2585,91 +2862,80 @@ msgid ""
 msgstr ""
 
 #: C/mal_inline_gui.page:64(p)
-#, fuzzy
 msgid "Typical style hints include:"
-msgstr "δεν περιλαμβάνει"
+msgstr "Τυπικές υποδείξεις στυλ περιλαμβάνουν:"
 
 #: C/mal_inline_gui.page:67(code)
 #, no-wrap
 msgid "button"
-msgstr "Πλήκτρο"
+msgstr "button"
 
 #: C/mal_inline_gui.page:68(p)
-#, fuzzy
 msgid "The text of a button"
-msgstr "Το κείμενο στο κουμπί"
+msgstr "Το κείμενο ενός κουμπιού"
 
 #: C/mal_inline_gui.page:71(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "checkbox"
-msgstr ""
-"#-#-#-#-#  orca.master.el.po (orca.HEAD)  #-#-#-#-#\n"
-"κουτί επιλογής\n"
-"#-#-#-#-#  atk.master.el.po (el)  #-#-#-#-#\n"
-"πλαίσιο επιλογής"
+msgstr "checkbox"
 
 #: C/mal_inline_gui.page:72(p)
-#, fuzzy
 msgid "The label for a check box"
-msgstr "Το μοντέλο για combo box"
+msgstr "Η ετικέτα ενός κουτιού επιλογής"
 
 #: C/mal_inline_gui.page:75(code) C/docbook.page:616(code)
 #, no-wrap
 msgid "group"
-msgstr "ομάδα"
+msgstr "group"
 
 #: C/mal_inline_gui.page:76(p)
-#, fuzzy
 msgid "The label for a group of controls"
-msgstr "Επιλογή μίας ομάδας συνεχόμενων αντικειμένων"
+msgstr "Η ετικέτα μιας ομάδας ελέγχων"
 
-#: C/mal_inline_gui.page:79(code), no-wrap
+#: C/mal_inline_gui.page:79(code)
+#, no-wrap
 msgid "input"
-msgstr "είσοδος"
+msgstr "input"
 
 #: C/mal_inline_gui.page:80(p)
-#, fuzzy
 msgid "The label for any text entry control"
-msgstr "Η ετικέτα για το κουμπί Προεπιλογής"
+msgstr "Η ετικέτα οποιουδήποτε ελέγχου εισόδου κειμένου"
 
 #: C/mal_inline_gui.page:83(code)
 #, no-wrap
 msgid "menu"
-msgstr "μενού"
+msgstr "menu"
 
 #: C/mal_inline_gui.page:84(p)
-#, fuzzy
 msgid "The name of a menu"
-msgstr "Όνομα βήματος"
+msgstr "Το όνομα ενός μενού"
 
 #: C/mal_inline_gui.page:87(code)
 #, no-wrap
 msgid "menuitem"
-msgstr ""
+msgstr "menuitem"
 
 #: C/mal_inline_gui.page:88(p)
-#, fuzzy
 msgid "The name of an item in a menu"
-msgstr "Το όνομα του εικονιδίου"
+msgstr "Το όνομα μιας καταχώρησης σε ένα μενού"
 
 #: C/mal_inline_gui.page:91(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "radiobutton"
-msgstr "κουμπί radio"
+msgstr "radiobutton"
 
 #: C/mal_inline_gui.page:92(p)
-#, fuzzy
 msgid "The label for a radio button"
-msgstr "Η ετικέτα για το κουμπί Προεπιλογής"
+msgstr "Η ετικέτα ενός κουμπιού radio"
 
-#: C/mal_inline_gui.page:95(code), no-wrap
+#: C/mal_inline_gui.page:95(code)
+#, no-wrap
 msgid "tab"
-msgstr "στηλοθέτης"
+msgstr "tab"
 
 #: C/mal_inline_gui.page:96(p)
-#, fuzzy
 msgid "The label on a tab"
-msgstr "Η ετικέτα για το κουμπί Προεπιλογής"
+msgstr "Η ετικέτα μιας καρτέλας"
 
 #: C/mal_inline_gui.page:100(p)
 msgid ""
@@ -2677,25 +2943,28 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"Το στοιχείο <code>gui</code> μπορεί να έχει ιδιότητες από εξωτερικά namespace. Δείτε το <link "
+"xref=\"mal_external\"/> για περισσότερες πληροφορίες για τις ιδιότητες από εξωτερικά namespace."
 
 #: C/mal_inline_gui.page:112(p)
 msgid "Use <code>gui</code> to mark up the text of a button:"
-msgstr ""
+msgstr "Χρησιμοποιήστε το <code>gui</code> για να σημειώσετε το κείμενο ενός κουμπιού:"
 
 #: C/mal_inline_gui.page:118(p)
-#, fuzzy
 msgid "Click the <gui>Close</gui> button to close the window."
-msgstr "Κάντε κλικ στο <guibutton>Κλείσιμο</guibutton> για να κλείσει ο διάλογος."
+msgstr "Πατήστε <gui>Κλείσιμο</gui> για να κλείσετε το παράθυρο."
 
 #: C/mal_inline_gui.page:121(p)
 msgid "Use <code>gui</code> to mark up the label on a tab:"
-msgstr ""
+msgstr "Χρησιμοποιήστε το <code>gui</code> για να σημειώσετε την ετικέτα μιας καρτέλας:"
 
 #: C/mal_inline_gui.page:128(p)
 msgid ""
 "The <gui>Filters</gui> tab contains options to change the behavior of your "
 "keyboard to meet certain accessibility needs."
 msgstr ""
+"Η καρτέλα <gui>Φίλτρα</gui> περιέχει επιλογές για να αλλάξετε τη συμπεριφορά του πληκτρολογίου σας ώστε να "
+"εξυπηρετεί μερικές ανάγκες προσβασιμότητας."
 
 #: C/mal_inline_gui.page:140(p)
 msgid ""
@@ -2734,13 +3003,12 @@ msgid ""
 msgstr ""
 
 #: C/mal_inline_file.page:18(desc)
-#, fuzzy
 msgid "Mark up the name of a file or directory."
-msgstr "Μετονομασία αρχείου ή καταλόγου"
+msgstr "Σημειώστε το όνομα ενός αρχείου ή φακέλου."
 
 #: C/mal_inline_file.page:21(title)
 msgid "Filenames"
-msgstr ""
+msgstr "Ονόματα αρχείων"
 
 #: C/mal_inline_file.page:23(code)
 #, no-wrap
@@ -2754,6 +3022,14 @@ msgid ""
 "  <link xref=\"mal_inline\">mal_inline</link>\n"
 "}\n"
 msgstr ""
+"\n"
+"mal_inline_file = element file {\n"
+"  <link xref=\"mal_attr_link\">mal_attr_link</link> ?,\n"
+"  attribute style { xsd:NMTOKENS } ?,\n"
+"  attribute * - (mal:* | local:*) { text } *,\n"
+"\n"
+"  <link xref=\"mal_inline\">mal_inline</link>\n"
+"}\n"
 
 #: C/mal_inline_file.page:33(p)
 msgid ""
@@ -2805,9 +3081,8 @@ msgid ""
 msgstr ""
 
 #: C/mal_inline_em.page:18(desc)
-#, fuzzy
 msgid "Emphasize important text."
-msgstr "%i σημαντική ενημέρωση"
+msgstr "Κάντε σημαντικό κείμενο πλάγιο."
 
 #: C/mal_inline_em.page:21(title)
 msgid "Emphasis"
@@ -2918,9 +3193,8 @@ msgid "Mark up code from a programming, markup, or other machine-readable format
 msgstr ""
 
 #: C/mal_inline_code.page:21(title)
-#, fuzzy
 msgid "Code Snippets"
-msgstr "Snippets"
+msgstr "Αποσπάσματα κώδικα"
 
 #: C/mal_inline_code.page:23(code)
 #, no-wrap
@@ -3146,24 +3420,22 @@ msgid "Typical values for the <code>mime</code> attribute include:"
 msgstr ""
 
 #: C/mal_inline_cmd.page:78(code) C/mal_block_screen.page:74(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "application/x-sh"
-msgstr "application/x-pdf"
+msgstr "application/x-sh"
 
 #: C/mal_inline_cmd.page:79(p) C/mal_block_screen.page:75(p)
-#, fuzzy
 msgid "Command to execute with the Bourne shell"
-msgstr "Εντολή προς εκτέλεση στο κλικ"
+msgstr "Εντολή προς εκτέλεση στο κέλυφος Bourne"
 
 #: C/mal_inline_cmd.page:81(code) C/mal_block_screen.page:77(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "application/x-csh"
-msgstr "application/x-pdf"
+msgstr "application/x-csh"
 
 #: C/mal_inline_cmd.page:82(p) C/mal_block_screen.page:78(p)
-#, fuzzy
 msgid "Command to execute with the C shell"
-msgstr "Εντολή προς εκτέλεση στο κλικ"
+msgstr "Εντολή προς εκτέλεση στο κέλυφος C"
 
 #: C/mal_inline_cmd.page:86(p)
 msgid ""
@@ -3177,13 +3449,11 @@ msgid "Use <code>cmd</code> to mark up a simple command to run:"
 msgstr ""
 
 #: C/mal_inline_cmd.page:105(p) C/mal_inline_app.page:79(p)
-#, fuzzy
 msgid ""
 "To start <app>Totem Movie Player</app>, enter <cmd>totem</cmd> at the "
 "command line."
 msgstr ""
-"Μπορείτε να ξεκινήσετε την <application>Αναπαραγωγή ταινιών Totem</"
-"application> με τους ακόλουθους τρόπους:"
+"Για να ξεκινήσετε την <app>Αναπαραγωγή ταινιών</app>, πληκτρολογήστε <cmd>totem</cmd> στη γραμμή εντολών."
 
 #: C/mal_inline_cmd.page:109(p)
 msgid ""
@@ -3248,16 +3518,13 @@ msgstr ""
 msgid "See <link xref=\"principle-justenough\"/> for more background."
 msgstr ""
 
-#
 #: C/mal_inline_app.page:19(desc)
-#, fuzzy
 msgid "Mark up the human-readable name of an application or window."
-msgstr "Αναγνώσιμο όνομα εφαρμογής"
+msgstr "Σημειώστε το ανθρώπινα αναγνώσιμο όνομα μιας εφαρμογής ή παραθύρου."
 
 #: C/mal_inline_app.page:22(title)
-#, fuzzy
 msgid "Application Names"
-msgstr "Όνομα εφαρμογής"
+msgstr "Ονόματα εφαρμογών"
 
 #: C/mal_inline_app.page:24(code)
 #, no-wrap
@@ -3356,9 +3623,8 @@ msgstr ""
 
 #: C/mal_info_years.page:18(desc) C/mal_info_name.page:18(desc)
 #: C/mal_info_email.page:18(desc)
-#, fuzzy
 msgid "FIXME"
-msgstr "(ΠΡΟΣ ΔΙΟΡΘΩΣΗ)"
+msgstr "FIXME"
 
 #: C/mal_info_years.page:21(title)
 msgid "Copyright Years"
@@ -3425,9 +3691,8 @@ msgid "Provide alternate titles for automatic link text and sorting."
 msgstr ""
 
 #: C/mal_info_title.page:21(title)
-#, fuzzy
 msgid "Informational Tiltes"
-msgstr "Πεδία πληροφορίας"
+msgstr "Πληροφοριακοί τίτλοι"
 
 #: C/mal_info_title.page:23(code)
 #, no-wrap
@@ -3469,18 +3734,18 @@ msgid ""
 msgstr ""
 
 #: C/mal_info_title.page:54(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "\"link\""
-msgstr "σύνδεσμος"
+msgstr "\"link\""
 
 #: C/mal_info_title.page:55(p)
 msgid "specifies alternate link text; see <link xref=\"#link\"/>"
-msgstr ""
+msgstr "καθορίζει το εναλλακτικό κείμενο του συνδέσμου, δείτε το <link xref=\"#link\"/>"
 
 #: C/mal_info_title.page:58(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "\"sort\""
-msgstr "ταξινόμηση"
+msgstr "\"sort\""
 
 #: C/mal_info_title.page:59(p)
 msgid "specifies a sort key; see <link xref=\"#sort\"/>"
@@ -3500,9 +3765,8 @@ msgid ""
 msgstr ""
 
 #: C/mal_info_title.page:76(title)
-#, fuzzy
 msgid "Primary Titles"
-msgstr "Πρωτεύον κλειδί"
+msgstr "Πρωτεύοντες τίτλοι"
 
 #: C/mal_info_title.page:78(p)
 msgid ""
@@ -3513,9 +3777,8 @@ msgid ""
 msgstr ""
 
 #: C/mal_info_title.page:88(title)
-#, fuzzy
 msgid "Link Titles"
-msgstr "Ανώνυμο"
+msgstr "Τίτλοι συνδέσμων"
 
 #: C/mal_info_title.page:90(p)
 msgid ""
@@ -3538,9 +3801,8 @@ msgid ""
 msgstr ""
 
 #: C/mal_info_title.page:109(title)
-#, fuzzy
 msgid "Sort Titles"
-msgstr "Ορισμός τίτλου"
+msgstr "Ταξινόμηση τίτλων"
 
 #: C/mal_info_title.page:111(p)
 msgid ""
@@ -3571,18 +3833,9 @@ msgstr ""
 msgid "Record revision numbers, dates, and statuses."
 msgstr ""
 
-# #-#-#-#-#  ekiga.master.el.po (ekiga.HEAD)  #-#-#-#-#
-#
-#: C/mal_info_revision.page:21(title)
-#, fuzzy
+# #-#-#-#-#  ekiga.master.el.po (ekiga.HEAD)  #-#-#-#-#: C/mal_info_revision.page:21(title)
 msgid "Version Information"
-msgstr ""
-"#-#-#-#-#  empathy.master.el.po (empathy.HEAD)  #-#-#-#-#\n"
-"Προσωπικές πληροφορίες\n"
-"#-#-#-#-#  evolution.gnome-2-30.el.po (evolution.HEAD)  #-#-#-#-#\n"
-"Προσωπικές πληροφορίες\n"
-"#-#-#-#-#  ekiga.master.el.po (ekiga.HEAD)  #-#-#-#-#\n"
-"Προσωπικές Πληροφορίες"
+msgstr "Πληροφορίες έκδοσης"
 
 #: C/mal_info_revision.page:23(code)
 #, no-wrap
@@ -3673,20 +3926,19 @@ msgstr ""
 msgid "contains little to no real content"
 msgstr ""
 
-#
 #: C/mal_info_revision.page:84(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "\"incomplete\""
-msgstr "Σύνθεση Μηνύματος"
+msgstr "\"incomplete\""
 
 #: C/mal_info_revision.page:85(p)
 msgid "outline of all information, but lacking content"
 msgstr ""
 
 #: C/mal_info_revision.page:88(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "\"draft\""
-msgstr "%d πρόχειρο"
+msgstr "\"draft\""
 
 #: C/mal_info_revision.page:89(p)
 msgid "all content available, but unpolished"
@@ -3703,46 +3955,28 @@ msgid ""
 "changes"
 msgstr ""
 
-# #-#-#-#-#  balsa.master.el.po (balsa 2.0.13)  #-#-#-#-#
-#
-# #-#-#-#-#  galeon.master.el.po (galeon 1.0)  #-#-#-#-#
-#
-# #-#-#-#-#  libgnomeui.master.el.po (el)  #-#-#-#-#
-# #-#-#-#-#  memory.el.po (abiword 1.0)  #-#-#-#-#
-# #-#-#-#-#  bombermaze-el.po (bombermaze 1.0)  #-#-#-#-#
-#
-# #-#-#-#-#  galeon-el.po (galeon 1.0)  #-#-#-#-#
-#
-# #-#-#-#-#  gimp-el.po (gimp 1.3.2)  #-#-#-#-#
-#
-# #-#-#-#-#  gnome-libs-el.po (gnome-libs 1.2.12)  #-#-#-#-#
-#
-# #-#-#-#-#  gimp-print-el.po (gimp-print 1.0)  #-#-#-#-#
-#
-# #-#-#-#-#  screem-el.po (screem 1.0)  #-#-#-#-#
-#
-#: C/mal_info_revision.page:97(code)
-#, fuzzy, no-wrap
+# #-#-#-#-#  balsa.master.el.po (balsa 2.0.13)  #-#-#-#-# #-#-#-#-#  galeon.master.el.po (galeon 1.0)  #-#-#-#-# #-#-#-#-#  libgnomeui.master.el.po (el)  #-#-#-#-# #-#-#-#-#  memory.el.po (abiword 1.0)  #-#-#-#-# #-#-#-#-#  bombermaze-el.po (bombermaze 1.0)  #-#-#-#-# #-#-#-#-#  galeon-el.po (galeon 1.0)  #-#-#-#-# #-#-#-#-#  gimp-el.po (gimp 1.3.2)  #-#-#-#-# #-#-#-#-#  gnome-libs-el.po (gnome-libs 1.2.12)  #-#-#-#-# #-#-#-#-#  gimp-print-el.po (gimp-print 1.0)  #-#-#-#-# #-#-#-#-#  screem-el.po (screem 1.0)  #-#-#-#-#: C/mal_info_revision.page:97(code)
+#, no-wrap
 msgid "\"review\""
-msgstr "Προεπισκόπηση"
+msgstr "\"review\""
 
 #: C/mal_info_revision.page:98(p)
 msgid "ready to be reviewed by editors"
 msgstr ""
 
 #: C/mal_info_revision.page:101(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "\"candidate\""
-msgstr "Επικύρωση"
+msgstr "\"candidate\""
 
 #: C/mal_info_revision.page:102(p)
 msgid "reviewed and awaiting a final approval"
 msgstr ""
 
 #: C/mal_info_revision.page:105(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "\"final\""
-msgstr "είναι μέσα σε μια εβδομάδα από"
+msgstr "\"final\""
 
 #: C/mal_info_revision.page:106(p)
 msgid "approved and ready for publication or distribution"
@@ -3784,9 +4018,8 @@ msgid ""
 msgstr ""
 
 #: C/mal_info.page:11(title) C/mal_info.page:45(title)
-#, fuzzy
 msgid "Informational Elements"
-msgstr "Μήνυμα πληροφόρησης"
+msgstr "Πληροφοριακά στοιχεία"
 
 #: C/mal_info.page:13(code)
 #, no-wrap
@@ -3808,20 +4041,16 @@ msgid ""
 msgstr ""
 
 #: C/mal_info.page:52(title)
-#, fuzzy
 msgid "Additional Informational Elements"
-msgstr "Πρόσθετες πληροφορίες"
+msgstr "Επιπρόσθετα πληροφοριακά στοιχεία"
 
 #: C/mal_info.page:54(title)
-#, fuzzy
 msgid "Additional Elements"
-msgstr "Επιπλέον σχόλια"
+msgstr "Επιπρόσθετα στοιχεία"
 
-#
 #: C/mal_info_name.page:21(title)
-#, fuzzy
 msgid "Names"
-msgstr "Ό_νόματα"
+msgstr "Ονόματα"
 
 #: C/mal_info_name.page:23(code)
 #, no-wrap
@@ -3883,16 +4112,12 @@ msgid ""
 msgstr ""
 
 #: C/mal_info_license.page:18(desc)
-#, fuzzy
 msgid "Provide information about the licensing terms of the material."
-msgstr ""
-"Τυπώνει πληροφορίες αποσφαλμάτωσης για το ιεραρχικό δέντρο (ancestry) του "
-"εστιασμένου αντικειμένου."
+msgstr "Παρέχει πληροφορίες για τους όρους αδειοδότησης του υλικού."
 
 #: C/mal_info_license.page:21(title)
-#, fuzzy
 msgid "License Information"
-msgstr "Επιλογές ταξινόμησης"
+msgstr "Πληροφορίες άδειας"
 
 #: C/mal_info_license.page:23(code)
 #, no-wrap
@@ -4016,14 +4241,12 @@ msgid ""
 msgstr ""
 
 #: C/mal_info_desc.page:18(desc)
-#, fuzzy
 msgid "Provide a short description of a page or section."
-msgstr "Μια σύντομη περιγραφή του έργου σας."
+msgstr "Παρέχει μια σύντομη περιγραφή της σελίδας ή της ενότητας."
 
 #: C/mal_info_desc.page:21(title)
-#, fuzzy
 msgid "Page Descriptions"
-msgstr "Περιγραφή πακέτου"
+msgstr "Περιγραφές σελίδων"
 
 #: C/mal_info_desc.page:23(code)
 #, no-wrap
@@ -4144,97 +4367,63 @@ msgid ""
 msgstr ""
 
 #: C/mal_info_credit.page:66(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "\"author\""
-msgstr "Συγγραφέας"
+msgstr "\"author\""
 
 #: C/mal_info_credit.page:67(p)
 msgid "somebody responsible for writing content"
 msgstr ""
 
-# #-#-#-#-#  pan.master.el.po (el)  #-#-#-#-#
-#
-# #-#-#-#-#  libgda.master.el.po (gnome-db 0.0.91)  #-#-#-#-#
-#
-# #-#-#-#-#  anjuta-extras.master.el.po (anjuta.HEAD)  #-#-#-#-#
-#
-# #-#-#-#-#  anjuta.gnome-2-30.el.po (anjuta.HEAD)  #-#-#-#-#
-#
-# #-#-#-#-#  gtranslator.master.el.po (gtranslator 1.0)  #-#-#-#-#
-#
-#: C/mal_info_credit.page:70(code)
-#, fuzzy, no-wrap
+# #-#-#-#-#  pan.master.el.po (el)  #-#-#-#-# #-#-#-#-#  libgda.master.el.po (gnome-db 0.0.91)  #-#-#-#-# #-#-#-#-#  anjuta-extras.master.el.po (anjuta.HEAD)  #-#-#-#-# #-#-#-#-#  anjuta.gnome-2-30.el.po (anjuta.HEAD)  #-#-#-#-# #-#-#-#-#  gtranslator.master.el.po (gtranslator 1.0)  #-#-#-#-#: C/mal_info_credit.page:70(code)
+#, no-wrap
 msgid "\"editor\""
-msgstr ""
-"#-#-#-#-#  pan.master.el.po (el)  #-#-#-#-#\n"
-"Επεξεργασία\n"
-"#-#-#-#-#  libgda.master.el.po (gnome-db 0.0.91)  #-#-#-#-#\n"
-"Κειμενογράφος\n"
-"#-#-#-#-#  meld.master.el.po (el)  #-#-#-#-#\n"
-"Συντάκτης\n"
-"#-#-#-#-#  gedit.master.el.po (el)  #-#-#-#-#\n"
-"Επεξεργαστής\n"
-"#-#-#-#-#  conduit.master.el.po (conduit.HEAD)  #-#-#-#-#\n"
-"Επεξεργαστής\n"
-"#-#-#-#-#  pybliographer.master.el.po (el)  #-#-#-#-#\n"
-"Επεξεργαστής\n"
-"#-#-#-#-#  beast.master.el.po (el)  #-#-#-#-#\n"
-"Επεξεργαστής\n"
-"#-#-#-#-#  anjuta-extras.master.el.po (anjuta.HEAD)  #-#-#-#-#\n"
-"Επεξεργαστής κειμένου\n"
-"#-#-#-#-#  evolution-data-server.gnome-2-30.el.po (evolution-data-server.HEAD)  #-#-#-#-#\n"
-"Συντάκτης\n"
-"#-#-#-#-#  anjuta.gnome-2-30.el.po (anjuta.HEAD)  #-#-#-#-#\n"
-"Επεξεργαστής κειμένου\n"
-"#-#-#-#-#  gtranslator.master.el.po (gtranslator 1.0)  #-#-#-#-#\n"
-"Επεξεργαστής\n"
-"#-#-#-#-#  evolution-exchange.gnome-2-30.el.po (el)  #-#-#-#-#\n"
-"_Συντάκτης"
+msgstr "\"editor\""
 
 #: C/mal_info_credit.page:71(p)
 msgid "somebody who has provided reviews or editorial corrections"
 msgstr ""
 
 #: C/mal_info_credit.page:74(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "\"copyright\""
-msgstr "πνευματικά δικαιώματα"
+msgstr "\"copyright\""
 
 #: C/mal_info_credit.page:75(p)
 msgid "a person or entity which holds copyright on the work"
 msgstr ""
 
 #: C/mal_info_credit.page:78(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "\"maintainer\""
-msgstr "Συντηρητές"
+msgstr "\"maintainer\""
 
 #: C/mal_info_credit.page:79(p)
 msgid "the person or entity currently responsible for the work"
 msgstr ""
 
 #: C/mal_info_credit.page:82(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "\"collaborator\""
-msgstr "Συνεργασία"
+msgstr "\"collaborator\""
 
 #: C/mal_info_credit.page:83(p)
 msgid "somebody who has provided extensive rough information"
 msgstr ""
 
 #: C/mal_info_credit.page:86(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "\"translator\""
-msgstr "Gtranslator"
+msgstr "\"translator\""
 
 #: C/mal_info_credit.page:87(p)
 msgid "somebody who has translated the work into another language"
 msgstr ""
 
 #: C/mal_info_credit.page:90(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "\"publisher\""
-msgstr "Εκδότης"
+msgstr "\"publisher\""
 
 #: C/mal_info_credit.page:91(p)
 msgid "a person or entity who distributes formatted copies"
@@ -4295,14 +4484,12 @@ msgid "Use elements and attributes from other namespaces in Mallard documents."
 msgstr ""
 
 #: C/mal_external.page:20(title)
-#, fuzzy
 msgid "External Namespaces"
-msgstr "Εσωτερικό Όνομα"
+msgstr "Εξωτερικά namespace"
 
 #: C/mal_external.page:24(p) C/explore.page:23(p) C/details.page:23(p)
-#, fuzzy
 msgid "Add content"
-msgstr "περιεχόμενο html"
+msgstr "Προσθήκη περιεχομένου"
 
 #: C/mal_external.page:27(code)
 #, no-wrap
@@ -4318,11 +4505,9 @@ msgid ""
 "}\n"
 msgstr ""
 
-#
 #: C/mal_external.page:42(title)
-#, fuzzy
 msgid "External Namespace Attributes"
-msgstr "Αποθήκευση Επιλογών"
+msgstr "Ιδιότητες σε εξωτερικά namespace"
 
 #: C/mal_external.page:46(p)
 msgid ""
@@ -4358,9 +4543,8 @@ msgid "Create simple trees to show heirarchical structures."
 msgstr ""
 
 #: C/mal_block_tree.page:19(title)
-#, fuzzy
 msgid "Tree Lists"
-msgstr "Εργασίες δένδρου"
+msgstr "Λίστες δένδρων"
 
 #: C/mal_block_tree.page:21(code)
 #, no-wrap
@@ -4409,18 +4593,17 @@ msgstr ""
 
 #: C/mal_block_tree.page:65(p) C/mal_block_quote.page:57(p)
 #: C/mal_block_note.page:57(p)
-#, fuzzy
 msgid "The following style hints are recommended:"
-msgstr "Οι ακόλουθες επεκτάσεις εγκαθίστανται άμεσα:"
+msgstr "Συνίστανται οι εξής υποδείξεις στυλ:"
 
 #: C/mal_block_tree.page:68(code)
 #, no-wrap
 msgid "lines"
-msgstr "γραμμές"
+msgstr "lines"
 
 #: C/mal_block_tree.page:69(p)
 msgid "draw lines to show the hierarchy"
-msgstr ""
+msgstr "σχεδίαση γραμμών που δείχνουν την ιεραρχία"
 
 #: C/mal_block_tree.page:74(p)
 msgid ""
@@ -4438,42 +4621,42 @@ msgstr ""
 #: C/mal_block_tree.page:110(code)
 #, no-wrap
 msgid "GtkBin"
-msgstr ""
+msgstr "GtkBin"
 
 #: C/mal_block_tree.page:112(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "GtkButton"
-msgstr "Κουμπί"
+msgstr "GtkButton"
 
 #: C/mal_block_tree.page:113(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "GtkToggleButton"
-msgstr "κουμπί  εναλλαγής"
+msgstr "GtkToggleButton"
 
 #: C/mal_block_tree.page:114(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "GtkColorButton"
-msgstr "Κουμπί Χρωμάτων"
+msgstr "GtkColorButton"
 
 #: C/mal_block_tree.page:115(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "GtkFontButton"
-msgstr "Κουμπί Γραμματοσειράς"
+msgstr "GtkFontButton"
 
 #: C/mal_block_tree.page:116(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "GtkLinkButton"
-msgstr "Συνδετικό Κουμπί (Link)"
+msgstr "GtkLinkButton"
 
 #: C/mal_block_tree.page:117(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "GtkOptionMenu"
-msgstr "Μενού Επιλογών"
+msgstr "GtkOptionMenu"
 
 #: C/mal_block_tree.page:118(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "GtkScaleButton"
-msgstr "Πλήκτρο αλλαγής μεγέθους (scale)"
+msgstr "GtkScaleButton"
 
 #: C/mal_block_tree.page:125(p)
 msgid "Use the <code>lines</code> style hint to visually show the tree structure:"
@@ -4582,6 +4765,21 @@ msgid ""
 "  } +\n"
 "}\n"
 msgstr ""
+"\n"
+"mal_block_terms = element terms {\n"
+"  attribute style { xsd:NMTOKENS } ?,\n"
+"  attribute * - (mal:* | local:*) { text } *,\n"
+"\n"
+"  <link xref=\"mal_block_title\">mal_block_title</link> ?,\n"
+"\n"
+"  element item {\n"
+"    attribute style { xsd:NMTOKENS } ?,\n"
+"    attribute * - (mal:* | local:*) { text } *,\n"
+"\n"
+"    <link xref=\"mal_block_title\">mal_block_title</link> +,\n"
+"    <link xref=\"mal_block\">mal_block</link> +\n"
+"  } +\n"
+"}\n"
 
 #: C/mal_block_terms.page:38(p)
 msgid ""
@@ -4744,6 +4942,15 @@ msgid ""
 "  <link xref=\"mal_block\">mal_block</link> +\n"
 "}\n"
 msgstr ""
+"\n"
+"mal_block_synopsis = element synopsis {\n"
+"  attribute style { xsd:NMTOKENS } ?,\n"
+"  attribute * - (mal:* | local:*) { text } *,\n"
+"\n"
+"  <link xref=\"mal_block_title\">mal_block_title</link> ?,\n"
+"  <link xref=\"mal_block_desc\">mal_block_desc</link> ?,\n"
+"  <link xref=\"mal_block\">mal_block</link> +\n"
+"}\n"
 
 #: C/mal_block_synopsis.page:34(p)
 msgid ""
@@ -4801,6 +5008,9 @@ msgid ""
 "void add_bean    (Bean bean);\n"
 "int  count_beans ();\n"
 msgstr ""
+"\n"
+"void add_bean    (Bean bean);\n"
+"int  count_beans ();\n"
 
 #: C/mal_block_synopsis.page:105(p)
 msgid ""
@@ -4841,10 +5051,16 @@ msgid ""
 "  <link xref=\"mal_inline\">mal_inline</link>\n"
 "}\n"
 msgstr ""
+"\n"
+"mal_block_subtitle = element subtitle {\n"
+"  <link xref=\"mal_inline\">mal_inline</link>\n"
+"}\n"
 
 #: C/mal_block_steps.page:16(desc)
 msgid "Create a list of steps the reader should perform to accomplish a task."
 msgstr ""
+"Δημιουργήστε μια λίστα από βήματα τα οποία ο αναγνώστης θα πρέπει να ακολουθήσει για να εκπληρώσει ένα "
+"σκοπό."
 
 #
 #: C/mal_block_steps.page:19(title)
@@ -4869,6 +5085,20 @@ msgid ""
 "  } +\n"
 "}\n"
 msgstr ""
+"\n"
+"mal_block_steps = element steps {\n"
+"  attribute style { xsd:NMTOKENS } ?,\n"
+"  attribute * - (mal:* | local:*) { text } *,\n"
+"\n"
+"  <link xref=\"mal_block_title\">mal_block_title</link> ?,\n"
+"\n"
+"  element item {\n"
+"    attribute style { xsd:NMTOKENS } ?,\n"
+"    attribute * - (mal:* | local:*) { text } *,\n"
+"\n"
+"    <link xref=\"mal_block\">mal_block</link> +\n"
+"  } +\n"
+"}\n"
 
 #: C/mal_block_steps.page:37(p)
 msgid ""
@@ -7181,22 +7411,20 @@ msgid "2007"
 msgstr "2007"
 
 #: C/i18n.page:17(title)
-#, fuzzy
 msgid "Internationalization Notes"
-msgstr "Διεθνοποίηση"
+msgstr "Σημειώσεις διεθνοποίησης"
 
 #: C/explore.page:16(desc)
 msgid "Explore more of what Mallard has to offer."
-msgstr ""
+msgstr "Εξερευνήστε περαιτέρω τι έχει να προσφέρει το Mallard."
 
 #: C/explore.page:19(title)
 msgid "Explore Mallard"
-msgstr ""
+msgstr "Εξερεύνηση του Mallard"
 
 #: C/docbook.page:9(title)
-#, fuzzy
 msgid "DocBook Element Reference"
-msgstr "Προτιμήσεις διαχείρισης ενέργειας"
+msgstr "Αναφορά στοιχείων του DocBook"
 
 #: C/docbook.page:11(p)
 msgid ""
@@ -7208,7 +7436,7 @@ msgstr ""
 #: C/docbook.page:17(code)
 #, no-wrap
 msgid "abbrev"
-msgstr ""
+msgstr "abbrev"
 
 #: C/docbook.page:18(p) C/docbook.page:37(p) C/docbook.page:41(p)
 #: C/docbook.page:875(p) C/docbook.page:923(p)
@@ -7216,9 +7444,9 @@ msgid "No equivalent in Mallard. Use plain text instead."
 msgstr ""
 
 #: C/docbook.page:21(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "abstract"
-msgstr "Αφηρημένο"
+msgstr "abstract"
 
 #: C/docbook.page:22(p)
 msgid ""
@@ -7227,9 +7455,9 @@ msgid ""
 msgstr ""
 
 #: C/docbook.page:26(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "accel"
-msgstr "πλήκτρο συντόμευσης"
+msgstr "accel"
 
 #: C/docbook.page:27(p)
 msgid ""
@@ -7238,9 +7466,9 @@ msgid ""
 msgstr ""
 
 #: C/docbook.page:31(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "ackno"
-msgstr "Lucknow"
+msgstr "ackno"
 
 #: C/docbook.page:32(p)
 msgid ""
@@ -7249,19 +7477,19 @@ msgid ""
 msgstr ""
 
 #: C/docbook.page:36(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "acronym"
-msgstr "Ακρώνυμο"
+msgstr "acronym"
 
 #: C/docbook.page:40(code)
 #, no-wrap
 msgid "action"
-msgstr ""
+msgstr "action"
 
 #: C/docbook.page:45(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "address"
-msgstr "Διευθύνσεις"
+msgstr "address"
 
 #: C/docbook.page:46(p)
 msgid ""
@@ -7271,25 +7499,23 @@ msgid ""
 msgstr ""
 
 #: C/docbook.page:51(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "affiliation"
-msgstr "Συνεργασία"
+msgstr "affiliation"
 
 #: C/docbook.page:55(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "alt"
-msgstr "ειδπ"
+msgstr "alt"
 
 #: C/docbook.page:56(p)
 msgid "No equivalent in Mallard, as Mallard does not currently support equations."
 msgstr ""
 
-# #-#-#-#-#  libgnomecanvas.master.el.po (el)  #-#-#-#-#
-#
-#: C/docbook.page:59(code)
-#, fuzzy, no-wrap
+# #-#-#-#-#  libgnomecanvas.master.el.po (el)  #-#-#-#-#: C/docbook.page:59(code)
+#, no-wrap
 msgid "anchor"
-msgstr "Άγκυρα"
+msgstr "anchor"
 
 #: C/docbook.page:60(p) C/docbook.page:468(p) C/docbook.page:703(p)
 #: C/docbook.page:724(p) C/docbook.page:871(p) C/docbook.page:911(p)
@@ -7297,9 +7523,9 @@ msgid "Currently no equivalent in Mallard. Future versions may address this."
 msgstr ""
 
 #: C/docbook.page:63(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "answer"
-msgstr "Απάντηση"
+msgstr "answer"
 
 #: C/docbook.page:64(p) C/docbook.page:808(p) C/docbook.page:1192(p)
 msgid ""
@@ -7310,7 +7536,7 @@ msgstr ""
 #: C/docbook.page:69(code)
 #, no-wrap
 msgid "appendix"
-msgstr ""
+msgstr "appendix"
 
 #: C/docbook.page:70(p) C/docbook.page:96(p) C/docbook.page:203(p)
 #: C/docbook.page:233(p) C/docbook.page:1056(p) C/docbook.page:1100(p)
@@ -7320,82 +7546,63 @@ msgid ""
 msgstr ""
 
 #: C/docbook.page:74(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "appendixinfo"
-msgstr "Παράρτημα"
+msgstr "appendixinfo"
 
 #: C/docbook.page:78(code)
 #, no-wrap
 msgid "application"
-msgstr "εφαρμογή"
+msgstr "application"
 
 #: C/docbook.page:79(p)
 msgid "Similar to the <code xref=\"mal_inline_app\">app</code> element."
 msgstr ""
 
 #: C/docbook.page:83(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "area"
-msgstr "Ταξινόμιση"
+msgstr "area"
 
 #: C/docbook.page:84(p) C/docbook.page:217(p) C/docbook.page:283(p)
 #: C/docbook.page:385(p) C/docbook.page:613(p) C/docbook.page:677(p)
 #: C/docbook.page:883(p) C/docbook.page:1155(p)
-#, fuzzy
 msgid "Mallard does not support callouts."
-msgstr "Το γραμματοκιβώτιο δεν υποστηρίζει αναζήτηση πλήρους κειμένου"
+msgstr "Το Mallard δεν υποστηρίζει callouts."
 
 #: C/docbook.page:86(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "areaset"
-msgstr "Αύξηση"
+msgstr "areaset"
 
 #: C/docbook.page:87(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "areaspec"
-msgstr "Διατήρηση αναλογιών"
+msgstr "areaspec"
 
 #: C/docbook.page:90(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "arg"
-msgstr ""
-"#-#-#-#-#  totem.master.el.po (totem.HEAD)  #-#-#-#-#\n"
-"Μεγάλο\n"
-"#-#-#-#-#  gnome-settings-daemon.master.el.po (el)  #-#-#-#-#\n"
-"Μεγάλο\n"
-"#-#-#-#-#  gnote-help.master.el.po (gnote.help.gnome-2-22)  #-#-#-#-#\n"
-"Μεγάλο\n"
-"#-#-#-#-#  rhythmbox.master.el.po (el)  #-#-#-#-#\n"
-"Μεγάλο\n"
-"#-#-#-#-#  dasher.master.el.po (dasher.HEAD)  #-#-#-#-#\n"
-"Μεγάλη\n"
-"#-#-#-#-#  gnome-control-center.master.el.po (el)  #-#-#-#-#\n"
-"Μεγάλο\n"
-"#-#-#-#-#  f-spot.master.el.po (el)  #-#-#-#-#\n"
-"Μεγάλο\n"
-"#-#-#-#-#  glines.master.el.po (packagename)  #-#-#-#-#\n"
-"Μεγάλο\n"
-"#-#-#-#-#  tomboy-help.master.el.po (tomboy.help.gnome-2-22)  #-#-#-#-#\n"
-"Μεγάλο"
+msgstr "arg"
 
 #: C/docbook.page:91(p) C/docbook.page:617(p)
 msgid "Mallard does not have a structured environment for command synopses."
 msgstr ""
 
 #: C/docbook.page:95(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "article"
-msgstr "Άρθρο DocBook"
+msgstr "article"
 
 #: C/docbook.page:100(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "articleinfo"
-msgstr "Άρθρο DocBook"
+msgstr "articleinfo"
 
 #: C/docbook.page:104(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "artpagenums"
-msgstr "Αρχική σελίδα"
+msgstr "artpagenums"
 
 #: C/docbook.page:105(p) C/docbook.page:325(p) C/docbook.page:364(p)
 #: C/docbook.page:429(p) C/docbook.page:747(p) C/docbook.page:767(p)
@@ -7408,18 +7615,18 @@ msgid ""
 msgstr ""
 
 #: C/docbook.page:110(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "attribution"
-msgstr "Εισαγωγή"
+msgstr "attribution"
 
 #: C/docbook.page:111(p)
 msgid "Similar to the <code xref=\"mal_block_cite\">cite</code> element."
 msgstr ""
 
 #: C/docbook.page:115(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "audiodata"
-msgstr "ήχος"
+msgstr "audiodata"
 
 #: C/docbook.page:116(p) C/docbook.page:609(p) C/docbook.page:669(p)
 #: C/docbook.page:879(p)
@@ -7427,28 +7634,24 @@ msgid "See the <code xref=\"mal_block_media\">media</code> element for details."
 msgstr ""
 
 #: C/docbook.page:119(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "audioobject"
-msgstr ""
-"#-#-#-#-#  evolution.gnome-2-30.el.po (evolution.HEAD)  #-#-#-#-#\n"
-"Μη έγκυρη αντικείμενο\n"
-"#-#-#-#-#  evolution-data-server.gnome-2-30.el.po (evolution-data-server.HEAD)  #-#-#-#-#\n"
-"Μή έγκυρο αντικείμενο"
+msgstr "audioobject"
 
 #: C/docbook.page:123(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "author"
-msgstr "Συγγραφέας"
+msgstr "author"
 
 #: C/docbook.page:124(p) C/docbook.page:299(p) C/docbook.page:390(p)
 #: C/docbook.page:434(p) C/docbook.page:1023(p) C/docbook.page:1175(p)
 msgid "Use the common <code xref=\"mal_info_credit\">credit</code> element."
-msgstr ""
+msgstr "Χρησιμοποιήστε το κοινό στοιχείο <code xref=\"mal_info_credit\">credit</code>."
 
 #: C/docbook.page:127(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "authorblurb"
-msgstr "Συγγραφέας"
+msgstr "authorblurb"
 
 #: C/docbook.page:128(p) C/docbook.page:138(p) C/docbook.page:259(p)
 #: C/docbook.page:403(p) C/docbook.page:499(p) C/docbook.page:518(p)
@@ -7460,11 +7663,13 @@ msgid ""
 "elements</link> may provide this information for <link xref=\"mal_info_credit"
 "\">credits</link>."
 msgstr ""
+"Δεν υπάρχει αντίστοιχο στο Mallard. <link xref=\"mal_external\">Εξωτερικά namespace στοιχείων</link> "
+"μπορεί να παρέχουν αυτή την πληροφορία για τη <link xref=\"mal_info_credit\">μνεία</link>."
 
 #: C/docbook.page:133(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "authorgroup"
-msgstr "Συγγραφέας"
+msgstr "authorgroup"
 
 #: C/docbook.page:134(p) C/docbook.page:144(p) C/docbook.page:212(p)
 #: C/docbook.page:255(p) C/docbook.page:308(p) C/docbook.page:420(p)
@@ -7474,19 +7679,19 @@ msgid "No equivalent in Mallard."
 msgstr ""
 
 #: C/docbook.page:137(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "authorinitials"
-msgstr "Αρχικά"
+msgstr "authorinitials"
 
 #: C/docbook.page:143(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "beginpage"
-msgstr "begin"
+msgstr "beginpage"
 
 #: C/docbook.page:148(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "bibliocoverage"
-msgstr "Κάλυψη"
+msgstr "bibliocoverage"
 
 #: C/docbook.page:149(p) C/docbook.page:243(p) C/docbook.page:1038(p)
 msgid "Mallard does not currently have a structured environment for bibliographies."
@@ -7498,19 +7703,19 @@ msgid "bibliodiv"
 msgstr ""
 
 #: C/docbook.page:155(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "biblioentry"
-msgstr "Ύποπτη καταχώρηση"
+msgstr "biblioentry"
 
 #: C/docbook.page:158(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "bibliography"
-msgstr "Βιβλιογραφία"
+msgstr "bibliography"
 
 #: C/docbook.page:161(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "bibliographyinfo"
-msgstr "Βιβλιογραφία"
+msgstr "bibliographyinfo"
 
 #: C/docbook.page:164(code)
 #, no-wrap
@@ -7543,9 +7748,9 @@ msgid "biblioref"
 msgstr ""
 
 #: C/docbook.page:182(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "bibliorelation"
-msgstr "Συσχέτιση"
+msgstr "bibliorelation"
 
 #: C/docbook.page:185(code)
 #, no-wrap
@@ -7553,14 +7758,14 @@ msgid "biblioset"
 msgstr ""
 
 #: C/docbook.page:188(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "bibliosource"
-msgstr "Πηγή ήχου"
+msgstr "bibliosource"
 
 #: C/docbook.page:192(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "blockinfo"
-msgstr "κλείδωμα"
+msgstr "blockinfo"
 
 #: C/docbook.page:193(p) C/docbook.page:974(p)
 msgid ""
@@ -7569,9 +7774,9 @@ msgid ""
 msgstr ""
 
 #: C/docbook.page:197(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "blockquote"
-msgstr "Δεν υπάρχουν άλλα εισαγωγικά."
+msgstr "blockquote"
 
 #: C/docbook.page:198(p)
 msgid "Similar to the block <code xref=\"mal_block_quote\">quote</code> element."
@@ -7588,9 +7793,9 @@ msgid "bookinfo"
 msgstr ""
 
 #: C/docbook.page:211(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "bridgehead"
-msgstr "Mobridge"
+msgstr "bridgehead"
 
 #: C/docbook.page:216(code)
 #, no-wrap
@@ -7615,28 +7820,28 @@ msgid ""
 msgstr ""
 
 #: C/docbook.page:227(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "caution"
-msgstr "Προσοχή"
+msgstr "caution"
 
 #: C/docbook.page:228(p) C/docbook.page:681(p) C/docbook.page:970(p)
 msgid "Use the common <code xref=\"mal_block_note\">note</code> element."
 msgstr ""
 
 #: C/docbook.page:232(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "chapter"
-msgstr "Προσαρμογέας"
+msgstr "chapter"
 
 #: C/docbook.page:237(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "chapterinfo"
-msgstr "Πληροφορίες χρήστη"
+msgstr "chapterinfo"
 
 #: C/docbook.page:242(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "citation"
-msgstr "Παράθεση"
+msgstr "citation"
 
 #: C/docbook.page:246(code)
 #, no-wrap
@@ -7644,32 +7849,28 @@ msgid "citebiblioid"
 msgstr ""
 
 #: C/docbook.page:250(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "citerefentry"
-msgstr "Απευθείας εισαγωγή"
+msgstr "citerefentry"
 
 #: C/docbook.page:251(p) C/docbook.page:862(p) C/docbook.page:1212(p)
 msgid "Mallard does not currently have a structured environment for reference pages."
 msgstr ""
 
 #: C/docbook.page:254(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "citetitle"
-msgstr ""
-"#-#-#-#-#  gnote.master.el.po (gnote.HEAD)  #-#-#-#-#\n"
-"Χωρίς τίτλο\n"
-"#-#-#-#-#  sawfish.master.el.po (sawfish 1.2-gtk2)  #-#-#-#-#\n"
-"Κατάσταση"
+msgstr "citetitle"
 
 #: C/docbook.page:258(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "city"
-msgstr "Metacity"
+msgstr "city"
 
 #: C/docbook.page:264(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "classname"
-msgstr "Όνομα οντότητας:"
+msgstr "classname"
 
 #: C/docbook.page:265(p) C/docbook.page:494(p) C/docbook.page:567(p)
 #: C/docbook.page:741(p) C/docbook.page:866(p) C/docbook.page:897(p)
@@ -7680,9 +7881,9 @@ msgid ""
 msgstr ""
 
 #: C/docbook.page:270(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "classsynopsis"
-msgstr "Σύνοψη"
+msgstr "classsynopsis"
 
 #: C/docbook.page:271(p) C/docbook.page:549(p)
 msgid ""
@@ -7697,46 +7898,46 @@ msgid "classsynopsisinfo"
 msgstr ""
 
 #: C/docbook.page:278(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "cmdsynopsis"
-msgstr "Σύνοψη"
+msgstr "cmdsynopsis"
 
 #: C/docbook.page:282(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "co"
-msgstr "σνδσμ"
+msgstr "co"
 
 #: C/docbook.page:287(p)
 msgid "Similar to the <code xref=\"mal_inline_code\">code</code> element."
 msgstr ""
 
 #: C/docbook.page:290(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "col"
-msgstr "χρώμα"
+msgstr "col"
 
 #: C/docbook.page:291(p)
 msgid "Similar to the <code xref=\"mal_table_col\">col</code> element."
 msgstr ""
 
 #: C/docbook.page:294(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "colgroup"
-msgstr "Φύλλο 1"
+msgstr "colgroup"
 
 #: C/docbook.page:295(p)
 msgid "Similar to the <code xref=\"mal_table_col\">colgroup</code> element."
 msgstr ""
 
 #: C/docbook.page:298(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "collab"
-msgstr "Με δυνατότητα κύλισης"
+msgstr "collab"
 
 #: C/docbook.page:302(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "collabname"
-msgstr "Με δυνατότητα κύλισης"
+msgstr "collabname"
 
 #: C/docbook.page:303(p) C/docbook.page:398(p)
 msgid ""
@@ -7745,9 +7946,9 @@ msgid ""
 msgstr ""
 
 #: C/docbook.page:307(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "colophon"
-msgstr "Κολοφώνας"
+msgstr "colophon"
 
 #: C/docbook.page:311(code)
 #, no-wrap
@@ -7759,15 +7960,9 @@ msgid "Mallard does not use the CALS table model."
 msgstr ""
 
 #: C/docbook.page:315(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "command"
-msgstr ""
-"#-#-#-#-#  jhbuild-help.master.el.po  #-#-#-#-#\n"
-"command\n"
-"#-#-#-#-#  gnome-schedule.master.el.po (el)  #-#-#-#-#\n"
-"εντολή\n"
-"#-#-#-#-#  gtksourceview.master.el.po (el)  #-#-#-#-#\n"
-"εντολή"
+msgstr "command"
 
 #: C/docbook.page:316(p)
 msgid "Similar to the <code xref=\"mal_inline_cmd\">cmd</code> element."
@@ -7776,45 +7971,41 @@ msgstr ""
 #: C/docbook.page:319(code)
 #, no-wrap
 msgid "computeroutput"
-msgstr ""
+msgstr "computeroutput"
 
 #: C/docbook.page:320(p)
 msgid "Similar to the <code xref=\"mal_inline_output\">output</code> element."
 msgstr ""
 
 #: C/docbook.page:324(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "confdates"
-msgstr "gconfd"
+msgstr "confdates"
 
 #: C/docbook.page:330(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "confgroup"
-msgstr "Εικονιδοποίηση ομάδας"
+msgstr "confgroup"
 
 #: C/docbook.page:333(code)
 #, no-wrap
 msgid "confnum"
-msgstr ""
+msgstr "confnum"
 
 #: C/docbook.page:336(code)
 #, no-wrap
 msgid "confsponsor"
-msgstr ""
+msgstr "confsponsor"
 
 #: C/docbook.page:339(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "conftitle"
-msgstr ""
-"#-#-#-#-#  gnote.master.el.po (gnote.HEAD)  #-#-#-#-#\n"
-"Χωρίς τίτλο\n"
-"#-#-#-#-#  sawfish.master.el.po (sawfish 1.2-gtk2)  #-#-#-#-#\n"
-"Κατάσταση"
+msgstr "conftitle"
 
 #: C/docbook.page:343(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "constant"
-msgstr "Σταθερά"
+msgstr "constant"
 
 #: C/docbook.page:344(p) C/docbook.page:844(p)
 msgid ""
@@ -7823,24 +8014,24 @@ msgid ""
 msgstr ""
 
 #: C/docbook.page:349(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "constraint"
-msgstr "Περιορισμός"
+msgstr "constraint"
 
 #: C/docbook.page:350(p) C/docbook.page:820(p) C/docbook.page:966(p)
 #: C/docbook.page:1129(p)
 msgid "Mallard does not have structured EBNF productions."
-msgstr ""
+msgstr "Το Mallard δεν έχει δομημένη παραγωγή EBNF."
 
 #: C/docbook.page:353(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "constraintdef"
-msgstr "Περιορισμός"
+msgstr "constraintdef"
 
 #: C/docbook.page:357(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "constructorsynopsis"
-msgstr "Constructors"
+msgstr "constructorsynopsis"
 
 #: C/docbook.page:358(p) C/docbook.page:424(p) C/docbook.page:505(p)
 #: C/docbook.page:906(p)
@@ -7851,23 +8042,19 @@ msgid ""
 msgstr ""
 
 #: C/docbook.page:363(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "contractnum"
-msgstr "Αντίθεση"
+msgstr "contractnum"
 
 #: C/docbook.page:369(code)
 #, no-wrap
 msgid "contractsponsor"
-msgstr ""
+msgstr "contractsponsor"
 
 #: C/docbook.page:373(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "contrib"
-msgstr ""
-"#-#-#-#-#  evolution-data-server.gnome-2-30.el.po (evolution-data-server.HEAD)  #-#-#-#-#\n"
-"Συντελεστής\n"
-"#-#-#-#-#  evolution-exchange.gnome-2-30.el.po (el)  #-#-#-#-#\n"
-"Συνεισφέρων"
+msgstr "contrib"
 
 #: C/docbook.page:374(p)
 msgid ""
@@ -7879,7 +8066,7 @@ msgstr ""
 #: C/docbook.page:379(code)
 #, no-wrap
 msgid "copyright"
-msgstr "πνευματικά δικαιώματα"
+msgstr "copyright"
 
 #: C/docbook.page:380(p)
 msgid ""
@@ -7887,86 +8074,35 @@ msgid ""
 "copyright information."
 msgstr ""
 
-# #-#-#-#-#  evolution-help.gnome-2-30.el.po (el)  #-#-#-#-#
-# #-#-#-#-#  libgnomeui.HEAD.el.po (el)  #-#-#-#-#
-# #-#-#-#-#  gnome-libs-el.po (gnome-libs 1.2.12)  #-#-#-#-#
-#
-# #-#-#-#-#  libgnomeui.master.el.po (el)  #-#-#-#-#
-# #-#-#-#-#  gnome-libs-el.po (gnome-libs 1.2.12)  #-#-#-#-#
-#
-#: C/docbook.page:384(code)
-#, fuzzy, no-wrap
+# #-#-#-#-#  evolution-help.gnome-2-30.el.po (el)  #-#-#-#-# #-#-#-#-#  libgnomeui.HEAD.el.po (el)  #-#-#-#-# #-#-#-#-#  gnome-libs-el.po (gnome-libs 1.2.12)  #-#-#-#-# #-#-#-#-#  libgnomeui.master.el.po (el)  #-#-#-#-# #-#-#-#-#  gnome-libs-el.po (gnome-libs 1.2.12)  #-#-#-#-#: C/docbook.page:384(code)
+#, no-wrap
 msgid "coref"
-msgstr ""
-"#-#-#-#-#  pan.master.el.po (el)  #-#-#-#-#\n"
-"Σκορ\n"
-"#-#-#-#-#  pan2.master.el.po (el)  #-#-#-#-#\n"
-"Σκορ\n"
-"#-#-#-#-#  aisleriot.master.el.po (aisleriot.gnome-2-26)  #-#-#-#-#\n"
-"Βαθμοί\n"
-"#-#-#-#-#  gturing.master.el.po (el)  #-#-#-#-#\n"
-"Βαθμολογία\n"
-"#-#-#-#-#  beast.master.el.po (el)  #-#-#-#-#\n"
-"Παρτιτούρα\n"
-"#-#-#-#-#  gbrainy.master.el.po (gbrainy master)  #-#-#-#-#\n"
-"Βαθμολογία\n"
-"#-#-#-#-#  evolution.gnome-2-30.el.po (evolution.HEAD)  #-#-#-#-#\n"
-"Σκορ\n"
-"#-#-#-#-#  evolution-help.gnome-2-30.el.po (el)  #-#-#-#-#\n"
-"Βαθμολογία\n"
-"#-#-#-#-#  libgnomeui.master.el.po (el)  #-#-#-#-#\n"
-"Βαθμολογία\n"
-"#-#-#-#-#  gnome-games.master.el.po (gnome-games.HEAD.el)  #-#-#-#-#\n"
-"Βαθμολογία"
+msgstr "coref"
 
 #: C/docbook.page:389(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "corpauthor"
-msgstr "Συγγραφέας"
+msgstr "corpauthor"
 
 #: C/docbook.page:393(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "corpcredit"
-msgstr "αναφορά σε συγγραφέα λογισμικού"
+msgstr "corpcredit"
 
 #: C/docbook.page:397(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "corpname"
-msgstr ""
-"#-#-#-#-#  gtk+-properties.master.el.po (gtk+-properties.HEAD)  #-#-#-#-#\n"
-"'Όνομα εικονιδίου\n"
-"#-#-#-#-#  gdm.master.el.po (gdm.HEAD)  #-#-#-#-#\n"
-"Όνομα εικονιδίου"
+msgstr "corpname"
 
 #: C/docbook.page:402(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "country"
-msgstr ""
-"#-#-#-#-#  sound-juicer.master.el.po (el)  #-#-#-#-#\n"
-"Παραδοσιακή\n"
-"#-#-#-#-#  contacts.master.el.po (contacts)  #-#-#-#-#\n"
-"Χώρα\n"
-"#-#-#-#-#  gnome-media.gnome-2-30.el.po (gnome-media.HEAD)  #-#-#-#-#\n"
-"Country\n"
-"#-#-#-#-#  sound-juicer-help.master.el.po (sound-juicer greek help)  #-#-#-#-#\n"
-"Παραδοσιακή\n"
-"#-#-#-#-#  f-spot.master.el.po (el)  #-#-#-#-#\n"
-"Χώρα\n"
-"#-#-#-#-#  libmimedir.master.el.po (libmimedir)  #-#-#-#-#\n"
-"Χώρα\n"
-"#-#-#-#-#  network-manager-applet.master.el.po (network-manager-applet)  #-#-#-#-#\n"
-"Χώρα\n"
-"#-#-#-#-#  gnome-keyring.master.el.po (el)  #-#-#-#-#\n"
-"Χώρα\n"
-"#-#-#-#-#  libmbca.master.el.po (Mobile Broadband Configuration Assistant)  #-#-#-#-#\n"
-"Χώρα\n"
-"#-#-#-#-#  mcatalog.master.el.po  #-#-#-#-#\n"
-"Χώρα"
+msgstr "country"
 
 #: C/docbook.page:408(code)
 #, no-wrap
 msgid "database"
-msgstr "βάση δεδομένων"
+msgstr "database"
 
 #: C/docbook.page:409(p) C/docbook.page:457(p) C/docbook.page:642(p)
 #: C/docbook.page:783(p) C/docbook.page:792(p) C/docbook.page:1033(p)
@@ -7977,13 +8113,9 @@ msgid ""
 msgstr ""
 
 #: C/docbook.page:413(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "date"
-msgstr ""
-"#-#-#-#-#  gnome-commander.master.el.po (el)  #-#-#-#-#\n"
-"ημερομηνία\n"
-"#-#-#-#-#  gnumeric.master.el.po (gnumeric.HEAD)  #-#-#-#-#\n"
-"ημ/νία"
+msgstr "date"
 
 #: C/docbook.page:414(p)
 msgid ""
@@ -7994,71 +8126,29 @@ msgid ""
 msgstr ""
 
 #: C/docbook.page:419(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "dedication"
-msgstr "Αφιέρωση"
+msgstr "dedication"
 
 #: C/docbook.page:423(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "destructorsynopsis"
-msgstr "Constructors"
+msgstr "destructorsynopsis"
 
 #: C/docbook.page:428(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "edition"
-msgstr ""
-"#-#-#-#-#  gcalctool-help.master.el.po (gcalctool-gnome-2-26-help-el-191897_.merged)  #-#-#-#-#\n"
-"Πρόσθεση\n"
-"#-#-#-#-#  gok.master.el.po (el)  #-#-#-#-#\n"
-"Πρόσθεση\n"
-"#-#-#-#-#  gcompris.gcomprixogoo.el.po (gcompris.HEAD)  #-#-#-#-#\n"
-"Πρόσθεση\n"
-"#-#-#-#-#  genius.master.el.po (el)  #-#-#-#-#\n"
-"Προσθήκη"
+msgstr "edition"
 
-# #-#-#-#-#  pan.master.el.po (el)  #-#-#-#-#
-#
-# #-#-#-#-#  libgda.master.el.po (gnome-db 0.0.91)  #-#-#-#-#
-#
-# #-#-#-#-#  anjuta-extras.master.el.po (anjuta.HEAD)  #-#-#-#-#
-#
-# #-#-#-#-#  anjuta.gnome-2-30.el.po (anjuta.HEAD)  #-#-#-#-#
-#
-# #-#-#-#-#  gtranslator.master.el.po (gtranslator 1.0)  #-#-#-#-#
-#
-#: C/docbook.page:433(code)
-#, fuzzy, no-wrap
+# #-#-#-#-#  pan.master.el.po (el)  #-#-#-#-# #-#-#-#-#  libgda.master.el.po (gnome-db 0.0.91)  #-#-#-#-# #-#-#-#-#  anjuta-extras.master.el.po (anjuta.HEAD)  #-#-#-#-# #-#-#-#-#  anjuta.gnome-2-30.el.po (anjuta.HEAD)  #-#-#-#-# #-#-#-#-#  gtranslator.master.el.po (gtranslator 1.0)  #-#-#-#-#: C/docbook.page:433(code)
+#, no-wrap
 msgid "editor"
-msgstr ""
-"#-#-#-#-#  pan.master.el.po (el)  #-#-#-#-#\n"
-"Επεξεργασία\n"
-"#-#-#-#-#  libgda.master.el.po (gnome-db 0.0.91)  #-#-#-#-#\n"
-"Κειμενογράφος\n"
-"#-#-#-#-#  meld.master.el.po (el)  #-#-#-#-#\n"
-"Συντάκτης\n"
-"#-#-#-#-#  gedit.master.el.po (el)  #-#-#-#-#\n"
-"Επεξεργαστής\n"
-"#-#-#-#-#  conduit.master.el.po (conduit.HEAD)  #-#-#-#-#\n"
-"Επεξεργαστής\n"
-"#-#-#-#-#  pybliographer.master.el.po (el)  #-#-#-#-#\n"
-"Επεξεργαστής\n"
-"#-#-#-#-#  beast.master.el.po (el)  #-#-#-#-#\n"
-"Επεξεργαστής\n"
-"#-#-#-#-#  anjuta-extras.master.el.po (anjuta.HEAD)  #-#-#-#-#\n"
-"Επεξεργαστής κειμένου\n"
-"#-#-#-#-#  evolution-data-server.gnome-2-30.el.po (evolution-data-server.HEAD)  #-#-#-#-#\n"
-"Συντάκτης\n"
-"#-#-#-#-#  anjuta.gnome-2-30.el.po (anjuta.HEAD)  #-#-#-#-#\n"
-"Επεξεργαστής κειμένου\n"
-"#-#-#-#-#  gtranslator.master.el.po (gtranslator 1.0)  #-#-#-#-#\n"
-"Επεξεργαστής\n"
-"#-#-#-#-#  evolution-exchange.gnome-2-30.el.po (el)  #-#-#-#-#\n"
-"_Συντάκτης"
+msgstr "editor"
 
 #: C/docbook.page:437(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "email"
-msgstr "Λεπτομέρειες"
+msgstr "email"
 
 #: C/docbook.page:438(p)
 msgid ""
@@ -8070,7 +8160,7 @@ msgstr ""
 #: C/docbook.page:443(code)
 #, no-wrap
 msgid "emphasis"
-msgstr ""
+msgstr "emphasis"
 
 #: C/docbook.page:444(p)
 msgid "Similar to the <code xref=\"mal_inline_em\">em</code> element."
@@ -8079,22 +8169,22 @@ msgstr ""
 #: C/docbook.page:448(code)
 #, no-wrap
 msgid "entry"
-msgstr "καταχώριση"
+msgstr "entry"
 
 #: C/docbook.page:452(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "entrytbl"
-msgstr "καταχώριση"
+msgstr "entrytbl"
 
 #: C/docbook.page:456(code)
 #, no-wrap
 msgid "envar"
-msgstr ""
+msgstr "envar"
 
 #: C/docbook.page:461(code)
 #, no-wrap
 msgid "epigrah"
-msgstr ""
+msgstr "epigrah"
 
 #: C/docbook.page:462(p)
 msgid ""
@@ -8104,14 +8194,14 @@ msgid ""
 msgstr ""
 
 #: C/docbook.page:467(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "equation"
-msgstr "Τοποθεσία"
+msgstr "equation"
 
 #: C/docbook.page:472(code)
 #, no-wrap
 msgid "errorcode"
-msgstr ""
+msgstr "errorcode"
 
 #: C/docbook.page:473(p)
 msgid ""
@@ -8120,25 +8210,20 @@ msgid ""
 "\">output</code> may be appropriate."
 msgstr ""
 
-# #-#-#-#-#  libgda.master.el.po (gnome-db 0.0.91)  #-#-#-#-#
-#
-# #-#-#-#-#  evolution-help.gnome-2-30.el.po (el)  #-#-#-#-#
-# #-#-#-#-#  nautilus.HEAD.el.po (el)  #-#-#-#-#
-#
-#: C/docbook.page:478(code)
-#, fuzzy, no-wrap
+# #-#-#-#-#  libgda.master.el.po (gnome-db 0.0.91)  #-#-#-#-# #-#-#-#-#  evolution-help.gnome-2-30.el.po (el)  #-#-#-#-# #-#-#-#-#  nautilus.HEAD.el.po (el)  #-#-#-#-#: C/docbook.page:478(code)
+#, no-wrap
 msgid "errorname"
-msgstr "Όνομα χρήστη"
+msgstr "errorname"
 
 #: C/docbook.page:481(code)
 #, no-wrap
 msgid "errortext"
-msgstr ""
+msgstr "errortext"
 
 #: C/docbook.page:484(code)
 #, no-wrap
 msgid "errortype"
-msgstr ""
+msgstr "errortype"
 
 #: C/docbook.page:489(p)
 msgid ""
@@ -8147,50 +8232,42 @@ msgid ""
 msgstr ""
 
 #: C/docbook.page:493(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "exceptionname"
-msgstr "όνομα-επιλογής"
+msgstr "exceptionname"
 
 #: C/docbook.page:498(code)
 #, no-wrap
 msgid "fax"
-msgstr "φαξ"
+msgstr "fax"
 
 #: C/docbook.page:504(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "fieldsynopsis"
-msgstr "Σύνοψη"
+msgstr "fieldsynopsis"
 
 #: C/docbook.page:510(p) C/docbook.page:711(p)
 msgid "Similar to the <code xref=\"mal_block_figure\">figure</code> element."
 msgstr ""
 
 #: C/docbook.page:513(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "filename"
-msgstr ""
-"#-#-#-#-#  gnome-settings-daemon.master.el.po (el)  #-#-#-#-#\n"
-"όνομα αρχείου\n"
-"#-#-#-#-#  vinagre.master.el.po (vinagre.HEAD)  #-#-#-#-#\n"
-"όνομα αρχείου\n"
-"#-#-#-#-#  gnome-control-center.master.el.po (el)  #-#-#-#-#\n"
-"όνομα αρχείου\n"
-"#-#-#-#-#  system-admin-guide.master.el.po (system-admin-guide.HEAD)  #-#-#-#-#\n"
-"όνομααρχείου"
+msgstr "filename"
 
 #: C/docbook.page:514(p)
 msgid "Similar to the <code xref=\"mal_inline_file\">file</code> element."
 msgstr ""
 
 #: C/docbook.page:517(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "firstname"
-msgstr "Όνομα"
+msgstr "firstname"
 
 #: C/docbook.page:523(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "firstterm"
-msgstr "πρώτη"
+msgstr "firstterm"
 
 #: C/docbook.page:524(p)
 msgid ""
@@ -8199,9 +8276,9 @@ msgid ""
 msgstr ""
 
 #: C/docbook.page:529(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "footnote"
-msgstr "Υποσημείωση"
+msgstr "footnote"
 
 #: C/docbook.page:530(p)
 msgid ""
@@ -8210,14 +8287,14 @@ msgid ""
 msgstr ""
 
 #: C/docbook.page:534(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "footnoteref"
-msgstr "Υποσημείωση"
+msgstr "footnoteref"
 
 #: C/docbook.page:538(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "foreignphrase"
-msgstr "Εξαναγκασμός"
+msgstr "foreignphrase"
 
 #: C/docbook.page:539(p)
 msgid ""
@@ -8226,98 +8303,44 @@ msgid ""
 msgstr ""
 
 #: C/docbook.page:543(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "formalpara"
-msgstr ""
-"#-#-#-#-#  glade3.gnome-2-28.el.po (glade3.HEAD)  #-#-#-#-#\n"
-"Κανονικό\n"
-"#-#-#-#-#  eog.master.el.po (eog-HEAD-po-el-4121)  #-#-#-#-#\n"
-"Κανονικό\n"
-"#-#-#-#-#  totem.master.el.po (totem.HEAD)  #-#-#-#-#\n"
-"Κανονικό\n"
-"#-#-#-#-#  gnome-settings-daemon.master.el.po (el)  #-#-#-#-#\n"
-"Κανονική\n"
-"#-#-#-#-#  gnote-help.master.el.po (gnote.help.gnome-2-22)  #-#-#-#-#\n"
-"Κανονικό\n"
-"#-#-#-#-#  goffice.master.el.po (Gnumeric 1.2)  #-#-#-#-#\n"
-"Κανονική\n"
-"#-#-#-#-#  gossip.master.el.po (el)  #-#-#-#-#\n"
-"Κανονικό\n"
-"#-#-#-#-#  balsa.master.el.po (balsa 2.0.13)  #-#-#-#-#\n"
-"Κανονικό\n"
-"#-#-#-#-#  rhythmbox.master.el.po (el)  #-#-#-#-#\n"
-"Κανονικό\n"
-"#-#-#-#-#  gok.master.el.po (el)  #-#-#-#-#\n"
-"Κανονικό\n"
-"#-#-#-#-#  dasher.master.el.po (dasher.HEAD)  #-#-#-#-#\n"
-"Κανονική\n"
-"#-#-#-#-#  tasks.master.el.po (tasks 0.2)  #-#-#-#-#\n"
-"Κανονική\n"
-"#-#-#-#-#  gnome-control-center.master.el.po (el)  #-#-#-#-#\n"
-"Κανονική\n"
-"#-#-#-#-#  gtkhtml.gnome-2-30.el.po (gtkhtml.HEAD)  #-#-#-#-#\n"
-"Κανονική\n"
-"#-#-#-#-#  sawfish.master.el.po (sawfish 1.2-gtk2)  #-#-#-#-#\n"
-"Κανονικό\n"
-"#-#-#-#-#  evolution.gnome-2-30.el.po (evolution.HEAD)  #-#-#-#-#\n"
-"Κανονική\n"
-"#-#-#-#-#  user-guide.master.el.po (user-guide.docs)  #-#-#-#-#\n"
-"Κανονικό\n"
-"#-#-#-#-#  gcompris.gcomprixogoo.el.po (gcompris.HEAD)  #-#-#-#-#\n"
-"Κανονικό\n"
-"#-#-#-#-#  evolution-data-server.gnome-2-30.el.po (evolution-data-server.HEAD)  #-#-#-#-#\n"
-"Κανονική\n"
-"#-#-#-#-#  gnumeric.master.el.po (gnumeric.HEAD)  #-#-#-#-#\n"
-"Κανονική\n"
-"#-#-#-#-#  resapplet.master.el.po (resapplet)  #-#-#-#-#\n"
-"Κανονικά\n"
-"#-#-#-#-#  dia.dia-0-97.el.po (el)  #-#-#-#-#\n"
-"Κανονικό\n"
-"#-#-#-#-#  evolution-exchange.gnome-2-30.el.po (el)  #-#-#-#-#\n"
-"Κανονικά\n"
-"#-#-#-#-#  tomboy-help.master.el.po (tomboy.help.gnome-2-22)  #-#-#-#-#\n"
-"Κανονικό\n"
-"#-#-#-#-#  dasher-help.master.el.po (dasher)  #-#-#-#-#\n"
-"Κανονική\n"
-"#-#-#-#-#  gedit-help.master.el.po (el)  #-#-#-#-#\n"
-"Απλό κείμενο\n"
-"#-#-#-#-#  gnome-games.master.el.po (gnome-games.HEAD.el)  #-#-#-#-#\n"
-"Κανονικό"
+msgstr "formalpara"
 
 #: C/docbook.page:548(code)
 #, no-wrap
 msgid "funcdef"
-msgstr ""
+msgstr "funcdef"
 
 #: C/docbook.page:553(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "funcparams"
-msgstr "Παράμετροι"
+msgstr "funcparams"
 
 #: C/docbook.page:556(code)
 #, no-wrap
 msgid "funcprototype"
-msgstr ""
+msgstr "funcprototype"
 
 #: C/docbook.page:559(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "funcsynopsis"
-msgstr "Σύνοψη"
+msgstr "funcsynopsis"
 
 #: C/docbook.page:562(code)
 #, no-wrap
 msgid "funcsynopsisinfo"
-msgstr ""
+msgstr "funcsynopsisinfo"
 
 #: C/docbook.page:566(code)
 #, no-wrap
 msgid "function"
-msgstr "συνάρτηση"
+msgstr "function"
 
 #: C/docbook.page:572(code)
 #, no-wrap
 msgid "glossary"
-msgstr ""
+msgstr "glossary"
 
 #: C/docbook.page:573(p)
 msgid ""
@@ -8327,26 +8350,14 @@ msgid ""
 msgstr ""
 
 #: C/docbook.page:578(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "glossaryinfo"
-msgstr ""
-"#-#-#-#-#  gnome-doc-utils.master.el.po (el)  #-#-#-#-#\n"
-"Γλωσσάρι\n"
-"#-#-#-#-#  aisleriot.master.el.po (aisleriot.gnome-2-26)  #-#-#-#-#\n"
-"Γλωσσάρι\n"
-"#-#-#-#-#  system-admin-guide.master.el.po (system-admin-guide.HEAD)  #-#-#-#-#\n"
-"Γλωσσάριο\n"
-"#-#-#-#-#  evolution-help.gnome-2-30.el.po (el)  #-#-#-#-#\n"
-"Γλωσσάρι\n"
-"#-#-#-#-#  user-guide.master.el.po (user-guide.docs)  #-#-#-#-#\n"
-"Γλωσσάρι\n"
-"#-#-#-#-#  gtali.master.el.po (gtali.HEAD)  #-#-#-#-#\n"
-"Γλωσσάρι"
+msgstr "glossaryinfo"
 
 #: C/docbook.page:583(code)
 #, no-wrap
 msgid "glossdef"
-msgstr ""
+msgstr "glossdef"
 
 #: C/docbook.page:584(p)
 msgid ""
@@ -8358,92 +8369,86 @@ msgstr ""
 #: C/docbook.page:589(code)
 #, no-wrap
 msgid "glossdiv"
-msgstr ""
+msgstr "glossdiv"
 
 #: C/docbook.page:592(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "glossentry"
-msgstr "καμμία καταχώρηση"
+msgstr "glossentry"
 
 #: C/docbook.page:595(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "glosslist"
-msgstr "Class list"
+msgstr "glosslist"
 
 #: C/docbook.page:598(code)
 #, no-wrap
 msgid "glosssee"
-msgstr ""
+msgstr "glosssee"
 
 #: C/docbook.page:601(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "glossseealso"
-msgstr "@see_also"
+msgstr "glossseealso"
 
 #: C/docbook.page:604(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "glossterm"
-msgstr "Foster"
+msgstr "glossterm"
 
 #: C/docbook.page:608(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "graphic"
-msgstr "Γραφικό"
+msgstr "graphic"
 
 #: C/docbook.page:612(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "graphicco"
-msgstr "Γραφικό"
+msgstr "graphicco"
 
 #: C/docbook.page:621(code)
 #, no-wrap
 msgid "guibutton"
-msgstr ""
+msgstr "guibutton"
 
 #: C/docbook.page:622(p) C/docbook.page:737(p)
 msgid "Use the common <code xref=\"mal_inline_gui\">gui</code> element."
 msgstr ""
 
 #: C/docbook.page:625(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "guiicon"
-msgstr ""
-"#-#-#-#-#  orca.master.el.po (orca.HEAD)  #-#-#-#-#\n"
-"εικονίδιο\n"
-"#-#-#-#-#  accessibility-guide.master.el.po (accessibility-guide.master.el.new)  #-#-#-#-#\n"
-"εικονίδια\n"
-"#-#-#-#-#  atk.master.el.po (el)  #-#-#-#-#\n"
-"εικονίδιο"
+msgstr "guiicon"
 
 #: C/docbook.page:628(code)
 #, no-wrap
 msgid "guilabel"
-msgstr ""
+msgstr "guilabel"
 
 #: C/docbook.page:631(code)
 #, no-wrap
 msgid "guimenu"
-msgstr ""
+msgstr "guimenu"
 
 #: C/docbook.page:634(code)
 #, no-wrap
 msgid "guimenuitem"
-msgstr ""
+msgstr "guimenuitem"
 
 #: C/docbook.page:637(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "guisubmenu"
-msgstr "Υπομενού"
+msgstr "guisubmenu"
 
 #: C/docbook.page:641(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "hardware"
-msgstr "Υλικό"
+msgstr "hardware"
 
 #: C/docbook.page:646(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "highlights"
-msgstr "Επισήμανση"
+msgstr "highlights"
 
 #: C/docbook.page:647(p)
 msgid ""
@@ -8454,7 +8459,7 @@ msgstr ""
 #: C/docbook.page:651(code)
 #, no-wrap
 msgid "holder"
-msgstr ""
+msgstr "holder"
 
 #: C/docbook.page:652(p)
 msgid ""
@@ -8466,71 +8471,70 @@ msgstr ""
 #: C/docbook.page:657(code)
 #, no-wrap
 msgid "honorific"
-msgstr ""
+msgstr "honorific"
 
 #: C/docbook.page:663(code)
 #, no-wrap
 msgid "html:form"
-msgstr ""
+msgstr "html:form"
 
 #: C/docbook.page:664(p)
-#, fuzzy
 msgid "Mallard does not support forms."
-msgstr "Η εφαρμογή φόρτωσης εικόνων PNM δεν υποστηρίζει αυτόν τον τύπο PNM"
+msgstr "Το Mallard δεν υποστηρίζει φόρμες."
 
 #: C/docbook.page:668(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "imagedata"
-msgstr "Αφαίρεση _μεταδεδομένων εικόνας"
+msgstr "imagedata"
 
 #: C/docbook.page:672(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "imageobject"
-msgstr "Αντικείμενο σχήματος"
+msgstr "imageobject"
 
 #: C/docbook.page:676(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "imageobjectco"
-msgstr "Αντικείμενο σχήματος"
+msgstr "imageobjectco"
 
 #: C/docbook.page:685(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "index"
-msgstr "Κατάλογος"
+msgstr "index"
 
 #: C/docbook.page:686(p) C/docbook.page:1110(p)
 msgid "Mallard does not currently have a structured environment for indexes."
 msgstr ""
 
 #: C/docbook.page:689(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "indexdiv"
-msgstr "_Επανάληψη ευρετηρίασης"
+msgstr "indexdiv"
 
 #: C/docbook.page:692(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "indexentry"
-msgstr "Καταχώρησης κειμένου"
+msgstr "indexentry"
 
 #: C/docbook.page:695(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "indexinfo"
-msgstr "Texinfo"
+msgstr "indexinfo"
 
 #: C/docbook.page:698(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "indexterm"
-msgstr "index.html"
+msgstr "indexterm"
 
 #: C/docbook.page:702(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "informalequation"
-msgstr "Χωρίς πληροφορίες"
+msgstr "informalequation"
 
 #: C/docbook.page:706(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "informalexample"
-msgstr "Παράδειγμα διαλόγου πληροφόρησης"
+msgstr "informalexample"
 
 #: C/docbook.page:707(p)
 msgid "Similar to the <code xref=\"mal_block_example\">example</code> element."
@@ -8539,12 +8543,12 @@ msgstr ""
 #: C/docbook.page:710(code)
 #, no-wrap
 msgid "informalfigure"
-msgstr ""
+msgstr "informalfigure"
 
 #: C/docbook.page:714(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "informaltable"
-msgstr "Δεν υπάρχουν διαθέσιμες πληροφορίες"
+msgstr "informaltable"
 
 #: C/docbook.page:715(p)
 msgid ""
@@ -8553,23 +8557,23 @@ msgid ""
 msgstr ""
 
 #: C/docbook.page:719(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "initializer"
-msgstr "_Αρχικοποίηση"
+msgstr "initializer"
 
 #: C/docbook.page:720(p)
 msgid "Mallard does not have a structured environment for field synopses."
 msgstr ""
 
 #: C/docbook.page:723(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "inlineequation"
-msgstr "Τοποθεσία"
+msgstr "inlineequation"
 
 #: C/docbook.page:728(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "inlinegraphic"
-msgstr "Βιβλιογραφία"
+msgstr "inlinegraphic"
 
 #: C/docbook.page:729(p)
 msgid ""
@@ -8578,110 +8582,106 @@ msgid ""
 msgstr ""
 
 #: C/docbook.page:732(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "inlinemediaobject"
-msgstr ""
-"#-#-#-#-#  evolution.gnome-2-30.el.po (evolution.HEAD)  #-#-#-#-#\n"
-"Μη έγκυρη αντικείμενο\n"
-"#-#-#-#-#  evolution-data-server.gnome-2-30.el.po (evolution-data-server.HEAD)  #-#-#-#-#\n"
-"Μή έγκυρο αντικείμενο"
+msgstr "inlinemediaobject"
 
 #: C/docbook.page:736(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "interface"
-msgstr "με βάση τη διασύνδεση"
+msgstr "interface"
 
 #: C/docbook.page:740(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "interfacename"
-msgstr "Το όνομα της διεπαφής"
+msgstr "interfacename"
 
 #: C/docbook.page:746(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "invpartnumber"
-msgstr "Μη έγκυρος αριθμός θύρας"
+msgstr "invpartnumber"
 
 #: C/docbook.page:752(code)
 #, no-wrap
 msgid "isbn"
-msgstr ""
+msgstr "isbn"
 
 #: C/docbook.page:755(code)
 #, no-wrap
 msgid "issn"
-msgstr ""
+msgstr "issn"
 
 #: C/docbook.page:758(code)
 #, no-wrap
 msgid "issuenum"
-msgstr ""
+msgstr "issuenum"
 
 #: C/docbook.page:762(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "itemizedlist"
-msgstr "Λίστα"
+msgstr "itemizedlist"
 
 #: C/docbook.page:763(p)
 msgid "See the <code xref=\"mal_block_list\">list</code> element for details."
 msgstr ""
 
 #: C/docbook.page:766(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "itermset"
-msgstr "τρμτ"
+msgstr "itermset"
 
 #: C/docbook.page:772(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "jobtitle"
-msgstr "Τίτλος εργασίας"
+msgstr "jobtitle"
 
 #: C/docbook.page:778(code)
 #, no-wrap
 msgid "keycap"
-msgstr ""
+msgstr "keycap"
 
 #: C/docbook.page:779(p)
 msgid "Similar to the <code xref=\"mal_inline_key\">key</code> element."
 msgstr ""
 
 #: C/docbook.page:782(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "keycode"
-msgstr "Keycode:"
+msgstr "keycode"
 
 #: C/docbook.page:787(code)
 #, no-wrap
 msgid "keycombo"
-msgstr ""
+msgstr "keycombo"
 
 #: C/docbook.page:788(p)
 msgid "Similar to the <code xref=\"mal_inline_keyseq\">keyseq</code> element."
 msgstr ""
 
 #: C/docbook.page:791(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "keysym"
-msgstr "Keysym:"
+msgstr "keysym"
 
 #: C/docbook.page:797(code)
 #, no-wrap
 msgid "keyword"
-msgstr "Λέξη κλειδί"
+msgstr "keyword"
 
 #: C/docbook.page:803(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "keywordset"
-msgstr "Λέξη κλειδί"
+msgstr "keywordset"
 
 #: C/docbook.page:807(code)
 #, no-wrap
 msgid "label"
-msgstr "ετικέτα"
+msgstr "label"
 
 #: C/docbook.page:812(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "legalnotice"
-msgstr "Νομική σημείωση"
+msgstr "legalnotice"
 
 #: C/docbook.page:813(p)
 msgid ""
@@ -8692,55 +8692,19 @@ msgid ""
 msgstr ""
 
 #: C/docbook.page:819(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "lhs"
-msgstr "ls"
+msgstr "lhs"
 
 #: C/docbook.page:823(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "lineage"
-msgstr "Διγραμμικό"
+msgstr "lineage"
 
 #: C/docbook.page:829(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "lineannotation"
-msgstr ""
-"#-#-#-#-#  eggcups.master.el.po (el)  #-#-#-#-#\n"
-"Προσανατολισμός\n"
-"#-#-#-#-#  gtk+-properties.master.el.po (gtk+-properties.HEAD)  #-#-#-#-#\n"
-"Προσανατολισμός\n"
-"#-#-#-#-#  libbonoboui.master.el.po (el)  #-#-#-#-#\n"
-"Προσανατολισμός\n"
-"#-#-#-#-#  xchat-gnome.master.el.po (xchat-gnome)  #-#-#-#-#\n"
-"Προσανατολισμός\n"
-"#-#-#-#-#  gdl.master.el.po (gdl.HEAD)  #-#-#-#-#\n"
-"Προσανατολισμός\n"
-"#-#-#-#-#  goobox.master.el.po (goobox.HEAD)  #-#-#-#-#\n"
-"Προσανατολισμός\n"
-"#-#-#-#-#  rhythmbox.master.el.po (el)  #-#-#-#-#\n"
-"Προσανατολισμός\n"
-"#-#-#-#-#  f-spot.master.el.po (el)  #-#-#-#-#\n"
-"Προσανατολισμός\n"
-"#-#-#-#-#  gnome-netstatus.master.el.po (el)  #-#-#-#-#\n"
-"Προσανατολισμός\n"
-"#-#-#-#-#  gnome-network.master.el.po (el)  #-#-#-#-#\n"
-"Προσανατολισμός\n"
-"#-#-#-#-#  gnomeicu.master.el.po (gnomeicu 0.95.5)  #-#-#-#-#\n"
-"Προσανατολισμός\n"
-"#-#-#-#-#  gnome-cups-manager.master.el.po (el)  #-#-#-#-#\n"
-"Προσανατολισμός:\n"
-"#-#-#-#-#  beagle.master.el.po (el)  #-#-#-#-#\n"
-"Προσανατολισμός\n"
-"#-#-#-#-#  user-guide.master.el.po (user-guide.docs)  #-#-#-#-#\n"
-"Προσανατολισμός\n"
-"#-#-#-#-#  gnome-sharing.master.el.po (el)  #-#-#-#-#\n"
-"Προσανατολισμός\n"
-"#-#-#-#-#  resapplet.master.el.po (resapplet)  #-#-#-#-#\n"
-"Προσανατολισμός\n"
-"#-#-#-#-#  dia.dia-0-97.el.po (el)  #-#-#-#-#\n"
-"Προσανατολισμός\n"
-"#-#-#-#-#  epiphany-help.master.el.po (epiphany-help 1.8)  #-#-#-#-#\n"
-"Προσανατολισμός"
+msgstr "lineannotation"
 
 #: C/docbook.page:830(p)
 msgid ""
@@ -8751,345 +8715,321 @@ msgstr ""
 #: C/docbook.page:834(code)
 #, no-wrap
 msgid "link"
-msgstr "σύνδεσμος"
+msgstr "link"
 
 #: C/docbook.page:835(p) C/docbook.page:979(p)
 msgid "See the <code xref=\"mal_inline_link\">link</code> element for details."
-msgstr ""
+msgstr "Δείτε το στοιχείο <code xref=\"mal_inline_link\">link</code> για λεπτομέρειες."
 
 #: C/docbook.page:838(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "listitem"
-msgstr "αντικείμενο λίστας"
+msgstr "listitem"
 
 #: C/docbook.page:839(p)
 msgid ""
 "See the <code>item</code> element for each <link xref=\"mal_block#list"
 "\">list element</link> for details."
 msgstr ""
+"Δείτε το στοιχείο <code>item</code> για κάθε <link xref=\"mal_block#list\">list element</link> για "
+"λεπτομέρειες."
 
 #: C/docbook.page:843(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "literal"
-msgstr ""
-"#-#-#-#-#  gtksourceview.master.el.po (el)  #-#-#-#-#\n"
-"BOZ Literal\n"
-"#-#-#-#-#  conglomerate.master.el.po (el)  #-#-#-#-#\n"
+msgstr "literal"
 
-#
 #: C/docbook.page:848(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "literallayout"
-msgstr "Προκαθορισμένη ταυτότητα"
+msgstr "literallayout"
 
 #: C/docbook.page:849(p)
 msgid ""
 "Currently no general-purpose literal layout in Mallard. Future versions may "
 "address this."
 msgstr ""
+"Προς το παρόν δεν υπάρχει στο Mallard γενικού περιεχομένου literal διάταξη. Μελλοντικές εκδόσεις μπορεί να "
+"το διορθώσουν αυτό."
 
 #: C/docbook.page:853(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "lot"
-msgstr "Θέση"
+msgstr "lot"
 
 #: C/docbook.page:857(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "lotentry"
-msgstr "καταχώριση"
+msgstr "lotentry"
 
 #: C/docbook.page:861(code)
 #, no-wrap
 msgid "manvolnum"
-msgstr ""
+msgstr "manvolnum"
 
 #: C/docbook.page:865(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "markup"
-msgstr ""
-"#-#-#-#-#  gtk+-properties.master.el.po (gtk+-properties.HEAD)  #-#-#-#-#\n"
-"Επισήμανση\n"
-"#-#-#-#-#  libgnomecanvas.master.el.po (el)  #-#-#-#-#\n"
-"Σήμανση\n"
-"#-#-#-#-#  gtksourceview.master.el.po (el)  #-#-#-#-#\n"
-"Markup\n"
-"#-#-#-#-#  gedit-help.master.el.po (el)  #-#-#-#-#\n"
-"Σήμανση (Markup)"
+msgstr "markup"
 
 #: C/docbook.page:870(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "mathprase"
-msgstr "Συνθηματικό"
+msgstr "mathprase"
 
 #: C/docbook.page:874(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "medialabel"
-msgstr "Ετικέτα media"
+msgstr "medialabel"
 
 #: C/docbook.page:878(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "mediaobject"
-msgstr "Ενσωματωμένο αντικείμενο"
+msgstr "mediaobject"
 
 #: C/docbook.page:882(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "mediaobjectco"
-msgstr "Ενσωματωμένο αντικείμενο"
+msgstr "mediaobjectco"
 
 #: C/docbook.page:886(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "member"
-msgstr "Απομνημόνευση"
+msgstr "member"
 
 #: C/docbook.page:887(p)
 msgid ""
 "No equivalent in Mallard to DocBook's <code href=\"http://www.docbook.org/"
 "tdg/en/html/simplelist.html\">simplelist</code> element."
 msgstr ""
+"Δεν υπάρχει στο Mallard αντίστοιχο του στοιχείου <code href=\"http://www.docbook.org/"
+"tdg/en/html/simplelist.html\">simplelist</code> του DocBook."
 
 #: C/docbook.page:892(code)
 #, no-wrap
 msgid "menuchoice"
-msgstr ""
+msgstr "menuchoice"
 
 #: C/docbook.page:893(p)
 msgid "Similar to the <code xref=\"mal_inline_guiseq\">guiseq</code> element."
-msgstr ""
+msgstr "Όμοιο με το στοιχείο <code xref=\"mal_inline_guiseq\">guiseq</code>."
 
 #: C/docbook.page:896(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "methodname"
-msgstr "όνομα μεθόδου πρόσβασης"
+msgstr "methodname"
 
 #: C/docbook.page:901(code)
 #, no-wrap
 msgid "methodparam"
-msgstr ""
+msgstr "methodparam"
 
 #: C/docbook.page:902(p)
 msgid "Mallard does not have a structured environment for method synopses."
-msgstr ""
+msgstr "Το Mallard δεν έχει ένα δομημένο περιβάλλον για περιλήψεις μεθόδων."
 
 #: C/docbook.page:905(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "methodsynopsis"
-msgstr "Σύνοψη"
+msgstr "methodsynopsis"
 
 #: C/docbook.page:910(code)
 #, no-wrap
 msgid "mml:math"
-msgstr ""
+msgstr "mml:math"
 
 #: C/docbook.page:914(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "modespec"
-msgstr "λειτουργία"
+msgstr "modespec"
 
 #: C/docbook.page:918(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "modifier"
-msgstr ""
-"#-#-#-#-#  mousetweaks.master.el.po (mousetweaks.HEAD)  #-#-#-#-#\n"
-"Τροποποιητής:\n"
-"#-#-#-#-#  gok.master.el.po (el)  #-#-#-#-#\n"
-"Μετατροπέας:"
+msgstr "modifier"
 
 #: C/docbook.page:919(p) C/docbook.page:984(p)
 msgid "Mallard does not have a structured environment for code synopses."
-msgstr ""
+msgstr "Το Mallard δεν έχει ένα δομημένο περιβάλλον για περιλήψεις κώδικα."
 
 #: C/docbook.page:922(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "mousebutton"
-msgstr "Πλήκτρο _ποντικιού:"
+msgstr "mousebutton"
 
 #: C/docbook.page:927(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "msg"
-msgstr ""
-"#-#-#-#-#  gnome-scan.master.el.po (el)  #-#-#-#-#\n"
-"ms\n"
-"#-#-#-#-#  gturing.master.el.po (el)  #-#-#-#-#\n"
-"χιλ.\n"
-"#-#-#-#-#  gnome-network.master.el.po (el)  #-#-#-#-#\n"
-"ms\n"
-"#-#-#-#-#  gnome-nettool.master.el.po (el)  #-#-#-#-#\n"
-"ms"
+msgstr "msg"
 
 #: C/docbook.page:928(p)
 msgid "Mallard does not have a structured environment for messages."
-msgstr ""
+msgstr "Το Mallard δεν έχει ένα δομημένο περιβάλλον για μηνύματα."
 
 #: C/docbook.page:931(code)
 #, no-wrap
 msgid "msgaud"
-msgstr ""
+msgstr "msgaud"
 
 #: C/docbook.page:934(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "msgentry"
-msgstr "καταχώριση"
+msgstr "msgentry"
 
 #: C/docbook.page:937(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "msgexplan"
-msgstr "εξήγηση"
+msgstr "msgexplan"
 
 #: C/docbook.page:940(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "msginfo"
-msgstr "Πληροφορίες χρήστη"
+msgstr "msginfo"
 
 #: C/docbook.page:943(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "msglevel"
-msgstr "επίπεδο"
+msgstr "msglevel"
 
 #: C/docbook.page:946(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "msgmain"
-msgstr "Τομέας"
+msgstr "msgmain"
 
 #: C/docbook.page:949(code)
 #, no-wrap
 msgid "msgorig"
-msgstr ""
+msgstr "msgorig"
 
 #: C/docbook.page:952(code)
 #, no-wrap
 msgid "msgrel"
-msgstr ""
+msgstr "msgrel"
 
 #: C/docbook.page:955(code)
 #, no-wrap
 msgid "msgset"
-msgstr ""
+msgstr "msgset"
 
 #: C/docbook.page:958(code)
 #, no-wrap
 msgid "msgsub"
-msgstr ""
+msgstr "msgsub"
 
 #: C/docbook.page:961(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "msgtext"
-msgstr "κείμενο"
+msgstr "msgtext"
 
 #: C/docbook.page:965(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "nonterminal"
-msgstr "τερματικό"
+msgstr "nonterminal"
 
-#
 #: C/docbook.page:973(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "objectinfo"
-msgstr "Πρόσθεση επιπλέον πληροφοριών αντικειμένου"
+msgstr "objectinfo"
 
 #: C/docbook.page:978(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "olink"
-msgstr "σύνδεσμος"
+msgstr "olink"
 
 #: C/docbook.page:983(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "ooclass"
-msgstr "κλάση"
+msgstr "ooclass"
 
 #: C/docbook.page:987(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "ooexception"
-msgstr "Εξαίρεση:"
+msgstr "ooexception"
 
 #: C/docbook.page:990(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "oointerface"
-msgstr "με βάση τη διασύνδεση"
+msgstr "oointerface"
 
 #: C/docbook.page:994(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "option"
-msgstr "χωρίς επιλογές"
+msgstr "option"
 
 #: C/docbook.page:995(p)
 msgid ""
 "No specific element in Mallard. Use the <code xref=\"mal_inline_cmd\">cmd</"
 "code> element instead."
 msgstr ""
+"Δεν υπάρχει συγκεκριμένο στοιχείο στο Mallard. Αντί αυτού χρησιμοποιήστε το συγγραμμικό στοιχείο <code "
+"xref=\"mal_inline_cmd\">cmd</code>."
 
 #: C/docbook.page:999(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "optional"
-msgstr ""
-"#-#-#-#-#  pybliographer.master.el.po (el)  #-#-#-#-#\n"
-"Προαιρετικό\n"
-"#-#-#-#-#  conglomerate.master.el.po (el)  #-#-#-#-#\n"
-"Προαιρετικά"
+msgstr "optional"
 
 #: C/docbook.page:1003(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "orderedlist"
-msgstr "Λίστα χωρίς ταξινόμηση"
+msgstr "orderedlist"
 
 #: C/docbook.page:1004(p)
 msgid ""
 "See the <code xref=\"mal_block_list\">list</code> element for details. See "
 "also the <code xref=\"mal_block_steps\">steps</code> element."
 msgstr ""
+"Δείτε το στοιχείο <code xref=\"mal_block_list\">list</code> για λεπτομέρειες. Δείτε επίσης το στοιχείο <"
+"code xref=\"mal_block_steps\">steps</code>."
 
 #: C/docbook.page:1009(code)
 #, no-wrap
 msgid "orgdiv"
-msgstr ""
+msgstr "orgdiv"
 
 #: C/docbook.page:1015(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "orgname"
-msgstr "Χωρίς όνομα"
+msgstr "orgname"
 
 #: C/docbook.page:1018(code)
 #, no-wrap
 msgid "otheraddr"
-msgstr ""
+msgstr "otheraddr"
 
 #: C/docbook.page:1022(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "othercredit"
-msgstr "αναφορά σε συγγραφέα λογισμικού"
+msgstr "othercredit"
 
-# #-#-#-#-#  libgda.master.el.po (gnome-db 0.0.91)  #-#-#-#-#
-#
-# #-#-#-#-#  evolution-help.gnome-2-30.el.po (el)  #-#-#-#-#
-# #-#-#-#-#  nautilus.HEAD.el.po (el)  #-#-#-#-#
-#
-#: C/docbook.page:1026(code)
-#, fuzzy, no-wrap
+# #-#-#-#-#  libgda.master.el.po (gnome-db 0.0.91)  #-#-#-#-# #-#-#-#-#  evolution-help.gnome-2-30.el.po (el)  #-#-#-#-# #-#-#-#-#  nautilus.HEAD.el.po (el)  #-#-#-#-#: C/docbook.page:1026(code)
+#, no-wrap
 msgid "othername"
-msgstr "Όνομα χρήστη"
+msgstr "othername"
 
 #: C/docbook.page:1032(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "package"
-msgstr "πακέτο RPM"
+msgstr "package"
 
 #: C/docbook.page:1037(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "pagenums"
-msgstr "σελίδα"
+msgstr "pagenums"
 
 #: C/docbook.page:1041(code)
 #, no-wrap
 msgid "para"
-msgstr "παργ"
+msgstr "para"
 
 #: C/docbook.page:1042(p)
 msgid "Similar to the <code xref=\"mal_block_p\">p</code> element."
-msgstr ""
+msgstr "Όμοια με το στοιχείο <code xref=\"mal_block_p\">p</code>."
 
 #: C/docbook.page:1045(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "paramdef"
-msgstr "παράμετρος"
+msgstr "paramdef"
 
 #: C/docbook.page:1046(p)
 msgid "Mallard does not have a structured environment for function prototypes."
@@ -9098,565 +9038,119 @@ msgstr ""
 #: C/docbook.page:1049(code)
 #, no-wrap
 msgid "parameter"
-msgstr "παράμετρος"
+msgstr "parameter"
 
 #: C/docbook.page:1055(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "part"
-msgstr "Libparted"
+msgstr "part"
 
 #: C/docbook.page:1060(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "partinfo"
-msgstr ""
-"#-#-#-#-#  xchat-gnome.master.el.po (xchat-gnome)  #-#-#-#-#\n"
-"Αναμονή\n"
-"#-#-#-#-#  user-guide.master.el.po (user-guide.docs)  #-#-#-#-#\n"
-"εκκίνηση"
+msgstr "partinfo"
 
 #: C/docbook.page:1064(code) C/docbook.page:1083(code)
 #, no-wrap
 msgid "partintro"
-msgstr ""
+msgstr "partintro"
 
 #: C/docbook.page:1065(p)
 msgid ""
 "No direct equivalent in Mallard. The <code xref=\"mal_page\">page</code> or "
 "<code xref=\"mal_section\">section</code> element may be appropriate."
 msgstr ""
+"Δεν υπάρχει αντίστοιχο στοιχείο στο Mallard. Μπορεί να είναι κατάλληλα τα στοιχεία <code xref=\"mal_page\">"
+"page</code> ή <code xref=\"mal_section\">section</code>."
 
-# #-#-#-#-#  evolution-help.gnome-2-30.el.po (el)  #-#-#-#-#
-# #-#-#-#-#  ekiga.gnome-2-14.el.po (el)  #-#-#-#-#
-#
-# #-#-#-#-#  gnome-icon-theme.HEAD.el.po (el)  #-#-#-#-#
-# 48x48/emblems/emblem-personal.icon.in.h:1
-# #-#-#-#-#  user-guide.master.el.po (user-guide.docs)  #-#-#-#-#
-# #-#-#-#-#  ekiga.gnome-2-14.el.po (el)  #-#-#-#-#
-# #-#-#-#-#  gnome-icon-theme.HEAD.el.po (el)  #-#-#-#-#
-# 48x48/emblems/emblem-personal.icon.in.h:1
-# #-#-#-#-#  gnome-icon-theme.master.el.po (el)  #-#-#-#-#
-# 48x48/emblems/emblem-personal.icon.in.h:1
+# #-#-#-#-#  evolution-help.gnome-2-30.el.po (el)  #-#-#-#-# #-#-#-#-#  ekiga.gnome-2-14.el.po (el)  #-#-#-#-# #-#-#-#-#  gnome-icon-theme.HEAD.el.po (el)  #-#-#-#-# 48x48/emblems/emblem-personal.icon.in.h:1
+# #-#-#-#-#  user-guide.master.el.po (user-guide.docs)  #-#-#-#-# #-#-#-#-#  ekiga.gnome-2-14.el.po (el)  #-#-#-#-# #-#-#-#-#  gnome-icon-theme.HEAD.el.po (el)  #-#-#-#-# 48x48/emblems/emblem-personal.icon.in.h:1
+# #-#-#-#-#  gnome-icon-theme.master.el.po (el)  #-#-#-#-# 48x48/emblems/emblem-personal.icon.in.h:1
 #: C/docbook.page:1070(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "personblurb"
-msgstr ""
-"#-#-#-#-#  anjal.master.el.po (anjal.master(temp).el)  #-#-#-#-#\n"
-"Προσωπικά\n"
-"#-#-#-#-#  anjuta-extras.master.el.po (anjuta.HEAD)  #-#-#-#-#\n"
-"Προσωπικό\n"
-"#-#-#-#-#  gnome-menus.master.el.po (el)  #-#-#-#-#\n"
-"Προσωπικά\n"
-"#-#-#-#-#  evolution.gnome-2-30.el.po (evolution.HEAD)  #-#-#-#-#\n"
-"Προσωπικό\n"
-"#-#-#-#-#  evolution-help.gnome-2-30.el.po (el)  #-#-#-#-#\n"
-"Προσωπικό\n"
-"#-#-#-#-#  user-guide.master.el.po (user-guide.docs)  #-#-#-#-#\n"
-"Προσωπικά\n"
-"#-#-#-#-#  evolution-data-server.gnome-2-30.el.po (evolution-data-server.HEAD)  #-#-#-#-#\n"
-"Προσωπικά\n"
-"#-#-#-#-#  anjuta.gnome-2-30.el.po (anjuta.HEAD)  #-#-#-#-#\n"
-"Προσωπικό\n"
-"#-#-#-#-#  gnome-icon-theme.master.el.po (el)  #-#-#-#-#\n"
-"Προσωπικό\n"
-"#-#-#-#-#  evolution-exchange.gnome-2-30.el.po (el)  #-#-#-#-#\n"
-"Προσωπικά"
+msgstr "personblurb"
 
-# #-#-#-#-#  evolution-help.gnome-2-30.el.po (el)  #-#-#-#-#
-# #-#-#-#-#  ekiga.gnome-2-14.el.po (el)  #-#-#-#-#
-#
-# #-#-#-#-#  gnome-icon-theme.HEAD.el.po (el)  #-#-#-#-#
-# 48x48/emblems/emblem-personal.icon.in.h:1
-# #-#-#-#-#  user-guide.master.el.po (user-guide.docs)  #-#-#-#-#
-# #-#-#-#-#  ekiga.gnome-2-14.el.po (el)  #-#-#-#-#
-# #-#-#-#-#  gnome-icon-theme.HEAD.el.po (el)  #-#-#-#-#
-# 48x48/emblems/emblem-personal.icon.in.h:1
-# #-#-#-#-#  gnome-icon-theme.master.el.po (el)  #-#-#-#-#
-# 48x48/emblems/emblem-personal.icon.in.h:1
+# #-#-#-#-#  evolution-help.gnome-2-30.el.po (el)  #-#-#-#-# #-#-#-#-#  ekiga.gnome-2-14.el.po (el)  #-#-#-#-# #-#-#-#-#  gnome-icon-theme.HEAD.el.po (el)  #-#-#-#-# 48x48/emblems/emblem-personal.icon.in.h:1
+# #-#-#-#-#  user-guide.master.el.po (user-guide.docs)  #-#-#-#-# #-#-#-#-#  ekiga.gnome-2-14.el.po (el)  #-#-#-#-# #-#-#-#-#  gnome-icon-theme.HEAD.el.po (el)  #-#-#-#-# 48x48/emblems/emblem-personal.icon.in.h:1
+# #-#-#-#-#  gnome-icon-theme.master.el.po (el)  #-#-#-#-# 48x48/emblems/emblem-personal.icon.in.h:1
 #: C/docbook.page:1076(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "personname"
-msgstr ""
-"#-#-#-#-#  anjal.master.el.po (anjal.master(temp).el)  #-#-#-#-#\n"
-"Προσωπικά\n"
-"#-#-#-#-#  anjuta-extras.master.el.po (anjuta.HEAD)  #-#-#-#-#\n"
-"Προσωπικό\n"
-"#-#-#-#-#  gnome-menus.master.el.po (el)  #-#-#-#-#\n"
-"Προσωπικά\n"
-"#-#-#-#-#  evolution.gnome-2-30.el.po (evolution.HEAD)  #-#-#-#-#\n"
-"Προσωπικό\n"
-"#-#-#-#-#  evolution-help.gnome-2-30.el.po (el)  #-#-#-#-#\n"
-"Προσωπικό\n"
-"#-#-#-#-#  user-guide.master.el.po (user-guide.docs)  #-#-#-#-#\n"
-"Προσωπικά\n"
-"#-#-#-#-#  evolution-data-server.gnome-2-30.el.po (evolution-data-server.HEAD)  #-#-#-#-#\n"
-"Προσωπικά\n"
-"#-#-#-#-#  anjuta.gnome-2-30.el.po (anjuta.HEAD)  #-#-#-#-#\n"
-"Προσωπικό\n"
-"#-#-#-#-#  gnome-icon-theme.master.el.po (el)  #-#-#-#-#\n"
-"Προσωπικό\n"
-"#-#-#-#-#  evolution-exchange.gnome-2-30.el.po (el)  #-#-#-#-#\n"
-"Προσωπικά"
+msgstr "personname"
 
 #: C/docbook.page:1079(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "phone"
-msgstr "Τηλέφωνο"
+msgstr "phone"
 
 #: C/docbook.page:1084(p)
 msgid "Similar to the <code xref=\"mal_inline_span\">span</code> element."
-msgstr ""
+msgstr "Όμοια με το στοιχείο <code xref=\"mal_inline_span\">span</code>."
 
 #: C/docbook.page:1088(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "pob"
-msgstr ""
-"#-#-#-#-#  gtk+.master.el.po (gtk+-HEAD-po-el-3920.merged)  #-#-#-#-#\n"
-"Εκτύπωση\n"
-"#-#-#-#-#  gnome-control-center.master.el.po (el)  #-#-#-#-#\n"
-"Εργασία\n"
-"#-#-#-#-#  evolution.gnome-2-30.el.po (evolution.HEAD)  #-#-#-#-#\n"
-"Εργασία\n"
-"#-#-#-#-#  evince-help.master.el.po (evince greek help 1)  #-#-#-#-#\n"
-"Δουλειά\n"
-"#-#-#-#-#  libgnomeprintui.master.el.po (el)  #-#-#-#-#\n"
-"Εργασία"
+msgstr "pob"
 
 #: C/docbook.page:1094(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "postcode"
-msgstr "καρτ-ποστάλ"
+msgstr "postcode"
 
 #: C/docbook.page:1099(code)
 #, no-wrap
 msgid "preface"
-msgstr ""
+msgstr "preface"
 
 #: C/docbook.page:1104(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "prefaceinfo"
-msgstr "Πρόλογος"
+msgstr "prefaceinfo"
 
 #: C/docbook.page:1109(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "primary"
-msgstr "Πρωτεύον"
+msgstr "primary"
 
 #: C/docbook.page:1113(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "primaryie"
-msgstr "Πρωτεύον"
+msgstr "primaryie"
 
 #: C/docbook.page:1117(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "printhistory"
-msgstr "Ιστορικό εντολών"
+msgstr "printhistory"
 
-# #-#-#-#-#  libgda.master.el.po (gnome-db 0.0.91)  #-#-#-#-#
-#
-#: C/docbook.page:1123(code)
-#, fuzzy, no-wrap
+# #-#-#-#-#  libgda.master.el.po (gnome-db 0.0.91)  #-#-#-#-#: C/docbook.page:1123(code)
+#, no-wrap
 msgid "procedure"
-msgstr ""
-"#-#-#-#-#  libgda.master.el.po (gnome-db 0.0.91)  #-#-#-#-#\n"
-"Διαδικασίες\n"
-"#-#-#-#-#  conglomerate.master.el.po (el)  #-#-#-#-#\n"
-"Ιδιότητες"
+msgstr "procedure"
 
 #: C/docbook.page:1124(p)
 msgid "See the <code xref=\"mal_block_steps\">steps</code> element for details."
-msgstr ""
+msgstr "Δείτε το στοιχείο <code xref=\"mal_block_steps\">steps</code> για περισσότερες λεπτομέρειες."
 
 #: C/docbook.page:1128(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "production"
-msgstr ""
-"#-#-#-#-#  deskbar-applet-help.master.el.po (help.HEAD)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnome-netstatus-help.master.el.po (help.HEAD)  #-#-#-#-#\n"
-"Οδηγίες\n"
-"#-#-#-#-#  conduit-help.master.el.po (conduit-help.HEAD)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  trashapplet.master.el.po (trashapplet.HEAD)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnome-sudoku.master.el.po (gnome-sudoku.HEAD)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gst-services.master.el.po (packagename)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gcalctool-help.master.el.po (gcalctool-gnome-2-26-help-el-191897_.merged)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gtk-doc-help.master.el.po (gtk-doc-help.master)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  clock.master.el.po (clock)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  telegnome.master.el.po (telegnome master)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gst-users.master.el.po (gst-users.HEAD)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnote-help.master.el.po (gnote.help.gnome-2-22)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  dictionary.master.el.po (el-gnome-dictionary-help 1)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnomine.master.el.po (gnomine.HEAD)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  aisleriot.master.el.po (aisleriot.gnome-2-26)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  command-line.master.el.po (el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  accerciser-help.master.el.po (Accerciser)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  hig.master.el.po (gnome-devel-docs master)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gswitchit.master.el.po (gswitchit.docs)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnome-power-manager-help.master.el.po (el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  baobab.master.el.po (1)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gthumb-help.master.el.po (gthumb-gthumb-2-10-userguide-el-4781.merged)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  logview.master.el.po (logview.HEAD)  #-#-#-#-#\n"
-"Οδηγίες \n"
-"#-#-#-#-#  jhbuild-help.master.el.po  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  release-notes-help.gnome-2-28.el.po  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  platform-overview.master.el.po (packagename)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  zenity-help.gnome-2-30.el.po (zenity-help.HEAD)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  vinagre-help.master.el.po (el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  geyes.master.el.po (el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  cheese-help.master.el.po (cheese-help.HEAD)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  mousetweaks-help.master.el.po (mousetweaks help)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  file-roller-help.master.el.po (el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  seahorse-plugins-help.master.el.po (seahorse-plugins-help.master)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  multiload.master.el.po (el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  sound-juicer-help.master.el.po (sound-juicer greek help)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gst-shares.master.el.po (gst-shares)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnome-hello-help.master.el.po (gnome-hello master)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnome-control-center-help.master.el.po  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnect.master.el.po (packagename)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  glines.master.el.po (packagename)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  fish.master.el.po (fish)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  glchess.master.el.po (glchess.gnome-2-22)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  empathy-help.master.el.po (empathy-master-help-el-4325__.merged)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnotski.master.el.po (packagename)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnobots2.master.el.po (1.0)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gstreamer-properties.gnome-2-30.el.po (gstreamer-properties.HEAD)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  stickynotes_applet.master.el.po (el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  user-guide.master.el.po (user-guide.docs)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gweather.master.el.po (el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  rhythmbox-help.master.el.po (el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnome-bluetooth.master.el.po (bluez-gnome)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnome-terminal-help.gnome-2-30.el.po (gnome-terminal-HEAD-help-el-5250)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  char-palette.master.el.po (gnome-applets-gnome-2-26-char-palette-el-191728_.merged)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnome-user-share-help.master.el.po  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  eog-help.master.el.po (2.24.3.1)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gdm-help.master.el.po (gdm-master-help-el-5161.merged)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  anjuta-help.gnome-2-30.el.po (packagename)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  drivemount.master.el.po (drivemount.HEAD)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  glade3-help.gnome-2-28.el.po (glade3-help.master)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  brasero-help.master.el.po (help)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gst-network.master.el.po (el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  monkey-bubble-help.master.el.po  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  telegnome-help.master.el.po (telegnome master)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  quadrapassel.master.el.po (gnometris.HEAD.el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  iagno.master.el.po (iagno.HEAD.el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnibbles.master.el.po (el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  userguide.master.el.po (gthumb-gthumb-2-10-userguide-el-4781.merged)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  mahjongg.master.el.po (mahjongg.master)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  cpufreq-applet.master.el.po (cpufreq-applet.HEAD)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  battstat.master.el.po (el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  mixer_applet2.master.el.po (el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gucharmap-help.master.el.po (gucharmap-help.HEAD)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  evince-help.master.el.po (evince greek help 1)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  invest.master.el.po  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gst-mixer.gnome-2-30.el.po (gnome-media-HEAD-gst-mixer-el-4629.merged)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnome-subtitles-help.master.el.po (gnome-subtitles-el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnome-bluetooth-help.master.el.po (gnome-bluetooth master)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gtali.master.el.po (gtali.HEAD)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gst-time.master.el.po (el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  grecord.gnome-2-30.el.po  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  tomboy-help.master.el.po (tomboy.help.gnome-2-22)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  ekiga-help.master.el.po (help.HEAD)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  dasher-help.master.el.po (dasher)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  epiphany-help.master.el.po (epiphany-help 1.8)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gsearchtool.master.el.po (gsearchtool.gnome-2-26)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnome-packagekit-help.master.el.po (gnome-packagekit-help.master)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gedit-help.master.el.po (el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gtranslator-help.master.el.po (Gtranslator Manual)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  seahorse-help.master.el.po (el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gconf-editor-help.master.el.po (gconf-editor-help.HEAD)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  epiphany-extensions-help.master.el.po (help-epiphany)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  totem-help.master.el.po (totem.help.HEAD)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnome-system-monitor-help.master.el.po (gnome-system-monitor-help.HEAD)  #-#-#-#-#\n"
-"Εισαγωγή"
+msgstr "production"
 
 #: C/docbook.page:1132(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "productionrecap"
-msgstr "Εισαγωγή στην Όρκα"
+msgstr "productionrecap"
 
 #: C/docbook.page:1135(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "productionset"
-msgstr ""
-"#-#-#-#-#  deskbar-applet-help.master.el.po (help.HEAD)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnome-netstatus-help.master.el.po (help.HEAD)  #-#-#-#-#\n"
-"Οδηγίες\n"
-"#-#-#-#-#  conduit-help.master.el.po (conduit-help.HEAD)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  trashapplet.master.el.po (trashapplet.HEAD)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnome-sudoku.master.el.po (gnome-sudoku.HEAD)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gst-services.master.el.po (packagename)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gcalctool-help.master.el.po (gcalctool-gnome-2-26-help-el-191897_.merged)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gtk-doc-help.master.el.po (gtk-doc-help.master)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  clock.master.el.po (clock)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  telegnome.master.el.po (telegnome master)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gst-users.master.el.po (gst-users.HEAD)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnote-help.master.el.po (gnote.help.gnome-2-22)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  dictionary.master.el.po (el-gnome-dictionary-help 1)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnomine.master.el.po (gnomine.HEAD)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  aisleriot.master.el.po (aisleriot.gnome-2-26)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  command-line.master.el.po (el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  accerciser-help.master.el.po (Accerciser)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  hig.master.el.po (gnome-devel-docs master)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gswitchit.master.el.po (gswitchit.docs)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnome-power-manager-help.master.el.po (el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  baobab.master.el.po (1)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gthumb-help.master.el.po (gthumb-gthumb-2-10-userguide-el-4781.merged)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  logview.master.el.po (logview.HEAD)  #-#-#-#-#\n"
-"Οδηγίες \n"
-"#-#-#-#-#  jhbuild-help.master.el.po  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  release-notes-help.gnome-2-28.el.po  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  platform-overview.master.el.po (packagename)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  zenity-help.gnome-2-30.el.po (zenity-help.HEAD)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  vinagre-help.master.el.po (el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  geyes.master.el.po (el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  cheese-help.master.el.po (cheese-help.HEAD)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  mousetweaks-help.master.el.po (mousetweaks help)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  file-roller-help.master.el.po (el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  seahorse-plugins-help.master.el.po (seahorse-plugins-help.master)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  multiload.master.el.po (el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  sound-juicer-help.master.el.po (sound-juicer greek help)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gst-shares.master.el.po (gst-shares)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnome-hello-help.master.el.po (gnome-hello master)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnome-control-center-help.master.el.po  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnect.master.el.po (packagename)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  glines.master.el.po (packagename)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  fish.master.el.po (fish)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  glchess.master.el.po (glchess.gnome-2-22)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  empathy-help.master.el.po (empathy-master-help-el-4325__.merged)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnotski.master.el.po (packagename)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnobots2.master.el.po (1.0)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gstreamer-properties.gnome-2-30.el.po (gstreamer-properties.HEAD)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  stickynotes_applet.master.el.po (el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  user-guide.master.el.po (user-guide.docs)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gweather.master.el.po (el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  rhythmbox-help.master.el.po (el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnome-bluetooth.master.el.po (bluez-gnome)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnome-terminal-help.gnome-2-30.el.po (gnome-terminal-HEAD-help-el-5250)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  char-palette.master.el.po (gnome-applets-gnome-2-26-char-palette-el-191728_.merged)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnome-user-share-help.master.el.po  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  eog-help.master.el.po (2.24.3.1)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gdm-help.master.el.po (gdm-master-help-el-5161.merged)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  anjuta-help.gnome-2-30.el.po (packagename)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  drivemount.master.el.po (drivemount.HEAD)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  glade3-help.gnome-2-28.el.po (glade3-help.master)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  brasero-help.master.el.po (help)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gst-network.master.el.po (el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  monkey-bubble-help.master.el.po  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  telegnome-help.master.el.po (telegnome master)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  quadrapassel.master.el.po (gnometris.HEAD.el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  iagno.master.el.po (iagno.HEAD.el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnibbles.master.el.po (el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  userguide.master.el.po (gthumb-gthumb-2-10-userguide-el-4781.merged)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  mahjongg.master.el.po (mahjongg.master)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  cpufreq-applet.master.el.po (cpufreq-applet.HEAD)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  battstat.master.el.po (el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  mixer_applet2.master.el.po (el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gucharmap-help.master.el.po (gucharmap-help.HEAD)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  evince-help.master.el.po (evince greek help 1)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  invest.master.el.po  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gst-mixer.gnome-2-30.el.po (gnome-media-HEAD-gst-mixer-el-4629.merged)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnome-subtitles-help.master.el.po (gnome-subtitles-el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnome-bluetooth-help.master.el.po (gnome-bluetooth master)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gtali.master.el.po (gtali.HEAD)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gst-time.master.el.po (el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  grecord.gnome-2-30.el.po  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  tomboy-help.master.el.po (tomboy.help.gnome-2-22)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  ekiga-help.master.el.po (help.HEAD)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  dasher-help.master.el.po (dasher)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  epiphany-help.master.el.po (epiphany-help 1.8)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gsearchtool.master.el.po (gsearchtool.gnome-2-26)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnome-packagekit-help.master.el.po (gnome-packagekit-help.master)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gedit-help.master.el.po (el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gtranslator-help.master.el.po (Gtranslator Manual)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  seahorse-help.master.el.po (el)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gconf-editor-help.master.el.po (gconf-editor-help.HEAD)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  epiphany-extensions-help.master.el.po (help-epiphany)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  totem-help.master.el.po (totem.help.HEAD)  #-#-#-#-#\n"
-"Εισαγωγή\n"
-"#-#-#-#-#  gnome-system-monitor-help.master.el.po (gnome-system-monitor-help.HEAD)  #-#-#-#-#\n"
-"Εισαγωγή"
+msgstr "productionset"
 
 #: C/docbook.page:1140(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "productname"
-msgstr "Τοπικό Όνομα"
+msgstr "productname"
 
 #: C/docbook.page:1141(p)
 msgid ""
@@ -9664,106 +9158,77 @@ msgid ""
 "\">External namespace elements</link> may provide this information in <code "
 "xref=\"mal_info\">info</code> elements."
 msgstr ""
+"Δεν υπάρχει αντίστοιχο στο Mallard. Συγγραμμικά, χρησιμοποιήστε απλό κείμενο. <link xref=\"mal_external\">"
+"Εξωτερικά namespace στοιχείων</link> μπορεί να παρέχουν αυτή την πληροφορία σε στοιχεία <code "
+"xref=\"mal_info\">info</code>."
 
-#
 #: C/docbook.page:1146(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "productnumber"
-msgstr "Αριθμός σφάλματος"
+msgstr "productnumber"
 
 #: C/docbook.page:1150(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "programlisting"
-msgstr "πρόγραμμα"
+msgstr "programlisting"
 
 #: C/docbook.page:1151(p)
 msgid "Similar to the block <code xref=\"mal_block_code\">code</code> element."
-msgstr ""
+msgstr "Όμοιο με το στοιχείο μπλοκ <code xref=\"mal_block_code\">code</code>."
 
 #: C/docbook.page:1154(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "programlistingco"
-msgstr "Προμορφοποιημένη λίστα"
+msgstr "programlistingco"
 
 #: C/docbook.page:1159(p)
 msgid ""
 "No specific element in Mallard. Use the inline <code xref=\"mal_inline_output"
 "\">outut</code> element instead."
 msgstr ""
+"Δεν υπάρχει συγκεκριμένο στοιχείο στο Mallard. Αντί αυτού χρησιμοποιήστε το συγγραμμικό στοιχείο <code "
+"xref=\"mal_inline_output"
+"\">output</code>."
 
 #: C/docbook.page:1163(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "property"
-msgstr "Ιδιότητα"
+msgstr "property"
 
-# #-#-#-#-#  anjuta-extras.master.el.po (anjuta.HEAD)  #-#-#-#-#
-#
-# #-#-#-#-#  anjuta.gnome-2-30.el.po (anjuta.HEAD)  #-#-#-#-#
-#
-#: C/docbook.page:1168(code)
-#, fuzzy, no-wrap
+# #-#-#-#-#  anjuta-extras.master.el.po (anjuta.HEAD)  #-#-#-#-# #-#-#-#-#  anjuta.gnome-2-30.el.po (anjuta.HEAD)  #-#-#-#-#: C/docbook.page:1168(code)
+#, no-wrap
 msgid "pubdate"
-msgstr ""
-"#-#-#-#-#  evolution-rss.master.el.po (Evolution RSS)  #-#-#-#-#\n"
-"Ανανέωση\n"
-"#-#-#-#-#  meld.master.el.po (el)  #-#-#-#-#\n"
-"Ενημέρωση\n"
-"#-#-#-#-#  pybliographer.master.el.po (el)  #-#-#-#-#\n"
-"Ενημέρωση\n"
-"#-#-#-#-#  rhythmbox.master.el.po (el)  #-#-#-#-#\n"
-"Ενημέρωση\n"
-"#-#-#-#-#  gnome-applets.master.el.po (gnome-applets.HEAD.el)  #-#-#-#-#\n"
-"Ενημέρωση\n"
-"#-#-#-#-#  mergeant.master.el.po (el)  #-#-#-#-#\n"
-"Ενημέρωση\n"
-"#-#-#-#-#  anjuta-extras.master.el.po (anjuta.HEAD)  #-#-#-#-#\n"
-"Ενημέρωση\n"
-"#-#-#-#-#  evolution.gnome-2-30.el.po (evolution.HEAD)  #-#-#-#-#\n"
-"Ενημέρωση\n"
-"#-#-#-#-#  nautilus-vcs.master.el.po (nautilus-vcs)  #-#-#-#-#\n"
-"Ενημέρωση\n"
-"#-#-#-#-#  anjuta.gnome-2-30.el.po (anjuta.HEAD)  #-#-#-#-#\n"
-"Ενημέρωση"
+msgstr "pubdate"
 
 #: C/docbook.page:1174(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "publisher"
-msgstr "Εκδότης"
+msgstr "publisher"
 
 #: C/docbook.page:1178(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "publishername"
-msgstr "όνομα χρήστη"
+msgstr "publishername"
 
 #: C/docbook.page:1184(code) C/docbook.page:1206(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "pubsnumber"
-msgstr "αριθμός"
+msgstr "pubsnumber"
 
 #: C/docbook.page:1191(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "qandadiv"
-msgstr ""
-"#-#-#-#-#  accounts-dialog.master.el.po (accounts-dialog master)  #-#-#-#-#\n"
-"Πρότυπο\n"
-"#-#-#-#-#  gtk+.master.el.po (gtk+-HEAD-po-el-3920.merged)  #-#-#-#-#\n"
-"Κανονικό\n"
-"#-#-#-#-#  xkeyboard-config.master.el.po (xkeyboard-config 0.5)  #-#-#-#-#\n"
-"Τυπικό\n"
-"#-#-#-#-#  evolution.gnome-2-30.el.po (evolution.HEAD)  #-#-#-#-#\n"
-"Τυπικό\n"
-"#-#-#-#-#  gnome-cups-manager.master.el.po (el)  #-#-#-#-#\n"
-"Κανονική"
+msgstr "qandadiv"
 
 #: C/docbook.page:1196(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "qandaentry"
-msgstr "Μια είσοδος"
+msgstr "qandaentry"
 
 #: C/docbook.page:1199(code)
 #, no-wrap
 msgid "qandaset"
-msgstr ""
+msgstr "qandaset"
 
 # #-#-#-#-#  libgnomeui.HEAD.el.po (el)  #-#-#-#-#
 # #-#-#-#-#  gnome-libs-el.po (gnome-libs 1.2.12)  #-#-#-#-#
@@ -9775,162 +9240,142 @@ msgstr ""
 #: C/docbook.page:1202(code)
 #, no-wrap
 msgid "question"
-msgstr "λατινικό ερωτηματικό"
+msgstr "question"
 
 #: C/docbook.page:1211(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "refclass"
-msgstr "κλάση"
+msgstr "refclass"
 
 #: C/docbook.page:1215(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "refdescriptor"
-msgstr "Περιγραφέας αρχείου"
+msgstr "refdescriptor"
 
 #: C/docbook.page:1218(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "refentry"
-msgstr "καταχώριση"
+msgstr "refentry"
 
 #: C/docbook.page:1221(code)
 #, no-wrap
 msgid "refentryinfo"
-msgstr ""
+msgstr "refentryinfo"
 
 #: C/docbook.page:1224(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "refentrytitle"
-msgstr "Προεπιλεγμένος τίτλος"
+msgstr "refentrytitle"
 
 #: C/docbook.page:1227(code)
 #, no-wrap
 msgid "reference"
-msgstr "αναφορά"
+msgstr "reference"
 
 #: C/docbook.page:1230(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "referenceinfo"
-msgstr "Παράθυρο προτιμήσεων"
+msgstr "referenceinfo"
 
 #: C/docbook.page:1233(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "refmeta"
-msgstr "αριστερό meta"
+msgstr "refmeta"
 
 #: C/docbook.page:1236(code)
 #, no-wrap
 msgid "refmiscinfo"
-msgstr ""
+msgstr "refmiscinfo"
 
 #: C/docbook.page:1239(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "refname"
-msgstr "_Μετονομασία"
+msgstr "refname"
 
 #: C/docbook.page:1242(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "refnamediv"
-msgstr "Ανώνυμη συσκευή"
+msgstr "refnamediv"
 
 #: C/docbook.page:1245(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "refpurpose"
-msgstr ""
-"#-#-#-#-#  goffice.master.el.po (Gnumeric 1.2)  #-#-#-#-#\n"
-"κόκκινο-μωβ\n"
-"#-#-#-#-#  gtkhtml.gnome-2-30.el.po (gtkhtml.HEAD)  #-#-#-#-#\n"
-"κόκκινο μωβ"
+msgstr "refpurpose"
 
 #: C/docbook.page:1248(code)
 #, no-wrap
 msgid "refsect1"
-msgstr ""
+msgstr "refsect1"
 
 #: C/docbook.page:1251(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "refsect1info"
-msgstr "Πληροφορίες χρήστη"
+msgstr "refsect1info"
 
 #: C/docbook.page:1254(code)
 #, no-wrap
 msgid "refsect2"
-msgstr ""
+msgstr "refsect2"
 
 #: C/docbook.page:1257(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "refsect2info"
-msgstr "Πληροφορίες χρήστη"
+msgstr "refsect2info"
 
 #: C/docbook.page:1260(code)
 #, no-wrap
 msgid "refsect3"
-msgstr ""
+msgstr "refsect3"
 
 #: C/docbook.page:1263(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "refsect3info"
-msgstr "Πληροφορίες χρήστη"
+msgstr "refsect3info"
 
-# #-#-#-#-#  orca.master.el.po (orca.HEAD)  #-#-#-#-#
-# #-#-#-#-#  libgnomeui.HEAD.el.po (el)  #-#-#-#-#
-# #-#-#-#-#  gnome-libs-el.po (gnome-libs 1.2.12)  #-#-#-#-#
-#
-# #-#-#-#-#  libgda-el.po (gnome-db 0.0.91)  #-#-#-#-#
-#
-# #-#-#-#-#  toutdoux-el.po (toutdoux 1.0)  #-#-#-#-#
-#
-#: C/docbook.page:1266(code)
-#, fuzzy, no-wrap
+# #-#-#-#-#  orca.master.el.po (orca.HEAD)  #-#-#-#-# #-#-#-#-#  libgnomeui.HEAD.el.po (el)  #-#-#-#-# #-#-#-#-#  gnome-libs-el.po (gnome-libs 1.2.12)  #-#-#-#-# #-#-#-#-#  libgda-el.po (gnome-db 0.0.91)  #-#-#-#-# #-#-#-#-#  toutdoux-el.po (toutdoux 1.0)  #-#-#-#-#: C/docbook.page:1266(code)
+#, no-wrap
 msgid "refsection"
-msgstr ""
-"#-#-#-#-#  orca.master.el.po (orca.HEAD)  #-#-#-#-#\n"
-"παράγραφος\n"
-"#-#-#-#-#  nautilus-rc.master.el.po (el)  #-#-#-#-#\n"
-"ενότητα\n"
-"#-#-#-#-#  atk.master.el.po (el)  #-#-#-#-#\n"
-"ενότητα"
+msgstr "refsection"
 
 #: C/docbook.page:1269(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "refsectioninfo"
-msgstr "Sectioning"
+msgstr "refsectioninfo"
 
 #: C/docbook.page:1272(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "refsynopsisdiv"
-msgstr "Σύνοψη"
+msgstr "refsynopsisdiv"
 
 #: C/docbook.page:1275(code)
 #, no-wrap
 msgid "refsynopsisdivinfo"
-msgstr ""
+msgstr "refsynopsisdivinfo"
 
 #: C/docbook.page:1279(code)
-#, fuzzy, no-wrap
+#, no-wrap
 msgid "releaseinfo"
-msgstr "Διαγραφή παραθύρου"
+msgstr "releaseinfo"
 
 #: C/docbook.page:1288(p)
 msgid "This is a long list. Bear with me as I complete it."
-msgstr ""
+msgstr "Αυτή η λίστα είναι μεγάλη. Μείνετε μαζί μας καθώς τη συμπληρώνουμε."
 
 #: C/details.page:16(desc)
 msgid "How to process and work with Mallard documents."
-msgstr ""
+msgstr "Πώς να επεξεργάζεστε και να εργάζεστε έγγραφα του Mallard."
 
 #: C/details.page:19(title)
-#, fuzzy
 msgid "Processing Details"
-msgstr "Τερματισμός Επεξεργασίας"
+msgstr "Λεπτομέρειες επεξεργασίας"
 
 #: C/details.page:27(title)
 msgid "Internationalization and Localization"
-msgstr ""
+msgstr "Διεθνοποίηση και τοπικοποίηση"
 
 #: C/details.page:31(title)
-#, fuzzy
 msgid "Additional Reference Material"
-msgstr "Ετικέτα αναφοράς"
+msgstr "Επιπλέον υλικό αναφοράς"
 
 #. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
 #: C/index.page:0(None)
@@ -9938,6 +9383,8 @@ msgid "translator-credits"
 msgstr ""
 "Ελληνική μεταφραστική ομάδα GNOME\n"
 " Σίμος Ξενιτέλλης <simos@gnome.org>\n"
+" Μάριος Ζηντίλης <m.zindilis@dmajor.org>, 2010\n"
 "\n"
 "Για περισσότερα δείτε http://www.gnome.gr/"
+
 
