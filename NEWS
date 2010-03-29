@@ -1,3 +1,31 @@
+Changes in 0.20.0:
+------------------
+* Updated translations:
+  ar       (Khaled Hosny)
+  ast      (Xandru Armesto Fernandez)
+  bn       (Jamil Ahmed)
+  ca       (Gil Forcada)
+  da       (Ask H. Larsen)
+  de       (Mario Blättermann)
+  el       (Marios Zindilis, Nikos Bakaoukas, Simos Xenitellis)
+  en_GB    (Bruce Cowan)
+  es       (Jorge González)
+  eu       (Inaki Larranaga Murgoitio)
+  fi       (Tommi Vainikainen)
+  fr       (Claude Paroz)
+  hu       (Gabor Kelemen)
+  it       (Milo Casagrande)
+  ko       (Changwoo Ryu)
+  lt       (Žygimantas Beručka)
+  nn       (Torstein Adolf Winterseth)
+  pa       (A S Alam)
+  pt       (Duarte Loreto)
+  ru       (Leonid Kanter)
+  sr       (Miloš Popović)
+  sr@latin (Miloš Popović)
+  uk       (Maxim V. Dziumanenko)
+  vi       (Clytie)
+
 Changes in 0.19.5:
 ------------------
 * Updated the Mallard RNG schema (Shaun McCance)
