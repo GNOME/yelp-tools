@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils.mallard.master\n"
 "POT-Creation-Date: 2009-12-14 19:53+0000\n"
-"PO-Revision-Date: 2010-03-24 08:52+0100\n"
+"PO-Revision-Date: 2010-03-30 21:11+0200\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -4571,42 +4571,42 @@ msgstr ""
 #: C/mal_block_tree.page:110(code)
 #, no-wrap
 msgid "GtkBin"
-msgstr ""
+msgstr "GtkBin"
 
 #: C/mal_block_tree.page:112(code)
 #, no-wrap
 msgid "GtkButton"
-msgstr ""
+msgstr "GtkButton"
 
 #: C/mal_block_tree.page:113(code)
 #, no-wrap
 msgid "GtkToggleButton"
-msgstr ""
+msgstr "GtkToggleButton"
 
 #: C/mal_block_tree.page:114(code)
 #, no-wrap
 msgid "GtkColorButton"
-msgstr ""
+msgstr "GtkColorButton"
 
 #: C/mal_block_tree.page:115(code)
 #, no-wrap
 msgid "GtkFontButton"
-msgstr ""
+msgstr "GtkFontButton"
 
 #: C/mal_block_tree.page:116(code)
 #, no-wrap
 msgid "GtkLinkButton"
-msgstr ""
+msgstr "GtkLinkButton"
 
 #: C/mal_block_tree.page:117(code)
 #, no-wrap
 msgid "GtkOptionMenu"
-msgstr ""
+msgstr "GtkOptionMenu"
 
 #: C/mal_block_tree.page:118(code)
 #, no-wrap
 msgid "GtkScaleButton"
-msgstr ""
+msgstr "GtkScaleButton"
 
 #: C/mal_block_tree.page:125(p)
 msgid ""
@@ -4677,6 +4677,10 @@ msgid ""
 "  <link xref=\"mal_inline\">mal_inline</link>\n"
 "}\n"
 msgstr ""
+"\n"
+"mal_block_title = element title {\n"
+"  <link xref=\"mal_inline\">mal_inline</link>\n"
+"}\n"
 
 #: C/mal_block_terms.page:16(desc)
 msgid "Create a list of terms and associated descriptions."
@@ -4684,7 +4688,7 @@ msgstr ""
 
 #: C/mal_block_terms.page:19(title)
 msgid "Definition Lists"
-msgstr ""
+msgstr "Listas de definiciones"
 
 #: C/mal_block_terms.page:21(code)
 #, no-wrap
@@ -4748,7 +4752,7 @@ msgstr ""
 #: C/mal_block_terms.page:96(code) C/docbook.page:286(code)
 #, no-wrap
 msgid "code"
-msgstr ""
+msgstr "código"
 
 #: C/mal_block_terms.page:97(p) C/mal_block_code.page:18(desc)
 msgid "Mark up a block of code or the contents of a file."
@@ -5368,7 +5372,7 @@ msgstr ""
 
 #: C/mal_block_quote.page:111(p)
 msgid "Add a date to the attribution:"
-msgstr ""
+msgstr "Añadir una fecha a la atribución:"
 
 #: C/mal_block_quote.page:133(p)
 msgid ""
@@ -5391,11 +5395,11 @@ msgstr ""
 
 #: C/mal_block_p.page:16(desc)
 msgid "Create a simple paragraph of text."
-msgstr ""
+msgstr "Crear un párrafo de texto simple."
 
 #: C/mal_block_p.page:19(title)
 msgid "Paragraphs"
-msgstr ""
+msgstr "Párrafos"
 
 #: C/mal_block_p.page:21(code)
 #, no-wrap
@@ -5408,6 +5412,13 @@ msgid ""
 "  <link xref=\"mal_inline\">mal_inline</link>\n"
 "}\n"
 msgstr ""
+"\n"
+"mal_block_p = element p {\n"
+"  attribute style { xsd:NMTOKENS } ?,\n"
+"  attribute * - (mal:* | local:*) { text } *,\n"
+"\n"
+"  <link xref=\"mal_inline\">mal_inline</link>\n"
+"}\n"
 
 #: C/mal_block_p.page:30(p) C/mal_block_p.page:70(p)
 msgid ""
@@ -5420,6 +5431,8 @@ msgid ""
 "The <code>p</code> element can contain a mixture of text and any <link xref="
 "\"mal_inline\">general inline elements</link>."
 msgstr ""
+"El elemento <code>p</code> puede contener una mezcla de texto y cualquier "
+"<link xref=\"mal_inline\">elemento general en línea</link>."
 
 #: C/mal_block_p.page:42(p)
 msgid ""
@@ -5428,6 +5441,10 @@ msgid ""
 "\">sections</link>, and certain <link xref=\"mal_block\">block elements</"
 "link>."
 msgstr ""
+"El elemento <code>p</code> puede encontrarse en cualquier contexto general "
+"en bloque, incluyendo dentro de <link xref=\"mal_page\">páginas</link>, "
+"<link xref=\"mal_section\">secciones</link> y algunos <link xref=\"mal_block"
+"\">elementos de bloque</link>."
 
 #: C/mal_block_p.page:51(p)
 msgid ""
@@ -5435,10 +5452,13 @@ msgid ""
 "<link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"El elemento <code>p</code> puede tener atributos de espacios de nombres "
+"externos. Para obtener más información acerca de atributos de espacios de "
+"nombres externos consulte la <link xref=\"mal_external\"/>."
 
 #: C/mal_block_p.page:63(p)
 msgid "Create a simple paragraph:"
-msgstr ""
+msgstr "Crear un párrafo simple:"
 
 #: C/mal_block_p.page:81(p)
 msgid ""
@@ -5481,6 +5501,13 @@ msgid ""
 "  <link xref=\"mal_table\">mal_table</link>\n"
 ")\n"
 msgstr ""
+"\n"
+"mal_block = (\n"
+"  <link xref=\"#basic\">mal_block_basic</link> |\n"
+"  <link xref=\"#formal\">mal_block_formal</link> |\n"
+"  <link xref=\"#lists\">mal_block_lists</link> |\n"
+"  <link xref=\"mal_table\">mal_table</link>\n"
+")\n"
 
 #: C/mal_block.page:33(p)
 msgid ""
@@ -5493,7 +5520,7 @@ msgstr ""
 
 #: C/mal_block.page:50(title)
 msgid "Basic Block Elements"
-msgstr ""
+msgstr "Elementos de bloque básicos"
 
 #: C/mal_block.page:57(title)
 msgid "Basic Elements"
@@ -5511,6 +5538,14 @@ msgid ""
 "  <link xref=\"mal_block_screen\">mal_block_screen</link>\n"
 ")"
 msgstr ""
+"\n"
+"mal_block_basic = (\n"
+"  <link xref=\"mal_block_code\">mal_block_code</link> |\n"
+"  <link xref=\"mal_block_example\">mal_block_example</link> |\n"
+"  <link xref=\"mal_block_media\">mal_block_media</link> |\n"
+"  <link xref=\"mal_block_p\">mal_block_p</link> |\n"
+"  <link xref=\"mal_block_screen\">mal_block_screen</link>\n"
+")"
 
 #: C/mal_block.page:67(p)
 msgid ""
@@ -5541,6 +5576,15 @@ msgid ""
 "  <link xref=\"mal_block_synopsis\">mal_block_synopsis</link>\n"
 ")"
 msgstr ""
+"\n"
+"mal_block_formal = (\n"
+"  <link xref=\"mal_block_comment\">mal_block_comment</link> |\n"
+"  <link xref=\"mal_block_figure\">mal_block_figure</link> |\n"
+"  <link xref=\"mal_block_listing\">mal_block_listing</link> |\n"
+"  <link xref=\"mal_block_note\">mal_block_note</link> |\n"
+"  <link xref=\"mal_block_quote\">mal_block_quote</link> |\n"
+"  <link xref=\"mal_block_synopsis\">mal_block_synopsis</link>\n"
+")"
 
 #: C/mal_block.page:97(p)
 msgid ""
@@ -5551,7 +5595,7 @@ msgstr ""
 
 #: C/mal_block.page:112(title)
 msgid "List Elements"
-msgstr ""
+msgstr "Listar elementos"
 
 #: C/mal_block.page:113(code)
 #, no-wrap
@@ -5564,6 +5608,13 @@ msgid ""
 "  <link xref=\"mal_block_tree\">mal_block_tree</link>\n"
 ")"
 msgstr ""
+"\n"
+"mal_block_lists = (\n"
+"  <link xref=\"mal_block_list\">mal_block_list</link> |\n"
+"  <link xref=\"mal_block_steps\">mal_block_steps</link> |\n"
+"  <link xref=\"mal_block_terms\">mal_block_terms</link> |\n"
+"  <link xref=\"mal_block_tree\">mal_block_tree</link>\n"
+")"
 
 #: C/mal_block.page:121(p)
 msgid ""
@@ -5653,6 +5704,10 @@ msgid ""
 "\"mal_section\">sections</link>, and certain <link xref=\"mal_block\">block "
 "elements</link>."
 msgstr ""
+"El elemento <code>note</code> puede encontrarse en cualquier contexto "
+"general en bloque, incluyendo dentro de <link xref=\"mal_page\">páginas</"
+"link>, <link xref=\"mal_section\">secciones</link> y algunos <link xref="
+"\"mal_block\">elementos de bloque</link>."
 
 #: C/mal_block_note.page:60(code)
 #, no-wrap
@@ -5767,6 +5822,9 @@ msgid ""
 "git config --global user.name <var>full_name</var>\n"
 "git config --global user.email <var>email_address</var>"
 msgstr ""
+"\n"
+"git config --global user.name <var>nombre_completo</var>\n"
+"git config --global user.email <var>dirección_de_correo-e</var>"
 
 #: C/mal_block_note.page:167(p)
 msgid "Provide a helpful but non-essential tip:"
@@ -5864,6 +5922,10 @@ msgid ""
 "\"mal_section\">sections</link>, and certain <link xref=\"mal_block\">block "
 "elements</link>."
 msgstr ""
+"El elemento <code>media</code> puede encontrarse en cualquier contexto "
+"general en bloque, incluyendo dentro de <link xref=\"mal_page\">páginas</"
+"link>, <link xref=\"mal_section\">secciones</link> y algunos <link xref="
+"\"mal_block\">elementos de bloque</link>."
 
 #: C/mal_block_media.page:68(p)
 msgid ""
@@ -5981,6 +6043,10 @@ msgid ""
 "\"mal_section\">sections</link>, and certain <link xref=\"mal_block\">block "
 "elements</link>."
 msgstr ""
+"El elemento <code>list</code> puede encontrarse en cualquier contexto "
+"general en bloque, incluyendo dentro de <link xref=\"mal_page\">páginas</"
+"link>, <link xref=\"mal_section\">secciones</link> y algunos <link xref="
+"\"mal_block\">elementos de bloque</link>."
 
 #: C/mal_block_list.page:61(p)
 msgid ""
@@ -6158,6 +6224,10 @@ msgid ""
 "\"mal_section\">sections</link>, and certain <link xref=\"mal_block\">block "
 "elements</link>."
 msgstr ""
+"El elemento <code>listing</code> puede encontrarse en cualquier contexto "
+"general en bloque, incluyendo dentro de <link xref=\"mal_page\">páginas</"
+"link>, <link xref=\"mal_section\">secciones</link> y algunos <link xref="
+"\"mal_block\">elementos de bloque</link>."
 
 #: C/mal_block_listing.page:61(p)
 msgid ""
@@ -6270,6 +6340,10 @@ msgid ""
 "\"mal_section\">sections</link>, and certain <link xref=\"mal_block\">block "
 "elements</link>."
 msgstr ""
+"El elemento <code>figure</code> puede encontrarse en cualquier contexto "
+"general en bloque, incluyendo dentro de <link xref=\"mal_page\">páginas</"
+"link>, <link xref=\"mal_section\">secciones</link> y algunos <link xref="
+"\"mal_block\">elementos de bloque</link>."
 
 #: C/mal_block_figure.page:59(p)
 msgid ""
@@ -6359,6 +6433,10 @@ msgid ""
 "\"mal_section\">sections</link>, and certain <link xref=\"mal_block\">block "
 "elements</link>."
 msgstr ""
+"El elemento <code>example</code> puede encontrarse en cualquier contexto "
+"general en bloque, incluyendo dentro de <link xref=\"mal_page\">páginas</"
+"link>, <link xref=\"mal_section\">secciones</link> y algunos <link xref="
+"\"mal_block\">elementos de bloque</link>."
 
 #: C/mal_block_example.page:53(p)
 msgid ""
@@ -6645,6 +6723,10 @@ msgid ""
 "\"mal_section\">sections</link>, and certain <link xref=\"mal_block\">block "
 "elements</link>."
 msgstr ""
+"El elemento <code>comment</code> puede encontrarse en cualquier contexto "
+"general en bloque, incluyendo dentro de <link xref=\"mal_page\">páginas</"
+"link>, <link xref=\"mal_section\">secciones</link> y algunos <link xref="
+"\"mal_block\">elementos de bloque</link>."
 
 #: C/mal_block_comment.page:66(p)
 msgid ""
@@ -6780,6 +6862,10 @@ msgid ""
 "\"mal_section\">sections</link>, and certain <link xref=\"mal_block\">block "
 "elements</link>."
 msgstr ""
+"El elemento <code>code</code> puede encontrarse en cualquier contexto "
+"general en bloque, incluyendo dentro de <link xref=\"mal_page\">páginas</"
+"link>, <link xref=\"mal_section\">secciones</link> y algunos <link xref="
+"\"mal_block\">elementos de bloque</link>."
 
 #: C/mal_block_code.page:67(p)
 msgid ""
@@ -6833,6 +6919,9 @@ msgid ""
 "cause style variations, but they should not cause a change to a variable-"
 "width font."
 msgstr ""
+"Los códigos de bloque se deben mostrar en una tipografía de ancho fijo. El "
+"marcado en línea puede causar variaciones de estilo pero no deberían causar "
+"un cambio a una tipografía de anchura variable."
 
 #: C/mal_block_code.page:123(p)
 msgid ""
@@ -6929,7 +7018,7 @@ msgstr ""
 
 #: C/mal_attr_link.page:19(title)
 msgid "Ubiquitous Linking"
-msgstr ""
+msgstr "Enlazado ubicuo"
 
 #: C/mal_attr_link.page:21(code)
 #, no-wrap
@@ -6979,10 +7068,12 @@ msgid ""
 "Conformance to the W3C Internationalization and Localization Markup "
 "Requirements."
 msgstr ""
+"Conformidad con los requerimientos de marcado para localización e "
+"internacionalización del W3C."
 
 #: C/its.page:20(title)
 msgid "ITS Conformance"
-msgstr ""
+msgstr "Requerimientos del ITS"
 
 #: C/its.page:22(p)
 msgid ""
@@ -7179,6 +7270,10 @@ msgid ""
 "\"mal_info\">info</code> element to provide translatability rules for a page "
 "or section."
 msgstr ""
+"Adicionalmente se puede usar el elemento <code href=\"http://www.w3.org/TR/"
+"its/#basic-concepts-selection-global\">its:rules</code> en cualquier "
+"elemento <code xref=\"mal_info\">info</code> para proporcionar reglas de "
+"traducibilidad para una página o sección."
 
 #: C/its.page:181(title)
 msgid "R014: Limited Impact"
@@ -7332,6 +7427,9 @@ msgid ""
 "provide hints on how to break down document content into meaningful runs of "
 "text."
 msgstr ""
+"[R025] Los métodos de los elementos, independientemente de la semántica, "
+"deben existir para proporcionar sugerencias acerca de cómo partir el "
+"contenido del documento en partes de texto con sentido completo"
 
 #: C/its.page:306(p)
 msgid ""
