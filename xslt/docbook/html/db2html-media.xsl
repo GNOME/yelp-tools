@@ -43,6 +43,35 @@ REMARK: calls db2html.imagedata.src, how other attrs are gotten
 -->
 <xsl:template name="db2html.imagedata">
   <xsl:param name="node" select="."/>
+  <xsl:choose>
+    <xsl:when test="$node/@format = 'SVG'">
+      <!--
+          We don't really ever want to embed external SVGs, because there's
+          no guarantee they exist at build time. But Yelp 2.30 launches an
+          external viewer when it encounters an <object> tag, so this is
+          the only option. When this was added, gnome-doc-utils and Yelp 2
+          are in maintenance (and hacks) mode. This works for some Ubuntu
+          docs that need SVG.
+      -->
+      <xsl:choose>
+        <xsl:when test="$db2html.namespace = ''">
+          <object type="image/svg+xml">
+            <xsl:attribute name="data">
+              <xsl:call-template name="db2html.imagedata.src">
+                <xsl:with-param name="node" select="$node"/>
+              </xsl:call-template>
+            </xsl:attribute>
+            <xsl:copy-of select="@width"/>
+            <xsl:copy-of select="@height"/>
+          </object>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:variable name="svg" select="document($node/@fileref)"/>
+          <xsl:copy-of select="$svg"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:when>
+    <xsl:otherwise>
   <img>
     <xsl:attribute name="src">
       <xsl:call-template name="db2html.imagedata.src">
@@ -80,6 +109,8 @@ REMARK: calls db2html.imagedata.src, how other attrs are gotten
 -->
     <!-- FIXME: longdesc -->
   </img>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
 
