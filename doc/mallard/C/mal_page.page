@@ -70,7 +70,7 @@ guide pages serve as navigational aids.</p>
 
     <item><p>The <code>page</code> element can have attributes from external
     namespaces.  See <link xref="mal_external"/> for more information
-    on external-namespace attributes.</p></item>
+    on external namespace attributes.</p></item>
   </list>
 </section>
 <!-- END notes -->
@@ -82,7 +82,7 @@ guide pages serve as navigational aids.</p>
 
   <p>Guide pages have the <code>type</code> attribute set to
   <code>"guide"</code>.  They serve as navigational aids, linking to topics and
-  other guides.  Readers can can browse through guides much as they would browse
+  other guides.  Readers can browse through guides much as they would browse
   through container sections in a linear document.  Since page can be included
   in multiple guides, however, readers are able to reach the same content by
   navigating different paths.</p>
