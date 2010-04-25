@@ -1,11 +1,14 @@
 # German translation of the Mallard documentation.
-# Mario Blättermann <mariobl@gnome.org>, 2009, 2010.
 #
+# guide page - Anleitungsseite
+# Mallard page file - Mallard-Seitendatei
+# style hints  -  Stilanweisungen
+# Mario Blättermann <mariobl@gnome.org>, 2009, 2010.
 msgid ""
 msgstr ""
 "Project-Id-Version: mallard\n"
-"POT-Creation-Date: 2009-12-14 19:53+0000\n"
-"PO-Revision-Date: 2010-02-23 23:15+0100\n"
+"POT-Creation-Date: 2010-04-25 18:45+0000\n"
+"PO-Revision-Date: 2010-04-25 18:52+0100\n"
 "Last-Translator: Mario Blättermann <mariobl@gnome.org>\n"
 "Language-Team: German <gnome-de@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -20,9 +23,9 @@ msgid ""
 "licenses/by-sa/3.0/us/\">Creative Commons Attribution-Share Alike 3.0 United "
 "States License</link>."
 msgstr ""
-"Dieses Werk wird unter einer <link href=\"http://creativecommons.org/licenses/"
-"by-sa/3.0/de/legalcode\">Creative Commons Attribution-Share Alike 3.0 United "
-"States License</link> veröffentlicht."
+"Dieses Werk wird unter einer <link href=\"http://creativecommons.org/"
+"licenses/by-sa/3.0/de/legalcode\">Creative Commons Attribution-Share Alike "
+"3.0 United States License</link> veröffentlicht."
 
 #: C/legal.xml:6(p)
 msgid ""
@@ -161,15 +164,16 @@ msgstr ""
 "einige Informationen. Das kann eine Schritt-für-Schritt-Anleitung sein, ein "
 "Überblick über das Konzept, Referenzmaterial oder jede andere Art "
 "geschriebenen Inhalts. <link xref=\"mal_page#guide\">Anleitungsseiten</link> "
-"fungieren als Verbindungsglied für die Navigation innerhalb der verschiedenen "
-"Themen, die dem Leser das Auffinden und Entdecken des Inhalts ermöglichen."
+"fungieren als Verbindungsglied für die Navigation innerhalb der "
+"verschiedenen Themen, die dem Leser das Auffinden und Entdecken des Inhalts "
+"ermöglichen."
 
 #: C/tenminutes.page:38(p)
 msgid ""
 "We can begin making a Mallard document by writing a front page for our "
 "document. Generally, the front page of any document will be a guide page, as "
-"its purpose is to help users navigate to other content. In Mallard, the front "
-"page of any document is named <file>index.page</file>."
+"its purpose is to help users navigate to other content. In Mallard, the "
+"front page of any document is named <file>index.page</file>."
 msgstr ""
 "Wir können mit der Erstellung eines Mallard-Dokuments beginnen, indem wir "
 "zunächst dessen Titelseite schreiben. Generell wird diese Titelseite eine "
@@ -184,8 +188,8 @@ msgstr "index.page"
 #: C/tenminutes.page:53(p)
 msgid ""
 "This simple example is a valid Mallard guide page. Taken alone, it is also a "
-"valid Mallard document, although it's rather useless. We can add another page "
-"to the document by creating a new page file."
+"valid Mallard document, although it's rather useless. We can add another "
+"page to the document by creating a new page file."
 msgstr ""
 "Dieses einfache Beispiel ist eine gültige Mallard-Anleitungsseite. Für sich "
 "allein betrachtet stellt sie selbst ein gültiges Mallard-Dokument dar, "
@@ -210,17 +214,17 @@ msgstr ""
 "file> auf <code>\"guide\"</code> gesetzt haben und in <file>planting.page</"
 "file> auf <code>\"topic\"</code>. Dies legt fest, dass <file>index.page</"
 "file> eine Anleitungsseite ist, was bewirkt, dass sie automatische Links zu "
-"anderen Seiten haben kann. Gegenwärtig haben wir zwei allein stehende Seiten, "
-"die nicht untereinander verlinkt sind. Wir können <file>index.page</file> mit "
-"<file>planting.page</file> verlinken."
+"anderen Seiten haben kann. Gegenwärtig haben wir zwei allein stehende "
+"Seiten, die nicht untereinander verlinkt sind. Wir können <file>index.page</"
+"file> mit <file>planting.page</file> verknüpfen."
 
 #: C/tenminutes.page:88(p)
 msgid "Explain the linking and introduce the next example."
-msgstr ""
+msgstr "Das Verknüpfen erklären und in das nächste Beispiel einführen."
 
 #: C/tenminutes.page:114(p)
 msgid "Fill in more content."
-msgstr ""
+msgstr "Mehr Inhalt einfügen."
 
 #: C/spec.page:14(years) C/mal_inline.page:13(years)
 #: C/mal_info_years.page:13(years) C/mal_info_name.page:13(years)
@@ -240,7 +244,7 @@ msgstr "Sprachspezifikation"
 
 #: C/spec.page:24(p) C/index.page:27(p)
 msgid "Add some intro text"
-msgstr ""
+msgstr "Einen Einführungstext hinzufügen"
 
 #: C/principles.page:16(desc)
 msgid "The guiding principles behind the design of Mallard."
@@ -252,12 +256,14 @@ msgstr "Prinzipien des Designs"
 
 #: C/principles.page:23(p)
 msgid "Add intro content"
-msgstr ""
+msgstr "Einführungsinhalte hinzufügen"
 
 #: C/principles.page:24(p)
 msgid ""
 "Add principles: pluggability, implementation speed, l10n, digestible info"
 msgstr ""
+"Prinzipien des Hinzufügens: Modularität, Implementierungsgeschwindigkeit, "
+"Übersetzbarkeit, verwertbare Informationen"
 
 #: C/principles.page:29(title)
 msgid "Principles for the Reader"
@@ -274,6 +280,11 @@ msgid ""
 "doesn't help the reader to find the information she needs quickly. The needs "
 "of the reader trump all other requirements."
 msgstr ""
+"Leser sind die endgültigen Richter über die Qualität eines "
+"Dokumentationssystems. Die größten Anstrengungen von Schreiber und Hacker "
+"sind vergebens, wenn die Dokumentation nicht dem Leser bei der Suche nach "
+"dringend gesuchten Informationen hilft. Die Bedürfnisse des Lesers "
+"übertrumpfen alle anderen Anforderungen."
 
 #: C/principles.page:42(title)
 msgid "Principles for the Writer"
@@ -297,11 +308,11 @@ msgstr "Für den Hacker"
 
 #: C/principle-redundancy.page:8(desc)
 msgid "Avoid forcing writers to write the same thing twice"
-msgstr ""
+msgstr "Vermeiden, dass der Schreiber das Gleiche zwei mal schreiben muss"
 
 #: C/principle-redundancy.page:11(title)
 msgid "Reduce Redundancy"
-msgstr ""
+msgstr "Redundanz reduzieren"
 
 #: C/principle-justenough.page:9(desc)
 msgid "Provide just enough markup to mark up what's important"
@@ -515,7 +526,7 @@ msgstr "Das <code>rules</code>-Attribut"
 
 #: C/mal_table.page:71(p)
 msgid "Place rules between each row:"
-msgstr ""
+msgstr "Trennlinien zwischen jede Reihe platzieren:"
 
 #: C/mal_table.page:95(p) C/mal_table.page:137(p) C/mal_table.page:184(p)
 #: C/mal_table.page:233(p) C/mal_table.page:280(p) C/mal_table.page:322(p)
@@ -546,7 +557,7 @@ msgstr "900-1200 g"
 #: C/mal_table.page:237(p) C/mal_table.page:284(p) C/mal_table.page:326(p)
 #: C/mal_table.page:373(p) C/mal_table.page:423(p)
 msgid "Eurasian Wigeon"
-msgstr ""
+msgstr "Eurasische Pfeifente"
 
 #: C/mal_table.page:99(p) C/mal_table.page:141(p) C/mal_table.page:188(p)
 #: C/mal_table.page:237(p) C/mal_table.page:284(p) C/mal_table.page:326(p)
@@ -570,7 +581,7 @@ msgstr "680 g"
 #: C/mal_table.page:241(p) C/mal_table.page:288(p) C/mal_table.page:330(p)
 #: C/mal_table.page:379(p) C/mal_table.page:427(p)
 msgid "Common Teal"
-msgstr ""
+msgstr "Gewöhnliche Krickente"
 
 #: C/mal_table.page:103(p) C/mal_table.page:145(p) C/mal_table.page:194(p)
 #: C/mal_table.page:241(p) C/mal_table.page:288(p) C/mal_table.page:330(p)
@@ -594,7 +605,7 @@ msgstr "360 g"
 #: C/mal_table.page:245(p) C/mal_table.page:292(p) C/mal_table.page:334(p)
 #: C/mal_table.page:383(p) C/mal_table.page:431(p)
 msgid "Northern Pintail"
-msgstr ""
+msgstr "Nördliche Spießente"
 
 #: C/mal_table.page:107(p) C/mal_table.page:149(p) C/mal_table.page:198(p)
 #: C/mal_table.page:245(p) C/mal_table.page:292(p) C/mal_table.page:334(p)
@@ -616,15 +627,15 @@ msgstr "450-1360 g"
 
 #: C/mal_table.page:113(p)
 msgid "Place rules between each colum:"
-msgstr ""
+msgstr "Platzieren Sie Trennlinien zwischen jede Spalte:"
 
 #: C/mal_table.page:155(p)
 msgid "Place rules between each row group:"
-msgstr ""
+msgstr "Platzieren Sie Trennlinien zwischen jede Zeilengruppe:"
 
 #: C/mal_table.page:205(p)
 msgid "Place rules between each column group:"
-msgstr ""
+msgstr "Platzieren Sie Trennlinien zwischen jede Spaltengruppe:"
 
 #: C/mal_table.page:254(title)
 msgid "The <code>shade</code> Attribute"
@@ -632,19 +643,19 @@ msgstr "Das <code>shade</code>-Attribut"
 
 #: C/mal_table.page:256(p)
 msgid "Shade alternating rows:"
-msgstr ""
+msgstr "Zeilen abwechselnd schattieren:"
 
 #: C/mal_table.page:298(p)
 msgid "Shade alternating columns:"
-msgstr ""
+msgstr "Spalten abwechselnd schattieren:"
 
 #: C/mal_table.page:340(p)
 msgid "Shade alternating row groups:"
-msgstr ""
+msgstr "Zeilengruppen abwechselnd schattieren:"
 
 #: C/mal_table.page:390(p)
 msgid "Shade alternating column groups:"
-msgstr ""
+msgstr "Spaltengruppen abwechselnd schattieren:"
 
 #: C/mal_table.page:447(title)
 msgid "Design Notes"
@@ -734,6 +745,11 @@ msgid ""
 "Mallard, sections can take part in <link xref=\"links\">automatic linking</"
 "link> just as pages can."
 msgstr ""
+"Ein Abschnitt ist ein markanter logischer Teil einer Seite oder eines "
+"anderen Abschnitts. Ein Aufteilen von Material in Abschnitte kann Lesern "
+"dabei helfen, Informationen schneller zu finden. In Mallard können "
+"Abschnitte Teil <link xref=\"links\">automatischen Verknüpfens</link> "
+"werden, genauso wie Seiten."
 
 #: C/mal_section.page:42(title) C/mal_page.page:48(title)
 #: C/mal_inline_var.page:44(title) C/mal_inline_sys.page:41(title)
@@ -787,6 +803,11 @@ msgid ""
 "including those on other <code>section</code> elements and on the containing "
 "<code xref=\"mal_page\">page</code> element."
 msgstr ""
+"Das Attribut <code>id</code> erwartet einen eindeutigen Bezeichner. Es "
+"sollte sich von allen anderen <code>id</code>-Attributen auf der gleichen "
+"Seite unterscheiden, einschließlich derer in anderen <code>section</code>-"
+"Elementen und auf dem beinhaltenden <code xref=\"mal_page\">page</code>-"
+"Element."
 
 #: C/mal_section.page:57(p) C/mal_page.page:67(p) C/mal_inline_var.page:58(p)
 #: C/mal_inline_sys.page:55(p) C/mal_inline_span.page:57(p)
@@ -806,10 +827,13 @@ msgstr ""
 #: C/mal_block_desc.page:52(p) C/mal_block_comment.page:62(p)
 #: C/mal_block_code.page:56(p) C/mal_block_cite.page:50(p)
 msgid ""
-"The <code>style</code> attribute takes a space-separated list of style hints. "
-"Processing tools should adjust their behavior according to those style hints "
-"they understand."
+"The <code>style</code> attribute takes a space-separated list of style "
+"hints. Processing tools should adjust their behavior according to those "
+"style hints they understand."
 msgstr ""
+"Das Attribut <code>style</code> erwartet eine durch Kommata getrennte Liste "
+"von Stilanweisungen. Verarbeitungswerkzeuge sollen Ihr Verhalten an die "
+"Stilanweisungen anpassen, die sie interpretieren können."
 
 #: C/mal_section.page:61(p)
 msgid ""
@@ -817,6 +841,9 @@ msgid ""
 "namespaces. See <link xref=\"mal_external\"/> for more information on "
 "external-namespace attributes."
 msgstr ""
+"Das Element <code>section</code> kann Attribute aus externen Namensräumen "
+"haben. Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_section.page:71(title) C/mal_page.page:134(title)
 #: C/mal_inline_var.page:75(title) C/mal_inline_sys.page:83(title)
@@ -841,18 +868,26 @@ msgstr ""
 #: C/mal_block_example.page:109(title) C/mal_block_desc.page:120(title)
 #: C/mal_block_comment.page:143(title) C/mal_block_code.page:105(title)
 msgid "Processing Expectations"
-msgstr ""
+msgstr "Erwartungen bei der Verarbeitung"
 
 #: C/mal_section.page:73(p)
 msgid ""
 "Each section is displayed as a block. The title of a section is displayed "
 "prominently, followed by any child block content, and finally by each child "
 "section. Note that automatic links, style hints, or other special features "
-"may insert material or change the way pages are displayed. Sections should be "
-"clearly separated from their surrounding content to make the beginning and "
-"ending of each section obvious. The depth of each section should be clear, "
-"although this may not be feasible for deeply nested sections."
+"may insert material or change the way pages are displayed. Sections should "
+"be clearly separated from their surrounding content to make the beginning "
+"and ending of each section obvious. The depth of each section should be "
+"clear, although this may not be feasible for deeply nested sections."
 msgstr ""
+"Jeder Abschnitt wird als Block dargestellt. Der Titel eines Abschnitts steht "
+"hervor, gefolgt von untergeordnetem Blockinhalt, und zuletzt von jedem "
+"Unterabschnitt. Beachten Sie, dass automatische Verknüpfungen, "
+"Stilanweisungen oder andere spezielle Merkmale Material einfügen oder die "
+"Darstellung verändern können. Abschnitte sollten sauber von umgebenden "
+"Inhalt getrennt werden, um Anfang und Ende jeden Abschnitts deutlich zu "
+"machen. Die Tiefe jedes Abschnitts sollte klar sein, obwohl dies bei tief "
+"verschachtelten Abschnitten nicht immer möglich ist."
 
 #: C/mal_section.page:81(p)
 msgid ""
@@ -862,10 +897,18 @@ msgid ""
 "Sections in guide pages have topic links inserted following their block "
 "content. See <link xref=\"links#topic\"/> for more information."
 msgstr ""
+"Abschnitte können verknüpfte Verweise haben. In allen Abschnitten sollten "
+"Verweise auf Anleitungen und »Siehe auch«-Verweise angezeigt werden, wenn "
+"angemessen. Lesen Sie auch <link xref=\"links#guide\"/> und <link xref="
+"\"links#seealso\"/> für weitere Informationen. In Abschnitte von "
+"Anleitungsseiten werden Themenverweise eingefügt, die dem Blockinhalt "
+"folgen. Lesen Sie auch <link xref=\"links#topic\"/> für weitere "
+"Informationen."
 
 #: C/mal_page.page:16(desc)
 msgid "Individual tutorials, overviews, references, and navigational guides."
 msgstr ""
+"Individuelle Anleitungen, Übersichten, Referenzen und Navigationsanweisungen"
 
 #: C/mal_page.page:19(title)
 msgid "Pages"
@@ -915,6 +958,13 @@ msgid ""
 "pages</link>. Topic pages contain the bulk of the material discussed in a "
 "document, whereas guide pages serve as navigational aids."
 msgstr ""
+"Das Element <code>page</code> ist das Hauptelement einer jeden Mallard-"
+"Seitendatei. In Mallard bestehen Dokumente aus diskreten Seiten, die "
+"untereinander durch verschiedene Verknüpfungsmechanismen verbunden sind. Es "
+"gibt in Mallard zwei verschiedene Arten von Seiten: <link xref=\"#guide"
+"\">Anleitungsseiten</link> und <link xref=\"#topic\">Themenseiten</link>. "
+"Themenseiten enthalten das meiste Material in einem Dokument, und "
+"Anleitungsseiten dienen als Navigationshilfe."
 
 #: C/mal_page.page:50(p)
 msgid ""
@@ -923,6 +973,10 @@ msgid ""
 "element, any <link xref=\"mal_block\">general block content</link>, and any "
 "number of <code xref=\"mal_section\">section</code> elements."
 msgstr ""
+"Das Element <code>page</code> enthält ein optionales Element <code xref="
+"\"mal_info\">info</code>, ein Element <code xref=\"mal_block_title\">title</"
+"code>, einen beliebigen <link xref=\"mal_block\">allgemeinen Blockinhalt</"
+"link> und beliebig viele <code xref=\"mal_section\">section</code>-Elemente."
 
 #: C/mal_page.page:55(p)
 msgid ""
@@ -930,13 +984,16 @@ msgid ""
 "file, and cannot occur in any other elements."
 msgstr ""
 "Das <code>page</code>-Element ist in jeder Mallard-Seitendatei das oberste "
-"Element und kann nicht in irgendwelchen anderen Elementen auftreten."
+"Element und darf nicht in irgendwelchen anderen Elementen auftreten."
 
 #: C/mal_page.page:58(p)
 msgid ""
 "The <code>id</code> attribute takes a unique identifier, which should match "
 "the base file name (without extension) of the file containing the page."
 msgstr ""
+"Das Attribut <code>id</code> erwartet einen beliebigen Bezeichner, der dem "
+"Basisdateinamen (ohne Erweiterung) der Datei entsprechen sollte, welche die "
+"Seite enthält."
 
 #: C/mal_page.page:62(p)
 msgid ""
@@ -945,49 +1002,86 @@ msgid ""
 "xref=\"#topic\">topic pages</link> are discussed below. If the <code>type</"
 "code> attribute is omitted, it is assumed to be <code>\"topic\"</code>."
 msgstr ""
+"Das attribut <code>type</code> erwartet die Werte <code>\"guide\"</code> und "
+"<code>\"topic\"</code>. <link xref=\"#guide\">Anleitungsseiten</link> und "
+"<link xref=\"#topic\">Themenseiten</link> werden weiter unten besprochen. "
+"Wenn das Attribut <code>type</code> ausgelassen wird, so wird angenommen, es "
+"sei <code>\"topic\"</code>."
 
 #: C/mal_page.page:71(p)
+#, fuzzy
+#| msgid ""
+#| "The <code>page</code> element can have attributes from external "
+#| "namespaces. See <link xref=\"mal_external\"/> for more information on "
+#| "external-namespace attributes."
 msgid ""
 "The <code>page</code> element can have attributes from external namespaces. "
-"See <link xref=\"mal_external\"/> for more information on external-namespace "
+"See <link xref=\"mal_external\"/> for more information on external namespace "
 "attributes."
 msgstr ""
+"Das Element <code>page</code> kann Attribute aus externen Namensräumen "
+"haben. Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_page.page:81(title)
 msgid "Guide Pages"
 msgstr "Anleitungsseiten"
 
 #: C/mal_page.page:83(p)
+#, fuzzy
+#| msgid ""
+#| "Guide pages have the <code>type</code> attribute set to <code>\"guide\"</"
+#| "code>. They serve as navigational aids, linking to topics and other "
+#| "guides. Readers can can browse through guides much as they would browse "
+#| "through container sections in a linear document. Since page can be "
+#| "included in multiple guides, however, readers are able to reach the same "
+#| "content by navigating different paths."
 msgid ""
 "Guide pages have the <code>type</code> attribute set to <code>\"guide\"</"
 "code>. They serve as navigational aids, linking to topics and other guides. "
-"Readers can can browse through guides much as they would browse through "
+"Readers can browse through guides much as they would browse through "
 "container sections in a linear document. Since page can be included in "
 "multiple guides, however, readers are able to reach the same content by "
 "navigating different paths."
 msgstr ""
+"Anleitungsseiten haben das Attribut <code>type</code> auf <code>\"guide\"</"
+"code> gesetzt. Sie dienen als Navigationshilfen und verweisen auf Themen und "
+"andere Anleitungen. Die Leser können in den Anleitungen stöbern, so wie sie "
+"durch Abschnitte in einem linearen Dokument stöbern würden. Weil jede Seite "
+"in mehreren Anleitungen eingebunden werden kann, können Leser den selben "
+"Inhalt über verschiedene Navigationspfade erreichen."
 
 #: C/mal_page.page:90(p)
 msgid ""
 "Guide pages have links automatically inserted into their content based on "
-"topic links within their own <code xref=\"mal_info\">info</code> elements and "
-"guide links within the <code>info</code> elements of other pages and "
+"topic links within their own <code xref=\"mal_info\">info</code> elements "
+"and guide links within the <code>info</code> elements of other pages and "
 "sections. Guide pages can contain sections to help organize content. Each "
 "section in a guide page has automatic links inserted as well. See <link xref="
 "\"links#topic\"/> for details on automatic topic links."
 msgstr ""
+"Verweise werden automatisch in den Inhalt von Anleitungsseiten eingefügt, "
+"basierend auf den Themenverweisen in den eigenen <code xref=\"mal_info"
+"\">info</code>-Elementen und Anleitungsverweisen in den <code xref=\"mal_info"
+"\">info</code>-Elementen von anderen Seiten und Abschnitten. "
+"Anleitungsseiten können Abschnitte enthalten, um die Strukturierung zu "
+"verbessern. Verweise werden auch in jeden Abschnitt einer Anleitungsseite "
+"eingefügt. Lesen Sie <link xref=\"links#topic\"/> für weitere Informationen "
+"zu automatischen Verweisen auf Themen."
 
 #: C/mal_page.page:97(p)
 msgid ""
 "Guides also have see also links generated automatically. See <link xref="
 "\"links#seealso\"/> for more information."
 msgstr ""
+"Anleitungen enthalten automatisch erzeugte »Siehe auch«-Links. In <link xref="
+"\"links#seealso\"/> finden Sie weitere Informationen hierzu."
 
 #: C/mal_page.page:100(p)
 msgid ""
-"Generally, guide pages will contain some introductory content to help readers "
-"understand the topics being presented. Introductory content should be short "
-"and concise."
+"Generally, guide pages will contain some introductory content to help "
+"readers understand the topics being presented. Introductory content should "
+"be short and concise."
 msgstr ""
 "Im Allgemeinen bieten Anleitungsseiten einführende Inhalte, um dem Leser das "
 "Verständnis der angebotenen Themen zu erleichtern. Einführende Inhalte "
@@ -1000,14 +1094,23 @@ msgstr "Themenseiten"
 #: C/mal_page.page:111(p)
 msgid ""
 "Topic pages have the <code>type</code> attribute set to <code>\"topic\"</"
-"code>, or have no <code>type</code> attribute at all. Topics contain the bulk "
-"of the material in a document. A Topic may be a tutorial, a conceptual "
+"code>, or have no <code>type</code> attribute at all. Topics contain the "
+"bulk of the material in a document. A Topic may be a tutorial, a conceptual "
 "overview, reference material, or any other type of content. Mallard does not "
 "distinguish between different content types, although tools may introduce "
 "special styling based on style hints. Topics are distinguished from guides "
 "only in that their primary purpose is to convey information, whereas guides "
 "serve as navigational aids."
 msgstr ""
+"In Themenseiten ist das Attribut <code>type</code> auf <code>\"topic\"</"
+"code> gesetzt, oder sie haben gar kein <code>type</code>-Attribut. Themen "
+"enthalten das meiste Material in einem Dokument. Ein Thema kann eine Schritt-"
+"für-Schritt-Anleitung sein, ein Überblick über das Konzept, Referenzmaterial "
+"oder jede andere Art von Inhalt. Mallard unterscheidet nicht zwischen "
+"verschiedenen Inhaltstypen, jedoch könnten Werkzeuge einen speziellen Stil "
+"basierend auf Stilanweisungen einführen. Themen unterscheiden sich von "
+"Anleitungen nur dadurch, dass ihr Hauptzweck die Vermittlung von "
+"Informationen ist, wohingegen Anleitungen als Navigationshilfen dienen."
 
 #: C/mal_page.page:120(p)
 msgid ""
@@ -1017,6 +1120,12 @@ msgid ""
 "page has automatic guide links inserted as well. See <link xref=\"links#guide"
 "\"/> for details on automatic guide links."
 msgstr ""
+"Verweise auf Anleitungsseiten werden automatisch in Themenseiten eingefügt, "
+"wenn diese zurück verweisen. Themenseiten können Abschnitte enthalten, um "
+"die Strukturierung von Material zu verbessern und dem Leser kleinere "
+"Informationshappen anzubieten. Verweise werden auch in jeden Abschnitt einer "
+"Anleitungsseite eingefügt. Lesen Sie <link xref=\"links#guide\"/> für "
+"weitere Informationen zu automatischen Verweisen in Anleitungen."
 
 #: C/mal_page.page:126(p)
 msgid ""
@@ -1035,14 +1144,20 @@ msgid ""
 "fixed-height electronic pages such as those used by word processors and e-"
 "books."
 msgstr ""
+"In Bildschirmmedien werden <code>page</code>-Elemente als eigene Seite "
+"dargestellt. In diesem Fall wird <em>page</em> im Sinne einer <em>Webseite</"
+"em> verwendet: etwas, das von oben nach unten mittels Bildlauf gelesen "
+"werden kann. Dies sollte nicht mit physikalischen Seiten verwechselt werden "
+"— ein Blatt Papier — oder mit elektronischen Seiten fester Höhe, wie jene "
+"von Textverarbeitungen und E-Books."
 
 #: C/mal_page.page:143(p)
 msgid ""
 "The <code>info</code> child element is not displayed directly, although "
-"certain informational elements may be displayed or affect aspects of the page "
-"display. In particular, the <code>info</code> element may contain <code>link</"
-"code> elements which will cause automatic links to be inserted into the "
-"displayed output. See <link xref=\"links\"/> for more information."
+"certain informational elements may be displayed or affect aspects of the "
+"page display. In particular, the <code>info</code> element may contain "
+"<code>link</code> elements which will cause automatic links to be inserted "
+"into the displayed output. See <link xref=\"links\"/> for more information."
 msgstr ""
 
 #: C/mal_page.page:149(p)
@@ -1109,8 +1224,8 @@ msgstr ""
 
 #: C/mal_inline_var.page:46(p)
 msgid ""
-"The <code>var</code> element can contain a mixture of text and any <link xref="
-"\"mal_inline\">general inline elements</link>."
+"The <code>var</code> element can contain a mixture of text and any <link "
+"xref=\"mal_inline\">general inline elements</link>."
 msgstr ""
 "Das <code>var</code>-Element kann eine Mischung aus Text und weiteren <link "
 "xref=\"mal_inline\">allgemein eingebetteten Elementen</link> enthalten."
@@ -1119,9 +1234,14 @@ msgstr ""
 msgid ""
 "The <code>var</code> element can occur in any general inline context, "
 "including inside most <link xref=\"mal_inline\">inline elements</link>, some "
-"<link xref=\"mal_block#basic\">basic block elements</link>, and certain <link "
-"xref=\"mal_info\">informational elements</link>."
+"<link xref=\"mal_block#basic\">basic block elements</link>, and certain "
+"<link xref=\"mal_info\">informational elements</link>."
 msgstr ""
+"Das Element <code>var</code> kann in jedem allgemeinen eingebetteten Inhalt "
+"auftreten, einschließlich der meisten <link xref=\"mal_inline"
+"\">eingebetteten Elemente</link>, einiger <link xref=\"mal_block#basic"
+"\">grundlegender Blockelemente</link> und bestimmten <link xref=\"mal_info"
+"\">informativen Elementen</link>."
 
 #: C/mal_inline_var.page:55(p)
 msgid ""
@@ -1129,7 +1249,8 @@ msgid ""
 "xref=\"mal_attr_link\"/> for more information."
 msgstr ""
 "Das <code>var</code>-Element kann zu anderen Seiten oder Dokumenten "
-"verweisen. In <link xref=\"mal_attr_link\"/> finden Sie weitere Informationen."
+"verweisen. In <link xref=\"mal_attr_link\"/> finden Sie weitere "
+"Informationen."
 
 #: C/mal_inline_var.page:62(p)
 msgid ""
@@ -1137,6 +1258,9 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"Das Element <code>var</code> kann Attribute aus externen Namensräumen haben. "
+"Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_inline_var.page:66(p)
 msgid ""
@@ -1149,10 +1273,10 @@ msgstr ""
 #: C/mal_inline_var.page:77(p)
 msgid ""
 "Variable text is typically displayed in an italic or oblique font. When used "
-"inside a fixed-width element such as <code xref=\"mal_inline_cmd\">cmd</code> "
-"or <code xref=\"mal_inline_code\">code</code>, it will inherit the fixed-"
-"width font. In running prose, however, the <code>var</code> element does not "
-"cause its contents to be displayed in a fixed-width font."
+"inside a fixed-width element such as <code xref=\"mal_inline_cmd\">cmd</"
+"code> or <code xref=\"mal_inline_code\">code</code>, it will inherit the "
+"fixed-width font. In running prose, however, the <code>var</code> element "
+"does not cause its contents to be displayed in a fixed-width font."
 msgstr ""
 
 #: C/mal_inline_var.page:88(title) C/mal_inline_sys.page:96(title)
@@ -1227,23 +1351,33 @@ msgstr ""
 
 #: C/mal_inline_sys.page:43(p)
 msgid ""
-"The <code>sys</code> element can contain a mixture of text and any <link xref="
-"\"mal_inline\">general inline elements</link>."
+"The <code>sys</code> element can contain a mixture of text and any <link "
+"xref=\"mal_inline\">general inline elements</link>."
 msgstr ""
+"Das Element <code>var</code> kann eine Mischung aus Text und weiteren <link "
+"xref=\"mal_inline\">allgemein eingebetteten Elementen</link> enthalten."
 
 #: C/mal_inline_sys.page:46(p)
 msgid ""
 "The <code>sys</code> element can occur in any general inline context, "
 "including inside most <link xref=\"mal_inline\">inline elements</link>, some "
-"<link xref=\"mal_block#basic\">basic block elements</link>, and certain <link "
-"xref=\"mal_info\">informational elements</link>."
+"<link xref=\"mal_block#basic\">basic block elements</link>, and certain "
+"<link xref=\"mal_info\">informational elements</link>."
 msgstr ""
+"Das Element <code>sys</code> kann in jedem allgemeinen eingebetteten Inhalt "
+"auftreten, einschließlich der meisten <link xref=\"mal_inline"
+"\">eingebetteten Elemente</link>, einiger <link xref=\"mal_block#basic"
+"\">grundlegender Blockelemente</link> und bestimmten <link xref=\"mal_info"
+"\">informativen Elementen</link>."
 
 #: C/mal_inline_sys.page:52(p)
 msgid ""
 "The <code>sys</code> element can link to other pages or documents. See <link "
 "xref=\"mal_attr_link\"/> for more information."
 msgstr ""
+"Das Element <code>sys</code> kann zu anderen Seiten oder Dokumenten "
+"verweisen. In <link xref=\"mal_attr_link\"/> finden Sie weitere "
+"Informationen."
 
 #: C/mal_inline_sys.page:59(p)
 msgid ""
@@ -1251,6 +1385,9 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"Das Element <code>sys</code> kann Attribute aus externen Namensräumen haben. "
+"Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_inline_sys.page:71(p)
 msgid "Use <code>sys</code> to mark up a domain name:"
@@ -1269,6 +1406,7 @@ msgid ""
 msgstr ""
 
 #: C/mal_inline_sys.page:97(p)
+#, fuzzy
 msgid ""
 "The <code>sys</code> element is similar to the <code href=\"http://www."
 "docbook.org/tdg/en/html/systemitem.html\">systemitem</code> element in "
@@ -1278,6 +1416,8 @@ msgid ""
 "does, the <code>sys</code> element should be used in place of these and "
 "various other elements."
 msgstr ""
+"Das <code>sys</code>-Element ist ähnlich dem <code href=\"http://www.docbook."
+"org/tdg/en/html/systemitem.html\">systemitem</code>-Element in DocBook."
 
 #: C/mal_inline_span.page:19(desc)
 msgid ""
@@ -1312,9 +1452,10 @@ msgstr ""
 
 #: C/mal_inline_span.page:35(p)
 msgid ""
-"Use the <code>span</code> element to surround a run of text without using any "
-"of the semantic <link xref=\"mal_inline\">inline elements</link>. This is "
-"frequently necessary for extensions using attributes from external namespaces."
+"Use the <code>span</code> element to surround a run of text without using "
+"any of the semantic <link xref=\"mal_inline\">inline elements</link>. This "
+"is frequently necessary for extensions using attributes from external "
+"namespaces."
 msgstr ""
 
 #: C/mal_inline_span.page:45(p)
@@ -1329,15 +1470,23 @@ msgstr ""
 msgid ""
 "The <code>span</code> element can occur in any general inline context, "
 "including inside most <link xref=\"mal_inline\">inline elements</link>, some "
-"<link xref=\"mal_block#basic\">basic block elements</link>, and certain <link "
-"xref=\"mal_info\">informational elements</link>."
+"<link xref=\"mal_block#basic\">basic block elements</link>, and certain "
+"<link xref=\"mal_info\">informational elements</link>."
 msgstr ""
+"Das Element <code>span</code> kann in jedem allgemeinen eingebetteten Inhalt "
+"auftreten, einschließlich der meisten <link xref=\"mal_inline"
+"\">eingebetteten Elemente</link>, einiger <link xref=\"mal_block#basic"
+"\">grundlegender Blockelemente</link> und bestimmten <link xref=\"mal_info"
+"\">informativen Elementen</link>."
 
 #: C/mal_inline_span.page:54(p)
 msgid ""
-"The <code>span</code> element can link to other pages or documents. See <link "
-"xref=\"mal_attr_link\"/> for more information."
+"The <code>span</code> element can link to other pages or documents. See "
+"<link xref=\"mal_attr_link\"/> for more information."
 msgstr ""
+"Das Element <code>span</code> kann zu anderen Seiten oder Dokumenten "
+"verweisen. In <link xref=\"mal_attr_link\"/> finden Sie weitere "
+"Informationen."
 
 #: C/mal_inline_span.page:61(p)
 msgid ""
@@ -1345,6 +1494,9 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"Das Element <code>span</code> kann Attribute aus externen Namensräumen "
+"haben. Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_inline_span.page:73(p)
 msgid ""
@@ -1364,8 +1516,8 @@ msgstr ""
 #: C/mal_inline_span.page:91(p)
 msgid ""
 "No particular special rendering is required for <code>span</code> elements. "
-"Processing tools may have special processing rules for certain style hints or "
-"external-namespace attributes."
+"Processing tools may have special processing rules for certain style hints "
+"or external-namespace attributes."
 msgstr ""
 
 #: C/mal_inline_span.page:101(p)
@@ -1373,6 +1525,8 @@ msgid ""
 "The <code>span</code> element is similar to the <code href=\"http://www."
 "docbook.org/tdg/en/html/phrase.html\">phrase</code> element in DocBook."
 msgstr ""
+"Das <code>span</code>-Element ist ähnlich dem <code href=\"http://www."
+"docbook.org/tdg/en/html/phrase.html\">phrase</code>-Element in DocBook."
 
 #: C/mal_inline.page:18(desc)
 msgid "Rich semantic elements for marking up inline content."
@@ -1433,17 +1587,18 @@ msgstr ""
 msgid ""
 "Mallard provides a small but rich set of semantic inline elements. The "
 "elements provided are culled from first-hand experience with software "
-"documentation and other document formats. The inline elements defined in this "
-"specification will serve most software documentation writers' needs well."
+"documentation and other document formats. The inline elements defined in "
+"this specification will serve most software documentation writers' needs "
+"well."
 msgstr ""
 
 #: C/mal_inline.page:52(p) C/mal_block.page:39(p)
 msgid ""
 "Authors, editors, or other content producers sometimes need to supply richer "
-"information in their documents. While this information may not be conveyed by "
-"display tools, it may be used for various internal tracking purposes. Mallard "
-"allows elements to be extended with attributes from external namespaces. See "
-"<link xref=\"mal_external\"/> for more information."
+"information in their documents. While this information may not be conveyed "
+"by display tools, it may be used for various internal tracking purposes. "
+"Mallard allows elements to be extended with attributes from external "
+"namespaces. See <link xref=\"mal_external\"/> for more information."
 msgstr ""
 
 #: C/mal_inline.page:59(p)
@@ -1452,9 +1607,9 @@ msgid ""
 "any inline context. See <link xref=\"#processing\"/> below for more "
 "information."
 msgstr ""
-"Weiterhin erlaubt Mallard Elemente aus externen Namensräumen, die eingebettet "
-"verwendet werden können. Weitere Informationen hierzu finden Sie in <link "
-"xref=\"#processing\"/>"
+"Weiterhin erlaubt Mallard Elemente aus externen Namensräumen, die "
+"eingebettet verwendet werden können. Weitere Informationen hierzu finden Sie "
+"in <link xref=\"#processing\"/>"
 
 #: C/mal_inline.page:69(title) C/mal_external.page:79(title)
 msgid "Elements"
@@ -1466,16 +1621,16 @@ msgstr "Anweisungen zur Verarbeitung eingebetteter Elemente"
 
 #: C/mal_inline.page:81(p)
 msgid ""
-"Inline elements occur within block elements or other inline elements. Mallard "
-"never allows block elements within inline elements. Inline elements should "
-"never introduce a line break in the rendered output."
+"Inline elements occur within block elements or other inline elements. "
+"Mallard never allows block elements within inline elements. Inline elements "
+"should never introduce a line break in the rendered output."
 msgstr ""
 
 #: C/mal_inline.page:85(p)
 msgid ""
 "Different inline elements may introduce different styling effects, such as "
-"font variations, text and background colors, and backgrounds. Generally, if a "
-"styling effect is set for a particular element, it is in effect for all "
+"font variations, text and background colors, and backgrounds. Generally, if "
+"a styling effect is set for a particular element, it is in effect for all "
 "descendant elements, unless explicitly overridden."
 msgstr ""
 
@@ -1528,8 +1683,8 @@ msgstr ""
 
 #: C/mal_inline_output.page:40(p)
 msgid ""
-"You can use the <code>style</code> attribute to indicate what type of text is "
-"being marked up. Inside a <code xref=\"mal_block_screen\">screen</code> "
+"You can use the <code>style</code> attribute to indicate what type of text "
+"is being marked up. Inside a <code xref=\"mal_block_screen\">screen</code> "
 "element, this may be used to format normal text, error text, and prompts "
 "differently."
 msgstr ""
@@ -1539,20 +1694,30 @@ msgid ""
 "The <code>output</code> element can contain a mixture of text and any <link "
 "xref=\"mal_inline\">general inline elements</link>."
 msgstr ""
+"Das Element <code>output</code> kann eine Mischung aus Text und weiteren "
+"<link xref=\"mal_inline\">allgemein eingebetteten Elementen</link> enthalten."
 
 #: C/mal_inline_output.page:53(p)
 msgid ""
 "The <code>output</code> element can occur in any general inline context, "
 "including inside most <link xref=\"mal_inline\">inline elements</link>, some "
-"<link xref=\"mal_block#basic\">basic block elements</link>, and certain <link "
-"xref=\"mal_info\">informational elements</link>."
+"<link xref=\"mal_block#basic\">basic block elements</link>, and certain "
+"<link xref=\"mal_info\">informational elements</link>."
 msgstr ""
+"Das Element <code>output</code> kann in jedem allgemeinen eingebetteten "
+"Inhalt auftreten, einschließlich der meisten <link xref=\"mal_inline"
+"\">eingebetteten Elemente</link>, einiger <link xref=\"mal_block#basic"
+"\">grundlegender Blockelemente</link> und bestimmten <link xref=\"mal_info"
+"\">informativen Elementen</link>."
 
 #: C/mal_inline_output.page:59(p)
 msgid ""
 "The <code>output</code> element can link to other pages or documents. See "
 "<link xref=\"mal_attr_link\"/> for more information."
 msgstr ""
+"Das Element <code>output</code> kann zu anderen Seiten oder Dokumenten "
+"verweisen. In <link xref=\"mal_attr_link\"/> finden Sie weitere "
+"Informationen."
 
 #: C/mal_inline_output.page:67(p)
 msgid "Typical values for the <code>style</code> attribute include:"
@@ -1587,17 +1752,20 @@ msgstr "Die Befehlszeile für eine interaktive Shell"
 
 #: C/mal_inline_output.page:80(p)
 msgid ""
-"The <code>output</code> element can have attributes from external namespaces. "
-"See <link xref=\"mal_external\"/> for more information on external-namespace "
-"attributes."
+"The <code>output</code> element can have attributes from external "
+"namespaces. See <link xref=\"mal_external\"/> for more information on "
+"external-namespace attributes."
 msgstr ""
+"Das Element <code>output</code> kann Attribute aus externen Namensräumen "
+"haben. Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_inline_output.page:84(p)
 msgid ""
 "The <code>output</code> element, together with the <code xref="
 "\"mal_inline_input\">input</code> element, may be used to mark up the "
-"contents of a <code xref=\"mal_block_screen\">screen</code> element, allowing "
-"processing tools to treat them differently."
+"contents of a <code xref=\"mal_block_screen\">screen</code> element, "
+"allowing processing tools to treat them differently."
 msgstr ""
 
 #: C/mal_inline_output.page:97(p)
@@ -1606,8 +1774,8 @@ msgstr ""
 
 #: C/mal_inline_output.page:104(p)
 msgid ""
-"The output of <cmd>echo $SHELL</cmd> is <output>/bin/bash</output> if you use "
-"the Bourne-again shell."
+"The output of <cmd>echo $SHELL</cmd> is <output>/bin/bash</output> if you "
+"use the Bourne-again shell."
 msgstr ""
 "Der Befehl <cmd>echo $SHELL</cmd> gibt <output>/bin/bash</output> aus, falls "
 "Sie die Bourne-Again-Shell verwenden."
@@ -1645,13 +1813,14 @@ msgstr "ls: mal_inline_computerouput.xml: No such file or directory"
 
 #: C/mal_inline_output.page:146(p)
 msgid ""
-"Computer output is displayed in a fixed-width or wide font. Fixed-width fonts "
-"tend to have more distinction between visually similar characters. A border "
-"or background color may be used to make the beginning and end of the ouptut "
-"clear."
+"Computer output is displayed in a fixed-width or wide font. Fixed-width "
+"fonts tend to have more distinction between visually similar characters. A "
+"border or background color may be used to make the beginning and end of the "
+"ouptut clear."
 msgstr ""
 
 #: C/mal_inline_output.page:156(p)
+#, fuzzy
 msgid ""
 "The <code>output</code> element is similar to the <code href=\"http://www."
 "docbook.org/tdg/en/html/computeroutput.html\">computeroutput</code> element "
@@ -1664,6 +1833,8 @@ msgid ""
 "tdg/en/html/errorname.html\">errorname</code> and <code href=\"http://www."
 "docbook.org/tdg/en/html/errortext.html\">errortext</code> elements."
 msgstr ""
+"Das <code>span</code>-Element ist ähnlich dem <code href=\"http://www."
+"docbook.org/tdg/en/html/phrase.html\">phrase</code>-Element in DocBook."
 
 #. When image changes, this message will be marked fuzzy or untranslated for you.
 #. It doesn't matter what you translate it to: it's not used at all.
@@ -1725,22 +1896,30 @@ msgid ""
 "The <code>media</code> element can contain a mixture of text and any <link "
 "xref=\"mal_inline\">general inline elements</link>."
 msgstr ""
+"Das Element <code>media</code> kann eine Mischung aus Text und weiteren "
+"<link xref=\"mal_inline\">allgemein eingebetteten Elementen</link> enthalten."
 
 #: C/mal_inline_media.page:52(p)
 msgid ""
 "The <code>media</code> element can occur in any general inline context, "
 "including inside most <link xref=\"mal_inline\">inline elements</link>, some "
-"<link xref=\"mal_block#basic\">basic block elements</link>, and certain <link "
-"xref=\"mal_info\">informational elements</link>."
+"<link xref=\"mal_block#basic\">basic block elements</link>, and certain "
+"<link xref=\"mal_info\">informational elements</link>."
 msgstr ""
+"Das Element <code>media</code> kann in jedem allgemeinen eingebetteten "
+"Inhalt auftreten, einschließlich der meisten <link xref=\"mal_inline"
+"\">eingebetteten Elemente</link>, einiger <link xref=\"mal_block#basic"
+"\">grundlegender Blockelemente</link> und bestimmten <link xref=\"mal_info"
+"\">informativen Elementen</link>."
 
 #: C/mal_inline_media.page:58(p)
 msgid ""
 "The <code>media</code> element can link to other pages or documents. See "
 "<link xref=\"mal_attr_link\"/> for more information."
 msgstr ""
-"Das <code>media</code>-Element kann auf andere Seiten oder Dokumente "
-"verweisen. Siehe <link xref=\"mal_attr_link\"/> für weitere Informationen."
+"Das Element <code>media</code> kann zu anderen Seiten oder Dokumenten "
+"verweisen. In <link xref=\"mal_attr_link\"/> finden Sie weitere "
+"Informationen."
 
 #: C/mal_inline_media.page:65(p) C/mal_block_media.page:61(p)
 msgid ""
@@ -1754,11 +1933,14 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"Das Element <code>media</code> kann Attribute aus externen Namensräumen "
+"haben. Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_inline_media.page:72(p)
 msgid ""
-"The <code>media</code> element may also be used in a block context. See <link "
-"xref=\"mal_block_media\"/> for more information."
+"The <code>media</code> element may also be used in a block context. See "
+"<link xref=\"mal_block_media\"/> for more information."
 msgstr ""
 
 #: C/mal_inline_media.page:83(p) C/mal_block_media.page:79(p)
@@ -1790,8 +1972,8 @@ msgstr ""
 msgid ""
 "Some display tools will not be able to display all types of objects. For "
 "example, a printed document will not be able to display video or play back "
-"audio. Even when a display tool can display the type of object, it may not be "
-"able to work with the given MIME type for technical or other reasons."
+"audio. Even when a display tool can display the type of object, it may not "
+"be able to work with the given MIME type for technical or other reasons."
 msgstr ""
 
 #: C/mal_inline_media.page:119(p)
@@ -1800,8 +1982,8 @@ msgid ""
 "the child elements of the element, as if the <code>media</code> element "
 "itself were replaced by its children. The child elements may consist of "
 "simply another <code>media</code> element referencing a different type of "
-"content. When processing any child <code>media</code> elements, display tools "
-"may need to fall back further to their child elements."
+"content. When processing any child <code>media</code> elements, display "
+"tools may need to fall back further to their child elements."
 msgstr ""
 
 #: C/mal_inline_media.page:126(p) C/mal_block_media.page:128(p)
@@ -1820,8 +2002,8 @@ msgid ""
 "<code xref=\"http://www.docbook.org/tdg/en/html/audiooobject.html"
 "\">audioobject</code>, <code xref=\"http://www.docbook.org/tdg/en/html/"
 "imageobject.html\">imageobject</code>, and <code xref=\"http://www.docbook."
-"org/tdg/en/html/videoobject.html\">videoobject</code>. DocBook uses the <code "
-"xref=\"http://www.docbook.org/tdg/en/html/inlinemediaobject.html"
+"org/tdg/en/html/videoobject.html\">videoobject</code>. DocBook uses the "
+"<code xref=\"http://www.docbook.org/tdg/en/html/inlinemediaobject.html"
 "\">inlinemediaobject</code> element to provide alternative objects. In "
 "Mallard, alternative objects are nested, obviating the need for a container "
 "element."
@@ -1829,7 +2011,7 @@ msgstr ""
 
 #: C/mal_inline_link.page:18(desc)
 msgid "Link to other pages, sections, or web pages."
-msgstr ""
+msgstr "Verweis zu anderen Seiten, Abschnitten oder Webseiten."
 
 #: C/mal_inline_link.page:21(title) C/mal_info_link.page:11(title)
 msgid "Hyperlinks"
@@ -1868,10 +2050,10 @@ msgstr ""
 msgid ""
 "Use the <code>link</code> to create a link to another page or section, or to "
 "an external resource such as a web page. Most <link xref=\"mal_inline"
-"\">inline elements</link> can act as links, but the <code>link</code> element "
-"allows you to create a link without any associated semantics. The <code>link</"
-"code> element can also generate link text automatically for links to pages "
-"and sections within the same document."
+"\">inline elements</link> can act as links, but the <code>link</code> "
+"element allows you to create a link without any associated semantics. The "
+"<code>link</code> element can also generate link text automatically for "
+"links to pages and sections within the same document."
 msgstr ""
 
 #: C/mal_inline_link.page:49(p)
@@ -1879,21 +2061,28 @@ msgid ""
 "The <code>link</code> element can contain a mixture of text and any <link "
 "xref=\"mal_inline\">general inline elements</link>."
 msgstr ""
+"Das Element <code>link</code> kann eine Mischung aus Text und weiteren <link "
+"xref=\"mal_inline\">allgemein eingebetteten Elementen</link> enthalten."
 
 #: C/mal_inline_link.page:52(p)
 msgid ""
 "For links within the same document, content can be automatically generated."
 msgstr ""
-"Für Links innerhalb des gleichen Elements kann der Inhalt automatisch erzeugt "
-"werden."
+"Für Links innerhalb des gleichen Elements kann der Inhalt automatisch "
+"erzeugt werden."
 
 #: C/mal_inline_link.page:55(p)
 msgid ""
 "The <code>link</code> element can occur in any general inline context, "
 "including inside most <link xref=\"mal_inline\">inline elements</link>, some "
-"<link xref=\"mal_block#basic\">basic block elements</link>, and certain <link "
-"xref=\"mal_info\">informational elements</link>."
+"<link xref=\"mal_block#basic\">basic block elements</link>, and certain "
+"<link xref=\"mal_info\">informational elements</link>."
 msgstr ""
+"Das Element <code>link</code> kann in jedem allgemeinen eingebetteten Inhalt "
+"auftreten, einschließlich der meisten <link xref=\"mal_inline"
+"\">eingebetteten Elemente</link>, einiger <link xref=\"mal_block#basic"
+"\">grundlegender Blockelemente</link> und bestimmten <link xref=\"mal_info"
+"\">informativen Elementen</link>."
 
 #: C/mal_inline_link.page:61(p)
 msgid ""
@@ -1904,8 +2093,8 @@ msgstr ""
 
 #: C/mal_inline_link.page:65(p)
 msgid ""
-"The <code>href</code> attribute creates a link to a web page or other network-"
-"accessible resource."
+"The <code>href</code> attribute creates a link to a web page or other "
+"network-accessible resource."
 msgstr ""
 
 #: C/mal_inline_link.page:68(p)
@@ -1920,6 +2109,9 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"Das Element <code>link</code> kann Attribute aus externen Namensräumen "
+"haben. Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_inline_link.page:87(p)
 msgid "Link to another page in the same document:"
@@ -1961,8 +2153,8 @@ msgstr ""
 
 #: C/mal_inline_link.page:132(p)
 msgid ""
-"A <code>link</code> element is displayed as hyperlink which can be clicked on "
-"or otherwise activated to take the user to another page, document, or "
+"A <code>link</code> element is displayed as hyperlink which can be clicked "
+"on or otherwise activated to take the user to another page, document, or "
 "resource. In certain environments, such as print, it may not be possible to "
 "make links activatable. In these cases, the target of the link may be "
 "displayed in the rendered output."
@@ -1972,7 +2164,8 @@ msgstr ""
 msgid ""
 "The target of <code>link</code> element is determined from the <code>xref</"
 "code> and <code>href</code> exactly as it is for other inline elements. See "
-"<link xref=\"mal_attr_link\"/> for information on determining the link target."
+"<link xref=\"mal_attr_link\"/> for information on determining the link "
+"target."
 msgstr ""
 
 #: C/mal_inline_link.page:143(p)
@@ -2001,14 +2194,14 @@ msgstr ""
 msgid ""
 "Otherwise, if that page or section has an <link xref=\"mal_info_title"
 "\">informational title</link> with the <code>type</code> attribute set to "
-"<code>\"link\"</code> and without a <code>role</code> attribute, the contents "
-"of that <code>title</code> element are used."
+"<code>\"link\"</code> and without a <code>role</code> attribute, the "
+"contents of that <code>title</code> element are used."
 msgstr ""
 
 #: C/mal_inline_link.page:166(p)
 msgid ""
-"Otherwise, the contents of the primary title of that page page or section are "
-"used."
+"Otherwise, the contents of the primary title of that page page or section "
+"are used."
 msgstr ""
 
 #: C/mal_inline_link.page:171(p)
@@ -2082,10 +2275,10 @@ msgstr ""
 
 #: C/mal_inline_keyseq.page:36(p)
 msgid ""
-"Use the <code>keyseq</code> element to mark up a key combination or sequence. "
-"Use the <code xref=\"mal_inline_key\">key</code> element to mark up each "
-"individual key press. You can use text without markup to indicate a class of "
-"keys, such as <em>arrow keys</em>, or to indicate a mouse action."
+"Use the <code>keyseq</code> element to mark up a key combination or "
+"sequence. Use the <code xref=\"mal_inline_key\">key</code> element to mark "
+"up each individual key press. You can use text without markup to indicate a "
+"class of keys, such as <em>arrow keys</em>, or to indicate a mouse action."
 msgstr ""
 
 #: C/mal_inline_keyseq.page:46(p)
@@ -2102,23 +2295,31 @@ msgstr ""
 msgid ""
 "The <code>keyseq</code> element can occur in any general inline context, "
 "including inside most <link xref=\"mal_inline\">inline elements</link>, some "
-"<link xref=\"mal_block#basic\">basic block elements</link>, and certain <link "
-"xref=\"mal_info\">informational elements</link>."
+"<link xref=\"mal_block#basic\">basic block elements</link>, and certain "
+"<link xref=\"mal_info\">informational elements</link>."
 msgstr ""
+"Das Element <code>keyseq</code> kann in jedem allgemeinen eingebetteten "
+"Inhalt auftreten, einschließlich der meisten <link xref=\"mal_inline"
+"\">eingebetteten Elemente</link>, einiger <link xref=\"mal_block#basic"
+"\">grundlegender Blockelemente</link> und bestimmten <link xref=\"mal_info"
+"\">informativen Elementen</link>."
 
 #: C/mal_inline_keyseq.page:61(p)
 msgid ""
 "The <code>type</code> element indicates whether the keys should be pressed "
-"together (<code>\"combo\"</code>) or in sequence (<code>\"sequence\"</code>). "
-"The default is <code>\"combo\"</code>."
+"together (<code>\"combo\"</code>) or in sequence (<code>\"sequence\"</"
+"code>). The default is <code>\"combo\"</code>."
 msgstr ""
 
 #: C/mal_inline_keyseq.page:65(p)
 msgid ""
-"The <code>keyseq</code> element can have attributes from external namespaces. "
-"See <link xref=\"mal_external\"/> for more information on external-namespace "
-"attributes."
+"The <code>keyseq</code> element can have attributes from external "
+"namespaces. See <link xref=\"mal_external\"/> for more information on "
+"external-namespace attributes."
 msgstr ""
+"Das Element <code>keyseq</code> kann Attribute aus externen Namensräumen "
+"haben. Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_inline_keyseq.page:77(p)
 msgid "Use <code>keyseq</code> to mark up a keyboard shortcut:"
@@ -2176,13 +2377,14 @@ msgstr ""
 
 #: C/mal_inline_keyseq.page:140(p)
 msgid ""
-"Each of the child <code>key</code> elements and text nodes, except whitespace-"
-"only text nodes, is displayed as described below, adding a separator between "
-"them. The exact separator may vary according to language and style "
-"preferences, and according to the <code>type</code> attribute. For sequences, "
-"a space is typically used. For combinations, the plus sign (+) is most "
-"frequently used on modern systems, although the hyphen (-) is still common in "
-"some areas. A style hint may be used to choose between different separators."
+"Each of the child <code>key</code> elements and text nodes, except "
+"whitespace-only text nodes, is displayed as described below, adding a "
+"separator between them. The exact separator may vary according to language "
+"and style preferences, and according to the <code>type</code> attribute. For "
+"sequences, a space is typically used. For combinations, the plus sign (+) is "
+"most frequently used on modern systems, although the hyphen (-) is still "
+"common in some areas. A style hint may be used to choose between different "
+"separators."
 msgstr ""
 
 #: C/mal_inline_keyseq.page:149(p)
@@ -2193,6 +2395,7 @@ msgid ""
 msgstr ""
 
 #: C/mal_inline_keyseq.page:159(p)
+#, fuzzy
 msgid ""
 "The <code>keyseq</code> element is similar to the <code href=\"http://www."
 "docbook.org/tdg/en/html/keycombo.html\">keycombo</code> element in DocBook. "
@@ -2202,6 +2405,8 @@ msgid ""
 "tdg/en/html/mousebutton.html\">mousebutton</code>, mouse actions in key "
 "sequences should be written as text content without markup."
 msgstr ""
+"Das <code>keyseq</code>-Element ist ähnlich dem <code href=\"http://www."
+"docbook.org/tdg/en/html/keycombo.html\">keycombo</code>-Element in DocBook."
 
 #: C/mal_inline_key.page:18(desc)
 msgid "Mark up a key to be pressed on the user's keyboard."
@@ -2258,17 +2463,24 @@ msgstr ""
 
 #: C/mal_inline_key.page:55(p)
 msgid ""
-"The <code>key</code> element can contain a mixture of text and any <link xref="
-"\"mal_inline\">general inline elements</link>."
+"The <code>key</code> element can contain a mixture of text and any <link "
+"xref=\"mal_inline\">general inline elements</link>."
 msgstr ""
+"Das Element <code>key</code> kann eine Mischung aus Text und weiteren <link "
+"xref=\"mal_inline\">allgemein eingebetteten Elementen</link> enthalten."
 
 #: C/mal_inline_key.page:58(p)
 msgid ""
 "The <code>key</code> element can occur in any general inline context, "
 "including inside most <link xref=\"mal_inline\">inline elements</link>, some "
-"<link xref=\"mal_block#basic\">basic block elements</link>, and certain <link "
-"xref=\"mal_info\">informational elements</link>."
+"<link xref=\"mal_block#basic\">basic block elements</link>, and certain "
+"<link xref=\"mal_info\">informational elements</link>."
 msgstr ""
+"Das Element <code>key</code> kann in jedem allgemeinen eingebetteten Inhalt "
+"auftreten, einschließlich der meisten <link xref=\"mal_inline"
+"\">eingebetteten Elemente</link>, einiger <link xref=\"mal_block#basic"
+"\">grundlegender Blockelemente</link> und bestimmten <link xref=\"mal_info"
+"\">informativen Elementen</link>."
 
 #: C/mal_inline_key.page:64(p)
 msgid ""
@@ -2281,6 +2493,9 @@ msgid ""
 "The <code>key</code> element can link to other pages or documents. See <link "
 "xref=\"mal_attr_link\"/> for more information."
 msgstr ""
+"Das Element <code>key</code> kann zu anderen Seiten oder Dokumenten "
+"verweisen. In <link xref=\"mal_attr_link\"/> finden Sie weitere "
+"Informationen."
 
 #: C/mal_inline_key.page:75(p)
 msgid ""
@@ -2288,6 +2503,9 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"Das Element <code>key</code> kann Attribute aus externen Namensräumen haben. "
+"Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_inline_key.page:87(p)
 msgid "Use <code>key</code> to mark up a letter key:"
@@ -2339,8 +2557,8 @@ msgstr ""
 "tdg/en/html/keycap.html\">keycap</code>-Element in DocBook. Mallard stellt "
 "keine Elemente bereit, die den DocBook-Elementen <code href=\"http://www."
 "docbook.org/tdg/en/html/keysym.html\">keysym</code> und <code href=\"http://"
-"www.docbook.org/tdg/en/html/keycode.html\">keycode</code> entsprechen. In den "
-"meisten Fällen können diese einfach mit einem <code xref=\"mal_inline_sys"
+"www.docbook.org/tdg/en/html/keycode.html\">keycode</code> entsprechen. In "
+"den meisten Fällen können diese einfach mit einem <code xref=\"mal_inline_sys"
 "\">sys</code>-Element hervorgehoben werden."
 
 #: C/mal_inline_input.page:19(desc)
@@ -2374,9 +2592,9 @@ msgstr ""
 
 #: C/mal_inline_input.page:34(p)
 msgid ""
-"Use the <code>input</code> element to mark up text that is input by the user. "
-"This may be text entered into a command-line environment or into a text field "
-"in a graphical application."
+"Use the <code>input</code> element to mark up text that is input by the "
+"user. This may be text entered into a command-line environment or into a "
+"text field in a graphical application."
 msgstr ""
 
 #: C/mal_inline_input.page:43(p)
@@ -2384,20 +2602,30 @@ msgid ""
 "The <code>input</code> element can contain a mixture of text and any <link "
 "xref=\"mal_inline\">general inline elements</link>."
 msgstr ""
+"Das Element <code>input</code> kann eine Mischung aus Text und weiteren "
+"<link xref=\"mal_inline\">allgemein eingebetteten Elementen</link> enthalten."
 
 #: C/mal_inline_input.page:46(p)
 msgid ""
 "The <code>input</code> element can occur in any general inline context, "
 "including inside most <link xref=\"mal_inline\">inline elements</link>, some "
-"<link xref=\"mal_block#basic\">basic block elements</link>, and certain <link "
-"xref=\"mal_info\">informational elements</link>."
+"<link xref=\"mal_block#basic\">basic block elements</link>, and certain "
+"<link xref=\"mal_info\">informational elements</link>."
 msgstr ""
+"Das Element <code>input</code> kann in jedem allgemeinen eingebetteten "
+"Inhalt auftreten, einschließlich der meisten <link xref=\"mal_inline"
+"\">eingebetteten Elemente</link>, einiger <link xref=\"mal_block#basic"
+"\">grundlegender Blockelemente</link> und bestimmten <link xref=\"mal_info"
+"\">informativen Elementen</link>."
 
 #: C/mal_inline_input.page:52(p)
 msgid ""
 "The <code>input</code> element can link to other pages or documents. See "
 "<link xref=\"mal_attr_link\"/> for more information."
 msgstr ""
+"Das Element <code>input</code> kann zu anderen Seiten oder Dokumenten "
+"verweisen. In <link xref=\"mal_attr_link\"/> finden Sie weitere "
+"Informationen."
 
 #: C/mal_inline_input.page:59(p)
 msgid ""
@@ -2405,13 +2633,16 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"Das Element <code>input</code> kann Attribute aus externen Namensräumen "
+"haben. Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_inline_input.page:63(p)
 msgid ""
 "The <code>input</code> element, together with the <code xref="
 "\"mal_inline_output\">output</code> element, may be used to mark up the "
-"contents of a <code xref=\"mal_block_screen\">screen</code> element, allowing "
-"processing tools to treat them differently."
+"contents of a <code xref=\"mal_block_screen\">screen</code> element, "
+"allowing processing tools to treat them differently."
 msgstr ""
 
 #: C/mal_inline_input.page:76(p)
@@ -2430,9 +2661,9 @@ msgstr ""
 
 #: C/mal_inline_input.page:106(p)
 msgid ""
-"User input is displayed in a fixed-width or wide font. Fixed-width fonts tend "
-"to have more distinction between visually similar characters. A border or "
-"background color may be used to make the beginning and end of the intput "
+"User input is displayed in a fixed-width or wide font. Fixed-width fonts "
+"tend to have more distinction between visually similar characters. A border "
+"or background color may be used to make the beginning and end of the intput "
 "clear."
 msgstr ""
 
@@ -2441,6 +2672,8 @@ msgid ""
 "The <code>input</code> element is similar to the <code href=\"http://www."
 "docbook.org/tdg/en/html/userinput.html\">userinput</code> element in DocBook."
 msgstr ""
+"Das <code>input</code>-Element ist ähnlich dem <code href=\"http://www."
+"docbook.org/tdg/en/html/userinput.html\">userinput</code>-Element in DocBook."
 
 #: C/mal_inline_guiseq.page:19(desc)
 msgid "Mark up a sequence of interface controls to navigate."
@@ -2488,16 +2721,24 @@ msgstr ""
 msgid ""
 "The <code>guiseq</code> element can occur in any general inline context, "
 "including inside most <link xref=\"mal_inline\">inline elements</link>, some "
-"<link xref=\"mal_block#basic\">basic block elements</link>, and certain <link "
-"xref=\"mal_info\">informational elements</link>."
+"<link xref=\"mal_block#basic\">basic block elements</link>, and certain "
+"<link xref=\"mal_info\">informational elements</link>."
 msgstr ""
+"Das Element <code>guiseq</code> kann in jedem allgemeinen eingebetteten "
+"Inhalt auftreten, einschließlich der meisten <link xref=\"mal_inline"
+"\">eingebetteten Elemente</link>, einiger <link xref=\"mal_block#basic"
+"\">grundlegender Blockelemente</link> und bestimmten <link xref=\"mal_info"
+"\">informativen Elementen</link>."
 
 #: C/mal_inline_guiseq.page:55(p)
 msgid ""
-"The <code>guiseq</code> element can have attributes from external namespaces. "
-"See <link xref=\"mal_external\"/> for more information on external-namespace "
-"attributes."
+"The <code>guiseq</code> element can have attributes from external "
+"namespaces. See <link xref=\"mal_external\"/> for more information on "
+"external-namespace attributes."
 msgstr ""
+"Das Element <code>guiseq</code> kann Attribute aus externen Namensräumen "
+"haben. Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_inline_guiseq.page:67(p)
 msgid "Use <code>guiseq</code> to mark up a sequence of menu items:"
@@ -2510,21 +2751,22 @@ msgstr ""
 
 #: C/mal_inline_guiseq.page:85(p)
 msgid ""
-"Each of the child <code>key</code> elements and text nodes, except whitespace-"
-"only text nodes, is displayed as described below, adding a separator between "
-"them. The exact separator may vary according to the language and style "
-"preferences, but it will typically be some sort of right-pointing arrow or "
-"triangle, or left-pointing for right-to-left languages."
+"Each of the child <code>key</code> elements and text nodes, except "
+"whitespace-only text nodes, is displayed as described below, adding a "
+"separator between them. The exact separator may vary according to the "
+"language and style preferences, but it will typically be some sort of right-"
+"pointing arrow or triangle, or left-pointing for right-to-left languages."
 msgstr ""
 
 #: C/mal_inline_guiseq.page:92(p)
 msgid ""
 "Child <code>gui</code> elements are shown as normal. Text nodes have their "
-"whitespace normalized to strip leading and trailing spaces. Text nodes may be "
-"rendered using a font variation."
+"whitespace normalized to strip leading and trailing spaces. Text nodes may "
+"be rendered using a font variation."
 msgstr ""
 
 #: C/mal_inline_guiseq.page:102(p)
+#, fuzzy
 msgid ""
 "The <code>guiseq</code> element is similar to the <code href=\"http://www."
 "docbook.org/tdg/en/html/menuchoice.html\">menuchoice</code> element in "
@@ -2535,6 +2777,8 @@ msgid ""
 "html/shortcut.html\">shortcut</code> element in DocBook. It is recommended "
 "that shortcuts, when necessary, be written into prose separately."
 msgstr ""
+"Das <code>input</code>-Element ist ähnlich dem <code href=\"http://www."
+"docbook.org/tdg/en/html/userinput.html\">userinput</code>-Element in DocBook."
 
 #: C/mal_inline_gui.page:18(desc)
 msgid "Mark up control labels from a graphical user interface."
@@ -2576,17 +2820,24 @@ msgstr ""
 
 #: C/mal_inline_gui.page:44(p)
 msgid ""
-"The <code>gui</code> element can contain a mixture of text and any <link xref="
-"\"mal_inline\">general inline elements</link>."
+"The <code>gui</code> element can contain a mixture of text and any <link "
+"xref=\"mal_inline\">general inline elements</link>."
 msgstr ""
+"Das Element <code>gui</code> kann eine Mischung aus Text und weiteren <link "
+"xref=\"mal_inline\">allgemein eingebetteten Elementen</link> enthalten."
 
 #: C/mal_inline_gui.page:47(p)
 msgid ""
 "The <code>gui</code> element can occur in any general inline context, "
 "including inside most <link xref=\"mal_inline\">inline elements</link>, some "
-"<link xref=\"mal_block#basic\">basic block elements</link>, and certain <link "
-"xref=\"mal_info\">informational elements</link>."
+"<link xref=\"mal_block#basic\">basic block elements</link>, and certain "
+"<link xref=\"mal_info\">informational elements</link>."
 msgstr ""
+"Das Element <code>gui</code> kann in jedem allgemeinen eingebetteten Inhalt "
+"auftreten, einschließlich der meisten <link xref=\"mal_inline"
+"\">eingebetteten Elemente</link>, einiger <link xref=\"mal_block#basic"
+"\">grundlegender Blockelemente</link> und bestimmten <link xref=\"mal_info"
+"\">informativen Elementen</link>."
 
 #: C/mal_inline_gui.page:53(p)
 msgid ""
@@ -2599,6 +2850,9 @@ msgid ""
 "The <code>gui</code> element can link to other pages or documents. See <link "
 "xref=\"mal_attr_link\"/> for more information."
 msgstr ""
+"Das Element <code>gui</code> kann zu anderen Seiten oder Dokumenten "
+"verweisen. In <link xref=\"mal_attr_link\"/> finden Sie weitere "
+"Informationen."
 
 #: C/mal_inline_gui.page:64(p)
 msgid "Typical style hints include:"
@@ -2682,6 +2936,9 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"Das Element <code>gui</code> kann Attribute aus externen Namensräumen haben. "
+"Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_inline_gui.page:112(p)
 msgid "Use <code>gui</code> to mark up the text of a button:"
@@ -2722,23 +2979,27 @@ msgid ""
 msgstr ""
 
 #: C/mal_inline_gui.page:156(p)
+#, fuzzy
 msgid ""
-"The <code>gui</code> element is similar to the deprecated <code href=\"http://"
-"www.docbook.org/tdg/en/html/interface.html\">interface</code> element in "
-"DocBook. DocBook 3 introduced more specific elements for marking up parts of "
-"a user interface: <code href=\"http://www.docbook.org/tdg/en/html/guibutton."
-"html\">guibutton</code>, <code href=\"http://www.docbook.org/tdg/en/html/"
-"guiicon.html\">guiicon</code>, <code href=\"http://www.docbook.org/tdg/en/"
-"html/guilabel.html\">guilabel</code>, <code href=\"http://www.docbook.org/tdg/"
-"en/html/guimenu.html\">guimenu</code>, <code href=\"http://www.docbook.org/"
-"tdg/en/html/guimenuitem.html\">guimenuitem</code>, and <code href=\"http://"
-"www.docbook.org/tdg/en/html/guisubmenu.html\">guisubmenu</code>. In practice, "
-"there is rarely a need to distinguish between types of interface elements in "
-"markup. When such a need arises, it can be handled using attributes on a "
-"single element. Furthermore, DocBook's various elements are nowhere near "
-"exhaustive. Thus, authors must frequently either abuse a specific element or "
-"use the deprecated <code>interface</code> element."
+"The <code>gui</code> element is similar to the deprecated <code href="
+"\"http://www.docbook.org/tdg/en/html/interface.html\">interface</code> "
+"element in DocBook. DocBook 3 introduced more specific elements for marking "
+"up parts of a user interface: <code href=\"http://www.docbook.org/tdg/en/"
+"html/guibutton.html\">guibutton</code>, <code href=\"http://www.docbook.org/"
+"tdg/en/html/guiicon.html\">guiicon</code>, <code href=\"http://www.docbook."
+"org/tdg/en/html/guilabel.html\">guilabel</code>, <code href=\"http://www."
+"docbook.org/tdg/en/html/guimenu.html\">guimenu</code>, <code href=\"http://"
+"www.docbook.org/tdg/en/html/guimenuitem.html\">guimenuitem</code>, and <code "
+"href=\"http://www.docbook.org/tdg/en/html/guisubmenu.html\">guisubmenu</"
+"code>. In practice, there is rarely a need to distinguish between types of "
+"interface elements in markup. When such a need arises, it can be handled "
+"using attributes on a single element. Furthermore, DocBook's various "
+"elements are nowhere near exhaustive. Thus, authors must frequently either "
+"abuse a specific element or use the deprecated <code>interface</code> "
+"element."
 msgstr ""
+"Das <code>input</code>-Element ist ähnlich dem <code href=\"http://www."
+"docbook.org/tdg/en/html/userinput.html\">userinput</code>-Element in DocBook."
 
 #: C/mal_inline_file.page:18(desc)
 msgid "Mark up the name of a file or directory."
@@ -2771,9 +3032,9 @@ msgstr ""
 
 #: C/mal_inline_file.page:33(p)
 msgid ""
-"Use the <code>file</code> element to mark up the name of a file or directory. "
-"You may also use it to mark up collections or portions of filenames, such as "
-"search paths and file extensions."
+"Use the <code>file</code> element to mark up the name of a file or "
+"directory. You may also use it to mark up collections or portions of "
+"filenames, such as search paths and file extensions."
 msgstr ""
 
 #: C/mal_inline_file.page:42(p)
@@ -2781,20 +3042,30 @@ msgid ""
 "The <code>file</code> element can contain a mixture of text and any <link "
 "xref=\"mal_inline\">general inline elements</link>."
 msgstr ""
+"Das Element <code>file</code> kann eine Mischung aus Text und weiteren <link "
+"xref=\"mal_inline\">allgemein eingebetteten Elementen</link> enthalten."
 
 #: C/mal_inline_file.page:45(p)
 msgid ""
 "The <code>file</code> element can occur in any general inline context, "
 "including inside most <link xref=\"mal_inline\">inline elements</link>, some "
-"<link xref=\"mal_block#basic\">basic block elements</link>, and certain <link "
-"xref=\"mal_info\">informational elements</link>."
+"<link xref=\"mal_block#basic\">basic block elements</link>, and certain "
+"<link xref=\"mal_info\">informational elements</link>."
 msgstr ""
+"Das Element <code>file</code> kann in jedem allgemeinen eingebetteten Inhalt "
+"auftreten, einschließlich der meisten <link xref=\"mal_inline"
+"\">eingebetteten Elemente</link>, einiger <link xref=\"mal_block#basic"
+"\">grundlegender Blockelemente</link> und bestimmten <link xref=\"mal_info"
+"\">informativen Elementen</link>."
 
 #: C/mal_inline_file.page:51(p)
 msgid ""
-"The <code>file</code> element can link to other pages or documents. See <link "
-"xref=\"mal_attr_link\"/> for more information."
+"The <code>file</code> element can link to other pages or documents. See "
+"<link xref=\"mal_attr_link\"/> for more information."
 msgstr ""
+"Das Element <code>file</code> kann zu anderen Seiten oder Dokumenten "
+"verweisen. In <link xref=\"mal_attr_link\"/> finden Sie weitere "
+"Informationen."
 
 #: C/mal_inline_file.page:58(p)
 msgid ""
@@ -2802,13 +3073,17 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"Das Element <code>file</code> kann Attribute aus externen Namensräumen "
+"haben. Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_inline_file.page:69(p)
 msgid ""
 "Filenames should be displayed in a fixed-width or wide font. Fixed-width "
-"fonts tend to have more distinction between visually similar characters. This "
-"is particularly important in filenames, since letters often appear without "
-"the context of a known word that helps make them discernable in normal prose."
+"fonts tend to have more distinction between visually similar characters. "
+"This is particularly important in filenames, since letters often appear "
+"without the context of a known word that helps make them discernable in "
+"normal prose."
 msgstr ""
 
 #: C/mal_inline_file.page:80(p)
@@ -2816,6 +3091,8 @@ msgid ""
 "The <code>file</code> element is similar to the <code href=\"http://www."
 "docbook.org/tdg/en/html/filename.html\">filename</code> element in DocBook."
 msgstr ""
+"Das <code>file</code>-Element ist ähnlich dem <code href=\"http://www."
+"docbook.org/tdg/en/html/filename.html\">filename</code>-Element in DocBook."
 
 #: C/mal_inline_em.page:18(desc)
 msgid "Emphasize important text."
@@ -2859,27 +3136,40 @@ msgid ""
 "The <code>em</code> element can contain a mixture of text and any <link xref="
 "\"mal_inline\">general inline elements</link>."
 msgstr ""
+"Das Element <code>em</code> kann eine Mischung aus Text und weiteren <link "
+"xref=\"mal_inline\">allgemein eingebetteten Elementen</link> enthalten."
 
 #: C/mal_inline_em.page:46(p)
 msgid ""
 "The <code>em</code> element can occur in any general inline context, "
 "including inside most <link xref=\"mal_inline\">inline elements</link>, some "
-"<link xref=\"mal_block#basic\">basic block elements</link>, and certain <link "
-"xref=\"mal_info\">informational elements</link>."
+"<link xref=\"mal_block#basic\">basic block elements</link>, and certain "
+"<link xref=\"mal_info\">informational elements</link>."
 msgstr ""
+"Das Element <code>em</code> kann in jedem allgemeinen eingebetteten Inhalt "
+"auftreten, einschließlich der meisten <link xref=\"mal_inline"
+"\">eingebetteten Elemente</link>, einiger <link xref=\"mal_block#basic"
+"\">grundlegender Blockelemente</link> und bestimmten <link xref=\"mal_info"
+"\">informativen Elementen</link>."
 
 #: C/mal_inline_em.page:52(p)
 msgid ""
 "The <code>em</code> element can link to other pages or documents. See <link "
 "xref=\"mal_attr_link\"/> for more information."
 msgstr ""
+"Das Element <code>em</code> kann zu anderen Seiten oder Dokumenten "
+"verweisen. In <link xref=\"mal_attr_link\"/> finden Sie weitere "
+"Informationen."
 
 #: C/mal_inline_em.page:59(p)
 msgid ""
-"The <code>em</code> element can have attributes from external namespaces. See "
-"<link xref=\"mal_external\"/> for more information on external-namespace "
+"The <code>em</code> element can have attributes from external namespaces. "
+"See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"Das Element <code>em</code> kann Attribute aus externen Namensräumen haben. "
+"Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_inline_em.page:71(p)
 msgid "Use <code>em</code> to stress a word in a sentence:"
@@ -2903,8 +3193,8 @@ msgid ""
 "Italic and oblique fonts stress a portion of text without making it stand "
 "out. By contrast, bold text tends to draw the eye, which can be distracting "
 "when reading long passages of text. In scripts without a distinction between "
-"roman and italic type styles, it may still be possible to use an oblique font "
-"or some other font variation. Bold text may be used if necessary."
+"roman and italic type styles, it may still be possible to use an oblique "
+"font or some other font variation. Bold text may be used if necessary."
 msgstr ""
 
 #: C/mal_inline_em.page:101(p)
@@ -2916,14 +3206,17 @@ msgid ""
 msgstr ""
 
 #: C/mal_inline_em.page:112(p)
+#, fuzzy
 msgid ""
-"The <code>em</code> element is similar to the <code href=\"http://www.docbook."
-"org/tdg/en/html/emphasis.html\">emphasis</code> element in DocBook. Athough "
-"DocBook does not normatively specify a means of controlling the presentation, "
-"most DocBook display tools allow writers to set the <code>role</code> "
-"attribute to <code>bold</code> or <code>strong</code> to specify bold text. "
-"No such recommendation is made for Mallard."
+"The <code>em</code> element is similar to the <code href=\"http://www."
+"docbook.org/tdg/en/html/emphasis.html\">emphasis</code> element in DocBook. "
+"Athough DocBook does not normatively specify a means of controlling the "
+"presentation, most DocBook display tools allow writers to set the "
+"<code>role</code> attribute to <code>bold</code> or <code>strong</code> to "
+"specify bold text. No such recommendation is made for Mallard."
 msgstr ""
+"Das <code>file</code>-Element ist ähnlich dem <code href=\"http://www."
+"docbook.org/tdg/en/html/filename.html\">filename</code>-Element in DocBook."
 
 #: C/mal_inline_code.page:18(desc)
 msgid ""
@@ -2960,23 +3253,25 @@ msgstr ""
 #: C/mal_inline_code.page:34(p)
 msgid ""
 "Use the <code>code</code> element to mark up a portion of text from a "
-"computer language. This includes programming languages, markup languages, and "
-"the contents of any type of file with a structured syntax. For commands which "
-"are run in an interactive shell, however, you should use the <code xref="
-"\"mal_inline_cmd\">cmd</code> element, even though they may include snippets "
-"of shell programming."
+"computer language. This includes programming languages, markup languages, "
+"and the contents of any type of file with a structured syntax. For commands "
+"which are run in an interactive shell, however, you should use the <code "
+"xref=\"mal_inline_cmd\">cmd</code> element, even though they may include "
+"snippets of shell programming."
 msgstr ""
 
 #: C/mal_inline_code.page:41(p)
 msgid ""
 "You can use the <code>code</code> element to mark up any portion of code, "
-"including comments or textual content that doesn't strictly follow any syntax."
+"including comments or textual content that doesn't strictly follow any "
+"syntax."
 msgstr ""
 
 #: C/mal_inline_code.page:45(p) C/mal_block_code.page:38(p)
 msgid ""
-"Use the <code xref=\"mal_inline_var\">var</code> element inside a <code>code</"
-"code> element to indicate text that should be replaced by the user."
+"Use the <code xref=\"mal_inline_var\">var</code> element inside a "
+"<code>code</code> element to indicate text that should be replaced by the "
+"user."
 msgstr ""
 
 #: C/mal_inline_code.page:54(p)
@@ -2991,21 +3286,29 @@ msgstr ""
 msgid ""
 "The <code>code</code> element can occur in any general inline context, "
 "including inside most <link xref=\"mal_inline\">inline elements</link>, some "
-"<link xref=\"mal_block#basic\">basic block elements</link>, and certain <link "
-"xref=\"mal_info\">informational elements</link>."
+"<link xref=\"mal_block#basic\">basic block elements</link>, and certain "
+"<link xref=\"mal_info\">informational elements</link>."
 msgstr ""
+"Das Element <code>code</code> kann in jedem allgemeinen eingebetteten Inhalt "
+"auftreten, einschließlich der meisten <link xref=\"mal_inline"
+"\">eingebetteten Elemente</link>, einiger <link xref=\"mal_block#basic"
+"\">grundlegender Blockelemente</link> und bestimmten <link xref=\"mal_info"
+"\">informativen Elementen</link>."
 
 #: C/mal_inline_code.page:63(p)
 msgid ""
-"The <code>code</code> element can link to other pages or documents. See <link "
-"xref=\"mal_attr_link\"/> for more information."
+"The <code>code</code> element can link to other pages or documents. See "
+"<link xref=\"mal_attr_link\"/> for more information."
 msgstr ""
+"Das Element <code>code</code> kann zu anderen Seiten oder Dokumenten "
+"verweisen. In <link xref=\"mal_attr_link\"/> finden Sie weitere "
+"Informationen."
 
 #: C/mal_inline_code.page:70(p) C/mal_inline_cmd.page:72(p)
 #: C/mal_block_code.page:60(p)
 msgid ""
-"The <code>mime</code> attribute takes a valid MIME type. Processing tools may "
-"adjust their behavior for particular MIME types."
+"The <code>mime</code> attribute takes a valid MIME type. Processing tools "
+"may adjust their behavior for particular MIME types."
 msgstr ""
 
 #: C/mal_inline_code.page:73(p) C/mal_block_code.page:63(p)
@@ -3014,6 +3317,9 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"Das Element <code>code</code> kann Attribute aus externen Namensräumen "
+"haben. Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_inline_code.page:77(p)
 msgid ""
@@ -3067,33 +3373,37 @@ msgstr ""
 
 #: C/mal_inline_code.page:137(p)
 msgid ""
-"For particularly long code snippets, display tools may use a background color "
-"or border to make the beginning and end clear, although authors should prefer "
-"<link xref=\"mal_block_code\">code blocks</link> for long code snippets."
+"For particularly long code snippets, display tools may use a background "
+"color or border to make the beginning and end clear, although authors should "
+"prefer <link xref=\"mal_block_code\">code blocks</link> for long code "
+"snippets."
 msgstr ""
 
 #: C/mal_inline_code.page:147(p)
+#, fuzzy
 msgid ""
 "The <code>code</code> element is similar to the <code href=\"http://www."
 "docbook.org/tdg/en/html/code.html\">code</code> element in DocBook. Since "
 "Mallard does not attempt to model programming languages, <code>code</code> "
 "may be used in place of numerous DocBook elements, including <code href="
-"\"http://www.docbook.org/tdg/en/html/classname.html\">classname</code>, <code "
-"href=\"http://www.docbook.org/tdg/en/html/constant.html\">constant</code>, "
-"<code href=\"http://www.docbook.org/tdg/en/html/function.html\">function</"
-"code>, <code href=\"http://www.docbook.org/tdg/en/html/interfacename.html"
-"\">interfacename</code>, <code href=\"http://www.docbook.org/tdg/en/html/"
-"methodname.html\">methodname</code>, <code href=\"http://www.docbook.org/tdg/"
-"en/html/parameter.html\">parameter</code>, <code href=\"http://www.docbook."
-"org/tdg/en/html/structfield.html\">structfield</code>, <code href=\"http://"
-"www.docbook.org/tdg/en/html/structname.html\">structname</code>, and <code "
-"href=\"http://www.docbook.org/tdg/en/html/varname.html\">varname</code>. "
-"Additionally, since Mallard does not provide separate elements for marking "
-"portions of markup languages, the <code>code</code> element should be used in "
-"place of the DocBook elements <code href=\"http://www.docbook.org/tdg/en/html/"
-"markup.html\">markup</code> and <code href=\"http://www.docbook.org/tdg/en/"
-"html/sgmltag.html\">sgmltag</code>."
+"\"http://www.docbook.org/tdg/en/html/classname.html\">classname</code>, "
+"<code href=\"http://www.docbook.org/tdg/en/html/constant.html\">constant</"
+"code>, <code href=\"http://www.docbook.org/tdg/en/html/function.html"
+"\">function</code>, <code href=\"http://www.docbook.org/tdg/en/html/"
+"interfacename.html\">interfacename</code>, <code href=\"http://www.docbook."
+"org/tdg/en/html/methodname.html\">methodname</code>, <code href=\"http://www."
+"docbook.org/tdg/en/html/parameter.html\">parameter</code>, <code href="
+"\"http://www.docbook.org/tdg/en/html/structfield.html\">structfield</code>, "
+"<code href=\"http://www.docbook.org/tdg/en/html/structname.html"
+"\">structname</code>, and <code href=\"http://www.docbook.org/tdg/en/html/"
+"varname.html\">varname</code>. Additionally, since Mallard does not provide "
+"separate elements for marking portions of markup languages, the <code>code</"
+"code> element should be used in place of the DocBook elements <code href="
+"\"http://www.docbook.org/tdg/en/html/markup.html\">markup</code> and <code "
+"href=\"http://www.docbook.org/tdg/en/html/sgmltag.html\">sgmltag</code>."
 msgstr ""
+"Das <code>file</code>-Element ist ähnlich dem <code href=\"http://www."
+"docbook.org/tdg/en/html/filename.html\">filename</code>-Element in DocBook."
 
 #: C/mal_inline_cmd.page:19(desc)
 msgid "Mark up a command to be entered at an interactive shell."
@@ -3140,8 +3450,8 @@ msgid ""
 "You may use the <code>cmd</code> element to mark up the entire command, "
 "including all arguments. Mallard does not contain elements to mark up the "
 "arguments specifically, as there is rarely a need to distinguish them. You "
-"may also use the <code>cmd</code> element to mark up parts of a command, such "
-"as options and arguments, when these need to be referenced alone."
+"may also use the <code>cmd</code> element to mark up parts of a command, "
+"such as options and arguments, when these need to be referenced alone."
 msgstr ""
 
 #: C/mal_inline_cmd.page:47(p)
@@ -3152,23 +3462,33 @@ msgstr ""
 
 #: C/mal_inline_cmd.page:56(p)
 msgid ""
-"The <code>cmd</code> element can contain a mixture of text and any <link xref="
-"\"mal_inline\">general inline elements</link>."
+"The <code>cmd</code> element can contain a mixture of text and any <link "
+"xref=\"mal_inline\">general inline elements</link>."
 msgstr ""
+"Das Element <code>cmd</code> kann eine Mischung aus Text und weiteren <link "
+"xref=\"mal_inline\">allgemein eingebetteten Elementen</link> enthalten."
 
 #: C/mal_inline_cmd.page:59(p)
 msgid ""
 "The <code>cmd</code> element can occur in any general inline context, "
 "including inside most <link xref=\"mal_inline\">inline elements</link>, some "
-"<link xref=\"mal_block#basic\">basic block elements</link>, and certain <link "
-"xref=\"mal_info\">informational elements</link>."
+"<link xref=\"mal_block#basic\">basic block elements</link>, and certain "
+"<link xref=\"mal_info\">informational elements</link>."
 msgstr ""
+"Das Element <code>cmd</code> kann in jedem allgemeinen eingebetteten Inhalt "
+"auftreten, einschließlich der meisten <link xref=\"mal_inline"
+"\">eingebetteten Elemente</link>, einiger <link xref=\"mal_block#basic"
+"\">grundlegender Blockelemente</link> und bestimmten <link xref=\"mal_info"
+"\">informativen Elementen</link>."
 
 #: C/mal_inline_cmd.page:65(p)
 msgid ""
 "The <code>cmd</code> element can link to other pages or documents. See <link "
 "xref=\"mal_attr_link\"/> for more information."
 msgstr ""
+"Das Element <code>cmd</code> kann zu anderen Seiten oder Dokumenten "
+"verweisen. In <link xref=\"mal_attr_link\"/> finden Sie weitere "
+"Informationen."
 
 #: C/mal_inline_cmd.page:76(p) C/mal_block_screen.page:72(p)
 msgid "Typical values for the <code>mime</code> attribute include:"
@@ -3198,6 +3518,9 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"Das Element <code>cmd</code> kann Attribute aus externen Namensräumen haben. "
+"Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_inline_cmd.page:98(p)
 msgid "Use <code>cmd</code> to mark up a simple command to run:"
@@ -3207,16 +3530,16 @@ msgstr ""
 
 #: C/mal_inline_cmd.page:105(p) C/mal_inline_app.page:79(p)
 msgid ""
-"To start <app>Totem Movie Player</app>, enter <cmd>totem</cmd> at the command "
-"line."
+"To start <app>Totem Movie Player</app>, enter <cmd>totem</cmd> at the "
+"command line."
 msgstr ""
 "Um <app>Totem Video-Player</app> zu starten, geben Sie <cmd>totem</cmd> in "
 "einer Befehlszeile ein."
 
 #: C/mal_inline_cmd.page:109(p)
 msgid ""
-"Use <code>cmd</code> with <code xref=\"mal_inline_var\">var</code> to mark up "
-"a command with a placeholder for an argument the user should supply:"
+"Use <code>cmd</code> with <code xref=\"mal_inline_var\">var</code> to mark "
+"up a command with a placeholder for an argument the user should supply:"
 msgstr ""
 
 #: C/mal_inline_cmd.page:118(p)
@@ -3229,7 +3552,8 @@ msgstr ""
 #: C/mal_inline_cmd.page:122(p)
 msgid "Use <code>cmd</code> to mark up command names and options:"
 msgstr ""
-"Verwenden Sie <code>cmd</code> zur Hervorhebung von Befehlsnamen und Optionen:"
+"Verwenden Sie <code>cmd</code> zur Hervorhebung von Befehlsnamen und "
+"Optionen:"
 
 #: C/mal_inline_cmd.page:129(p)
 msgid ""
@@ -3251,12 +3575,14 @@ msgstr ""
 msgid ""
 "Commands in documentation are often provided with options to illustrate how "
 "to use them to a particular effect. This can make it difficult to find the "
-"end of the command quickly. Surrounding text content, especially punctuation, "
-"can sometimes be confused for part of the command. For this reason, it is "
-"recommended that commands be displayed with a border or background color."
+"end of the command quickly. Surrounding text content, especially "
+"punctuation, can sometimes be confused for part of the command. For this "
+"reason, it is recommended that commands be displayed with a border or "
+"background color."
 msgstr ""
 
 #: C/mal_inline_cmd.page:161(p)
+#, fuzzy
 msgid ""
 "The <code>cmd</code> element is similar to the <code href=\"http://www."
 "docbook.org/tdg/en/html/command.html\">command</code> element in DocBook. In "
@@ -3264,6 +3590,8 @@ msgid ""
 "en/html/option.html\">option</code> element inside <code>command</code>. "
 "Mallard does not provide an element for this purpose."
 msgstr ""
+"Das <code>file</code>-Element ist ähnlich dem <code href=\"http://www."
+"docbook.org/tdg/en/html/filename.html\">filename</code>-Element in DocBook."
 
 #: C/mal_inline_cmd.page:168(p)
 msgid ""
@@ -3317,23 +3645,33 @@ msgstr ""
 
 #: C/mal_inline_app.page:44(p)
 msgid ""
-"The <code>app</code> element can contain a mixture of text and any <link xref="
-"\"mal_inline\">general inline elements</link>."
+"The <code>app</code> element can contain a mixture of text and any <link "
+"xref=\"mal_inline\">general inline elements</link>."
 msgstr ""
+"Das Element <code>app</code> kann eine Mischung aus Text und weiteren <link "
+"xref=\"mal_inline\">allgemein eingebetteten Elementen</link> enthalten."
 
 #: C/mal_inline_app.page:47(p)
 msgid ""
 "The <code>app</code> element can occur in any general inline context, "
 "including inside most <link xref=\"mal_inline\">inline elements</link>, some "
-"<link xref=\"mal_block#basic\">basic block elements</link>, and certain <link "
-"xref=\"mal_info\">informational elements</link>."
+"<link xref=\"mal_block#basic\">basic block elements</link>, and certain "
+"<link xref=\"mal_info\">informational elements</link>."
 msgstr ""
+"Das Element <code>app</code> kann in jedem allgemeinen eingebetteten Inhalt "
+"auftreten, einschließlich der meisten <link xref=\"mal_inline"
+"\">eingebetteten Elemente</link>, einiger <link xref=\"mal_block#basic"
+"\">grundlegender Blockelemente</link> und bestimmten <link xref=\"mal_info"
+"\">informativen Elementen</link>."
 
 #: C/mal_inline_app.page:53(p)
 msgid ""
 "The <code>app</code> element can link to other pages or documents. See <link "
 "xref=\"mal_attr_link\"/> for more information."
 msgstr ""
+"Das Element <code>app</code> kann zu anderen Seiten oder Dokumenten "
+"verweisen. In <link xref=\"mal_attr_link\"/> finden Sie weitere "
+"Informationen."
 
 #: C/mal_inline_app.page:60(p)
 msgid ""
@@ -3341,11 +3679,15 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"Das Element <code>app</code> kann Attribute aus externen Namensräumen haben. "
+"Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_inline_app.page:72(p)
 msgid "Use <code>app</code> to mark up the name of an application:"
 msgstr ""
-"Verwenden Sie <code>guiseq</code>, um den Namen einer Anwendung hervorzuheben:"
+"Verwenden Sie <code>guiseq</code>, um den Namen einer Anwendung "
+"hervorzuheben:"
 
 #: C/mal_inline_app.page:83(p)
 msgid "Use <code>app</code> to refer to a window:"
@@ -3363,10 +3705,10 @@ msgstr ""
 msgid ""
 "Application names are usually nouns, and are often common words or phrases "
 "that are indicative of their functionality. Frequently, they are simply the "
-"name of what the application is. In English and many other languages, the use "
-"of an application name in a sentence may sound like the author has simply "
-"mistakenly omitted an article, if the application name is not understood to "
-"be a title."
+"name of what the application is. In English and many other languages, the "
+"use of an application name in a sentence may sound like the author has "
+"simply mistakenly omitted an article, if the application name is not "
+"understood to be a title."
 msgstr ""
 
 #: C/mal_inline_app.page:107(p)
@@ -3391,6 +3733,8 @@ msgid ""
 "docbook.org/tdg/en/html/application.html\">application</code> element in "
 "DocBook."
 msgstr ""
+"Das <code>app</code>-Element ist ähnlich dem <code href=\"http://www.docbook."
+"org/tdg/en/html/application.html\">application</code>-Element in DocBook."
 
 #: C/mal_info_years.page:18(desc) C/mal_info_name.page:18(desc)
 #: C/mal_info_email.page:18(desc)
@@ -3418,8 +3762,8 @@ msgstr ""
 
 #: C/mal_info_years.page:30(p)
 msgid ""
-"Use the <code>years</code> element to mark up the years for which a person or "
-"organization holds a copyright."
+"Use the <code>years</code> element to mark up the years for which a person "
+"or organization holds a copyright."
 msgstr ""
 
 #: C/mal_info_years.page:38(p)
@@ -3427,14 +3771,16 @@ msgid ""
 "The <code>years</code> element can contain a mixture of text and any <link "
 "xref=\"mal_inline\">general inline elements</link>."
 msgstr ""
+"Das Element <code>years</code> kann eine Mischung aus Text und weiteren "
+"<link xref=\"mal_inline\">allgemein eingebetteten Elementen</link> enthalten."
 
 #: C/mal_info_years.page:41(p)
 msgid ""
 "The <code>years</code> element can occur in the <code xref=\"mal_info_credit"
 "\">credit</code> element."
 msgstr ""
-"Das <code>years</code>-Element kann im <code xref=\"mal_info_credit\">credit</"
-"code>-Element vorkommen."
+"Das <code>years</code>-Element kann im <code xref=\"mal_info_credit"
+"\">credit</code>-Element vorkommen."
 
 #: C/mal_info_years.page:44(p)
 msgid ""
@@ -3442,6 +3788,9 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"Das Element <code>years</code> kann Attribute aus externen Namensräumen "
+"haben. Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_info_years.page:56(p) C/mal_info_name.page:56(p)
 #: C/mal_info_email.page:56(p)
@@ -3451,13 +3800,16 @@ msgid ""
 msgstr ""
 
 #: C/mal_info_years.page:66(p)
+#, fuzzy
 msgid ""
 "The <code>years</code> element is similar to the <code href=\"http://www."
 "docbook.org/tdg/en/html/year.html\">year</code> element in DocBook. In "
-"DocBook, each year is listed separately, and processing tools are expected to "
-"join them appropriately. In Mallard, all years are listed in a single "
+"DocBook, each year is listed separately, and processing tools are expected "
+"to join them appropriately. In Mallard, all years are listed in a single "
 "<code>years</code> element, formatted as they should be displayed."
 msgstr ""
+"Das <code>app</code>-Element ist ähnlich dem <code href=\"http://www.docbook."
+"org/tdg/en/html/application.html\">application</code>-Element in DocBook."
 
 #: C/mal_info_title.page:18(desc)
 msgid "Provide alternate titles for automatic link text and sorting."
@@ -3492,8 +3844,8 @@ msgstr ""
 msgid ""
 "Use the <code>title</code> element inside an <code xref=\"mal_info\">info</"
 "code> to list alternative titles for pages and sections. These titles can be "
-"used as alternative link text, for sorting, or for other application-specific "
-"purposes."
+"used as alternative link text, for sorting, or for other application-"
+"specific purposes."
 msgstr ""
 
 #: C/mal_info_title.page:43(p)
@@ -3501,11 +3853,13 @@ msgid ""
 "The <code>title</code> element can contain a mixture of text and any <link "
 "xref=\"mal_inline\">general inline elements</link>."
 msgstr ""
+"Das Element <code>title</code> kann eine Mischung aus Text und weiteren "
+"<link xref=\"mal_inline\">allgemein eingebetteten Elementen</link> enthalten."
 
 #: C/mal_info_title.page:46(p)
 msgid ""
-"The <code>title</code> element can occur in any <code xref=\"mal_info\">info</"
-"code> element."
+"The <code>title</code> element can occur in any <code xref=\"mal_info"
+"\">info</code> element."
 msgstr ""
 "Das <code>title</code>-Element kann in jedem <code xref=\"mal_info\">info</"
 "code>-Element vorkommen."
@@ -3546,6 +3900,9 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"Das Element <code>title</code> kann Attribute aus externen Namensräumen "
+"haben. Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_info_title.page:76(title)
 msgid "Primary Titles"
@@ -3565,11 +3922,11 @@ msgstr ""
 
 #: C/mal_info_title.page:90(p)
 msgid ""
-"Pages and sections can have multiple link titles. These are used as alternate "
-"content for automatic link text. When automatic text must be generated for a "
-"<code xref=\"mal_block_link\">link</code> element, it is taken first from the "
-"link titles, falling back to the primary title if no suitable link title is "
-"found."
+"Pages and sections can have multiple link titles. These are used as "
+"alternate content for automatic link text. When automatic text must be "
+"generated for a <code xref=\"mal_block_link\">link</code> element, it is "
+"taken first from the link titles, falling back to the primary title if no "
+"suitable link title is found."
 msgstr ""
 
 #: C/mal_info_title.page:96(p)
@@ -3605,11 +3962,11 @@ msgstr ""
 #: C/mal_info_title.page:128(p)
 msgid ""
 "The content model of the <code xref=\"mal_info\">info</code> element allows "
-"for any mixture of informational titles. As such, it is entirely possible for "
-"multiple titles to exist for some specified combination of the <code>type</"
-"code> and <code>role</code> attributes. When such an ambiguity arrises, "
-"processing tools should select the first informational title that matches the "
-"desired criteria."
+"for any mixture of informational titles. As such, it is entirely possible "
+"for multiple titles to exist for some specified combination of the "
+"<code>type</code> and <code>role</code> attributes. When such an ambiguity "
+"arrises, processing tools should select the first informational title that "
+"matches the desired criteria."
 msgstr ""
 
 #: C/mal_info_revision.page:18(desc)
@@ -3680,14 +4037,18 @@ msgid ""
 "\"mal_block_desc\">desc</code> element, and any number of elements from "
 "external namespaces."
 msgstr ""
+"Das Element <code>revision</code> enthält ein optionales Element <code xref="
+"\"mal_block_title\">title</code>, ein optionales Element <code xref="
+"\"mal_block_desc\">desc</code> und beliebig viele Elemente aus externen "
+"Namensräumen."
 
 #: C/mal_info_revision.page:61(p)
 msgid ""
 "The <code>revision</code> element can occur in any <code xref=\"mal_info"
 "\">info</code> element."
 msgstr ""
-"Das <code>revision</code>-Element kann in jedem <code xref=\"mal_info\">info</"
-"code>-Element vorkommen."
+"Das <code>revision</code>-Element kann in jedem <code xref=\"mal_info"
+"\">info</code>-Element vorkommen."
 
 #: C/mal_info_revision.page:64(p)
 msgid ""
@@ -3708,7 +4069,8 @@ msgid ""
 msgstr ""
 
 #: C/mal_info_revision.page:73(p)
-msgid "The <code>date</code> attribute records the date this revision was made."
+msgid ""
+"The <code>date</code> attribute records the date this revision was made."
 msgstr ""
 
 #: C/mal_info_revision.page:76(p)
@@ -3756,8 +4118,8 @@ msgid ""
 "was once complete or nearly complete, but needs to be revised to reflect "
 "changes"
 msgstr ""
-"war bereits vollständig oder beinahe vollständig, muss aber revidiert werden, "
-"um Änderungen gerecht zu werden"
+"war bereits vollständig oder beinahe vollständig, muss aber revidiert "
+"werden, um Änderungen gerecht zu werden"
 
 #: C/mal_info_revision.page:97(code)
 #, no-wrap
@@ -3792,6 +4154,9 @@ msgid ""
 "namespaces. See <link xref=\"mal_external\"/> for more information on "
 "external-namespace attributes."
 msgstr ""
+"Das Element <code>revision</code> kann Attribute aus externen Namensräumen "
+"haben. Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_info_revision.page:123(p)
 msgid ""
@@ -3804,11 +4169,12 @@ msgstr ""
 #: C/mal_info_revision.page:128(p)
 msgid ""
 "When a <code>revision</code> element is displayed or processed, tools should "
-"process only those child elements that they understand, and ignore everything "
-"else."
+"process only those child elements that they understand, and ignore "
+"everything else."
 msgstr ""
 
 #: C/mal_info_revision.page:139(p)
+#, fuzzy
 msgid ""
 "The <code>revision</code> element is similar to the <code href=\"http://www."
 "docbook.org/tdg/en/html/revision.html\">revision</code> element in DocBook. "
@@ -3820,6 +4186,8 @@ msgid ""
 "Mallard allows such information to be encoded with elements from external "
 "namespaces when needed."
 msgstr ""
+"Das <code>app</code>-Element ist ähnlich dem <code href=\"http://www.docbook."
+"org/tdg/en/html/application.html\">application</code>-Element in DocBook."
 
 #: C/mal_info.page:11(title) C/mal_info.page:45(title)
 msgid "Informational Elements"
@@ -3882,6 +4250,8 @@ msgid ""
 "The <code>name</code> element can contain a mixture of text and any <link "
 "xref=\"mal_inline\">general inline elements</link>."
 msgstr ""
+"Das Element <code>name</code> kann eine Mischung aus Text und weiteren <link "
+"xref=\"mal_inline\">allgemein eingebetteten Elementen</link> enthalten."
 
 #: C/mal_info_name.page:41(p)
 msgid ""
@@ -3897,6 +4267,9 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"Das Element <code>name</code> kann Attribute aus externen Namensräumen "
+"haben. Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_info_name.page:66(p)
 msgid ""
@@ -3958,9 +4331,9 @@ msgstr ""
 
 #: C/mal_info_license.page:32(p)
 msgid ""
-"The <code>license</code> element can be used to provide information about the "
-"licensing terms of the material in a page or section. The <code>href</code> "
-"attribute can be used to uniquely identify certain licenses."
+"The <code>license</code> element can be used to provide information about "
+"the licensing terms of the material in a page or section. The <code>href</"
+"code> attribute can be used to uniquely identify certain licenses."
 msgstr ""
 
 #: C/mal_info_license.page:40(p)
@@ -3989,11 +4362,14 @@ msgid ""
 "namespaces. See <link xref=\"mal_external\"/> for more information on "
 "external-namespace attributes."
 msgstr ""
+"Das Element <code>license</code> kann Attribute aus externen Namensräumen "
+"haben. Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_info_license.page:60(p)
 msgid ""
-"The <code>license</code> is not necessarily displayed on the page in which it "
-"appears. Some tools may display license information on a separate "
+"The <code>license</code> is not necessarily displayed on the page in which "
+"it appears. Some tools may display license information on a separate "
 "informational page or dialog. When it is displayed, its contents are treated "
 "as block content."
 msgstr ""
@@ -4003,21 +4379,21 @@ msgid ""
 "There is no requirement that the URI <code>href</code> will actually be "
 "displayed, or that the <code>href</code> attribute will cause a link to be "
 "displayed. If authors wish to ensure that an external resource is linked to, "
-"they should add a link into the block content. Processing tools may recognize "
-"certain license URIs for special processing. This could be used, for "
-"instance, to place a license badge at the bottom of a displayed page for "
+"they should add a link into the block content. Processing tools may "
+"recognize certain license URIs for special processing. This could be used, "
+"for instance, to place a license badge at the bottom of a displayed page for "
 "certain common licenses."
 msgstr ""
 
 #: C/mal_info_license.page:79(p)
 msgid ""
-"DocBook contains the more general-purpose <code href=\"http://www.docbook.org/"
-"tdg/en/html/legalnotice.html\">legalnotice</code> element, which is "
+"DocBook contains the more general-purpose <code href=\"http://www.docbook."
+"org/tdg/en/html/legalnotice.html\">legalnotice</code> element, which is "
 "frequently used to include licensing terms. The <code>license</code> element "
 "is intended mostly for redistribution terms, which are not immediately "
-"relevent to most readers. When it is important that readers see certain legal "
-"information, authors should provide that information in the main content, "
-"possibly on a separate page."
+"relevent to most readers. When it is important that readers see certain "
+"legal information, authors should provide that information in the main "
+"content, possibly on a separate page."
 msgstr ""
 
 #: C/mal_info_email.page:21(title)
@@ -4050,14 +4426,16 @@ msgid ""
 "The <code>email</code> element can contain a mixture of text and any <link "
 "xref=\"mal_inline\">general inline elements</link>."
 msgstr ""
+"Das Element <code>email</code> kann eine Mischung aus Text und weiteren "
+"<link xref=\"mal_inline\">allgemein eingebetteten Elementen</link> enthalten."
 
 #: C/mal_info_email.page:41(p)
 msgid ""
 "The <code>email</code> element can occur in the <code xref=\"mal_info_credit"
 "\">credit</code> element."
 msgstr ""
-"Das <code>email</code>-Element kann im <code xref=\"mal_info_credit\">credit</"
-"code>-Element vorkommen."
+"Das <code>email</code>-Element kann im <code xref=\"mal_info_credit"
+"\">credit</code>-Element vorkommen."
 
 #: C/mal_info_email.page:44(p)
 msgid ""
@@ -4065,14 +4443,20 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"Das Element <code>email</code> kann Attribute aus externen Namensräumen "
+"haben. Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_info_email.page:66(p)
+#, fuzzy
 msgid ""
 "The <code>email</code> element is similar to the <code href=\"http://www."
 "docbook.org/tdg/en/html/email.html\">email</code> element in DocBook when "
 "that element is used in an informational context. The <code>email</code> "
 "element in Mallard does not double as an inline element."
 msgstr ""
+"Das <code>app</code>-Element ist ähnlich dem <code href=\"http://www.docbook."
+"org/tdg/en/html/application.html\">application</code>-Element in DocBook."
 
 #: C/mal_info_desc.page:18(desc)
 msgid "Provide a short description of a page or section."
@@ -4112,6 +4496,8 @@ msgid ""
 "The <code>desc</code> element can contain a mixture of text and any <link "
 "xref=\"mal_inline\">general inline elements</link>."
 msgstr ""
+"Das Element <code>desc</code> kann eine Mischung aus Text und weiteren <link "
+"xref=\"mal_inline\">allgemein eingebetteten Elementen</link> enthalten."
 
 #: C/mal_info_desc.page:44(p)
 msgid ""
@@ -4127,6 +4513,9 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"Das Element <code>desc</code> kann Attribute aus externen Namensräumen "
+"haben. Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_info_desc.page:51(p)
 msgid ""
@@ -4188,27 +4577,27 @@ msgstr ""
 
 #: C/mal_info_credit.page:37(p)
 msgid ""
-"Use the <code>credit</code> element to record who has contributed to the page "
-"or section. You can optionally use the <code>type</code> attribute to specify "
-"what types of contribution the person has made. The <code>credit</code> "
-"element also specifies copyright holders when used with the <code xref="
+"Use the <code>credit</code> element to record who has contributed to the "
+"page or section. You can optionally use the <code>type</code> attribute to "
+"specify what types of contribution the person has made. The <code>credit</"
+"code> element also specifies copyright holders when used with the <code xref="
 "\"mal_info_years\">years</code> element."
 msgstr ""
 
 #: C/mal_info_credit.page:48(p)
 msgid ""
-"The <code>credit</code> element contains a <code xref=\"mal_info_name\">name</"
-"code> element, an optional <code xref=\"mal_info_email\">&gt;email</code> "
-"element, and an optional <code xref=\"mal_info_years\">years</code> element. "
-"The <code>credit</code> element can also contain elements from external "
-"namespaces. The order of the child elements does not matter."
+"The <code>credit</code> element contains a <code xref=\"mal_info_name"
+"\">name</code> element, an optional <code xref=\"mal_info_email\">&gt;email</"
+"code> element, and an optional <code xref=\"mal_info_years\">years</code> "
+"element. The <code>credit</code> element can also contain elements from "
+"external namespaces. The order of the child elements does not matter."
 msgstr ""
 "Das <code>credit</code>-Element enthält ein <code xref=\"mal_info_name"
 "\">name</code>-Element, ein optionales <code xref=\"mal_info_email\">&gt;"
 "email</code>-Element und ein optionales <code xref=\"mal_info_years\">years</"
 "code>-Element. Das <code>credit</code>-Element kann auch Elemente aus "
-"externen Namensräumen enthalten. Die Anordnung der Kind-Elemente spielt dabei "
-"keine Rolle."
+"externen Namensräumen enthalten. Die Anordnung der Kind-Elemente spielt "
+"dabei keine Rolle."
 
 #: C/mal_info_credit.page:55(p)
 msgid ""
@@ -4290,10 +4679,13 @@ msgstr ""
 
 #: C/mal_info_credit.page:96(p)
 msgid ""
-"The <code>credit</code> element can have attributes from external namespaces. "
-"See <link xref=\"mal_external\"/> for more information on external-namespace "
-"attributes."
+"The <code>credit</code> element can have attributes from external "
+"namespaces. See <link xref=\"mal_external\"/> for more information on "
+"external-namespace attributes."
 msgstr ""
+"Das Element <code>credit</code> kann Attribute aus externen Namensräumen "
+"haben. Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_info_credit.page:108(p)
 msgid ""
@@ -4311,15 +4703,15 @@ msgstr ""
 
 #: C/mal_info_credit.page:124(p)
 msgid ""
-"The <code>credit</code> element serves the purpose of the <code href=\"http://"
-"www.docbook.org/tdg/en/html/author.html\">author</code>, <code href=\"http://"
-"www.docbook.org/tdg/en/html/collab.html\">collab</code>, <code href=\"http://"
-"www.docbook.org/tdg/en/html/corpauthor.html\">corpauthor</code>, <code href="
-"\"http://www.docbook.org/tdg/en/html/editor.html\">editor</code>, <code href="
-"\"http://www.docbook.org/tdg/en/html/othercredit.html\">othercredit</code>, "
-"and <code href=\"http://www.docbook.org/tdg/en/html/publisher.html"
-"\">publisher</code> elements in DocBook. DocBook does not have specific "
-"elements for maintainers and translators."
+"The <code>credit</code> element serves the purpose of the <code href="
+"\"http://www.docbook.org/tdg/en/html/author.html\">author</code>, <code href="
+"\"http://www.docbook.org/tdg/en/html/collab.html\">collab</code>, <code href="
+"\"http://www.docbook.org/tdg/en/html/corpauthor.html\">corpauthor</code>, "
+"<code href=\"http://www.docbook.org/tdg/en/html/editor.html\">editor</code>, "
+"<code href=\"http://www.docbook.org/tdg/en/html/othercredit.html"
+"\">othercredit</code>, and <code href=\"http://www.docbook.org/tdg/en/html/"
+"publisher.html\">publisher</code> elements in DocBook. DocBook does not have "
+"specific elements for maintainers and translators."
 msgstr ""
 
 #: C/mal_info_credit.page:134(p)
@@ -4327,8 +4719,8 @@ msgid ""
 "In DocBook, certain credit elements have highly structured content, whereas "
 "others allow simple inline text. In Mallard, all credits use simple "
 "structured content. While Mallard does not provide child elements for "
-"everything that can be recorded in DocBook, elements from external namespaces "
-"may be used for any additional information that is needed."
+"everything that can be recorded in DocBook, elements from external "
+"namespaces may be used for any additional information that is needed."
 msgstr ""
 
 #: C/mal_info_credit.page:140(p)
@@ -4387,13 +4779,13 @@ msgstr ""
 
 #: C/mal_external.page:51(p)
 msgid ""
-"For example, a translation tool might copy <link xref=\"mal_block_code\">code "
-"blocks</link> directly into the translated document without presenting them "
-"to translators. Some code blocks, however, may contain human-readable "
-"comments which should be translated. In order to force translation tools to "
-"present these code blocks for translation, authors could use the <code>its:"
-"translate</code> attribute from the <link href=\"http://www.w3.org/TR/its/"
-"\">Internationalization Tag Set</link>, as in the following:"
+"For example, a translation tool might copy <link xref=\"mal_block_code"
+"\">code blocks</link> directly into the translated document without "
+"presenting them to translators. Some code blocks, however, may contain human-"
+"readable comments which should be translated. In order to force translation "
+"tools to present these code blocks for translation, authors could use the "
+"<code>its:translate</code> attribute from the <link href=\"http://www.w3.org/"
+"TR/its/\">Internationalization Tag Set</link>, as in the following:"
 msgstr ""
 
 #: C/mal_external.page:68(p)
@@ -4463,8 +4855,8 @@ msgstr ""
 msgid ""
 "The <code>tree</code> element can contain an optional <code xref="
 "\"mal_block_title\">title</code> element followed by one or more <code>item</"
-"code> elements. Each child <code>item</code> element can contain a mixture of "
-"text and any <link xref=\"mal_inline\">general inline elements</link>, "
+"code> elements. Each child <code>item</code> element can contain a mixture "
+"of text and any <link xref=\"mal_inline\">general inline elements</link>, "
 "followed by zero or more nested <code>item</code> elements."
 msgstr ""
 
@@ -4496,6 +4888,9 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"Das Element <code>tree</code> kann Attribute aus externen Namensräumen "
+"haben. Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_block_tree.page:86(p)
 msgid ""
@@ -4673,8 +5068,8 @@ msgid ""
 "The <code>terms</code> element can contain an optional <code xref="
 "\"mal_block_title\">title</code> element followed by one or more <code>item</"
 "code> elements. Each child <code>item</code> element can contain one or more "
-"<code xref=\"mal_block_title\">title</code> elements followed by a mixture of "
-"text and any <link xref=\"mal_inline\">general inline elements</link>."
+"<code xref=\"mal_block_title\">title</code> elements followed by a mixture "
+"of text and any <link xref=\"mal_inline\">general inline elements</link>."
 msgstr ""
 
 #: C/mal_block_terms.page:53(p)
@@ -4691,6 +5086,9 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"Das Element <code>terms</code> kann Attribute aus externen Namensräumen "
+"haben. Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_block_terms.page:74(p)
 msgid "Create a simple definition list with a title:"
@@ -4775,26 +5173,30 @@ msgstr ""
 
 #: C/mal_block_terms.page:157(p)
 msgid ""
-"Definition lists are displayed as block elements, with each child <code>item</"
-"code> displayed as some number of list items. When present, the title should "
-"be displayed in a way that makes it clear that it is the title of the list. "
-"Each <code>title</code> element of each list item is treated as a term, and "
-"is displayed as a block element. The remaining block content is then treated "
-"as the description and displayed as normal. The description blocks should be "
-"indented from the terms."
+"Definition lists are displayed as block elements, with each child "
+"<code>item</code> displayed as some number of list items. When present, the "
+"title should be displayed in a way that makes it clear that it is the title "
+"of the list. Each <code>title</code> element of each list item is treated as "
+"a term, and is displayed as a block element. The remaining block content is "
+"then treated as the description and displayed as normal. The description "
+"blocks should be indented from the terms."
 msgstr ""
 
 #: C/mal_block_terms.page:172(p)
+#, fuzzy
 msgid ""
 "The <code>terms</code> element is similar to <code href=\"http://www.docbook."
 "org/tdg/en/html/variablelist.html\">variablelist</code> element in DocBook. "
-"Like DocBook (and unlike HTML), Mallard groups terms with their corresponding "
-"entries. In DocBook, the entry must be wrapped with a <code href=\"http://www."
-"docbook.org/tdg/en/html/listitem.html\">listitem</code> element inside the "
-"<code href=\"http://www.docbook.org/tdg/en/html/varlistentry.html"
-"\">varlistentry</code> element. In Mallard, the entry is simply all of the "
-"block content except the <code xref=\"mal_block_title\">title</code> elements."
+"Like DocBook (and unlike HTML), Mallard groups terms with their "
+"corresponding entries. In DocBook, the entry must be wrapped with a <code "
+"href=\"http://www.docbook.org/tdg/en/html/listitem.html\">listitem</code> "
+"element inside the <code href=\"http://www.docbook.org/tdg/en/html/"
+"varlistentry.html\">varlistentry</code> element. In Mallard, the entry is "
+"simply all of the block content except the <code xref=\"mal_block_title"
+"\">title</code> elements."
 msgstr ""
+"Das <code>app</code>-Element ist ähnlich dem <code href=\"http://www.docbook."
+"org/tdg/en/html/application.html\">application</code>-Element in DocBook."
 
 #: C/mal_block_synopsis.page:18(desc)
 msgid "Create an overview of concepts."
@@ -4846,6 +5248,10 @@ msgid ""
 "\"mal_block_desc\">desc</link> element, and any <link xref=\"mal_block"
 "\">general block content</link>."
 msgstr ""
+"Das Element <code>synopsis</code> enthält ein optionales Element <code xref="
+"\"mal_block_title\">title</code>, ein optionales Element <code xref="
+"\"mal_block_desc\">desc</code> und beliebigen <link xref=\"mal_block"
+"\">allgemeinen Blockinhalt</link>."
 
 #: C/mal_block_synopsis.page:55(p)
 msgid ""
@@ -4861,6 +5267,9 @@ msgid ""
 "namespaces. See <link xref=\"mal_external\"/> for more information on "
 "external-namespace attributes."
 msgstr ""
+"Das Element <code>synopsis</code> kann Attribute aus externen Namensräumen "
+"haben. Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_block_synopsis.page:76(p)
 msgid "Use <code>synopsis</code> to create an overview of functions:"
@@ -4892,8 +5301,8 @@ msgid ""
 "A <code>synopsis</code> element is rendered as a displayed block, with each "
 "of its child elements interpreted as block elements. Since a <code>synopsis</"
 "code> element often contains large blocks, and is generally offset from the "
-"running text, display tools may opt to render it inside a colored box, with a "
-"border, or otherwise differently from the surrounding text."
+"running text, display tools may opt to render it inside a colored box, with "
+"a border, or otherwise differently from the surrounding text."
 msgstr ""
 
 #: C/mal_block_synopsis.page:112(p)
@@ -4905,6 +5314,7 @@ msgstr ""
 "angezeigt werden, die deren jeweiligen Rollen eindeutig klarstellt."
 
 #: C/mal_block_synopsis.page:122(p)
+#, fuzzy
 msgid ""
 "The <code>synopsis</code> element is similar to the <code href=\"http://www."
 "docbook.org/tdg/en/html/synopsis.html\">synopsis</code> element in DocBook, "
@@ -4915,6 +5325,8 @@ msgid ""
 "data for command and function synopses, respectively. Mallard does not "
 "provide modelling elements."
 msgstr ""
+"Das <code>app</code>-Element ist ähnlich dem <code href=\"http://www.docbook."
+"org/tdg/en/html/application.html\">application</code>-Element in DocBook."
 
 #: C/mal_block_subtitle.page:9(title)
 msgid "Subtitles"
@@ -4991,8 +5403,8 @@ msgstr ""
 msgid ""
 "The <code>steps</code> element can contain an optional <code xref="
 "\"mal_block_title\">title</code> element followed by one or more <code>item</"
-"code> elements. Each child <code>item</code> element can contain a mixture of "
-"text and any <link xref=\"mal_inline\">general inline elements</link>."
+"code> elements. Each child <code>item</code> element can contain a mixture "
+"of text and any <link xref=\"mal_inline\">general inline elements</link>."
 msgstr ""
 
 #: C/mal_block_steps.page:55(p)
@@ -5009,6 +5421,9 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"Das Element <code>steps</code> kann Attribute aus externen Namensräumen "
+"haben. Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_block_steps.page:76(p)
 msgid "Create a simple procedure of steps for the reader to follow:"
@@ -5068,30 +5483,30 @@ msgstr "Gießen Sie Wasser auf die Stelle, an der die Bohnen gepflanzt wurden."
 
 #: C/mal_block_steps.page:149(p)
 msgid ""
-"Procedures are displayed as block elements, with each child <code>item</code> "
-"displayed as a numbered list item. When present, the <code>title</code> "
-"element should be displayed in a way that makes it clear that it is the title "
-"of the list. List items are interpreted in the same way as <code>li</code> "
-"elements in HTML, except that the <code>item</code> element only allows block-"
-"level child content."
+"Procedures are displayed as block elements, with each child <code>item</"
+"code> displayed as a numbered list item. When present, the <code>title</"
+"code> element should be displayed in a way that makes it clear that it is "
+"the title of the list. List items are interpreted in the same way as "
+"<code>li</code> elements in HTML, except that the <code>item</code> element "
+"only allows block-level child content."
 msgstr ""
 
 #: C/mal_block_steps.page:155(p)
 msgid ""
-"Procedures should have a background color, border, or other styling effect to "
-"clearly differentiate them from basic numbered lists. Special styling allows "
-"readers to skim pages more easily."
+"Procedures should have a background color, border, or other styling effect "
+"to clearly differentiate them from basic numbered lists. Special styling "
+"allows readers to skim pages more easily."
 msgstr ""
 
 #: C/mal_block_steps.page:166(p)
 msgid ""
 "The <code>steps</code> element is similar to the <code href=\"http://www."
-"docbook.org/tdg/en/html/procedure.html\">procedure</code> element in DocBook. "
-"Note the following differences:"
+"docbook.org/tdg/en/html/procedure.html\">procedure</code> element in "
+"DocBook. Note the following differences:"
 msgstr ""
-"Das <code>steps</code>-Element ähnelt dem <code href=\"http://www.docbook.org/"
-"tdg/en/html/procedure.html\">procedure</code>-Element in DocBook. Beachten "
-"Sie die folgenden Unterschiede:"
+"Das <code>steps</code>-Element ähnelt dem <code href=\"http://www.docbook."
+"org/tdg/en/html/procedure.html\">procedure</code>-Element in DocBook. "
+"Beachten Sie die folgenden Unterschiede:"
 
 #: C/mal_block_steps.page:171(p)
 msgid ""
@@ -5099,8 +5514,8 @@ msgid ""
 "html\">step</code> element, Mallard simply uses the common <code>item</code> "
 "element for each step."
 msgstr ""
-"Anstelle eines separaten <code href=\"http://www.docbook.org/tdg/en/html/step."
-"html\">step</code>-Elements verwendet Mallard einfach das allgemeine "
+"Anstelle eines separaten <code href=\"http://www.docbook.org/tdg/en/html/"
+"step.html\">step</code>-Elements verwendet Mallard einfach das allgemeine "
 "<code>item</code>-Element für jeden Schritt."
 
 #: C/mal_block_steps.page:175(p)
@@ -5112,15 +5527,15 @@ msgstr ""
 
 #: C/mal_block_steps.page:180(p)
 msgid ""
-"Mallard provides no equivalent to the <code href=\"http://www.docbook.org/tdg/"
-"en/html/stepalternatives.html\">stepalternatives</code> element. Use a <code "
-"xref=\"mal_block_list\">basic bulleted list</code> with introductory text "
-"when this is needed."
+"Mallard provides no equivalent to the <code href=\"http://www.docbook.org/"
+"tdg/en/html/stepalternatives.html\">stepalternatives</code> element. Use a "
+"<code xref=\"mal_block_list\">basic bulleted list</code> with introductory "
+"text when this is needed."
 msgstr ""
-"Mallard bietet keine Entsprechung zum <code href=\"http://www.docbook.org/tdg/"
-"en/html/stepalternatives.html\">stepalternatives</code>-Element. Verwenden "
-"Sie eine <code xref=\"mal_block_list\">einfache Pfeilliste</code>, falls "
-"nötig, mit einem einführenden Text."
+"Mallard bietet keine Entsprechung zum <code href=\"http://www.docbook.org/"
+"tdg/en/html/stepalternatives.html\">stepalternatives</code>-Element. "
+"Verwenden Sie eine <code xref=\"mal_block_list\">einfache Pfeilliste</code>, "
+"falls nötig, mit einem einführenden Text."
 
 #: C/mal_block_steps.page:185(p)
 msgid ""
@@ -5156,12 +5571,12 @@ msgstr ""
 
 #: C/mal_block_screen.page:33(p)
 msgid ""
-"Use the <code>screen</code> element to mark up a textual screen for a textual "
-"user interface or an interactive shell. The contents of a <code>screen</code> "
-"element are displayed verbatim. While all inline content is allowed, <code "
-"xref=\"mal_inline_input\">input</code> and <code xref=\"mal_inline_output"
-"\">output</code> will frequently be used to provide richer markup when "
-"showing a shell session."
+"Use the <code>screen</code> element to mark up a textual screen for a "
+"textual user interface or an interactive shell. The contents of a "
+"<code>screen</code> element are displayed verbatim. While all inline content "
+"is allowed, <code xref=\"mal_inline_input\">input</code> and <code xref="
+"\"mal_inline_output\">output</code> will frequently be used to provide "
+"richer markup when showing a shell session."
 msgstr ""
 
 #: C/mal_block_screen.page:40(p)
@@ -5180,9 +5595,12 @@ msgstr ""
 #: C/mal_block_screen.page:52(p)
 msgid ""
 "The <code>screen</code> element can contain a mixture of text and any <link "
-"xref=\"mal_inline\">general inline elements</link>. Whitespace is interpreted "
-"literally."
+"xref=\"mal_inline\">general inline elements</link>. Whitespace is "
+"interpreted literally."
 msgstr ""
+"Das Element <code>screen</code> kann eine Mischung aus Text und weiteren "
+"<link xref=\"mal_inline\">allgemein eingebetteten Elementen</link> "
+"enthalten. Leerzeichen werden wörtlich interpretiert."
 
 #: C/mal_block_screen.page:56(p)
 msgid ""
@@ -5194,19 +5612,22 @@ msgstr ""
 
 #: C/mal_block_screen.page:65(p)
 msgid ""
-"The <code>mime</code> attribute takes a valid MIME type. Processing tools may "
-"adjust their behavior for particular MIME types. A MIME type is assumed to "
-"apply to the user input only; thus, processing tools may ignore the MIME type "
-"if the <code>screen</code> element is not composed of <code>input</code> and "
-"<code>output</code> elements."
+"The <code>mime</code> attribute takes a valid MIME type. Processing tools "
+"may adjust their behavior for particular MIME types. A MIME type is assumed "
+"to apply to the user input only; thus, processing tools may ignore the MIME "
+"type if the <code>screen</code> element is not composed of <code>input</"
+"code> and <code>output</code> elements."
 msgstr ""
 
 #: C/mal_block_screen.page:82(p)
 msgid ""
-"The <code>screen</code> element can have attributes from external namespaces. "
-"See <link xref=\"mal_external\"/> for more information on external-namespace "
-"attributes on block elements."
+"The <code>screen</code> element can have attributes from external "
+"namespaces. See <link xref=\"mal_external\"/> for more information on "
+"external-namespace attributes on block elements."
 msgstr ""
+"Das Element <code>screen</code> kann Attribute aus externen Namensräumen "
+"haben. Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_block_screen.page:94(p)
 msgid ""
@@ -5250,6 +5671,9 @@ msgid ""
 "\"mal_inline_output\">output</code> inside <code>screen</code> for richer "
 "text:"
 msgstr ""
+"Verwenden Sie <code xref=\"mal_inline_input\">input</code> und <code xref="
+"\"mal_inline_output\">output</code> innerhalb von <code>screen</code> für "
+"reichhaltigeren Text:"
 
 #: C/mal_block_screen.page:144(output)
 msgid "[rupert@gnome]"
@@ -5279,7 +5703,8 @@ msgstr ""
 #: C/mal_block_screen.page:162(p)
 msgid ""
 "Screens should be displayed in a fixed-width font. Inline markup may cause "
-"style variations, but they should not cause a change to a variable-width font."
+"style variations, but they should not cause a change to a variable-width "
+"font."
 msgstr ""
 
 #: C/mal_block_screen.page:172(p)
@@ -5296,6 +5721,9 @@ msgid ""
 "oasis-open.org/dita/v1.1/CS01/langspec/langref/screen.html\">screen</code> "
 "element in DITA."
 msgstr ""
+"Das <code>screen</code>-Element ist ähnlich dem <code href=\"http://docs."
+"oasis-open.org/dita/v1.1/CS01/langspec/langref/screen.html\">screen</code>-"
+"Element in DITA."
 
 #: C/mal_block_quote.page:16(desc)
 msgid "Create a block-level quotation with an attribution."
@@ -5303,7 +5731,7 @@ msgstr ""
 
 #: C/mal_block_quote.page:19(title)
 msgid "Block Quotes"
-msgstr ""
+msgstr "Zitatblöcke"
 
 #: C/mal_block_quote.page:21(code)
 #, no-wrap
@@ -5344,6 +5772,10 @@ msgid ""
 "\"mal_block_cite\">cite</link> element, and any <link xref=\"mal_block"
 "\">general block content</link>."
 msgstr ""
+"Das Element <code>quote</code> enthält ein optionales Element <code xref="
+"\"mal_block_title\">title</code>, ein obligatorisches Element <link xref="
+"\"mal_block_cite\">cite</link> und beliebigen <link xref=\"mal_block"
+"\">allgemeinen Blockinhalt</link>."
 
 #: C/mal_block_quote.page:47(p)
 msgid ""
@@ -5370,10 +5802,13 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"Das Element <code>quote</code> kann Attribute aus externen Namensräumen "
+"haben. Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_block_quote.page:79(p)
 msgid "Include a simple block quote in your document:"
-msgstr ""
+msgstr "Binden Sie einen einfachen Zitatblock in Ihr Dokument ein:"
 
 #: C/mal_block_quote.page:89(cite) C/mal_block_quote.page:106(cite)
 #: C/mal_block_quote.page:121(cite)
@@ -5391,11 +5826,11 @@ msgstr "Fügen Sie eine Überschrift zum Zitat hinzu:"
 
 #: C/mal_block_quote.page:105(title)
 msgid "Simplify"
-msgstr ""
+msgstr "Vereinfachen"
 
 #: C/mal_block_quote.page:111(p)
 msgid "Add a date to the attribution:"
-msgstr ""
+msgstr "Der Zuordnung ein Datum hinzufügen:"
 
 #: C/mal_block_quote.page:133(p)
 msgid ""
@@ -5415,6 +5850,10 @@ msgid ""
 "DocBook. The <code xref=\"mal_block_cite\">cite</code> element is mandatory "
 "in Mallard, whereas attribution is optional in DocBook."
 msgstr ""
+"Das <code>quote</code>-Element ist ähnlich dem <code href=\"http://www."
+"docbook.org/tdg/en/html/blockquote.html\">blockquote</code>-Element in "
+"DocBook. Das Element <code xref=\"mal_block_cite\">cite</code> ist in "
+"Mallard erforderlich, wohingegen eine Zuordnung in DocBook optional ist."
 
 #: C/mal_block_p.page:16(desc)
 msgid "Create a simple paragraph of text."
@@ -5473,6 +5912,9 @@ msgid ""
 "<link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"Das Element <code>p</code> kann Attribute aus externen Namensräumen haben. "
+"Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_block_p.page:63(p)
 msgid "Create a simple paragraph:"
@@ -5481,10 +5923,10 @@ msgstr "So erstellen Sie einen einfachen Absatz:"
 #: C/mal_block_p.page:81(p)
 msgid ""
 "Paragraphs are displayed as block elements, with their child elements "
-"interpreted as inline elements. In on-screen media, paragraphs generally have "
-"padding above and below them to separate them from the surrounding block "
-"content. In print media, the first line of each paragraph has traditionally "
-"been indented."
+"interpreted as inline elements. In on-screen media, paragraphs generally "
+"have padding above and below them to separate them from the surrounding "
+"block content. In print media, the first line of each paragraph has "
+"traditionally been indented."
 msgstr ""
 
 #: C/mal_block_p.page:93(p)
@@ -5538,11 +5980,11 @@ msgstr ""
 
 #: C/mal_block.page:50(title)
 msgid "Basic Block Elements"
-msgstr ""
+msgstr "Grundlegende Blockelemente"
 
 #: C/mal_block.page:57(title)
 msgid "Basic Elements"
-msgstr ""
+msgstr "Grundlegende Elemente"
 
 #: C/mal_block.page:58(code)
 #, no-wrap
@@ -5569,17 +6011,17 @@ msgstr ""
 msgid ""
 "Basic block elements are elements that do not contain a title and which have "
 "either general block content or <link xref=\"mal_inline\">inline content</"
-"link>. Using basic block elements, you can build up simple pages which convey "
-"information clearly."
+"link>. Using basic block elements, you can build up simple pages which "
+"convey information clearly."
 msgstr ""
 
 #: C/mal_block.page:78(title)
 msgid "Formal Block Elements"
-msgstr ""
+msgstr "Formale Blockelemente"
 
 #: C/mal_block.page:86(title)
 msgid "Formal Elements"
-msgstr ""
+msgstr "Formale Elemente"
 
 #: C/mal_block.page:87(code)
 #, no-wrap
@@ -5637,11 +6079,11 @@ msgstr ""
 #: C/mal_block.page:121(p)
 msgid ""
 "Mallard provides list elements for most common needs, including the common "
-"definition, ordered, and unordered lists. Mallard also provides simple trees, "
-"which are useful for representing heirarchies such as class inheritance or "
-"directory layouts. Each of the list elements uses the <code>item</code> "
-"element, though the content model for <code>item</code> varies. See the list "
-"element pages for details."
+"definition, ordered, and unordered lists. Mallard also provides simple "
+"trees, which are useful for representing heirarchies such as class "
+"inheritance or directory layouts. Each of the list elements uses the "
+"<code>item</code> element, though the content model for <code>item</code> "
+"varies. See the list element pages for details."
 msgstr ""
 
 #: C/mal_block.page:138(p)
@@ -5667,9 +6109,9 @@ msgstr ""
 msgid ""
 "Block elements all begin on a new line in rendered output. Pages can be "
 "visualized as a sequence of vertically-stacked block elements. Some block "
-"elements contain other block elements. In these cases, the containing element "
-"may introduce certain styling effects, and each of the child elements is "
-"rendered as normal."
+"elements contain other block elements. In these cases, the containing "
+"element may introduce certain styling effects, and each of the child "
+"elements is rendered as normal."
 msgstr ""
 
 #: C/mal_block.page:174(p)
@@ -5722,6 +6164,9 @@ msgid ""
 "\"mal_block_title\">title</link> element and any <link xref=\"mal_block"
 "\">general block content</link>."
 msgstr ""
+"Das Element <code>note</code> enthält ein optionales Element <code xref="
+"\"mal_block_title\">title</code> und beliebigen <link xref=\"mal_block"
+"\">allgemeinen Blockinhalt</link>."
 
 #: C/mal_block_note.page:47(p)
 msgid ""
@@ -5738,7 +6183,7 @@ msgstr "advanced"
 
 #: C/mal_block_note.page:61(p)
 msgid "information that advanced users may find useful"
-msgstr ""
+msgstr "Informationen, die für fortgeschrittene Nutzer nützlich sein könnten"
 
 #: C/mal_block_note.page:64(code)
 #, no-wrap
@@ -5747,7 +6192,7 @@ msgstr "bug"
 
 #: C/mal_block_note.page:65(p)
 msgid "a note about a known bug in the software"
-msgstr ""
+msgstr "ein Hinweis zu einem bekannten Fehler in der Software"
 
 #: C/mal_block_note.page:68(code) C/docbook.page:680(code)
 #, no-wrap
@@ -5756,7 +6201,7 @@ msgstr "important"
 
 #: C/mal_block_note.page:69(p)
 msgid "important information highlighted in a note"
-msgstr ""
+msgstr "wichtige, hervorgehobene Information in einer Notiz"
 
 #: C/mal_block_note.page:72(code)
 #, no-wrap
@@ -5765,7 +6210,7 @@ msgstr "tip"
 
 #: C/mal_block_note.page:73(p)
 msgid "a general tip that may help the reader perform an operation better"
-msgstr ""
+msgstr "ein allgemeiner Hinweis, der den Leser bei einem Vorgang unterstützt"
 
 #: C/mal_block_note.page:76(code)
 #, no-wrap
@@ -5775,6 +6220,7 @@ msgstr "warning"
 #: C/mal_block_note.page:77(p)
 msgid "a warning to the reader about a potentially dangerous operation"
 msgstr ""
+"eine Warnung an den Leser über einen möglicherweise gefährlichen Vorgang"
 
 #: C/mal_block_note.page:82(p)
 msgid ""
@@ -5782,10 +6228,13 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"Das Element <code>note</code> kann Attribute aus externen Namensräumen "
+"haben. Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_block_note.page:94(p)
 msgid "Insert a basic note into your document:"
-msgstr ""
+msgstr "Eine einfache Notiz in Ihr Dokument einfügen:"
 
 #: C/mal_block_note.page:103(p)
 msgid "Information in this section is non-normative."
@@ -5811,7 +6260,7 @@ msgstr ""
 
 #: C/mal_block_note.page:134(title)
 msgid "Cannot Save Files"
-msgstr ""
+msgstr "Dateien können nicht gespeichert werden"
 
 #: C/mal_block_note.page:135(p)
 msgid ""
@@ -5836,8 +6285,8 @@ msgid ""
 "and email address so that your commits are correctly attributed."
 msgstr ""
 "Bevor Sie irgendetwas in einen Git-Softwarebestand einspielen, stellen Sie "
-"bitte sicher, dass Sie Ihren Namen und Ihre E-Mail-Adresse hinzugefügt haben. "
-"Nur so können Ihre Einspielungen korrekt zugeordnet werden."
+"bitte sicher, dass Sie Ihren Namen und Ihre E-Mail-Adresse hinzugefügt "
+"haben. Nur so können Ihre Einspielungen korrekt zugeordnet werden."
 
 #: C/mal_block_note.page:161(code)
 #, no-wrap
@@ -5852,7 +6301,7 @@ msgstr ""
 
 #: C/mal_block_note.page:167(p)
 msgid "Provide a helpful but non-essential tip:"
-msgstr ""
+msgstr "Einen hilfreichen, aber unbedeutenden Hinweis geben:"
 
 #: C/mal_block_note.page:177(p)
 msgid ""
@@ -5892,11 +6341,11 @@ msgid ""
 "\"http://www.docbook.org/tdg/en/html/tip.html\">tip</code>, and <code href="
 "\"http://www.docbook.org/tdg/en/html/warning.html\">warning</code> elements "
 "in DocBook. Rather than use separate elements, Mallard uses single "
-"<code>note</code> element which can be specialized and extended through style "
-"hints. This document recommends the style hints <code>advanced</code> and "
-"<code>bug</code>, which have no counterpart in DocBook. This document does "
-"not recommend separate <code>caution</code> and <code>warning</code> types, "
-"as there is rarely a useful distinction in practice."
+"<code>note</code> element which can be specialized and extended through "
+"style hints. This document recommends the style hints <code>advanced</code> "
+"and <code>bug</code>, which have no counterpart in DocBook. This document "
+"does not recommend separate <code>caution</code> and <code>warning</code> "
+"types, as there is rarely a useful distinction in practice."
 msgstr ""
 
 #: C/mal_block_media.page:21(title)
@@ -5968,16 +6417,16 @@ msgid ""
 "display the child elements of the element, as if the <code>media</code> "
 "element itself were replaced by its children. The child elements may consist "
 "of simply another <code>media</code> element referencing a different type of "
-"content. When processing any child <code>media</code> elements, display tools "
-"may need to fall back further to their child elements."
+"content. When processing any child <code>media</code> elements, display "
+"tools may need to fall back further to their child elements."
 msgstr ""
 
 #: C/mal_block_media.page:123(p)
 msgid ""
 "Frequently, the children of a <code>media</code> element will be a single "
-"block element, such as another <code>media</code> element or a <code>p</code> "
-"element. Note, however, that this is not required, and fallback rendering may "
-"involve displaying several block elements."
+"block element, such as another <code>media</code> element or a <code>p</"
+"code> element. Note, however, that this is not required, and fallback "
+"rendering may involve displaying several block elements."
 msgstr ""
 
 #: C/mal_block_media.page:142(p)
@@ -5986,10 +6435,10 @@ msgid ""
 "<code xref=\"http://www.docbook.org/tdg/en/html/audiooobject.html"
 "\">audioobject</code>, <code xref=\"http://www.docbook.org/tdg/en/html/"
 "imageobject.html\">imageobject</code>, and <code xref=\"http://www.docbook."
-"org/tdg/en/html/videoobject.html\">videoobject</code>. DocBook uses the <code "
-"xref=\"http://www.docbook.org/tdg/en/html/mediaobject.html\">mediaobject</"
-"code> element to provide alternative objects. In Mallard, alternative objects "
-"are nested, obviating the need for a container element."
+"org/tdg/en/html/videoobject.html\">videoobject</code>. DocBook uses the "
+"<code xref=\"http://www.docbook.org/tdg/en/html/mediaobject.html"
+"\">mediaobject</code> element to provide alternative objects. In Mallard, "
+"alternative objects are nested, obviating the need for a container element."
 msgstr ""
 
 #: C/mal_block_list.page:16(desc)
@@ -5998,7 +6447,7 @@ msgstr ""
 
 #: C/mal_block_list.page:19(title)
 msgid "Basic Lists"
-msgstr ""
+msgstr "Einfache Listen"
 
 #: C/mal_block_list.page:21(code)
 #, no-wrap
@@ -6049,8 +6498,8 @@ msgstr ""
 msgid ""
 "The <code>list</code> element can contain an optional <code xref="
 "\"mal_block_title\">title</code> element followed by one or more <code>item</"
-"code> elements. Each child <code>item</code> element can contain a mixture of "
-"text and any <link xref=\"mal_inline\">general inline elements</link>."
+"code> elements. Each child <code>item</code> element can contain a mixture "
+"of text and any <link xref=\"mal_inline\">general inline elements</link>."
 msgstr ""
 
 #: C/mal_block_list.page:56(p)
@@ -6085,10 +6534,13 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"Das Element <code>list</code> kann Attribute aus externen Namensräumen "
+"haben. Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_block_list.page:89(p)
 msgid "Create a basic unordered list:"
-msgstr ""
+msgstr "Eine einfache ungeordnete Liste anlegen:"
 
 #: C/mal_block_list.page:102(code) C/mal_block_list.page:125(code)
 #, no-wrap
@@ -6125,23 +6577,23 @@ msgstr "Meldungstypen"
 
 #: C/mal_block_list.page:133(p)
 msgid "Create a simple numbered list:"
-msgstr ""
+msgstr "Eine einfache nummerierte Liste erstellen:"
 
 #: C/mal_block_list.page:144(p) C/mal_block_list.page:161(p)
 msgid "First"
-msgstr ""
+msgstr "Erstens"
 
 #: C/mal_block_list.page:145(p) C/mal_block_list.page:162(p)
 msgid "Second"
-msgstr ""
+msgstr "Zweitens"
 
 #: C/mal_block_list.page:146(p) C/mal_block_list.page:163(p)
 msgid "Third"
-msgstr ""
+msgstr "Drittens"
 
 #: C/mal_block_list.page:150(p)
 msgid "Create a numbered list with Roman numerals:"
-msgstr ""
+msgstr "Eine nummerierte Liste mit römischen Ziffern erstellen:"
 
 #: C/mal_block_list.page:174(p)
 msgid ""
@@ -6168,9 +6620,9 @@ msgid ""
 "The <code>list</code> element combines the functionality of the <code href="
 "\"http://www.docbook.org/tdg/en/html/itemizedlist.html\">itemizedlist</code> "
 "and <code href=\"http://www.docbook.org/tdg/en/html/orderedlist.html"
-"\">orderedlist</code> elements in DocBook. DocBook allows leading block-level "
-"content in its list elements. This is not allowed in Mallard, though an "
-"optional <code>title</code> element is allowed. DocBook allows you to "
+"\">orderedlist</code> elements in DocBook. DocBook allows leading block-"
+"level content in its list elements. This is not allowed in Mallard, though "
+"an optional <code>title</code> element is allowed. DocBook allows you to "
 "override the bullet or numbering type on each list item. Mallard does not "
 "allow this."
 msgstr ""
@@ -6181,7 +6633,7 @@ msgstr ""
 
 #: C/mal_block_listing.page:22(title)
 msgid "Listings"
-msgstr "Listen"
+msgstr "Auflistungen"
 
 #: C/mal_block_listing.page:24(code)
 #, no-wrap
@@ -6208,13 +6660,13 @@ msgstr ""
 
 #: C/mal_block_listing.page:35(p)
 msgid ""
-"Use the <code>listing</code> element to create named listing of file contents "
-"or other content. Listings are usually used with <link xref=\"mal_block_code"
-"\">code blocks</link> to provide a name for the file to enter the content "
-"into. They may also be used to provide a name for an <link xref="
-"\"mal_block_screen\">interactive shell session</link> or any other type of "
-"content. To provide a title for images or other multimedia objects, use the "
-"<link xref=\"mal_block_figure\">figure</link> element."
+"Use the <code>listing</code> element to create named listing of file "
+"contents or other content. Listings are usually used with <link xref="
+"\"mal_block_code\">code blocks</link> to provide a name for the file to "
+"enter the content into. They may also be used to provide a name for an <link "
+"xref=\"mal_block_screen\">interactive shell session</link> or any other type "
+"of content. To provide a title for images or other multimedia objects, use "
+"the <link xref=\"mal_block_figure\">figure</link> element."
 msgstr ""
 
 #: C/mal_block_listing.page:47(p)
@@ -6224,6 +6676,10 @@ msgid ""
 "\"mal_block_desc\">desc</link> element, and any <link xref=\"mal_block"
 "\">general block content</link>."
 msgstr ""
+"Das Element <code>listing</code> enthält ein optionales Element <code xref="
+"\"mal_block_title\">title</code>, ein optionales Element <link xref="
+"\"mal_block_desc\">desc</link> und beliebigen <link xref=\"mal_block"
+"\">allgemeinen Blockinhalt</link>."
 
 #: C/mal_block_listing.page:52(p)
 msgid ""
@@ -6239,6 +6695,9 @@ msgid ""
 "namespaces. See <link xref=\"mal_external\"/> for more information on "
 "external-namespace attributes."
 msgstr ""
+"Das Element <code>listing</code> kann Attribute aus externen Namensräumen "
+"haben. Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_block_listing.page:73(p)
 msgid ""
@@ -6317,9 +6776,9 @@ msgstr ""
 
 #: C/mal_block_figure.page:35(p)
 msgid ""
-"Use the <code>figure</code> element to provide a title or caption for a <link "
-"xref=\"mal_block_media\">multimedia object</link> or other block object. To "
-"provide a title for the contents of a file, such as a <link xref="
+"Use the <code>figure</code> element to provide a title or caption for a "
+"<link xref=\"mal_block_media\">multimedia object</link> or other block "
+"object. To provide a title for the contents of a file, such as a <link xref="
 "\"mal_block_code\">code block</link>, use the <code xref=\"mal_block_listing"
 "\">listing</code> element instead."
 msgstr ""
@@ -6331,6 +6790,10 @@ msgid ""
 "\"mal_block_desc\">desc</link> element, and any <link xref=\"mal_block"
 "\">general block content</link>."
 msgstr ""
+"Das Element <code>figure</code> enthält ein optionales Element <code xref="
+"\"mal_block_title\">title</code>, ein optionales Element <link xref="
+"\"mal_block_desc\">desc</link> und beliebigen <link xref=\"mal_block"
+"\">allgemeinen Blockinhalt</link>."
 
 #: C/mal_block_figure.page:50(p)
 msgid ""
@@ -6342,10 +6805,13 @@ msgstr ""
 
 #: C/mal_block_figure.page:59(p)
 msgid ""
-"The <code>figure</code> element can have attributes from external namespaces. "
-"See <link xref=\"mal_external\"/> for more information on external-namespace "
-"attributes."
+"The <code>figure</code> element can have attributes from external "
+"namespaces. See <link xref=\"mal_external\"/> for more information on "
+"external-namespace attributes."
 msgstr ""
+"Das Element <code>figure</code> kann Attribute aus externen Namensräumen "
+"haben. Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_block_figure.page:70(p)
 msgid "Use <code>figure</code> to provide a title and caption for an image:"
@@ -6369,8 +6835,8 @@ msgstr ""
 
 #: C/mal_block_figure.page:105(p)
 msgid ""
-"The <code>figure</code> is similar to the <code href=\"http://www.docbook.org/"
-"tdg/en/html/figure.html\">figure</code> element in DocBook. DocBook only "
+"The <code>figure</code> is similar to the <code href=\"http://www.docbook."
+"org/tdg/en/html/figure.html\">figure</code> element in DocBook. DocBook only "
 "provides a title for figures, whereas Mallard distinguishes between a title "
 "and a caption."
 msgstr ""
@@ -6401,9 +6867,10 @@ msgstr ""
 #: C/mal_block_example.page:30(p)
 msgid ""
 "Use the <code>example</code> element to place block elements into a logical "
-"group, indicating that they are part of a single example. This may be used to "
-"group example input with its result, to show different steps with different "
-"types of block elements, or simply to group some paragraphs together."
+"group, indicating that they are part of a single example. This may be used "
+"to group example input with its result, to show different steps with "
+"different types of block elements, or simply to group some paragraphs "
+"together."
 msgstr ""
 
 #: C/mal_block_example.page:41(p)
@@ -6426,6 +6893,9 @@ msgid ""
 "namespaces. See <link xref=\"mal_external\"/> for more information on "
 "external-namespace attributes."
 msgstr ""
+"Das Element <code>example</code> kann Attribute aus externen Namensräumen "
+"haben. Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_block_example.page:65(p)
 msgid ""
@@ -6497,6 +6967,7 @@ msgid ""
 msgstr ""
 
 #: C/mal_block_example.page:122(p)
+#, fuzzy
 msgid ""
 "The <code>example</code> element is similar to the <code href=\"http://www."
 "docbook.org/tdg/en/html/example.html\">example</code> element in DocBook. In "
@@ -6504,10 +6975,12 @@ msgid ""
 "<code>example</code> is a simple container element, and does not allow a "
 "<code xref=\"mal_block_title\">title</code> element."
 msgstr ""
+"Das <code>screen</code>-Element ist ähnlich dem <code href=\"http://www."
+"docbook.org/tdg/en/html/screen.html\">screen</code>-Element in DocBook."
 
 #: C/mal_block_desc.page:20(desc)
 msgid "Provide a caption for a formal block element."
-msgstr ""
+msgstr "Einem formalen Blockelement eine Beschriftung geben."
 
 #: C/mal_block_desc.page:23(title)
 msgid "Block Descriptions"
@@ -6534,10 +7007,10 @@ msgstr ""
 
 #: C/mal_block_desc.page:34(p)
 msgid ""
-"The <code>desc</code> element marks a short text description for formal block "
-"elements like <link xref=\"mal_block_figure\">figure</link>. The description "
-"provided by <code>desc</code> is formatted as a caption for the formal "
-"element."
+"The <code>desc</code> element marks a short text description for formal "
+"block elements like <link xref=\"mal_block_figure\">figure</link>. The "
+"description provided by <code>desc</code> is formatted as a caption for the "
+"formal element."
 msgstr ""
 
 #: C/mal_block_desc.page:47(p)
@@ -6546,9 +7019,10 @@ msgid ""
 "xref=\"mal_block_figure\">figure</code>, <code xref=\"mal_block_listing"
 "\">listing</code>, and <code xref=\"mal_block_synopsis\">synopsis</code>."
 msgstr ""
-"Das <code>desc</code>-Element kann in den formalen Block-Elementen <code xref="
-"\"mal_block_figure\">figure</code>, <code xref=\"mal_block_listing\">listing</"
-"code> und <code xref=\"mal_block_synopsis\">synopsis</code> vorkommen."
+"Das <code>desc</code>-Element kann in den formalen Block-Elementen <code "
+"xref=\"mal_block_figure\">figure</code>, <code xref=\"mal_block_listing"
+"\">listing</code> und <code xref=\"mal_block_synopsis\">synopsis</code> "
+"vorkommen."
 
 #: C/mal_block_desc.page:60(p)
 msgid ""
@@ -6558,14 +7032,14 @@ msgstr ""
 
 #: C/mal_block_desc.page:71(p)
 msgid ""
-"Use <code>desc</code> to provide a caption for a <link xref=\"mal_block_figure"
-"\">figure</link>:"
+"Use <code>desc</code> to provide a caption for a <link xref="
+"\"mal_block_figure\">figure</link>:"
 msgstr ""
 
 #: C/mal_block_desc.page:87(p)
 msgid ""
-"Use <code>desc</code> to provide a caption for a <link xref=\"mal_block_figure"
-"\">listing</link>:"
+"Use <code>desc</code> to provide a caption for a <link xref="
+"\"mal_block_figure\">listing</link>:"
 msgstr ""
 
 #: C/mal_block_desc.page:91(code)
@@ -6598,8 +7072,9 @@ msgid ""
 "More exaples can be found on the pages <link xref=\"mal_block_figure\"/>, "
 "<link xref=\"mal_block_listing\"/>, and <link xref=\"mal_block_synopsis\"/>."
 msgstr ""
-"Weitere Beispiele finden Sie in den Seiten <link xref=\"mal_block_figure\"/>, "
-"<link xref=\"mal_block_listing\"/> und <link xref=\"mal_block_synopsis\"/>."
+"Weitere Beispiele finden Sie in den Seiten <link xref=\"mal_block_figure\"/"
+">, <link xref=\"mal_block_listing\"/> und <link xref=\"mal_block_synopsis\"/"
+">."
 
 #: C/mal_block_desc.page:122(p)
 msgid ""
@@ -6611,8 +7086,8 @@ msgstr ""
 #: C/mal_block_desc.page:126(p)
 msgid ""
 "A description should be displayed in a way that makes its role clearn and "
-"which clearly distinguishes it from the normal block content of the enclosing "
-"element."
+"which clearly distinguishes it from the normal block content of the "
+"enclosing element."
 msgstr ""
 
 #: C/mal_block_comment.page:16(desc)
@@ -6648,12 +7123,12 @@ msgstr ""
 
 #: C/mal_block_comment.page:32(p)
 msgid ""
-"The <code>comment</code> element allows you to insert editorial comments into "
-"your document. These comments are intended to be displayed only when editing "
-"or reviewing the document, and not when the document is viewed by the end "
-"reader. A <code>comment</code> element can contain other <code>comment</code> "
-"elements, allowing you to have a threaded discussion inside editorial "
-"comments."
+"The <code>comment</code> element allows you to insert editorial comments "
+"into your document. These comments are intended to be displayed only when "
+"editing or reviewing the document, and not when the document is viewed by "
+"the end reader. A <code>comment</code> element can contain other "
+"<code>comment</code> elements, allowing you to have a threaded discussion "
+"inside editorial comments."
 msgstr ""
 
 #: C/mal_block_comment.page:38(p)
@@ -6678,6 +7153,10 @@ msgid ""
 "\">cite</link> element, and any <link xref=\"mal_block\">general block "
 "content</link>."
 msgstr ""
+"Das Element <code>comment</code> enthält ein optionales Element <code xref="
+"\"mal_block_title\">title</code>, das Element <link xref=\"mal_block_cite"
+"\">cite</link> und beliebigen <link xref=\"mal_block\">allgemeinen "
+"Blockinhalt</link>."
 
 #: C/mal_block_comment.page:57(p)
 msgid ""
@@ -6693,6 +7172,9 @@ msgid ""
 "namespaces. See <link xref=\"mal_external\"/> for more information on "
 "external-namespace attributes."
 msgstr ""
+"Das Element <code>comment</code> kann Attribute aus externen Namensräumen "
+"haben. Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_block_comment.page:78(p)
 msgid "Provide a comment:"
@@ -6728,9 +7210,9 @@ msgstr ""
 
 #: C/mal_block_comment.page:145(p)
 msgid ""
-"In normal processing, <code>comment</code> elements are not displayed. It may "
-"be displayed under various circumstances, such as for writing and editing "
-"purposes."
+"In normal processing, <code>comment</code> elements are not displayed. It "
+"may be displayed under various circumstances, such as for writing and "
+"editing purposes."
 msgstr ""
 
 #: C/mal_block_comment.page:149(p)
@@ -6743,13 +7225,14 @@ msgstr ""
 
 #: C/mal_block_comment.page:154(p)
 msgid ""
-"If a <code>title</code> element is present, it is displayed at the top of the "
-"comment. The <code>cite</code> my require special processing to dispaly both "
-"its inline content and its <code>date</code> attribute. Automatic text may be "
-"used for this."
+"If a <code>title</code> element is present, it is displayed at the top of "
+"the comment. The <code>cite</code> my require special processing to dispaly "
+"both its inline content and its <code>date</code> attribute. Automatic text "
+"may be used for this."
 msgstr ""
 
 #: C/mal_block_comment.page:166(p)
+#, fuzzy
 msgid ""
 "The <code>comment</code> element is similar to the <code href=\"http://www."
 "docbook.org/tdg/en/html/remark.html\">remark</code> element in DocBook. The "
@@ -6758,6 +7241,8 @@ msgid ""
 "a block element. The DocBook <code>remark</code> element does not provide a "
 "way to supply a title or the name of the person making the remark."
 msgstr ""
+"Das <code>screen</code>-Element ist ähnlich dem <code href=\"http://www."
+"docbook.org/tdg/en/html/screen.html\">screen</code>-Element in DocBook."
 
 #: C/mal_block_code.page:21(title)
 msgid "Code Blocks"
@@ -6795,9 +7280,12 @@ msgstr ""
 #: C/mal_block_code.page:47(p)
 msgid ""
 "The <code>code</code> element can contain a mixture of text and any <link "
-"xref=\"mal_inline\">general inline elements</link>. Whitespace is interpreted "
-"literally."
+"xref=\"mal_inline\">general inline elements</link>. Whitespace is "
+"interpreted literally."
 msgstr ""
+"Das Element <code>code</code> kann eine Mischung aus Text und weiteren <link "
+"xref=\"mal_inline\">allgemein eingebetteten Elementen</link> enthalten. "
+"Leerzeichen werden wörtlich interpretiert."
 
 #: C/mal_block_code.page:51(p)
 msgid ""
@@ -6817,8 +7305,8 @@ msgstr ""
 msgid ""
 "Use the <code>code</code> element inside a <code xref=\"mal_block_listing"
 "\">listing</code> element to provide a title and description for the code "
-"block. This is frequently used to provide the name of the file whose contents "
-"are being shown."
+"block. This is frequently used to provide the name of the file whose "
+"contents are being shown."
 msgstr ""
 
 #: C/mal_block_code.page:83(p)
@@ -6845,11 +7333,11 @@ msgstr ""
 
 #: C/mal_block_code.page:107(p)
 msgid ""
-"Code blocks should be displayed verbatim, with all whitespace and line breaks "
-"reproduced in the rendered output. The only exception is a single leading "
-"line break, which should be stripped by display tools if present. Display "
-"tools should only strip a leading line break in an initial text node. They "
-"are not expected to strip line breaks from child elements."
+"Code blocks should be displayed verbatim, with all whitespace and line "
+"breaks reproduced in the rendered output. The only exception is a single "
+"leading line break, which should be stripped by display tools if present. "
+"Display tools should only strip a leading line break in an initial text "
+"node. They are not expected to strip line breaks from child elements."
 msgstr ""
 
 #: C/mal_block_code.page:113(p)
@@ -6860,6 +7348,7 @@ msgid ""
 msgstr ""
 
 #: C/mal_block_code.page:123(p)
+#, fuzzy
 msgid ""
 "The <code>code</code> element is similar to the <code href=\"http://www."
 "docbook.org/tdg/en/html/programlisting.html\">programlisting</code> element "
@@ -6870,6 +7359,10 @@ msgid ""
 "href=\"http://www.docbook.org/tdg/en/html/funcsynopsis.html\">funcsynopsis</"
 "code> elements. Mallard does not attempt to model any programming languages."
 msgstr ""
+"Das <code>code</code>-Element ist ähnlich dem <code href=\"http://www."
+"docbook.org/tdg/en/html/programlisting.html\">programlisting</code>-Element "
+"in DocBook. DocBook enthält auch numerische Elemente für den Entwurf von "
+"Code in prozeduralen und objektorientierten Programmiersprachen."
 
 #: C/mal_block_code.page:133(p)
 msgid ""
@@ -6877,6 +7370,9 @@ msgid ""
 "oasis-open.org/dita/v1.1/CS01/langspec/langref/codeblock.html\">codeblock</"
 "code> element in DITA."
 msgstr ""
+"Das <code>code</code>-Element ist ähnlich dem <code href=\"http://docs.oasis-"
+"open.org/dita/v1.1/CS01/langspec/langref/codeblock.html\">codeblock</code>-"
+"Element in DITA."
 
 #: C/mal_block_cite.page:19(title)
 msgid "Citations"
@@ -6926,6 +7422,9 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"Das Element <code>cite</code> kann Attribute aus externen Namensräumen "
+"haben. Lesen Sie <link xref=\"mal_external\"/> für weitere Informationen zu "
+"Attributen aus externen Namensräumen."
 
 #: C/mal_block_cite.page:58(p)
 msgid ""
@@ -6940,7 +7439,7 @@ msgstr ""
 
 #: C/mal_attr_link.page:19(title)
 msgid "Ubiquitous Linking"
-msgstr ""
+msgstr "Allgegenwärtige Verknüpfungen"
 
 #: C/mal_attr_link.page:21(code)
 #, no-wrap
@@ -6967,19 +7466,19 @@ msgstr ""
 
 #: C/links.page:19(title)
 msgid "Automatic Links"
-msgstr "Automatische Links"
+msgstr "Automatische Verweise"
 
 #: C/links.page:24(title)
 msgid "Topic Links"
-msgstr "Themen-Links"
+msgstr "Themen-Verweise"
 
 #: C/links.page:30(title)
 msgid "Guide Links"
-msgstr "Anleitungs-Links"
+msgstr "Anleitungs-Verweise"
 
 #: C/links.page:36(title)
 msgid "See Also Links"
-msgstr "Siehe-auch-Links"
+msgstr "Siehe-auch-Verweise"
 
 #: C/l10n.page:17(title)
 msgid "Translation Notes"
@@ -7045,9 +7544,9 @@ msgstr ""
 
 #: C/its.page:57(p)
 msgid ""
-"[R004] It should be possible to attach a unique identifier to any localizable "
-"item. This identifier should be unique within a document set, but should be "
-"identical across all translations of the same item."
+"[R004] It should be possible to attach a unique identifier to any "
+"localizable item. This identifier should be unique within a document set, "
+"but should be identical across all translations of the same item."
 msgstr ""
 
 #: C/its.page:62(p)
@@ -7056,10 +7555,10 @@ msgid ""
 "\">page</code> and <code xref=\"mal_section\">section</code> elements, "
 "Mallard does allow attributes from external namespaces to be used on all "
 "elements. If necessary for translation purposes, any attribute from an "
-"external namespace may be used as a unique identifier. In particular, Mallard "
-"does not use the common <code>xml:id</code> for page and section IDs, but it "
-"may be used on any element to provide a unique identifier for translation or "
-"any other purposes."
+"external namespace may be used as a unique identifier. In particular, "
+"Mallard does not use the common <code>xml:id</code> for page and section "
+"IDs, but it may be used on any element to provide a unique identifier for "
+"translation or any other purposes."
 msgstr ""
 
 #: C/its.page:73(title)
@@ -7068,19 +7567,19 @@ msgstr ""
 
 #: C/its.page:78(p)
 msgid ""
-"[R006] Any document at its beginning should declare a language/locale that is "
-"applied to both main content and external content stored separately. While "
-"the language/locale may be declared for the whole document, when an element "
-"or a text span is in a different language/locale from the document-level "
-"language, it should be labeled appropriately. Therefore, DTD/Schema should "
-"allow any elements to have a language/locale specifying attribute. The "
-"language/locale declaration should use industry standard approaches."
+"[R006] Any document at its beginning should declare a language/locale that "
+"is applied to both main content and external content stored separately. "
+"While the language/locale may be declared for the whole document, when an "
+"element or a text span is in a different language/locale from the document-"
+"level language, it should be labeled appropriately. Therefore, DTD/Schema "
+"should allow any elements to have a language/locale specifying attribute. "
+"The language/locale declaration should use industry standard approaches."
 msgstr ""
 
 #: C/its.page:88(p)
 msgid ""
-"Mallard allows the standard <code>xml:lang</code> attribute to be used on all "
-"elements."
+"Mallard allows the standard <code>xml:lang</code> attribute to be used on "
+"all elements."
 msgstr ""
 
 #: C/its.page:91(p)
@@ -7110,10 +7609,10 @@ msgstr ""
 #: C/its.page:113(p)
 msgid ""
 "Mallard does not currently provide a means of marking up terms and "
-"definitions. When necessary for translation purposes, the <link href=\"http://"
-"www.w3.org/TR/its/#terminology\"><code>its:term</code> and <code>its:"
-"termInfoRef</code></link> attributes may be used on any elements to indicate "
-"such a relationship."
+"definitions. When necessary for translation purposes, the <link href="
+"\"http://www.w3.org/TR/its/#terminology\"><code>its:term</code> and "
+"<code>its:termInfoRef</code></link> attributes may be used on any elements "
+"to indicate such a relationship."
 msgstr ""
 
 #: C/its.page:121(title)
@@ -7133,8 +7632,8 @@ msgstr ""
 #: C/its.page:134(p)
 msgid ""
 "Any purpose mapping that can be encoded using the <code href=\"http://www.w3."
-"org/TR/its/#basic-concepts-selection-global\">its:rules</code> element can be "
-"included in a Mallard document. The <code>its:rules</code> element may be "
+"org/TR/its/#basic-concepts-selection-global\">its:rules</code> element can "
+"be included in a Mallard document. The <code>its:rules</code> element may be "
 "used in any <code xref=\"mal_info\">info</code> element. See also <link href="
 "\"http://www.w3.org/TR/its/#associating-its-with-existing-markup"
 "\">Associating ITS Data Categories with Existing Markup</link>."
@@ -7172,8 +7671,8 @@ msgstr ""
 msgid ""
 "Mallard allows attributes from external namespaces to be used on all "
 "elements. Consequently, the <code href=\"http://www.w3.org/TR/its/#trans-"
-"datacat\">its:translate</code> attribute may be used to specify whether parts "
-"of a document are to be translated."
+"datacat\">its:translate</code> attribute may be used to specify whether "
+"parts of a document are to be translated."
 msgstr ""
 
 #: C/its.page:174(p)
@@ -7185,8 +7684,8 @@ msgid ""
 msgstr ""
 "Zusätzlich kann das <code href=\"http://www.w3.org/TR/its/#basic-concepts-"
 "selection-global\">its:rules</code>-Element innerhalb jedes <code xref="
-"\"mal_info\">info</code>-Elements verwendet werden, um Übersetzbarkeitsregeln "
-"für eine Seite oder einen Abschnitt bereitzustellen."
+"\"mal_info\">info</code>-Elements verwendet werden, um "
+"Übersetzbarkeitsregeln für eine Seite oder einen Abschnitt bereitzustellen."
 
 #: C/its.page:181(title)
 msgid "R014: Limited Impact"
@@ -7201,18 +7700,19 @@ msgstr ""
 
 #: C/its.page:191(p)
 msgid ""
-"Mallard allows tool-specific extensibility using attributes and elements from "
-"external namespaces. Mallard has <link xref=\"mal_external\">clearly defined "
-"rules</link> for how attributes and elements from external namespaces are to "
-"be processed in various contexts. Tools writers are expected to be aware of "
-"these issues. Whenever possible, this document issues that can arise from "
-"extensions, including those for translation purposes."
+"Mallard allows tool-specific extensibility using attributes and elements "
+"from external namespaces. Mallard has <link xref=\"mal_external\">clearly "
+"defined rules</link> for how attributes and elements from external "
+"namespaces are to be processed in various contexts. Tools writers are "
+"expected to be aware of these issues. Whenever possible, this document "
+"issues that can arise from extensions, including those for translation "
+"purposes."
 msgstr ""
 
 #: C/its.page:199(p)
 msgid ""
-"While it is impossible to predict all issues one might encounter, Mallard was "
-"developed after years of developing translation tools for other formats. "
+"While it is impossible to predict all issues one might encounter, Mallard "
+"was developed after years of developing translation tools for other formats. "
 "Internationalization and localization were primary concerns in the design of "
 "Mallard."
 msgstr ""
@@ -7245,8 +7745,8 @@ msgstr ""
 msgid ""
 "Mallard allows attributes from external namespaces to be used on all "
 "elements. Consequently, the <code href=\"http://www.w3.org/TR/its/#trans-"
-"datacat\">its:locNote</code> and <code href=\"http://www.w3.org/TR/its/#trans-"
-"datacat\">its:locNoteRule</code> attributes may be used to provide "
+"datacat\">its:locNote</code> and <code href=\"http://www.w3.org/TR/its/"
+"#trans-datacat\">its:locNoteRule</code> attributes may be used to provide "
 "localization notes."
 msgstr ""
 
@@ -7273,11 +7773,11 @@ msgstr ""
 msgid ""
 "All translatable content in Mallard is placed in element content, which "
 "allows annotation markup to be used. Mallard never places translatable "
-"content in attribute values. Note, however, that Mallard documents will often "
-"be displayed by converting them to a format such as HTML. If the display "
-"format places textual content in attribute values (such as the <code>alt</"
-"code> attribute of the <code>img</code> tag in HTML), then annotations could "
-"be lost in rendering."
+"content in attribute values. Note, however, that Mallard documents will "
+"often be displayed by converting them to a format such as HTML. If the "
+"display format places textual content in attribute values (such as the "
+"<code>alt</code> attribute of the <code>img</code> tag in HTML), then "
+"annotations could be lost in rendering."
 msgstr ""
 
 #: C/its.page:259(p)
@@ -7305,11 +7805,11 @@ msgstr ""
 #: C/its.page:277(p)
 msgid ""
 "Mallard explicitly disallows mixing block and inline content, except in well-"
-"defined cases which can easily be detected and handled. In Mallard, any block "
-"element which can contain text directly is considered to be a translation "
-"unit. Since these elements do not allow general block content to be mixed "
-"into the inline content, translation units can always be presented to "
-"translators without the need for placeholders."
+"defined cases which can easily be detected and handled. In Mallard, any "
+"block element which can contain text directly is considered to be a "
+"translation unit. Since these elements do not allow general block content to "
+"be mixed into the inline content, translation units can always be presented "
+"to translators without the need for placeholders."
 msgstr ""
 
 #: C/its.page:285(p)
@@ -7325,7 +7825,7 @@ msgstr ""
 
 #: C/its.page:296(title)
 msgid "R025: Elements and Segmentation"
-msgstr ""
+msgstr "R025: Elemente und Segmentierung"
 
 #: C/its.page:301(p)
 msgid ""
@@ -7347,18 +7847,18 @@ msgid ""
 "In Mallard, the content of any element, taken in context, is unambiguously "
 "<link xref=\"mal_inline\">general inline content</link>, <link xref="
 "\"mal_block\">general block content</link>, or some particular type of "
-"structured content. It is never the case that processing tools must probe the "
-"contents to determine the content model."
+"structured content. It is never the case that processing tools must probe "
+"the contents to determine the content model."
 msgstr ""
 
 #: C/its.page:318(p)
 msgid ""
 "Note that, since some element names are used in both block and inline "
-"contexts, such ambiguous content models would be particularly problematic for "
-"Mallard. Ambiguous content models could lead to situations where it is not "
-"possible to determine the function of an element such as <code>code</code>. "
-"Thus, ambiguous content models are explicitly avoided. This makes most "
-"processing tasks simpler."
+"contexts, such ambiguous content models would be particularly problematic "
+"for Mallard. Ambiguous content models could lead to situations where it is "
+"not possible to determine the function of an element such as <code>code</"
+"code>. Thus, ambiguous content models are explicitly avoided. This makes "
+"most processing tasks simpler."
 msgstr ""
 
 #: C/its.page:327(p)
@@ -7383,12 +7883,12 @@ msgstr ""
 #: C/its.page:345(p)
 msgid ""
 "It is noteworthy that Mallard reuses some element names in both block and "
-"inline contexts. The <code xref=\"mal_block_code\">code</code> and <code xref="
-"\"mal_block_media\">media</code> elements are two examples of this. Since "
-"Mallard never allows general block content to be mixed with general inline "
-"content, the purpose of these elements is unambiguous when processed in "
-"context. Thus, it is important that tools always process elements in context "
-"to handle them correctly."
+"inline contexts. The <code xref=\"mal_block_code\">code</code> and <code "
+"xref=\"mal_block_media\">media</code> elements are two examples of this. "
+"Since Mallard never allows general block content to be mixed with general "
+"inline content, the purpose of these elements is unambiguous when processed "
+"in context. Thus, it is important that tools always process elements in "
+"context to handle them correctly."
 msgstr ""
 
 #: C/index.page:17(years)
@@ -7463,8 +7963,8 @@ msgstr "ackno"
 
 #: C/docbook.page:32(p)
 msgid ""
-"No equivalent in Mallard. Simply put acknowledgements in a regular <link xref="
-"\"mal_block_p\">paragraph</link>."
+"No equivalent in Mallard. Simply put acknowledgements in a regular <link "
+"xref=\"mal_block_p\">paragraph</link>."
 msgstr ""
 "Keine Entsprechung in Mallard. Setzen Sie Danksagungen einfach in einen "
 "gewöhnlichen <link xref=\"mal_block_p\">Absatz</link>."
@@ -7508,6 +8008,8 @@ msgstr "alt"
 msgid ""
 "No equivalent in Mallard, as Mallard does not currently support equations."
 msgstr ""
+"Keine Entsprechung in Mallard, weil Mallard derzeit keine Gleichungen "
+"unterstützt."
 
 #: C/docbook.page:59(code)
 #, no-wrap
@@ -7545,8 +8047,9 @@ msgid ""
 "No direct equivalent in Mallard. Use the <code xref=\"mal_page\">page</code> "
 "and <code xref=\"mal_info\">info</code> elements instead."
 msgstr ""
-"Keine direkte Entsprechung in Mallard. Verwenden Sie stattdessen die Elemente "
-"<code xref=\"mal_page\">page</code> und <code xref=\"mal_info\">info</code>."
+"Keine direkte Entsprechung in Mallard. Verwenden Sie stattdessen die "
+"Elemente <code xref=\"mal_page\">page</code> und <code xref=\"mal_info"
+"\">info</code>."
 
 #: C/docbook.page:74(code)
 #, no-wrap
@@ -7613,8 +8116,8 @@ msgstr "artpagenums"
 #: C/docbook.page:1185(p) C/docbook.page:1280(p)
 msgid ""
 "No equivalent in Mallard. <link xref=\"mal_external\">External namespace "
-"elements</link> may provide this information in <code xref=\"mal_info\">info</"
-"code> elements."
+"elements</link> may provide this information in <code xref=\"mal_info"
+"\">info</code> elements."
 msgstr ""
 
 #: C/docbook.page:110(code)
@@ -7633,7 +8136,8 @@ msgstr "audiodata"
 
 #: C/docbook.page:116(p) C/docbook.page:609(p) C/docbook.page:669(p)
 #: C/docbook.page:879(p)
-msgid "See the <code xref=\"mal_block_media\">media</code> element for details."
+msgid ""
+"See the <code xref=\"mal_block_media\">media</code> element for details."
 msgstr ""
 
 #: C/docbook.page:119(code)
@@ -8052,9 +8556,9 @@ msgid ""
 "\">code</code> element instead, possibly inside a <code xref="
 "\"mal_block_synopsis\">synopsis</code> element."
 msgstr ""
-"Kein spezifische Element in Mallard. Verwenden Sie stattdessen das <code xref="
-"\"mal_block_code\">code</code>-Blockelement, eventuell innerhalb eines <code "
-"xref=\"mal_block_synopsis\">synopsis</code>-Elements."
+"Kein spezifische Element in Mallard. Verwenden Sie stattdessen das <code "
+"xref=\"mal_block_code\">code</code>-Blockelement, eventuell innerhalb eines "
+"<code xref=\"mal_block_synopsis\">synopsis</code>-Elements."
 
 #: C/docbook.page:363(code)
 #, no-wrap
@@ -8074,8 +8578,8 @@ msgstr "contrib"
 #: C/docbook.page:374(p)
 msgid ""
 "No equivalent in Mallard. <link xref=\"mal_external\">External namespace "
-"elements</link> may provide this information in <code xref=\"mal_info\">info</"
-"code> elements or for <link xref=\"mal_info_credit\">credits</link>."
+"elements</link> may provide this information in <code xref=\"mal_info"
+"\">info</code> elements or for <link xref=\"mal_info_credit\">credits</link>."
 msgstr ""
 
 #: C/docbook.page:379(code)
@@ -8170,8 +8674,8 @@ msgstr "email"
 #: C/docbook.page:438(p)
 msgid ""
 "Varies with use. Use the <code xref=\"mal_info_credit\">name</code> element "
-"in a <code xref=\"mal_info_credit\">credit</code> element in an informational "
-"context. Inline, use <code xref=\"mal_inline_sys\">sys</code>."
+"in a <code xref=\"mal_info_credit\">credit</code> element in an "
+"informational context. Inline, use <code xref=\"mal_inline_sys\">sys</code>."
 msgstr ""
 
 #: C/docbook.page:443(code)
@@ -8305,6 +8809,8 @@ msgid ""
 "Mallard does not currently have support for footnotes. Future versions may "
 "add annotations."
 msgstr ""
+"Mallard hat derzeit keine Unterstützung für Fußnoten. Zukünftige Versionen "
+"könnten Anmerkungen hinzufügen."
 
 #: C/docbook.page:534(code)
 #, no-wrap
@@ -8367,8 +8873,8 @@ msgstr "glossary"
 #: C/docbook.page:573(p)
 msgid ""
 "No direct equivalent in Mallard. Use the <code xref=\"mal_page\">page</code> "
-"and <code xref=\"mal_info\">info</code> elements instead. Future versions may "
-"address glossaries directly."
+"and <code xref=\"mal_info\">info</code> elements instead. Future versions "
+"may address glossaries directly."
 msgstr ""
 
 #: C/docbook.page:578(code)
@@ -8477,6 +8983,8 @@ msgid ""
 "Currently no equivalent in Mallard. Future versions may support marking the "
 "introductory text of a topic."
 msgstr ""
+"Derzeit keine Entsprechung in Mallard. Zukünftige Versionen könnten die "
+"Markierung einführenden Texts zu einem Thema unterstützen."
 
 #: C/docbook.page:651(code)
 #, no-wrap
@@ -8738,8 +9246,8 @@ msgid ""
 "\">inline emphasis</link> for a similar effect."
 msgstr ""
 "Gegenwärtig keine Entsprechung in Mallard. Sie können <link xref="
-"\"mal_inline_em\">inline emphasis</link> verwenden, um einen ähnlichen Effekt "
-"zu erzielen."
+"\"mal_inline_em\">inline emphasis</link> verwenden, um einen ähnlichen "
+"Effekt zu erzielen."
 
 #: C/docbook.page:834(code)
 #, no-wrap
@@ -8749,6 +9257,8 @@ msgstr "link"
 #: C/docbook.page:835(p) C/docbook.page:979(p)
 msgid "See the <code xref=\"mal_inline_link\">link</code> element for details."
 msgstr ""
+"Im <code xref=\"mal_inline_link\">link</code>-Element finden Sie Details "
+"hierzu."
 
 #: C/docbook.page:838(code)
 #, no-wrap
@@ -8757,8 +9267,8 @@ msgstr "listitem"
 
 #: C/docbook.page:839(p)
 msgid ""
-"See the <code>item</code> element for each <link xref=\"mal_block#list\">list "
-"element</link> for details."
+"See the <code>item</code> element for each <link xref=\"mal_block#list"
+"\">list element</link> for details."
 msgstr ""
 
 #: C/docbook.page:843(code)
@@ -8824,8 +9334,8 @@ msgstr "member"
 
 #: C/docbook.page:887(p)
 msgid ""
-"No equivalent in Mallard to DocBook's <code href=\"http://www.docbook.org/tdg/"
-"en/html/simplelist.html\">simplelist</code> element."
+"No equivalent in Mallard to DocBook's <code href=\"http://www.docbook.org/"
+"tdg/en/html/simplelist.html\">simplelist</code> element."
 msgstr ""
 "Keine Entsprechung in Mallard zum <code href=\"http://www.docbook.org/tdg/en/"
 "html/simplelist.html\">simplelist</code>-Element in DocBook."
@@ -8871,7 +9381,7 @@ msgstr "modespec"
 #: C/docbook.page:918(code)
 #, no-wrap
 msgid "modifier"
-msgstr ""
+msgstr "modifier"
 
 #: C/docbook.page:919(p) C/docbook.page:984(p)
 msgid "Mallard does not have a structured environment for code synopses."
@@ -9151,7 +9661,8 @@ msgid "procedure"
 msgstr "procedure"
 
 #: C/docbook.page:1124(p)
-msgid "See the <code xref=\"mal_block_steps\">steps</code> element for details."
+msgid ""
+"See the <code xref=\"mal_block_steps\">steps</code> element for details."
 msgstr ""
 "Details finden Sie im <code xref=\"mal_block_steps\">steps</code>-Element."
 
@@ -9395,7 +9906,9 @@ msgstr "Zusätzliches Referenzmaterial"
 #. Put one translator per line, in the form of NAME <EMAIL>, YEAR1, YEAR2
 #: C/index.page:0(None)
 msgid "translator-credits"
-msgstr "Mario Blättermann <mariobl@gnome.org>, 2009, 2010"
+msgstr ""
+"Mario Blättermann <mariobl@gnome.org>, 2009, 2010\n"
+"Christian Kirbach <Christian.Kirbach@googlemail.com>, 2010."
 
 #~ msgid "Beanstalk"
 #~ msgstr "Beanstalk"
@@ -9555,20 +10068,20 @@ msgstr "Mario Blättermann <mariobl@gnome.org>, 2009, 2010"
 
 #~ msgid ""
 #~ "mal_inline = { <placeholder-1/> * &amp; <placeholder-2/> * &amp; "
-#~ "<placeholder-3/> * &amp; <placeholder-4/> * &amp; <placeholder-5/> * &amp; "
-#~ "<placeholder-6/> * &amp; <placeholder-7/> * &amp; <placeholder-8/> * &amp; "
-#~ "<placeholder-9/> * &amp; <placeholder-10/> * &amp; <placeholder-11/> * "
-#~ "&amp; <placeholder-12/> * &amp; <placeholder-13/> * &amp; <placeholder-14/"
-#~ "> * &amp; <placeholder-15/> * &amp; <placeholder-16/> * &amp; element * - "
-#~ "(mal:* | local:*) { mal_inline } * &amp; text ? }"
+#~ "<placeholder-3/> * &amp; <placeholder-4/> * &amp; <placeholder-5/> * "
+#~ "&amp; <placeholder-6/> * &amp; <placeholder-7/> * &amp; <placeholder-8/> "
+#~ "* &amp; <placeholder-9/> * &amp; <placeholder-10/> * &amp; <placeholder-"
+#~ "11/> * &amp; <placeholder-12/> * &amp; <placeholder-13/> * &amp; "
+#~ "<placeholder-14/> * &amp; <placeholder-15/> * &amp; <placeholder-16/> * "
+#~ "&amp; element * - (mal:* | local:*) { mal_inline } * &amp; text ? }"
 #~ msgstr ""
 #~ "mal_inline = { <placeholder-1/> * &amp; <placeholder-2/> * &amp; "
-#~ "<placeholder-3/> * &amp; <placeholder-4/> * &amp; <placeholder-5/> * &amp; "
-#~ "<placeholder-6/> * &amp; <placeholder-7/> * &amp; <placeholder-8/> * &amp; "
-#~ "<placeholder-9/> * &amp; <placeholder-10/> * &amp; <placeholder-11/> * "
-#~ "&amp; <placeholder-12/> * &amp; <placeholder-13/> * &amp; <placeholder-14/"
-#~ "> * &amp; <placeholder-15/> * &amp; <placeholder-16/> * &amp; element * - "
-#~ "(mal:* | local:*) { mal_inline } * &amp; text ? }"
+#~ "<placeholder-3/> * &amp; <placeholder-4/> * &amp; <placeholder-5/> * "
+#~ "&amp; <placeholder-6/> * &amp; <placeholder-7/> * &amp; <placeholder-8/> "
+#~ "* &amp; <placeholder-9/> * &amp; <placeholder-10/> * &amp; <placeholder-"
+#~ "11/> * &amp; <placeholder-12/> * &amp; <placeholder-13/> * &amp; "
+#~ "<placeholder-14/> * &amp; <placeholder-15/> * &amp; <placeholder-16/> * "
+#~ "&amp; element * - (mal:* | local:*) { mal_inline } * &amp; text ? }"
 
 #~ msgid "gui"
 #~ msgstr "gui"
@@ -9792,13 +10305,13 @@ msgstr "Mario Blättermann <mariobl@gnome.org>, 2009, 2010"
 #~ msgid ""
 #~ "mal_info = element info { attribute * - (mal:* | local:*) { text } *, "
 #~ "( <placeholder-1/> ? &amp; <placeholder-2/> * &amp; <placeholder-3/> * "
-#~ "&amp; <placeholder-4/> * &amp; <placeholder-5/> * &amp; <placeholder-6/> * "
-#~ "&amp; <placeholder-7/> * ) }"
+#~ "&amp; <placeholder-4/> * &amp; <placeholder-5/> * &amp; <placeholder-6/> "
+#~ "* &amp; <placeholder-7/> * ) }"
 #~ msgstr ""
 #~ "mal_info = element info { attribute * - (mal:* | local:*) { text } *, "
 #~ "( <placeholder-1/> ? &amp; <placeholder-2/> * &amp; <placeholder-3/> * "
-#~ "&amp; <placeholder-4/> * &amp; <placeholder-5/> * &amp; <placeholder-6/> * "
-#~ "&amp; <placeholder-7/> * ) }"
+#~ "&amp; <placeholder-4/> * &amp; <placeholder-5/> * &amp; <placeholder-6/> "
+#~ "* &amp; <placeholder-7/> * ) }"
 
 #~ msgid "name"
 #~ msgstr "name"
@@ -9907,11 +10420,11 @@ msgstr "Mario Blättermann <mariobl@gnome.org>, 2009, 2010"
 #~ msgstr "mal_block_screen"
 
 #~ msgid ""
-#~ "mal_block_basic = ( <placeholder-1/> | <placeholder-2/> | <placeholder-3/> "
-#~ "| <placeholder-4/> | <placeholder-5/> )"
+#~ "mal_block_basic = ( <placeholder-1/> | <placeholder-2/> | <placeholder-3/"
+#~ "> | <placeholder-4/> | <placeholder-5/> )"
 #~ msgstr ""
-#~ "mal_block_basic = ( <placeholder-1/> | <placeholder-2/> | <placeholder-3/> "
-#~ "| <placeholder-4/> | <placeholder-5/> )"
+#~ "mal_block_basic = ( <placeholder-1/> | <placeholder-2/> | <placeholder-3/"
+#~ "> | <placeholder-4/> | <placeholder-5/> )"
 
 #~ msgid "mal_block_comment"
 #~ msgstr "mal_block_comment"
@@ -9951,11 +10464,11 @@ msgstr "Mario Blättermann <mariobl@gnome.org>, 2009, 2010"
 #~ msgstr "mal_block_tree"
 
 #~ msgid ""
-#~ "mal_block_lists = ( <placeholder-1/> | <placeholder-2/> | <placeholder-3/> "
-#~ "| <placeholder-4/> )"
+#~ "mal_block_lists = ( <placeholder-1/> | <placeholder-2/> | <placeholder-3/"
+#~ "> | <placeholder-4/> )"
 #~ msgstr ""
-#~ "mal_block_lists = ( <placeholder-1/> | <placeholder-2/> | <placeholder-3/> "
-#~ "| <placeholder-4/> )"
+#~ "mal_block_lists = ( <placeholder-1/> | <placeholder-2/> | <placeholder-3/"
+#~ "> | <placeholder-4/> )"
 
 #~ msgid "bug #1234"
 #~ msgstr "bug #1234"
