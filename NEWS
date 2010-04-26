@@ -1,3 +1,14 @@
+Changes in 0.20.1:
+------------------
+* Improved support for SVG imagedata (Shaun McCance)
+* Updated translations:
+  ca@valencia  (Carles Ferrando)
+  de           (Christian Kirbach)
+  en_GB        (Philip Withnall)
+  es           (Jorge González)
+  na           (Hideki Yamane (Debian-JP))
+  nl           (Wouter Bolsterlee)
+
 Changes in 0.20.0:
 ------------------
 * Updated translations:
