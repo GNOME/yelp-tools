@@ -3,11 +3,12 @@
 # Copyright (C) 2009 gnome-doc-utils's COPYRIGHT HOLDER
 # This file is distributed under the same license as the gnome-doc-utils package.
 # Jorge González <jorgegonz@svn.gnome.org>, 2009, 2010.
+#
 msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils.mallard.master\n"
 "POT-Creation-Date: 2009-12-14 19:53+0000\n"
-"PO-Revision-Date: 2010-03-30 21:11+0200\n"
+"PO-Revision-Date: 2010-04-26 21:01+0200\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -796,6 +797,10 @@ msgid ""
 "including those on other <code>section</code> elements and on the containing "
 "<code xref=\"mal_page\">page</code> element."
 msgstr ""
+"El atributo <code>id</code> toma un identificador único. Debería ser "
+"distinto de todos los demás atributos <code>id</code> en la misma página, "
+"incluyendo aquellos en otros elementos <code>section</code> y en el elemento "
+"<code xref=\"mal_page\">página</code> que los contiene."
 
 #: C/mal_section.page:57(p) C/mal_page.page:67(p) C/mal_inline_var.page:58(p)
 #: C/mal_inline_sys.page:55(p) C/mal_inline_span.page:57(p)
@@ -877,6 +882,12 @@ msgid ""
 "Sections in guide pages have topic links inserted following their block "
 "content. See <link xref=\"links#topic\"/> for more information."
 msgstr ""
+"Las secciones pueden tener enlaces asociados con ellas. Todas las secciones "
+"deberían tener enlaces guía y enlaces de consultar también mostrados cuando "
+"sea necesario. Para obtener más información consulte la <link xref="
+"\"links#guide\"/> y la <link xref=\"links#seealso\"/>. Las secciones en las "
+"páginas guía tienen enlaces por temas insertados según su contenido. Para "
+"obtener más información consulte la <link xref=\"links#topic\"/>."
 
 #: C/mal_page.page:16(desc)
 msgid "Individual tutorials, overviews, references, and navigational guides."
@@ -1994,6 +2005,9 @@ msgid ""
 "within the same document, or to an external resource in some document "
 "management system."
 msgstr ""
+"El atributo <code>xref</code> crea un enlace a otra página o sección en el "
+"mismo documento o a un recurso externo en un algún documento gestionado por "
+"el sistema."
 
 #: C/mal_inline_link.page:65(p)
 msgid ""
@@ -2364,6 +2378,9 @@ msgid ""
 "value; if necesarry, use <code xref=\"mal_inline_sys\">sys</code> for these "
 "instead."
 msgstr ""
+"No use <code>key</code> para marcar un código de teclas simbólico o un valor "
+"del teclado numérico; en su lugar, si es necesario use para ello <code xref="
+"\"mal_inline_sys\">sys</code>."
 
 #: C/mal_inline_key.page:55(p)
 msgid ""
@@ -2442,11 +2459,15 @@ msgstr ""
 "Pulse la tecla <key>Abajo</key> para seleccionar el siguiente elemento."
 
 #: C/mal_inline_key.page:122(p)
+#, fuzzy
 msgid ""
 "No particular special rendering is required for <code>key</code> elements. "
 "Keys may be rendered with lightened text or other sublte styling effects to "
 "distinguish them from the surrounding text."
 msgstr ""
+"No se necesita ningún renderizado especial para los elementos <code>key</"
+"code>. Las teclas pueden renderizarse con texto iluminado u otro efecto para "
+"distinguirlo del texto alrededor."
 
 #: C/mal_inline_key.page:132(p)
 msgid ""
@@ -2486,6 +2507,9 @@ msgid ""
 "user. This may be text entered into a command-line environment or into a "
 "text field in a graphical application."
 msgstr ""
+"Use el elemento <code>input</code> para marcar texto introducido por el "
+"usuario. Este puede ser texto introducido en un entorno de línea de comandos "
+"o en un campo de texto en una aplicación gráfica."
 
 #: C/mal_inline_input.page:43(p)
 msgid ""
@@ -2563,6 +2587,8 @@ msgid ""
 "The <code>input</code> element is similar to the <code href=\"http://www."
 "docbook.org/tdg/en/html/userinput.html\">userinput</code> element in DocBook."
 msgstr ""
+"El elemento <code>input</code> es similar al elemento <code href=\"http://"
+"www.docbook.org/tdg/en/html/userinput.html\">userinput</code> en DocBook."
 
 #: C/mal_inline_guiseq.page:19(desc)
 msgid "Mark up a sequence of interface controls to navigate."
@@ -2590,6 +2616,9 @@ msgid ""
 "interface elements. This is typically used to present a sequence of menu "
 "items."
 msgstr ""
+"Use el elemento <code>guiseq</code> para marcar una secuencia de elementos "
+"de interfaz gráfica. Se usa generalmente para presentar una secuencia de "
+"elementos de menú."
 
 #: C/mal_inline_guiseq.page:42(p)
 msgid ""
@@ -2664,7 +2693,7 @@ msgstr ""
 
 #: C/mal_inline_gui.page:18(desc)
 msgid "Mark up control labels from a graphical user interface."
-msgstr ""
+msgstr "Marque etiquetas de controles de una interfaz gráfica de usuario."
 
 #: C/mal_inline_gui.page:21(title)
 msgid "GUI Labels"
@@ -2752,7 +2781,7 @@ msgstr "La etiqueta para una caja de verificación"
 #: C/mal_inline_gui.page:75(code) C/docbook.page:616(code)
 #, no-wrap
 msgid "group"
-msgstr "grupo"
+msgstr ""
 
 #: C/mal_inline_gui.page:76(p)
 msgid "The label for a group of controls"
@@ -2765,16 +2794,16 @@ msgstr ""
 
 #: C/mal_inline_gui.page:80(p)
 msgid "The label for any text entry control"
-msgstr ""
+msgstr "La etiqueta para cualquier control de entrada de texto"
 
 #: C/mal_inline_gui.page:83(code)
 #, no-wrap
 msgid "menu"
-msgstr "menú"
+msgstr ""
 
 #: C/mal_inline_gui.page:84(p)
 msgid "The name of a menu"
-msgstr ""
+msgstr "El nombre de un menú"
 
 #: C/mal_inline_gui.page:87(code)
 #, no-wrap
@@ -2783,7 +2812,7 @@ msgstr ""
 
 #: C/mal_inline_gui.page:88(p)
 msgid "The name of an item in a menu"
-msgstr ""
+msgstr "El nombre de un elemento en un menú"
 
 #: C/mal_inline_gui.page:91(code)
 #, no-wrap
@@ -2792,16 +2821,16 @@ msgstr ""
 
 #: C/mal_inline_gui.page:92(p)
 msgid "The label for a radio button"
-msgstr ""
+msgstr "La etiqueta para un botón de radio"
 
 #: C/mal_inline_gui.page:95(code)
 #, no-wrap
 msgid "tab"
-msgstr "tab"
+msgstr ""
 
 #: C/mal_inline_gui.page:96(p)
 msgid "The label on a tab"
-msgstr ""
+msgstr "La etiqueta en una solapa"
 
 #: C/mal_inline_gui.page:100(p)
 msgid ""
@@ -2815,21 +2844,24 @@ msgstr ""
 
 #: C/mal_inline_gui.page:112(p)
 msgid "Use <code>gui</code> to mark up the text of a button:"
-msgstr ""
+msgstr "Use <code>gui</code> para marcar el texto en un botón:"
 
 #: C/mal_inline_gui.page:118(p)
 msgid "Click the <gui>Close</gui> button to close the window."
-msgstr ""
+msgstr "Pulse el botón <gui>Cerrar</gui> para cerrar la ventana."
 
 #: C/mal_inline_gui.page:121(p)
 msgid "Use <code>gui</code> to mark up the label on a tab:"
-msgstr ""
+msgstr "Use <code>gui</code> para marcar la etiqueta en una solapa:"
 
 #: C/mal_inline_gui.page:128(p)
 msgid ""
 "The <gui>Filters</gui> tab contains options to change the behavior of your "
 "keyboard to meet certain accessibility needs."
 msgstr ""
+"La solapa <gui>Filtros</gui> contiene opciones para cambiar el "
+"comportamiento de su teclado para cumplir con ciertas necesidades de "
+"accesibilidad."
 
 #: C/mal_inline_gui.page:140(p)
 msgid ""
@@ -2869,11 +2901,11 @@ msgstr ""
 
 #: C/mal_inline_file.page:18(desc)
 msgid "Mark up the name of a file or directory."
-msgstr ""
+msgstr "Marcar el nombre de un archivo o directorio."
 
 #: C/mal_inline_file.page:21(title)
 msgid "Filenames"
-msgstr ""
+msgstr "Nombres de archivo"
 
 #: C/mal_inline_file.page:23(code)
 #, no-wrap
@@ -2894,6 +2926,9 @@ msgid ""
 "directory. You may also use it to mark up collections or portions of "
 "filenames, such as search paths and file extensions."
 msgstr ""
+"Use el elemento <code>file</code> para marcar el nombre de un archivo o "
+"directorio. También puede usarlo para marcar colecciones o porciones de "
+"nombres de archivos, tales como rutas de búsqueda y extensiones de archivo."
 
 #: C/mal_inline_file.page:42(p)
 msgid ""
@@ -2921,6 +2956,8 @@ msgid ""
 "The <code>file</code> element can link to other pages or documents. See "
 "<link xref=\"mal_attr_link\"/> for more information."
 msgstr ""
+"El elemento <code>file</code> puede enlazar a otras páginas o documentos. "
+"Para obtener más información consulte la <link xref=\"mal_attr_link\"/>."
 
 #: C/mal_inline_file.page:58(p)
 msgid ""
@@ -2946,6 +2983,8 @@ msgid ""
 "The <code>file</code> element is similar to the <code href=\"http://www."
 "docbook.org/tdg/en/html/filename.html\">filename</code> element in DocBook."
 msgstr ""
+"El elemento <code>file</code> es similar al elemento <code href=\"http://www."
+"docbook.org/tdg/en/html/filename.html\">filename</code> en DocBook."
 
 #: C/mal_inline_em.page:18(desc)
 msgid "Emphasize important text."
@@ -3017,19 +3056,21 @@ msgstr ""
 
 #: C/mal_inline_em.page:71(p)
 msgid "Use <code>em</code> to stress a word in a sentence:"
-msgstr ""
+msgstr "Use <code>em</code> para enfatizar una palabra en una oración:"
 
 #: C/mal_inline_em.page:77(p)
 msgid "You should <em>never</em> run a graphical application as root."
 msgstr ""
+"<em>Nunca</em> debería ejecutar una aplicación gráfica como superusuario."
 
 #: C/mal_inline_em.page:80(p)
 msgid "Use <code>em</code> to mark the first occurance of a term:"
-msgstr ""
+msgstr "Use <code>em</code> para marcar la primera aparición de un término:"
 
 #: C/mal_inline_em.page:86(p)
 msgid "Note that <em>accelerators</em> are different from <em>mnemonics</em>."
 msgstr ""
+"Note que los <em>aceleradores</em> son diferentes de los <em>mnemónicos</em>."
 
 #: C/mal_inline_em.page:95(p)
 msgid ""
@@ -3066,7 +3107,7 @@ msgstr ""
 
 #: C/mal_inline_code.page:21(title)
 msgid "Code Snippets"
-msgstr ""
+msgstr "Trozos de código"
 
 #: C/mal_inline_code.page:23(code)
 #, no-wrap
@@ -3098,6 +3139,9 @@ msgid ""
 "including comments or textual content that doesn't strictly follow any "
 "syntax."
 msgstr ""
+"Puede usar el elemento <code>code</code> para marcar cualquier porción de "
+"código, incluyendo comentarios o contenido textual que no sigue "
+"estrictamente ninguna sintaxis."
 
 #: C/mal_inline_code.page:45(p) C/mal_block_code.page:38(p)
 msgid ""
@@ -3105,6 +3149,8 @@ msgid ""
 "<code>code</code> element to indicate text that should be replaced by the "
 "user."
 msgstr ""
+"Use el elemento <code xref=\"mal_inline_var\">var</code> dentro del elemento "
+"<code>code</code> para indicar texto que el usuario debería reemplazar."
 
 #: C/mal_inline_code.page:54(p)
 msgid ""
@@ -3141,6 +3187,8 @@ msgid ""
 "The <code>mime</code> attribute takes a valid MIME type. Processing tools "
 "may adjust their behavior for particular MIME types."
 msgstr ""
+"El atributo <code>mime</code> toma un tipo MIME válido. Las herramientas de "
+"procesado pueden ajustar su comportamiento para tipos MIME en particular."
 
 #: C/mal_inline_code.page:73(p) C/mal_block_code.page:63(p)
 msgid ""
@@ -3166,12 +3214,16 @@ msgid ""
 "Use <code>code</code> to mark up the name of a function, struct, or other "
 "constuct in a programming language:"
 msgstr ""
+"Use <code>code</code> para marcar el nombre de una función, estructura u "
+"otra construcción en un lenguaje de programación:"
 
 #: C/mal_inline_code.page:96(p)
 msgid ""
 "Use <code>gtk_container_add</code> to add a child widget to a "
 "<code>GtkButton</code>."
 msgstr ""
+"Use <code>gtk_container_add</code> para añadir un widget hijo a un "
+"<code>GtkButton</code>."
 
 #: C/mal_inline_code.page:99(p)
 msgid ""
@@ -5046,35 +5098,36 @@ msgstr ""
 
 #: C/mal_block_steps.page:93(p)
 msgid "Water frequently."
-msgstr ""
+msgstr "Regar con frecuencia."
 
 #: C/mal_block_steps.page:97(p)
 msgid "Create a procedure with a nested list and a nested procedure:"
 msgstr ""
+"Crear un procedimiento con una lista anidada y un procedimiento anidado:"
 
 #: C/mal_block_steps.page:124(p)
 msgid "Perform one of the following:"
-msgstr ""
+msgstr "Realizar una de las siguientes:"
 
 #: C/mal_block_steps.page:126(p)
 msgid "Dig a whole 10cm deep."
-msgstr ""
+msgstr "Excavar un agujero de 10cm de profundidad."
 
 #: C/mal_block_steps.page:127(p)
 msgid "Find a whole 10cm deep."
-msgstr ""
+msgstr "Encontrar un agujero de 10cm de profundidad."
 
 #: C/mal_block_steps.page:133(p)
 msgid "Water frequently with the following steps:"
-msgstr ""
+msgstr "Regar con frecuencia realizando uno de los siguientes pasos:"
 
 #: C/mal_block_steps.page:135(p)
 msgid "Fill watering can with water."
-msgstr ""
+msgstr "Llenar una regadera con agua."
 
 #: C/mal_block_steps.page:136(p)
 msgid "Pour water onto spot where beans were planted."
-msgstr ""
+msgstr "Verter agua donde se van a plantar las judías."
 
 #: C/mal_block_steps.page:149(p)
 msgid ""
@@ -5131,7 +5184,7 @@ msgstr ""
 
 #: C/mal_block_screen.page:21(title)
 msgid "Screens"
-msgstr ""
+msgstr "Pantallas"
 
 #: C/mal_block_screen.page:23(code)
 #, no-wrap
@@ -5175,6 +5228,9 @@ msgid ""
 "xref=\"mal_inline\">general inline elements</link>. Whitespace is "
 "interpreted literally."
 msgstr ""
+"El elemento <code>screen</code> puede contener una mezcla de texto y "
+"cualquier <link xref=\"mal_inline\">elemento general en línea</link>. El "
+"espacio en blanco se interpreta de forma literal."
 
 #: C/mal_block_screen.page:56(p)
 msgid ""
@@ -5183,6 +5239,10 @@ msgid ""
 "\"mal_section\">sections</link>, and certain <link xref=\"mal_block\">block "
 "elements</link>."
 msgstr ""
+"El elemento <code>screen</code> puede encontrarse en cualquier contexto "
+"general en bloque, incluyendo dentro de <link xref=\"mal_page\">páginas</"
+"link>, <link xref=\"mal_section\">secciones</link> y algunos <link xref="
+"\"mal_block\">elementos de bloque</link>."
 
 #: C/mal_block_screen.page:65(p)
 msgid ""
@@ -5205,6 +5265,8 @@ msgid ""
 "Use <code>screen</code> to mark up the screen of an interactive text-based "
 "interface:"
 msgstr ""
+"Use <code>screen</code> para marcar la pantalla de una interfaz interactiva "
+"basada en texto:"
 
 #: C/mal_block_screen.page:106(screen)
 #, no-wrap
@@ -5220,7 +5282,7 @@ msgstr ""
 
 #: C/mal_block_screen.page:116(p)
 msgid "Use <code>screen</code> to mark up a long command:"
-msgstr ""
+msgstr "Use <code>screen</code> para marcar un comando largo:"
 
 #: C/mal_block_screen.page:126(screen)
 #, no-wrap
@@ -5230,6 +5292,10 @@ msgid ""
 "  --stringparam mal.cache.file `pwd`/mallard.cache \\\n"
 "  `pkg-config --variable mal2html gnome-doc-utils` mal_block_screen.html\n"
 msgstr ""
+"\n"
+"xsltproc -o mal_block_screen.html \\\n"
+"  --stringparam mal.cache.file `pwd`/mallard.cache \\\n"
+"  `pkg-config --variable mal2html gnome-doc-utils` mal_block_screen.html\n"
 
 #: C/mal_block_screen.page:133(p)
 msgid ""
@@ -5237,10 +5303,13 @@ msgid ""
 "\"mal_inline_output\">output</code> inside <code>screen</code> for richer "
 "text:"
 msgstr ""
+"Use <code xref=\"mal_inline_input\">input</code> y <code xref="
+"\"mal_inline_output\">output</code> dentro de <code>screen</code> para texto "
+"enriquecido:"
 
 #: C/mal_block_screen.page:144(output)
 msgid "[rupert@gnome]"
-msgstr ""
+msgstr "[rupert@gnome]"
 
 #: C/mal_block_screen.page:144(input)
 msgid "ls foo bar"
@@ -5269,6 +5338,9 @@ msgid ""
 "style variations, but they should not cause a change to a variable-width "
 "font."
 msgstr ""
+"Las pantallas se deben mostrar en una tipografía de ancho fijo. El marcado "
+"en línea puede causar variaciones de estilo pero no deberían causar un "
+"cambio a una tipografía de anchura variable."
 
 #: C/mal_block_screen.page:172(p)
 msgid ""
@@ -5285,11 +5357,11 @@ msgstr ""
 
 #: C/mal_block_quote.page:16(desc)
 msgid "Create a block-level quotation with an attribution."
-msgstr ""
+msgstr "Crear un nivel de bloque de cita con un atributo."
 
 #: C/mal_block_quote.page:19(title)
 msgid "Block Quotes"
-msgstr ""
+msgstr "Bloques de citas"
 
 #: C/mal_block_quote.page:21(code)
 #, no-wrap
@@ -5329,11 +5401,15 @@ msgid ""
 "\"mal_section\">sections</link>, and certain <link xref=\"mal_block\">block "
 "elements</link>."
 msgstr ""
+"El elemento <code>quote</code> puede encontrarse en cualquier contexto "
+"general en bloque, incluyendo dentro de <link xref=\"mal_page\">páginas</"
+"link>, <link xref=\"mal_section\">secciones</link> y algunos <link xref="
+"\"mal_block\">elementos de bloque</link>."
 
 #: C/mal_block_quote.page:60(code)
 #, no-wrap
 msgid "epigraph"
-msgstr ""
+msgstr "apígrafe"
 
 #: C/mal_block_quote.page:61(p)
 msgid ""
@@ -5347,15 +5423,18 @@ msgid ""
 "See <link xref=\"mal_external\"/> for more information on external-namespace "
 "attributes."
 msgstr ""
+"El elemento <code>quote</code> puede tener atributos de espacios de nombres "
+"externos. Para obtener más información acerca de atributos de espacios de "
+"nombres externos consulte la <link xref=\"mal_external\"/>."
 
 #: C/mal_block_quote.page:79(p)
 msgid "Include a simple block quote in your document:"
-msgstr ""
+msgstr "Incluir una bloque simple de cita en su documento:"
 
 #: C/mal_block_quote.page:89(cite) C/mal_block_quote.page:106(cite)
 #: C/mal_block_quote.page:121(cite)
 msgid "Henry David Thoreau"
-msgstr ""
+msgstr "Henry David Thoreau"
 
 #: C/mal_block_quote.page:90(p) C/mal_block_quote.page:107(p)
 #: C/mal_block_quote.page:122(p)
@@ -5364,11 +5443,11 @@ msgstr ""
 
 #: C/mal_block_quote.page:94(p)
 msgid "Add a title to the quote:"
-msgstr ""
+msgstr "Añadir un título a la cita:"
 
 #: C/mal_block_quote.page:105(title)
 msgid "Simplify"
-msgstr ""
+msgstr "Simplificar"
 
 #: C/mal_block_quote.page:111(p)
 msgid "Add a date to the attribution:"
@@ -5664,8 +5743,11 @@ msgid ""
 msgstr ""
 
 #: C/mal_block_note.page:16(desc)
+#, fuzzy
 msgid "Include notes, tips, warnings, and other parenthetical information."
 msgstr ""
+"Incluya notas, sugerencias, advertencias y cualquier otra información "
+"importante."
 
 #: C/mal_block_note.page:21(code)
 #, no-wrap
@@ -5696,6 +5778,9 @@ msgid ""
 "\"mal_block_title\">title</link> element and any <link xref=\"mal_block"
 "\">general block content</link>."
 msgstr ""
+"El elemento <code>note</code> contiene un elemento opcional <link xref="
+"\"mal_block_title\">title</link> y cualquier <link xref=\"mal_block\">bloque "
+"de contenido general</link>."
 
 #: C/mal_block_note.page:47(p)
 msgid ""
@@ -6882,6 +6967,10 @@ msgid ""
 "block. This is frequently used to provide the name of the file whose "
 "contents are being shown."
 msgstr ""
+"Use el elemento <code>code</code> dentro de un elemento <code xref="
+"\"mal_block_listing\">listing</code> para proporcionar un título y una "
+"descripción para el bloque de código. Se usa frecuentemente para "
+"proporcionar el nombre de la fila cuyo contenido se está mostrando."
 
 #: C/mal_block_code.page:83(p)
 msgid "Use <code>code</code> to mark up a class definition:"
@@ -7042,6 +7131,10 @@ msgid ""
 "have a reference to a document within a help system, with a defined fallback "
 "to something on the web with <code>href</code>."
 msgstr ""
+"Quizá el modelo de contenedor no se ha expresado tan claramente como se "
+"podría. El atributo <code>ref</code> puede que debiera renombrarse. La idea "
+"es que se puede referenciar a un documento con el sistema de ayuda, con un "
+"algo que recaiga en la web con <code>href</code>."
 
 #: C/links.page:19(title)
 msgid "Automatic Links"
