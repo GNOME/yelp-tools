@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: gnome-doc-utils.mallard.master\n"
 "POT-Creation-Date: 2009-12-14 19:53+0000\n"
-"PO-Revision-Date: 2010-04-26 21:01+0200\n"
+"PO-Revision-Date: 2010-05-01 14:34+0200\n"
 "Last-Translator: Jorge González <jorgegonz@svn.gnome.org>\n"
 "Language-Team: Español <gnome-es-list@gnome.org>\n"
 "MIME-Version: 1.0\n"
@@ -2459,7 +2459,6 @@ msgstr ""
 "Pulse la tecla <key>Abajo</key> para seleccionar el siguiente elemento."
 
 #: C/mal_inline_key.page:122(p)
-#, fuzzy
 msgid ""
 "No particular special rendering is required for <code>key</code> elements. "
 "Keys may be rendered with lightened text or other sublte styling effects to "
@@ -5671,6 +5670,9 @@ msgid ""
 "and general block content. Formal block elements allow you to provide richer "
 "information in your pages."
 msgstr ""
+"Los elementos formales de bloques contienen un <link xref=\"mal_block_title"
+"\">título</link> y un bloque de contenido general. Los elementos formales de "
+"bloques le proporcionan rica información en todas sus páginas."
 
 #: C/mal_block.page:112(title)
 msgid "List Elements"
@@ -5743,11 +5745,10 @@ msgid ""
 msgstr ""
 
 #: C/mal_block_note.page:16(desc)
-#, fuzzy
 msgid "Include notes, tips, warnings, and other parenthetical information."
 msgstr ""
-"Incluya notas, sugerencias, advertencias y cualquier otra información "
-"importante."
+"Incluya notas, sugerencias, advertencias y cualquier otra información acerca "
+"de citas."
 
 #: C/mal_block_note.page:21(code)
 #, no-wrap
@@ -5883,12 +5884,17 @@ msgid ""
 "cannot actually save files. If you try to save your files, the application "
 "will crash. We recommend memorizing all your data on a regular basis."
 msgstr ""
+"Actualmente, debido al <link href=\"http://bugs.example.com/1234\">error nº "
+"1234</link> no puede guardar archivos. La aplicación se colgará si intenta "
+"guardar sus archivos. Se recomienda memorizar todos sus datos con frecuencia."
 
 #: C/mal_block_note.page:141(p)
 msgid ""
 "Highlight a vital piece of information to ensure readers see it even when "
 "skimming a document:"
 msgstr ""
+"Resalte cualquier trozo de información importante para asegurarse de que sus "
+"lectores lo ven incluso al ojear un documento:"
 
 #: C/mal_block_note.page:157(title)
 msgid "Supply Your Name and Email Address"
@@ -5899,6 +5905,9 @@ msgid ""
 "Before making any commits to a git repository, make sure to supply your name "
 "and email address so that your commits are correctly attributed."
 msgstr ""
+"Antes de realizar cualquier «commit» en un repositorio git, asegúrese de "
+"proporcionar su nombre y dirección correo electrónico para que se le "
+"atribuyan correctamente sus cambios."
 
 #: C/mal_block_note.page:161(code)
 #, no-wrap
@@ -5999,6 +6008,9 @@ msgid ""
 "\">general block content</link>. The content is only used as a fallback or "
 "alternative."
 msgstr ""
+"El elemento <code>media</code> puede contener cualquier <link xref="
+"\"mal_block\">bloque de contenido general</link>. El contenido sólo se usa "
+"como una alternativo."
 
 #: C/mal_block_media.page:52(p)
 msgid ""
@@ -6417,6 +6429,10 @@ msgid ""
 "\"mal_block_desc\">desc</link> element, and any <link xref=\"mal_block"
 "\">general block content</link>."
 msgstr ""
+"El elemento <code>figure</code> contiene un elemento opcional <link xref="
+"\"mal_block_title\">title</link>, un elemento opcional <link xref="
+"\"mal_block_desc\">desc</link> y cualquier <link xref=\"mal_block\">bloque "
+"de contenido general<code>."
 
 #: C/mal_block_figure.page:50(p)
 msgid ""
@@ -6615,7 +6631,7 @@ msgstr ""
 
 #: C/mal_block_desc.page:20(desc)
 msgid "Provide a caption for a formal block element."
-msgstr "Proporcionar una descripción para un elemento de bloque formal."
+msgstr "Proporcionar una descripción para un elemento formal de bloque."
 
 #: C/mal_block_desc.page:23(title)
 msgid "Block Descriptions"
@@ -6647,6 +6663,10 @@ msgid ""
 "description provided by <code>desc</code> is formatted as a caption for the "
 "formal element."
 msgstr ""
+"El elemento <code>desc</code> marca una descripción de texto corto para "
+"elementos formales de bloque como <link xref=\"mal_block_figure\">figure</"
+"link>. La descripción proporcionada por <code>desc</code> está formateada "
+"como una descripción formal del elemento."
 
 #: C/mal_block_desc.page:47(p)
 msgid ""
@@ -6654,6 +6674,10 @@ msgid ""
 "xref=\"mal_block_figure\">figure</code>, <code xref=\"mal_block_listing"
 "\">listing</code>, and <code xref=\"mal_block_synopsis\">synopsis</code>."
 msgstr ""
+"El elemento <code>desc</code> puede encontrarse en los elementos formales de "
+"bloque <code xref=\"mal_block_figure\">figure</code>, <code xref="
+"\"mal_block_listing\">listing</code> y <code xref=\"mal_block_synopsis"
+"\">synopsis</code>."
 
 #: C/mal_block_desc.page:60(p)
 msgid ""
@@ -6886,6 +6910,10 @@ msgid ""
 "both its inline content and its <code>date</code> attribute. Automatic text "
 "may be used for this."
 msgstr ""
+"Si existe un elemento <code>title</code> presente se muestra en la parte "
+"superior del comentario. El elemento <code>cite</code> puede necesitar "
+"procesado especial para mostrar tanto su contenido en línea como su atributo "
+"<code>date</code>. Se puede usar texto automático para ello."
 
 #: C/mal_block_comment.page:166(p)
 msgid ""
@@ -6929,6 +6957,10 @@ msgid ""
 "languages, and configuration files; however, you may use <code>code</code> "
 "for the contents of any text file."
 msgstr ""
+"Use el elemento <code>code</code> para marcar un bloque de texto de un "
+"lenguaje de programación. Generalmente se usará para lenguajes de "
+"programación, lenguajes de marcado y archivos de configuración; no obstante, "
+"puede usar <code>code</code> para el contenido de cualquier archivo de texto."
 
 #: C/mal_block_code.page:47(p)
 msgid ""
