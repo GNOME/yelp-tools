@@ -1,8 +1,0 @@
-AC_INIT
-AM_INIT_AUTOMAKE(mallard, 0.1)
-
-ALL_LINGUAS=""
-
-AC_OUTPUT([
-Makefile
-])

@@ -1,2 +1,0 @@
-SUBDIRS = testdoc1
-

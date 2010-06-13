@@ -2,12 +2,12 @@ SUBDIRS = tools xml2po
 
 EXTRA_DIST = 						\
 	COPYING.GPL					\
-	COPYING.LGPL					\
-	intltool-extract.in  				\
-	intltool-merge.in    				\
-	intltool-update.in
+	COPYING.LGPL
 
-DISTCLEANFILES =					\
-	intltool-extract  				\
-	intltool-merge    				\
-	intltool-update
+ChangeLog:
+	@if test -f $(top_srcdir)/.git/HEAD; then \
+	  git log --stat > $@; \
+	fi
+
+dist: ChangeLog
+.PHONY: ChangeLog
