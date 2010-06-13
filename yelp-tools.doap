@@ -4,12 +4,12 @@
          xmlns:gnome="http://api.gnome.org/doap-extensions#"
          xmlns="http://usefulinc.com/ns/doap#">
 
-  <name xml:lang="en">Gnome Documentation Utilities</name>
+  <name xml:lang="en">Yelp Tools</name>
   <shortdesc xml:lang="en">Collection of tools for building and converting documentation</shortdesc>
 
   <mailing-list rdf:resource="http://mail.gnome.org/mailman/listinfo/gnome-doc-devel-list" />
-  <download-page rdf:resource="http://download.gnome.org/sources/gnome-doc-utils/" />
-  <bug-database rdf:resource="http://bugzilla.gnome.org/browse.cgi?product=gnome-doc-utils" />
+  <download-page rdf:resource="http://download.gnome.org/sources/yelp-tools/" />
+  <bug-database rdf:resource="http://bugzilla.gnome.org/browse.cgi?product=yelp-tools" />
 
   <category rdf:resource="http://api.gnome.org/doap-extensions#desktop" />
 
