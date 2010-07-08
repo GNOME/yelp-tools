@@ -1,0 +1,36 @@
+#!/usr/bin/env python
+
+import optparse
+import os
+import os.path
+import subprocess
+import urllib
+
+xsl_mal_cache='@XSL_MAL_CACHE@'
+
+parser = optparse.OptionParser()
+parser.add_option ('-o', '--output', dest='output', default='index.cache',
+                   help='write cache to FILE', metavar='FILE')
+(options, args) = parser.parse_args()
+
+if len(args) == 0:
+    args = [os.getcwd()]
+
+pages = []
+for arg in args:
+    if os.path.isdir(arg):
+        for f in os.listdir(arg):
+            if f.endswith('.page'):
+                pages.append(os.path.join(arg, f))
+    else:
+        pages.append(arg)
+
+pages = ['file://' + urllib.pathname2url(os.path.join(os.getcwd(), page)) for page in pages]
+cache = '<cache:cache xmlns:cache="http://projectmallard.org/cache/1.0/" xmlns="http://projectmallard.org/1.0/">\n'
+for page in pages:
+    cache += '<page cache:href="%s"/>\n' % page
+cache += '</cache:cache>'
+
+outfile = open(options.output, 'w')
+
+subprocess.Popen(['xsltproc', xsl_mal_cache, '-'], stdin=subprocess.PIPE, stdout=outfile).communicate(input=cache)

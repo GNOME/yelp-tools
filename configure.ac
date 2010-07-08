@@ -22,11 +22,18 @@ PKG_CHECK_MODULES(GNOME_DOC_UTILS,
 [
 	libxml-2.0 >= 2.6.12
 	libxslt    >= 1.1.8
+	yelp-xsl
 ])
+
+XSL_PATH="`$PKG_CONFIG --variable=xsltdir yelp-xsl`"
+
+XSL_MAL_CACHE="$XSL_PATH""/mallard/cache/mal-cache.xsl"
+AC_SUBST(XSL_MAL_CACHE)
 
 AC_CONFIG_FILES([
 Makefile
 tools/Makefile
+tools/yelp-cache
 xml2po/Makefile
 xml2po/xml2po.pc
 xml2po/xml2po/Makefile
