@@ -1,6 +1,6 @@
 <?yelp-tmpl-desc Description of how to accomplish a user task?>
 <page xmlns="http://projectmallard.org/1.0/"
-      type="topic"
+      type="topic" style="task"
       id="@ID@">
   <info>
     <credit type="author copyright">
