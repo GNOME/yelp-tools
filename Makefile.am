@@ -1,4 +1,4 @@
-SUBDIRS = tools xml2po
+SUBDIRS = templates tools xml2po
 
 EXTRA_DIST = 						\
 	COPYING.GPL					\

@@ -30,10 +30,21 @@ XSL_PATH="`$PKG_CONFIG --variable=xsltdir yelp-xsl`"
 XSL_MAL_CACHE="$XSL_PATH""/mallard/cache/mal-cache.xsl"
 AC_SUBST(XSL_MAL_CACHE)
 
+YELP_TMPL_DIR=`(
+        case $prefix in
+             NONE) prefix=$ac_default_prefix ;;
+             *) ;;
+        esac
+        eval echo $(eval echo $datadir)/yelp-tools/templates/
+)`
+AC_SUBST(YELP_TMPL_DIR)
+
 AC_CONFIG_FILES([
 Makefile
+templates/Makefile
 tools/Makefile
 tools/yelp-cache
+tools/yelp-new
 xml2po/Makefile
 xml2po/xml2po.pc
 xml2po/xml2po/Makefile

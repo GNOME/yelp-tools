@@ -1,0 +1,25 @@
+<?yelp-tmpl-desc Description of how to accomplish a user task?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic"
+      id="@ID@">
+  <info>
+    <credit type="author copyright">
+      <name>@NAME@</name>
+      <email>@EMAIL@</email>
+      <years>@YEAR@</years>
+    </credit>
+
+    <desc></desc>
+  </info>
+
+  <title>@TITLE@</title>
+
+  <p>Short introductory text...</p>
+
+  <steps>
+    <item><p>First step...</p></item>
+    <item><p>Second step...</p></item>
+    <item><p>Third step...</p></item>
+  </steps>
+
+</page>

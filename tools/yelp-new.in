@@ -1,0 +1,83 @@
+#!/bin/sh
+# yelp-new - Create a new Mallard or DocBook file
+# Copyright (C) 2010 Shaun McCance <shaunm@gnome.org>
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+
+tmpldir="@YELP_TMPL_DIR@"
+
+yelp_describe_tmpl () {
+    line="  "`basename "$1" | sed -e 's/\.'$2'$//'`
+    desc=`cat "$f" | grep '<\?yelp-tmpl-desc' | sed -e 's/<?yelp-tmpl-desc //' -e 's/?>$//'`
+    if [ "x$desc" != "x" ]; then
+        line="$line - $desc"
+    fi
+    echo "$line"
+}
+
+yelp_usage() {
+    echo "Usage: yelp-new <TEMPLATE> <ID> [TITLE]"
+    if [ -f ${tmpldir}*.page ]; then
+        echo ""
+        echo "Mallard Templates:"
+        for f in ${tmpldir}*.page; do
+            yelp_describe_tmpl "$f" "page"
+        done
+    fi
+    if [ -f ${tmpldir}*.xml ]; then
+        echo ""
+        echo "DocBook Templates:"
+        for f in ${tmpldir}*.xml; do
+            yelp_describe_tmpl "$f" "xml"
+        done
+    fi
+}
+
+if [ $# -lt 2 ]; then
+    yelp_usage
+    exit 1
+fi
+
+# Locate the template file
+if [ -f "${tmpldir}${1}.page" ]; then
+    infile="${tmpldir}${1}.page"
+    outext=".page"
+elif [ -f "${tmpldir}${1}.xml" ]; then
+    infile="${tmpldir}${1}.xml"
+    outext=".xml"
+else
+    echo "Error: No template named ${1} found"
+    exit 1
+fi
+
+# Set up some variable for substitution
+username='YOUR NAME'
+useremail='YOUR EMAIL ADDRESS'
+if type -P git &>/dev/null; then
+    username=`git config user.name`
+    useremail=`git config user.email`
+fi
+pagetitle="$3"
+if [ "x$pagetitle" = "x" ]; then
+    pagetitle="TITLE"
+fi
+
+cat "$infile" | grep -v '<\?yelp-tmpl-desc' | sed \
+    -e s/@ID@/"$2"/ \
+    -e s/@YEAR@/`date +%Y`/ \
+    -e s/@NAME@/"$username"/ \
+    -e s/@EMAIL@/"$useremail"/ \
+    -e s/@TITLE@/"$pagetitle"/ \
+    > "${2}${outext}"
