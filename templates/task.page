@@ -3,6 +3,8 @@
       type="topic" style="task"
       id="@ID@">
   <info>
+    <revision version="0.1" date="@DATE@" status="stub"/>
+
     <credit type="author copyright">
       <name>@NAME@</name>
       <email>@EMAIL@</email>
@@ -13,6 +15,12 @@
   </info>
 
   <title>@TITLE@</title>
+
+  <comment>
+    <cite date="@DATE@" href="mailto:@EMAIL@">@NAME@</cite>
+    <p>This assumes the reader knows how to.... By the end of this page,
+    the reader will be able to....</p>
+  </comment>
 
   <p>Short introductory text...</p>
 

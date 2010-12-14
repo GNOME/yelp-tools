@@ -122,6 +122,7 @@ if [ "x$spec" = "x.tmpl" ]; then
 else
     cat "$infile" | grep -v '<\?yelp-tmpl-desc' | sed \
         -e s/@ID@/"$2"/ \
+        -e s/@DATE@/`date +%Y-%m-%d`/ \
         -e s/@YEAR@/`date +%Y`/ \
         -e s/@NAME@/"$username"/ \
         -e s/@EMAIL@/"$useremail"/ \
