@@ -28,7 +28,11 @@ yelp_describe_tmpl () {
 }
 
 yelp_usage() {
-    echo "Usage: yelp-new <TEMPLATE> <ID> [TITLE]"
+    echo "Usage: yelp-new [OPTIONS] <TEMPLATE> <ID> [TITLE]"
+    echo ""
+    echo "Options:"
+    echo "  --stub  Create a .page.stub file instead of a .page file"
+    echo "  --tmpl  Copy an installed template to a local template"
     if [ -f *.page.tmpl ]; then
         echo ""
         echo "Local Mallard Templates:"
@@ -64,6 +68,24 @@ if [ $# -lt 2 ]; then
     exit 1
 fi
 
+# Process options
+spec=""
+while [ $# -gt 0 ]; do
+    case "$1" in
+        --stub)
+            spec=".stub"
+            shift;;
+        --tmpl)
+            spec=".tmpl"
+            shift;;
+        -h | --help)
+            yelp_usage
+            exit 0;;
+        *)
+            break
+    esac
+done
+
 # Locate the template file
 if [ -f "${1}.page.tmpl" ]; then
     infile="${1}.page.tmpl"
@@ -94,10 +116,16 @@ if [ "x$pagetitle" = "x" ]; then
     pagetitle="TITLE"
 fi
 
-cat "$infile" | grep -v '<\?yelp-tmpl-desc' | sed \
-    -e s/@ID@/"$2"/ \
-    -e s/@YEAR@/`date +%Y`/ \
-    -e s/@NAME@/"$username"/ \
-    -e s/@EMAIL@/"$useremail"/ \
-    -e s/@TITLE@/"$pagetitle"/ \
-    > "${2}${outext}"
+outfile="${2}${outext}${spec}"
+if [ "x$spec" = "x.tmpl" ]; then
+    cp "$infile" "$outfile"
+else
+    cat "$infile" | grep -v '<\?yelp-tmpl-desc' | sed \
+        -e s/@ID@/"$2"/ \
+        -e s/@YEAR@/`date +%Y`/ \
+        -e s/@NAME@/"$username"/ \
+        -e s/@EMAIL@/"$useremail"/ \
+        -e s/@TITLE@/"$pagetitle"/ \
+        > "$outfile"
+fi
+
