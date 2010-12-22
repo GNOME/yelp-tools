@@ -1,6 +1,6 @@
 aclocaldir = $(datadir)/aclocal
 aclocal_DATA = yelp.m4
 
-bin_SCRIPTS = yelp-cache yelp-new
+bin_SCRIPTS = yelp-build yelp-new
 
-EXTRA_DIST = yelp-cache.in yelp-new.in $(aclocal_DATA)
+EXTRA_DIST = yelp-build.in yelp-new.in $(aclocal_DATA)

@@ -43,7 +43,7 @@ AC_CONFIG_FILES([
 Makefile
 templates/Makefile
 tools/Makefile
-tools/yelp-cache
+tools/yelp-build
 tools/yelp-new
 xml2po/Makefile
 xml2po/xml2po.pc

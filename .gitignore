@@ -16,3 +16,5 @@ intltool-merge.in
 intltool-update.in
 missing
 py-compile
+tools/yelp-build
+tools/yelp-new
