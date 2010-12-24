@@ -17,6 +17,8 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 xsl_mal_cache='@XSL_MAL_CACHE@'
+xsl_db2html='@XSL_DB2HTML@'
+xsl_db2xhtml='@XSL_DB2XHTML@'
 
 urlencode () {
     echo "$1" | LANG=C awk '
@@ -37,10 +39,36 @@ BEGIN {
 }
 
 yelp_usage () {
-    echo "Usage: yelp-build <COMMAND> [OPTIONS] [FILES]"
-    echo ""
-    echo "Commands:"
-    echo "  cache - Create a Mallard cache file"
+    (
+        echo "Usage: yelp-build <COMMAND> [OPTIONS] [FILES]"
+        echo ""
+        echo "Commands:"
+        echo "  cache         Create a Mallard cache file"
+        echo "  html          Convert input files to HTML"
+        echo "  xhtml         Convert input files to XHTML"
+    ) 1>&2
+}
+yelp_usage_cache () {
+    (
+        echo "Usage: yelp-build cache <FILES>"
+        echo ""
+        echo "  Create a Mallard cache file from the page files FILES."
+        echo "  If FILES contains directories, all .page files in those"
+        echo "  directories will be used."
+    ) 1>&2
+}
+yelp_usage_html () {
+    (
+        echo "Usage: yelp-build <html|xhtml> [OPTIONS] <FILES>"
+        echo ""
+        echo "  Create HTML or XHTML from the input files FILES."
+        echo "  FILES can be DocBook files, Mallard page files,"
+        echo "  Mallard cache files, or directories containing"
+        echo "  Mallard page files."
+        echo ""
+        echo "Options:"
+        echo "  -o OUT        Output files in the directory OUT"
+    ) 1>&2
 }
 
 if [ $# = 0 ]; then
@@ -55,6 +83,23 @@ yelp_cache_ls () {
     echo '<page cache:href="file://'`urlencode "$fdir/$fbase"`'"/>'
 }
 yelp_cache () {
+    cache_out="index.cache"
+    while [ "$#" != "0" ]; do
+        case "$1" in
+            "-o")
+                shift
+                cache_out="$1"
+                shift
+                ;;
+            *)
+                break
+                ;;
+        esac
+    done
+    if [ "$#" = "0" ]; then
+        yelp_usage_cache
+        exit 1
+    fi
     (
         echo '<cache:cache xmlns:cache="http://projectmallard.org/cache/1.0/"'
         echo '  xmlns="http://projectmallard.org/1.0/">'
@@ -68,11 +113,100 @@ yelp_cache () {
             fi
         done
         echo '</cache:cache>'
-    ) | xsltproc "$xsl_mal_cache" -
+    ) | xsltproc -o "$cache_out" "$xsl_mal_cache" -
+}
+
+yelp_html_xsl_css_js () {
+    echo '<xsl:variable name="yelp.locale">'
+    echo ' <xsl:choose>'
+    echo '  <xsl:when test="$l10n.locale != '"''"'">'
+    echo '   <xsl:value-of select="$l10n.locale"/>'
+    echo '  </xsl:when>'
+    echo '  <xsl:otherwise>'
+    echo '   <xsl:text>C</xsl:text>'
+    echo '  </xsl:otherwise>'
+    echo ' </xsl:choose>'
+    echo '</xsl:variable>'
+    echo '<xsl:template name="html.css">'
+    echo ' <xsl:param name="node" select="."/>'
+    echo ' <exsl:document href="{$yelp.locale}.css">'
+    echo '  <xsl:call-template name="html.css.content">'
+    echo '   <xsl:with-param name="node" select="$node"/>'
+    echo '  </xsl:call-template>'
+    echo ' </exsl:document>'
+    echo ' <link rel="stylesheet" type="text/css" href="{$yelp.locale}.css"/>'
+    echo '</xsl:template>'
+}
+yelp_html_db2html () {
+    for xml in "$@"; do
+        (
+            echo '<xsl:stylesheet'
+            echo ' xmlns:xsl="http://www.w3.org/1999/XSL/Transform"'
+            echo ' xmlns:exsl="http://exslt.org/common"'
+            echo ' extension-element-prefixes="exsl"'
+            echo ' version="1.0">'
+            if [ "x$is_xhtml" = "x1" ]; then
+                xsl='file://'`urlencode "$xsl_db2xhtml"`
+            else
+                xsl='file://'`urlencode "$xsl_db2html"`
+            fi
+            echo '<xsl:import href="'"$xsl"'"/>'
+            yelp_html_xsl_css_js
+            echo '</xsl:stylesheet>'
+        ) | xsltproc --xinclude -o "$html_out"/ - "$xml"
+    done
+}
+
+yelp_html_mal2html () {
+    echo "FIXME"
+}
+
+yelp_html () {
+    html_out="."
+    while [ "$#" != "0" ]; do
+        case "$1" in
+            "-o")
+                shift
+                html_out="$1"
+                shift
+                ;;
+            *)
+                break
+                ;;
+        esac
+    done
+    if [ ! -d "$html_out" ]; then
+        echo "Error: output must be a directory." 1>&2
+        exit 1
+    fi
+    html_out=`(cd "$html_out" && pwd)`
+    if [ "$#" = "0" ]; then
+        yelp_usage_html
+        exit 1
+    fi
+    ext=`echo "$1" | sed -e 's/.*\.//'`
+    if [ "x$ext" = "xxml" -o "x$ext" = "xdocbook" ]; then
+        yelp_html_db2html "$@"
+    else
+        yelp_html_mal2html "$@"
+    fi
 }
 
 cmd="$1"
 shift
-if [ "x$cmd" = "xcache" ]; then
-    yelp_cache "$@"
-fi
+case "x$cmd" in
+    "xcache")
+        yelp_cache "$@"
+        ;;
+    "xhtml")
+        is_xhtml=0
+        yelp_html "$@"
+        ;;
+    "xxhtml")
+        is_xhtml=1
+        yelp_html "$@"
+        ;;
+    *)
+        yelp_usage
+        ;;
+esac

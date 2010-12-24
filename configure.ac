@@ -30,6 +30,12 @@ XSL_PATH="`$PKG_CONFIG --variable=xsltdir yelp-xsl`"
 XSL_MAL_CACHE="$XSL_PATH""/mallard/cache/mal-cache.xsl"
 AC_SUBST(XSL_MAL_CACHE)
 
+XSL_DB2HTML="`$PKG_CONFIG --variable=db2html yelp-xsl`"
+AC_SUBST(XSL_DB2HTML)
+
+XSL_DB2XHTML="`$PKG_CONFIG --variable=db2xhtml yelp-xsl`"
+AC_SUBST(XSL_DB2XHTML)
+
 YELP_TMPL_DIR=`(
         case $prefix in
              NONE) prefix=$ac_default_prefix ;;
