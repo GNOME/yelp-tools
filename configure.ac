@@ -36,6 +36,12 @@ AC_SUBST(XSL_DB2HTML)
 XSL_DB2XHTML="`$PKG_CONFIG --variable=db2xhtml yelp-xsl`"
 AC_SUBST(XSL_DB2XHTML)
 
+YELP_ICON_DIR="`$PKG_CONFIG --variable=icondir yelp-xsl`"/hicolor/24x24/status
+AC_SUBST(YELP_ICON_DIR)
+
+YELP_JS_DIR="`$PKG_CONFIG --variable=jsdir yelp-xsl`"
+AC_SUBST(YELP_JS_DIR)
+
 YELP_TMPL_DIR=`(
         case $prefix in
              NONE) prefix=$ac_default_prefix ;;
