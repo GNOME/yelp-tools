@@ -19,6 +19,8 @@
 xsl_mal_cache='@XSL_MAL_CACHE@'
 xsl_db2html='@XSL_DB2HTML@'
 xsl_db2xhtml='@XSL_DB2XHTML@'
+xsl_mal2html='@XSL_MAL2HTML@'
+xsl_mal2xhtml='@XSL_MAL2XHTML@'
 yelp_icon_dir='@YELP_ICON_DIR@'
 yelp_js_dir='@YELP_JS_DIR@'
 
@@ -103,8 +105,7 @@ yelp_usage_html () {
         echo ""
         echo "  Create HTML or XHTML from the input files FILES."
         echo "  FILES can be DocBook files, Mallard page files,"
-        echo "  Mallard cache files, or directories containing"
-        echo "  Mallard page files."
+        echo "  or directories containing Mallard page files."
         echo ""
         echo "Options:"
         echo "  -o OUT        Output files in the directory OUT"
@@ -283,7 +284,7 @@ yelp_html_db2html () {
             echo '  <xsl:variable name="out">'
             echo '   <xsl:call-template name="db2html.pre"/>'
             echo '  </xsl:variable>'
-            echo '  <xsl:value-of select="exsl:node-set($out)//html:pre/@class"/>'
+            echo '  <xsl:value-of select="exsl:node-set($out)/*/html:pre[last()]/@class"/>'
             echo '  <xsl:text>&#x000A;</xsl:text>'
             echo ' </xsl:for-each>'
             echo '</xsl:template>'
@@ -300,8 +301,138 @@ yelp_html_db2html () {
     done
 }
 
+yelp_html_page2html () {
+    xml="$1"
+    xmldir=`dirname "$xml"`
+    xmldir=`(cd "$xmldir" && pwd)`
+    # Output HTML
+    (
+        echo '<xsl:stylesheet'
+        echo ' xmlns:xsl="http://www.w3.org/1999/XSL/Transform"'
+        echo ' xmlns:exsl="http://exslt.org/common"'
+        echo ' extension-element-prefixes="exsl"'
+        echo ' version="1.0">'
+        if [ "x$is_xhtml" = "x1" ]; then
+            xsl='file://'`urlencode "$xsl_mal2xhtml"`
+        else
+            xsl='file://'`urlencode "$xsl_mal2html"`
+        fi
+        echo '<xsl:import href="'"$xsl"'"/>'
+        yelp_html_xsl_common
+        html_cache_url='file://'`urlencode "$html_cache_file"`
+        echo '<xsl:param name="mal.cache.file" select="'"'$html_cache_url'"'"/>'
+        echo '</xsl:stylesheet>'
+    ) | xsltproc --xinclude -o "$html_out"/ - "$xml"
+    # Copy media
+    if [ "x$xmldir" != "x$html_out" ]; then
+        (
+            echo '<xsl:stylesheet'
+            echo ' xmlns:xsl="http://www.w3.org/1999/XSL/Transform"'
+            echo ' xmlns:mal="http://projectmallard.org/1.0/"'
+            echo ' exclude-result-prefixes="mal"'
+            echo ' version="1.0">'
+            echo '<xsl:output method="text"/>'
+            echo '<xsl:template match="/">'
+            echo ' <xsl:for-each select="//mal:media">'
+            echo '  <xsl:value-of select="concat(@src, '"'&#x000A;'"')"/>'
+            echo ' </xsl:for-each>'
+            echo '</xsl:template>'
+            echo '</xsl:stylesheet>'
+        ) | xsltproc --xinclude - "$xml" | while read media; do
+            mfile=`urldecode "$media"`
+            minput="$xmldir/$mfile"
+            moutput="$html_out/$mfile"
+            mkdir_p `dirname "$moutput"`
+            cp "$minput" "$moutput"
+        done
+    fi
+    # Copy icons
+    (
+        echo '<xsl:stylesheet'
+        echo ' xmlns:xsl="http://www.w3.org/1999/XSL/Transform"'
+        echo ' xmlns:mal="http://projectmallard.org/1.0/"'
+        echo ' exclude-result-prefixes="mal"'
+        echo ' version="1.0">'
+        echo '<xsl:output method="text"/>'
+        echo '<xsl:template match="/">'
+        echo ' <xsl:for-each select="//mal:note">'
+        echo '  <xsl:variable name="style" select="concat('"'"' '"'"', @style, '"'"' '"'"')"/>'
+        echo '  <xsl:choose>'
+        echo '   <xsl:when test="contains($style, '"'"' advanced '"'"')">'
+        echo '    <xsl:text>yelp-note-advanced&#x000A;</xsl:text>'
+        echo '   </xsl:when>'
+        echo '   <xsl:when test="contains($style, '"'"' bug '"'"')">'
+        echo '    <xsl:text>yelp-note-bug&#x000A;</xsl:text>'
+        echo '   </xsl:when>'
+        echo '   <xsl:when test="contains($style, '"'"' important '"'"')">'
+        echo '    <xsl:text>yelp-note-important&#x000A;</xsl:text>'
+        echo '   </xsl:when>'
+        echo '   <xsl:when test="contains($style, '"'"' sidebar '"'"')"/>'
+        echo '   <xsl:when test="contains($style, '"'"' tip '"'"')">'
+        echo '    <xsl:text>yelp-note-tip&#x000A;</xsl:text>'
+        echo '   </xsl:when>'
+        echo '   <xsl:when test="contains($style, '"'"' warning '"'"')">'
+        echo '    <xsl:text>yelp-note-warning&#x000A;</xsl:text>'
+        echo '   </xsl:when>'
+        echo '   <xsl:otherwise>'
+        echo '    <xsl:text>yelp-note&#x000A;</xsl:text>'
+        echo '   </xsl:otherwise>'
+        echo '  </xsl:choose>'
+        echo ' </xsl:for-each>'
+        echo '</xsl:template>'
+        echo '</xsl:stylesheet>'
+    ) | xsltproc --xinclude - "$xml" | sort | uniq | while read icon; do
+        cp "${yelp_icon_dir}/${icon}.png" "$html_out"
+    done;
+    # Copy jQuery
+    local syntax_copied="0"
+    cp "${yelp_js_dir}/jquery.js" "$html_out"
+    (
+        echo '<xsl:stylesheet'
+        echo ' xmlns:xsl="http://www.w3.org/1999/XSL/Transform"'
+        echo ' xmlns:mal="http://projectmallard.org/1.0/"'
+        echo ' xmlns:html="http://www.w3.org/1999/xhtml"'
+        echo ' xmlns:exsl="http://exslt.org/common"'
+        echo ' exclude-result-prefixes="mal"'
+        echo ' extension-element-prefixes="exsl"'
+        echo ' version="1.0">'
+        xsl='file://'`urlencode "$xsl_mal2xhtml"`
+        echo '<xsl:import href="'"$xsl"'"/>'
+        echo '<xsl:output method="text"/>'
+        echo '<xsl:template match="/">'
+        echo ' <xsl:for-each select="//mal:code[@mime]">'
+        echo '  <xsl:variable name="out">'
+        echo '   <xsl:call-template name="mal2html.pre"/>'
+        echo '  </xsl:variable>'
+        echo '  <xsl:value-of select="exsl:node-set($out)/*/html:pre[last()]/@class"/>'
+        echo '  <xsl:text>&#x000A;</xsl:text>'
+        echo ' </xsl:for-each>'
+        echo '</xsl:template>'
+        echo '</xsl:stylesheet>'
+    ) | xsltproc --xinclude - "$xml" | sort | uniq \
+        | grep '^contents syntax ' | sed -e 's/^contents syntax brush-/brush./' \
+        | while read js; do
+        if [ "x$syntax_copied" = "x0" ]; then
+            cp "${yelp_js_dir}/jquery.syntax.js" "$html_out"
+            syntax_copied=1
+        fi
+        cp "${yelp_js_dir}/jquery.syntax.${js}.js" "$html_out"
+    done
+}
+
 yelp_html_mal2html () {
-    echo "FIXME"
+    html_cache_file=`mktemp`
+    yelp_cache -o "$html_cache_file" "$@"
+    for xml in "$@"; do
+        if [ -d "$xml" ]; then
+            for page in "$xml"/*.page; do
+                yelp_html_page2html "$page"
+            done
+        else
+            yelp_html_page2html "$xml"
+        fi
+    done
+    rm "$html_cache_file"
 }
 
 yelp_html () {

@@ -36,6 +36,12 @@ AC_SUBST(XSL_DB2HTML)
 XSL_DB2XHTML="`$PKG_CONFIG --variable=db2xhtml yelp-xsl`"
 AC_SUBST(XSL_DB2XHTML)
 
+XSL_MAL2HTML="`$PKG_CONFIG --variable=mal2html yelp-xsl`"
+AC_SUBST(XSL_MAL2HTML)
+
+XSL_MAL2XHTML="`$PKG_CONFIG --variable=mal2xhtml yelp-xsl`"
+AC_SUBST(XSL_MAL2XHTML)
+
 YELP_ICON_DIR="`$PKG_CONFIG --variable=icondir yelp-xsl`"/hicolor/24x24/status
 AC_SUBST(YELP_ICON_DIR)
 
