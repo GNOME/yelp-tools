@@ -265,8 +265,8 @@ yelp_html_db2html () {
             cp "${yelp_icon_dir}/${icon}.png" "$html_out"
         done;
         # Copy jQuery
-        local syntax_copied="0"
         cp "${yelp_js_dir}/jquery.js" "$html_out"
+        cp "${yelp_js_dir}/jquery.syntax.js" "$html_out"
         (
             echo '<xsl:stylesheet'
             echo ' xmlns:xsl="http://www.w3.org/1999/XSL/Transform"'
@@ -292,10 +292,6 @@ yelp_html_db2html () {
         ) | xsltproc --xinclude - "$xml" | sort | uniq \
             | grep '^contents syntax ' | sed -e 's/^contents syntax brush-/brush./' \
             | while read js; do
-            if [ "x$syntax_copied" = "x0" ]; then
-                cp "${yelp_js_dir}/jquery.syntax.js" "$html_out"
-                syntax_copied=1
-            fi
             cp "${yelp_js_dir}/jquery.syntax.${js}.js" "$html_out"
         done
     done
@@ -385,8 +381,8 @@ yelp_html_page2html () {
         cp "${yelp_icon_dir}/${icon}.png" "$html_out"
     done;
     # Copy jQuery
-    local syntax_copied="0"
     cp "${yelp_js_dir}/jquery.js" "$html_out"
+    cp "${yelp_js_dir}/jquery.syntax.js" "$html_out"
     (
         echo '<xsl:stylesheet'
         echo ' xmlns:xsl="http://www.w3.org/1999/XSL/Transform"'
@@ -412,10 +408,6 @@ yelp_html_page2html () {
     ) | xsltproc --xinclude - "$xml" | sort | uniq \
         | grep '^contents syntax ' | sed -e 's/^contents syntax brush-/brush./' \
         | while read js; do
-        if [ "x$syntax_copied" = "x0" ]; then
-            cp "${yelp_js_dir}/jquery.syntax.js" "$html_out"
-            syntax_copied=1
-        fi
         cp "${yelp_js_dir}/jquery.syntax.${js}.js" "$html_out"
     done
 }
