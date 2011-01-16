@@ -18,10 +18,24 @@ AC_PROG_LN_S
 
 AM_PATH_PYTHON([2.4])
 
+AC_CHECK_PROG(XMLLINT, xmllint, xmllint)
+if test x"$XMLLINT" = x; then
+  AC_MSG_ERROR([xmllint not found])
+fi
+if [ `$XMLLINT --version 2>&1 | head -n1 | cut -d' ' -f5` -lt 20612 ]; then
+   AC_MSG_ERROR([xmllint too old; 2.6.12 required])
+fi
+
+AC_CHECK_PROG(XSLTPROC, xsltproc, xsltproc)
+if test x"$XSLTPROC" = x; then
+  AC_MSG_ERROR([xsltproc not found])
+fi
+if [ `$XSLTPROC --version 2>&1 | head -n1 | cut -d' ' -f5` -lt 10108 ]; then
+   AC_MSG_ERROR([xsltproc too old; 1.1.8 required])
+fi
+
 PKG_CHECK_MODULES(GNOME_DOC_UTILS,
 [
-	libxml-2.0 >= 2.6.12
-	libxslt    >= 1.1.8
 	yelp-xsl
 ])
 
