@@ -109,6 +109,7 @@ yelp_usage_html () {
         echo ""
         echo "Options:"
         echo "  -o OUT        Output files in the directory OUT"
+        echo "  -x CUSTOM     Import the custom XSLT file CUSTOM"
     ) 1>&2
 }
 
@@ -158,6 +159,9 @@ yelp_cache () {
 }
 
 yelp_html_xsl_common () {
+    if [ "x$html_custom" != "x" ]; then
+        echo '<xsl:include href="file://'`urlencode "$html_custom"`'"/>'
+    fi
     echo '<xsl:variable name="yelp.locale">'
     echo ' <xsl:choose>'
     echo '  <xsl:when test="$l10n.locale != '"''"'">'
@@ -436,6 +440,11 @@ yelp_html () {
                 html_out="$1"
                 shift
                 ;;
+            "-x")
+                shift
+                html_custom="$1"
+                shift
+                ;;
             *)
                 break
                 ;;
@@ -446,6 +455,11 @@ yelp_html () {
         exit 1
     fi
     html_out=`(cd "$html_out" && pwd)`
+    if [ "x$html_custom" != "x" ]; then
+        html_custom_dir=`dirname "$html_custom"`
+        html_custom_dir=`(cd "$html_custom_dir" && pwd)`
+        html_custom="$html_custom_dir"/`basename "$html_custom"`
+    fi
     if [ "$#" = "0" ]; then
         yelp_usage_html
         exit 1
