@@ -16,7 +16,6 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 xsl_mal_link='@XSL_MAL_LINK@'
-xsl_mal_cache='@XSL_MAL_CACHE@'
 
 urlencode () {
     echo "$1" | LANG=C awk '
@@ -31,37 +30,6 @@ BEGIN {
       ret = ret c;
     else
       ret = ret sprintf("%%%X%X", int(chars[c] / 16), chars[c] % 16);
-  }
-  print ret;
-}'
-}
-
-urldecode () {
-    echo "$1" | LANG=C awk '
-BEGIN {
-  for(i = 0; i < 10; i++) hex[i] = i;
-  hex["A"] = hex["a"] = 10;
-  hex["B"] = hex["b"] = 11;
-  hex["C"] = hex["c"] = 12;
-  hex["D"] = hex["d"] = 13;
-  hex["E"] = hex["e"] = 14;
-  hex["F"] = hex["f"] = 15;
-}
-{
-  ret = "";
-  for (i = 1; i <= length($0); i++) {
-    c = substr($0, i, 1);
-    if (c == "+") {
-      ret = ret " ";
-    }
-    else if (c == "%") {
-      c = sprintf("%c", hex[substr($0, i + 1, 1)] * 16 + hex[substr($0, i + 2, 1)]);
-      ret = ret c;
-      i += 2;
-    }
-    else {
-      ret = ret c;
-    }
   }
   print ret;
 }'
@@ -89,45 +57,6 @@ if [ $# = 0 ]; then
     yelp_usage
     exit 1
 fi
-
-yelp_cache_ls () {
-    fbase=`basename "$1"`
-    fdir=`dirname "$1"`
-    fdir=`(cd "$fdir" && pwd)`
-    echo '<page cache:href="file://'`urlencode "$fdir/$fbase"`'"/>'
-}
-yelp_cache () {
-    cache_out="index.cache"
-    while [ "$#" != "0" ]; do
-        case "$1" in
-            "-o")
-                shift
-                cache_out="$1"
-                shift
-                ;;
-            *)
-                break
-                ;;
-        esac
-    done
-    if [ "$#" = "0" ]; then
-        exit 1
-    fi
-    (
-        echo '<cache:cache xmlns:cache="http://projectmallard.org/cache/1.0/"'
-        echo '  xmlns="http://projectmallard.org/1.0/">'
-        for page in "$@"; do
-            if [ -d "$page" ]; then
-                for sub in "$page"/*.page; do
-                    yelp_cache_ls "$sub"
-                done
-            else
-                yelp_cache_ls "$page"
-            fi
-        done
-        echo '</cache:cache>'
-    ) | xsltproc --xinclude -o "$cache_out" "$xsl_mal_cache" -
-}
 
 yelp_orphans_page () {
     (
@@ -157,7 +86,7 @@ yelp_orphans_page () {
 
 yelp_orphans () {
     check_cache_file=`mktemp`
-    yelp_cache -o "$check_cache_file" "$@"
+    yelp-build cache -o "$check_cache_file" "$@"
     for xml in "$@"; do
         if [ -d "$xml" ]; then
             for page in "$xml"/*.page; do

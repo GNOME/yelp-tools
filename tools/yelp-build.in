@@ -155,7 +155,7 @@ yelp_cache () {
             fi
         done
         echo '</cache:cache>'
-    ) | xsltproc -o "$cache_out" "$xsl_mal_cache" -
+    ) | xsltproc --xinclude -o "$cache_out" "$xsl_mal_cache" -
 }
 
 yelp_html_xsl_common () {
