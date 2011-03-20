@@ -44,6 +44,9 @@ XSL_PATH="`$PKG_CONFIG --variable=xsltdir yelp-xsl`"
 XSL_MAL_CACHE="$XSL_PATH""/mallard/cache/mal-cache.xsl"
 AC_SUBST(XSL_MAL_CACHE)
 
+XSL_MAL_LINK="$XSL_PATH""/mallard/common/mal-link.xsl"
+AC_SUBST(XSL_MAL_LINK)
+
 XSL_DB2HTML="`$PKG_CONFIG --variable=db2html yelp-xsl`"
 AC_SUBST(XSL_DB2HTML)
 
@@ -76,6 +79,7 @@ Makefile
 templates/Makefile
 tools/Makefile
 tools/yelp-build
+tools/yelp-check
 tools/yelp-new
 xml2po/Makefile
 xml2po/xml2po.pc
