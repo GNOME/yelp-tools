@@ -1,5 +1,5 @@
 #!/bin/sh
-# yelp-cache - Create a Mallard cache file
+# yelp-build
 # Copyright (C) 2010 Shaun McCance <shaunm@gnome.org>
 #
 # This program is free software; you can redistribute it and/or modify
@@ -138,7 +138,7 @@ yelp_cache () {
                 ;;
         esac
     done
-    if [ "$#" = "0" ]; then
+    if [ "$#" = "0" -o "x$1" = "x--help" ]; then
         yelp_usage_cache
         exit 1
     fi
@@ -460,7 +460,7 @@ yelp_html () {
         html_custom_dir=`(cd "$html_custom_dir" && pwd)`
         html_custom="$html_custom_dir"/`basename "$html_custom"`
     fi
-    if [ "$#" = "0" ]; then
+    if [ "$#" = "0" -o "x$1" = "x--help" ]; then
         yelp_usage_html
         exit 1
     fi
