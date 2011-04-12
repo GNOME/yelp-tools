@@ -108,6 +108,7 @@ yelp_usage_html () {
         echo "  or directories containing Mallard page files."
         echo ""
         echo "Options:"
+        echo "  -c CACHE      Use the existing Mallard cache CACHE"
         echo "  -o OUT        Output files in the directory OUT"
         echo "  -x CUSTOM     Import the custom XSLT file CUSTOM"
     ) 1>&2
@@ -417,8 +418,13 @@ yelp_html_page2html () {
 }
 
 yelp_html_mal2html () {
-    html_cache_file=`mktemp`
-    yelp_cache -o "$html_cache_file" "$@"
+    if [ "x$html_cache_file" != "x" ]; then
+        html_cache_file=`(cd $(dirname "$html_cache_file") && pwd)`/`basename "$html_cache_file"`
+    else
+        html_cache_file_is_tmp="yes"
+        html_cache_file=`mktemp`
+        yelp_cache -o "$html_cache_file" "$@"
+    fi
     for xml in "$@"; do
         if [ -d "$xml" ]; then
             for page in "$xml"/*.page; do
@@ -428,13 +434,20 @@ yelp_html_mal2html () {
             yelp_html_page2html "$xml"
         fi
     done
-    rm "$html_cache_file"
+    if [ "x$html_cache_file_is_tmp" = "xyes" ]; then
+        rm "$html_cache_file"
+    fi
 }
 
 yelp_html () {
     html_out="."
     while [ "$#" != "0" ]; do
         case "$1" in
+            "-c")
+                shift
+                html_cache_file="$1"
+                shift
+                ;;
             "-o")
                 shift
                 html_out="$1"
