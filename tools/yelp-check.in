@@ -43,9 +43,19 @@ yelp_usage () {
         echo "  orphans       Find orphaned pages in a Mallard document"
     ) 1>&2
 }
+yelp_usage_links () {
+    (
+        echo "Usage: yelp-check links <FILES>"
+        echo ""
+	echo "  Find broken xref links in <FILES> in a Mallard document."
+	echo ""
+        echo "Options:"
+        echo "  -c CACHE      Use the existing Mallard cache CACHE"
+    ) 1>&2
+}
 yelp_usage_orphans () {
     (
-        echo "Usage: yelp-build orphans <FILES>"
+        echo "Usage: yelp-check orphans <FILES>"
         echo ""
 	echo "  Locate orphaned pages among <FILES> in a Mallard document."
 	echo "  Orphaned pages are any pages that cannot be reached by"
@@ -57,6 +67,75 @@ if [ $# = 0 ]; then
     yelp_usage
     exit 1
 fi
+
+yelp_links_page () {
+    (
+	echo '<xsl:stylesheet'
+	echo ' xmlns:xsl="http://www.w3.org/1999/XSL/Transform"'
+	echo ' xmlns:mal="http://projectmallard.org/1.0/"'
+	echo ' xmlns:exsl="http://exslt.org/common"'
+	echo ' extension-element-prefixes="exsl"'
+	echo ' version="1.0">'
+        xsl='file://'`urlencode "$xsl_mal_link"`
+        echo '<xsl:import href="'"$xsl"'"/>'
+        check_cache_url='file://'`urlencode "$check_cache_file"`
+        echo '<xsl:param name="mal.cache.file" select="'"'$check_cache_url'"'"/>'
+	echo '<xsl:output method="text"/>'
+	echo '<xsl:template match="/mal:page">'
+	echo ' <xsl:variable name="page" select="@id"/>'
+	echo ' <xsl:for-each select="//*[@xref]">'
+	echo '  <xsl:variable name="xref" select="@xref"/>'
+	echo '  <xsl:variable name="linkid">'
+	echo '   <xsl:call-template name="mal.link.xref.linkid"/>'
+	echo '  </xsl:variable>'
+	echo '  <xsl:for-each select="$mal.cache">'
+	echo '   <xsl:variable name="target" select="key('"'mal.cache.key'"', $linkid)"/>'
+	echo '   <xsl:if test="count($target) = 0">'
+	echo '    <xsl:value-of select="$page"/>'
+	echo '    <xsl:text>: </xsl:text>'
+	echo '    <xsl:value-of select="$xref"/>'
+	echo '    <xsl:text>&#x000A;</xsl:text>'
+	echo '   </xsl:if>'
+	echo '  </xsl:for-each>'
+	echo ' </xsl:for-each>'
+	echo '</xsl:template>'
+	echo '</xsl:stylesheet>'
+    ) | xsltproc --xinclude - "$1"
+}
+
+yelp_links () {
+    while [ "$#" != "0" ]; do
+        case "$1" in
+            "-c")
+                shift
+                check_cache_file="$1"
+                shift
+                ;;
+            *)
+                break
+                ;;
+        esac
+    done
+    if [ "x$check_cache_file" != "x" ]; then
+        check_cache_file=`(cd $(dirname "$check_cache_file") && pwd)`/`basename "$check_cache_file"`
+    else
+        check_cache_file_is_tmp="yes"
+        check_cache_file=`mktemp`
+        yelp-build cache -o "$check_cache_file" "$@"
+    fi
+    for xml in "$@"; do
+        if [ -d "$xml" ]; then
+            for page in "$xml"/*.page; do
+                yelp_links_page "$page"
+            done
+        else
+            yelp_links_page "$xml"
+        fi
+    done
+    if [ "x$check_cache_file_is_tmp" = "xyes" ]; then
+	rm "$check_cache_file"
+    fi
+}
 
 yelp_orphans_page () {
     (
@@ -102,6 +181,9 @@ yelp_orphans () {
 cmd="$1"
 shift
 case "x$cmd" in
+    "xlinks")
+        yelp_links "$@"
+        ;;
     "xorphans")
         yelp_orphans "$@"
         ;;
