@@ -41,6 +41,7 @@ yelp_usage () {
         echo ""
         echo "Commands:"
         echo "  orphans       Find orphaned pages in a Mallard document"
+        echo "  links         Find broken xref links in a Mallard document"
     ) 1>&2
 }
 yelp_usage_links () {
