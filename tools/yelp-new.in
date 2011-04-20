@@ -105,11 +105,16 @@ else
 fi
 
 # Set up some variable for substitution
-username='YOUR NAME'
-useremail='YOUR EMAIL ADDRESS'
-if type -P git &>/dev/null; then
+if type git >/dev/null 2>&1; then
     username=`git config user.name`
     useremail=`git config user.email`
+elif type bzr >/dev/null 2>&1; then
+    username=`bzr whoami | sed -e 's/ <.*//'`
+    useremail=`bzr whoami --email`
+fi
+if [ "x$username" = "x" -a "x$useremail" = "x" ]; then
+    username='YOUR NAME'
+    useremail='YOUR EMAIL ADDRESS'
 fi
 pagetitle="$3"
 if [ "x$pagetitle" = "x" ]; then
