@@ -81,11 +81,6 @@ tools/Makefile
 tools/yelp-build
 tools/yelp-check
 tools/yelp-new
-xml2po/Makefile
-xml2po/xml2po.pc
-xml2po/xml2po/Makefile
-xml2po/xml2po/modes/Makefile
-xml2po/examples/Makefile
 ])
 
 AC_OUTPUT
