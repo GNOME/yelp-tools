@@ -16,9 +16,9 @@ HELP_EXTRA ?=
 HELP_MEDIA ?=
 HELP_LINGUAS ?=
 
-_HELP_LINGUAS = $(if $(filter environment,$(origin LINGUAS)), $(filter $(LINGUAS),$(HELP_LINGUAS)), $(HELP_LINGUAS))
-_HELP_POTFILE = $(if $(HELP_ID), $(HELP_ID).pot)
-_HELP_POFILES = $(if $(HELP_ID), $(foreach lc,$(_HELP_LINGUAS),$(lc)/$(lc).po))
+_HELP_LINGUAS = $(if $(filter environment,$(origin LINGUAS)),$(filter $(LINGUAS),$(HELP_LINGUAS)),$(HELP_LINGUAS))
+_HELP_POTFILE = $(if $(HELP_ID),$(HELP_ID).pot)
+_HELP_POFILES = $(if $(HELP_ID),$(foreach lc,$(_HELP_LINGUAS),$(lc)/$(lc).po))
 _HELP_MOFILES = $(patsubst %.po,%.mo,$(_HELP_POFILES))
 _HELP_C_FILES = $(foreach f,$(HELP_FILES),C/$(f))
 _HELP_C_EXTRA = $(foreach f,$(HELP_EXTRA),C/$(f))
@@ -28,6 +28,7 @@ _HELP_LC_FILES = $(foreach lc,$(_HELP_LINGUAS),$(foreach f,$(HELP_FILES),$(lc)/$
 _HELP_LC_VERBOSE = $(_HELP_LC_VERBOSE_$(V))
 _HELP_LC_VERBOSE_ = $(_HELP_LC_VERBOSE_$(AM_DEFAULT_VERBOSITY))
 _HELP_LC_VERBOSE_0 = @echo "  GEN    "$(dir [$]@);
+_HELP_V = $(if $(V),$(V),$(AM_DEFAULT_VERBOSITY))
 
 all: $(_HELP_C_FILES) $(_HELP_LC_FILES) $(_HELP_POFILES)
 
@@ -35,6 +36,13 @@ all: $(_HELP_C_FILES) $(_HELP_LC_FILES) $(_HELP_POFILES)
 pot: $(_HELP_POTFILE)
 $(_HELP_POTFILE): $(_HELP_C_FILES) $(_HELP_C_EXTRA) $(_HELP_C_MEDIA)
 	$(AM_V_GEN)itstool -o "[$]@" $(_HELP_C_FILES)
+
+.PHONY: repo
+repo: $(_HELP_POTFILE)
+	$(AM_V_at)for po in $(_HELP_POFILES); do \
+	  if test "x[$](_HELP_V)" = "x0"; then echo "  GEN    $${po}"; fi; \
+	  msgmerge -q -o "$${po}" "$${po}" "$(_HELP_POTFILE)"; \
+	done
 
 $(_HELP_POFILES):
 	$(AM_V_at)if ! test -d "$(dir [$]@)"; then mkdir "$(dir [$]@)"; fi
