@@ -97,6 +97,9 @@ yelp_usage_cache () {
         echo "  Create a Mallard cache file from the page files FILES."
         echo "  If FILES contains directories, all .page files in those"
         echo "  directories will be used."
+        echo ""
+        echo "Options:"
+        echo "  -o OUT        Output cache to the file OUT"
     ) 1>&2
 }
 yelp_usage_html () {

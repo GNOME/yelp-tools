@@ -61,6 +61,9 @@ yelp_usage_orphans () {
 	echo "  Locate orphaned pages among <FILES> in a Mallard document."
 	echo "  Orphaned pages are any pages that cannot be reached by"
 	echo "  topic links alone from the index page."
+	echo ""
+        echo "Options:"
+        echo "  -c CACHE      Use the existing Mallard cache CACHE"
     ) 1>&2
 }
 
@@ -105,6 +108,10 @@ yelp_links_page () {
 }
 
 yelp_links () {
+    if [ "$#" = "0" -o "x$1" = "x--help" ]; then
+        yelp_usage_links
+        exit 1
+    fi
     while [ "$#" != "0" ]; do
         case "$1" in
             "-c")
@@ -165,8 +172,29 @@ yelp_orphans_page () {
 }
 
 yelp_orphans () {
-    check_cache_file=`mktemp`
-    yelp-build cache -o "$check_cache_file" "$@"
+    if [ "$#" = "0" -o "x$1" = "x--help" ]; then
+        yelp_usage_orphans
+        exit 1
+    fi
+    while [ "$#" != "0" ]; do
+        case "$1" in
+            "-c")
+                shift
+                check_cache_file="$1"
+                shift
+                ;;
+            *)
+                break
+                ;;
+        esac
+    done
+    if [ "x$check_cache_file" != "x" ]; then
+        check_cache_file=`(cd $(dirname "$check_cache_file") && pwd)`/`basename "$check_cache_file"`
+    else
+        check_cache_file_is_tmp="yes"
+        check_cache_file=`mktemp`
+        yelp-build cache -o "$check_cache_file" "$@"
+    fi
     for xml in "$@"; do
         if [ -d "$xml" ]; then
             for page in "$xml"/*.page; do
@@ -176,7 +204,9 @@ yelp_orphans () {
             yelp_orphans_page "$xml"
         fi
     done
-    rm "$check_cache_file"
+    if [ "x$check_cache_file_is_tmp" = "xyes" ]; then
+	rm "$check_cache_file"
+    fi
 }
 
 cmd="$1"
