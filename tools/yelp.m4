@@ -80,6 +80,24 @@ EXTRA_DIST ?=
 EXTRA_DIST += $(_HELP_C_FILES) $(_HELP_LC_FILES) $(_HELP_C_EXTRA) $(_HELP_C_MEDIA) $(_HELP_POFILES)
 EXTRA_DIST += $(foreach f,$(HELP_MEDIA),$(foreach lc,$(_HELP_LINGUAS),$(wildcard $(lc)/$(f))))
 
+.PHONY: check-help
+check: check-help
+check-help:
+	for lc in C $(_HELP_LINGUAS); do \
+	  if test -d "$$lc"; \
+	    then d=; \
+	    xmlpath="$$lc"; \
+	  else \
+	    d="$(srcdir)/"; \
+	    xmlpath="$$lc:$(srcdir)/$$lc"; \
+	  fi; \
+	  for page in $(HELP_FILES); do \
+	    echo "xmllint --noout --noent --path $$xmlpath --xinclude $$d$$lc/$$page"; \
+	    xmllint --noout --noent --path "$$xmlpath" --xinclude "$$d$$lc/$$page"; \
+	  done; \
+	done
+
+
 .PHONY: install-help
 install-data-am: $(if $(HELP_ID),install-help)
 install-help:
