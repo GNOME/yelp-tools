@@ -1,5 +1,6 @@
 AC_DEFUN([HELP_INIT],
 [
+AC_REQUIRE([AC_PROG_LN_S])
 m4_pattern_allow([AM_V_at])
 m4_pattern_allow([AM_V_GEN])
 AC_ARG_WITH([help-dir],
@@ -30,7 +31,7 @@ _HELP_LC_VERBOSE_ = $(_HELP_LC_VERBOSE_$(AM_DEFAULT_VERBOSITY))
 _HELP_LC_VERBOSE_0 = @echo "  GEN    "$(dir [$]@);
 _HELP_V = $(if $(V),$(V),$(AM_DEFAULT_VERBOSITY))
 
-all: $(_HELP_C_FILES) $(_HELP_LC_FILES) $(_HELP_POFILES)
+all: $(_HELP_C_FILES) $(_HELP_C_EXTRA) $(_HELP_C_MEDIA) $(_HELP_LC_FILES) $(_HELP_POFILES)
 
 .PHONY: pot
 pot: $(_HELP_POTFILE)
@@ -76,7 +77,7 @@ clean-help:
 	rm -f $(_HELP_LC_FILES) $(_HELP_MOFILES)
 
 EXTRA_DIST ?=
-EXTRA_DIST += $(_HELP_C_FILES) $(_HELP_LC_FILES) $(_HELP_C_EXTRA) $(_HELP_POFILES)
+EXTRA_DIST += $(_HELP_C_FILES) $(_HELP_LC_FILES) $(_HELP_C_EXTRA) $(_HELP_C_MEDIA) $(_HELP_POFILES)
 EXTRA_DIST += $(foreach f,$(HELP_MEDIA),$(foreach lc,$(_HELP_LINGUAS),$(wildcard $(lc)/$(f))))
 
 .PHONY: install-help
@@ -103,6 +104,9 @@ install-help:
 	    if test -f "$$d$$lc/$$f"; then \
 	      echo "$(INSTALL_DATA) $$d$$lc/$$f $$helpdir$$f"; \
 	      $(INSTALL_DATA) "$$d$$lc/$$f" "$$helpdir$$f" || exit 1; \
+	    elif test "x$$lc" != "xC"; then \
+	      echo "$(LN_S) -f $(DESTDIR)$(HELP_DIR)/C/$(HELP_ID)/$$f $$helpdir$$f"; \
+	      $(LN_S) -f "$(DESTDIR)$(HELP_DIR)/C/$(HELP_ID)/$$f" "$$helpdir$$f" || exit 1; \
 	    fi; \
 	  done; \
 	done
