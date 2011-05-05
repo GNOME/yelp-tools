@@ -51,8 +51,8 @@ yelp_usage_links () {
     (
         echo "Usage: yelp-check links <FILES>"
         echo ""
-	echo "  Find broken xref links in <FILES> in a Mallard document."
-	echo ""
+        echo "  Find broken xref links in <FILES> in a Mallard document."
+        echo ""
         echo "Options:"
         echo "  -c CACHE      Use the existing Mallard cache CACHE"
     ) 1>&2
@@ -61,10 +61,10 @@ yelp_usage_orphans () {
     (
         echo "Usage: yelp-check orphans <FILES>"
         echo ""
-	echo "  Locate orphaned pages among <FILES> in a Mallard document."
-	echo "  Orphaned pages are any pages that cannot be reached by"
-	echo "  topic links alone from the index page."
-	echo ""
+        echo "  Locate orphaned pages among <FILES> in a Mallard document."
+        echo "  Orphaned pages are any pages that cannot be reached by"
+        echo "  topic links alone from the index page."
+        echo ""
         echo "Options:"
         echo "  -c CACHE      Use the existing Mallard cache CACHE"
     ) 1>&2
@@ -86,36 +86,36 @@ fi
 
 yelp_links_page () {
     (
-	echo '<xsl:stylesheet'
-	echo ' xmlns:xsl="http://www.w3.org/1999/XSL/Transform"'
-	echo ' xmlns:mal="http://projectmallard.org/1.0/"'
-	echo ' xmlns:exsl="http://exslt.org/common"'
-	echo ' extension-element-prefixes="exsl"'
-	echo ' version="1.0">'
+        echo '<xsl:stylesheet'
+        echo ' xmlns:xsl="http://www.w3.org/1999/XSL/Transform"'
+        echo ' xmlns:mal="http://projectmallard.org/1.0/"'
+        echo ' xmlns:exsl="http://exslt.org/common"'
+        echo ' extension-element-prefixes="exsl"'
+        echo ' version="1.0">'
         xsl='file://'`urlencode "$xsl_mal_link"`
         echo '<xsl:import href="'"$xsl"'"/>'
         check_cache_url='file://'`urlencode "$check_cache_file"`
         echo '<xsl:param name="mal.cache.file" select="'"'$check_cache_url'"'"/>'
-	echo '<xsl:output method="text"/>'
-	echo '<xsl:template match="/mal:page">'
-	echo ' <xsl:variable name="page" select="@id"/>'
-	echo ' <xsl:for-each select="//*[@xref]">'
-	echo '  <xsl:variable name="xref" select="@xref"/>'
-	echo '  <xsl:variable name="linkid">'
-	echo '   <xsl:call-template name="mal.link.xref.linkid"/>'
-	echo '  </xsl:variable>'
-	echo '  <xsl:for-each select="$mal.cache">'
-	echo '   <xsl:variable name="target" select="key('"'mal.cache.key'"', $linkid)"/>'
-	echo '   <xsl:if test="count($target) = 0">'
-	echo '    <xsl:value-of select="$page"/>'
-	echo '    <xsl:text>: </xsl:text>'
-	echo '    <xsl:value-of select="$xref"/>'
-	echo '    <xsl:text>&#x000A;</xsl:text>'
-	echo '   </xsl:if>'
-	echo '  </xsl:for-each>'
-	echo ' </xsl:for-each>'
-	echo '</xsl:template>'
-	echo '</xsl:stylesheet>'
+        echo '<xsl:output method="text"/>'
+        echo '<xsl:template match="/mal:page">'
+        echo ' <xsl:variable name="page" select="@id"/>'
+        echo ' <xsl:for-each select="//*[@xref]">'
+        echo '  <xsl:variable name="xref" select="@xref"/>'
+        echo '  <xsl:variable name="linkid">'
+        echo '   <xsl:call-template name="mal.link.xref.linkid"/>'
+        echo '  </xsl:variable>'
+        echo '  <xsl:for-each select="$mal.cache">'
+        echo '   <xsl:variable name="target" select="key('"'mal.cache.key'"', $linkid)"/>'
+        echo '   <xsl:if test="count($target) = 0">'
+        echo '    <xsl:value-of select="$page"/>'
+        echo '    <xsl:text>: </xsl:text>'
+        echo '    <xsl:value-of select="$xref"/>'
+        echo '    <xsl:text>&#x000A;</xsl:text>'
+        echo '   </xsl:if>'
+        echo '  </xsl:for-each>'
+        echo ' </xsl:for-each>'
+        echo '</xsl:template>'
+        echo '</xsl:stylesheet>'
     ) | xsltproc --xinclude - "$1"
 }
 
@@ -157,7 +157,7 @@ yelp_links () {
     if test "x$ret" != "x0"; then ret="1"; fi
     cat "$check_out_file"
     if [ "x$check_cache_file_is_tmp" = "xyes" ]; then
-	rm "$check_cache_file"
+        rm "$check_cache_file"
     fi
     rm "$check_out_file"
     exit $ret
@@ -165,27 +165,27 @@ yelp_links () {
 
 yelp_orphans_page () {
     (
-	echo '<xsl:stylesheet'
-	echo ' xmlns:xsl="http://www.w3.org/1999/XSL/Transform"'
-	echo ' xmlns:mal="http://projectmallard.org/1.0/"'
-	echo ' xmlns:exsl="http://exslt.org/common"'
-	echo ' extension-element-prefixes="exsl"'
-	echo ' version="1.0">'
+        echo '<xsl:stylesheet'
+        echo ' xmlns:xsl="http://www.w3.org/1999/XSL/Transform"'
+        echo ' xmlns:mal="http://projectmallard.org/1.0/"'
+        echo ' xmlns:exsl="http://exslt.org/common"'
+        echo ' extension-element-prefixes="exsl"'
+        echo ' version="1.0">'
         xsl='file://'`urlencode "$xsl_mal_link"`
         echo '<xsl:import href="'"$xsl"'"/>'
         check_cache_url='file://'`urlencode "$check_cache_file"`
         echo '<xsl:param name="mal.cache.file" select="'"'$check_cache_url'"'"/>'
-	echo '<xsl:output method="text"/>'
-	echo '<xsl:template match="/mal:page">'
-	echo ' <xsl:variable name="trails">'
-	echo '  <xsl:call-template name="mal.link.linktrails"/>'
-	echo ' </xsl:variable>'
-	echo ' <xsl:if test="@id != '"'index'"' and count(exsl:node-set($trails)/*) = 0">'
-	echo '  <xsl:value-of select="@id"/>'
-	echo '  <xsl:text>&#x000A;</xsl:text>'
-	echo ' </xsl:if>'
-	echo '</xsl:template>'
-	echo '</xsl:stylesheet>'
+        echo '<xsl:output method="text"/>'
+        echo '<xsl:template match="/mal:page">'
+        echo ' <xsl:variable name="trails">'
+        echo '  <xsl:call-template name="mal.link.linktrails"/>'
+        echo ' </xsl:variable>'
+        echo ' <xsl:if test="@id != '"'index'"' and count(exsl:node-set($trails)/*) = 0">'
+        echo '  <xsl:value-of select="@id"/>'
+        echo '  <xsl:text>&#x000A;</xsl:text>'
+        echo ' </xsl:if>'
+        echo '</xsl:template>'
+        echo '</xsl:stylesheet>'
     ) | xsltproc --xinclude - "$1"
 }
 
@@ -227,7 +227,7 @@ yelp_orphans () {
     if test "x$ret" != "x0"; then ret="1"; fi
     cat "$check_out_file"
     if [ "x$check_cache_file_is_tmp" = "xyes" ]; then
-	rm "$check_cache_file"
+        rm "$check_cache_file"
     fi
     rm "$check_out_file"
     exit $ret
