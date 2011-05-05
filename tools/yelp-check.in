@@ -253,12 +253,15 @@ yelp_validate () {
     fi
     gret="0"
     for xml in "$@"; do
+        ext=`echo "$1" | sed -e 's/.*\.//'`
         if [ -d "$xml" ]; then
             for page in "$xml"/*.page; do
                 yelp_validate_page "$page" || gret="$?"
             done
-        else
+        elif [ "x$ext" = "xpage" ]; then
             yelp_validate_page "$xml" || gret="$?"
+        else
+            xmllint --noout --xinclude --noent --postvalid "$xml" || gret="$?"
         fi
     done
     exit "$gret"
