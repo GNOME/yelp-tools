@@ -243,23 +243,25 @@ yelp_validate_page () {
     ret="$?"
     cat "$check_out_file" | grep -v 'validates$'
     rm "$check_rng_file" "$check_out_file"
-    exit $ret;
+    return $ret;
 }
 
 yelp_validate () {
     if [ "$#" = "0" -o "x$1" = "x--help" ]; then
-        yelp_usage_orphans
+        yelp_usage_validate
         exit 1
     fi
+    gret="0"
     for xml in "$@"; do
         if [ -d "$xml" ]; then
             for page in "$xml"/*.page; do
-                yelp_validate_page "$page"
+                yelp_validate_page "$page" || gret="$?"
             done
         else
-            yelp_validate_page "$xml"
+            yelp_validate_page "$xml" || gret="$?"
         fi
     done
+    exit "$gret"
 }
 
 cmd="$1"
