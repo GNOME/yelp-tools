@@ -41,6 +41,15 @@ PKG_CHECK_MODULES(GNOME_DOC_UTILS,
 
 XSL_PATH="`$PKG_CONFIG --variable=xsltdir yelp-xsl`"
 
+DATADIR=`(
+    case $prefix in
+        NONE) prefix=$ac_default_prefix ;;
+        *) ;;
+    esac
+    eval echo $(eval echo $datadir)/yelp-tools
+)`
+AC_SUBST([DATADIR])
+
 XSL_MAL_CACHE="$XSL_PATH""/mallard/cache/mal-cache.xsl"
 AC_SUBST(XSL_MAL_CACHE)
 
@@ -81,6 +90,7 @@ tools/Makefile
 tools/yelp-build
 tools/yelp-check
 tools/yelp-new
+xslt/Makefile
 ])
 
 AC_OUTPUT

@@ -1,4 +1,5 @@
 #!/bin/sh
+# yelp-check
 # Copyright (C) 2011 Shaun McCance <shaunm@gnome.org>
 #
 # This program is free software; you can redistribute it and/or modify
@@ -16,6 +17,7 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 xsl_mal_link='@XSL_MAL_LINK@'
+xsl_mal_rng='@DATADIR@/xslt/mal-rng.xsl'
 
 urlencode () {
     echo "$1" | LANG=C awk '
@@ -42,6 +44,7 @@ yelp_usage () {
         echo "Commands:"
         echo "  orphans       Find orphaned pages in a Mallard document"
         echo "  links         Find broken xref links in a Mallard document"
+        echo "  validate      Validate files against a DTD or RNG"
     ) 1>&2
 }
 yelp_usage_links () {
@@ -64,6 +67,15 @@ yelp_usage_orphans () {
 	echo ""
         echo "Options:"
         echo "  -c CACHE      Use the existing Mallard cache CACHE"
+    ) 1>&2
+}
+yelp_usage_validate () {
+    (
+        echo "Usage: yelp-check validate <FILES>"
+        echo ""
+        echo "  Validate FILES against the appropriate DTD or RNG."
+        echo "  For Mallard pages, perform automatic RNG merging"
+        echo "  based on the version attribute."
     ) 1>&2
 }
 
@@ -209,6 +221,35 @@ yelp_orphans () {
     fi
 }
 
+yelp_validate_page () {
+    # Using temp files because pipes create subshells, making it really
+    # hard to return the right exit status in a portable way.
+    check_rng_file=`mktemp`
+    check_out_file=`mktemp`
+    xsltproc -o "$check_rng_file" "$xsl_mal_rng" "$1"
+    xmllint --noout --xinclude --noent --relaxng "$check_rng_file" "$1" > "$check_out_file" 2>&1
+    ret="$?"
+    cat "$check_out_file" | grep -v 'validates$'
+    rm "$check_rng_file" "$check_out_file"
+    exit $ret;
+}
+
+yelp_validate () {
+    if [ "$#" = "0" -o "x$1" = "x--help" ]; then
+        yelp_usage_orphans
+        exit 1
+    fi
+    for xml in "$@"; do
+        if [ -d "$xml" ]; then
+            for page in "$xml"/*.page; do
+                yelp_validate_page "$page"
+            done
+        else
+            yelp_validate_page "$xml"
+        fi
+    done
+}
+
 cmd="$1"
 shift
 case "x$cmd" in
@@ -217,6 +258,9 @@ case "x$cmd" in
         ;;
     "xorphans")
         yelp_orphans "$@"
+        ;;
+    "xvalidate")
+        yelp_validate "$@"
         ;;
     *)
         yelp_usage
