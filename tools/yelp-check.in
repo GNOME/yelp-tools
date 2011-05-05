@@ -143,6 +143,7 @@ yelp_links () {
         check_cache_file=`mktemp`
         yelp-build cache -o "$check_cache_file" "$@"
     fi
+    check_out_file=`mktemp`
     for xml in "$@"; do
         if [ -d "$xml" ]; then
             for page in "$xml"/*.page; do
@@ -151,10 +152,15 @@ yelp_links () {
         else
             yelp_links_page "$xml"
         fi
-    done
+    done > "$check_out_file"
+    ret=`cat "$check_out_file" | wc -l`
+    if test "x$ret" != "x0"; then ret="1"; fi
+    cat "$check_out_file"
     if [ "x$check_cache_file_is_tmp" = "xyes" ]; then
 	rm "$check_cache_file"
     fi
+    rm "$check_out_file"
+    exit $ret
 }
 
 yelp_orphans_page () {
@@ -207,6 +213,7 @@ yelp_orphans () {
         check_cache_file=`mktemp`
         yelp-build cache -o "$check_cache_file" "$@"
     fi
+    check_out_file=`mktemp`
     for xml in "$@"; do
         if [ -d "$xml" ]; then
             for page in "$xml"/*.page; do
@@ -215,10 +222,15 @@ yelp_orphans () {
         else
             yelp_orphans_page "$xml"
         fi
-    done
+    done > "$check_out_file"
+    ret=`cat "$check_out_file" | wc -l`
+    if test "x$ret" != "x0"; then ret="1"; fi
+    cat "$check_out_file"
     if [ "x$check_cache_file_is_tmp" = "xyes" ]; then
 	rm "$check_cache_file"
     fi
+    rm "$check_out_file"
+    exit $ret
 }
 
 yelp_validate_page () {
