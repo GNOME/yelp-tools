@@ -5,7 +5,7 @@
     xmlns:mal="http://projectmallard.org/1.0/"
     xmlns:rng="http://relaxng.org/ns/structure/1.0"
     xmlns="http://relaxng.org/ns/structure/1.0"
-    exclude-result-prefixes="str exsl"
+    exclude-result-prefixes="mal str exsl rng"
     version="1.0">
 
 <xsl:template match="/*">
@@ -42,12 +42,22 @@
   <xsl:variable name="nss_">
     <xsl:for-each select="str:split($uris)">
       <xsl:for-each select="document(.)/*">
-        <nsName ns="{@ns}"/>
+        <xsl:if test="@ns != ''">
+          <nsName ns="{@ns}"/>
+        </xsl:if>
+        <xsl:for-each select="namespace::*">
+          <xsl:if test=". != '' and
+                        not(local-name(.) = '' and . = 'http://relaxng.org/ns/structure/1.0') and
+                        not(local-name(.) = 'xml' and . = 'http://www.w3.org/XML/1998/namespace')
+                        ">
+            <nsName ns="{.}"/>
+          </xsl:if>
+        </xsl:for-each>
       </xsl:for-each>
     </xsl:for-each>
     <nsName ns=""/>
   </xsl:variable>
-  <xsl:variable name="nss" select="exsl:node-set($nss_)/*"/>
+  <xsl:variable name="nss" select="exsl:node-set($nss_)/*[not(@ns = preceding-sibling::*/@ns)]"/>
   <grammar>
     <xsl:for-each select="str:split($uris)">
       <xsl:for-each select="document(.)/rng:grammar">
@@ -67,14 +77,34 @@
 <xsl:template mode="rng.mode" match="*">
   <xsl:param name="ns"/>
   <xsl:param name="nss"/>
+  <xsl:variable name="nsmunge" select="self::rng:element or self::rng:attribute"/>
   <xsl:copy>
     <xsl:for-each select="@*">
-      <xsl:copy-of select="."/>
+      <xsl:choose>
+        <xsl:when test="$nsmunge and local-name(.) = 'name' and contains(., ':')">
+          <xsl:attribute name="name">
+            <xsl:value-of select="substring-after(., ':')"/>
+          </xsl:attribute>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:copy-of select="."/>
+        </xsl:otherwise>
+      </xsl:choose>
     </xsl:for-each>
-    <xsl:if test="self::rng:element and not(@ns)">
-      <xsl:attribute name="ns">
-        <xsl:value-of select="$ns"/>
-      </xsl:attribute>
+    <xsl:if test="$nsmunge and not(@ns)">
+      <xsl:choose>
+        <xsl:when test="contains(@name, ':')">
+          <xsl:variable name="prefix" select="substring-before(@name, ':')"/>
+          <xsl:attribute name="ns">
+            <xsl:value-of select="namespace::*[local-name(.) = $prefix]"/>
+          </xsl:attribute>
+        </xsl:when>
+        <xsl:when test="self::rng:element">
+          <xsl:attribute name="ns">
+            <xsl:value-of select="$ns"/>
+          </xsl:attribute>
+        </xsl:when>
+      </xsl:choose>
     </xsl:if>
     <xsl:apply-templates mode="rng.mode">
       <xsl:with-param name="ns" select="$ns"/>
