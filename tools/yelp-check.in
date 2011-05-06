@@ -20,6 +20,14 @@ xsl_mal_link='@XSL_MAL_LINK@'
 xsl_mal_rng='@DATADIR@/xslt/mal-rng.xsl'
 
 urlencode () {
+    # We usually don't want to urlencode slashes, because we're
+    # usually converting file paths to URIs. But we do want to
+    # urlencode slases for names of RNG files in validate_page.
+    if [ "x$2" = "x/" ]; then
+        urlencode_slash=''
+    else
+        urlencode_slash='\/'
+    fi
     echo "$1" | LANG=C awk '
 BEGIN {
   for (i = 1; i <= 255; i++) chars[sprintf("%c", i)] = i;
@@ -28,7 +36,7 @@ BEGIN {
   ret = "";
   for (i = 1; i <= length($0); i++) {
     c = substr($0, i, 1);
-    if (c ~ /[\/a-zA-Z0-9._-]/)
+    if (c ~ /['$urlencode_slash'a-zA-Z0-9._-]/)
       ret = ret c;
     else
       ret = ret sprintf("%%%X%X", int(chars[c] / 16), chars[c] % 16);
@@ -236,13 +244,40 @@ yelp_orphans () {
 yelp_validate_page () {
     # Using temp files because pipes create subshells, making it really
     # hard to return the right exit status in a portable way.
-    check_rng_file=`mktemp`
+    if [ "x$check_rng_dir" = "x" ]; then
+        check_rng_dir=`mktemp -d`
+    fi
     check_out_file=`mktemp`
-    xsltproc -o "$check_rng_file" "$xsl_mal_rng" "$1"
-    xmllint --noout --xinclude --noent --relaxng "$check_rng_file" "$1" > "$check_out_file" 2>&1
+    check_rng_file=`(
+            echo '<xsl:stylesheet'
+            echo ' xmlns:xsl="http://www.w3.org/1999/XSL/Transform"'
+            echo ' version="1.0">'
+            echo '<xsl:output method="text"/>'
+            echo '<xsl:template match="/*">'
+            echo '<xsl:choose>'
+            echo '<xsl:when test="string(@version) != '"''"'">'
+            echo '<xsl:value-of select="@version"/>'
+            echo '</xsl:when>'
+            echo '<xsl:otherwise>'
+            echo '<xsl:text>1.0</xsl:text>'
+            echo '</xsl:otherwise>'
+            echo '</xsl:choose>'
+            echo '</xsl:template>'
+            echo '</xsl:stylesheet>'
+            ) | xsltproc - "$1"`
+    check_rng_file=`urlencode "$check_rng_file" /`.rng
+    if [ ! -f "$check_rng_dir/$check_rng_file" ]; then
+        # If we've already made an RNG file for this version string, don't
+        # do it again. We've urlencoded the file name + slashes, because
+        # version strings often contain slashes. But xsltproc treats the
+        # -o option as a URL and urldecodes, so doubly urlencode, because
+        # we want the urlencoded string to be the on-disk name.
+        xsltproc -o "$check_rng_dir/"`urlencode "$check_rng_file"` "$xsl_mal_rng" "$1"
+    fi
+    xmllint --noout --xinclude --noent --relaxng "$check_rng_dir/$check_rng_file" "$1" > "$check_out_file" 2>&1
     ret="$?"
     cat "$check_out_file" | grep -v 'validates$'
-    rm "$check_rng_file" "$check_out_file"
+    rm "$check_out_file"
     return $ret;
 }
 
@@ -264,6 +299,10 @@ yelp_validate () {
             xmllint --noout --xinclude --noent --postvalid "$xml" || gret="$?"
         fi
     done
+    if [ "x$check_rng_dir" != "x" ]; then
+        rm "$check_rng_dir"/*.rng
+        rmdir "$check_rng_dir"
+    fi
     exit "$gret"
 }
 
