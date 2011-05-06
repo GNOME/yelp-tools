@@ -60,8 +60,10 @@
   <xsl:variable name="nss" select="exsl:node-set($nss_)/*[not(@ns = preceding-sibling::*/@ns)]"/>
   <grammar>
     <xsl:for-each select="str:split($uris)">
+      <xsl:variable name="first" select="position() = 1"/>
       <xsl:for-each select="document(.)/rng:grammar">
         <xsl:apply-templates mode="rng.mode" select="*">
+          <xsl:with-param name="first" select="$first"/>
           <xsl:with-param name="ns" select="string(@ns)"/>
           <xsl:with-param name="nss" select="$nss"/>
         </xsl:apply-templates>
@@ -75,6 +77,7 @@
 </xsl:template>
 
 <xsl:template mode="rng.mode" match="*">
+  <xsl:param name="first"/>
   <xsl:param name="ns"/>
   <xsl:param name="nss"/>
   <xsl:variable name="nsmunge" select="self::rng:element or self::rng:attribute"/>
@@ -107,13 +110,33 @@
       </xsl:choose>
     </xsl:if>
     <xsl:apply-templates mode="rng.mode">
+      <xsl:with-param name="first" select="$first"/>
       <xsl:with-param name="ns" select="$ns"/>
       <xsl:with-param name="nss" select="$nss"/>
     </xsl:apply-templates>
   </xsl:copy>
 </xsl:template>
 
+<xsl:template mode="rng.mode" match="rng:start">
+  <xsl:param name="first"/>
+  <xsl:param name="ns"/>
+  <xsl:param name="nss"/>
+  <xsl:if test="$first or @combine = 'choice' or @combine = 'interleave'">
+    <xsl:copy>
+      <xsl:for-each select="@*">
+        <xsl:copy-of select="."/>
+      </xsl:for-each>
+      <xsl:apply-templates mode="rng.mode">
+        <xsl:with-param name="first" select="$first"/>
+        <xsl:with-param name="ns" select="$ns"/>
+        <xsl:with-param name="nss" select="$nss"/>
+      </xsl:apply-templates>
+    </xsl:copy>
+  </xsl:if>
+</xsl:template>
+
 <xsl:template mode="rng.mode" match="rng:anyName/rng:except">
+  <xsl:param name="first"/>
   <xsl:param name="ns"/>
   <xsl:param name="nss"/>
   <except>
