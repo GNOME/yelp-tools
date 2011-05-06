@@ -1,4 +1,4 @@
-SUBDIRS = templates tools
+SUBDIRS = templates tools xslt
 
 EXTRA_DIST = 						\
 	COPYING.GPL					\
