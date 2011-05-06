@@ -20,11 +20,4 @@
       <gnome:userid>shaunm</gnome:userid>
     </foaf:Person>
   </maintainer>
-  <maintainer>
-    <foaf:Person>
-      <foaf:name>Danilo Šegan</foaf:name>
-      <foaf:mbox rdf:resource="mailto:danilo@gnome.org" />
-      <gnome:userid>danilo</gnome:userid>
-    </foaf:Person>
-  </maintainer>
 </Project>
