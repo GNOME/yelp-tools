@@ -3,6 +3,7 @@ AC_DEFUN([HELP_INIT],
 AC_REQUIRE([AC_PROG_LN_S])
 m4_pattern_allow([AM_V_at])
 m4_pattern_allow([AM_V_GEN])
+m4_pattern_allow([AM_DEFAULT_VERBOSITY])
 AC_ARG_WITH([help-dir],
             AC_HELP_STRING([--with-help-dir=DIR],
                            [path where help files are installed]),,
@@ -26,10 +27,11 @@ _HELP_C_EXTRA = $(foreach f,$(HELP_EXTRA),C/$(f))
 _HELP_C_MEDIA = $(foreach f,$(HELP_MEDIA),C/$(f))
 _HELP_LC_FILES = $(foreach lc,$(_HELP_LINGUAS),$(foreach f,$(HELP_FILES),$(lc)/$(f)))
 
-_HELP_LC_VERBOSE = $(_HELP_LC_VERBOSE_$(V))
-_HELP_LC_VERBOSE_ = $(_HELP_LC_VERBOSE_$(AM_DEFAULT_VERBOSITY))
+_HELP_DEFAULT_V = $(if $(AM_DEFAULT_VERBOSITY),$(AM_DEFAULT_VERBOSITY),1)
+_HELP_V = $(if $(V),$(V),$(_HELP_DEFAULT_V))
+_HELP_LC_VERBOSE = $(_HELP_LC_VERBOSE_$(_HELP_V))
+_HELP_LC_VERBOSE_ = $(_HELP_LC_VERBOSE_$(_HELP_DEFAULT_V))
 _HELP_LC_VERBOSE_0 = @echo "  GEN    "$(dir [$]@);
-_HELP_V = $(if $(V),$(V),$(AM_DEFAULT_VERBOSITY))
 
 all: $(_HELP_C_FILES) $(_HELP_C_EXTRA) $(_HELP_C_MEDIA) $(_HELP_LC_FILES) $(_HELP_POFILES)
 
