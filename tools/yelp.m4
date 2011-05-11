@@ -11,6 +11,16 @@ AC_ARG_WITH([help-dir],
 HELP_DIR="$with_help_dir"
 AC_SUBST(HELP_DIR)
 
+AC_CHECK_PROG(ITSTOOL, itstool, itstool)
+if test x"$ITSTOOL" = x; then
+  AC_MSG_ERROR([itstool not found])
+fi
+
+AC_CHECK_PROG(XMLLINT, xmllint, xmllint)
+if test x"$XMLLINT" = x; then
+  AC_MSG_ERROR([xmllint not found])
+fi
+
 HELP_RULES='
 HELP_ID ?=
 HELP_FILES ?=
@@ -38,7 +48,7 @@ all: $(_HELP_C_FILES) $(_HELP_C_EXTRA) $(_HELP_C_MEDIA) $(_HELP_LC_FILES) $(_HEL
 .PHONY: pot
 pot: $(_HELP_POTFILE)
 $(_HELP_POTFILE): $(_HELP_C_FILES) $(_HELP_C_EXTRA) $(_HELP_C_MEDIA)
-	$(AM_V_GEN)itstool -o "[$]@" $(_HELP_C_FILES)
+	$(AM_V_GEN)$(ITSTOOL) -o "[$]@" $(_HELP_C_FILES)
 
 .PHONY: repo
 repo: $(_HELP_POTFILE)
@@ -52,11 +62,11 @@ $(_HELP_POFILES):
 	$(AM_V_at)if test ! -f "[$]@" -a -f "$(srcdir)/[$]@"; then cp "$(srcdir)/[$]@" "[$]@"; fi
 	$(AM_V_GEN)if ! test -f "[$]@"; then \
 	  (cd "$(dir [$]@)" && \
-	    itstool -o "$(notdir [$]@).tmp" $(_HELP_C_FILES) && \
+	    $(ITSTOOL) -o "$(notdir [$]@).tmp" $(_HELP_C_FILES) && \
 	    mv "$(notdir [$]@).tmp" "$(notdir [$]@)"); \
 	else \
 	  (cd "$(dir [$]@)" && \
-	    itstool -o "$(notdir [$]@).tmp" $(_HELP_C_FILES) && \
+	    $(ITSTOOL) -o "$(notdir [$]@).tmp" $(_HELP_C_FILES) && \
 	    msgmerge -o "$(notdir [$]@)" "$(notdir [$]@)" "$(notdir [$]@).tmp" && \
 	    rm "$(notdir [$]@).tmp"); \
 	fi
@@ -71,7 +81,7 @@ $(_HELP_LC_FILES): $(_HELP_C_FILES) $(_HELP_C_EXTRA)
 	$(_HELP_LC_VERBOSE)if test -f "C/$(notdir [$]@)"; then d="../"; else d="$(abs_srcdir)/"; fi; \
 	mo="$(dir [$]@)$(patsubst %/$(notdir [$]@),%,[$]@).mo"; \
 	if test -f "$${mo}"; then mo="../$${mo}"; else mo="$(abs_srcdir)/$${mo}"; fi; \
-	(cd "$(dir [$]@)" && itstool -m "$${mo}" $(foreach f,$(_HELP_C_FILES),$${d}/$(f)))
+	(cd "$(dir [$]@)" && $(ITSTOOL) -m "$${mo}" $(foreach f,$(_HELP_C_FILES),$${d}/$(f)))
 
 .PHONY: clean-help
 mostlyclean-am: $(if $(HELP_ID),clean-help)
@@ -94,8 +104,8 @@ check-help:
 	    xmlpath="$$lc:$(srcdir)/$$lc"; \
 	  fi; \
 	  for page in $(HELP_FILES); do \
-	    echo "xmllint --noout --noent --path $$xmlpath --xinclude $$d$$lc/$$page"; \
-	    xmllint --noout --noent --path "$$xmlpath" --xinclude "$$d$$lc/$$page"; \
+	    echo "$(XMLLINT) --noout --noent --path $$xmlpath --xinclude $$d$$lc/$$page"; \
+	    $(XMLLINT) --noout --noent --path "$$xmlpath" --xinclude "$$d$$lc/$$page"; \
 	  done; \
 	done
 
