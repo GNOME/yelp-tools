@@ -1,4 +1,4 @@
-AC_DEFUN([HELP_INIT],
+AC_DEFUN([YELP_HELP_INIT],
 [
 AC_REQUIRE([AC_PROG_LN_S])
 m4_pattern_allow([AM_V_at])
@@ -23,7 +23,7 @@ if test x"$XMLLINT" = x; then
   AC_MSG_ERROR([xmllint not found])
 fi
 
-HELP_RULES='
+YELP_HELP_RULES='
 HELP_ID ?=
 HELP_FILES ?=
 HELP_EXTRA ?=
@@ -160,6 +160,6 @@ uninstall-help:
 	  done; \
 	done;
 '
-AC_SUBST([HELP_RULES])
-m4_ifdef([_AM_SUBST_NOTMAKE], [_AM_SUBST_NOTMAKE([HELP_RULES])])
+AC_SUBST([YELP_HELP_RULES])
+m4_ifdef([_AM_SUBST_NOTMAKE], [_AM_SUBST_NOTMAKE([YELP_HELP_RULES])])
 ])
