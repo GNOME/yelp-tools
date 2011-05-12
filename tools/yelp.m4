@@ -11,12 +11,14 @@ AC_ARG_WITH([help-dir],
 HELP_DIR="$with_help_dir"
 AC_SUBST(HELP_DIR)
 
-AC_CHECK_PROG(ITSTOOL, itstool, itstool)
+AC_ARG_VAR([ITSTOOL], [Path to the `itstool` command])
+AC_CHECK_PROG([ITSTOOL], [itstool], [itstool])
 if test x"$ITSTOOL" = x; then
   AC_MSG_ERROR([itstool not found])
 fi
 
-AC_CHECK_PROG(XMLLINT, xmllint, xmllint)
+AC_ARG_VAR([XMLLINT], [Path to the `xmllint` command])
+AC_CHECK_PROG([XMLLINT], [xmllint], [xmllint])
 if test x"$XMLLINT" = x; then
   AC_MSG_ERROR([xmllint not found])
 fi
