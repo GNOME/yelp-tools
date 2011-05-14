@@ -195,7 +195,7 @@ yelp_html_xsl_common () {
     echo '   <xsl:with-param name="node" select="$node"/>'
     echo '  </xsl:call-template>'
     echo ' </exsl:document>'
-    echo ' <script type="text/javascript" language="javascript" src="{$html.js.root}yelp.js"/>'
+    echo ' <script type="text/javascript" src="{$html.js.root}yelp.js"/>'
     echo '</xsl:template>'
 }
 yelp_html_db2html () {
