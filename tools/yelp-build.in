@@ -207,6 +207,7 @@ yelp_html_db2html () {
             echo '<xsl:stylesheet'
             echo ' xmlns:xsl="http://www.w3.org/1999/XSL/Transform"'
             echo ' xmlns:exsl="http://exslt.org/common"'
+            echo ' xmlns="http://www.w3.org/1999/xhtml"'
             echo ' extension-element-prefixes="exsl"'
             echo ' version="1.0">'
             if [ "x$is_xhtml" = "x1" ]; then
@@ -314,6 +315,7 @@ yelp_html_page2html () {
         echo '<xsl:stylesheet'
         echo ' xmlns:xsl="http://www.w3.org/1999/XSL/Transform"'
         echo ' xmlns:exsl="http://exslt.org/common"'
+        echo ' xmlns="http://www.w3.org/1999/xhtml"'
         echo ' extension-element-prefixes="exsl"'
         echo ' version="1.0">'
         if [ "x$is_xhtml" = "x1" ]; then
