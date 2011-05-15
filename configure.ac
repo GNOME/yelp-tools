@@ -16,8 +16,6 @@ AC_SUBST(GDU_AWK)
 
 AC_PROG_LN_S
 
-AM_PATH_PYTHON([2.4])
-
 AC_CHECK_PROG(XMLLINT, xmllint, xmllint)
 if test x"$XMLLINT" = x; then
   AC_MSG_ERROR([xmllint not found])
@@ -55,6 +53,9 @@ AC_SUBST(XSL_MAL_CACHE)
 
 XSL_MAL_LINK="$XSL_PATH""/mallard/common/mal-link.xsl"
 AC_SUBST(XSL_MAL_LINK)
+
+XSL_MAL_SORT="$XSL_PATH""/mallard/common/mal-sort.xsl"
+AC_SUBST(XSL_MAL_SORT)
 
 XSL_DB2HTML="`$PKG_CONFIG --variable=db2html yelp-xsl`"
 AC_SUBST(XSL_DB2HTML)
