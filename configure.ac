@@ -92,6 +92,8 @@ tools/yelp-build
 tools/yelp-check
 tools/yelp-new
 xslt/Makefile
+xslt/mal-ncx.xsl
+xslt/mal-opf.xsl
 ])
 
 AC_OUTPUT

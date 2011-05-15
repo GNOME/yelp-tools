@@ -23,6 +23,8 @@ xsl_mal2html='@XSL_MAL2HTML@'
 xsl_mal2xhtml='@XSL_MAL2XHTML@'
 yelp_icon_dir='@YELP_ICON_DIR@'
 yelp_js_dir='@YELP_JS_DIR@'
+xsl_mal_opf='@DATADIR@/xslt/mal-opf.xsl'
+xsl_mal_ncx='@DATADIR@/xslt/mal-ncx.xsl'
 
 mkdir_p () {
     if [ ! -d "$1" ]; then
@@ -86,6 +88,7 @@ yelp_usage () {
         echo ""
         echo "Commands:"
         echo "  cache         Create a Mallard cache file"
+        echo "  epub          Create an EPUB file for Mallard"
         echo "  html          Convert input files to HTML"
         echo "  xhtml         Convert input files to XHTML"
     ) 1>&2
@@ -100,6 +103,18 @@ yelp_usage_cache () {
         echo ""
         echo "Options:"
         echo "  -o OUT        Output cache to the file OUT"
+    ) 1>&2
+}
+yelp_usage_epub () {
+    (
+        echo "Usage: yelp-build epub [OPTIONS] <FILES>"
+        echo ""
+        echo "  Create and EPUB file from the Mallard page files FILES."
+        echo ""
+        echo "Options:"
+        echo "  -c CACHE      Use the existing Mallard cache CACHE"
+        echo "  -o OUT        Output en EPUB file named OUT"
+        echo "  -x CUSTOM     Import the custom XSLT file CUSTOM"
     ) 1>&2
 }
 yelp_usage_html () {
@@ -446,7 +461,6 @@ yelp_html_mal2html () {
 }
 
 yelp_html () {
-    html_out="."
     while [ "$#" != "0" ]; do
         case "$1" in
             "-c")
@@ -469,7 +483,9 @@ yelp_html () {
                 ;;
         esac
     done
-    if [ ! -d "$html_out" ]; then
+    if [ "x$html_out" = "x" ]; then
+        html_out="."
+    elif [ ! -d "$html_out" ]; then
         echo "Error: output must be a directory." 1>&2
         exit 1
     fi
@@ -491,11 +507,88 @@ yelp_html () {
     fi
 }
 
+yelp_epub () {
+    while [ "$#" != "0" ]; do
+        case "$1" in
+            "-c")
+                shift
+                epub_cache_file="$1"
+                shift
+                ;;
+            "-o")
+                shift
+                epub_out="$1"
+                shift
+                ;;
+            "-x")
+                shift
+                html_custom="$1"
+                shift
+                ;;
+            *)
+                break
+                ;;
+        esac
+    done
+    if [ "x$epub_cache_file" != "x" ]; then
+        epub_cache_file=`(cd $(dirname "$epub_cache_file") && pwd)`/`basename "$epub_cache_file"`
+    else
+        epub_cache_file_is_tmp="yes"
+        epub_cache_file=`mktemp`
+        yelp_cache -o "$epub_cache_file" "$@"
+    fi
+    html_cache_file="$epub_cache_file"
+    epub_data_out=`mktemp -d`
+    html_out="$epub_data_out/OPS"
+    mkdir "$html_out"
+    yelp_html_mal2html "$@"
+
+    epub_id=`uuidgen`
+    epub_icons=`(cd "$html_out" && ls yelp-*.png)`
+    xsltproc \
+        -o "$html_out/opf.opf" \
+        --stringparam opf.id "$epub_id" \
+        --stringparam opf.icons "$epub_icons" \
+        "$xsl_mal_opf" "$epub_cache_file"
+    xsltproc \
+        -o "$html_out/ncx.ncx" \
+        --stringparam ncx.id "$epub_id" \
+        "$xsl_mal_ncx" "$epub_cache_file"
+
+    echo "application/epub+zip" > "$epub_data_out/mimetype"
+
+    mkdir "$epub_data_out/META-INF"
+    (
+        echo "<?xml version='1.0' encoding='UTF-8'?>"
+        echo "<container version='1.0' xmlns='urn:oasis:names:tc:opendocument:xmlns:container'>"
+        echo "<rootfiles>"
+        echo "<rootfile full-path='OPS/opf.opf' media-type='application/oebps-package+xml'/>"
+        echo "</rootfiles>"
+        echo "</container>"
+    ) > "$epub_data_out/META-INF/container.xml"
+
+    if [ "x$epub_out" = "x" ]; then
+        epub_out=`pwd`/index.epub
+    else
+        epub_out=`(cd $(dirname "$epub_out") && pwd)`/`basename "$epub_out"`
+    fi
+    (cd "$epub_data_out" && zip -q -r "$epub_out" mimetype META-INF OPS)
+
+    if [ "x$epub_cache_file_is_tmp" = "xyes" ]; then
+        rm "$epub_cache_file"
+    fi
+    rm -rf "$html_out"
+}
+
 cmd="$1"
 shift
 case "x$cmd" in
     "xcache")
         yelp_cache "$@"
+        ;;
+    "xepub")
+        is_xhtml=1
+        yelp_epub "$@"
         ;;
     "xhtml")
         is_xhtml=0

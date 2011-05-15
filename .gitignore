@@ -20,3 +20,5 @@ Makefile.in
 /tools/yelp-build
 /tools/yelp-check
 /tools/yelp-new
+/xslt/mal-ncx.xsl
+/xslt/mal-opf.xsl
