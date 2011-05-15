@@ -23,6 +23,7 @@ xsl_mal2html='@XSL_MAL2HTML@'
 xsl_mal2xhtml='@XSL_MAL2XHTML@'
 yelp_icon_dir='@YELP_ICON_DIR@'
 yelp_js_dir='@YELP_JS_DIR@'
+xsl_mal_epub='@DATADIR@/xslt/mal-epub.xsl'
 xsl_mal_opf='@DATADIR@/xslt/mal-opf.xsl'
 xsl_mal_ncx='@DATADIR@/xslt/mal-ncx.xsl'
 
@@ -178,6 +179,16 @@ yelp_cache () {
 }
 
 yelp_html_xsl_common () {
+    if [ "x$html_internal_datadir" != "x" ]; then
+        echo '<xsl:variable name="yelp.internal.datadir" select="'"'$html_internal_datadir'"'"/>'
+        echo '<xsl:param name="html.css.root" select="$yelp.internal.datadir"/>'
+        echo '<xsl:param name="html.js.root" select="$yelp.internal.datadir"/>'
+    else
+        echo '<xsl:variable name="yelp.internal.datadir" select="'"''"'"/>'
+    fi
+    if [ "x$html_internal_xsl" != "x" ]; then
+        echo '<xsl:include href="file://'`urlencode "$html_internal_xsl"`'"/>'
+    fi
     if [ "x$html_custom" != "x" ]; then
         echo '<xsl:include href="file://'`urlencode "$html_custom"`'"/>'
     fi
@@ -193,7 +204,7 @@ yelp_html_xsl_common () {
     echo '</xsl:variable>'
     echo '<xsl:template name="html.css">'
     echo ' <xsl:param name="node" select="."/>'
-    echo ' <exsl:document href="{$yelp.locale}.css" method="text">'
+    echo ' <exsl:document href="{$yelp.internal.datadir}{$yelp.locale}.css" method="text">'
     echo '  <xsl:call-template name="html.css.content">'
     echo '   <xsl:with-param name="node" select="$node"/>'
     echo '  </xsl:call-template>'
@@ -205,7 +216,7 @@ yelp_html_xsl_common () {
     echo ' <xsl:call-template name="html.js.jquery">'
     echo '  <xsl:with-param name="node" select="$node"/>'
     echo ' </xsl:call-template>'
-    echo ' <exsl:document href="yelp.js" method="text">'
+    echo ' <exsl:document href="{$yelp.internal.datadir}yelp.js" method="text">'
     echo '  <xsl:call-template name="html.js.content">'
     echo '   <xsl:with-param name="node" select="$node"/>'
     echo '  </xsl:call-template>'
@@ -286,11 +297,11 @@ yelp_html_db2html () {
             echo '</xsl:template>'
             echo '</xsl:stylesheet>'
         ) | xsltproc --xinclude - "$xml" | sort | uniq | while read icon; do
-            cp "${yelp_icon_dir}/${icon}.png" "$html_out"
+            cp "${yelp_icon_dir}/${icon}.png" "$html_out/$html_internal_datadir"
         done;
         # Copy jQuery
-        cp "${yelp_js_dir}/jquery.js" "$html_out"
-        cp "${yelp_js_dir}/jquery.syntax.js" "$html_out"
+        cp "${yelp_js_dir}/jquery.js" "$html_out/$html_internal_datadir"
+        cp "${yelp_js_dir}/jquery.syntax.js" "$html_out/$html_internal_datadir"
         (
             echo '<xsl:stylesheet'
             echo ' xmlns:xsl="http://www.w3.org/1999/XSL/Transform"'
@@ -316,7 +327,7 @@ yelp_html_db2html () {
         ) | xsltproc --xinclude - "$xml" | sort | uniq \
             | grep '^contents syntax ' | sed -e 's/^contents syntax brush-/brush./' \
             | while read js; do
-            cp "${yelp_js_dir}/jquery.syntax.${js}.js" "$html_out"
+            cp "${yelp_js_dir}/jquery.syntax.${js}.js" "$html_out/$html_internal_datadir"
         done
     done
 }
@@ -404,11 +415,11 @@ yelp_html_page2html () {
         echo '</xsl:template>'
         echo '</xsl:stylesheet>'
     ) | xsltproc --xinclude - "$xml" | sort | uniq | while read icon; do
-        cp "${yelp_icon_dir}/${icon}.png" "$html_out"
+        cp "${yelp_icon_dir}/${icon}.png" "$html_out/$html_internal_datadir"
     done;
     # Copy jQuery
-    cp "${yelp_js_dir}/jquery.js" "$html_out"
-    cp "${yelp_js_dir}/jquery.syntax.js" "$html_out"
+    cp "${yelp_js_dir}/jquery.js" "$html_out/$html_internal_datadir"
+    cp "${yelp_js_dir}/jquery.syntax.js" "$html_out/$html_internal_datadir"
     (
         echo '<xsl:stylesheet'
         echo ' xmlns:xsl="http://www.w3.org/1999/XSL/Transform"'
@@ -434,7 +445,7 @@ yelp_html_page2html () {
     ) | xsltproc --xinclude - "$xml" | sort | uniq \
         | grep '^contents syntax ' | sed -e 's/^contents syntax brush-/brush./' \
         | while read js; do
-        cp "${yelp_js_dir}/jquery.syntax.${js}.js" "$html_out"
+        cp "${yelp_js_dir}/jquery.syntax.${js}.js" "$html_out/$html_internal_datadir"
     done
 }
 
@@ -541,14 +552,17 @@ yelp_epub () {
     epub_data_out=`mktemp -d`
     html_out="$epub_data_out/OPS"
     mkdir "$html_out"
+    mkdir "$html_out/yelp"
+    html_internal_datadir="yelp/"
+    html_internal_xsl="$xsl_mal_epub"
     yelp_html_mal2html "$@"
 
     epub_id=`uuidgen`
-    epub_icons=`(cd "$html_out" && ls yelp-*.png)`
+    epub_data=`(cd "$html_out" && ls yelp/*.*)`
     xsltproc \
         -o "$html_out/opf.opf" \
         --stringparam opf.id "$epub_id" \
-        --stringparam opf.icons "$epub_icons" \
+        --stringparam opf.data "$epub_data" \
         "$xsl_mal_opf" "$epub_cache_file"
     xsltproc \
         -o "$html_out/ncx.ncx" \

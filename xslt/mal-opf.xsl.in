@@ -11,7 +11,7 @@
     version="1.0">
 
 <xsl:param name="opf.id"/>
-<xsl:param name="opf.icons"/>
+<xsl:param name="opf.data"/>
 
 <xsl:include href="file://@XSL_MAL_LINK@"/>
 <xsl:include href="file://@XSL_MAL_SORT@"/>
@@ -90,19 +90,22 @@
     <manifest>
       <item id="ncx" href="ncx.ncx" media-type="application/x-dtbncx+xml"/>
 
-      <xsl:for-each select="mal:page/@xml:lang[not(. = ../preceding-sibling::mal:page/@xml:lang)]">
-        <item id="stylesheet-{.}.css" href="{.}.css" media-type="text/css"/>
-      </xsl:for-each>
-      <xsl:if test="mal:page[not(@xml:lang)] and not(mal:page[@xml:lang = 'C'])">
-        <item id="stylesheet-C.css" href="C.css" media-type="text/css"/>
-      </xsl:if>
-
-      <item id="data-jquery.js" href="jquery.js" media-type="text/javascript"/>
-      <item id="data-jquery.syntax.js" href="jquery.syntax.js" media-type="text/javascript"/>
-      <item id="data-yelp.js" href="yelp.js" media-type="text/javascript"/>
-
-      <xsl:for-each select="str:split(normalize-space($opf.icons))">
-        <item id="data-{.}" href="{.}" media-type="image/png"/>
+      <xsl:for-each select="str:split(normalize-space($opf.data))">
+        <item id="data-{.}" href="{.}">
+          <xsl:attribute name="media-type">
+            <xsl:choose>
+              <xsl:when test="substring(., string-length(.) - 3) = '.png'">
+                <xsl:text>image/png</xsl:text>
+              </xsl:when>
+              <xsl:when test="substring(., string-length(.) - 3) = '.css'">
+                <xsl:text>text/css</xsl:text>
+              </xsl:when>
+              <xsl:when test="substring(., string-length(.) - 2) = '.js'">
+                <xsl:text>text/javascript</xsl:text>
+              </xsl:when>
+            </xsl:choose>
+          </xsl:attribute>
+        </item>
       </xsl:for-each>
 
       <xsl:variable name="media">

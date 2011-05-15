@@ -1,6 +1,7 @@
 xsldir=$(datadir)/yelp-tools/xslt
 
 xsl_DATA =		\
+	mal-epub.xsl	\
 	mal-opf.xsl	\
 	mal-ncx.xsl	\
 	mal-rng.xsl
