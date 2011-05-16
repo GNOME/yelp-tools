@@ -302,6 +302,8 @@ yelp_html_db2html () {
         # Copy jQuery
         cp "${yelp_js_dir}/jquery.js" "$html_out/$html_internal_datadir"
         cp "${yelp_js_dir}/jquery.syntax.js" "$html_out/$html_internal_datadir"
+        cp "${yelp_js_dir}/jquery.syntax.core.js" "$html_out/$html_internal_datadir"
+        cp "${yelp_js_dir}/jquery.syntax.layout.yelp.js" "$html_out/$html_internal_datadir"
         (
             echo '<xsl:stylesheet'
             echo ' xmlns:xsl="http://www.w3.org/1999/XSL/Transform"'
@@ -420,6 +422,8 @@ yelp_html_page2html () {
     # Copy jQuery
     cp "${yelp_js_dir}/jquery.js" "$html_out/$html_internal_datadir"
     cp "${yelp_js_dir}/jquery.syntax.js" "$html_out/$html_internal_datadir"
+    cp "${yelp_js_dir}/jquery.syntax.core.js" "$html_out/$html_internal_datadir"
+    cp "${yelp_js_dir}/jquery.syntax.layout.yelp.js" "$html_out/$html_internal_datadir"
     (
         echo '<xsl:stylesheet'
         echo ' xmlns:xsl="http://www.w3.org/1999/XSL/Transform"'
