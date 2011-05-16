@@ -4,6 +4,8 @@
     exclude-result-prefixes="mal"
     version="1.0">
 
+<xsl:param name="mal.if.env" select="'epub html xhtml'"/>
+
 <xsl:template mode="html.header.mode" match="mal:page"/>
 <xsl:template mode="html.footer.mode" match="mal:page"/>
 
