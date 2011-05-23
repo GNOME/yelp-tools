@@ -61,7 +61,7 @@ yelp_usage_links () {
     (
         echo "Usage: yelp-check links <FILES>"
         echo ""
-        echo "  Find broken xref links in <FILES> in a Mallard document."
+        echo "  Find broken xref links in FILES in a Mallard document."
         echo ""
         echo "Options:"
         echo "  -c CACHE      Use the existing Mallard cache CACHE"
@@ -71,7 +71,7 @@ yelp_usage_orphans () {
     (
         echo "Usage: yelp-check orphans <FILES>"
         echo ""
-        echo "  Locate orphaned pages among <FILES> in a Mallard document."
+        echo "  Locate orphaned pages among FILES in a Mallard document."
         echo "  Orphaned pages are any pages that cannot be reached by"
         echo "  topic links alone from the index page."
         echo ""
@@ -83,7 +83,7 @@ yelp_usage_status () {
     (
         echo "Usage: yelp-check status <FILES>"
         echo ""
-        echo "  Report the status of the Mallard page files <FILES>. Each"
+        echo "  Report the status of the Mallard page files FILES. Each"
         echo "  matching page is reporting along with its status."
         echo ""
         echo "Options:"
