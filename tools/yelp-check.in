@@ -94,6 +94,7 @@ yelp_usage_status () {
         echo "  --newer DATE        Only show pages newer than DATE"
         echo "  --only STATUSES     Only show pages whose status is in STATUSES"
         echo "  --except STATUSES   Exclude pages whose status is in STATUSES"
+        echo "  --totals            Show total counts for each status"
         echo "For --only and --except, STATUSES is a space-separated list."
     ) 1>&2
 }
@@ -311,6 +312,10 @@ yelp_status () {
                 check_except="$1"
                 shift
                 ;;
+            "--totals")
+                check_totals="1"
+                shift
+                ;;
             *)
                 break
                 ;;
@@ -330,6 +335,7 @@ yelp_status () {
         --stringparam older "$check_older" \
         --stringparam only "$check_only" \
         --stringparam except "$check_except" \
+        --stringparam totals "$check_totals" \
         "$xsl_mal_status" "$check_cache_file"
     rm "$check_cache_file"
     return 0

@@ -3,6 +3,7 @@
     xmlns:mal="http://projectmallard.org/1.0/"
     xmlns:cache="http://projectmallard.org/cache/1.0/"
     xmlns:exsl="http://exslt.org/common"
+    xmlns:str="http://exslt.org/strings"
     xmlns:dyn="http://exslt.org/dynamic"
     exclude-result-prefixes="mal cache exsl dyn"
     version="1.0">
@@ -20,6 +21,32 @@
 <xsl:variable name="only_" select="concat(' ', $only, ' ')"/>
 <xsl:param name="except" select="''"/>
 <xsl:variable name="except_" select="concat(' ', $except, ' ')"/>
+
+<xsl:param name="totals" select="''"/>
+
+<xsl:template match="/">
+  <xsl:choose>
+    <xsl:when test="$totals = '1'">
+      <xsl:variable name="statuses">
+        <xsl:apply-templates/>
+      </xsl:variable>
+      <xsl:variable name="stlist" select="str:split($statuses)"/>
+      <xsl:for-each select="$stlist">
+        <xsl:sort select="string(.)"/>
+        <xsl:variable name="stval" select="string(.)"/>
+        <xsl:if test="not(preceding-sibling::*[string(.) = $stval])">
+          <xsl:value-of select="$stval"/>
+          <xsl:text>: </xsl:text>
+          <xsl:value-of select="count($stlist[string(.) = $stval])"/>
+          <xsl:text>&#x000A;</xsl:text>
+        </xsl:if>
+      </xsl:for-each>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:apply-templates/>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
 
 <xsl:template match="/cache:cache">
   <xsl:for-each select="mal:page">
@@ -67,10 +94,19 @@
                       (translate($revision/@date, '-', '') &lt; translate($older, '-', '')))">
           <xsl:if test="$newer = '' or ($revision/@date and
                         (translate($revision/@date, '-', '') &gt; translate($newer, '-', '')))">
-            <xsl:value-of select="@id"/>
-            <xsl:text>: </xsl:text>
+            <xsl:if test="$totals != '1'">
+              <xsl:value-of select="@id"/>
+              <xsl:text>: </xsl:text>
+            </xsl:if>
             <xsl:value-of select="$status"/>
-            <xsl:text>&#x000A;</xsl:text>
+            <xsl:choose>
+              <xsl:when test="$totals != '1'">
+                <xsl:text>&#x000A;</xsl:text>
+              </xsl:when>
+              <xsl:otherwise>
+                <xsl:text> </xsl:text>
+              </xsl:otherwise>
+            </xsl:choose>
           </xsl:if>
         </xsl:if>
       </xsl:if>
