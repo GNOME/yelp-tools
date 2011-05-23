@@ -17,6 +17,7 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 xsl_mal_link='@XSL_MAL_LINK@'
+xsl_mal_status='@DATADIR@/xslt/mal-status.xsl'
 xsl_mal_rng='@DATADIR@/xslt/mal-rng.xsl'
 
 urlencode () {
@@ -52,6 +53,7 @@ yelp_usage () {
         echo "Commands:"
         echo "  orphans       Find orphaned pages in a Mallard document"
         echo "  links         Find broken xref links in a Mallard document"
+        echo "  status        Report the status of Mallard pages"
         echo "  validate      Validate files against a DTD or RNG"
     ) 1>&2
 }
@@ -75,6 +77,24 @@ yelp_usage_orphans () {
         echo ""
         echo "Options:"
         echo "  -c CACHE      Use the existing Mallard cache CACHE"
+    ) 1>&2
+}
+yelp_usage_status () {
+    (
+        echo "Usage: yelp-check status <FILES>"
+        echo ""
+        echo "  Report the status of the Mallard page files <FILES>. Each"
+        echo "  matching page is reporting along with its status."
+        echo ""
+        echo "Options:"
+        echo "  --version VER       Select revisions with the version attribute VER"
+        echo "  --docversion VER    Select revisions with the docversion attribute VER"
+        echo "  --pkgversion VER    Select revisions with the pkgversion attribute VER"
+        echo "  --older DATE        Only show pages older than DATE"
+        echo "  --newer DATE        Only show pages newer than DATE"
+        echo "  --only STATUSES     Only show pages whose status is in STATUSES"
+        echo "  --except STATUSES   Exclude pages whose status is in STATUSES"
+        echo "For --only and --except, STATUSES is a space-separated list."
     ) 1>&2
 }
 yelp_usage_validate () {
@@ -144,6 +164,10 @@ yelp_links () {
                 ;;
         esac
     done
+    if [ "$#" = "0" -o "x$1" = "x--help" ]; then
+        yelp_usage_links
+        exit 1
+    fi
     if [ "x$check_cache_file" != "x" ]; then
         check_cache_file=`(cd $(dirname "$check_cache_file") && pwd)`/`basename "$check_cache_file"`
     else
@@ -214,6 +238,10 @@ yelp_orphans () {
                 ;;
         esac
     done
+    if [ "$#" = "0" -o "x$1" = "x--help" ]; then
+        yelp_usage_orphans
+        exit 1
+    fi
     if [ "x$check_cache_file" != "x" ]; then
         check_cache_file=`(cd $(dirname "$check_cache_file") && pwd)`/`basename "$check_cache_file"`
     else
@@ -239,6 +267,72 @@ yelp_orphans () {
     fi
     rm "$check_out_file"
     exit $ret
+}
+
+yelp_status () {
+    if [ "$#" = "0" -o "x$1" = "x--help" ]; then
+        yelp_usage_status
+        exit 1
+    fi
+    while [ "$#" != "0" ]; do
+        case "$1" in
+            "--version")
+                shift
+                check_version="$1"
+                shift
+                ;;
+            "--docversion")
+                shift
+                check_docversion="$1"
+                shift
+                ;;
+            "--pkgversion")
+                shift
+                check_pkgversion="$1"
+                shift
+                ;;
+            "--older")
+                shift
+                check_older="$1"
+                shift
+                ;;
+            "--newer")
+                shift
+                check_newer="$1"
+                shift
+                ;;
+            "--only")
+                shift
+                check_only="$1"
+                shift
+                ;;
+            "--except")
+                shift
+                check_except="$1"
+                shift
+                ;;
+            *)
+                break
+                ;;
+        esac
+    done
+    if [ "$#" = "0" -o "x$1" = "x--help" ]; then
+        yelp_usage_status
+        exit 1
+    fi
+    check_cache_file=`mktemp`
+    yelp-build cache -o "$check_cache_file" "$@"
+    xsltproc \
+        --stringparam version "$check_version" \
+        --stringparam docversion "$check_docversion" \
+        --stringparam pkgversion "$check_pkgversion" \
+        --stringparam newer "$check_newer" \
+        --stringparam older "$check_older" \
+        --stringparam only "$check_only" \
+        --stringparam except "$check_except" \
+        "$xsl_mal_status" "$check_cache_file"
+    rm "$check_cache_file"
+    return 0
 }
 
 yelp_validate_page () {
@@ -314,6 +408,9 @@ case "x$cmd" in
         ;;
     "xorphans")
         yelp_orphans "$@"
+        ;;
+    "xstatus")
+        yelp_status "$@"
         ;;
     "xvalidate")
         yelp_validate "$@"

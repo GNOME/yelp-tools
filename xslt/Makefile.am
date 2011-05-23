@@ -4,6 +4,7 @@ xsl_DATA =		\
 	mal-epub.xsl	\
 	mal-opf.xsl	\
 	mal-ncx.xsl	\
+	mal-status.xsl	\
 	mal-rng.xsl
 
 EXTRA_DIST =		\
