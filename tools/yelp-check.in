@@ -19,6 +19,7 @@
 xsl_mal_link='@XSL_MAL_LINK@'
 xsl_mal_status='@DATADIR@/xslt/mal-status.xsl'
 xsl_mal_rng='@DATADIR@/xslt/mal-rng.xsl'
+xsl_comments='@DATADIR@/xslt/comments.xsl'
 
 urlencode () {
     # We usually don't want to urlencode slashes, because we're
@@ -51,8 +52,9 @@ yelp_usage () {
         echo "Usage: yelp-check <COMMAND> [OPTIONS] [FILES]"
         echo ""
         echo "Commands:"
-        echo "  orphans       Find orphaned pages in a Mallard document"
+        echo "  comments      Print the editorial comments in a document"
         echo "  links         Find broken xref links in a Mallard document"
+        echo "  orphans       Find orphaned pages in a Mallard document"
         echo "  status        Report the status of Mallard pages"
         echo "  validate      Validate files against a DTD or RNG"
     ) 1>&2
@@ -77,6 +79,14 @@ yelp_usage_orphans () {
         echo ""
         echo "Options:"
         echo "  -c CACHE      Use the existing Mallard cache CACHE"
+    ) 1>&2
+}
+yelp_usage_comments () {
+    (
+        echo "Usage: yelp-check comments <FILES>"
+        echo ""
+        echo "  Print the editorial comments in the files FILES, using the"
+        echo "  comment element in Mallard and the remark element in DocBook."
     ) 1>&2
 }
 yelp_usage_status () {
@@ -270,6 +280,28 @@ yelp_orphans () {
     exit $ret
 }
 
+yelp_comments_page () {
+    ext=`echo "$1" | sed -e 's/.*\.//'`
+    bname=`basename "$1" ".$ext"`
+    xsltproc --stringparam basename "$bname" "$xsl_comments" "$1"
+}
+
+yelp_comments () {
+    if [ "$#" = "0" -o "x$1" = "x--help" ]; then
+        yelp_usage_comments
+        exit 1
+    fi
+    for xml in "$@"; do
+        if [ -d "$xml" ]; then
+            for page in "$xml"/*.page; do
+                yelp_comments_page "$page"
+            done
+        else
+            yelp_comments_page "$xml"
+        fi
+    done
+}
+
 yelp_status () {
     if [ "$#" = "0" -o "x$1" = "x--help" ]; then
         yelp_usage_status
@@ -409,6 +441,9 @@ yelp_validate () {
 cmd="$1"
 shift
 case "x$cmd" in
+    "xcomments")
+        yelp_comments "$@"
+        ;;
     "xlinks")
         yelp_links "$@"
         ;;
