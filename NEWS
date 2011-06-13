@@ -1,3 +1,7 @@
+3.1.4:
+======
+* Added comments subcommand to yelp-check
+
 3.1.3:
 ======
 * Added Mallard page status checker to yelp-check
