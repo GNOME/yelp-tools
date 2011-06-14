@@ -1,8 +1,6 @@
 SUBDIRS = templates tools xslt
 
-EXTRA_DIST = 						\
-	COPYING.GPL					\
-	COPYING.LGPL
+EXTRA_DIST = COPYING.GPL
 
 ChangeLog:
 	@if test -f $(top_srcdir)/.git/HEAD; then \
