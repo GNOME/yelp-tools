@@ -25,13 +25,14 @@ fi
 
 YELP_HELP_RULES='
 HELP_ID ?=
+HELP_POT ?=
 HELP_FILES ?=
 HELP_EXTRA ?=
 HELP_MEDIA ?=
 HELP_LINGUAS ?=
 
 _HELP_LINGUAS = $(if $(filter environment,$(origin LINGUAS)),$(filter $(LINGUAS),$(HELP_LINGUAS)),$(HELP_LINGUAS))
-_HELP_POTFILE = $(if $(HELP_ID),$(HELP_ID).pot)
+_HELP_POTFILE = $(if $(HELP_POT),$(HELP_POT),$(if $(HELP_ID),$(HELP_ID).pot))
 _HELP_POFILES = $(if $(HELP_ID),$(foreach lc,$(_HELP_LINGUAS),$(lc)/$(lc).po))
 _HELP_MOFILES = $(patsubst %.po,%.mo,$(_HELP_POFILES))
 _HELP_C_FILES = $(foreach f,$(HELP_FILES),C/$(f))
