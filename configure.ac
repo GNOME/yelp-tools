@@ -32,7 +32,12 @@ if [ `$XSLTPROC --version 2>&1 | head -n1 | cut -d' ' -f5` -lt 10108 ]; then
    AC_MSG_ERROR([xsltproc too old; 1.1.8 required])
 fi
 
-PKG_CHECK_MODULES(GNOME_DOC_UTILS,
+AC_CHECK_PROG(ITSTOOL, itstool, itstool)
+if test x"$ITSTOOL" = x; then
+  AC_MSG_ERROR([itstool not found])
+fi
+
+PKG_CHECK_MODULES(YELP_XSL,
 [
 	yelp-xsl
 ])
