@@ -157,7 +157,7 @@ yelp_cache_in () {
         fi
     done | urlencode |
     while read line; do
-        echo '<page cache:href="file://'"$line"'" cache:dir="'"$fdir"'"/>'
+        echo '<page cache:href="file://'"$line"'"/>'
     done
     echo '</cache:cache>'
 }
@@ -389,18 +389,32 @@ yelp_html_mal2html () {
         xsl='file://'`echo "$xsl_mal2xhtml" | urlencode`
         echo '<xsl:import href="'"$xsl"'"/>'
         echo '<xsl:output method="text"/>'
+        echo '<xsl:template name="dirname">'
+        echo ' <xsl:param name="str"/>'
+        echo ' <xsl:if test="contains($str, '\''/'\'')">'
+        echo '  <xsl:value-of select="substring-before($str, '\''/'\'')"/>'
+        echo '  <xsl:text>/</xsl:text>'
+        echo '  <xsl:call-template name="dirname">'
+        echo '   <xsl:with-param name="str" select="substring-after($str, '\''/'\'')"/>'
+        echo '  </xsl:call-template>'
+        echo ' </xsl:if>'
+        echo '</xsl:template>'
         echo '<xsl:template match="/">'
         echo '<xsl:for-each select="cache:cache/mal:page">'
-	echo ' <xsl:variable name="dir" select="@cache:dir"/>'
+	echo ' <xsl:variable name="dir">'
+        echo '  <xsl:call-template name="dirname">'
+        echo '   <xsl:with-param name="str" select="substring-after(@cache:href, '\''file://'\'')"/>'
+        echo '  </xsl:call-template>'
+        echo ' </xsl:variable>'
         echo ' <xsl:variable name="node" select="document(@cache:href)/mal:page"/>'
-
+        # Media
         echo ' <xsl:for-each select="$node//mal:media | $node//e:mouseover">'
 	echo '  <xsl:if test="not(contains(@src, '\'':'\''))">'
-        echo '   <xsl:value-of select="concat($dir, '"'/'"', @src, '"' '"')"/>'
+        echo '   <xsl:value-of select="concat($dir, @src, '"' '"')"/>'
         echo '   <xsl:value-of select="concat(@src, '"'&#x000A;'"')"/>'
 	echo '  </xsl:if>'
         echo ' </xsl:for-each>'
-
+        # Syntax highlighting
         echo ' <xsl:for-each select="$node//mal:code[@mime]">'
         echo '  <xsl:variable name="out">'
         echo '   <xsl:call-template name="mal2html.pre"/>'
@@ -414,6 +428,7 @@ yelp_html_mal2html () {
         echo '   <xsl:text>.js ./&#x000A;</xsl:text>'
         echo '  </xsl:if>'
         echo ' </xsl:for-each>'
+        # Icons
         echo ' <xsl:for-each select="$node//mal:note">'
         echo '  <xsl:variable name="style" select="concat('\'' '\'', @style, '\'' '\'')"/>'
         echo '  <xsl:choose>'
@@ -444,9 +459,12 @@ yelp_html_mal2html () {
     ) | xsltproc --xinclude - "$html_tmp_infile" | sort | uniq |
     while read line; do
 	line_src=`echo "$line" | cut -d' ' -f1`
+        line_src=`echo "$line_src" | urldecode`
 	line_dest="$html_out/$html_internal_datadir"`echo "$line" | cut -d' ' -f2`
+        line_dest=`echo "$line_dest" | urldecode`
 	if [ "$line_src" != "$line_dest" ]; then
-            mkdir_p `dirname "$line_dest"`
+            line_dir=`dirname "$line_dest"`
+            mkdir_p "$line_dir"
 	    cp "$line_src" "$line_dest"
 	fi
     done
