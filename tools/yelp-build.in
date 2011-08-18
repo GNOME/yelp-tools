@@ -35,7 +35,7 @@ mkdir_p () {
 }
 
 urlencode () {
-    echo "$1" | LANG=C awk '
+    LANG=C awk '
 BEGIN {
   for (i = 1; i <= 255; i++) chars[sprintf("%c", i)] = i;
 }
@@ -53,7 +53,7 @@ BEGIN {
 }
 
 urldecode () {
-    echo "$1" | LANG=C awk '
+    LANG=C awk '
 BEGIN {
   for(i = 0; i < 10; i++) hex[i] = i;
   hex["A"] = hex["a"] = 10;
@@ -138,23 +138,26 @@ if [ $# = 0 ]; then
     exit 1
 fi
 
-yelp_cache_ls () {
-    fbase=`basename "$1"`
-    fdir=`dirname "$1"`
-    fdir=`(cd "$fdir" && pwd)`
-    echo '<page cache:href="file://'`urlencode "$fdir/$fbase"`'" cache:dir="'"$fdir"'"/>'
-}
 yelp_cache_in () {
     echo '<cache:cache xmlns:cache="http://projectmallard.org/cache/1.0/"'
     echo '  xmlns="http://projectmallard.org/1.0/">'
     for page in "$@"; do
         if [ -d "$page" ]; then
             for sub in "$page"/*.page; do
-                yelp_cache_ls "$sub"
+                fbase=`basename "$sub"`
+                fdir=`dirname "$sub"`
+                fdir=`(cd "$fdir" && pwd)`
+                echo "$fdir/$fbase"
             done
         else
-            yelp_cache_ls "$page"
+            fbase=`basename "$page"`
+            fdir=`dirname "$page"`
+            fdir=`(cd "$fdir" && pwd)`
+            echo "$fdir/$fbase"
         fi
+    done | urlencode |
+    while read line; do
+        echo '<page cache:href="file://'"$line"'" cache:dir="'"$fdir"'"/>'
     done
     echo '</cache:cache>'
 }
@@ -188,10 +191,10 @@ yelp_html_xsl_common () {
         echo '<xsl:variable name="yelp.internal.datadir" select="'"''"'"/>'
     fi
     if [ "x$html_internal_xsl" != "x" ]; then
-        echo '<xsl:include href="file://'`urlencode "$html_internal_xsl"`'"/>'
+        echo '<xsl:include href="file://'`echo "$html_internal_xsl" | urlencode`'"/>'
     fi
     if [ "x$html_custom" != "x" ]; then
-        echo '<xsl:include href="file://'`urlencode "$html_custom"`'"/>'
+        echo '<xsl:include href="file://'`echo "$html_custom" | urlencode`'"/>'
     fi
     echo '<xsl:variable name="yelp.locale">'
     echo ' <xsl:choose>'
@@ -238,9 +241,9 @@ yelp_html_db2html () {
             echo ' extension-element-prefixes="exsl"'
             echo ' version="1.0">'
             if [ "x$is_xhtml" = "x1" ]; then
-                xsl='file://'`urlencode "$xsl_db2xhtml"`
+                xsl='file://'`echo "$xsl_db2xhtml" | urlencode`
             else
-                xsl='file://'`urlencode "$xsl_db2html"`
+                xsl='file://'`echo "$xsl_db2html" | urlencode`
             fi
             echo '<xsl:import href="'"$xsl"'"/>'
             yelp_html_xsl_common
@@ -264,7 +267,7 @@ yelp_html_db2html () {
                 echo '</xsl:template>'
                 echo '</xsl:stylesheet>'
             ) | xsltproc --xinclude - "$xml" | while read media; do
-                mfile=`urldecode "$media"`
+                mfile=`echo "$media" | urldecode`
                 minput="$xmldir/$mfile"
                 moutput="$html_out/$mfile"
                 mkdir_p `dirname "$moutput"`
@@ -314,7 +317,7 @@ yelp_html_db2html () {
             echo ' exclude-result-prefixes="db"'
             echo ' extension-element-prefixes="exsl"'
             echo ' version="1.0">'
-            xsl='file://'`urlencode "$xsl_db2xhtml"`
+            xsl='file://'`echo "$xsl_db2xhtml" | urlencode`
             echo '<xsl:import href="'"$xsl"'"/>'
             echo '<xsl:output method="text"/>'
             echo '<xsl:template match="/">'
@@ -356,13 +359,13 @@ yelp_html_mal2html () {
         echo ' extension-element-prefixes="exsl"'
         echo ' version="1.0">'
         if [ "x$is_xhtml" = "x1" ]; then
-            xsl='file://'`urlencode "$xsl_mal2xhtml"`
+            xsl='file://'`echo "$xsl_mal2xhtml" | urlencode`
         else
-            xsl='file://'`urlencode "$xsl_mal2html"`
+            xsl='file://'`echo "$xsl_mal2html" | urlencode`
         fi
         echo '<xsl:import href="'"$xsl"'"/>'
         yelp_html_xsl_common
-        html_cache_url='file://'`urlencode "$html_cache_file"`
+        html_cache_url='file://'`echo "$html_cache_file" | urlencode`
         echo '<xsl:param name="mal.cache.file" select="'"'$html_cache_url'"'"/>'
         echo '<xsl:template match="/">'
         echo '<xsl:for-each select="cache:cache/mal:page">'
@@ -383,7 +386,7 @@ yelp_html_mal2html () {
         echo ' xmlns:html="http://www.w3.org/1999/xhtml"'
         echo ' extension-element-prefixes="exsl"'
         echo ' version="1.0">'
-        xsl='file://'`urlencode "$xsl_mal2xhtml"`
+        xsl='file://'`echo "$xsl_mal2xhtml" | urlencode`
         echo '<xsl:import href="'"$xsl"'"/>'
         echo '<xsl:output method="text"/>'
         echo '<xsl:template match="/">'
