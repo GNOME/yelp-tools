@@ -63,7 +63,7 @@
         <xsl:value-of select="$docversion"/>
         <xsl:text>']</xsl:text>
       </xsl:if>
-      <xsl:if test="$version != ''">
+      <xsl:if test="$pkgversion != ''">
         <xsl:text>[@pkgversion = '</xsl:text>
         <xsl:value-of select="$pkgversion"/>
         <xsl:text>']</xsl:text>
