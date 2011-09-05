@@ -1,3 +1,9 @@
+3.1.6:
+======
+* Sped up cache generation in yelp-build (Shaun McCance)
+* Added HELP_POT variable to specify pot name (Michael Terry)
+* Fixed --pkgversion lookup in 'yelp-check status' (Shaun McCance)
+
 3.1.5:
 ======
 * Sped up yelp-build html by doing single-pass transforms
