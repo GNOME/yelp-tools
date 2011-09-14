@@ -138,8 +138,8 @@ install-help:
 	      echo "$(INSTALL_DATA) $$d$$lc/$$f $$helpdir$$f"; \
 	      $(INSTALL_DATA) "$$d$$lc/$$f" "$$helpdir$$f" || exit 1; \
 	    elif test "x$$lc" != "xC"; then \
-	      echo "$(LN_S) -f $(DESTDIR)$(HELP_DIR)/C/$(HELP_ID)/$$f $$helpdir$$f"; \
-	      $(LN_S) -f "$(DESTDIR)$(HELP_DIR)/C/$(HELP_ID)/$$f" "$$helpdir$$f" || exit 1; \
+	      echo "$(LN_S) -f $(HELP_DIR)/C/$(HELP_ID)/$$f $$helpdir$$f"; \
+	      $(LN_S) -f "$(HELP_DIR)/C/$(HELP_ID)/$$f" "$$helpdir$$f" || exit 1; \
 	    fi; \
 	  done; \
 	done
