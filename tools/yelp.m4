@@ -39,6 +39,7 @@ _HELP_C_FILES = $(foreach f,$(HELP_FILES),C/$(f))
 _HELP_C_EXTRA = $(foreach f,$(HELP_EXTRA),C/$(f))
 _HELP_C_MEDIA = $(foreach f,$(HELP_MEDIA),C/$(f))
 _HELP_LC_FILES = $(foreach lc,$(_HELP_LINGUAS),$(foreach f,$(HELP_FILES),$(lc)/$(f)))
+_HELP_LC_STAMPS = $(foreach lc,$(_HELP_LINGUAS),$(lc)/$(lc).stamp)
 
 _HELP_DEFAULT_V = $(if $(AM_DEFAULT_VERBOSITY),$(AM_DEFAULT_VERBOSITY),1)
 _HELP_V = $(if $(V),$(V),$(_HELP_DEFAULT_V))
@@ -78,21 +79,24 @@ $(_HELP_MOFILES): %.mo: %.po
 	$(AM_V_at)if ! test -d "$(dir [$]@)"; then mkdir "$(dir [$]@)"; fi
 	$(AM_V_GEN)msgfmt -o "[$]@" "$<"
 
-$(_HELP_LC_FILES): $(_HELP_MOFILES)
-$(_HELP_LC_FILES): $(_HELP_C_FILES) $(_HELP_C_EXTRA)
+$(_HELP_LC_FILES): $(_HELP_LINGUAS)
+$(_HELP_LINGUAS): $(_HELP_LC_STAMPS)
+$(_HELP_LC_STAMPS): %.stamp: %.mo
+$(_HELP_LC_STAMPS): $(_HELP_C_FILES) $(_HELP_C_EXTRA)
 	$(AM_V_at)if ! test -d "$(dir [$]@)"; then mkdir "$(dir [$]@)"; fi
-	$(_HELP_LC_VERBOSE)if test -f "C/$(notdir [$]@)"; then d="../"; else d="$(abs_srcdir)/"; fi; \
+	$(_HELP_LC_VERBOSE)if test -d "C"; then d="../"; else d="$(abs_srcdir)/"; fi; \
 	mo="$(dir [$]@)$(patsubst %/$(notdir [$]@),%,[$]@).mo"; \
 	if test -f "$${mo}"; then mo="../$${mo}"; else mo="$(abs_srcdir)/$${mo}"; fi; \
-	(cd "$(dir [$]@)" && $(ITSTOOL) -m "$${mo}" $(foreach f,$(_HELP_C_FILES),$${d}/$(f)))
+	(cd "$(dir [$]@)" && $(ITSTOOL) -m "$${mo}" $(foreach f,$(_HELP_C_FILES),$${d}/$(f))) && \
+	touch "[$]@"
 
 .PHONY: clean-help
 mostlyclean-am: $(if $(HELP_ID),clean-help)
 clean-help:
-	rm -f $(_HELP_LC_FILES) $(_HELP_MOFILES)
+	rm -f $(_HELP_LC_FILES) $(_HELP_LC_STAMPS) $(_HELP_MOFILES)
 
 EXTRA_DIST ?=
-EXTRA_DIST += $(_HELP_C_FILES) $(_HELP_LC_FILES) $(_HELP_C_EXTRA) $(_HELP_C_MEDIA) $(_HELP_POFILES)
+EXTRA_DIST += $(_HELP_C_FILES) $(_HELP_LC_FILES) $(_HELP_LC_STAMPS) $(_HELP_C_EXTRA) $(_HELP_C_MEDIA) $(_HELP_POFILES)
 EXTRA_DIST += $(foreach f,$(HELP_MEDIA),$(foreach lc,$(_HELP_LINGUAS),$(wildcard $(lc)/$(f))))
 
 .PHONY: check-help
