@@ -18,9 +18,9 @@
 <xsl:param name="newer" select="''"/>
 
 <xsl:param name="only" select="''"/>
-<xsl:variable name="only_" select="concat(' ', $only, ' ')"/>
+<xsl:variable name="only_" select="concat(' ', translate($only, ',', ' '), ' ')"/>
 <xsl:param name="except" select="''"/>
-<xsl:variable name="except_" select="concat(' ', $except, ' ')"/>
+<xsl:variable name="except_" select="concat(' ', translate($except, ',', ' '), ' ')"/>
 
 <xsl:param name="totals" select="''"/>
 
@@ -54,19 +54,40 @@
     <xsl:variable name="select">
       <xsl:text>mal:info/mal:revision</xsl:text>
       <xsl:if test="$version != ''">
-        <xsl:text>[@version = '</xsl:text>
-        <xsl:value-of select="$version"/>
-        <xsl:text>']</xsl:text>
+        <xsl:text>[</xsl:text>
+        <xsl:for-each select="str:tokenize($version, ', ')">
+          <xsl:if test="position() != 1">
+            <xsl:text> or </xsl:text>
+          </xsl:if>
+          <xsl:text>@version = '</xsl:text>
+          <xsl:value-of select="."/>
+          <xsl:text>'</xsl:text>
+        </xsl:for-each>
+        <xsl:text>]</xsl:text>
       </xsl:if>
       <xsl:if test="$docversion != ''">
-        <xsl:text>[@docversion = '</xsl:text>
-        <xsl:value-of select="$docversion"/>
-        <xsl:text>']</xsl:text>
+        <xsl:text>[</xsl:text>
+        <xsl:for-each select="str:tokenize($docversion, ', ')">
+          <xsl:if test="position() != 1">
+            <xsl:text> or </xsl:text>
+          </xsl:if>
+          <xsl:text>@docversion = '</xsl:text>
+          <xsl:value-of select="."/>
+          <xsl:text>'</xsl:text>
+        </xsl:for-each>
+        <xsl:text>]</xsl:text>
       </xsl:if>
       <xsl:if test="$pkgversion != ''">
-        <xsl:text>[@pkgversion = '</xsl:text>
-        <xsl:value-of select="$pkgversion"/>
-        <xsl:text>']</xsl:text>
+        <xsl:text>[</xsl:text>
+        <xsl:for-each select="str:tokenize($pkgversion, ', ')">
+          <xsl:if test="position() != 1">
+            <xsl:text> or </xsl:text>
+          </xsl:if>
+          <xsl:text>@pkgversion = '</xsl:text>
+          <xsl:value-of select="."/>
+          <xsl:text>'</xsl:text>
+        </xsl:for-each>
+        <xsl:text>]</xsl:text>
       </xsl:if>
     </xsl:variable>
     <xsl:variable name="revision_">
