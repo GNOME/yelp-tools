@@ -1,3 +1,7 @@
+3.2.1:
+======
+* yelp-check status: Accept commas as a delimiter for options (Shaun McCance)
+
 3.2.0:
 ======
 * No changes since 3.1.7
