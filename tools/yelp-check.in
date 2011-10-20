@@ -53,10 +53,18 @@ yelp_usage () {
         echo ""
         echo "Commands:"
         echo "  comments      Print the editorial comments in a document"
+        echo "  hrefs         Find broken href links in a Mallard document"
         echo "  links         Find broken xref links in a Mallard document"
         echo "  orphans       Find orphaned pages in a Mallard document"
         echo "  status        Report the status of Mallard pages"
         echo "  validate      Validate files against a DTD or RNG"
+    ) 1>&2
+}
+yelp_usage_hrefs () {
+    (
+        echo "Usage: yelp-check hrefs <FILES>"
+        echo ""
+        echo "  Find broken href links in FILES in a Mallard document."
     ) 1>&2
 }
 yelp_usage_links () {
@@ -122,6 +130,54 @@ if [ $# = 0 ]; then
     yelp_usage
     exit 1
 fi
+
+yelp_hrefs_page () {
+    page=`(
+        echo '<xsl:stylesheet'
+        echo ' xmlns:xsl="http://www.w3.org/1999/XSL/Transform"'
+        echo ' xmlns:mal="http://projectmallard.org/1.0/"'
+        echo ' version="1.0">'
+        echo '<xsl:output method="text"/>'
+        echo '<xsl:template match="/mal:page">'
+        echo '<xsl:value-of select="@id"/>'
+        echo '</xsl:template>'
+        echo '</xsl:stylesheet>'
+    ) | xsltproc --xinclude - "$1"`
+    (
+        echo '<xsl:stylesheet'
+        echo ' xmlns:xsl="http://www.w3.org/1999/XSL/Transform"'
+        echo ' xmlns:mal="http://projectmallard.org/1.0/"'
+        echo ' version="1.0">'
+        echo '<xsl:output method="text"/>'
+        echo '<xsl:template match="/mal:page">'
+        echo '<xsl:for-each select="//*[@href]">'
+        echo '<xsl:if test="not(starts-with(@href, '\''mailto:'\''))">'
+        echo '<xsl:value-of select="@href"/>'
+        echo '<xsl:text>&#x000A;</xsl:text>'
+        echo '</xsl:if>'
+        echo '</xsl:for-each>'
+        echo '</xsl:template>'
+        echo '</xsl:stylesheet>'
+    ) | xsltproc --xinclude - "$1" | sort | uniq | while read url; do
+        (curl -s -I -L "$url" | grep '^HTTP/' | tail -n 1 | head -n 1 | grep -q 'HTTP/.\.. 200 .*') || echo "$page: $url"
+    done
+}
+
+yelp_hrefs () {
+    if [ "$#" = "0" -o "x$1" = "x--help" ]; then
+        yelp_usage_hrefs
+        exit 1
+    fi
+    for xml in "$@"; do
+        if [ -d "$xml" ]; then
+            for page in "$xml"/*.page; do
+                yelp_hrefs_page "$page"
+            done
+        else
+            yelp_hrefs_page "$xml"
+        fi
+    done
+}
 
 yelp_links_page () {
     (
@@ -443,6 +499,9 @@ shift
 case "x$cmd" in
     "xcomments")
         yelp_comments "$@"
+        ;;
+    "xhrefs")
+        yelp_hrefs "$@"
         ;;
     "xlinks")
         yelp_links "$@"
