@@ -1,3 +1,8 @@
+3.3.1
+=====
+* yelp.m4: Use stamp files to reduce rebuilds, #651252 #659421
+* yelp-check: Add hrefs command to test external links
+
 3.2.1:
 ======
 * yelp-check status: Accept commas as a delimiter for options (Shaun McCance)
