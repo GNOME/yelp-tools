@@ -1,3 +1,7 @@
+3.3.2
+=====
+* yelp.m4: Custom distdir target to work around "Argument list too long"
+
 3.3.1
 =====
 * yelp.m4: Use stamp files to reduce rebuilds, #651252 #659421
