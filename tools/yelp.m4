@@ -101,7 +101,7 @@ EXTRA_DIST += $(foreach f,$(HELP_MEDIA),$(foreach lc,$(_HELP_LINGUAS),$(wildcard
 
 distdir: distdir-help-files
 distdir-help-files:
-	@for lc in C $(_HELP_LINGUAS); do \
+	@for lc in C $(HELP_LINGUAS); do \
 	  for file in $(HELP_FILES); do \
 	    $(MKDIR_P) "$(distdir)/$$lc"; \
 	    if test -f "$$lc/$$file"; then d=./; else d=$(srcdir)/; fi; \
