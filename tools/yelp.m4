@@ -133,7 +133,14 @@ install-help:
 	@for lc in C $(_HELP_LINGUAS); do \
 	  $(mkinstalldirs) "$(DESTDIR)$(HELP_DIR)/$$lc/$(HELP_ID)" || exit 1; \
 	done
-	@for f in $(_HELP_C_FILES) $(_HELP_LC_FILES) $(_HELP_C_EXTRA); do \
+	@for lc in C $(_HELP_LINGUAS); do for f in $(HELP_FILES); do \
+	  if test -f "$$lc/$$f"; then d=; else d="$(srcdir)/"; fi; \
+	  helpdir="$(DESTDIR)$(HELP_DIR)/$$lc/$(HELP_ID)/"; \
+	  if ! test -d "$$helpdir"; then $(mkinstalldirs) "$$helpdir"; fi; \
+	  echo "$(INSTALL_DATA) $$d$$lc/$$f $$helpdir`basename $$f`"; \
+	  $(INSTALL_DATA) "$$d$$lc/$$f" "$$helpdir`basename $$f`" || exit 1; \
+	done; done
+	@for f in $(_HELP_C_EXTRA); do \
 	  lc=`dirname "$$f"`; lc=`basename "$$lc"`; \
 	  if test -f "$$f"; then d=; else d="$(srcdir)/"; fi; \
 	  helpdir="$(DESTDIR)$(HELP_DIR)/$$lc/$(HELP_ID)/"; \
@@ -161,7 +168,12 @@ install-help:
 .PHONY: uninstall-help
 uninstall-am: $(if $(HELP_ID),uninstall-help)
 uninstall-help:
-	@for f in $(_HELP_C_FILES) $(_HELP_LC_FILES) $(_HELP_C_EXTRA); do \
+	for lc in C $(_HELP_LINGUAS); do for f in $(HELP_FILES); do \
+	  helpdir="$(DESTDIR)$(HELP_DIR)/$$lc/$(HELP_ID)/"; \
+	  echo "rm -f $$helpdir`basename $$f`"; \
+	  rm -f "$$helpdir`basename $$f`"; \
+	done; done
+	@for f in $(_HELP_C_EXTRA); do \
 	  lc=`dirname "$$f"`; lc=`basename "$$lc"`; \
 	  helpdir="$(DESTDIR)$(HELP_DIR)/$$lc/$(HELP_ID)/"; \
 	  echo "rm -f $$helpdir`basename $$f`"; \
