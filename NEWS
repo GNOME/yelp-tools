@@ -1,3 +1,10 @@
+3.3.3
+=====
+* yelp.m4: Fixed install/uninstall targets with lots of files
+* yelp.m4: Only call mkdir_p once per directory (Christian Persch)
+* yelp.m4: Dist all linguas, regardless of LINGUAS (Christian Persch)
+* yelp-build: Call html.js.custom
+
 3.3.2
 =====
 * yelp.m4: Custom distdir target to work around "Argument list too long"
