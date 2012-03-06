@@ -123,6 +123,9 @@ yelp_usage_validate () {
         echo "  Validate FILES against the appropriate DTD or RNG."
         echo "  For Mallard pages, perform automatic RNG merging"
         echo "  based on the version attribute."
+        echo ""
+        echo "Options:"
+        echo "  --strict            Disallow unknown namespaces"
     ) 1>&2
 }
 
@@ -460,7 +463,7 @@ yelp_validate_page () {
         # version strings often contain slashes. But xsltproc treats the
         # -o option as a URL and urldecodes, so doubly urlencode, because
         # we want the urlencoded string to be the on-disk name.
-        xsltproc -o "$check_rng_dir/"`urlencode "$check_rng_file"` "$xsl_mal_rng" "$1"
+        xsltproc -o "$check_rng_dir/"`urlencode "$check_rng_file"` --param rng.strict "$check_strict" "$xsl_mal_rng" "$1"
     fi
     xmllint --noout --xinclude --noent --relaxng "$check_rng_dir/$check_rng_file" "$1" > "$check_out_file" 2>&1
     ret="$?"
@@ -475,6 +478,18 @@ yelp_validate () {
         exit 1
     fi
     gret="0"
+    check_strict="false()"
+    while [ "$#" != "0" ]; do
+        case "$1" in
+            "--strict")
+                check_strict="true()"
+                shift
+                ;;
+            *)
+                break
+                ;;
+        esac
+    done
     for xml in "$@"; do
         ext=`echo "$1" | sed -e 's/.*\.//'`
         if [ -d "$xml" ]; then

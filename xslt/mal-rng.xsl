@@ -8,6 +8,8 @@
     exclude-result-prefixes="mal str exsl rng"
     version="1.0">
 
+<xsl:param name="rng.strict" select="false()"/>
+
 <xsl:template match="/*">
   <xsl:variable name="version">
     <xsl:choose>
@@ -80,41 +82,48 @@
   <xsl:param name="first"/>
   <xsl:param name="ns"/>
   <xsl:param name="nss"/>
-  <xsl:variable name="nsmunge" select="self::rng:element or self::rng:attribute"/>
-  <xsl:copy>
-    <xsl:for-each select="@*">
-      <xsl:choose>
-        <xsl:when test="$nsmunge and local-name(.) = 'name' and contains(., ':')">
-          <xsl:attribute name="name">
-            <xsl:value-of select="substring-after(., ':')"/>
-          </xsl:attribute>
-        </xsl:when>
-        <xsl:otherwise>
-          <xsl:copy-of select="."/>
-        </xsl:otherwise>
-      </xsl:choose>
-    </xsl:for-each>
-    <xsl:if test="$nsmunge and not(@ns)">
-      <xsl:choose>
-        <xsl:when test="contains(@name, ':')">
-          <xsl:variable name="prefix" select="substring-before(@name, ':')"/>
-          <xsl:attribute name="ns">
-            <xsl:value-of select="namespace::*[local-name(.) = $prefix]"/>
-          </xsl:attribute>
-        </xsl:when>
-        <xsl:when test="self::rng:element">
-          <xsl:attribute name="ns">
-            <xsl:value-of select="$ns"/>
-          </xsl:attribute>
-        </xsl:when>
-      </xsl:choose>
-    </xsl:if>
-    <xsl:apply-templates mode="rng.mode">
-      <xsl:with-param name="first" select="$first"/>
-      <xsl:with-param name="ns" select="$ns"/>
-      <xsl:with-param name="nss" select="$nss"/>
-    </xsl:apply-templates>
-  </xsl:copy>
+  <xsl:choose>
+    <xsl:when test="$rng.strict and rng:anyName">
+      <empty/>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:variable name="nsmunge" select="self::rng:element or self::rng:attribute"/>
+      <xsl:copy>
+        <xsl:for-each select="@*">
+          <xsl:choose>
+            <xsl:when test="$nsmunge and local-name(.) = 'name' and contains(., ':')">
+              <xsl:attribute name="name">
+                <xsl:value-of select="substring-after(., ':')"/>
+              </xsl:attribute>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:copy-of select="."/>
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:for-each>
+        <xsl:if test="$nsmunge and not(@ns)">
+          <xsl:choose>
+            <xsl:when test="contains(@name, ':')">
+              <xsl:variable name="prefix" select="substring-before(@name, ':')"/>
+              <xsl:attribute name="ns">
+                <xsl:value-of select="namespace::*[local-name(.) = $prefix]"/>
+              </xsl:attribute>
+            </xsl:when>
+            <xsl:when test="self::rng:element">
+              <xsl:attribute name="ns">
+                <xsl:value-of select="$ns"/>
+              </xsl:attribute>
+            </xsl:when>
+          </xsl:choose>
+        </xsl:if>
+        <xsl:apply-templates mode="rng.mode">
+          <xsl:with-param name="first" select="$first"/>
+          <xsl:with-param name="ns" select="$ns"/>
+          <xsl:with-param name="nss" select="$nss"/>
+        </xsl:apply-templates>
+      </xsl:copy>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
 <xsl:template mode="rng.mode" match="rng:start">
