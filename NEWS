@@ -1,3 +1,7 @@
+3.3.4
+=====
+* yelp-check: Added --strict option to validate
+
 3.3.3
 =====
 * yelp.m4: Fixed install/uninstall targets with lots of files
