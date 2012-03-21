@@ -54,7 +54,7 @@ yelp_usage () {
         echo "Commands:"
         echo "  comments      Print the editorial comments in a document"
         echo "  hrefs         Find broken href links in a Mallard document"
-        echo "  links         Find broken xref links in a Mallard document"
+        echo "  links         Find broken xref or linkend links in a document"
         echo "  orphans       Find orphaned pages in a Mallard document"
         echo "  status        Report the status of Mallard pages"
         echo "  validate      Validate files against a DTD or RNG"
@@ -71,7 +71,8 @@ yelp_usage_links () {
     (
         echo "Usage: yelp-check links <FILES>"
         echo ""
-        echo "  Find broken xref links in FILES in a Mallard document."
+        echo "  Find broken xref links in FILES in a Mallard document,"
+        echo "  or broken linkend links in FILES in a DocBook document."
         echo ""
         echo "Options:"
         echo "  -c CACHE      Use the existing Mallard cache CACHE"
