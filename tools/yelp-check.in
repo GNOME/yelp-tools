@@ -53,7 +53,7 @@ yelp_usage () {
         echo ""
         echo "Commands:"
         echo "  comments      Print the editorial comments in a document"
-        echo "  hrefs         Find broken href links in a Mallard document"
+        echo "  hrefs         Find broken external links in a document"
         echo "  links         Find broken xref or linkend links in a document"
         echo "  orphans       Find orphaned pages in a Mallard document"
         echo "  status        Report the status of Mallard pages"
@@ -64,7 +64,8 @@ yelp_usage_hrefs () {
     (
         echo "Usage: yelp-check hrefs <FILES>"
         echo ""
-        echo "  Find broken href links in FILES in a Mallard document."
+        echo "  Find broken href links in FILES in a Mallard document, or"
+        echo "  broken ulink or XLink links in FILES in a DocBook document."
     ) 1>&2
 }
 yelp_usage_links () {
@@ -135,18 +136,29 @@ if [ $# = 0 ]; then
     exit 1
 fi
 
-yelp_hrefs_page () {
-    page=`(
+yelp_hrefs_db () {
+    (
         echo '<xsl:stylesheet'
         echo ' xmlns:xsl="http://www.w3.org/1999/XSL/Transform"'
-        echo ' xmlns:mal="http://projectmallard.org/1.0/"'
+        echo ' xmlns:db="http://docbook.org/ns/docbook"'
+        echo ' xmlns:xlink="www.w3.org/1999/xlink"'
         echo ' version="1.0">'
         echo '<xsl:output method="text"/>'
-        echo '<xsl:template match="/mal:page">'
-        echo '<xsl:value-of select="@id"/>'
+        echo '<xsl:template match="/">'
+        echo '<xsl:for-each select="//ulink/@url | //*/xlink:href">'
+        echo '<xsl:if test="not(starts-with(string(.), '\''mailto:'\''))">'
+        echo '<xsl:value-of select="(ancestor-or-self::*/@id | ancestor-or-self::*/@xml:id)[last()]"/>'
+        echo '<xsl:text> </xsl:text>'
+        echo '<xsl:value-of select="string(.)"/>'
+        echo '<xsl:text>&#x000A;</xsl:text>'
+        echo '</xsl:if>'
+        echo '</xsl:for-each>'
         echo '</xsl:template>'
         echo '</xsl:stylesheet>'
-    ) | xsltproc --xinclude - "$1"`
+    ) | xsltproc --xinclude - "$1"
+}
+
+yelp_hrefs_page () {
     (
         echo '<xsl:stylesheet'
         echo ' xmlns:xsl="http://www.w3.org/1999/XSL/Transform"'
@@ -156,15 +168,15 @@ yelp_hrefs_page () {
         echo '<xsl:template match="/mal:page">'
         echo '<xsl:for-each select="//*[@href]">'
         echo '<xsl:if test="not(starts-with(@href, '\''mailto:'\''))">'
+        echo '<xsl:value-of select="/mal:page/@id"/>'
+        echo '<xsl:text> </xsl:text>'
         echo '<xsl:value-of select="@href"/>'
         echo '<xsl:text>&#x000A;</xsl:text>'
         echo '</xsl:if>'
         echo '</xsl:for-each>'
         echo '</xsl:template>'
         echo '</xsl:stylesheet>'
-    ) | xsltproc --xinclude - "$1" | sort | uniq | while read url; do
-        (curl -s -I -L "$url" | grep '^HTTP/' | tail -n 1 | head -n 1 | grep -q 'HTTP/.\.. 200 .*') || echo "$page: $url"
-    done
+    ) | xsltproc --xinclude - "$1"
 }
 
 yelp_hrefs () {
@@ -178,8 +190,16 @@ yelp_hrefs () {
                 yelp_hrefs_page "$page"
             done
         else
-            yelp_hrefs_page "$xml"
+            ext=`echo "$1" | sed -e 's/.*\.//'`
+            if [ "x$ext" = "xxml" -o "x$ext" = "xdocbook" ]; then
+                yelp_hrefs_db "$xml"
+            else
+                yelp_hrefs_page "$xml"
+            fi
         fi
+    done | sort | uniq | while read id url; do
+        (curl -s -I -L "$url" | grep '^HTTP/' | tail -n 1 | head -n 1 | grep -q 'HTTP/.\.. 200 .*') ||
+        echo "$id: $url"
     done
 }
 
