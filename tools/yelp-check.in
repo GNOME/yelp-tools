@@ -182,6 +182,30 @@ yelp_hrefs () {
     done
 }
 
+yelp_links_db () {
+    (
+        echo '<xsl:stylesheet'
+        echo ' xmlns:xsl="http://www.w3.org/1999/XSL/Transform"'
+        echo ' xmlns:db="http://docbook.org/ns/docbook"'
+        echo ' xmlns:exsl="http://exslt.org/common"'
+        echo ' extension-element-prefixes="exsl"'
+        echo ' version="1.0">'
+        echo '<xsl:output method="text"/>'
+        echo '<xsl:key name="idkey" match="*[@id or @xml:id]" use="@id | @xml:id"/>'
+        echo '<xsl:template match="/">'
+        echo ' <xsl:for-each select="//*[@linkend]">'
+        echo '  <xsl:if test="not(key('"'idkey'"', @linkend))">'
+        echo '   <xsl:value-of select="(ancestor-or-self::*/@id | ancestor-or-self::*/@xml:id)[last()]"/>'
+        echo '   <xsl:text>: </xsl:text>'
+        echo '   <xsl:value-of select="@linkend"/>'
+        echo '   <xsl:text>&#x000A;</xsl:text>'
+        echo '  </xsl:if>'
+        echo ' </xsl:for-each>'
+        echo '</xsl:template>'
+        echo '</xsl:stylesheet>'
+    ) | xsltproc --xinclude - "$1"
+}
+
 yelp_links_page () {
     (
         echo '<xsl:stylesheet'
@@ -240,19 +264,30 @@ yelp_links () {
     fi
     if [ "x$check_cache_file" != "x" ]; then
         check_cache_file=`(cd $(dirname "$check_cache_file") && pwd)`/`basename "$check_cache_file"`
-    else
-        check_cache_file_is_tmp="yes"
-        check_cache_file=`mktemp`
-        yelp-build cache -o "$check_cache_file" "$@"
     fi
     check_out_file=`mktemp`
     for xml in "$@"; do
         if [ -d "$xml" ]; then
+            if [ "x$check_cache_file" = "x" ]; then
+                check_cache_file_is_tmp="yes"
+                check_cache_file=`mktemp`
+                yelp-build cache -o "$check_cache_file" "$@"
+            fi
             for page in "$xml"/*.page; do
                 yelp_links_page "$page"
             done
         else
-            yelp_links_page "$xml"
+            ext=`echo "$1" | sed -e 's/.*\.//'`
+            if [ "x$ext" = "xxml" -o "x$ext" = "xdocbook" ]; then
+                yelp_links_db "$xml"
+            else
+                if [ "x$check_cache_file" = "x" ]; then
+                    check_cache_file_is_tmp="yes"
+                    check_cache_file=`mktemp`
+                    yelp-build cache -o "$check_cache_file" "$@"
+                fi
+                yelp_links_page "$xml"
+            fi
         fi
     done > "$check_out_file"
     ret=`cat "$check_out_file" | wc -l`
