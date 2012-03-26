@@ -1,3 +1,7 @@
+3.4.0
+=====
+* yelp-check: links and hrefs commands now work for DocBook
+
 3.3.4
 =====
 * yelp-check: Added --strict option to validate
