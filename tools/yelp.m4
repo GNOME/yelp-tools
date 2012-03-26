@@ -96,8 +96,10 @@ clean-help:
 	rm -f $(_HELP_LC_FILES) $(_HELP_LC_STAMPS) $(_HELP_MOFILES)
 
 EXTRA_DIST ?=
-EXTRA_DIST += $(_HELP_LC_STAMPS) $(_HELP_C_EXTRA) $(_HELP_C_MEDIA) $(_HELP_POFILES)
-EXTRA_DIST += $(foreach f,$(HELP_MEDIA),$(foreach lc,$(_HELP_LINGUAS),$(wildcard $(lc)/$(f))))
+EXTRA_DIST += $(_HELP_C_EXTRA) $(_HELP_C_MEDIA)
+EXTRA_DIST += $(foreach lc,$(HELP_LINGUAS),$(lc)/$(lc).stamp)
+EXTRA_DIST += $(foreach lc,$(HELP_LINGUAS),$(lc)/$(lc).po)
+EXTRA_DIST += $(foreach f,$(HELP_MEDIA),$(foreach lc,$(HELP_LINGUAS),$(wildcard $(lc)/$(f))))
 
 distdir: distdir-help-files
 distdir-help-files:
