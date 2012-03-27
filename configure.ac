@@ -20,7 +20,7 @@ AC_CHECK_PROG(XMLLINT, xmllint, xmllint)
 if test x"$XMLLINT" = x; then
   AC_MSG_ERROR([xmllint not found])
 fi
-if [ `$XMLLINT --version 2>&1 | head -n1 | cut -d' ' -f5` -lt 20612 ]; then
+if test `$XMLLINT --version 2>&1 | head -n1 | cut -d' ' -f5` -lt 20612 ; then
    AC_MSG_ERROR([xmllint too old; 2.6.12 required])
 fi
 
@@ -28,7 +28,7 @@ AC_CHECK_PROG(XSLTPROC, xsltproc, xsltproc)
 if test x"$XSLTPROC" = x; then
   AC_MSG_ERROR([xsltproc not found])
 fi
-if [ `$XSLTPROC --version 2>&1 | head -n1 | cut -d' ' -f5` -lt 10108 ]; then
+if test `$XSLTPROC --version 2>&1 | head -n1 | cut -d' ' -f5` -lt 10108 ; then
    AC_MSG_ERROR([xsltproc too old; 1.1.8 required])
 fi
 
