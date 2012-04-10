@@ -47,6 +47,37 @@ BEGIN {
 }'
 }
 
+urldecode () {
+    echo "$1" | LANG=C awk '
+BEGIN {
+  for(i = 0; i < 10; i++) hex[i] = i;
+  hex["A"] = hex["a"] = 10;
+  hex["B"] = hex["b"] = 11;
+  hex["C"] = hex["c"] = 12;
+  hex["D"] = hex["d"] = 13;
+  hex["E"] = hex["e"] = 14;
+  hex["F"] = hex["f"] = 15;
+}
+{
+  ret = "";
+  for (i = 1; i <= length($0); i++) {
+    c = substr($0, i, 1);
+    if (c == "+") {
+      ret = ret " ";
+    }
+    else if (c == "%") {
+      c = sprintf("%c", hex[substr($0, i + 1, 1)] * 16 + hex[substr($0, i + 2, 1)]);
+      ret = ret c;
+      i += 2;
+    }
+    else {
+      ret = ret c;
+    }
+  }
+  print ret;
+}'
+}
+
 yelp_usage () {
     (
         echo "Usage: yelp-check <COMMAND> [OPTIONS] [FILES]"
@@ -196,10 +227,17 @@ yelp_hrefs () {
             else
                 yelp_hrefs_page "$xml"
             fi
+        fi | while read id url; do
+            echo "`dirname $xml`" "$id" "$url"
+        done
+    done | sort | uniq | while read base id url; do
+        colon=`echo "$url" | cut -d: -f1`
+        if [ "x$colon" = "x$url" ]; then
+            test -f "$base/`urldecode $url`" || echo "$id: $url"
+        else
+            (curl -s -I -L "$url" | grep '^HTTP/' | tail -n 1 | head -n 1 | grep -q 'HTTP/.\.. 200 .*') ||
+            echo "$id: $url"
         fi
-    done | sort | uniq | while read id url; do
-        (curl -s -I -L "$url" | grep '^HTTP/' | tail -n 1 | head -n 1 | grep -q 'HTTP/.\.. 200 .*') ||
-        echo "$id: $url"
     done
 }
 
