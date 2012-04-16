@@ -1,3 +1,7 @@
+3.4.1
+=====
+* yelp.m4: Fix dist when using the LINGUAS envar
+
 3.4.0
 =====
 * yelp-check: links and hrefs commands now work for DocBook
