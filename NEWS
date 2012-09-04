@@ -1,3 +1,9 @@
+3.5.91
+======
+* yelp-check: Handle local files in hrefs, #673746
+* yelp.m4: Unbreak dist when using the LINGUAS envar
+* Fixed xmllint/xsltproc version checks (Edward Sheldrake)
+
 3.4.0
 =====
 * yelp-check: links and hrefs commands now work for DocBook
