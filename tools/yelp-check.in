@@ -146,7 +146,7 @@ yelp_usage_status () {
         echo "  --only STATUSES     Only show pages whose status is in STATUSES"
         echo "  --except STATUSES   Exclude pages whose status is in STATUSES"
         echo "  --totals            Show total counts for each status"
-        echo "For --only and --except, STATUSES is a space-separated list."
+        echo "VER and STATUSES may be comma- and/or space-separated lists."
     ) 1>&2
 }
 yelp_usage_validate () {
