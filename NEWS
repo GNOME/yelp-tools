@@ -1,3 +1,8 @@
+3.5.92
+======
+* yelp-check: Updated usage for 'yelp-check status'
+* yelp-build: Fixed 'yelp-build epub --help'
+
 3.5.91
 ======
 * yelp-check: Handle local files in hrefs, #673746
