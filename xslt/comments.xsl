@@ -72,7 +72,7 @@
         <xsl:otherwise>
           <xsl:text>  FIXME: &lt;</xsl:text>
           <xsl:value-of select="local-name(.)"/>
-          <xsl:text>&gt;>...&lt;/</xsl:text>
+          <xsl:text>&gt;...&lt;/</xsl:text>
           <xsl:value-of select="local-name(.)"/>
           <xsl:text>&gt;</xsl:text>
           <xsl:text>&#x000A;&#x000A;</xsl:text>
