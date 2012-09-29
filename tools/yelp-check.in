@@ -108,6 +108,7 @@ yelp_usage_links () {
         echo ""
         echo "Options:"
         echo "  -c CACHE      Use the existing Mallard cache CACHE"
+        echo "  -i            Ignore xrefs where href is present"
     ) 1>&2
 }
 yelp_usage_orphans () {
@@ -280,7 +281,11 @@ yelp_links_page () {
         echo '<xsl:output method="text"/>'
         echo '<xsl:template match="/mal:page">'
         echo ' <xsl:variable name="page" select="@id"/>'
-        echo ' <xsl:for-each select="//*[@xref]">'
+        if [ "x$check_links_ignore" = "x1" ]; then
+            echo ' <xsl:for-each select="//*[@xref][not(@href)]">'
+        else
+            echo ' <xsl:for-each select="//*[@xref]">'
+        fi
         echo '  <xsl:variable name="xref" select="@xref"/>'
         echo '  <xsl:variable name="linkid">'
         echo '   <xsl:call-template name="mal.link.xref.linkid"/>'
@@ -311,6 +316,10 @@ yelp_links () {
                 shift
                 check_cache_file="$1"
                 shift
+                ;;
+            "-i")
+                shift
+                check_links_ignore="1"
                 ;;
             *)
                 break
