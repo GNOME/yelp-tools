@@ -1,3 +1,8 @@
+3.6.1
+=====
+* yelp-check: Added 'links -i' to ignore xrefs with hrefs
+* yelp-check: Fixed extra angle brack in 'comments'
+
 3.6.0
 =====
 * Stable release for 3.5.x series
