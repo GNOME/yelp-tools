@@ -52,7 +52,8 @@ all: $(_HELP_C_FILES) $(_HELP_C_EXTRA) $(_HELP_C_MEDIA) $(_HELP_LC_FILES) $(_HEL
 .PHONY: pot
 pot: $(_HELP_POTFILE)
 $(_HELP_POTFILE): $(_HELP_C_FILES) $(_HELP_C_EXTRA) $(_HELP_C_MEDIA)
-	$(AM_V_GEN)$(ITSTOOL) -o "[$]@" $(_HELP_C_FILES)
+	$(AM_V_GEN)if test -d "C"; then d=; else d="$(srcdir)/"; fi; \
+	$(ITSTOOL) -o "[$]@" $(foreach f,$(_HELP_C_FILES),"$${d}$(f)")
 
 .PHONY: repo
 repo: $(_HELP_POTFILE)
