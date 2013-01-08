@@ -1,21 +1,19 @@
 #!/bin/sh
 # Run this to generate all the initial makefiles, etc.
 
-srcdir=`dirname $0`
-test -z "$srcdir" && srcdir=.
-abs_srcdir=`(cd $srcdir && pwd)`
+test -n "$srcdir" || srcdir=`dirname "$0"`
+test -n "$srcdir" || srcdir=.
 
-PKG_NAME="yelp-tools"
+olddir=`pwd`
+cd $srcdir
 
-(test -f $srcdir/configure.ac && test -f $srcdir/tools/yelp.m4) || {
-    echo -n "**Error**: Directory "\`$srcdir\'" does not look like the"
-    echo " top-level $PKG_NAME directory"
-    exit 1
-}
+AUTORECONF=`which autoreconf`
+if test -z $AUTORECONF; then
+        echo "*** No autoreconf found, please intall it ***"
+        exit 1
+fi
 
-which gnome-autogen.sh || {
-    echo "You need to install gnome-common from the git.gnome.org"
-    exit 1
-}
+autoreconf --force --install --verbose
 
-REQUIRED_AUTOMAKE_VERSION=1.9 USE_GNOME2_MACROS=1 . gnome-autogen.sh
+cd $olddir
+test -n "$NOCONFIGURE" || "$srcdir/configure" "$@"
