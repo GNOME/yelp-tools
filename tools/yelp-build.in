@@ -404,7 +404,7 @@ yelp_html_mal2html () {
         echo '</xsl:template>'
         echo '<xsl:template match="/">'
         echo '<xsl:for-each select="cache:cache/mal:page">'
-	echo ' <xsl:variable name="dir">'
+        echo ' <xsl:variable name="dir">'
         echo '  <xsl:call-template name="dirname">'
         echo '   <xsl:with-param name="str" select="substring-after(@cache:href, '\''file://'\'')"/>'
         echo '  </xsl:call-template>'
@@ -412,10 +412,10 @@ yelp_html_mal2html () {
         echo ' <xsl:variable name="node" select="document(@cache:href)/mal:page"/>'
         # Media
         echo ' <xsl:for-each select="$node//mal:media | $node//e:mouseover">'
-	echo '  <xsl:if test="not(contains(@src, '\'':'\''))">'
-        echo '   <xsl:value-of select="concat($dir, @src, '"' '"')"/>'
+        echo '  <xsl:if test="not(contains(@src, '\'':'\''))">'
+        echo '   <xsl:value-of select="concat('"'-'"', $dir, @src, '"' '"')"/>'
         echo '   <xsl:value-of select="concat(@src, '"'&#x000A;'"')"/>'
-	echo '  </xsl:if>'
+        echo '  </xsl:if>'
         echo ' </xsl:for-each>'
         # Syntax highlighting
         echo ' <xsl:for-each select="$node//mal:code[@mime]">'
@@ -426,7 +426,7 @@ yelp_html_mal2html () {
         echo '   <xsl:value-of select="exsl:node-set($out)/*/html:pre[last()]/@class"/>'
         echo '  </xsl:variable>'
         echo '  <xsl:if test="starts-with($class, '\''contents syntax brush-'\'')">'
-        echo '   <xsl:text>'"${yelp_js_dir}"'/jquery.syntax.brush.</xsl:text>'
+        echo '   <xsl:text>+'"${yelp_js_dir}"'/jquery.syntax.brush.</xsl:text>'
         echo '   <xsl:value-of select="substring-after($class, '\''contents syntax brush-'\'')"/>'
         echo '   <xsl:text>.js ./&#x000A;</xsl:text>'
         echo '  </xsl:if>'
@@ -435,24 +435,24 @@ yelp_html_mal2html () {
         echo ' <xsl:for-each select="$node//mal:note">'
         echo '  <xsl:variable name="style" select="concat('\'' '\'', @style, '\'' '\'')"/>'
         echo '  <xsl:choose>'
-        echo '   <xsl:when test="contains($style, '\'' advanced '\'')">'
-        echo '    <xsl:text>'"${yelp_icon_dir}"'/yelp-note-advanced.png ./&#x000A;</xsl:text>'
-        echo '   </xsl:when>'
+        # echo '   <xsl:when test="contains($style, '\'' advanced '\'')">'
+        # echo '    <xsl:text>+'"${yelp_icon_dir}"'/yelp-note-advanced.png ./&#x000A;</xsl:text>'
+        # echo '   </xsl:when>'
         echo '   <xsl:when test="contains($style, '\'' bug '\'')">'
-        echo '    <xsl:text>'"${yelp_icon_dir}"'/yelp-note-bug.png ./&#x000A;</xsl:text>'
+        echo '    <xsl:text>+'"${yelp_icon_dir}"'/yelp-note-bug.png ./&#x000A;</xsl:text>'
         echo '   </xsl:when>'
         echo '   <xsl:when test="contains($style, '\'' important '\'')">'
-        echo '    <xsl:text>'"${yelp_icon_dir}"'/yelp-note-important.png ./&#x000A;</xsl:text>'
+        echo '    <xsl:text>+'"${yelp_icon_dir}"'/yelp-note-important.png ./&#x000A;</xsl:text>'
         echo '   </xsl:when>'
         echo '   <xsl:when test="contains($style, '\'' sidebar '\'')"/>'
         echo '   <xsl:when test="contains($style, '\'' tip '\'')">'
-        echo '    <xsl:text>'"${yelp_icon_dir}"'/yelp-note-tip.png ./&#x000A;</xsl:text>'
+        echo '    <xsl:text>+'"${yelp_icon_dir}"'/yelp-note-tip.png ./&#x000A;</xsl:text>'
         echo '   </xsl:when>'
         echo '   <xsl:when test="contains($style, '\'' warning '\'')">'
-        echo '    <xsl:text>'"${yelp_icon_dir}"'/yelp-note-warning.png ./&#x000A;</xsl:text>'
+        echo '    <xsl:text>+'"${yelp_icon_dir}"'/yelp-note-warning.png ./&#x000A;</xsl:text>'
         echo '   </xsl:when>'
         echo '   <xsl:otherwise>'
-        echo '    <xsl:text>'"${yelp_icon_dir}"'/yelp-note.png ./&#x000A;</xsl:text>'
+        echo '    <xsl:text>+'"${yelp_icon_dir}"'/yelp-note.png ./&#x000A;</xsl:text>'
         echo '   </xsl:otherwise>'
         echo '  </xsl:choose>'
         echo ' </xsl:for-each>'
@@ -461,15 +461,21 @@ yelp_html_mal2html () {
         echo '</xsl:stylesheet>'
     ) | xsltproc --xinclude - "$html_tmp_infile" | sort | uniq |
     while read line; do
-	line_src=`echo "$line" | cut -d' ' -f1`
+        use_internal_datadir=`expr substr "$line" 1 1`
+        line=`expr substr "$line" 2 1000`
+        line_src=`echo "$line" | cut -d' ' -f1`
         line_src=`echo "$line_src" | urldecode`
-	line_dest="$html_out/$html_internal_datadir"`echo "$line" | cut -d' ' -f2`
+        if [ "x$use_internal_datadir" = "x+" ]; then
+            line_dest="$html_out/$html_internal_datadir"`echo "$line" | cut -d' ' -f2`
+        else
+            line_dest="$html_out/"`echo "$line" | cut -d' ' -f2`
+        fi
         line_dest=`echo "$line_dest" | urldecode`
-	if [ "$line_src" != "$line_dest" ]; then
+        if [ "$line_src" != "$line_dest" ]; then
             line_dir=`dirname "$line_dest"`
             mkdir_p "$line_dir"
-	    cp "$line_src" "$line_dest"
-	fi
+            cp "$line_src" "$line_dest"
+        fi
     done
     cp "${yelp_js_dir}/jquery.js" "$html_out/$html_internal_datadir"
     cp "${yelp_js_dir}/jquery.syntax.js" "$html_out/$html_internal_datadir"
