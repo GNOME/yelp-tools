@@ -85,6 +85,7 @@ yelp_usage () {
         echo "Commands:"
         echo "  comments      Print the editorial comments in a document"
         echo "  hrefs         Find broken external links in a document"
+        echo "  ids           Find Mallard page IDs that do not match file names"
         echo "  links         Find broken xref or linkend links in a document"
         echo "  orphans       Find orphaned pages in a Mallard document"
         echo "  status        Report the status of Mallard pages"
@@ -97,6 +98,14 @@ yelp_usage_hrefs () {
         echo ""
         echo "  Find broken href links in FILES in a Mallard document, or"
         echo "  broken ulink or XLink links in FILES in a DocBook document."
+    ) 1>&2
+}
+yelp_usage_ids () {
+    (
+        echo "Usage: yelp-check ids <FILES>"
+        echo ""
+        echo "  Find pages in a Mallard document whose page ID does not match"
+        echo "  the base file name of the page file."
     ) 1>&2
 }
 yelp_usage_links () {
@@ -240,6 +249,46 @@ yelp_hrefs () {
             echo "$id: $url"
         fi
     done
+}
+
+yelp_ids_page () {
+    pageid=$((
+        echo '<xsl:stylesheet'
+        echo ' xmlns:xsl="http://www.w3.org/1999/XSL/Transform"'
+        echo ' xmlns:mal="http://projectmallard.org/1.0/"'
+        echo ' version="1.0">'
+        echo '<xsl:output method="text"/>'
+        echo '<xsl:template match="/mal:page">'
+        echo '<xsl:value-of select="@id"/>'
+        echo '</xsl:template>'
+        echo '</xsl:stylesheet>'
+    ) | xsltproc --xinclude - "$1")
+    if [ "$pageid.page" != `basename "$1"` ]; then
+        if [ `dirname "$1"` = '.' ]; then
+            echo `basename "$1"`": $pageid"
+        else
+            echo "$1: $pageid"
+        fi
+        exit 1
+    fi
+}
+
+yelp_ids () {
+    if [ "$#" = "0" -o "x$1" = "x--help" ]; then
+        yelp_usage_ids
+        exit 1
+    fi
+    ret=0
+    for xml in "$@"; do
+        if [ -d "$xml" ]; then
+            for page in "$xml"/*.page; do
+                yelp_ids_page "$page" || ret=$?
+            done
+        else
+            yelp_ids_page "$xml" || ret=$?
+        fi
+    done
+    exit $ret
 }
 
 yelp_links_db () {
@@ -620,6 +669,9 @@ case "x$cmd" in
         ;;
     "xhrefs")
         yelp_hrefs "$@"
+        ;;
+    "xids")
+        yelp_ids "$@"
         ;;
     "xlinks")
         yelp_links "$@"
