@@ -593,6 +593,7 @@ yelp_validate_page () {
     check_out_file=`mktemp`
     check_rng_file=`(
             echo '<xsl:stylesheet'
+            echo ' xmlns:cache="http://projectmallard.org/cache/1.0/"'
             echo ' xmlns:xsl="http://www.w3.org/1999/XSL/Transform"'
             echo ' version="1.0">'
             echo '<xsl:output method="text"/>'
@@ -600,6 +601,9 @@ yelp_validate_page () {
             echo '<xsl:choose>'
             echo '<xsl:when test="string(@version) != '"''"'">'
             echo '<xsl:value-of select="@version"/>'
+            echo '</xsl:when>'
+            echo '<xsl:when test="/cache:cache">'
+            echo '<xsl:text>cache/1.0 1.0</xsl:text>'
             echo '</xsl:when>'
             echo '<xsl:otherwise>'
             echo '<xsl:text>1.0</xsl:text>'
@@ -648,7 +652,7 @@ yelp_validate () {
             for page in "$xml"/*.page; do
                 yelp_validate_page "$page" || gret="$?"
             done
-        elif [ "x$ext" = "xpage" ]; then
+        elif [ "x$ext" = "xpage" -o "x$ext" = "xcache" ]; then
             yelp_validate_page "$xml" || gret="$?"
         else
             xmllint --noout --xinclude --noent --postvalid "$xml" || gret="$?"

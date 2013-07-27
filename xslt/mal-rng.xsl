@@ -3,9 +3,10 @@
     xmlns:str="http://exslt.org/strings"
     xmlns:exsl="http://exslt.org/common"
     xmlns:mal="http://projectmallard.org/1.0/"
+    xmlns:cache="http://projectmallard.org/cache/1.0/"
     xmlns:rng="http://relaxng.org/ns/structure/1.0"
     xmlns="http://relaxng.org/ns/structure/1.0"
-    exclude-result-prefixes="mal str exsl rng"
+    exclude-result-prefixes="mal cache str exsl rng"
     version="1.0">
 
 <xsl:param name="rng.strict" select="false()"/>
@@ -15,6 +16,9 @@
     <xsl:choose>
       <xsl:when test="string(@version) != ''">
         <xsl:value-of select="@version"/>
+      </xsl:when>
+      <xsl:when test="/cache:cache">
+        <xsl:value-of select="'cache/1.0 1.0'"/>
       </xsl:when>
       <xsl:otherwise>
         <xsl:value-of select="'1.0'"/>
