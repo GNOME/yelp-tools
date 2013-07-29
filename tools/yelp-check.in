@@ -382,12 +382,12 @@ yelp_links () {
     if [ "x$check_cache_file" != "x" ]; then
         check_cache_file=`(cd $(dirname "$check_cache_file") && pwd)`/`basename "$check_cache_file"`
     fi
-    check_out_file=`mktemp`
+    check_out_file=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
     for xml in "$@"; do
         if [ -d "$xml" ]; then
             if [ "x$check_cache_file" = "x" ]; then
                 check_cache_file_is_tmp="yes"
-                check_cache_file=`mktemp`
+                check_cache_file=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
                 yelp-build cache -o "$check_cache_file" "$@"
             fi
             for page in "$xml"/*.page; do
@@ -400,7 +400,7 @@ yelp_links () {
             else
                 if [ "x$check_cache_file" = "x" ]; then
                     check_cache_file_is_tmp="yes"
-                    check_cache_file=`mktemp`
+                    check_cache_file=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
                     yelp-build cache -o "$check_cache_file" "$@"
                 fi
                 yelp_links_page "$xml"
@@ -468,10 +468,10 @@ yelp_orphans () {
         check_cache_file=`(cd $(dirname "$check_cache_file") && pwd)`/`basename "$check_cache_file"`
     else
         check_cache_file_is_tmp="yes"
-        check_cache_file=`mktemp`
+        check_cache_file=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
         yelp-build cache -o "$check_cache_file" "$@"
     fi
-    check_out_file=`mktemp`
+    check_out_file=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
     for xml in "$@"; do
         if [ -d "$xml" ]; then
             for page in "$xml"/*.page; do
@@ -568,7 +568,7 @@ yelp_status () {
         yelp_usage_status
         exit 1
     fi
-    check_cache_file=`mktemp`
+    check_cache_file=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
     yelp-build cache -o "$check_cache_file" "$@"
     xsltproc \
         --stringparam version "$check_version" \
@@ -588,9 +588,9 @@ yelp_validate_page () {
     # Using temp files because pipes create subshells, making it really
     # hard to return the right exit status in a portable way.
     if [ "x$check_rng_dir" = "x" ]; then
-        check_rng_dir=`mktemp -d`
+        check_rng_dir=`mktemp -d "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
     fi
-    check_out_file=`mktemp`
+    check_out_file=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
     check_rng_file=`(
             echo '<xsl:stylesheet'
             echo ' xmlns:cache="http://projectmallard.org/cache/1.0/"'

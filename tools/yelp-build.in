@@ -346,10 +346,10 @@ yelp_html_mal2html () {
         html_cache_file=`(cd $(dirname "$html_cache_file") && pwd)`/`basename "$html_cache_file"`
     else
         html_cache_file_is_tmp="yes"
-        html_cache_file=`mktemp`
+        html_cache_file=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
         yelp_cache -o "$html_cache_file" "$@"
     fi
-    html_tmp_infile=`mktemp`
+    html_tmp_infile=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
     yelp_cache_in "$@" > "$html_tmp_infile"
     (
         echo '<xsl:stylesheet'
@@ -570,11 +570,11 @@ yelp_epub () {
         epub_cache_file=`(cd $(dirname "$epub_cache_file") && pwd)`/`basename "$epub_cache_file"`
     else
         epub_cache_file_is_tmp="yes"
-        epub_cache_file=`mktemp`
+        epub_cache_file=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
         yelp_cache -o "$epub_cache_file" "$@"
     fi
     html_cache_file="$epub_cache_file"
-    epub_data_out=`mktemp -d`
+    epub_data_out=`mktemp -d "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
     html_out="$epub_data_out/OPS"
     mkdir "$html_out"
     mkdir "$html_out/yelp"
