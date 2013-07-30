@@ -1,3 +1,11 @@
+3.9.1
+=====
+* Fixed BSD compatibility issue in calling mktemp
+* Fixed 'make pot' when srcdir != builddir (Michael Terry)
+* yelp-check validate: Validate cache files
+* yelp-check ids: New command to check Mallard page IDs
+* yelp-build epub: Fixed issue with directory for media
+
 3.6.1
 =====
 * yelp-check: Added 'links -i' to ignore xrefs with hrefs
