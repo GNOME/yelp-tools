@@ -88,7 +88,16 @@
   <xsl:param name="nss"/>
   <xsl:choose>
     <xsl:when test="$rng.strict and rng:anyName">
-      <empty/>
+      <xsl:choose>
+        <xsl:when test="ancestor::rng:define/@name = 'mal_attr_external'">
+          <xsl:copy>
+            <nsName ns="http://www.w3.org/XML/1998/namespace"/>
+          </xsl:copy>
+        </xsl:when>
+        <xsl:otherwise>
+          <empty/>
+        </xsl:otherwise>
+      </xsl:choose>
     </xsl:when>
     <xsl:otherwise>
       <xsl:variable name="nsmunge" select="self::rng:element or self::rng:attribute"/>
