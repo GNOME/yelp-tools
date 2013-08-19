@@ -1,3 +1,8 @@
+3.9.90
+======
+* yelp-build: Fix directionality issues for Mallard
+* yelp-check: Allow xml: attributes when validating in strict mode
+
 3.9.1
 =====
 * Fixed BSD compatibility issue in calling mktemp
