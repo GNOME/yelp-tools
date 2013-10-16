@@ -275,7 +275,8 @@ yelp_hrefs () {
 }
 
 yelp_ids_page () {
-    pageid=$((
+    pageid=$(
+    (
         echo '<xsl:stylesheet'
         echo ' xmlns:xsl="http://www.w3.org/1999/XSL/Transform"'
         echo ' xmlns:mal="http://projectmallard.org/1.0/"'
