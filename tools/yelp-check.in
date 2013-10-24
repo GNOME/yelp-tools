@@ -169,6 +169,7 @@ yelp_usage_validate () {
         echo ""
         echo "Options:"
         echo "  --strict            Disallow unknown namespaces"
+        echo "  --allow NS          Explicitly allow namespace NS in strict mode"
     ) 1>&2
 }
 
@@ -619,7 +620,10 @@ yelp_validate_page () {
         # version strings often contain slashes. But xsltproc treats the
         # -o option as a URL and urldecodes, so doubly urlencode, because
         # we want the urlencoded string to be the on-disk name.
-        xsltproc -o "$check_rng_dir/"`urlencode "$check_rng_file"` --param rng.strict "$check_strict" "$xsl_mal_rng" "$1"
+        xsltproc -o "$check_rng_dir/"`urlencode "$check_rng_file"` \
+            --param rng.strict "$check_strict" \
+            --stringparam rng.strict.allow "$check_strict_allow" \
+            "$xsl_mal_rng" "$1"
     fi
     xmllint --noout --xinclude --noent --relaxng "$check_rng_dir/$check_rng_file" "$1" > "$check_out_file" 2>&1
     ret="$?"
@@ -635,10 +639,16 @@ yelp_validate () {
     fi
     gret="0"
     check_strict="false()"
+    check_strict_allow=""
     while [ "$#" != "0" ]; do
         case "$1" in
             "--strict")
                 check_strict="true()"
+                shift
+                ;;
+            "--allow")
+                shift
+                check_strict_allow="$check_strict_allow $1"
                 shift
                 ;;
             *)

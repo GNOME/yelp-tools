@@ -10,6 +10,7 @@
     version="1.0">
 
 <xsl:param name="rng.strict" select="false()"/>
+<xsl:param name="rng.strict.allow" select="''"/>
 
 <xsl:template match="/*">
   <xsl:variable name="version">
@@ -89,6 +90,26 @@
   <xsl:choose>
     <xsl:when test="$rng.strict and rng:anyName">
       <xsl:choose>
+        <xsl:when test="$rng.strict.allow != ''">
+          <xsl:copy>
+            <choice>
+              <xsl:if test="self::rng:attribute/ancestor::rng:element[1]/rng:anyName">
+                <nsName ns=""/>
+              </xsl:if>
+              <xsl:for-each select="str:split($rng.strict.allow)">
+                <nsName ns="{.}"/>
+              </xsl:for-each>
+              <xsl:if test="ancestor::rng:define/@name = 'mal_attr_external'">
+                <nsName ns="http://www.w3.org/XML/1998/namespace"/>
+              </xsl:if>
+            </choice>
+            <xsl:apply-templates mode="rng.mode" select="rng:anyName/following-sibling::*">
+              <xsl:with-param name="first" select="$first"/>
+              <xsl:with-param name="ns" select="$ns"/>
+              <xsl:with-param name="nss" select="$nss"/>
+            </xsl:apply-templates>
+          </xsl:copy>
+        </xsl:when>
         <xsl:when test="ancestor::rng:define/@name = 'mal_attr_external'">
           <xsl:copy>
             <nsName ns="http://www.w3.org/XML/1998/namespace"/>
