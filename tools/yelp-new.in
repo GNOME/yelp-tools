@@ -27,6 +27,10 @@ yelp_describe_tmpl () {
     echo "$line"
 }
 
+yelp_get_extension () {
+    echo "$1" | awk -F . '{print $NF}'
+}
+
 yelp_usage() {
     echo "Usage: yelp-new [OPTIONS] <TEMPLATE> <ID> [TITLE]"
     echo ""
@@ -87,7 +91,10 @@ while [ $# -gt 0 ]; do
 done
 
 # Locate the template file
-if [ -f "${1}.page.tmpl" ]; then
+if [ $(yelp_get_extension ${1}) = "tmpl" -a -f "${1}" ]; then
+    infile="${1}"
+    outext="."$(yelp_get_extension $(basename "${1}" ".tmpl"))
+elif [ -f "${1}.page.tmpl" ]; then
     infile="${1}.page.tmpl"
     outext=".page"
 elif [ -f "${tmpldir}${1}.page" ]; then
@@ -104,13 +111,16 @@ else
     exit 1
 fi
 
-# Set up some variable for substitution
+# Set up some variables for substitution
 if type git >/dev/null 2>&1; then
     username=`git config user.name`
     useremail=`git config user.email`
-elif type bzr >/dev/null 2>&1; then
-    username=`bzr whoami | sed -e 's/ <.*//'`
-    useremail=`bzr whoami --email`
+fi
+if [ "x$username" = "x" -a "x$useremail" = "x" ]; then
+    if type bzr >/dev/null 2>&1; then
+        username=`bzr whoami | sed -e 's/ <.*//'`
+        useremail=`bzr whoami --email`
+    fi
 fi
 if [ "x$username" = "x" -a "x$useremail" = "x" ]; then
     username='YOUR NAME'
@@ -121,12 +131,27 @@ if [ "x$pagetitle" = "x" ]; then
     pagetitle="TITLE"
 fi
 
-outfile="${2}${outext}${spec}"
+outid=$(basename "${2}")
+
+if [ "x$spec" != "x" ]; then
+    if [ "."$(yelp_get_extension "${2}") = "$spec" ]; then
+        outfile="${2}"
+    elif [ "."$(yelp_get_extension "${2}") = "$outext" ]; then
+        outfile="${2}${spec}"
+    else
+        outfile="${2}${outext}${spec}"
+    fi
+elif [ "."$(yelp_get_extension ${2}) = "$outext" ]; then
+    outfile="${2}"
+else
+    outfile="${2}${outext}"
+fi
+
 if [ "x$spec" = "x.tmpl" ]; then
     cp "$infile" "$outfile"
 else
     cat "$infile" | grep -v '<\?yelp-tmpl-desc' | sed \
-        -e s/@ID@/"$2"/ \
+        -e s/@ID@/"$outid"/ \
         -e s/@DATE@/`date +%Y-%m-%d`/ \
         -e s/@YEAR@/`date +%Y`/ \
         -e s/@NAME@/"$username"/ \
