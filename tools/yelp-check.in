@@ -78,6 +78,28 @@ BEGIN {
 }'
 }
 
+read -r -d '' docbook_version <<'EOF'
+<xsl:stylesheet
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:db="http://docbook.org/ns/docbook"
+    version="1.0">
+<xsl:output method="text"/>
+<xsl:template match="/">
+  <xsl:choose>
+    <xsl:when test="/db:*/@version">
+      <xsl:value-of select="/db:*/@version"/>
+    </xsl:when>
+    <xsl:when test="/db:*">
+      <xsl:value-of select="'5.0'"/>
+    </xsl:when>
+    <xsl:otherwise>
+      <xsl:value-of select="'4'"/>
+    </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+</xsl:stylesheet>
+EOF
+
 yelp_usage () {
     (
         echo "Usage: yelp-check <COMMAND> [OPTIONS] [FILES]"
@@ -665,7 +687,21 @@ yelp_validate () {
         elif [ "x$ext" = "xpage" -o "x$ext" = "xcache" ]; then
             yelp_validate_page "$xml" || gret="$?"
         else
-            xmllint --noout --xinclude --noent --postvalid "$xml" || gret="$?"
+            version=`echo "$docbook_version" | xsltproc - "$xml"`
+            major=`echo "$version" | cut -c1`
+            if [ "x$major" = "x5" ]; then
+                check_out_file=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
+                rng_uri="http://docbook.org/xml/$version/rng/docbook.rng"
+                xmllint --noout --xinclude --noent --relaxng "$rng_uri" "$xml" > "$check_out_file" 2>&1
+                gret="$?"
+                cat "$check_out_file" | grep -v 'validates$'
+                rm "$check_out_file"
+            elif xmllint --nocdata "$xml" | grep -q '<!DOCTYPE'; then
+                xmllint --noout --xinclude --noent --postvalid "$xml" || gret="$?"
+            else
+                dtd_uri='http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd'
+                xmllint --noout --xinclude --noent --dtdvalid "$dtd_uri" "$xml" || gret="$?"
+            fi
         fi
     done
     if [ "x$check_rng_dir" != "x" ]; then
