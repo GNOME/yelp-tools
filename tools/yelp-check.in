@@ -78,7 +78,7 @@ BEGIN {
 }'
 }
 
-read -r -d '' docbook_version <<'EOF'
+docbook_version='
 <xsl:stylesheet
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:db="http://docbook.org/ns/docbook"
@@ -90,15 +90,15 @@ read -r -d '' docbook_version <<'EOF'
       <xsl:value-of select="/db:*/@version"/>
     </xsl:when>
     <xsl:when test="/db:*">
-      <xsl:value-of select="'5.0'"/>
+      <xsl:text>5.0</xsl:text>
     </xsl:when>
     <xsl:otherwise>
-      <xsl:value-of select="'4'"/>
+      <xsl:text>4</xsl:text>
     </xsl:otherwise>
   </xsl:choose>
 </xsl:template>
 </xsl:stylesheet>
-EOF
+'
 
 yelp_usage () {
     (
