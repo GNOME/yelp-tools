@@ -4,6 +4,7 @@ xsl_DATA =		\
 	comments.xsl	\
 	mal-epub.xsl	\
 	mal-opf.xsl	\
+	mal-files.xsl	\
 	mal-ncx.xsl	\
 	mal-status.xsl	\
 	mal-rng.xsl
