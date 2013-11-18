@@ -1,3 +1,15 @@
+3.11.1
+======
+* yelp-build: Handle conditional processing and other logic when copying
+  media and other external files, #709951
+* yelp-check: Support validate on DocBook 5 documents
+* yelp-check: Support explicitly allowed namespaces in strict validation
+* yelp-check: Fixed POSIX shell syntax error, #710331 (Michael Biebl)
+* yelp-new: Now much smarter about output file paths and extensions
+* yelp.m4: Added HELP_MEDIA_NODUP to install media without locale symlinks
+* yelp.m4: Added YELP_INIT_HELP as version-checking replacement for
+  YELP_HELP_INIT
+
 3.10.0
 ======
 * Stable release. No changes since 3.9.90
