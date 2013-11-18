@@ -1,9 +1,24 @@
+AC_DEFUN([YELP_INIT_HELP],
+[
+if test "x[$1]" = "x"; then
+  AC_MSG_ERROR([Must pass a minimum version to [YELP_INIT_HELP]])
+fi
+if test $(echo [$1] | awk '// { split($1, v, "."); print 100 * v[[1]] + v[[2]] }') -gt @YELP_STABLE_VERSION@; then
+  AC_MSG_ERROR([requested yelp.m4 $1 but installed version is @VERSION@])
+fi
+YELP_MIN_VERSION=[$1]
+AC_SUBST([YELP_MIN_VERSION])
+YELP_HELP_INIT
+])
+
+dnl YELP_HELP_INIT is deprecated. Use YELP_INIT_HELP with a minimum version
 AC_DEFUN([YELP_HELP_INIT],
 [
 AC_REQUIRE([AC_PROG_LN_S])
 m4_pattern_allow([AM_V_at])
 m4_pattern_allow([AM_V_GEN])
 m4_pattern_allow([AM_DEFAULT_VERBOSITY])
+
 AC_ARG_WITH([help-dir],
             AC_HELP_STRING([--with-help-dir=DIR],
                            [path where help files are installed]),,
@@ -29,6 +44,7 @@ HELP_POT ?=
 HELP_FILES ?=
 HELP_EXTRA ?=
 HELP_MEDIA ?=
+HELP_MEDIA_NODUP ?=
 HELP_LINGUAS ?=
 
 _HELP_LINGUAS = $(if $(filter environment,$(origin LINGUAS)),$(filter $(LINGUAS),$(HELP_LINGUAS)),$(HELP_LINGUAS))
@@ -37,7 +53,7 @@ _HELP_POFILES = $(if $(HELP_ID),$(foreach lc,$(_HELP_LINGUAS),$(lc)/$(lc).po))
 _HELP_MOFILES = $(patsubst %.po,%.mo,$(_HELP_POFILES))
 _HELP_C_FILES = $(foreach f,$(HELP_FILES),C/$(f))
 _HELP_C_EXTRA = $(foreach f,$(HELP_EXTRA),C/$(f))
-_HELP_C_MEDIA = $(foreach f,$(HELP_MEDIA),C/$(f))
+_HELP_C_MEDIA = $(foreach f,$(HELP_MEDIA),C/$(f)) $(foreach f,$(HELP_MEDIA_NODUP),C/$(f))
 _HELP_LC_FILES = $(foreach lc,$(_HELP_LINGUAS),$(foreach f,$(HELP_FILES),$(lc)/$(f)))
 _HELP_LC_STAMPS = $(foreach lc,$(_HELP_LINGUAS),$(lc)/$(lc).stamp)
 
@@ -48,6 +64,18 @@ _HELP_LC_VERBOSE_ = $(_HELP_LC_VERBOSE_$(_HELP_DEFAULT_V))
 _HELP_LC_VERBOSE_0 = @echo "  GEN    "$(dir [$]@);
 
 all: $(_HELP_C_FILES) $(_HELP_C_EXTRA) $(_HELP_C_MEDIA) $(_HELP_LC_FILES) $(_HELP_POFILES)
+
+.PHONY: _yelp_check_version
+all: _yelp_check_version
+_yelp_check_version:
+	@if test "x$(HELP_MEDIA_NODUP)" != "x"; then \
+	  if test "x$(YELP_MIN_VERSION)" = "x" -o \
+	      $$(echo "$(YELP_MIN_VERSION)" | awk '"'"'// { split($$''1, v, "."); print 100 * v[[1]] + v[[2]] }'"'"') \
+	        -lt 312; then \
+	    echo "Must use [YELP_INIT_HELP] with version >= 3.12 to use HELP_MEDIA_NODUP" 1>&2; \
+	    exit 1; \
+	  fi; \
+	fi;
 
 .PHONY: pot
 pot: $(_HELP_POTFILE)
@@ -101,6 +129,7 @@ EXTRA_DIST += $(_HELP_C_EXTRA) $(_HELP_C_MEDIA)
 EXTRA_DIST += $(foreach lc,$(HELP_LINGUAS),$(lc)/$(lc).stamp)
 EXTRA_DIST += $(foreach lc,$(HELP_LINGUAS),$(lc)/$(lc).po)
 EXTRA_DIST += $(foreach f,$(HELP_MEDIA),$(foreach lc,$(HELP_LINGUAS),$(wildcard $(lc)/$(f))))
+EXTRA_DIST += $(foreach f,$(HELP_MEDIA_NODUP),$(foreach lc,$(HELP_LINGUAS),$(wildcard $(lc)/$(f))))
 
 distdir: distdir-help-files
 distdir-help-files:
@@ -167,6 +196,19 @@ install-help:
 	    fi; \
 	  done; \
 	done
+	@for f in $(HELP_MEDIA_NODUP); do \
+	  for lc in C $(_HELP_LINGUAS); do \
+	    if test -f "$$lc$$f"; then d=; else d="$(srcdir)/"; fi; \
+	    helpdir="$(DESTDIR)$(HELP_DIR)/$$lc/$(HELP_ID)/"; \
+	    mdir=`dirname "$$f"`; \
+	    if test "x$mdir" = "x."; then mdir=""; fi; \
+	    if ! test -d "$$helpdir$$mdir"; then $(mkinstalldirs) "$$helpdir$$mdir"; fi; \
+	    if test -f "$$d$$lc/$$f"; then \
+	      echo "$(INSTALL_DATA) $$d$$lc/$$f $$helpdir$$f"; \
+	      $(INSTALL_DATA) "$$d$$lc/$$f" "$$helpdir$$f" || exit 1; \
+	    fi; \
+	  done; \
+	done
 
 .PHONY: uninstall-help
 uninstall-am: $(if $(HELP_ID),uninstall-help)
@@ -182,7 +224,7 @@ uninstall-help:
 	  echo "rm -f $$helpdir`basename $$f`"; \
 	  rm -f "$$helpdir`basename $$f`"; \
 	done
-	@for f in $(HELP_MEDIA); do \
+	@for f in $(HELP_MEDIA) $(HELP_MEDIA_NODUP); do \
 	  for lc in C $(_HELP_LINGUAS); do \
 	    helpdir="$(DESTDIR)$(HELP_DIR)/$$lc/$(HELP_ID)/"; \
 	    echo "rm -f $$helpdir$$f"; \
