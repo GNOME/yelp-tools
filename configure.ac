@@ -1,4 +1,4 @@
-AC_INIT([yelp-tools], [3.11.1],
+AC_INIT([yelp-tools], [3.10.0],
         [http://bugzilla.gnome.org/enter_bug.cgi?product=yelp-tools])
 AM_INIT_AUTOMAKE([1.9 no-dist-gzip dist-bzip2])
 
@@ -15,9 +15,6 @@ fi
 AC_SUBST(GDU_AWK)
 
 AC_PROG_LN_S
-
-YELP_STABLE_VERSION=$(echo $VERSION | $GDU_AWK '// { split($1, v, "."); print 100 * v[[1]] + (int((v[[2]] + 1) / 2) * 2); }')
-AC_SUBST([YELP_STABLE_VERSION])
 
 AC_CHECK_PROG(XMLLINT, xmllint, xmllint)
 if test x"$XMLLINT" = x; then
@@ -96,7 +93,6 @@ AC_CONFIG_FILES([
 Makefile
 templates/Makefile
 tools/Makefile
-tools/yelp.m4
 tools/yelp-build
 tools/yelp-check
 tools/yelp-new

@@ -17,7 +17,6 @@ Makefile.in
 /intltool-update.in
 /missing
 
-/tools/yelp.m4
 /tools/yelp-build
 /tools/yelp-check
 /tools/yelp-new
