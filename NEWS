@@ -1,3 +1,8 @@
+3.11.2
+======
+* yelp.m4: Added no-lc-media-links option for YELP_HELP_INIT
+* yelp.m4: Reverted HELP_MEDIA_NODUP and YELP_INIT_HELP
+
 3.11.1
 ======
 * yelp-build: Handle conditional processing and other logic when copying
