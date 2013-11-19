@@ -4,6 +4,18 @@ AC_REQUIRE([AC_PROG_LN_S])
 m4_pattern_allow([AM_V_at])
 m4_pattern_allow([AM_V_GEN])
 m4_pattern_allow([AM_DEFAULT_VERBOSITY])
+
+YELP_NO_LC_MEDIA_LINKS="";
+for yelpopt in [$1]; do
+  if test "x$yelpopt" = "xno-lc-media-links"; then
+    YELP_NO_LC_MEDIA_LINKS="no-lc-media-links";
+  else
+    echo "Unrecognized [YELP_HELP_INIT] option $yelpopt" 1>&2;
+    exit 1;
+  fi;
+done;
+AC_SUBST(YELP_NO_LC_MEDIA_LINKS)
+
 AC_ARG_WITH([help-dir],
             AC_HELP_STRING([--with-help-dir=DIR],
                            [path where help files are installed]),,
@@ -162,8 +174,10 @@ install-help:
 	      echo "$(INSTALL_DATA) $$d$$lc/$$f $$helpdir$$f"; \
 	      $(INSTALL_DATA) "$$d$$lc/$$f" "$$helpdir$$f" || exit 1; \
 	    elif test "x$$lc" != "xC"; then \
-	      echo "$(LN_S) -f $(HELP_DIR)/C/$(HELP_ID)/$$f $$helpdir$$f"; \
-	      $(LN_S) -f "$(HELP_DIR)/C/$(HELP_ID)/$$f" "$$helpdir$$f" || exit 1; \
+	      if test "x$(YELP_NO_LC_MEDIA_LINKS)" != "xno-lc-media-links"; then \
+	        echo "$(LN_S) -f $(HELP_DIR)/C/$(HELP_ID)/$$f $$helpdir$$f"; \
+	        $(LN_S) -f "$(HELP_DIR)/C/$(HELP_ID)/$$f" "$$helpdir$$f" || exit 1; \
+	      fi; \
 	    fi; \
 	  done; \
 	done
