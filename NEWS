@@ -1,3 +1,7 @@
+3.11.3
+======
+* yelp.m4: no-lc-dist option to disable disting the generated lc files (Christian Persch)
+
 3.11.2
 ======
 * yelp.m4: Added no-lc-media-links option for YELP_HELP_INIT
