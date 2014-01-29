@@ -5,6 +5,7 @@ xsl_DATA =		\
 	mal-epub.xsl	\
 	mal-opf.xsl	\
 	mal-files.xsl	\
+	mal-license.xsl	\
 	mal-ncx.xsl	\
 	mal-status.xsl	\
 	mal-rng.xsl

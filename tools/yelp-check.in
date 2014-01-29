@@ -17,6 +17,7 @@
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 xsl_mal_link='@XSL_MAL_LINK@'
+xsl_mal_license='@DATADIR@/xslt/mal-license.xsl'
 xsl_mal_status='@DATADIR@/xslt/mal-status.xsl'
 xsl_mal_rng='@DATADIR@/xslt/mal-rng.xsl'
 xsl_comments='@DATADIR@/xslt/comments.xsl'
@@ -108,6 +109,7 @@ yelp_usage () {
         echo "  comments      Print the editorial comments in a document"
         echo "  hrefs         Find broken external links in a document"
         echo "  ids           Find Mallard page IDs that do not match file names"
+	echo "  license       Report the license of Mallard pages"
         echo "  links         Find broken xref or linkend links in a document"
         echo "  orphans       Find orphaned pages in a Mallard document"
         echo "  status        Report the status of Mallard pages"
@@ -160,6 +162,25 @@ yelp_usage_comments () {
         echo ""
         echo "  Print the editorial comments in the files FILES, using the"
         echo "  comment element in Mallard and the remark element in DocBook."
+    ) 1>&2
+}
+yelp_usage_license () {
+    (
+        echo "Usage: yelp-check license <FILES>"
+        echo ""
+        echo "  Report the license of the Mallard page files FILES. Each"
+        echo "  matching page is reporting along with its status, reported"
+	echo "  based on the href attribute of the license element. Common"
+	echo "  licenses use a shortened identifier. Pages with multiple"
+	echo "  licenses have the identifiers separated by spaces. Pages"
+	echo "  with no license element report 'none'. Licenses with no"
+	echo "  href attribute are reported as 'unknown'."
+        echo ""
+        echo "Options:"
+        echo "  --only LICENSES     Only show pages whose license is in LICENSES"
+        echo "  --except LICENSES   Exclude pages whose license is in LICENSES"
+        echo "  --totals            Show total counts for each license"
+        echo "LICENSES may be a comma- and/or space-separated list."
     ) 1>&2
 }
 yelp_usage_status () {
@@ -537,6 +558,64 @@ yelp_comments () {
     done
 }
 
+yelp_license_page () {
+    xsltproc --xinclude \
+        --stringparam only "$check_only" \
+        --stringparam except "$check_except" \
+        --stringparam totals "$check_totals" \
+        "$xsl_mal_license" "$1"
+}
+
+yelp_license () {
+    if [ "$#" = "0" -o "x$1" = "x--help" ]; then
+        yelp_usage_license
+        exit 1
+    fi
+    while [ "$#" != "0" ]; do
+        case "$1" in
+            "--only")
+                shift
+                check_only="$1"
+                shift
+                ;;
+            "--except")
+                shift
+                check_except="$1"
+                shift
+                ;;
+            "--totals")
+                check_totals="1"
+                shift
+                ;;
+            *)
+                break
+                ;;
+        esac
+    done
+    if [ "$#" = "0" -o "x$1" = "x--help" ]; then
+        yelp_usage_license
+        exit 1
+    fi
+    for xml in "$@"; do
+        ext=`echo "$1" | sed -e 's/.*\.//'`
+        if [ -d "$xml" ]; then
+            for page in "$xml"/*.page; do
+                yelp_license_page "$page" || gret="$?"
+            done
+        elif [ "x$ext" = "xpage" -o "x$ext" = "xcache" ]; then
+            yelp_license_page "$xml" || gret="$?"
+        else
+	    echo "Unrecognized page " $xml 2>&1
+	    exit 1
+	fi
+    done | if [ "x$check_totals" = "x1" ]; then
+	sort | uniq -c | sed -e 's/^ *//' | awk '{print $2 ": " $1}'
+    else
+	sort
+    fi
+    return 0
+}
+
 yelp_status () {
     if [ "$#" = "0" -o "x$1" = "x--help" ]; then
         yelp_usage_status
@@ -729,6 +808,9 @@ case "x$cmd" in
         ;;
     "xorphans")
         yelp_orphans "$@"
+        ;;
+    "xlicense")
+        yelp_license "$@"
         ;;
     "xstatus")
         yelp_status "$@"
