@@ -21,7 +21,7 @@ AC_SUBST([YELP_LC_MEDIA_LINKS])
 AC_SUBST([YELP_LC_DIST])
 
 AC_ARG_WITH([help-dir],
-            AC_HELP_STRING([--with-help-dir=DIR],
+            AS_HELP_STRING([--with-help-dir=DIR],
                            [path where help files are installed]),,
             [with_help_dir='${datadir}/help'])
 HELP_DIR="$with_help_dir"
