@@ -32,7 +32,7 @@ urlencode () {
     else
         urlencode_slash='\/'
     fi
-    echo "$1" | LANG=C awk '
+    echo "$1" | LC_ALL=C awk '
 BEGIN {
   for (i = 1; i <= 255; i++) chars[sprintf("%c", i)] = i;
 }
@@ -50,7 +50,7 @@ BEGIN {
 }
 
 urldecode () {
-    echo "$1" | LANG=C awk '
+    echo "$1" | LC_ALL=C awk '
 BEGIN {
   for(i = 0; i < 10; i++) hex[i] = i;
   hex["A"] = hex["a"] = 10;

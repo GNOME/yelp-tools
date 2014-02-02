@@ -36,7 +36,7 @@ mkdir_p () {
 }
 
 urlencode () {
-    LANG=C awk '
+    LC_ALL=C awk '
 BEGIN {
   for (i = 1; i <= 255; i++) chars[sprintf("%c", i)] = i;
 }
@@ -54,7 +54,7 @@ BEGIN {
 }
 
 urldecode () {
-    LANG=C awk '
+    LC_ALL=C awk '
 BEGIN {
   for(i = 0; i < 10; i++) hex[i] = i;
   hex["A"] = hex["a"] = 10;
