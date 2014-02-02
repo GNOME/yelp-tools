@@ -8,7 +8,8 @@ xsl_DATA =		\
 	mal-license.xsl	\
 	mal-ncx.xsl	\
 	mal-status.xsl	\
-	mal-rng.xsl
+	mal-rng.xsl	\
+	media.xsl
 
 EXTRA_DIST =		\
 	mal-ncx.xsl.in	\

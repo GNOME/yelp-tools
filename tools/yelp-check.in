@@ -21,6 +21,7 @@ xsl_mal_license='@DATADIR@/xslt/mal-license.xsl'
 xsl_mal_status='@DATADIR@/xslt/mal-status.xsl'
 xsl_mal_rng='@DATADIR@/xslt/mal-rng.xsl'
 xsl_comments='@DATADIR@/xslt/comments.xsl'
+xsl_media='@DATADIR@/xslt/media.xsl'
 
 urlencode () {
     # We usually don't want to urlencode slashes, because we're
@@ -111,6 +112,7 @@ yelp_usage () {
         echo "  ids           Find Mallard page IDs that do not match file names"
 	echo "  license       Report the license of Mallard pages"
         echo "  links         Find broken xref or linkend links in a document"
+        echo "  media         Find broken references to media files"
         echo "  orphans       Find orphaned pages in a Mallard document"
         echo "  status        Report the status of Mallard pages"
         echo "  validate      Validate files against a DTD or RNG"
@@ -144,6 +146,15 @@ yelp_usage_links () {
         echo "  -i            Ignore xrefs where href is present"
     ) 1>&2
 }
+yelp_usage_media () {
+    (
+        echo "Usage: yelp-check media <FILES>"
+        echo ""
+        echo "  Find broken references to media files. In Mallard, this"
+        echo "  checks media and thumb elements. In DocBook, this checks"
+        echo "  audiodata, imagedata, and videodata elements."
+    ) 1>&2
+}
 yelp_usage_orphans () {
     (
         echo "Usage: yelp-check orphans <FILES>"
@@ -169,7 +180,7 @@ yelp_usage_license () {
         echo "Usage: yelp-check license <FILES>"
         echo ""
         echo "  Report the license of the Mallard page files FILES. Each"
-        echo "  matching page is reporting along with its status, reported"
+        echo "  matching page is reporting along with its license, reported"
 	echo "  based on the href attribute of the license element. Common"
 	echo "  licenses use a shortened identifier. Pages with multiple"
 	echo "  licenses have the identifiers separated by spaces. Pages"
@@ -460,6 +471,33 @@ yelp_links () {
     fi
     rm "$check_out_file"
     exit $ret
+}
+
+yelp_media_page () {
+    ext=`echo "$1" | sed -e 's/.*\.//'`
+    bname=`basename "$1" ".$ext"`
+    xsltproc --stringparam basename "$bname" "$xsl_media" "$1"
+}
+
+yelp_media () {
+    if [ "$#" = "0" -o "x$1" = "x--help" ]; then
+        yelp_usage_media
+        exit 1
+    fi
+    for xml in "$@"; do
+        if [ -d "$xml" ]; then
+            for page in "$xml"/*.page; do
+                yelp_media_page "$page"
+            done
+        else
+            yelp_media_page "$xml"
+        fi
+    done | while read line; do
+        src=$(urldecode $(echo "$line" | cut -d' ' -f2))
+        if [ ! -f "$src" ]; then
+            echo $line
+        fi
+    done
 }
 
 yelp_orphans_page () {
@@ -811,6 +849,9 @@ case "x$cmd" in
         ;;
     "xlicense")
         yelp_license "$@"
+        ;;
+    "xmedia")
+        yelp_media "$@"
         ;;
     "xstatus")
         yelp_status "$@"
