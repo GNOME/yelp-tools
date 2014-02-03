@@ -117,6 +117,7 @@ yelp_usage_epub () {
         echo "  -c CACHE      Use the existing Mallard cache CACHE"
         echo "  -o OUT        Output en EPUB file named OUT"
         echo "  -x CUSTOM     Import the custom XSLT file CUSTOM"
+        echo "  -p PATHS      Extra paths to search for files"
     ) 1>&2
 }
 yelp_usage_html () {
@@ -131,6 +132,7 @@ yelp_usage_html () {
         echo "  -c CACHE      Use the existing Mallard cache CACHE"
         echo "  -o OUT        Output files in the directory OUT"
         echo "  -x CUSTOM     Import the custom XSLT file CUSTOM"
+        echo "  -p PATHS      Extra paths to search for files"
     ) 1>&2
 }
 
@@ -138,6 +140,12 @@ if [ $# = 0 ]; then
     yelp_usage
     exit 1
 fi
+
+yelp_paths_normalize () {
+    for path in $(echo "$1" | sed -e 's/[: ]/\n/g'); do
+        (cd "$path" && pwd)
+    done | tr '\n' ' '
+}
 
 yelp_cache_in () {
     echo '<cache:cache xmlns:cache="http://projectmallard.org/cache/1.0/"'
@@ -180,7 +188,8 @@ yelp_cache () {
         yelp_usage_cache
         exit 1
     fi
-    yelp_cache_in "$@" | xsltproc --xinclude -o "$cache_out" "$xsl_mal_cache" -
+    yelp_cache_in "$@" | xsltproc --path "$html_paths" \
+        --xinclude -o "$cache_out" "$xsl_mal_cache" -
 }
 
 yelp_html_xsl_common () {
@@ -260,7 +269,7 @@ yelp_html_db2html () {
             echo '<xsl:import href="'"$xsl"'"/>'
             yelp_html_xsl_common
             echo '</xsl:stylesheet>'
-        ) | xsltproc --xinclude -o "$html_out"/ - "$xml"
+        ) | xsltproc --path "$html_paths" --xinclude -o "$html_out"/ - "$xml"
         # Copy media
         if [ "x$xmldir" != "x$html_out" ]; then
             (
@@ -278,11 +287,23 @@ yelp_html_db2html () {
                 echo ' </xsl:for-each>'
                 echo '</xsl:template>'
                 echo '</xsl:stylesheet>'
-            ) | xsltproc --xinclude - "$xml" | while read media; do
+            ) | xsltproc --path "$html_paths" --xinclude - "$xml" | while read media; do
                 mfile=`echo "$media" | urldecode`
                 minput="$xmldir/$mfile"
                 moutput="$html_out/$mfile"
                 mkdir_p `dirname "$moutput"`
+                if [ ! -f "$minput" -a "x$html_paths" != "x" ]; then
+                    if [ $(expr index "$minput" "$(pwd)/") = 1 ]; then
+                        minput_rel=$(expr substr "$minput" \
+                            $(expr length "$(pwd)//") $(expr length "$minput"))
+                        for path in $html_paths; do
+                            if [ -f "$path/$minput_rel" ]; then
+                                minput="$path/$minput_rel"
+                                break
+                            fi
+                        done
+                    fi
+                fi
                 cp "$minput" "$moutput"
             done
         fi
@@ -312,7 +333,7 @@ yelp_html_db2html () {
             echo ' </xsl:for-each>'
             echo '</xsl:template>'
             echo '</xsl:stylesheet>'
-        ) | xsltproc --xinclude - "$xml" | sort | uniq | while read icon; do
+        ) | xsltproc --path "$html_paths" --xinclude - "$xml" | sort | uniq | while read icon; do
             cp "${yelp_icon_dir}/${icon}.png" "$html_out/$html_internal_datadir"
         done;
         # Copy jQuery
@@ -342,7 +363,7 @@ yelp_html_db2html () {
             echo ' </xsl:for-each>'
             echo '</xsl:template>'
             echo '</xsl:stylesheet>'
-        ) | xsltproc --xinclude - "$xml" | sort | uniq \
+        ) | xsltproc --path "$html_paths" --xinclude - "$xml" | sort | uniq \
             | grep '^contents syntax ' | sed -e 's/^contents syntax brush-/brush./' \
             | while read js; do
             cp "${yelp_js_dir}/jquery.syntax.${js}.js" "$html_out/$html_internal_datadir"
@@ -393,7 +414,8 @@ yelp_html_mal2html () {
         echo '</xsl:for-each>'
         echo '</xsl:template>'
         echo '</xsl:stylesheet>'
-    ) | (cd "$html_out" && xsltproc $html_profile --xinclude \
+    ) | (cd "$html_out" && xsltproc $html_profile \
+        --path "$html_paths" --xinclude \
         --stringparam mal.files.copy.icon.dir "$yelp_icon_dir" \
         --stringparam mal.files.copy.js.dir "$yelp_js_dir" \
         - "$html_tmp_infile") | sort | uniq | \
@@ -406,6 +428,18 @@ yelp_html_mal2html () {
             line_dest="$html_out/$html_internal_datadir"`echo "$line" | cut -d' ' -f2`
         else
             line_dest="$html_out/"`echo "$line" | cut -d' ' -f2`
+        fi
+        if [ ! -f "$line_src" -a "x$html_paths" != "x" ]; then
+            if [ $(expr index "$line_src" "$(pwd)/") = 1 ]; then
+                line_src_rel=$(expr substr "$line_src" \
+                    $(expr length "$(pwd)//") $(expr length "$line_src"))
+                for path in $html_paths; do
+                    if [ -f "$path/$line_src_rel" ]; then
+                        line_src="$path/$line_src_rel"
+                        break
+                    fi
+                done
+            fi
         fi
         line_dest=`echo "$line_dest" | urldecode`
         if [ "$line_src" != "$line_dest" ]; then
@@ -436,6 +470,11 @@ yelp_html () {
             "-x")
                 shift
                 html_custom="$1"
+                shift
+                ;;
+            "-p")
+                shift
+                html_paths=$(yelp_paths_normalize "$1")
                 shift
                 ;;
             "--profile")
@@ -489,6 +528,11 @@ yelp_epub () {
                 html_custom="$1"
                 shift
                 ;;
+            "-p")
+                shift
+                html_paths=$(yelp_paths_normalize "$1")
+                shift
+                ;;
             *)
                 break
                 ;;
@@ -517,11 +561,13 @@ yelp_epub () {
     epub_id=`uuidgen`
     epub_data=`(cd "$html_out" && ls yelp/*.*)`
     xsltproc \
+        --path "$html_paths" \
         -o "$html_out/opf.opf" \
         --stringparam opf.id "$epub_id" \
         --stringparam opf.data "$epub_data" \
         "$xsl_mal_opf" "$epub_cache_file"
     xsltproc \
+        --path "$html_paths" \
         -o "$html_out/ncx.ncx" \
         --stringparam ncx.id "$epub_id" \
         "$xsl_mal_ncx" "$epub_cache_file"
