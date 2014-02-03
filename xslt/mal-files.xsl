@@ -2,6 +2,8 @@
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:mal="http://projectmallard.org/1.0/"
     xmlns:if="http://projectmallard.org/if/1.0/"
+    xmlns:ui="http://projectmallard.org/ui/1.0/"
+    xmlns:uix="http://projectmallard.org/experimental/ui/"
     xmlns:e="http://projectmallard.org/experimental/"
     xmlns:exsl="http://exslt.org/common"
     xmlns:html="http://www.w3.org/1999/xhtml"
@@ -39,7 +41,7 @@
 
 <xsl:template mode="mal.files.copy.media.mode" match="*"/>
 
-<xsl:template mode="mal.files.copy.media.mode" match="mal:media | e:mouseover">
+<xsl:template mode="mal.files.copy.media.mode" match="mal:media | e:mouseover | ui:thumb | uix:thumb">
   <xsl:param name="dir"/>
   <xsl:if test="not(contains(@src, ':') or substring(@src, 1, 1) = '/')">
     <xsl:value-of select="concat('-', $dir, @src, ' ', @src, '&#x000A;')"/>
@@ -67,7 +69,8 @@
 <xsl:template mode="mal.files.copy.block.mode" match="mal:info">
   <xsl:param name="dir"/>
   <xsl:apply-templates mode="mal.files.copy.block.mode"
-                       select="mal:title | mal:desc | mal:license/* | mal:link/* | mal:revision/* | mal:credit">
+                       select="mal:title | mal:desc | mal:license/* | mal:link/*
+                               | mal:revision/* | mal:credit | ui:thumb | uix:thumb">
     <xsl:with-param name="dir" select="$dir"/>
   </xsl:apply-templates>
 </xsl:template>
@@ -128,7 +131,7 @@
   </xsl:if>
 </xsl:template>
 
-<xsl:template mode="mal.files.copy.block.mode" match="mal:media | e:mouseover">
+<xsl:template mode="mal.files.copy.block.mode" match="mal:media | e:mouseover | ui:thumb | uix:thumb">
   <xsl:param name="dir"/>
   <xsl:variable name="if">
     <xsl:call-template name="mal.if.test"/>
@@ -229,21 +232,4 @@
   </xsl:apply-templates>
 </xsl:template>
 
-<xsl:template match="/false">
-<!--
-    <xsl:variable name="dir">
-      <xsl:call-template name="mal.files.dirname">
-        <xsl:with-param name="str" select="substring-after(@cache:href, 'file://')"/>
-      </xsl:call-template>
-    </xsl:variable>
--->
-    <xsl:variable name="node" select="document(@cache:href)/mal:page"/>
-
-
-    <!-- Syntax -->
-
-    <!-- Icons -->
-    <xsl:for-each select="$node//mal:note">
-    </xsl:for-each>
-</xsl:template>
 </xsl:stylesheet>

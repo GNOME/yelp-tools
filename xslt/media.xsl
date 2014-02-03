@@ -3,6 +3,7 @@
     xmlns:mal="http://projectmallard.org/1.0/"
     xmlns:ui="http://projectmallard.org/ui/1.0/"
     xmlns:uix="http://projectmallard.org/experimental/ui/"
+    xmlns:e="http://projectmallard.org/experimental/"
     xmlns:db="http://docbook.org/ns/docbook"
     version="1.0">
 
@@ -33,7 +34,7 @@
 
 <xsl:template match="/mal:page">
   <xsl:variable name="id" select="@id"/>  
-  <xsl:for-each select="//mal:media | //uix:thumb | //ui:thumb">
+  <xsl:for-each select="//mal:media | //uix:thumb | //ui:thumb | //e:mouseover">
     <xsl:value-of select="$id"/>
     <xsl:text>: </xsl:text>
     <xsl:value-of select="@src"/>
