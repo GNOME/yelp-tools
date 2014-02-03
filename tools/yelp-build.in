@@ -118,6 +118,7 @@ yelp_usage_epub () {
         echo "  -o OUT        Output en EPUB file named OUT"
         echo "  -x CUSTOM     Import the custom XSLT file CUSTOM"
         echo "  -p PATHS      Extra paths to search for files"
+        echo "  -i            Ignore missing media files"
     ) 1>&2
 }
 yelp_usage_html () {
@@ -133,6 +134,7 @@ yelp_usage_html () {
         echo "  -o OUT        Output files in the directory OUT"
         echo "  -x CUSTOM     Import the custom XSLT file CUSTOM"
         echo "  -p PATHS      Extra paths to search for files"
+        echo "  -i            Ignore missing media files"
     ) 1>&2
 }
 
@@ -304,7 +306,9 @@ yelp_html_db2html () {
                         done
                     fi
                 fi
-                cp "$minput" "$moutput"
+                if [ -f "$minput" -o "x$html_ignore_media" != "x1" ]; then
+                    cp "$minput" "$moutput"
+                fi
             done
         fi
         # Copy icons
@@ -445,7 +449,9 @@ yelp_html_mal2html () {
         if [ "$line_src" != "$line_dest" ]; then
             line_dir=`dirname "$line_dest"`
             mkdir_p "$line_dir"
-            cp "$line_src" "$line_dest"
+            if [ -f "$minput" -o "x$html_ignore_media" != "x1" ]; then
+                cp "$line_src" "$line_dest"
+            fi
         fi
     done
     rm "$html_tmp_infile"
@@ -476,6 +482,10 @@ yelp_html () {
                 shift
                 html_paths=$(yelp_paths_normalize "$1")
                 shift
+                ;;
+            "-i")
+                shift
+                html_ignore_media="1"
                 ;;
             "--profile")
                 html_profile="--profile"
@@ -532,6 +542,10 @@ yelp_epub () {
                 shift
                 html_paths=$(yelp_paths_normalize "$1")
                 shift
+                ;;
+            "-i")
+                shift
+                html_ignore_media="1"
                 ;;
             *)
                 break
