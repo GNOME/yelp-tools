@@ -1,3 +1,12 @@
+3.11.5
+======
+* yelp-build: Added -i option to ignore missing media files
+* yelp-build: Added -p option to provide path for external files
+* yelp-build: Set LC_ALL instead of LANG for awk, #709354
+* yelp-check: Added check for missing media files
+* yelp-check: Added tool to check Mallard page licenses
+* yelp.m4: Use AS_HELP_STRING instead of AC_HELP_STRING, #709657
+
 3.11.3
 ======
 * yelp.m4: no-lc-dist option to disable disting the generated lc files (Christian Persch)
