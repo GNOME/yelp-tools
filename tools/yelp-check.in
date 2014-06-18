@@ -646,7 +646,7 @@ yelp_license () {
             for page in "$xml"/*.page; do
                 yelp_license_page "$page" || gret="$?"
             done
-        elif [ "x$ext" = "xpage" -o "x$ext" = "xcache" ]; then
+        elif [ "x$ext" = "xpage" -o "x$ext" = "xstub" -o "x$ext" = "xcache" ]; then
             yelp_license_page "$xml" || gret="$?"
         else
 	    echo "Unrecognized page " $xml 2>&1
@@ -808,7 +808,7 @@ yelp_validate () {
             for page in "$xml"/*.page; do
                 yelp_validate_page "$page" || gret="$?"
             done
-        elif [ "x$ext" = "xpage" -o "x$ext" = "xcache" ]; then
+        elif [ "x$ext" = "xpage" -o "x$ext" = "xstub" -o "x$ext" = "xcache" ]; then
             yelp_validate_page "$xml" || gret="$?"
         else
             version=`echo "$docbook_version" | xsltproc - "$xml"`
