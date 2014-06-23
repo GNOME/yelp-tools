@@ -1,4 +1,4 @@
-AC_INIT([yelp-tools], [3.12.1],
+AC_INIT([yelp-tools], [3.13.3],
         [http://bugzilla.gnome.org/enter_bug.cgi?product=yelp-tools])
 AM_INIT_AUTOMAKE([1.9 no-dist-gzip dist-bzip2])
 

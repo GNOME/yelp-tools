@@ -1,3 +1,7 @@
+3.13.3
+======
+* Added support for .page.stub files in yelp-check
+
 3.12.1
 ======
 * yelp-check: Return non-zero exit status when there are broken hrefs
