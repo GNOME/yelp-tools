@@ -119,7 +119,7 @@ EXTRA_DIST += $(foreach lc,$(HELP_LINGUAS),$(lc)/$(lc).po)
 EXTRA_DIST += $(foreach f,$(HELP_MEDIA),$(foreach lc,$(HELP_LINGUAS),$(wildcard $(lc)/$(f))))
 
 distdir: distdir-help-files
-distdir-help-files:
+distdir-help-files: $(_HELP_LC_FILES)
 	@for lc in C $(if $(YELP_LC_DIST),$(HELP_LINGUAS)) ; do \
 	  $(MKDIR_P) "$(distdir)/$$lc"; \
 	  for file in $(HELP_FILES); do \
