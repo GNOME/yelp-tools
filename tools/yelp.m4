@@ -148,7 +148,7 @@ check-help:
 
 .PHONY: install-help
 install-data-am: $(if $(HELP_ID),install-help)
-install-help:
+install-help: $(_HELP_LC_FILES)
 	@for lc in C $(_HELP_LINGUAS); do \
 	  $(mkinstalldirs) "$(DESTDIR)$(HELP_DIR)/$$lc/$(HELP_ID)" || exit 1; \
 	done
