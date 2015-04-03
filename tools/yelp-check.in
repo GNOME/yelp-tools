@@ -482,7 +482,15 @@ yelp_links () {
 yelp_media_page () {
     ext=`echo "$1" | sed -e 's/.*\.//'`
     bname=`basename "$1" ".$ext"`
-    xsltproc --stringparam basename "$bname" "$xsl_media" "$1"
+    dname=$(dirname "$xml")
+    if [ x"$dname" = "." ]; then
+        dname=""
+    else
+        dname="$dname"/
+    fi;
+    xsltproc --stringparam basename "$bname" \
+             --stringparam dirname "$dname" \
+             "$xsl_media" "$1"
 }
 
 yelp_media () {
@@ -499,8 +507,9 @@ yelp_media () {
             yelp_media_page "$xml"
         fi
     done | while read line; do
+        dname=$(dirname $(echo "$line" | cut -d' ' -f1))
         src=$(urldecode $(echo "$line" | cut -d' ' -f2))
-        if [ ! -f "$src" ]; then
+        if [ ! -f "$dname"/"$src" ]; then
             echo $line
         fi
     done

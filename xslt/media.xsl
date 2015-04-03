@@ -10,6 +10,7 @@
 <xsl:output method="text"/>
 
 <xsl:param name="basename"/>
+<xsl:param name="dirname"/>
 
 <xsl:template match="/*[namespace-uri(.) = ''] | /db:*">
   <xsl:for-each select="
@@ -25,6 +26,7 @@
         </xsl:when>
       </xsl:choose>
     </xsl:variable>
+    <xsl:value-of select="$dirname"/>
     <xsl:value-of select="$basename"/>
     <xsl:text>: </xsl:text>
     <xsl:value-of select="$src"/>
@@ -35,6 +37,7 @@
 <xsl:template match="/mal:page">
   <xsl:variable name="id" select="@id"/>  
   <xsl:for-each select="//mal:media | //uix:thumb | //ui:thumb | //e:mouseover">
+    <xsl:value-of select="$dirname"/>
     <xsl:value-of select="$id"/>
     <xsl:text>: </xsl:text>
     <xsl:value-of select="@src"/>
