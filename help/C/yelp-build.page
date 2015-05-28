@@ -1,0 +1,186 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      id="yelp-build">
+<info>
+  <link type="guide" xref="index"/>
+  <desc>Create HTML, EPUB, and other files from source documents.</desc>
+</info>
+
+<title><cmd>yelp-build</cmd></title>
+
+<table>
+<thead>
+  <tr>
+    <td><p>Command</p></td>
+    <td><p>Mallard</p></td>
+    <td><p>DocBook 4</p></td>
+    <td><p>DocBook 5</p></td>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><p><cmd xref="#cache">yelp-build cache</cmd></p></td>
+    <td><p>Yes</p></td>
+    <td><p>No</p></td>
+    <td><p>No</p></td>
+  </tr>
+  <tr>
+    <td><p><cmd xref="#epub">yelp-build epub</cmd></p></td>
+    <td><p>Yes</p></td>
+    <td><p>No</p></td>
+    <td><p>No</p></td>
+  </tr>
+  <tr>
+    <td><p><cmd xref="#html">yelp-build html</cmd></p></td>
+    <td><p>Yes</p></td>
+    <td><p>Yes</p></td>
+    <td><p>Yes</p></td>
+  </tr>
+  <tr>
+    <td><p><cmd xref="#html">yelp-build xhtml</cmd></p></td>
+    <td><p>Yes</p></td>
+    <td><p>Yes</p></td>
+    <td><p>Yes</p></td>
+  </tr>
+</tbody>
+</table>
+
+<section id="cache">
+  <title><cmd>yelp-build cache</cmd></title>
+
+  <p>Create a <link href="http://projectmallard.org/cache/1.0/">Mallard cache
+  file</link> from a Mallard document. A cache file is necessary to build
+  other formats from Mallard documents. The other build commands generate a
+  cache file automatically, but sometimes it's useful to provide a cache file
+  explicitly. For example, if you only want to output the HTML for one page,
+  you might run:</p>
+
+  <screen>yelp-build html foo.page</screen>
+
+  <p>But then <cmd>yelp-build</cmd> will assume that <file>foo.page</file> is
+  the entirety of the document, and will create a cache file for just that page.
+  If you have a cache file with the cache for all pages, say <file>index.cache</file>,
+  you can instead run:</p>
+
+  <screen>yelp-build html -c index.cache foo.page</screen>
+
+  <p>You can pass <cmd>yelp-build cache</cmd> a list of page files, or just pass
+  it a directory to have it cache all page files in that directory.</p>
+
+  <screen>yelp-build cache *.page
+yelp-build cache .</screen>
+
+  <p>By default, the output cache file name is index.cache. Use the <cmd>-o</cmd>
+  option to output a different file name.</p>
+
+  <screen>yelp-build cache -o foo.cache .</screen>
+</section>
+
+<section id="epub">
+  <title><cmd>yelp-build epub</cmd></title>
+
+  <p>Output an <link href="http://idpf.org/epub">EPUB</link> file, currently for
+  Mallard documents only. An EPUB file is a special zip file containing XHTML files,
+  stylesheets and other supporting files, and EPUB-specific files that specify the
+  document structure. You can pass <cmd>yelp-build epub</cmd> a list of page files,
+  or just pass it a directory to have it use all page files in that directory.</p>
+
+  <p>Just as for <cmd>yelp-build html</cmd> or <cmd>yelp-build xhtml</cmd>, you can
+  pass a custom cache file with the <cmd>-c</cmd> option, a customization stylesheet
+  with the <cmd>-x</cmd> option, a path for external files with the <cmd>-p</cmd>
+  option, and the option to ignore missing media files with <cmd>-i</cmd>. See the
+  documentation for <cmd>yelp-build html</cmd> for more information. Note that
+  setting URL roots for JavaScript, CSS, and icon files is usually not a good idea
+  for EPUB, because <cmd>yelp-build epub</cmd> places those files in a fixed
+  location inside the zip file.</p>
+
+  <p>By default, the output file name is <file>index.epub</file>. Use the <cmd>-o</cmd>
+  option to specify a different output file.</p>
+</section>
+
+<section id="html">
+  <title><cmd>yelp-build html</cmd></title>
+
+  <p>Output HTML files from a Mallard or DocBook document. The output file
+  names are taken from the IDs in the XML, regardless of the input file names.
+  For Mallard, you can pass <cmd>yelp-build html</cmd> a list of page files,
+  or just pass it a directory to have it create HTML for all page files in
+  that directory. For DocBook, pass the top-level XML file.</p>
+
+  <screen>
+yelp-build html index.page foo.page bar.page
+yelp-build html .
+yelp-build html index.docbook
+</screen>
+
+  <p>By default, files are output to the current working directory. Use the
+  <cmd>-o</cmd> option to specify an output directory.</p>
+
+  <screen>
+mkdir html_out
+yelp-build html -o html_out .
+</screen>
+
+  <p>If you use the <cmd>-o</cmd> option, <cmd>yelp-build html</cmd> will also
+  copy media files to the output directory and create the appropriate directory
+  structure under the output directory. It will look inside the XML for tags
+  like <code>media</code> and <code>imagedata</code> to find media files to copy.</p>
+
+  <p>Sometimes, some media files and external resources are not under the same
+  path. This happens, for example, when you generate translated files in another
+  directory but don't create copies of untranslated files. Pass a path of other
+  base directories to use for files lookups with the <cmd>-p</cmd> option to
+  resolve these files.</p>
+
+  <p>If a referenced media file does not exist (potentially anywhere within the
+  path), <cmd>yelp-build</cmd> will still attempt to copy it, which will produce
+  warnings on stderr. To make <cmd>yelp-build</cmd> check for the file's existence
+  before copying, use the <cmd>-i</cmd> option. Be careful: without the warnings,
+  you could easily end up with broken images in your document.</p>
+
+  <p>For Mallard documents, a cache file is created for you by default from the
+  pages you pass on the command line. You can also pass a cache file explicitly
+  with the <cmd>-c</cmd> option. This is useful if you only want to rebuild a
+  few pages, but you want <cmd>yelp-build</cmd> to know about all the pages in
+  the document for linking purposes. See <cmd>yelp-build cache</cmd> above.</p>
+
+  <p>When creating HTML, <cmd>yelp-build</cmd> also outputs CSS and JavaScript
+  files, as well as PNG files for icons and watermarks. What it outputs depends
+  on what's in your document. For JavaScript, a static set of files are copied,
+  as well as additional JavaScript files for syntax highlighting. Which files
+  are copied depends on what syntaxes you use in program listings and code
+  blocks. For CSS, <cmd>yelp-build</cmd> creates a separate CSS file for each
+  top-level language. For icons and watermarks, which images are copied depends
+  on what types of admonitions and other elements you use.</p>
+
+  <p>The stylesheets that do the conversion to HTML are flexible and customizable.
+  You can add customizations to affect the layout and presentation. You can pass
+  a customization stylesheet to yelp-build html using the <cmd>-x</cmd> option.</p>
+
+  <screen>yelp-build html -x custom.xsl .</screen>
+
+  <p>The customization stylesheet should not include or import the Yelp stylesheets.
+  The <cmd>yelp-build</cmd> command will automatically create a wrapper stylesheet
+  that includes the customization and imports the Yelp stylesheets.</p>
+<!--
+  For information
+  about the extension points and how to customize the stylesheets, see ?Yelp XSL.
+-->
+
+  <p>The stylesheets allow you to specify URL roots for CSS, JavaScript, and icon
+  files. By default, it's the same directory as the output HTML files. You can
+  override these by setting parameters in a customization stylesheet, but
+  <cmd>yelp-build html</cmd> does not change where it outputs those files. If you
+  set these parameters to use common files on your web site, you must manage those
+  files manually.</p>
+</section>
+
+<section id="xhtml">
+  <title><cmd>yelp-build xhtml</cmd></title>
+
+  <p>Output XHTML files from a Mallard or DocBook document. This works exaclty
+  like the <cmd>yelp-build html</cmd> command and allows the same options, but
+  it serializes the files as XML. See the documentation for
+  <cmd>yelp-build html</cmd> for details.</p>
+</section>
+
+</page>

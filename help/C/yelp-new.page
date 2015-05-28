@@ -1,0 +1,71 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      id="yelp-new">
+<info>
+  <link type="guide" xref="index"/>
+  <desc>Easily create new documents and pages from template files.</desc>
+</info>
+
+<title><cmd>yelp-new</cmd></title>
+
+<p>Create a new file from a template. You can quickly create a new
+page or other file from a template. This is useful when many of your
+pages have a common layout or structure. You must pass at least two
+arguments: the identifier of the template, and the ID of the file to
+create. The second argument is used both for the base file name of
+the new file and for the id attribute. You can optionally pass a page
+title as the third argument.</p>
+
+<p>Template files can be installed with <cmd>yelp-new</cmd> or they
+can be kept locally in the same directory. Local templates are useful
+if you have common page styles that are specific to your project. To
+get a list of available templates, run <cmd>yelp-new --help</cmd>.</p>
+
+<p>You can create your own template files. Just create a file with the
+<file>.tmpl</file> extension appended. You can also use the <cmd>--tmpl</cmd>
+option on yelp-new to copy an existing template to the current directory
+without substituting, allowing you to build off of it for your own template.</p>
+
+<p>Output files are created by substituting special markers in the template.</p>
+
+<terms>
+  <item>
+    <title><code>@ID@</code></title>
+    <p>The ID value passed as the second argument to yelp-new, which is
+    the same as the base file name of the output file.</p>
+  </item>
+
+  <item>
+    <title><code>@DATE@</code></title>
+    <p>The current date in the format <sys>YYYY-MM-DD</sys>.</p>
+  </item>
+
+  <item>
+    <title><code>@YEAR@</code></title>
+    <p>The current year in the format <sys>YYYY</sys>.</p>
+  </item>
+
+  <item>
+    <title><code>@NAME@</code></title>
+    <p>The name of the person running the command. This value may come
+    from either <cmd>git</cmd> or <cmd>bzr</cmd>. Failing that, the
+    value <code>"YOUR NAME"</code> is used.</p>
+  </item>
+
+  <item>
+    <title><code>@EMAIL@</code></title>
+    <p>The email address of the person running the command. This value
+    may come from either <cmd>git</cmd> or <cmd>bzr</cmd>. Failing that,
+    the value <code>"YOUR EMAIL ADDRESS"</code> is used.</p>
+  </item>
+
+  <item>
+    <title><code>@TITLE@</code></title>
+    <p>The title as passed as the third argument to <code>yelp-new</code>.
+    If you do not pass a title, the value <code>"TITLE"</code> is used.</p>
+  </item>
+</terms>
+
+<p>You can also pass the <cmd>--stub</cmd> option to create a
+<file>.page.stub</file> file instead of a regular <file>.page</file> file.</p>
+
+</page>

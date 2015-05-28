@@ -1,0 +1,232 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:e="http://projectmallard.org/experimental/"
+      id="yelp.m4">
+<info>
+  <link type="guide" xref="index"/>
+  <desc>Automatically manage documentation in an autotools+make
+  build environment.</desc>
+</info>
+
+<title><file>yelp.m4</file></title>
+
+<p>The <sys>yelp-tools</sys> package contains build utilities that help you build
+and install your help files according to the
+<link href="http://www.freedesktop.org/wiki/Specifications/help-spec/">freedesktop.org
+help specification</link>. The freedesktop.org help specification was jointly
+created by GNOME and KDE developers to create a single help system that all
+desktop environments use. To date, Yelp is the only implementation.</p>
+
+<p>The build utilities are contained in a single file, <file>yelp.m4</file>.
+To use it, add the following to your <file>configure.ac</file> file:</p>
+
+<code>YELP_HELP_INIT</code>
+
+<p>You can also pass a space-separated list of options as the first argument
+to <code>YELP_HELP_INIT</code>:</p>
+
+<code>YELP_HELP_INIT([<var>options...</var>])</code>
+
+<p>The following options are currently recognized:</p>
+
+<terms>
+  <item>
+    <title><code>no-lc-media-links</code></title>
+
+    <p>Normally, the build utilies create symlinks for localized media
+    files when translators have not provided an actual localization.
+    This means that copies of media files always exist in each locale's
+    directory, even if there is no translation. Passing the
+    <code>no-lc-media-links</code> option suppresses these symlinks.</p>
+
+    <p>For normal images and videos, Yelp is able to look up files
+    according to a document search path, so the symlinks are actually
+    unnecessary. This has been true since at least Yelp 3.0. If you are
+    only installing images and videos that are embedded in pages, use
+    this option. If you use HELP_MEDIA for other types of files, such
+    as source code or other files that get linked to, only use this
+    option if you have verified that it works in production.</p>
+
+    <p><e:hi>Added in 3.12</e:hi></p>
+  </item>
+
+  <item>
+    <title><code>no-lc-dist</code></title>
+
+    <p>Normally, the build utilities dist the generated translated files,
+    including the localized copies of <code>HELP_FILES</code> output by
+    <cmd>itstool</cmd> and the stamp file used for tracking when the
+    localized files were built. Using the <code>no-lc-dist</code> option
+    makes these generated files not be included in the tarball. This
+    reduces the size of the tarball, but increases the time it takes
+    to build from the tarball.</p>
+
+    <note>
+      <p>Note that currently, help.gnome.org does not use any sort of
+      build system, and only uses files found in tarballs. If you use
+      <code>no-lc-dist</code>, translations of your documents will not
+      show up correctly on help.gnome.org or any other site that uses
+      the same code.</p>
+    </note>
+
+    <p><e:hi>Added in 3.12</e:hi></p>
+  </item>
+</terms>
+
+<p>By default, the help directory is <file><var>$PREFIX</var>/help</file>,
+and each language is installed to
+<file><var>$PREFIX</var>/help/<var>$LANG</var>/<var>$HELP_ID</var>/</file>.
+The build utilities automatically provide a configure option
+<cmd>--with-help-dir</cmd>, allowing users to override the help directory.</p>
+
+<p>The build utilities expect a layout that looks something like this:</p>
+
+<tree>
+<item>
+  <file>help/</file>
+  <item><file>Makefile.am</file></item>
+  <item>
+    <file>C/</file>
+    <item><var>help files...</var></item>
+    <item>
+      <file>media/</file>
+      <item><var>help media files...</var></item>
+    </item>
+  </item>
+  <item>
+    <file>ll/</file>
+    <item><file>ll.po</file></item>
+    <item>
+      <file>media/</file>
+      <item><var>help media files for ll...</var></item>
+    </item>
+  </item>
+</item>
+</tree>
+
+<p>There is a single <file>Makefile.am</file> file in the help directory
+that manages all translations. The help directory can have any name, or
+be arbitrarily deep. For projects with a single help document, it's common
+to simply use a top-level help directory.</p>
+
+<p>The source files are expected to be in a directory called <file>C</file>.
+It's common to put images, videos, and other non-XML files in a subdirectory
+called <file>media</file> or <file>figures</file>. The actual name of the
+subdirectory doesn't matter, but examples on this page will use <file>media</file>.</p>
+
+<p>Each translation has its own directory named according to the locale.
+That directory contains a PO file also named according to the locale.
+The name of the directory must match the base name of the PO file. For
+media files (those not translated using the PO files), translators add
+localized files using the same names and directory layout as the source
+files. If a media file does not need to be localized, you do not need to
+copy it. The build utilities take care of this automatically.</p>
+
+<p>The Makefile.am file must start with the following line:</p>
+
+<code>@YELP_HELP_RULES@</code>
+
+<p>You can set the following variables:</p>
+
+<terms>
+  <item>
+    <title><code>HELP_ID</code></title>
+    <p>The ID of the help document. This determines the install location,
+    and will be referenced in the <sys>help:</sys> URIs used in your
+    application. This variable is required.</p>
+  </item>
+
+  <item>
+    <title><code>HELP_POT</code></title>
+    <p>A file name for a POT file to create when running <cmd>make pot</cmd>.
+    This variable is optional. It defaults to <file><var>${HELP_ID}</var>.pot</file>.
+    Note that <cmd>make pot</cmd> is not run as part of <cmd>make</cmd>. This
+    is useful for Mallard page sets that are designed to merge into another
+    document with the same <code>HELP_ID</code>. If <cmd>make pot</cmd> is
+    used to generate a POT file for an external translation tool, that tool
+    may expect POT file names to be globally unique.</p>
+  </item>
+
+  <item>
+    <title><code>HELP_FILES</code></title>
+    <p>A space-separated list of the primary XML files. These files will be
+    translated using the PO files and localized versions will be output when
+    running <cmd>make</cmd>. This variable is appropriate for Mallard page
+    files, top-level DocBook files, and any XML files that are included with
+    XInclude. All files listed in <code>HELP_FILES</code> must be well-formed
+    XML. List all files relative to the C directory.</p>
+
+    <note>
+      <p>Because of the way <file>yelp.m4</file> calls <cmd>itstool</cmd>,
+      currently files in HELP_FILES must be directly in the <file>C</file>
+      directory, not a subdirectory. If you use a subdirectory, the directory
+      structure will not be reproduced in translations. See
+      <link href="https://bugzilla.gnome.org/show_bug.cgi?id=690561">bug 690561</link>.</p>
+    </note>
+  </item>
+
+  <item>
+    <title><code>HELP_EXTRA</code></title>
+
+    <p>A space-separated list of files that are disted and installed for
+    <file>C</file>, but are not in any way localized. This variable is
+    appropriate for XML files that are included with <code>SYSTEM</code>
+    entities and text files included with XInclude. These types of files
+    are merged by default by <cmd>itstool</cmd> when creating PO files,
+    so they are redundant in localizations. List all files relative to
+    the <file>C</file> directory.</p>
+  </item>
+
+  <item>
+    <title><code>HELP_MEDIA</code></title>
+    <p>A space-separated list of files that are disted and installed for
+    <file>C</file>, and which translators may create localized copies of.
+    If translators do not create localized copies, the build utilities
+    automatically create symlinks to the <file>C</file> files on <cmd>make
+    install</cmd>, unless you pass the <code>no-lc-media-links</code>
+    option to <code>YELP_HELP_INIT</code>. This variable is appropriate
+    for images, videos, and any external files that are linked to within
+    the help. List all files relative to the <file>C</file> directory.</p>
+  </item>
+
+  <item>
+    <title><code>HELP_LINGUAS</code></title>
+    <p>A space-separated list of locales that are enabled. The build
+    utilities will only use translations listed in this variable.</p>
+  </item>
+</terms>
+
+<p>The build utilities automatically handle <cmd>make</cmd>, <cmd>make
+install</cmd>, <cmd>make uninstall</cmd>, and <cmd>make dist</cmd>.
+Additionally, the following make targets are handled:</p>
+
+<terms>
+  <item>
+    <title><cmd>make check</cmd></title>
+    <p>When running the standard <cmd>make check</cmd> target, all
+    files in <code>HELP_FILES</code> are checked for well-formedness
+    using <cmd>xmllint</cmd>. Note that <cmd>make check</cmd> does
+    not automatically do validation against schemas.</p>
+  </item>
+
+  <item>
+    <title><cmd>make pot</cmd></title>
+    <p>Create POT file using <cmd>itstool</cmd> from the files in
+    <code>HELP_FILES</code>. The name of the POT file can be specified
+    by the <code>HELP_POT</code> variable, and defaults to
+    <file><var>${HELP_ID}</var>.pot</file>. This is not called as part
+    of <cmd>make all</cmd>. However, some projects store the POT file
+    in version control, even though it's auto-generated, so that it
+    can easily be picked up by online translation tools. If you do
+    this, it's a good idea to make the all target depends on
+    <cmd>pot</cmd>.</p>
+  </item>
+
+  <item>
+    <title><cmd>make repo</cmd></title>
+    <p>Updates all the languages' PO files using the latest sources.
+    This is not called as part of <cmd>make all</cmd>.</p>
+  </item>
+</terms>
+
+</page>
+

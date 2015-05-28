@@ -1,0 +1,14 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide"
+      id="index">
+<info>
+</info>
+
+<title>Yelp Tools</title>
+
+<p>The <sys>yelp-tools</sys> package contains small programs that help you
+create, edit, manage, and publish your
+<link href="http://projectmallard.org/">Mallard</link> or
+<link href="http://docbook.org/">DocBook</link> documentation.</p>
+
+</page>

@@ -1,0 +1,356 @@
+<page xmlns="http://projectmallard.org/1.0/"
+      id="yelp-check">
+<info>
+  <link type="guide" xref="index"/>
+  <desc>Validate documents, check link integrity, find orphaned
+  pages, and perform various other checks.</desc>
+</info>
+
+<title><cmd>yelp-check</cmd></title>
+
+<table>
+<thead>
+  <tr>
+    <td><p>Command</p></td>
+    <td><p>Mallard</p></td>
+    <td><p>DocBook 4</p></td>
+    <td><p>DocBook 5</p></td>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td><p><cmd xref="#comments">yelp-check comments</cmd></p></td>
+    <td><p>Yes</p></td>
+    <td><p>Yes</p></td>
+    <td><p>Yes</p></td>
+  </tr>
+  <tr>
+    <td><p><cmd xref="#hrefs">yelp-check hrefs</cmd></p></td>
+    <td><p>Yes</p></td>
+    <td><p>Yes</p></td>
+    <td><p>Yes</p></td>
+  </tr>
+  <tr>
+    <td><p><cmd xref="#ids">yelp-check ids</cmd></p></td>
+    <td><p>Yes</p></td>
+    <td><p>No</p></td>
+    <td><p>No</p></td>
+  </tr>
+  <tr>
+    <td><p><cmd xref="#license">yelp-check license</cmd></p></td>
+    <td><p>Yes</p></td>
+    <td><p>No</p></td>
+    <td><p>No</p></td>
+  </tr>
+  <tr>
+    <td><p><cmd xref="#links">yelp-check links</cmd></p></td>
+    <td><p>Yes</p></td>
+    <td><p>Yes</p></td>
+    <td><p>Yes</p></td>
+  </tr>
+  <tr>
+    <td><p><cmd xref="#media">yelp-check media</cmd></p></td>
+    <td><p>Yes</p></td>
+    <td><p>Yes</p></td>
+    <td><p>Yes</p></td>
+  </tr>
+  <tr>
+    <td><p><cmd xref="#orphans">yelp-check orphans</cmd></p></td>
+    <td><p>Yes</p></td>
+    <td><p>No</p></td>
+    <td><p>No</p></td>
+  </tr>
+  <tr>
+    <td><p><cmd xref="#status">yelp-check status</cmd></p></td>
+    <td><p>Yes</p></td>
+    <td><p>No</p></td>
+    <td><p>No</p></td>
+  </tr>
+  <tr>
+    <td><p><cmd xref="#validate">yelp-check validate</cmd></p></td>
+    <td><p>Yes</p></td>
+    <td><p>Yes</p></td>
+    <td><p>Yes</p></td>
+  </tr>
+</tbody>
+</table>
+
+<section id="comments">
+  <title><cmd>yelp-check comments</cmd></title>
+
+  <p>Print the editorial comments in a Mallard or DocBook document. Both
+  Mallard and DocBook allow editors to embed remarks in a document that
+  are not normally shown when formatting the document. (These remarks
+  are displayed by Yelp when using the <cmd>--editor-mode</cmd> option.)
+  Mallard uses the <code>comment</code> element, and DocBook uses the
+  <code>remark</code> element.</p>
+
+  <p>For Mallard documents, you can pass <cmd>yelp-check comments</cmd>
+  a list of page files, or you can pass it a directory to process all
+  page files in that directory. For DocBook, you can pass any DocBook
+  file, including any well-formed files that are included in a top-level
+  file.</p>
+
+  <p>Mallard comments are printed with the enclosing page and section ID,
+  the author of the comment, and the date the comment was made. Mallard
+  comments allow any block content, but <cmd>yelp-check comments</cmd>
+  cannot format all block content in plain text. Any content that is not
+  in a <code>p</code> element currently results in a FIXME statement.</p>
+
+  <p>DocBook comments are printed with the closest enclosing ID and the
+  value of the <code>revisionflag</code> attribute.</p>
+</section>
+
+<section id="hrefs">
+  <title><cmd>yelp-check hrefs</cmd></title>
+
+  <p>Check the target of all external links in a Mallard or DocBook
+  document. For Mallard documents, <cmd>yelp-check hrefs</cmd> uses
+  all <code>href</code> attributes in the document. For DocBook
+  documents, it uses the <code>url</code> attribute of all
+  <code>ulink</code> elements as well as all <code>xlink:href</code>
+  attributes in the document. In both cases, <sys>mailto:</sys>
+  links are excluded.</p>
+
+  <p>For Mallard documents, you can pass <cmd>yelp-check hrefs</cmd>
+  a list of page files, or you can pass it a directory to process all
+  page files in that directory. For DocBook, you can pass any DocBook
+  file, including any well-formed files that are included in a top-level
+  file.</p>
+
+  <p>If a URL is relative, <cmd>yelp-check hrefs</cmd> checks for the
+  file locally. If a URL is absolute, it uses <cmd>curl</cmd> to check
+  the HTTP status of the resource.</p>
+</section>
+
+<section id="ids">
+  <title><cmd>yelp-check ids</cmd></title>
+
+  <p>Check if the <code>id</code> attributes of pages match the base
+  file name (without the <file>.page</file> extension) of the page
+  files they're defined in. It is not mandatory for them to match in
+  Mallard, but it's generally considered a best practice.</p>
+</section>
+
+<section id="license">
+  <title><cmd>yelp-check license</cmd></title>
+
+  <p>Report the license of Mallard page files, taken from the
+  <code>license</code> element. The license is reported based on
+  the <code>href</code> attribute. The block content of the
+  license element is not used at all. For certain known licenses
+  (such as those from GNU and Creative Commons), a shortened
+  identifier is shown instead of the full URL. If a license
+  element does not have an <code>href</code> attribute, it is
+  listed as unknown.</p>
+
+  <p>Pages may have multiple <code>license</code> elements. If
+  they do, the license identifiers will all be reported, joined
+  with a comma. If a page has no license element, it is reported
+  as none.</p>
+
+  <p>You can restrict which licenses are shown using the following
+  options:</p>
+
+  <terms>
+    <item>
+      <title><cmd>--only <var>LICENSES</var></cmd></title>
+      <p>Only show pages that have a license from the space-separated
+      list <var>LICENSES</var>.</p>
+    </item>
+
+    <item>
+      <title><cmd>--except <var>LICENSES</var></cmd></title>
+      <p>Only show pages that do not any license in the
+      space-separated list <var>LICENSES</var>.</p>
+    </item>
+  </terms>
+
+  <p>You can also get a summary of which licenses are in a document:</p>
+
+  <terms>
+    <item>
+      <title><cmd>--totals</cmd></title>
+      <p>Instead of the normal output of <output>"page: license"</output>,
+      print a list of licenses along with the number of pages that have
+      each license. All of the options above can still be used to filter
+      the pages that are used to calculate the totals.</p>
+    </item>
+  </terms>
+</section>
+
+<section id="media">
+  <title><cmd>yelp-check media</cmd></title>
+
+  <p>Check for references to external media files that do not exist. For
+  Mallard, <code>media</code>, <code>ui:thumb</code>, <code>uix:thumb</code>,
+  and <code>e:mouseover</code> elements are used. For DocBook, <code>audiodata</code>,
+  <code>imagedata</code>, and <code>videodata</code> elements are used.</p>
+</section>
+
+<section id="links">
+  <title><cmd>yelp-check links</cmd></title>
+
+  <p>Check the target of all internal links. For Mallard, all <code>xref</code>
+  attributes are used. For DocBook, all <code>linkend</code> attributes
+  are used. If the value does not correspond to an actual ID in the
+  document, <cmd>yelp-check links</cmd> prints the source and target
+  of the link.</p>
+
+  <p>For Mallard documents, you can pass <cmd>yelp-check links</cmd> a
+  list of page files, or you can pass it a directory to process all
+  page files in that directory. If you pass only a set of pages,
+  <code>yelp-check links</code> will only know about those pages,
+  and will report links as broken if they point to pages you did
+  not pass. However, you can create a cache file with
+  <cmd>yelp-build cache</cmd> that contains all the pages in the
+  document and pass this to <cmd>yelp-check</cmd> links with the
+  <cmd>-c</cmd> option.</p>
+
+  <p>Mallard allows links to provide both an <code>xref</code> and
+  an <code>href</code> attribute, and defines implementations to use
+  the <code>href</code> when the <code>xref</code> is not understood.
+  Use the <cmd>-i</cmd> option to ignore unknown <code>xref</code>
+  attributes when an <code>href</code> attribute is also present.</p>
+
+  <p>For DocBook, you can pass any DocBook file, including any
+  well-formed files that are included in a top-level file. However,
+  if you only check a file that is meant to be included in another
+  file, links will be reported as broken if they point to targets
+  outside that file or the files it includes.</p>
+</section>
+
+<section id="orphans">
+  <title><cmd>yelp-check orphans</cmd></title>
+
+  <p>Check for Mallard pages that cannot be reached by topic links.
+  You may still be able to reach the page by other links, but they
+  do not appear in the primary topic navigation of the document.</p>
+
+  <p>You can pass <cmd>yelp-check orphans</cmd> a list of page files,
+  or you can pass it a directory to process all page files in that
+  directory. If you pass only a set of pages, <cmd>yelp-check
+  orphans</cmd> will only know about those pages, and will probably
+  report many false positives. However, you can create a cache file
+  with <cmd>yelp-build cache</cmd> that contains all the pages in
+  the document and pass this to <cmd>yelp-check orphans</cmd> with
+  the <cmd>-c</cmd> option.</p>
+</section>
+
+<section id="status">
+  <title><cmd>yelp-check status</cmd></title>
+
+  <p>Report the status of Mallard page files, taken from the status
+  attribute of the revision elements for each page. You can pass a
+  list of page files, or pass a directory to process all page files
+  in that directory.</p>
+
+  <p>A page may have more than one revision element. When this happens,
+  <cmd>yelp-check status</cmd> filters the elements based on the
+  <code>version</code>, <code>docversion</code>, <code>pkgversion</code>,
+  and <code>date</code> attributes, depending on the arguments below.
+  It then sorts the <code>revision</code> elements primarily descending
+  by the <code>date</code> attribute, then by document order, and uses
+  the <code>status</code> attribute from the first. If the selected
+  <code>revision</code> element has no <code>status</code> attribute,
+  or if there are no matching revision elements, the status is
+  <code>"none"</code>.</p>
+
+  <terms>
+    <item>
+      <title><cmd>--version <var>VERSIONS</var></cmd></title>
+      <title><cmd>--docversion <var>VERSIONS</var></cmd></title>
+      <title><cmd>--pkgversion <var>VERSIONS</var></cmd></title>
+
+      <p>Only consider revision elements with a matching
+      <code>version</code>, <code>docversion</code>, or <code>pkgversion</code>
+      attribute, respectively. These options can be combined, and they
+      must all match. In all cases, <var>VERSIONS</var> can be a list
+      of versions separated by spaces or commas. The option matches if
+      any version matches the corresponding attribute.</p>
+    </item>
+
+    <item>
+      <title><cmd>--older <var>DATE</var></cmd></title>
+      <title><cmd>--newer <var>DATE</var></cmd></title>
+
+      <p>Only consider revision elements with a <code>date</code>
+      attribute that comes before (<cmd>--older</cmd>) or after
+      (<cmd>--newer</cmd>) the specified date. Dates are expected
+      to be in the form <sys>YYYY-MM-DD</sys>. These options may be
+      combined to specify a range the revision dates must fall in.</p>
+    </item>
+  </terms>
+
+  <p>There are also options that change what is output.</p>
+
+  <terms>
+    <item>
+      <title><cmd>--only <var>STATUSES</var></cmd></title>
+      <title><cmd>--except <var>STATUSES</var></cmd></title>
+
+      <p>After the status is determined as above, only print those
+      pages whose status matches (<cmd>--only</cmd>) or does not
+      match (<cmd>--except</cmd>) the specified statuses. In both
+      cases, <var>STATUSES</var> can be a list of statuses separated
+      by spaces or commas.</p>
+    </item>
+
+    <item>
+      <title><cmd>--totals</cmd></title>
+
+      <p>Instead of the normal output of <output>"page: status"</output>,
+      print a list of statuses along with the number of pages that
+      have each status. All of the options above can still be used
+      to filter the revision elements and to limit which statuses
+      the report on.</p>
+    </item>
+  </terms>
+</section>
+
+<section id="validate">
+  <title><cmd>yelp-check validate</cmd></title>
+
+  <p>Validate files against a DTD or RNG schema.</p>
+
+  <p>For Mallard documents, <cmd>yelp-check validate</cmd> implements
+  <link href="http://projectmallard.org/1.0/mal_attr_version">automatic
+  schema merging</link> based on the <code>version</code> attribute. If
+  there is no <code>version</code> attribute on a page, it is assumed
+  to be <code>"1.0"</code>, and the base Mallard 1.0 schema is used.</p>
+
+  <p>The Mallard schema allows elements and attributes from unknown
+  namespaces in many places, where the list of known namespaces is
+  built from the merged schemas. You can pass the <cmd>--strict</cmd>
+  option to disallow elements and attributes from unknown namespaces.
+  This is useful if you want to prevent unknown extensions.</p>
+
+  <terms>
+    <item>
+      <title><cmd>--strict</cmd></title>
+
+      <p>Disallow elements and attributes from namespaces that aren't
+      explicitly defined by the schemas imported based on the
+      <code>version</code> attribute.</p>
+    </item>
+
+    <item>
+      <title><cmd>--allow <var>NAMESPACE</var></cmd></title>
+
+      <p>When using strict validation, explicitly allow elements and
+      attributes from the namespace <var>NAMESPACE</var> in places
+      where any external-namespace nodes would normally be allowed.
+      You can pass the <cmd>--allow</cmd> option multiple times to
+      provide multiple namespaces that should be allowed.</p>
+    </item>
+  </terms>
+
+  <p>For DocBook 4, <cmd>yelp-check validate</cmd> uses the DTD set
+  by the <sys>DOCTYPE</sys>. If a document appears to be DocBook 4
+  but does not contain a DOCTYPE, the 4.5 DTD is used.</p>
+
+  <p>For DocBook 5, <cmd>yelp-check validate</cmd> selects an RNG
+  schema based on the <code>version</code> attribute.</p>
+</section>
+
+</page>
