@@ -449,7 +449,7 @@ yelp_html_mal2html () {
         if [ "$line_src" != "$line_dest" ]; then
             line_dir=`dirname "$line_dest"`
             mkdir_p "$line_dir"
-            if [ -f "$minput" -o "x$html_ignore_media" != "x1" ]; then
+            if [ -f "$line_src" -o "x$html_ignore_media" != "x1" ]; then
                 cp "$line_src" "$line_dest"
             fi
         fi
