@@ -423,14 +423,13 @@ yelp_html_mal2html () {
         --stringparam mal.files.copy.js.dir "$yelp_js_dir" \
         - "$html_tmp_infile") | sort | uniq | \
     while read line; do
-        use_internal_datadir=`expr substr "$line" 1 1`
-        line=`expr substr "$line" 2 1000`
-        line_src=`echo "$line" | cut -d' ' -f1`
-        line_src=`echo "$line_src" | urldecode`
+        use_internal_datadir=$(echo "$line" | cut -c1)
+	line=$(echo "$line" | cut -c2-)
+        line_src=$(echo "$line" | cut -d' ' -f1 | urldecode)
         if [ "x$use_internal_datadir" = "x+" ]; then
-            line_dest="$html_out/$html_internal_datadir"`echo "$line" | cut -d' ' -f2`
+            line_dest="$html_out/$html_internal_datadir"$(echo "$line" | cut -d' ' -f2)
         else
-            line_dest="$html_out/"`echo "$line" | cut -d' ' -f2`
+            line_dest="$html_out/"$(echo "$line" | cut -d' ' -f2)
         fi
         if [ ! -f "$line_src" -a "x$html_paths" != "x" ]; then
 	    line_src_rel=${line_src#"$(pwd)/"}
