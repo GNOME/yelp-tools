@@ -295,9 +295,8 @@ yelp_html_db2html () {
                 moutput="$html_out/$mfile"
                 mkdir_p `dirname "$moutput"`
                 if [ ! -f "$minput" -a "x$html_paths" != "x" ]; then
-                    if [ $(expr index "$minput" "$(pwd)/") = 1 ]; then
-                        minput_rel=$(expr substr "$minput" \
-                            $(expr length "$(pwd)//") $(expr length "$minput"))
+		    minput_rel=${minput#"$(pwd)/"}
+		    if [ "x$minput_rel" != "x$minput_src" ]; then
                         for path in $html_paths; do
                             if [ -f "$path/$minput_rel" ]; then
                                 minput="$path/$minput_rel"
@@ -434,9 +433,8 @@ yelp_html_mal2html () {
             line_dest="$html_out/"`echo "$line" | cut -d' ' -f2`
         fi
         if [ ! -f "$line_src" -a "x$html_paths" != "x" ]; then
-            if [ $(expr index "$line_src" "$(pwd)/") = 1 ]; then
-                line_src_rel=$(expr substr "$line_src" \
-                    $(expr length "$(pwd)//") $(expr length "$line_src"))
+	    line_src_rel=${line_src#"$(pwd)/"}
+	    if [ "x$line_src_rel" != "x$line_src" ]; then
                 for path in $html_paths; do
                     if [ -f "$path/$line_src_rel" ]; then
                         line_src="$path/$line_src_rel"
