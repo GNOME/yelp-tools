@@ -276,7 +276,7 @@ yelp_hrefs_page () {
 }
 
 yelp_hrefs () {
-    if [ "$#" = "0" -o "x$1" = "x--help" ]; then
+    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
         yelp_usage_hrefs
         exit 1
     fi
@@ -336,7 +336,7 @@ yelp_ids_page () {
 }
 
 yelp_ids () {
-    if [ "$#" = "0" -o "x$1" = "x--help" ]; then
+    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
         yelp_usage_ids
         exit 1
     fi
@@ -417,7 +417,7 @@ yelp_links_page () {
 }
 
 yelp_links () {
-    if [ "$#" = "0" -o "x$1" = "x--help" ]; then
+    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
         yelp_usage_links
         exit 1
     fi
@@ -437,7 +437,7 @@ yelp_links () {
                 ;;
         esac
     done
-    if [ "$#" = "0" -o "x$1" = "x--help" ]; then
+    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
         yelp_usage_links
         exit 1
     fi
@@ -494,7 +494,7 @@ yelp_media_page () {
 }
 
 yelp_media () {
-    if [ "$#" = "0" -o "x$1" = "x--help" ]; then
+    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
         yelp_usage_media
         exit 1
     fi
@@ -542,7 +542,7 @@ yelp_orphans_page () {
 }
 
 yelp_orphans () {
-    if [ "$#" = "0" -o "x$1" = "x--help" ]; then
+    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
         yelp_usage_orphans
         exit 1
     fi
@@ -558,7 +558,7 @@ yelp_orphans () {
                 ;;
         esac
     done
-    if [ "$#" = "0" -o "x$1" = "x--help" ]; then
+    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
         yelp_usage_orphans
         exit 1
     fi
@@ -596,7 +596,7 @@ yelp_comments_page () {
 }
 
 yelp_comments () {
-    if [ "$#" = "0" -o "x$1" = "x--help" ]; then
+    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
         yelp_usage_comments
         exit 1
     fi
@@ -620,7 +620,7 @@ yelp_license_page () {
 }
 
 yelp_license () {
-    if [ "$#" = "0" -o "x$1" = "x--help" ]; then
+    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
         yelp_usage_license
         exit 1
     fi
@@ -645,7 +645,7 @@ yelp_license () {
                 ;;
         esac
     done
-    if [ "$#" = "0" -o "x$1" = "x--help" ]; then
+    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
         yelp_usage_license
         exit 1
     fi
@@ -670,7 +670,7 @@ yelp_license () {
 }
 
 yelp_status () {
-    if [ "$#" = "0" -o "x$1" = "x--help" ]; then
+    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
         yelp_usage_status
         exit 1
     fi
@@ -720,7 +720,7 @@ yelp_status () {
                 ;;
         esac
     done
-    if [ "$#" = "0" -o "x$1" = "x--help" ]; then
+    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
         yelp_usage_status
         exit 1
     fi
@@ -788,7 +788,7 @@ yelp_validate_page () {
 }
 
 yelp_validate () {
-    if [ "$#" = "0" -o "x$1" = "x--help" ]; then
+    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
         yelp_usage_validate
         exit 1
     fi

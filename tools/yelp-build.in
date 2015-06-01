@@ -186,7 +186,7 @@ yelp_cache () {
                 ;;
         esac
     done
-    if [ "$#" = "0" -o "x$1" = "x--help" ]; then
+    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
         yelp_usage_cache
         exit 1
     fi
@@ -505,7 +505,7 @@ yelp_html () {
         html_custom_dir=`(cd "$html_custom_dir" && pwd)`
         html_custom="$html_custom_dir"/`basename "$html_custom"`
     fi
-    if [ "$#" = "0" -o "x$1" = "x--help" ]; then
+    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
         yelp_usage_html
         exit 1
     fi
@@ -549,7 +549,7 @@ yelp_epub () {
                 ;;
         esac
     done
-    if [ "$#" = "0" -o "x$1" = "x--help" ]; then
+    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
         yelp_usage_epub
         exit 1
     fi
