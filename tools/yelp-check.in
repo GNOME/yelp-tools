@@ -25,6 +25,8 @@ xsl_mal_rng='@DATADIR@/xslt/mal-rng.xsl'
 xsl_comments='@DATADIR@/xslt/comments.xsl'
 xsl_media='@DATADIR@/xslt/media.xsl'
 
+yelp_check_retval="0"
+
 urlencode () {
     # We usually don't want to urlencode slashes, because we're
     # usually converting file paths to URIs. But we do want to
@@ -104,7 +106,7 @@ docbook_version='
 </xsl:stylesheet>
 '
 
-yelp_usage () {
+yelp_usage() {
     (
         echo "Usage: yelp-check <COMMAND> [OPTIONS] [FILES]"
         echo ""
@@ -175,6 +177,9 @@ yelp_usage_comments () {
         echo ""
         echo "  Print the editorial comments in the files FILES, using the"
         echo "  comment element in Mallard and the remark element in DocBook."
+        echo ""
+        echo "Options:"
+        echo "  -s            Treat pages as belonging to a Mallard site"
     ) 1>&2
 }
 yelp_usage_license () {
@@ -190,6 +195,7 @@ yelp_usage_license () {
         echo "  href attribute are reported as 'unknown'."
         echo ""
         echo "Options:"
+        echo "  -s                  Treat pages as belonging to a Mallard site"
         echo "  --only LICENSES     Only show pages whose license is in LICENSES"
         echo "  --except LICENSES   Exclude pages whose license is in LICENSES"
         echo "  --totals            Show total counts for each license"
@@ -233,6 +239,46 @@ if [ $# = 0 ]; then
     yelp_usage
     exit 1
 fi
+
+yelp_check_iter_site () {
+    for dir in "$1"/*; do
+        if [ -d "$dir" ]; then
+            if [ $(basename "$dir") != "__pintail__" ]; then
+                yelp_check_iter_site "$dir"
+            fi
+        fi
+    done
+    for page in "$1"/*.page; do
+        if [ -e "$page" ]; then
+            $check_page "$page" || yelp_check_retval="$?"
+        fi
+    done
+}
+
+yelp_check_iter_args () {
+    for arg in "$@"; do
+        ext=$(echo "$arg" | sed -e 's/.*\.//')
+        if [ -d "$arg" ]; then
+            if [ "x$check_site" = "x1" ]; then
+                yelp_check_iter_site "$arg" 
+            else
+                for page in "$arg"/*.page; do
+                    if [ -e "$page" ]; then
+                        $check_page "$page"
+                    fi
+                done
+            fi
+        elif [ "x$ext" = "xpage" -o "x$ext" = "xstub" -o "x$ext" = "xcache" ]; then
+            $check_page "$arg" || yelp_check_retval="$?"
+	elif [ "x$check_db" != "x" -a \( "x$ext" = "xdocbook" -o "x$ext" = "xxml" \) ]; then
+	    $check_db "$arg" || yelp_check_retval="$?"
+        else
+            echo "Unrecognized page $arg" 2>&1
+            exit 1
+        fi
+    done
+    return $yelp_check_retval
+}
 
 yelp_hrefs_db () {
     (
@@ -328,8 +374,12 @@ yelp_ids_page () {
         echo '</xsl:stylesheet>'
     ) | xsltproc --xinclude - "$1")
     if [ "$pageid.page" != `basename "$1"` ]; then
-        if [ `dirname "$1"` = '.' ]; then
-            echo `basename "$1"`": $pageid"
+	if [ "x$check_site" = "x1" ]; then
+            sdir=$(cd $(dirname "$1") && pwd)
+            sdir=${sdir##${check_site_root}}/
+            echo $sdir$(basename "$1")": $pageid"
+	elif [ `dirname "$1"` = '.' ]; then
+            echo $(basename "$1")": $pageid"
         else
             echo "$1: $pageid"
         fi
@@ -592,9 +642,15 @@ yelp_orphans () {
 }
 
 yelp_comments_page () {
-    ext=`echo "$1" | sed -e 's/.*\.//'`
-    bname=`basename "$1" ".$ext"`
-    xsltproc --stringparam basename "$bname" "$xsl_comments" "$1"
+    ext=$(echo "$1" | sed -e 's/.*\.//')
+    bname=$(basename "$1" ".$ext")
+    if [ "x$check_site" = "x1" ]; then
+        sdir=$(cd $(dirname "$1") && pwd)
+        sdir=${sdir##${check_site_root}}/
+    fi
+    xsltproc --stringparam basename "$bname" \
+             --stringparam site.dir "$sdir" \
+             "$xsl_comments" "$1"
 }
 
 yelp_comments () {
@@ -602,22 +658,38 @@ yelp_comments () {
         yelp_usage_comments
         exit 1
     fi
-    for xml in "$@"; do
-        if [ -d "$xml" ]; then
-            for page in "$xml"/*.page; do
-                yelp_comments_page "$page"
-            done
-        else
-            yelp_comments_page "$xml"
-        fi
+    while [ "$#" != "0" ]; do
+        case "$1" in
+            "-s")
+                check_site="1"
+                check_site_root=$(pwd)
+                shift
+                ;;
+            *)
+                break
+                ;;
+        esac
     done
+    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
+        yelp_usage_comments
+        exit 1
+    fi
+    check_db=yelp_comments_page
+    check_page=yelp_comments_page
+    yelp_check_iter_args $@
+    exit $yelp_check_retval
 }
 
 yelp_license_page () {
+    if [ "x$check_site" = "x1" ]; then
+        sdir=$(cd $(dirname "$1") && pwd)
+        sdir=${sdir##${check_site_root}}/
+    fi
     xsltproc --xinclude \
         --stringparam only "$check_only" \
         --stringparam except "$check_except" \
         --stringparam totals "$check_totals" \
+        --stringparam site.dir "$sdir" \
         "$xsl_mal_license" "$1"
 }
 
@@ -628,6 +700,11 @@ yelp_license () {
     fi
     while [ "$#" != "0" ]; do
         case "$1" in
+            "-s")
+                check_site="1"
+                check_site_root=$(pwd)
+                shift
+                ;;
             "--only")
                 shift
                 check_only="$1"
@@ -651,24 +728,15 @@ yelp_license () {
         yelp_usage_license
         exit 1
     fi
-    for xml in "$@"; do
-        ext=`echo "$1" | sed -e 's/.*\.//'`
-        if [ -d "$xml" ]; then
-            for page in "$xml"/*.page; do
-                yelp_license_page "$page" || gret="$?"
-            done
-        elif [ "x$ext" = "xpage" -o "x$ext" = "xstub" -o "x$ext" = "xcache" ]; then
-            yelp_license_page "$xml" || gret="$?"
+    check_db=
+    check_page=yelp_license_page
+    yelp_check_iter_args $@ || exit 1 | \
+        if [ "x$check_totals" = "x1" ]; then
+            sort | uniq -c | sed -e 's/^ *//' | awk '{print $2 ": " $1}'
         else
-            echo "Unrecognized page " $xml 2>&1
-            exit 1
+            sort
         fi
-    done | if [ "x$check_totals" = "x1" ]; then
-        sort | uniq -c | sed -e 's/^ *//' | awk '{print $2 ": " $1}'
-    else
-        sort
-    fi
-    return 0
+    exit $yelp_check_retval
 }
 
 yelp_status () {
@@ -794,7 +862,6 @@ yelp_validate () {
         yelp_usage_validate
         exit 1
     fi
-    gret="0"
     check_strict="false()"
     check_strict_allow=""
     while [ "$#" != "0" ]; do
@@ -817,10 +884,10 @@ yelp_validate () {
         ext=`echo "$1" | sed -e 's/.*\.//'`
         if [ -d "$xml" ]; then
             for page in "$xml"/*.page; do
-                yelp_validate_page "$page" || gret="$?"
+                yelp_validate_page "$page" || yelp_check_retval="$?"
             done
         elif [ "x$ext" = "xpage" -o "x$ext" = "xstub" -o "x$ext" = "xcache" ]; then
-            yelp_validate_page "$xml" || gret="$?"
+            yelp_validate_page "$xml" || yelp_check_retval="$?"
         else
             version=`echo "$docbook_version" | xsltproc - "$xml"`
             major=`echo "$version" | cut -c1`
@@ -828,14 +895,14 @@ yelp_validate () {
                 check_out_file=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
                 rng_uri="http://docbook.org/xml/$version/rng/docbook.rng"
                 xmllint --noout --xinclude --noent --relaxng "$rng_uri" "$xml" > "$check_out_file" 2>&1
-                gret="$?"
+                yelp_check_retval="$?"
                 cat "$check_out_file" | grep -v 'validates$'
                 rm "$check_out_file"
             elif xmllint --nocdata "$xml" | grep -q '<!DOCTYPE'; then
-                xmllint --noout --xinclude --noent --postvalid "$xml" || gret="$?"
+                xmllint --noout --xinclude --noent --postvalid "$xml" || yelp_check_retval="$?"
             else
                 dtd_uri='http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd'
-                xmllint --noout --xinclude --noent --dtdvalid "$dtd_uri" "$xml" || gret="$?"
+                xmllint --noout --xinclude --noent --dtdvalid "$dtd_uri" "$xml" || yelp_check_retval="$?"
             fi
         fi
     done
@@ -843,7 +910,7 @@ yelp_validate () {
         rm "$check_rng_dir"/*.rng
         rmdir "$check_rng_dir"
     fi
-    exit "$gret"
+    exit "$yelp_check_retval"
 }
 
 cmd="$1"

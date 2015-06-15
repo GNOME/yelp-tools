@@ -13,6 +13,8 @@
 <xsl:variable name="except_" select="concat(' ', translate($except, ',', ' '), ' ')"/>
 <xsl:param name="totals" select="''"/>
 
+<xsl:param name="site.dir"/>
+
 <xsl:template match="/">
   <xsl:variable name="idents">
     <xsl:if test="not(/mal:page/mal:info/mal:license)">
@@ -46,6 +48,7 @@
   <xsl:if test="$display != ''">
     <xsl:choose>
       <xsl:when test="$totals = ''">
+	<xsl:value-of select="$site.dir"/>
 	<xsl:value-of select="concat(/mal:page/@id, ': ')"/>
 	<xsl:for-each select="exsl:node-set($idents)/*">
 	  <xsl:if test="position() != 1">

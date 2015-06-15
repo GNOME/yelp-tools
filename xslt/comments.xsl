@@ -8,6 +8,7 @@
 <xsl:output method="text"/>
 
 <xsl:param name="basename"/>
+<xsl:param name="site.dir"/>
 
 <xsl:template match="/*[namespace-uri(.) = ''] | /db:*">
   <xsl:for-each select="//remark | //db:remark">
@@ -42,6 +43,7 @@
       </xsl:if>
     </xsl:variable>
     <xsl:text>Page:  </xsl:text>
+    <xsl:value-of select="$site.dir"/>
     <xsl:value-of select="$id"/>
     <xsl:text>&#x000A;</xsl:text>
     <xsl:if test="mal:cite">
