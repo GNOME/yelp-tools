@@ -1,6 +1,8 @@
 #!/bin/sh
+# -*- indent-tabs-mode: nil -*-
+#
 # yelp-check
-# Copyright (C) 2011 Shaun McCance <shaunm@gnome.org>
+# Copyright (C) 2011-2015 Shaun McCance <shaunm@gnome.org>
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -110,7 +112,7 @@ yelp_usage () {
         echo "  comments      Print the editorial comments in a document"
         echo "  hrefs         Find broken external links in a document"
         echo "  ids           Find Mallard page IDs that do not match file names"
-	echo "  license       Report the license of Mallard pages"
+        echo "  license       Report the license of Mallard pages"
         echo "  links         Find broken xref or linkend links in a document"
         echo "  media         Find broken references to media files"
         echo "  orphans       Find orphaned pages in a Mallard document"
@@ -181,11 +183,11 @@ yelp_usage_license () {
         echo ""
         echo "  Report the license of the Mallard page files FILES. Each"
         echo "  matching page is reporting along with its license, reported"
-	echo "  based on the href attribute of the license element. Common"
-	echo "  licenses use a shortened identifier. Pages with multiple"
-	echo "  licenses have the identifiers separated by spaces. Pages"
-	echo "  with no license element report 'none'. Licenses with no"
-	echo "  href attribute are reported as 'unknown'."
+        echo "  based on the href attribute of the license element. Common"
+        echo "  licenses use a shortened identifier. Pages with multiple"
+        echo "  licenses have the identifiers separated by spaces. Pages"
+        echo "  with no license element report 'none'. Licenses with no"
+        echo "  href attribute are reported as 'unknown'."
         echo ""
         echo "Options:"
         echo "  --only LICENSES     Only show pages whose license is in LICENSES"
@@ -658,13 +660,13 @@ yelp_license () {
         elif [ "x$ext" = "xpage" -o "x$ext" = "xstub" -o "x$ext" = "xcache" ]; then
             yelp_license_page "$xml" || gret="$?"
         else
-	    echo "Unrecognized page " $xml 2>&1
-	    exit 1
-	fi
+            echo "Unrecognized page " $xml 2>&1
+            exit 1
+        fi
     done | if [ "x$check_totals" = "x1" ]; then
-	sort | uniq -c | sed -e 's/^ *//' | awk '{print $2 ": " $1}'
+        sort | uniq -c | sed -e 's/^ *//' | awk '{print $2 ": " $1}'
     else
-	sort
+        sort
     fi
     return 0
 }
