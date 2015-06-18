@@ -230,6 +230,7 @@ yelp_usage_validate () {
         echo "  based on the version attribute."
         echo ""
         echo "Options:"
+        echo "  -s                  Treat pages as belonging to a Mallard site"
         echo "  --strict            Disallow unknown namespaces"
         echo "  --allow NS          Explicitly allow namespace NS in strict mode"
     ) 1>&2
@@ -903,42 +904,18 @@ yelp_validate () {
                 ;;
         esac
     done
+    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
+        yelp_usage_validate
+        exit 1
+    fi
     check_db=yelp_validate_db
     check_page=yelp_validate_page
     yelp_check_iter_args $@
-    exit $yelp_check_retval
-
-    for xml in "$@"; do
-        ext=`echo "$1" | sed -e 's/.*\.//'`
-        if [ -d "$xml" ]; then
-            for page in "$xml"/*.page; do
-                yelp_validate_page "$page" || yelp_check_retval="$?"
-            done
-        elif [ "x$ext" = "xpage" -o "x$ext" = "xstub" -o "x$ext" = "xcache" ]; then
-            yelp_validate_page "$xml" || yelp_check_retval="$?"
-        else
-            version=`echo "$docbook_version" | xsltproc - "$xml"`
-            major=`echo "$version" | cut -c1`
-            if [ "x$major" = "x5" ]; then
-                check_out_file=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
-                rng_uri="http://docbook.org/xml/$version/rng/docbook.rng"
-                xmllint --noout --xinclude --noent --relaxng "$rng_uri" "$xml" > "$check_out_file" 2>&1
-                yelp_check_retval="$?"
-                cat "$check_out_file" | grep -v 'validates$'
-                rm "$check_out_file"
-            elif xmllint --nocdata "$xml" | grep -q '<!DOCTYPE'; then
-                xmllint --noout --xinclude --noent --postvalid "$xml" || yelp_check_retval="$?"
-            else
-                dtd_uri='http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd'
-                xmllint --noout --xinclude --noent --dtdvalid "$dtd_uri" "$xml" || yelp_check_retval="$?"
-            fi
-        fi
-    done
     if [ "x$check_rng_dir" != "x" ]; then
         rm "$check_rng_dir"/*.rng
         rmdir "$check_rng_dir"
     fi
-    exit "$yelp_check_retval"
+    exit $yelp_check_retval
 }
 
 cmd="$1"
