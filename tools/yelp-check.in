@@ -735,13 +735,12 @@ yelp_license () {
     fi
     check_db=
     check_page=yelp_license_page
-    yelp_check_iter_args $@ || exit 1 | \
-        if [ "x$check_totals" = "x1" ]; then
+    if [ "x$check_totals" = "x1" ]; then
+        yelp_check_iter_args $@ | \
             sort | uniq -c | sed -e 's/^ *//' | awk '{print $2 ": " $1}'
-        else
-            sort
-        fi
-    exit $yelp_check_retval
+    else
+        yelp_check_iter_args $@ | sort
+    fi
 }
 
 yelp_status () {
