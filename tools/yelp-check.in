@@ -357,7 +357,7 @@ yelp_hrefs () {
     check_out_file=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
     check_db=yelp_hrefs_page
     check_page=yelp_hrefs_page
-    yelp_check_iter_args $@ > "$check_out_file"
+    yelp_check_iter_args "$@" > "$check_out_file"
     ret=$(cat "$check_out_file" | wc -l)
     if test "x$ret" != "x0"; then ret="1"; fi
     cat "$check_out_file"
@@ -681,7 +681,7 @@ yelp_comments () {
     fi
     check_db=yelp_comments_page
     check_page=yelp_comments_page
-    yelp_check_iter_args $@
+    yelp_check_iter_args "$@"
     exit $yelp_check_retval
 }
 
@@ -736,10 +736,10 @@ yelp_license () {
     check_db=
     check_page=yelp_license_page
     if [ "x$check_totals" = "x1" ]; then
-        yelp_check_iter_args $@ | \
+        yelp_check_iter_args "$@" | \
             sort | uniq -c | sed -e 's/^ *//' | awk '{print $2 ": " $1}'
     else
-        yelp_check_iter_args $@ | sort
+        yelp_check_iter_args "$@" | sort
     fi
 }
 
@@ -913,7 +913,7 @@ yelp_validate () {
     fi
     check_db=yelp_validate_db
     check_page=yelp_validate_page
-    yelp_check_iter_args $@
+    yelp_check_iter_args "$@"
     if [ "x$check_rng_dir" != "x" ]; then
         rm "$check_rng_dir"/*.rng
         rmdir "$check_rng_dir"
