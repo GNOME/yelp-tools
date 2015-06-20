@@ -139,6 +139,9 @@ yelp_usage_ids () {
         echo ""
         echo "  Find pages in a Mallard document whose page ID does not match"
         echo "  the base file name of the page file."
+        echo ""
+        echo "Options:"
+        echo "  -s            Treat pages as belonging to a Mallard site"
     ) 1>&2
 }
 yelp_usage_links () {
@@ -266,7 +269,7 @@ yelp_check_iter_args () {
             if [ "x$check_site" = "x1" ]; then
                 yelp_check_iter_site "$arg" 
             else
-                for page in "$arg"/*.page; do
+                for page in "${arg%%/}"/*.page; do
                     if [ -e "$page" ]; then
                         $check_page "$page"
                     fi
@@ -378,17 +381,19 @@ yelp_ids_page () {
         echo '</xsl:template>'
         echo '</xsl:stylesheet>'
     ) | xsltproc --xinclude - "$1")
-    if [ "$pageid.page" != `basename "$1"` ]; then
+    dname=$(dirname "$1")
+    bname=$(basename "$1")
+    if [ "x$pageid.page" != "x$bname" ]; then
 	if [ "x$check_site" = "x1" ]; then
             sdir=$(cd $(dirname "$1") && pwd)
             sdir=${sdir##${check_site_root}}/
             echo $sdir$(basename "$1")": $pageid"
-	elif [ `dirname "$1"` = '.' ]; then
-            echo $(basename "$1")": $pageid"
+	elif [ "x$dname" = 'x.' ]; then
+            echo "$bname: $pageid"
         else
             echo "$1: $pageid"
         fi
-        exit 1
+        yelp_check_retval=1
     fi
 }
 
@@ -397,17 +402,26 @@ yelp_ids () {
         yelp_usage_ids
         exit 1
     fi
-    ret=0
-    for xml in "$@"; do
-        if [ -d "$xml" ]; then
-            for page in "$xml"/*.page; do
-                yelp_ids_page "$page" || ret=$?
-            done
-        else
-            yelp_ids_page "$xml" || ret=$?
-        fi
+    while [ "$#" != "0" ]; do
+        case "$1" in
+            "-s")
+                check_site="1"
+                check_site_root=$(pwd)
+                shift
+                ;;
+            *)
+                break
+                ;;
+        esac
     done
-    exit $ret
+    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
+        yelp_usage_ids
+        exit 1
+    fi
+    check_db=
+    check_page=yelp_ids_page
+    yelp_check_iter_args "$@"
+    exit $yelp_check_retval
 }
 
 yelp_links_db () {
