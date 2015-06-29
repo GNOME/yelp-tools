@@ -1,3 +1,11 @@
+3.17.3
+======
+* yelp-build: Fix some broken and non-portable expr usage, #743911
+* yelp-build: Fixed media copying with -i for Mallard
+* yelp-build: Added support for Mallard Sites to cache generator
+* yelp-check: Sites support for ids, hrefs, validate, comments, license
+* yelp-check: Accept -h as well as --help
+
 3.16.1
 ======
 * yelp-check: Check media correctly in subdirs, #727557
