@@ -1,11 +1,11 @@
 <xsl:stylesheet
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     xmlns:mal="http://projectmallard.org/1.0/"
+    xmlns:site="http://projectmallard.org/site/1.0/"
     xmlns:cache="http://projectmallard.org/cache/1.0/"
     xmlns:exsl="http://exslt.org/common"
     xmlns:str="http://exslt.org/strings"
     xmlns:dyn="http://exslt.org/dynamic"
-    exclude-result-prefixes="mal cache exsl dyn"
     version="1.0">
 
 <xsl:output method="text"/>
@@ -50,6 +50,7 @@
 
 <xsl:template match="/cache:cache">
   <xsl:for-each select="mal:page">
+    <xsl:sort select="@site:dir"/>
     <xsl:sort select="@id"/>
     <xsl:variable name="select">
       <xsl:text>mal:info/mal:revision</xsl:text>
@@ -116,6 +117,7 @@
           <xsl:if test="$newer = '' or ($revision/@date and
                         (translate($revision/@date, '-', '') &gt; translate($newer, '-', '')))">
             <xsl:if test="$totals != '1'">
+	      <xsl:value-of select="@site:dir"/>
               <xsl:value-of select="@id"/>
               <xsl:text>: </xsl:text>
             </xsl:if>

@@ -216,6 +216,7 @@ yelp_usage_status () {
         echo "  matching page is reporting along with its status."
         echo ""
         echo "Options:"
+        echo "  -s                  Treat pages as belonging to a Mallard site"
         echo "  --version VER       Select revisions with the version attribute VER"
         echo "  --docversion VER    Select revisions with the docversion attribute VER"
         echo "  --pkgversion VER    Select revisions with the pkgversion attribute VER"
@@ -764,6 +765,11 @@ yelp_status () {
     fi
     while [ "$#" != "0" ]; do
         case "$1" in
+            "-s")
+                check_site="1"
+                check_site_root=$(pwd)
+                shift
+                ;;
             "--version")
                 shift
                 check_version="$1"
@@ -813,7 +819,11 @@ yelp_status () {
         exit 1
     fi
     check_cache_file=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
-    yelp-build cache -o "$check_cache_file" "$@"
+    if [ "x$check_site" = "x1" ]; then
+        yelp-build cache -s -o "$check_cache_file" "$@"
+    else
+        yelp-build cache -o "$check_cache_file" "$@"
+    fi
     xsltproc \
         --stringparam version "$check_version" \
         --stringparam docversion "$check_docversion" \
