@@ -153,6 +153,7 @@ yelp_usage_links () {
         echo ""
         echo "Options:"
         echo "  -c CACHE      Use the existing Mallard cache CACHE"
+        echo "  -s            Treat pages as belonging to a Mallard site"
         echo "  -i            Ignore xrefs where href is present"
     ) 1>&2
 }
@@ -455,10 +456,15 @@ yelp_links_db () {
 }
 
 yelp_links_page () {
+    if [ "x$check_site" = "x1" ]; then
+        sdir=$(cd $(dirname "$1") && pwd)
+        sdir=${sdir##${check_site_root}}/
+    fi
     (
         echo '<xsl:stylesheet'
         echo ' xmlns:xsl="http://www.w3.org/1999/XSL/Transform"'
         echo ' xmlns:mal="http://projectmallard.org/1.0/"'
+        echo ' xmlns:site="http://projectmallard.org/site/1.0/"'
         echo ' xmlns:exsl="http://exslt.org/common"'
         echo ' extension-element-prefixes="exsl"'
         echo ' version="1.0">'
@@ -466,7 +472,10 @@ yelp_links_page () {
         echo '<xsl:import href="'"$xsl"'"/>'
         check_cache_url='file://'`urlencode "$check_cache_file"`
         echo '<xsl:param name="mal.cache.file" select="'"'$check_cache_url'"'"/>'
+        echo '<xsl:variable name="site.dir" select="'"'$sdir'"'"/>'
         echo '<xsl:output method="text"/>'
+        echo '<xsl:key name="__site.cache.key" match="mal:page | mal:section"'
+        echo '         use="concat(ancestor-or-self::mal:page/@site:dir, @id)"/>'
         echo '<xsl:template match="/mal:page">'
         echo ' <xsl:variable name="page" select="@id"/>'
         if [ "x$check_links_ignore" = "x1" ]; then
@@ -479,8 +488,9 @@ yelp_links_page () {
         echo '   <xsl:call-template name="mal.link.xref.linkid"/>'
         echo '  </xsl:variable>'
         echo '  <xsl:for-each select="$mal.cache">'
-        echo '   <xsl:variable name="target" select="key('"'mal.cache.key'"', $linkid)"/>'
-        echo '   <xsl:if test="count($target) = 0">'
+        echo '   <xsl:if test="count(key('"'mal.cache.key'"', $linkid) | '
+        echo '                       key('"'__site.cache.key'"', $linkid)) = 0">'
+        echo '    <xsl:value-of select="$site.dir"/>'
         echo '    <xsl:value-of select="$page"/>'
         echo '    <xsl:text>: </xsl:text>'
         echo '    <xsl:value-of select="$xref"/>'
@@ -505,6 +515,11 @@ yelp_links () {
                 check_cache_file="$1"
                 shift
                 ;;
+            "-s")
+                check_site="1"
+                check_site_root=$(pwd)
+                shift
+                ;;
             "-i")
                 shift
                 check_links_ignore="1"
@@ -519,33 +534,35 @@ yelp_links () {
         exit 1
     fi
     if [ "x$check_cache_file" != "x" ]; then
-        check_cache_file=`(cd $(dirname "$check_cache_file") && pwd)`/`basename "$check_cache_file"`
+        check_cache_dir=$(dirname "$check_cache_file")
+        check_cache_dir=$(cd "$check_cache_dir" && pwd)
+        check_cache_file="$check_cache_dir/"$(basename "$check_cache_file")
+    elif [ -d "$1" ]; then
+        check_cache_file=1
+    else
+        case "$1" in
+            *.page | *.stub | *.cache)
+                check_cache_file=1
+                ;;
+            *)
+                break
+                ;;
+        esac
     fi
-    check_out_file=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
-    for xml in "$@"; do
-        if [ -d "$xml" ]; then
-            if [ "x$check_cache_file" = "x" ]; then
-                check_cache_file_is_tmp="yes"
-                check_cache_file=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
-                yelp-build cache -o "$check_cache_file" "$@"
-            fi
-            for page in "$xml"/*.page; do
-                yelp_links_page "$page"
-            done
+    if [ "x$check_cache_file" = "x1" ]; then
+        check_cache_file_is_tmp="yes"
+        check_cache_file=$(mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX)
+        if [ "x$check_site" = "x1" ]; then
+            yelp-build cache -s -o "$check_cache_file" "$@"
         else
-            ext=`echo "$1" | sed -e 's/.*\.//'`
-            if [ "x$ext" = "xxml" -o "x$ext" = "xdocbook" ]; then
-                yelp_links_db "$xml"
-            else
-                if [ "x$check_cache_file" = "x" ]; then
-                    check_cache_file_is_tmp="yes"
-                    check_cache_file=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
-                    yelp-build cache -o "$check_cache_file" "$@"
-                fi
-                yelp_links_page "$xml"
-            fi
+            yelp-build cache -o "$check_cache_file" "$@"
         fi
-    done > "$check_out_file"
+    fi
+
+    check_out_file=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
+    check_db=yelp_links_db
+    check_page=yelp_links_page
+    yelp_check_iter_args "$@" > "$check_out_file"
     yelp_check_retval=$(wc -l < "$check_out_file")
     if test "x$yelp_check_retval" != "x0"; then
         yelp_check_retval=1
