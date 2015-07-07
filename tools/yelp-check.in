@@ -179,6 +179,7 @@ yelp_usage_orphans () {
         echo ""
         echo "Options:"
         echo "  -c CACHE      Use the existing Mallard cache CACHE"
+        echo "  -s            Treat pages as belonging to a Mallard site"
     ) 1>&2
 }
 yelp_usage_comments () {
@@ -635,6 +636,10 @@ yelp_media () {
 }
 
 yelp_orphans_page () {
+    if [ "x$check_site" = "x1" ]; then
+        sdir=$(cd $(dirname "$1") && pwd)
+        sdir=${sdir##${check_site_root}}/
+    fi
     (
         echo '<xsl:stylesheet'
         echo ' xmlns:xsl="http://www.w3.org/1999/XSL/Transform"'
@@ -646,12 +651,14 @@ yelp_orphans_page () {
         echo '<xsl:import href="'"$xsl"'"/>'
         check_cache_url='file://'`urlencode "$check_cache_file"`
         echo '<xsl:param name="mal.cache.file" select="'"'$check_cache_url'"'"/>'
+        echo '<xsl:variable name="site.dir" select="'"'$sdir'"'"/>'
         echo '<xsl:output method="text"/>'
         echo '<xsl:template match="/mal:page">'
         echo ' <xsl:variable name="trails">'
         echo '  <xsl:call-template name="mal.link.linktrails"/>'
         echo ' </xsl:variable>'
         echo ' <xsl:if test="@id != '"'index'"' and count(exsl:node-set($trails)/*) = 0">'
+        echo '  <xsl:value-of select="$site.dir"/>'
         echo '  <xsl:value-of select="@id"/>'
         echo '  <xsl:text>&#x000A;</xsl:text>'
         echo ' </xsl:if>'
@@ -667,6 +674,11 @@ yelp_orphans () {
     fi
     while [ "$#" != "0" ]; do
         case "$1" in
+            "-s")
+                check_site="1"
+                check_site_root=$(pwd)
+                shift
+                ;;
             "-c")
                 shift
                 check_cache_file="$1"
@@ -682,22 +694,35 @@ yelp_orphans () {
         exit 1
     fi
     if [ "x$check_cache_file" != "x" ]; then
-        check_cache_file=`(cd $(dirname "$check_cache_file") && pwd)`/`basename "$check_cache_file"`
+        check_cache_dir=$(dirname "$check_cache_file")
+        check_cache_dir=$(cd "$check_cache_dir" && pwd)
+        check_cache_file="$check_cache_dir/"$(basename "$check_cache_file")
+    elif [ -d "$1" ]; then
+        check_cache_file=1
     else
-        check_cache_file_is_tmp="yes"
-        check_cache_file=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
-        yelp-build cache -o "$check_cache_file" "$@"
+        case "$1" in
+            *.page | *.stub | *.cache)
+                check_cache_file=1
+                ;;
+            *)
+                break
+                ;;
+        esac
     fi
-    check_out_file=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
-    for xml in "$@"; do
-        if [ -d "$xml" ]; then
-            for page in "$xml"/*.page; do
-                yelp_orphans_page "$page"
-            done
+    if [ "x$check_cache_file" = "x1" ]; then
+        check_cache_file_is_tmp="yes"
+        check_cache_file=$(mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX)
+        if [ "x$check_site" = "x1" ]; then
+            yelp-build cache -s -o "$check_cache_file" "$@"
         else
-            yelp_orphans_page "$xml"
+            yelp-build cache -o "$check_cache_file" "$@"
         fi
-    done > "$check_out_file"
+    fi
+
+    check_out_file=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
+    check_db=
+    check_page=yelp_orphans_page
+    yelp_check_iter_args "$@" > "$check_out_file"
     yelp_check_retval=$(wc -l < "$check_out_file")
     if test "x$yelp_check_retval" != "x0"; then
         yelp_check_retval=1
