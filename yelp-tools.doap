@@ -6,13 +6,15 @@
 
   <name xml:lang="en">Yelp Tools</name>
   <shortdesc xml:lang="en">Collection of tools for building and converting documentation</shortdesc>
+  <description>Collection of tools for building and converting documentation</description>
 
+  <homepage rdf:resource="http://yelp.io"/>
   <mailing-list rdf:resource="http://mail.gnome.org/mailman/listinfo/gnome-doc-devel-list" />
   <download-page rdf:resource="http://download.gnome.org/sources/yelp-tools/" />
   <bug-database rdf:resource="http://bugzilla.gnome.org/browse.cgi?product=yelp-tools" />
 
   <category rdf:resource="http://api.gnome.org/doap-extensions#core" />
-  <programming-language>XSL</programming-language>
+  <programming-language>sh</programming-language>
 
   <maintainer>
     <foaf:Person>
