@@ -334,10 +334,20 @@ yelp_hrefs_page () {
             if [ "x$colon" = "x$url" ]; then
                 test -f "$base/"$(urldecode "$url") || echo "$sdir$id: $url"
             else
-                (curl -s -I -L "$url" | \
-                        grep '^HTTP/' | tail -n 1 | head -n 1 | \
-                        grep -q 'HTTP/.\.. 200 .*') || \
+                status=$(cat "$check_href_cache" | while read trystatus tryurl; do
+                                if [ "x$tryurl" = "x$url" ]; then echo "$trystatus"; break; fi
+                            done)
+                if [ "x$status" = "x1" ]; then
+                    true
+                elif [ "x$status" = "x0" ]; then
                     echo "$sdir$id: $url"
+                else
+                    (curl -s -I -L "$url" | \
+                            grep '^HTTP/' | tail -n 1 | head -n 1 | \
+                            grep -q 'HTTP/.\.. 200 .*') \
+                        && (echo "1 $url" >> "$check_href_cache") \
+                        || (echo "0 $url" >> "$check_href_cache"; echo "$sdir$id: $url")
+                fi
             fi
         done
 }
@@ -364,6 +374,8 @@ yelp_hrefs () {
         exit 1
     fi
     check_out_file=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
+    check_href_cache=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
+    echo > "$check_href_cache"
     check_db=yelp_hrefs_page
     check_page=yelp_hrefs_page
     yelp_check_iter_args "$@" > "$check_out_file"
@@ -373,6 +385,7 @@ yelp_hrefs () {
     fi
     cat "$check_out_file"
     rm "$check_out_file"
+    rm "$check_href_cache"
     exit $yelp_check_retval
 }
 
