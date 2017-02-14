@@ -106,6 +106,15 @@ docbook_version='
 </xsl:stylesheet>
 '
 
+mallard_style='
+<xsl:stylesheet
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    xmlns:mal="http://projectmallard.org/1.0/"
+    version="1.0">
+<xsl:output method="text"/>
+<xsl:template match="/mal:page"><xsl:value-of select="@style"/></xsl:template>
+</xsl:stylesheet>'
+
 yelp_usage() {
     (
         echo "Usage: yelp-check <COMMAND> [OPTIONS] [FILES]"
@@ -119,6 +128,7 @@ yelp_usage() {
         echo "  media         Find broken references to media files"
         echo "  orphans       Find orphaned pages in a Mallard document"
         echo "  status        Report the status of Mallard pages"
+        echo "  style         Report the style attribute of Mallard pages"
         echo "  validate      Validate files against a DTD or RNG"
     ) 1>&2
 }
@@ -211,6 +221,21 @@ yelp_usage_license () {
         echo "  --except LICENSES   Exclude pages whose license is in LICENSES"
         echo "  --totals            Show total counts for each license"
         echo "LICENSES may be a comma- and/or space-separated list."
+    ) 1>&2
+}
+yelp_usage_style () {
+    (
+        echo "Usage: yelp-check style <FILES>"
+        echo ""
+        echo "  Report the page style attribute of the Mallard page files"
+        echo "  FILES. Each matching page is reporting along with its status."
+        echo ""
+        echo "Options:"
+        echo "  -s                  Treat pages as belonging to a Mallard site"
+        echo "  --only STYLES       Only show pages whose style is in STATUSES"
+        echo "  --except STYLES     Exclude pages whose style is in STATUSES"
+        echo "  --totals            Show total counts for each style"
+        echo "STYLES may be comma- and/or space-separated lists."
     ) 1>&2
 }
 yelp_usage_status () {
@@ -845,6 +870,110 @@ yelp_license () {
     fi
 }
 
+yelp_style_page () {
+    ext=$(echo "$1" | sed -e 's/.*\.//')
+    bname=$(basename "$1" ".$ext")
+    if [ "x$check_site" = "x1" ]; then
+        sdir=$(cd $(dirname "$1") && pwd)
+        sdir=${sdir##${check_site_root}}/
+    fi
+    style=$(echo "$mallard_style" | xsltproc - "$1")
+    output=1
+    if [ "x$check_only_defined" = "x1" ]; then
+        output=0
+        if [ "x$check_only" = "x" ]; then
+            # We treat an empty --only '' as requesting pages with no style
+            if [ "x$style" = "x" ]; then output=1; fi
+        else
+            for pstyle in "$style"; do
+                for sstyle in $(echo "$check_only" | sed -e 's/,/ /'); do
+                    if [ "$pstyle" = "$sstyle" ]; then
+                        output=1
+                        break
+                    fi
+                done
+                if [ "x$output" = "x1" ]; then break; fi
+            done
+        fi
+    fi
+    if [ "x$check_except_defined" = "x1" ]; then
+        if [ "x$check_except" = "x" ]; then
+            # We treat an empty --only '' as excluding pages with no style
+            if [ "x$style" = "x" ]; then output=0; fi
+        else
+            for pstyle in "$style"; do
+                for sstyle in $(echo "$check_except" | sed -e 's/,/ /'); do
+                    if [ "$pstyle" = "$sstyle" ]; then
+                        output=0
+                        break
+                    fi
+                done
+                if [ "x$output" = "x0" ]; then break; fi
+            done
+        fi
+    fi
+    if [ "x$output" = "x1" ]; then
+        echo "$sdir$bname: $style"
+    fi
+}
+
+yelp_style () {
+    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
+        yelp_usage_style
+        exit 1
+    fi
+    while [ "$#" != "0" ]; do
+        case "$1" in
+            "-s")
+                check_site="1"
+                check_site_root=$(pwd)
+                shift
+                ;;
+            "--only")
+                shift
+                check_only_defined=1
+                check_only="$1"
+                shift
+                ;;
+            "--except")
+                shift
+                check_except_defined=1
+                check_except="$1"
+                shift
+                ;;
+            "--totals")
+                check_totals="1"
+                shift
+                ;;
+            *)
+                break
+                ;;
+        esac
+    done
+    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
+        yelp_usage_style
+        exit 1
+    fi
+    check_db=
+    check_page=yelp_style_page
+    if [ "x$check_totals" = "x1" ]; then
+        yelp_check_iter_args "$@" | \
+            while read line; do
+                styles=$(echo "$line" | sed -e 's/^[^:]*://')
+                if [ "x$styles" = "x" ]; then
+                    echo ""
+                else
+                    for style in $styles; do 
+                        echo "$style"
+                    done
+                fi
+            done | \
+            sort | uniq -c | sed -e 's/^ *//' | awk '{print $2 ": " $1}'
+    else
+        yelp_check_iter_args "$@" | sort
+    fi
+}
+
 yelp_status () {
     if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
         yelp_usage_status
@@ -1058,6 +1187,9 @@ case "x$cmd" in
         ;;
     "xstatus")
         yelp_status "$@"
+        ;;
+    "xstyle")
+        yelp_style "$@"
         ;;
     "xvalidate")
         yelp_validate "$@"
