@@ -886,7 +886,7 @@ yelp_style_page () {
             if [ "x$style" = "x" ]; then output=1; fi
         else
             for pstyle in "$style"; do
-                for sstyle in $(echo "$check_only" | sed -e 's/,/ /'); do
+                for sstyle in $(echo "$check_only" | sed -e 's/,/ /g'); do
                     if [ "$pstyle" = "$sstyle" ]; then
                         output=1
                         break
@@ -898,17 +898,17 @@ yelp_style_page () {
     fi
     if [ "x$check_except_defined" = "x1" ]; then
         if [ "x$check_except" = "x" ]; then
-            # We treat an empty --only '' as excluding pages with no style
+            # We treat an empty --except '' as excluding pages with no style
             if [ "x$style" = "x" ]; then output=0; fi
         else
             for pstyle in "$style"; do
-                for sstyle in $(echo "$check_except" | sed -e 's/,/ /'); do
+                for sstyle in $(echo "$check_except" | sed -e 's/,/ /g'); do
                     if [ "$pstyle" = "$sstyle" ]; then
                         output=0
                         break
                     fi
                 done
-                if [ "x$output" = "x0" ]; then break; fi
+                #if [ "x$output" = "x0" ]; then break; fi
             done
         fi
     fi
