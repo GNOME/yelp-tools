@@ -270,6 +270,7 @@ yelp_usage_validate () {
         echo "  -s                  Treat pages as belonging to a Mallard site"
         echo "  --strict            Disallow unknown namespaces"
         echo "  --allow NS          Explicitly allow namespace NS in strict mode"
+        echo "  --jing              Use jing instead of xmllint for RNG validation"
     ) 1>&2
 }
 
@@ -1060,7 +1061,11 @@ yelp_validate_db () {
     if [ "x$major" = "x5" ]; then
         check_out_file=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
         rng_uri="http://docbook.org/xml/$version/rng/docbook.rng"
-        xmllint --noout --xinclude --noent --relaxng "$rng_uri" "$1" > "$check_out_file" 2>&1
+        if [ "x$check_jing" = "x1" ]; then
+            jing -i "$rng_uri" "$1" > "$check_out_file" 2>&1
+        else
+            xmllint --noout --xinclude --noent --relaxng "$rng_uri" "$1" > "$check_out_file" 2>&1
+        fi
         yelp_check_retval="$?"
         cat "$check_out_file" | grep -v 'validates$'
         rm "$check_out_file"
@@ -1112,7 +1117,11 @@ yelp_validate_page () {
             --stringparam rng.strict.allow "$check_strict_allow" \
             "$xsl_mal_rng" "$1"
     fi
-    xmllint --noout --xinclude --noent --relaxng "$check_rng_dir/$check_rng_file" "$1" > "$check_out_file" 2>&1
+    if [ "x$check_jing" = "x1" ]; then
+        jing -i "$check_rng_dir/$check_rng_file" "$1" > "$check_out_file" 2>&1
+    else
+        xmllint --noout --xinclude --noent --relaxng "$check_rng_dir/$check_rng_file" "$1" > "$check_out_file" 2>&1
+    fi
     ret="$?"
     cat "$check_out_file" | grep -v 'validates$'
     rm "$check_out_file"
@@ -1140,6 +1149,10 @@ yelp_validate () {
             "--allow")
                 shift
                 check_strict_allow="$check_strict_allow $1"
+                shift
+                ;;
+            "--jing")
+                check_jing="1"
                 shift
                 ;;
             *)
