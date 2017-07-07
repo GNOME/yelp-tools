@@ -269,14 +269,8 @@ yelp_html_xsl_common () {
     echo ' </exsl:document>'
     echo ' <link rel="stylesheet" type="text/css" href="{$html.css.root}{$yelp.locale}.css"/>'
     echo '</xsl:template>'
-    echo '<xsl:template name="html.js">'
+    echo '<xsl:template name="html.js.script">'
     echo ' <xsl:param name="node" select="."/>'
-    echo ' <xsl:call-template name="html.js.jquery">'
-    echo '  <xsl:with-param name="node" select="$node"/>'
-    echo ' </xsl:call-template>'
-    echo ' <xsl:call-template name="html.js.custom">'
-    echo '  <xsl:with-param name="node" select="$node"/>'
-    echo ' </xsl:call-template>'
     echo ' <exsl:document href="{$yelp.internal.datadir}yelp.js" method="text">'
     echo '  <xsl:call-template name="html.js.content">'
     echo '   <xsl:with-param name="node" select="$node"/>'
@@ -344,67 +338,8 @@ yelp_html_db2html () {
                 fi
             done
         fi
-        # Copy icons
-        (
-            echo '<xsl:stylesheet'
-            echo ' xmlns:xsl="http://www.w3.org/1999/XSL/Transform"'
-            echo ' xmlns:db="http://docbook.org/ns/docbook"'
-            echo ' exclude-result-prefixes="db"'
-            echo ' version="1.0">'
-            echo '<xsl:output method="text"/>'
-            echo '<xsl:template match="/">'
-            echo ' <xsl:for-each select="(//caution|//warning|//db:caution|//db:warning)[1]">'
-            echo '  <xsl:text>yelp-note-warning&#x000A;</xsl:text>'
-            echo ' </xsl:for-each>'
-            echo ' <xsl:for-each select="(//important|//db:important)[1]">'
-            echo '  <xsl:text>yelp-note-important&#x000A;</xsl:text>'
-            echo ' </xsl:for-each>'
-            echo ' <xsl:for-each select="(//tip|//db:tip)[1]">'
-            echo '  <xsl:text>yelp-note-tip&#x000A;</xsl:text>'
-            echo ' </xsl:for-each>'
-            echo ' <xsl:for-each select="(//note|//db:note)[@role='"'bug'"'][1]">'
-            echo '  <xsl:text>yelp-note-bug&#x000A;</xsl:text>'
-            echo ' </xsl:for-each>'
-            echo ' <xsl:for-each select="(//note|//db:note)[not(@role) or @role!='"'bug'"'][1]">'
-            echo '  <xsl:text>yelp-note&#x000A;</xsl:text>'
-            echo ' </xsl:for-each>'
-            echo '</xsl:template>'
-            echo '</xsl:stylesheet>'
-        ) | xsltproc --path "$html_paths" --xinclude - "$xml" | sort | uniq | while read icon; do
-            cp "${yelp_icon_dir}/${icon}.png" "$html_out/$html_internal_datadir"
-        done;
-        # Copy jQuery
-        cp "${yelp_js_dir}/jquery.js" "$html_out/$html_internal_datadir"
-        cp "${yelp_js_dir}/jquery.syntax.js" "$html_out/$html_internal_datadir"
-        cp "${yelp_js_dir}/jquery.syntax.core.js" "$html_out/$html_internal_datadir"
-        cp "${yelp_js_dir}/jquery.syntax.layout.yelp.js" "$html_out/$html_internal_datadir"
-        (
-            echo '<xsl:stylesheet'
-            echo ' xmlns:xsl="http://www.w3.org/1999/XSL/Transform"'
-            echo ' xmlns:db="http://docbook.org/ns/docbook"'
-            echo ' xmlns:html="http://www.w3.org/1999/xhtml"'
-            echo ' xmlns:exsl="http://exslt.org/common"'
-            echo ' exclude-result-prefixes="db"'
-            echo ' extension-element-prefixes="exsl"'
-            echo ' version="1.0">'
-            xsl='file://'`echo "$xsl_db2xhtml" | urlencode`
-            echo '<xsl:import href="'"$xsl"'"/>'
-            echo '<xsl:output method="text"/>'
-            echo '<xsl:template match="/">'
-            echo ' <xsl:for-each select="//programlisting[@language] | //db:programlisting[@language]">'
-            echo '  <xsl:variable name="out">'
-            echo '   <xsl:call-template name="db2html.pre"/>'
-            echo '  </xsl:variable>'
-            echo '  <xsl:value-of select="exsl:node-set($out)/*/html:pre[last()]/@class"/>'
-            echo '  <xsl:text>&#x000A;</xsl:text>'
-            echo ' </xsl:for-each>'
-            echo '</xsl:template>'
-            echo '</xsl:stylesheet>'
-        ) | xsltproc --path "$html_paths" --xinclude - "$xml" | sort | uniq \
-            | grep '^contents syntax ' | sed -e 's/^contents syntax brush-/brush./' \
-            | while read js; do
-            cp "${yelp_js_dir}/jquery.syntax.${js}.js" "$html_out/$html_internal_datadir"
-        done
+        # Copy JavaScript
+        cp "${yelp_js_dir}/highlight.pack.js" "$html_out/$html_internal_datadir"
     done
 }
 
@@ -418,6 +353,7 @@ yelp_html_mal2html () {
     fi
     html_tmp_infile=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
     yelp_cache_in "$@" > "$html_tmp_infile"
+    # Output HTML
     (
         echo '<xsl:stylesheet'
         echo ' xmlns:xsl="http://www.w3.org/1999/XSL/Transform"'
@@ -453,18 +389,11 @@ yelp_html_mal2html () {
         echo '</xsl:stylesheet>'
     ) | (cd "$html_out" && xsltproc $html_profile \
         --path "$html_paths" --xinclude \
-        --stringparam mal.files.copy.icon.dir "$yelp_icon_dir" \
-        --stringparam mal.files.copy.js.dir "$yelp_js_dir" \
         - "$html_tmp_infile") | sort | uniq | \
     while read line; do
-        use_internal_datadir=$(echo "$line" | cut -c1)
-        line=$(echo "$line" | cut -c2-)
+        # Copy media from paths output by HTML transform
         line_src=$(echo "$line" | cut -d' ' -f1 | urldecode)
-        if [ "x$use_internal_datadir" = "x+" ]; then
-            line_dest="$html_out/$html_internal_datadir"$(echo "$line" | cut -d' ' -f2)
-        else
-            line_dest="$html_out/"$(echo "$line" | cut -d' ' -f2)
-        fi
+        line_dest="$html_out/"$(echo "$line" | cut -d' ' -f2)
         if [ ! -f "$line_src" -a "x$html_paths" != "x" ]; then
             line_src_rel=${line_src#"$(pwd)/"}
             if [ "x$line_src_rel" != "x$line_src" ]; then
@@ -485,6 +414,9 @@ yelp_html_mal2html () {
             fi
         fi
     done
+    # Copy JavaScript
+    cp "${yelp_js_dir}/highlight.pack.js" "$html_out/$html_internal_datadir"
+    # Clean up
     rm "$html_tmp_infile"
     if [ "x$html_cache_file_is_tmp" = "xyes" ]; then
         rm "$html_cache_file"
