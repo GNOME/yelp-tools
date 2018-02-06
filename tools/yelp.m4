@@ -140,8 +140,8 @@ check-help:
 	    xmlpath="$$lc:$(srcdir)/$$lc"; \
 	  fi; \
 	  for page in $(HELP_FILES); do \
-	    echo "$(XMLLINT) --noout --noent --path $$xmlpath --xinclude $$d$$lc/$$page"; \
-	    $(XMLLINT) --noout --noent --path "$$xmlpath" --xinclude "$$d$$lc/$$page"; \
+	    echo "$(XMLLINT) --nonet --noout --noent --path $$xmlpath --xinclude $$d$$lc/$$page"; \
+	    $(XMLLINT) --nonet --noout --noent --path "$$xmlpath" --xinclude "$$d$$lc/$$page"; \
 	  done; \
 	done
 
