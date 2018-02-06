@@ -1,3 +1,11 @@
+3.27.90
+=======
+* Adapt to recent major changes in yelp-xsl
+* yelp.m4: Disable net access in make check
+* yelp-check: Add --jing option to validate command to use jing
+* yelp-check: Add style command to list page styles
+* yelp-check: Remember URLs we already checked in `hrefs`
+
 3.18.0
 ======
 * Stable release. No changes since 3.17.4
