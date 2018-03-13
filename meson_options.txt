@@ -1,0 +1,7 @@
+option('autotools',
+       type: 'boolean', value: true,
+       description: 'Install autotools macros')
+
+option('yelp_manual',
+       type: 'boolean', value: false,
+       description: 'Build user manual (requires awk)')
