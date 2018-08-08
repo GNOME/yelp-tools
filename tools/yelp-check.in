@@ -282,7 +282,7 @@ fi
 yelp_check_iter_site () {
     for dir in "$1"/*; do
         if [ -d "$dir" ]; then
-            if [ $(basename "$dir") != "__pintail__" ]; then
+            if [ "$(basename "$dir")" != "__pintail__" ]; then
                 yelp_check_iter_site "$dir"
             fi
         fi
@@ -307,9 +307,9 @@ yelp_check_iter_args () {
                     fi
                 done
             fi
-        elif [ "x$ext" = "xpage" -o "x$ext" = "xstub" -o "x$ext" = "xcache" ]; then
+        elif [ "x$ext" = "xpage" ] || [ "x$ext" = "xstub" ] || [ "x$ext" = "xcache" ]; then
             $check_page "$arg" || yelp_check_retval="$?"
-	elif [ "x$check_db" != "x" -a \( "x$ext" = "xdocbook" -o "x$ext" = "xxml" \) ]; then
+        elif [ "x$check_db" != "x" ] && ([ "x$ext" = "xdocbook" ] || [ "x$ext" = "xxml" ]); then
 	    $check_db "$arg" || yelp_check_retval="$?"
         else
             echo "Unrecognized page $arg" 1>&2
@@ -322,7 +322,7 @@ yelp_check_iter_args () {
 yelp_hrefs_page () {
     base=$(dirname "$1")
     if [ "x$check_site" = "x1" ]; then
-        sdir=$(cd $(dirname "$1") && pwd)
+        sdir=$(cd "$(dirname "$1")" && pwd)
         sdir=${sdir##${check_site_root}}/
     fi
     (
@@ -355,23 +355,23 @@ yelp_hrefs_page () {
         echo '</xsl:template>'
         echo '</xsl:stylesheet>'
     ) | xsltproc --xinclude - "$1" | sort | uniq | \
-        while read id url; do
-            colon=`echo "$url" | cut -d: -f1`
+        while read -r id url; do
+            colon=$(echo "$url" | cut -d: -f1)
             if [ "x$colon" = "x$url" ]; then
-                test -f "$base/"$(urldecode "$url") || echo "$sdir$id: $url"
+                test -f "$base/""$(urldecode "$url")" || echo "$sdir$id: $url"
             else
-                status=$(cat "$check_href_cache" | while read trystatus tryurl; do
+                status=$(while read -r trystatus tryurl; do
                                 if [ "x$tryurl" = "x$url" ]; then echo "$trystatus"; break; fi
-                            done)
+                            done < "$check_href_cache")
                 if [ "x$status" = "x1" ]; then
                     true
                 elif [ "x$status" = "x0" ]; then
                     echo "$sdir$id: $url"
                 else
-                    (curl -s -I -L "$url" | \
+                    ( (curl -s -I -L "$url" | \
                             grep '^HTTP/' | tail -n 1 | head -n 1 | \
                             grep -q 'HTTP/.\.. 200 .*') \
-                        && (echo "1 $url" >> "$check_href_cache") \
+                        && (echo "1 $url" >> "$check_href_cache")) \
                         || (echo "0 $url" >> "$check_href_cache"; echo "$sdir$id: $url")
                 fi
             fi
@@ -379,7 +379,7 @@ yelp_hrefs_page () {
 }
 
 yelp_hrefs () {
-    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
+    if [ "$#" = "0" ] || [ "x$1" = "x--help" ] || [ "x$1" = "x-h" ]; then
         yelp_usage_hrefs
         exit 1
     fi
@@ -395,12 +395,12 @@ yelp_hrefs () {
                 ;;
         esac
     done
-    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
+    if [ "$#" = "0" ] || [ "x$1" = "x--help" ] || [ "x$1" = "x-h" ]; then
         yelp_usage_hrefs
         exit 1
     fi
-    check_out_file=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
-    check_href_cache=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
+    check_out_file=$(mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX)
+    check_href_cache=$(mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX)
     echo > "$check_href_cache"
     check_db=yelp_hrefs_page
     check_page=yelp_hrefs_page
@@ -432,9 +432,9 @@ yelp_ids_page () {
     bname=$(basename "$1")
     if [ "x$pageid.page" != "x$bname" ]; then
 	if [ "x$check_site" = "x1" ]; then
-            sdir=$(cd $(dirname "$1") && pwd)
+            sdir=$(cd "$(dirname "$1")" && pwd)
             sdir=${sdir##${check_site_root}}/
-            echo $sdir$(basename "$1")": $pageid"
+            echo "$sdir$(basename "$1"): $pageid"
 	elif [ "x$dname" = 'x.' ]; then
             echo "$bname: $pageid"
         else
@@ -445,7 +445,7 @@ yelp_ids_page () {
 }
 
 yelp_ids () {
-    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
+    if [ "$#" = "0" ] || [ "x$1" = "x--help" ] || [ "x$1" = "x-h" ]; then
         yelp_usage_ids
         exit 1
     fi
@@ -461,7 +461,7 @@ yelp_ids () {
                 ;;
         esac
     done
-    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
+    if [ "$#" = "0" ] || [ "x$1" = "x--help" ] || [ "x$1" = "x-h" ]; then
         yelp_usage_ids
         exit 1
     fi
@@ -497,7 +497,7 @@ yelp_links_db () {
 
 yelp_links_page () {
     if [ "x$check_site" = "x1" ]; then
-        sdir=$(cd $(dirname "$1") && pwd)
+        sdir=$(cd "$(dirname "$1")" && pwd)
         sdir=${sdir##${check_site_root}}/
     fi
     (
@@ -508,9 +508,9 @@ yelp_links_page () {
         echo ' xmlns:exsl="http://exslt.org/common"'
         echo ' extension-element-prefixes="exsl"'
         echo ' version="1.0">'
-        xsl='file://'`urlencode "$xsl_mal_link"`
+        xsl='file://'$(urlencode "$xsl_mal_link")
         echo '<xsl:import href="'"$xsl"'"/>'
-        check_cache_url='file://'`urlencode "$check_cache_file"`
+        check_cache_url='file://'$(urlencode "$check_cache_file")
         echo '<xsl:param name="mal.cache.file" select="'"'$check_cache_url'"'"/>'
         echo '<xsl:variable name="site.dir" select="'"'$sdir'"'"/>'
         echo '<xsl:output method="text"/>'
@@ -544,7 +544,7 @@ yelp_links_page () {
 }
 
 yelp_links () {
-    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
+    if [ "$#" = "0" ] || [ "x$1" = "x--help" ] || [ "x$1" = "x-h" ]; then
         yelp_usage_links
         exit 1
     fi
@@ -569,7 +569,7 @@ yelp_links () {
                 ;;
         esac
     done
-    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
+    if [ "$#" = "0" ] || [ "x$1" = "x--help" ] || [ "x$1" = "x-h" ]; then
         yelp_usage_links
         exit 1
     fi
@@ -585,7 +585,7 @@ yelp_links () {
                 check_cache_file=1
                 ;;
             *)
-                break
+                return
                 ;;
         esac
     fi
@@ -599,7 +599,7 @@ yelp_links () {
         fi
     fi
 
-    check_out_file=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
+    check_out_file=$(mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX)
     check_db=yelp_links_db
     check_page=yelp_links_page
     yelp_check_iter_args "$@" > "$check_out_file"
@@ -632,7 +632,7 @@ yelp_media_page () {
     fi
     xsltproc "$xsl_media" "$1" | \
         sort | uniq | \
-        while read line; do
+        while read -r line; do
             src=$(urldecode "$line")
             if [ ! -f "$dname$src" ]; then
                 echo "$sdir$bname: $line"
@@ -641,7 +641,7 @@ yelp_media_page () {
 }
 
 yelp_media () {
-    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
+    if [ "$#" = "0" ] || [ "x$1" = "x--help" ] || [ "x$1" = "x-h" ]; then
         yelp_usage_media
         exit 1
     fi
@@ -657,11 +657,11 @@ yelp_media () {
                 ;;
         esac
     done
-    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
+    if [ "$#" = "0" ] || [ "x$1" = "x--help" ] || [ "x$1" = "x-h" ]; then
         yelp_usage_media
         exit 1
     fi
-    check_out_file=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
+    check_out_file=$(mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX)
     check_db=yelp_media_page
     check_page=yelp_media_page
     yelp_check_iter_args "$@" > "$check_out_file"
@@ -676,7 +676,7 @@ yelp_media () {
 
 yelp_orphans_page () {
     if [ "x$check_site" = "x1" ]; then
-        sdir=$(cd $(dirname "$1") && pwd)
+        sdir=$(cd "$(dirname "$1")" && pwd)
         sdir=${sdir##${check_site_root}}/
     fi
     (
@@ -686,9 +686,9 @@ yelp_orphans_page () {
         echo ' xmlns:exsl="http://exslt.org/common"'
         echo ' extension-element-prefixes="exsl"'
         echo ' version="1.0">'
-        xsl='file://'`urlencode "$xsl_mal_link"`
+        xsl='file://'$(urlencode "$xsl_mal_link")
         echo '<xsl:import href="'"$xsl"'"/>'
-        check_cache_url='file://'`urlencode "$check_cache_file"`
+        check_cache_url='file://'$(urlencode "$check_cache_file")
         echo '<xsl:param name="mal.cache.file" select="'"'$check_cache_url'"'"/>'
         echo '<xsl:variable name="site.dir" select="'"'$sdir'"'"/>'
         echo '<xsl:output method="text"/>'
@@ -707,7 +707,7 @@ yelp_orphans_page () {
 }
 
 yelp_orphans () {
-    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
+    if [ "$#" = "0" ] || [ "x$1" = "x--help" ] || [ "x$1" = "x-h" ]; then
         yelp_usage_orphans
         exit 1
     fi
@@ -728,7 +728,7 @@ yelp_orphans () {
                 ;;
         esac
     done
-    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
+    if [ "$#" = "0" ] || [ "x$1" = "x--help" ] || [ "x$1" = "x-h" ]; then
         yelp_usage_orphans
         exit 1
     fi
@@ -744,7 +744,7 @@ yelp_orphans () {
                 check_cache_file=1
                 ;;
             *)
-                break
+                return
                 ;;
         esac
     fi
@@ -758,7 +758,7 @@ yelp_orphans () {
         fi
     fi
 
-    check_out_file=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
+    check_out_file=$(mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX)
     check_db=
     check_page=yelp_orphans_page
     yelp_check_iter_args "$@" > "$check_out_file"
@@ -778,7 +778,7 @@ yelp_comments_page () {
     ext=$(echo "$1" | sed -e 's/.*\.//')
     bname=$(basename "$1" ".$ext")
     if [ "x$check_site" = "x1" ]; then
-        sdir=$(cd $(dirname "$1") && pwd)
+        sdir=$(cd "$(dirname "$1")" && pwd)
         sdir=${sdir##${check_site_root}}/
     fi
     xsltproc --stringparam basename "$bname" \
@@ -787,7 +787,7 @@ yelp_comments_page () {
 }
 
 yelp_comments () {
-    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
+    if [ "$#" = "0" ] || [ "x$1" = "x--help" ] || [ "x$1" = "x-h" ]; then
         yelp_usage_comments
         exit 1
     fi
@@ -803,7 +803,7 @@ yelp_comments () {
                 ;;
         esac
     done
-    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
+    if [ "$#" = "0" ] || [ "x$1" = "x--help" ] || [ "x$1" = "x-h" ]; then
         yelp_usage_comments
         exit 1
     fi
@@ -815,7 +815,7 @@ yelp_comments () {
 
 yelp_license_page () {
     if [ "x$check_site" = "x1" ]; then
-        sdir=$(cd $(dirname "$1") && pwd)
+        sdir=$(cd "$(dirname "$1")" && pwd)
         sdir=${sdir##${check_site_root}}/
     fi
     xsltproc --xinclude \
@@ -827,7 +827,7 @@ yelp_license_page () {
 }
 
 yelp_license () {
-    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
+    if [ "$#" = "0" ] || [ "x$1" = "x--help" ] || [ "x$1" = "x-h" ]; then
         yelp_usage_license
         exit 1
     fi
@@ -857,7 +857,7 @@ yelp_license () {
                 ;;
         esac
     done
-    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
+    if [ "$#" = "0" ] || [ "x$1" = "x--help" ] || [ "x$1" = "x-h" ]; then
         yelp_usage_license
         exit 1
     fi
@@ -875,7 +875,7 @@ yelp_style_page () {
     ext=$(echo "$1" | sed -e 's/.*\.//')
     bname=$(basename "$1" ".$ext")
     if [ "x$check_site" = "x1" ]; then
-        sdir=$(cd $(dirname "$1") && pwd)
+        sdir=$(cd "$(dirname "$1")" && pwd)
         sdir=${sdir##${check_site_root}}/
     fi
     style=$(echo "$mallard_style" | xsltproc - "$1")
@@ -886,7 +886,7 @@ yelp_style_page () {
             # We treat an empty --only '' as requesting pages with no style
             if [ "x$style" = "x" ]; then output=1; fi
         else
-            for pstyle in "$style"; do
+            for pstyle in $style; do
                 for sstyle in $(echo "$check_only" | sed -e 's/,/ /g'); do
                     if [ "$pstyle" = "$sstyle" ]; then
                         output=1
@@ -902,7 +902,7 @@ yelp_style_page () {
             # We treat an empty --except '' as excluding pages with no style
             if [ "x$style" = "x" ]; then output=0; fi
         else
-            for pstyle in "$style"; do
+            for pstyle in $style; do
                 for sstyle in $(echo "$check_except" | sed -e 's/,/ /g'); do
                     if [ "$pstyle" = "$sstyle" ]; then
                         output=0
@@ -919,7 +919,7 @@ yelp_style_page () {
 }
 
 yelp_style () {
-    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
+    if [ "$#" = "0" ] || [ "x$1" = "x--help" ] || [ "x$1" = "x-h" ]; then
         yelp_usage_style
         exit 1
     fi
@@ -951,7 +951,7 @@ yelp_style () {
                 ;;
         esac
     done
-    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
+    if [ "$#" = "0" ] || [ "x$1" = "x--help" ] || [ "x$1" = "x-h" ]; then
         yelp_usage_style
         exit 1
     fi
@@ -959,7 +959,7 @@ yelp_style () {
     check_page=yelp_style_page
     if [ "x$check_totals" = "x1" ]; then
         yelp_check_iter_args "$@" | \
-            while read line; do
+            while read -r line; do
                 styles=$(echo "$line" | sed -e 's/^[^:]*://')
                 if [ "x$styles" = "x" ]; then
                     echo ""
@@ -976,7 +976,7 @@ yelp_style () {
 }
 
 yelp_status () {
-    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
+    if [ "$#" = "0" ] || [ "x$1" = "x--help" ] || [ "x$1" = "x-h" ]; then
         yelp_usage_status
         exit 1
     fi
@@ -1031,11 +1031,11 @@ yelp_status () {
                 ;;
         esac
     done
-    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
+    if [ "$#" = "0" ] || [ "x$1" = "x--help" ] || [ "x$1" = "x-h" ]; then
         yelp_usage_status
         exit 1
     fi
-    check_cache_file=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
+    check_cache_file=$(mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX)
     if [ "x$check_site" = "x1" ]; then
         yelp-build cache -s -o "$check_cache_file" "$@"
     else
@@ -1059,7 +1059,7 @@ yelp_validate_db () {
     version=$(echo "$docbook_version" | xsltproc - "$1")
     major=$(echo "$version" | cut -c1)
     if [ "x$major" = "x5" ]; then
-        check_out_file=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
+        check_out_file=$(mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX)
         rng_uri="http://docbook.org/xml/$version/rng/docbook.rng"
         if [ "x$check_jing" = "x1" ]; then
             jing -i "$rng_uri" "$1" > "$check_out_file" 2>&1
@@ -1067,7 +1067,7 @@ yelp_validate_db () {
             xmllint --noout --xinclude --noent --relaxng "$rng_uri" "$1" > "$check_out_file" 2>&1
         fi
         yelp_check_retval="$?"
-        cat "$check_out_file" | grep -v 'validates$'
+        grep -v 'validates$' "$check_out_file"
         rm "$check_out_file"
     elif xmllint --nocdata "$1" | grep -q '<!DOCTYPE'; then
         xmllint --noout --xinclude --noent --postvalid "$1" || yelp_check_retval="$?"
@@ -1081,10 +1081,10 @@ yelp_validate_page () {
     # Using temp files because pipes create subshells, making it really
     # hard to return the right exit status in a portable way.
     if [ "x$check_rng_dir" = "x" ]; then
-        check_rng_dir=`mktemp -d "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
+        check_rng_dir=$(mktemp -d "${TMPDIR:-/tmp}"/yelp-XXXXXXXX)
     fi
-    check_out_file=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
-    check_rng_file=`(
+    check_out_file=$(mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX)
+    check_rng_file=$( (
             echo '<xsl:stylesheet'
             echo ' xmlns:cache="http://projectmallard.org/cache/1.0/"'
             echo ' xmlns:xsl="http://www.w3.org/1999/XSL/Transform"'
@@ -1104,15 +1104,15 @@ yelp_validate_page () {
             echo '</xsl:choose>'
             echo '</xsl:template>'
             echo '</xsl:stylesheet>'
-            ) | xsltproc - "$1"`
-    check_rng_file=`urlencode "$check_rng_file" /`.rng
+            ) | xsltproc - "$1")
+    check_rng_file=$(urlencode "$check_rng_file" /).rng
     if [ ! -f "$check_rng_dir/$check_rng_file" ]; then
         # If we've already made an RNG file for this version string, don't
         # do it again. We've urlencoded the file name + slashes, because
         # version strings often contain slashes. But xsltproc treats the
         # -o option as a URL and urldecodes, so doubly urlencode, because
         # we want the urlencoded string to be the on-disk name.
-        xsltproc -o "$check_rng_dir/"`urlencode "$check_rng_file"` \
+        xsltproc -o "$check_rng_dir/""$(urlencode "$check_rng_file")" \
             --param rng.strict "$check_strict" \
             --stringparam rng.strict.allow "$check_strict_allow" \
             "$xsl_mal_rng" "$1"
@@ -1123,13 +1123,13 @@ yelp_validate_page () {
         xmllint --noout --xinclude --noent --relaxng "$check_rng_dir/$check_rng_file" "$1" > "$check_out_file" 2>&1
     fi
     ret="$?"
-    cat "$check_out_file" | grep -v 'validates$'
+    grep -v 'validates$' "$check_out_file"
     rm "$check_out_file"
     return $ret;
 }
 
 yelp_validate () {
-    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
+    if [ "$#" = "0" ] || [ "x$1" = "x--help" ] || [ "x$1" = "x-h" ]; then
         yelp_usage_validate
         exit 1
     fi
@@ -1160,7 +1160,7 @@ yelp_validate () {
                 ;;
         esac
     done
-    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
+    if [ "$#" = "0" ] || [ "x$1" = "x--help" ] || [ "x$1" = "x-h" ]; then
         yelp_usage_validate
         exit 1
     fi
