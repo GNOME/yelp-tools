@@ -32,7 +32,7 @@ xsl_mal_files='@DATADIR@/xslt/mal-files.xsl'
 
 mkdir_p () {
     if [ ! -d "$1" ]; then
-        mkdir_p `dirname "$1"`
+        mkdir_p "$(dirname "$1")"
         mkdir "$1"
     fi
 }
@@ -154,7 +154,7 @@ yelp_paths_normalize () {
 
 yelp_cache_in_page () {
     fbase=$(basename "$1")
-    fdir=$( (cd $(dirname "$1") && pwd) )
+    fdir=$( (cd "$(dirname "$1")" && pwd) )
     sdir=${fdir##${cache_site_root}}/
     url=file://$(echo "$fdir/$fbase" | urlencode)
     if [ "x$cache_site" = "x1" ]; then
@@ -166,7 +166,7 @@ yelp_cache_in_page () {
 yelp_cache_in_site () {
     for dir in "$1"/*; do
         if [ -d "$dir" ]; then
-            if [ $(basename "$dir") != "__pintail__" ]; then
+            if [ "$(basename "$dir")" != "__pintail__" ]; then
                 yelp_cache_in_site "$dir"
             fi
         fi
@@ -219,7 +219,7 @@ yelp_cache () {
                 ;;
         esac
     done
-    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
+    if [ "$#" = "0" ] ||[ "x$1" = "x--help" ] || [ "x$1" = "x-h" ]; then
         yelp_usage_cache
         exit 1
     fi
@@ -237,10 +237,10 @@ yelp_html_xsl_common () {
         echo '<xsl:variable name="yelp.internal.datadir" select="'"''"'"/>'
     fi
     if [ "x$html_internal_xsl" != "x" ]; then
-        echo '<xsl:include href="file://'`echo "$html_internal_xsl" | urlencode`'"/>'
+        echo '<xsl:include href="file://'"$(echo "$html_internal_xsl" | urlencode)"'"/>'
     fi
     if [ "x$html_custom" != "x" ]; then
-        echo '<xsl:include href="file://'`echo "$html_custom" | urlencode`'"/>'
+        echo '<xsl:include href="file://'"$(echo "$html_custom" | urlencode)"'"/>'
     fi
     echo '<xsl:template name="html.css">'
     echo ' <xsl:param name="node" select="."/>'
@@ -281,8 +281,8 @@ yelp_html_xsl_common () {
 }
 yelp_html_db2html () {
     for xml in "$@"; do
-        xmldir=`dirname "$xml"`
-        xmldir=`(cd "$xmldir" && pwd)`
+        xmldir=$(dirname "$xml")
+        xmldir=$( (cd "$xmldir" && pwd))
         # Output HTML
         (
             echo '<xsl:stylesheet'
@@ -292,9 +292,9 @@ yelp_html_db2html () {
             echo ' extension-element-prefixes="exsl"'
             echo ' version="1.0">'
             if [ "x$is_xhtml" = "x1" ]; then
-                xsl='file://'`echo "$xsl_db2xhtml" | urlencode`
+                xsl='file://'$(echo "$xsl_db2xhtml" | urlencode)
             else
-                xsl='file://'`echo "$xsl_db2html" | urlencode`
+                xsl='file://'$(echo "$xsl_db2html" | urlencode)
             fi
             echo '<xsl:import href="'"$xsl"'"/>'
             yelp_html_xsl_common
@@ -317,12 +317,12 @@ yelp_html_db2html () {
                 echo ' </xsl:for-each>'
                 echo '</xsl:template>'
                 echo '</xsl:stylesheet>'
-            ) | xsltproc --path "$html_paths" --xinclude - "$xml" | while read media; do
-                mfile=`echo "$media" | urldecode`
+            ) | xsltproc --path "$html_paths" --xinclude - "$xml" | while read -r media; do
+                mfile=$(echo "$media" | urldecode)
                 minput="$xmldir/$mfile"
                 moutput="$html_out/$mfile"
-                mkdir_p `dirname "$moutput"`
-                if [ ! -f "$minput" -a "x$html_paths" != "x" ]; then
+                mkdir_p "$(dirname "$moutput")"
+                if [ ! -f "$minput" ] && [ "x$html_paths" != "x" ]; then
                     minput_rel=${minput#"$(pwd)/"}
                     if [ "x$minput_rel" != "x$minput_src" ]; then
                         for path in $html_paths; do
@@ -333,7 +333,7 @@ yelp_html_db2html () {
                         done
                     fi
                 fi
-                if [ -f "$minput" -o "x$html_ignore_media" != "x1" ]; then
+                if [ -f "$minput" ] || [ "x$html_ignore_media" != "x1" ]; then
                     cp "$minput" "$moutput"
                 fi
             done
@@ -345,13 +345,13 @@ yelp_html_db2html () {
 
 yelp_html_mal2html () {
     if [ "x$html_cache_file" != "x" ]; then
-        html_cache_file=`(cd $(dirname "$html_cache_file") && pwd)`/`basename "$html_cache_file"`
+        html_cache_file=$( (cd "$(dirname "$html_cache_file")" && pwd))/$(basename "$html_cache_file")
     else
         html_cache_file_is_tmp="yes"
-        html_cache_file=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
+        html_cache_file=$(mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX)
         yelp_cache -o "$html_cache_file" "$@"
     fi
-    html_tmp_infile=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
+    html_tmp_infile=$(mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX)
     yelp_cache_in "$@" > "$html_tmp_infile"
     # Output HTML
     (
@@ -365,15 +365,15 @@ yelp_html_mal2html () {
         echo ' extension-element-prefixes="exsl"'
         echo ' version="1.0">'
         if [ "x$is_xhtml" = "x1" ]; then
-            xsl='file://'`echo "$xsl_mal2xhtml" | urlencode`
+            xsl='file://'$(echo "$xsl_mal2xhtml" | urlencode)
         else
-            xsl='file://'`echo "$xsl_mal2html" | urlencode`
+            xsl='file://'$(echo "$xsl_mal2html" | urlencode)
         fi
         echo '<xsl:import href="'"$xsl"'"/>'
         echo '<xsl:include href="'"$xsl_mal_files"'"/>'
         echo '<xsl:output method="text"/>'
         yelp_html_xsl_common
-        html_cache_url='file://'`echo "$html_cache_file" | urlencode`
+        html_cache_url='file://'$(echo "$html_cache_file" | urlencode)
         echo '<xsl:param name="mal.cache.file" select="'"'$html_cache_url'"'"/>'
         echo '<xsl:template match="/">'
         echo '<xsl:for-each select="cache:cache/mal:page">'
@@ -387,14 +387,14 @@ yelp_html_mal2html () {
         echo '</xsl:for-each>'
         echo '</xsl:template>'
         echo '</xsl:stylesheet>'
-    ) | (cd "$html_out" && xsltproc $html_profile \
+    ) | (cd "$html_out" && xsltproc "$html_profile" \
         --path "$html_paths" --xinclude \
         - "$html_tmp_infile") | sort | uniq | \
-    while read line; do
+    while read -r line; do
         # Copy media from paths output by HTML transform
         line_src=$(echo "$line" | cut -d' ' -f1 | urldecode)
         line_dest="$html_out/"$(echo "$line" | cut -d' ' -f2)
-        if [ ! -f "$line_src" -a "x$html_paths" != "x" ]; then
+        if [ ! -f "$line_src" ] && [ "x$html_paths" != "x" ]; then
             line_src_rel=${line_src#"$(pwd)/"}
             if [ "x$line_src_rel" != "x$line_src" ]; then
                 for path in $html_paths; do
@@ -405,11 +405,11 @@ yelp_html_mal2html () {
                 done
             fi
         fi
-        line_dest=`echo "$line_dest" | urldecode`
+        line_dest=$(echo "$line_dest" | urldecode)
         if [ "$line_src" != "$line_dest" ]; then
-            line_dir=`dirname "$line_dest"`
+            line_dir=$(dirname "$line_dest")
             mkdir_p "$line_dir"
-            if [ -f "$line_src" -o "x$html_ignore_media" != "x1" ]; then
+            if [ -f "$line_src" ] || [ "x$html_ignore_media" != "x1" ]; then
                 cp "$line_src" "$line_dest"
             fi
         fi
@@ -465,18 +465,18 @@ yelp_html () {
         echo "Error: output must be a directory." 1>&2
         exit 1
     fi
-    html_out=`(cd "$html_out" && pwd)`
+    html_out=$( (cd "$html_out" && pwd))
     if [ "x$html_custom" != "x" ]; then
-        html_custom_dir=`dirname "$html_custom"`
-        html_custom_dir=`(cd "$html_custom_dir" && pwd)`
-        html_custom="$html_custom_dir"/`basename "$html_custom"`
+        html_custom_dir=$(dirname "$html_custom")
+        html_custom_dir=$( (cd "$html_custom_dir" && pwd))
+        html_custom="$html_custom_dir"/$(basename "$html_custom")
     fi
-    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
+    if [ "$#" = "0" ] || [ "x$1" = "x--help" ] || [ "x$1" = "x-h" ]; then
         yelp_usage_html
         exit 1
     fi
-    ext=`echo "$1" | sed -e 's/.*\.//'`
-    if [ "x$ext" = "xxml" -o "x$ext" = "xdocbook" ]; then
+    ext=$(echo "$1" | sed -e 's/.*\.//')
+    if [ "x$ext" = "xxml" ] || [ "x$ext" = "xdocbook" ]; then
         yelp_html_db2html "$@"
     else
         yelp_html_mal2html "$@"
@@ -515,19 +515,19 @@ yelp_epub () {
                 ;;
         esac
     done
-    if [ "$#" = "0" -o "x$1" = "x--help" -o "x$1" = "x-h" ]; then
+    if [ "$#" = "0" ] || [ "x$1" = "x--help" ] || [ "x$1" = "x-h" ]; then
         yelp_usage_epub
         exit 1
     fi
     if [ "x$epub_cache_file" != "x" ]; then
-        epub_cache_file=`(cd $(dirname "$epub_cache_file") && pwd)`/`basename "$epub_cache_file"`
+        epub_cache_file=$( (cd "$(dirname "$epub_cache_file")" && pwd))/$(basename "$epub_cache_file")
     else
         epub_cache_file_is_tmp="yes"
-        epub_cache_file=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
+        epub_cache_file=$(mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX)
         yelp_cache -o "$epub_cache_file" "$@"
     fi
     html_cache_file="$epub_cache_file"
-    epub_data_out=`mktemp -d "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
+    epub_data_out=$(mktemp -d "${TMPDIR:-/tmp}"/yelp-XXXXXXXX)
     html_out="$epub_data_out/OPS"
     mkdir "$html_out"
     mkdir "$html_out/yelp"
@@ -535,8 +535,8 @@ yelp_epub () {
     html_internal_xsl="$xsl_mal_epub"
     yelp_html_mal2html "$@"
 
-    epub_id=`uuidgen`
-    epub_data=`(cd "$html_out" && ls yelp/*.*)`
+    epub_id=$(uuidgen)
+    epub_data=$( (cd "$html_out" && ls yelp/*.*))
     xsltproc \
         --path "$html_paths" \
         -o "$html_out/opf.opf" \
@@ -562,9 +562,9 @@ yelp_epub () {
     ) > "$epub_data_out/META-INF/container.xml"
 
     if [ "x$epub_out" = "x" ]; then
-        epub_out=`pwd`/index.epub
+        epub_out=$(pwd)/index.epub
     else
-        epub_out=`(cd $(dirname "$epub_out") && pwd)`/`basename "$epub_out"`
+        epub_out=$( (cd "$(dirname "$epub_out")" && pwd))/$(basename "$epub_out")
     fi
     (cd "$epub_data_out" && zip -q -r "$epub_out" mimetype META-INF OPS)
 
