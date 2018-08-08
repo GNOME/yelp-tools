@@ -19,8 +19,8 @@
 tmpldir="@YELP_TMPL_DIR@"
 
 yelp_describe_tmpl () {
-    line="  "`basename "$1" | sed -e 's/\.'$2'$//'`
-    desc=`cat "$f" | grep '<\?yelp-tmpl-desc' | sed -e 's/<?yelp-tmpl-desc //' -e 's/?>$//'`
+    line="  "$(basename "$1" | sed -e 's/\.'"$2"'$//')
+    desc=$(grep '<\?yelp-tmpl-desc' "$f" | sed -e 's/<?yelp-tmpl-desc //' -e 's/?>$//')
     if [ "x$desc" != "x" ]; then
         line="$line - $desc"
     fi
@@ -37,34 +37,50 @@ yelp_usage() {
     echo "Options:"
     echo "  --stub  Create a .page.stub file instead of a .page file"
     echo "  --tmpl  Copy an installed template to a local template"
-    if [ -f *.page.tmpl ]; then
-        echo ""
-        echo "Local Mallard Templates:"
-        for f in *.page.tmpl; do
+    wroteheader=0
+    for f in *.page.tmpl; do
+        if [ -e "$f" ]; then
+            if [ $wroteheader = 0 ]; then
+                echo ""
+                echo "Local Mallard Templates:"
+                wroteheader=1
+            fi
             yelp_describe_tmpl "$f" "page.tmpl"
-        done
-    fi
-    if [ -f ${tmpldir}*.page ]; then
-        echo ""
-        echo "Mallard Templates:"
-        for f in ${tmpldir}*.page; do
+        fi
+    done
+    wroteheader=0
+    for f in ${tmpldir}*.page; do
+        if [ -e "$f" ]; then
+            if [ $wroteheader = 0 ]; then
+                echo ""
+                echo "Mallard Templates:"
+                wroteheader=1
+            fi
             yelp_describe_tmpl "$f" "page"
-        done
-    fi
-    if [ -f *.docbook.tmpl ]; then
-        echo ""
-        echo "Local DocBook Templates:"
-        for f in *.docbook.tmpl; do
+        fi
+    done
+    wroteheader=0
+    for f in *.docbook.tmpl; do
+        if [ -e "$f" ]; then
+            if [ $wroteheader = 0 ]; then
+                echo ""
+                echo "Local DocBook Templates:"
+                wroteheader=1
+            fi
             yelp_describe_tmpl "$f" "xml.tmpl"
-        done
-    fi
-    if [ -f ${tmpldir}*.docbook ]; then
-        echo ""
-        echo "DocBook Templates:"
-        for f in ${tmpldir}*.docbook; do
+        fi
+    done
+    wroteheader=0
+    for f in ${tmpldir}*.docbook; do
+        if [ -e "$f" ]; then
+            if [ $wroteheader = 0 ]; then
+                echo ""
+                echo "DocBook Templates:"
+                wroteheader=1
+            fi
             yelp_describe_tmpl "$f" "xml"
-        done
-    fi
+        fi
+    done
 }
 
 if [ $# -lt 2 ]; then
@@ -91,9 +107,9 @@ while [ $# -gt 0 ]; do
 done
 
 # Locate the template file
-if [ $(yelp_get_extension ${1}) = "tmpl" -a -f "${1}" ]; then
+if [ "$(yelp_get_extension "${1}")" = "tmpl" ] && [ -f "${1}" ]; then
     infile="${1}"
-    outext="."$(yelp_get_extension $(basename "${1}" ".tmpl"))
+    outext="."$(yelp_get_extension "$(basename "${1}" ".tmpl")")
 elif [ -f "${1}.page.tmpl" ]; then
     infile="${1}.page.tmpl"
     outext=".page"
@@ -112,17 +128,17 @@ else
 fi
 
 # Set up some variables for substitution
-if type git >/dev/null 2>&1; then
-    username=`git config user.name`
-    useremail=`git config user.email`
+if command -v git >/dev/null 2>&1; then
+    username=$(git config user.name)
+    useremail=$(git config user.email)
 fi
-if [ "x$username" = "x" -a "x$useremail" = "x" ]; then
-    if type bzr >/dev/null 2>&1; then
-        username=`bzr whoami | sed -e 's/ <.*//'`
-        useremail=`bzr whoami --email`
+if [ "x$username" = "x" ] && [ "x$useremail" = "x" ]; then
+    if command -v bzr >/dev/null 2>&1; then
+        username=$(bzr whoami | sed -e 's/ <.*//')
+        useremail=$(bzr whoami --email)
     fi
 fi
-if [ "x$username" = "x" -a "x$useremail" = "x" ]; then
+if [ "x$username" = "x" ] && [ "x$useremail" = "x" ]; then
     username='YOUR NAME'
     useremail='YOUR EMAIL ADDRESS'
 fi
@@ -134,14 +150,14 @@ fi
 outid=$(basename "${2}")
 
 if [ "x$spec" != "x" ]; then
-    if [ "."$(yelp_get_extension "${2}") = "$spec" ]; then
+    if [ ".""$(yelp_get_extension "${2}")" = "$spec" ]; then
         outfile="${2}"
-    elif [ "."$(yelp_get_extension "${2}") = "$outext" ]; then
+    elif [ ".""$(yelp_get_extension "${2}")" = "$outext" ]; then
         outfile="${2}${spec}"
     else
         outfile="${2}${outext}${spec}"
     fi
-elif [ "."$(yelp_get_extension ${2}) = "$outext" ]; then
+elif [ ".""$(yelp_get_extension "${2}")" = "$outext" ]; then
     outfile="${2}"
 else
     outfile="${2}${outext}"
@@ -150,10 +166,10 @@ fi
 if [ "x$spec" = "x.tmpl" ]; then
     cp "$infile" "$outfile"
 else
-    cat "$infile" | grep -v '<\?yelp-tmpl-desc' | sed \
+    grep -v '<\?yelp-tmpl-desc' "$infile" | sed \
         -e s/@ID@/"$outid"/ \
-        -e s/@DATE@/`date +%Y-%m-%d`/ \
-        -e s/@YEAR@/`date +%Y`/ \
+        -e s/@DATE@/"$(date +%Y-%m-%d)"/ \
+        -e s/@YEAR@/"$(date +%Y)"/ \
         -e s/@NAME@/"$username"/ \
         -e s/@EMAIL@/"$useremail"/ \
         -e s/@TITLE@/"$pagetitle"/ \
