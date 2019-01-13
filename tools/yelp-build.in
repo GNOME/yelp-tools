@@ -195,7 +195,9 @@ yelp_cache_in () {
                 yelp_cache_in_site "$page"
             else
                 for sub in "$page"/*.page "$page"/*.stack; do
-                    yelp_cache_in_page "$sub"
+                    if [ -e "$page" ]; then
+                        yelp_cache_in_page "$sub"
+                    fi
                 done
             fi
         else
