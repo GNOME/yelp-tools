@@ -39,6 +39,9 @@ if test x"$XMLLINT" = x; then
   AC_MSG_ERROR([xmllint not found])
 fi
 
+AC_ARG_VAR(HELP_RELAXNG, [RelaxNG file for validation])
+AC_ARG_VAR(HELP_SCHEMA, [W3C XML Schema file for validation])
+
 YELP_HELP_RULES='
 HELP_ID ?=
 HELP_POT ?=
@@ -140,8 +143,16 @@ check-help:
 	    xmlpath="$$lc:$(srcdir)/$$lc"; \
 	  fi; \
 	  for page in $(HELP_FILES); do \
-	    echo "$(XMLLINT) --nonet --noout --noent --path $$xmlpath --xinclude $$d$$lc/$$page"; \
-	    $(XMLLINT) --nonet --noout --noent --path "$$xmlpath" --xinclude "$$d$$lc/$$page"; \
+            if test x"$(HELP_RELAXNG)" != x; then \
+              echo "$(XMLLINT) --nonet --noout --noent --relaxng $(HELP_RELAXNG) --path $$xmlpath --xinclude $$d$$lc/$$page"; \
+              $(XMLLINT) --nonet --noout --noent --relaxng $(HELP_RELAXNG) --path "$$xmlpath" --xinclude "$$d$$lc/$$page"; \
+            elif test x"$(HELP_SCHEMA)" != x; then \
+              echo "$(XMLLINT) --nonet --noout --noent --schema $(HELP_SCHEMA) --path $$xmlpath --xinclude $$d$$lc/$$page"; \
+              $(XMLLINT) --nonet --noout --noent --schema $(HELP_SCHEMA) --path "$$xmlpath" --xinclude "$$d$$lc/$$page"; \
+            else \
+              echo "$(XMLLINT) --nonet --noout --noent --path $$xmlpath --xinclude $$d$$lc/$$page"; \
+              $(XMLLINT) --nonet --noout --noent --path "$$xmlpath" --xinclude "$$d$$lc/$$page"; \
+            fi; \
 	  done; \
 	done
 
