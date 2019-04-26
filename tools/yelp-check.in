@@ -1060,11 +1060,29 @@ yelp_validate_db () {
     major=$(echo "$version" | cut -c1)
     if [ "x$major" = "x5" ]; then
         check_out_file=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
-        rng_uri="http://docbook.org/xml/$version/rng/docbook.rng"
+        # Canonical URIs are http, but they 301 redirect to https. jing can handle
+        # https fine, but not the redirect. And jing doesn't look at catalogs. So
+        # just always feed jing an https URI.
         if [ "x$check_jing" = "x1" ]; then
+            rng_uri="https://docbook.org/xml/$version/rng/docbook.rng"
             jing -i "$rng_uri" "$1" > "$check_out_file" 2>&1
         else
-            xmllint --noout --xinclude --noent --relaxng "$rng_uri" "$1" > "$check_out_file" 2>&1
+            # xmllint, on the other hand, does support catalogs. It also doesn't
+            # do the redirect, but it wouldn't matter if it did because it doesn't
+            # do https. So if the schema is available locally in the catalog, hand
+            # xmllint the http URI so it can use the local copy. Otherwise, we have
+            # to get curl involved to do https.
+            rng_uri="http://docbook.org/xml/$version/rng/docbook.rng"
+            incat=$(xmlcatalog /etc/xml/catalog "$rng_uri" | grep -c '^file:')
+            if [ "x$incat" != "x0" ]; then
+                xmllint --noout --xinclude --noent --relaxng "$rng_uri" "$1" > "$check_out_file" 2>&1
+            else
+                rng_uri="https://docbook.org/xml/$version/rng/docbook.rng"
+                check_rng_file=`mktemp "${TMPDIR:-/tmp}"/yelp-XXXXXXXX`
+                curl -sL -o "$check_rng_file" "$rng_uri"
+                xmllint --noout --xinclude --noent --relaxng "$check_rng_file" "$1" > "$check_out_file" 2>&1
+                rm "$check_rng_file"
+            fi
         fi
         yelp_check_retval="$?"
         cat "$check_out_file" | grep -v 'validates$'
