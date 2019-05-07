@@ -1,3 +1,7 @@
+3.32.1
+======
+* yelp-check: Fix validation for DocBook 5 with https redirects
+
 3.32.0
 ======
 * Stable release. No changes since 3.31.90
