@@ -5,8 +5,9 @@
   <info>
     <!--
         Recommended statuses: stub incomplete draft outdated review candidate final
+        Remove version attributes you don't use.
     -->
-    <revision version="0.1" date="@DATE@" status="stub"/>
+    <revision version="0.1" docversion="0.1" pkgversion="0.1" date="@DATE@" status="stub"/>
 
     <credit type="author copyright">
       <name>@NAME@</name>
