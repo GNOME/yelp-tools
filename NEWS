@@ -1,3 +1,7 @@
+3.37.90
+=======
+* yelp-new: Added new templates
+
 3.32.2
 ======
 * yelp-build: Fix spurious warning about missing stack files
