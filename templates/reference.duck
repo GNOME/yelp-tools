@@ -1,0 +1,90 @@
+@ducktype/1.0
+[-] yelp-tmpl-desc Lists or tables of information for quick lookup
+
+= @TITLE@
+  [topic .reference version=1.1]
+
+[--
+  Recommended statuses: stub incomplete draft outdated review candidate final
+  Remove version attributes you don't use.
+--]
+@revision[version=0.1 docversion=0.1 pkgversion=0.1 date=@DATE@ status=stub]
+
+@credit[author copyright]
+  @name @NAME@
+  @email @EMAIL@
+  @years @YEAR@
+
+[--
+  This puts a link to this topic on the index page.
+  Change the xref to link it from another guide.
+--]
+@link[guide >index]
+
+[--
+  Think about whether other pages should be in the seealso list.
+  The target page will automatically get a seealso link back.
+@link[seealso >someotherid]
+--]
+
+[--
+  Think about whether external resources should be in the seealso
+  list. These require a title.
+@link[seealso >>http://someurl]
+  @title Link title
+--]
+
+@desc Write a short page description here.
+
+@keywords comma-separated list, of keywords, for search
+
+
+Optionally provide introductory text.
+Use terms lists, tables, and bullet lists for reference material.
+
+
+[terms]
+. Example terms list (title optional)
+
+- Term 1
+* Description
+
+- Term 2
+* Terms can have multiple paragraphs.
+
+  [screen]
+  Or any other block element.
+
+- Term 3.1
+- Term 3.2
+* Terms can also have multiple titles.
+
+
+[table]
+. Example table (title optional)
+
+[thead]
+[tr]
+- Column 1
+- Column 2
+
+[tbody]
+[tr]
+* Row 1, column 1
+* Row 1, column 2
+
+[tr]
+* Row 2, column 1
+* Row 2, column 2
+
+
+[list]
+. Example list (title optional)
+
+* Item 1
+
+* Item 2
+  * Subitem 2.1
+  * Subitem 2.2
+
+* Item 3
