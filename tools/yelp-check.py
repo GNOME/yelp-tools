@@ -118,6 +118,8 @@ class Checker:
 
     def iter_files(self, sitedir=None):
         issite = self.options.get('-s', False)
+        if len(self.fileargs) == 0:
+            self.fileargs.append('.')
         for filearg in self.fileargs:
             if os.path.isdir(filearg):
                 if issite:
