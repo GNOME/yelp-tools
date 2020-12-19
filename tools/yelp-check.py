@@ -192,8 +192,10 @@ class HrefsChecker (Checker):
 
         # safelisting URLs that we use as identifiers
         hrefs = {
-            'http://creativecommons.org/licenses/by-sa/3.0/': True,
-            'http://creativecommons.org/licenses/by-sa/3.0/us/': True
+             'http://creativecommons.org/licenses/by-sa/3.0/': True,
+            'https://creativecommons.org/licenses/by-sa/3.0/': True,
+             'http://creativecommons.org/licenses/by-sa/3.0/us/': True,
+            'https://creativecommons.org/licenses/by-sa/3.0/us/': True
         }
         retcode = 0
 
