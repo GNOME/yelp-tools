@@ -260,8 +260,10 @@ class HrefsChecker (Checker):
     formats = ['docbook4', 'docbook5', 'mallard']
     arguments = [
         ('help', '-h', None, 'Show this help and exit'),
-        ('site', '-s', None, 'Treat pages as belonging to a Mallard site')
+        ('site', '-s', None, 'Treat pages as belonging to a Mallard site'),
+        ('allow', None, 'URL', 'Allow URL or list of URLs without checking')
     ]
+    postblurb = 'URL may be a comma- and/or space-separated list, or specified\nmultiple times.'
 
     def main(self, args):
         if self.parse_args(args) != 0:
@@ -277,6 +279,10 @@ class HrefsChecker (Checker):
              'http://creativecommons.org/licenses/by-sa/3.0/us/': True,
             'https://creativecommons.org/licenses/by-sa/3.0/us/': True
         }
+        allow = self.get_option_list('allow')
+        if allow is not None:
+            for url in allow:
+                hrefs[url] = True
         retcode = 0
 
         for infile in self.iter_files():
@@ -638,6 +644,7 @@ class ValidateChecker (Checker):
         ('allow', None, 'NS', 'Explicitly allow namespace NS in strict mode'),
         ('jing', None, None, 'Use jing instead of xmllint for RNG validation')
     ]
+    postblurb = 'NS may be a comma- and/or space-separated list, or specified\nmultiple times.'
 
     def main(self, args):
         if self.parse_args(args) != 0:
