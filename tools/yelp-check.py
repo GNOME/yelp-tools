@@ -17,7 +17,7 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
-
+import configparser
 import lxml.etree
 import os
 import sys
@@ -78,6 +78,7 @@ class Checker:
     arguments = []
     postblurb = None
     xinclude = True
+    config = None
 
     def __init__(self, yelpcheck):
         self.yelpcheck = yelpcheck
@@ -92,32 +93,97 @@ class Checker:
 
     def parse_args(self, args):
         while len(args) > 0:
-            isopt = False
-            for arg in self.arguments:
-                if arg[0] == args[0]:
-                    if arg[1] is not None:
-                        if len(args) < 2:
-                            self.print_help()
-                            return 1
-                        if args[0] == '--allow':
-                            # FIXME we shouldn't just special-case --allow
-                            self.options.setdefault(args[0], [])
-                            self.options[args[0]].append(args[1])
-                        else:
-                            self.options[args[0]] = args[1]
-                        args = args[2:]
-                    else:
-                        self.options[args[0]] = True
-                        args = args[1:]
-                    isopt = True
-                    break
-            if not isopt:
+            argdef = None
+            if args[0].startswith('--'):
+                for arg_ in self.arguments:
+                    if args[0] == '--' + arg_[0]:
+                        argdef = arg_
+                        break
+                if argdef is None:
+                    self.print_help()
+                    return 1
+            elif args[0].startswith('-'):
+                for arg_ in self.arguments:
+                    if args[0] == arg_[1]:
+                        argdef = arg_
+                        break
+                if argdef is None:
+                    self.print_help()
+                    return 1
+            if argdef is not None:
+                takesarg = (argdef[2] is not None)
+                if takesarg:
+                    if len(args) < 2:
+                        self.print_help()
+                        return 1
+                    self.options.setdefault(argdef[0], [])
+                    self.options[argdef[0]].append(args[1])
+                    args = args[2:]
+                else:
+                    self.options[argdef[0]] = True
+                    args = args[1:]
+            else:
                 self.fileargs.append(args[0])
                 args = args[1:]
+        cfgfile = None
+        if len(self.fileargs) > 0:
+            cfgfile = os.path.join(os.path.dirname(self.fileargs[0]), '.yelp-tools.cfg')
+            if not os.path.exists(cfgfile):
+                cfgfile = None
+        if cfgfile is None:
+            cfgfile = os.path.join(os.getcwd(), '.yelp-tools.cfg')
+        if os.path.exists(cfgfile):
+            self.config = configparser.ConfigParser()
+            try:
+                self.config.read(cfgfile)
+            except Exception as e:
+                print(e, file=sys.stderr)
+                sys.exit(1)
         return 0
 
+    def get_option_bool(self, arg):
+        if arg in self.options:
+            return self.options[arg] == True
+        if self.config is not None:
+            val = self.config.get('check:' + self.name, arg, fallback=None)
+            if val is not None:
+                return (val == 'true')
+            val = self.config.get('check', arg, fallback=None)
+            if val is not None:
+                return (val == 'true')
+        return False
+
+    def get_option_str(self, arg):
+        if arg in self.options:
+            if isinstance(self.options[arg], list):
+                return self.options[arg][-1]
+        if self.config is not None:
+            val = self.config.get('check:' + self.name, arg, fallback=None)
+            if val is not None:
+                return val
+            val = self.config.get('check', arg, fallback=None)
+            if val is not None:
+                return val
+        return None
+
+    def get_option_list(self, arg):
+        if arg in self.options:
+            if isinstance(self.options[arg], list):
+                ret = []
+                for opt in self.options[arg]:
+                    ret.extend(opt.replace(',', ' ').split())
+                return ret
+        if self.config is not None:
+            val = self.config.get('check:' + self.name, arg, fallback=None)
+            if val is not None:
+                return val.replace(',', ' ').split()
+            val = self.config.get('check', arg, fallback=None)
+            if val is not None:
+                return val.replace(',', ' ').split()
+        return None
+
     def iter_files(self, sitedir=None):
-        issite = self.options.get('-s', False)
+        issite = self.get_option_bool('site')
         if len(self.fileargs) == 0:
             self.fileargs.append('.')
         for filearg in self.fileargs:
@@ -130,7 +196,12 @@ class Checker:
                         if fname.endswith('.page'):
                             yield InputFile(filearg, fname)
             else:
-                yield InputFile(os.getcwd(), filearg)
+                if issite:
+                    # FIXME: should do some normalization here, I guess.
+                    # It's hard to get this perfect without a defined start dir
+                    yield InputFile(os.getcwd(), filearg, '/' + os.path.dirname(filearg))
+                else:
+                    yield InputFile(os.getcwd(), filearg)
 
     def iter_site(self, filepath, sitedir):
         for fname in os.listdir(filepath):
@@ -162,12 +233,18 @@ class Checker:
         print(self.blurb)
         print('\nOptions:')
         maxarglen = 2
+        args = []
         for arg in self.arguments:
+            argkey = '--' + arg[0]
             if arg[1] is not None:
-                maxarglen = max(len(arg[1]) + len(arg[0]) + 1, maxarglen)
-        for arg in self.arguments:
-            arg1 = (' ' + arg[1]) if arg[1] is not None else ''
-            print('  ' + (arg[0] + arg1).ljust(maxarglen) + '  ' + arg[2])
+                argkey = arg[1] + ', ' + argkey
+            if arg[2] is not None:
+                argkey = argkey + ' ' + arg[2]
+            args.append((argkey, arg[3]))
+        for arg in args:
+            maxarglen = max(maxarglen, len(arg[0]) + 1)
+        for arg in args:
+            print('  ' + (arg[0]).ljust(maxarglen) + '  ' + arg[1])
         if self.postblurb is not None:
             print(self.postblurb)
 
@@ -182,13 +259,14 @@ class HrefsChecker (Checker):
              'broken ulink or XLink links in FILES in a DocBook document.')
     formats = ['docbook4', 'docbook5', 'mallard']
     arguments = [
-        ('-h', None, 'Show this help and exit'),
-        ('-s', None, 'Treat pages as belonging to a Mallard site')]
+        ('help', '-h', None, 'Show this help and exit'),
+        ('site', '-s', None, 'Treat pages as belonging to a Mallard site')
+    ]
 
     def main(self, args):
         if self.parse_args(args) != 0:
             return 1
-        if '-h' in self.options:
+        if 'help' in self.options:
             self.print_help()
             return 0
 
@@ -234,13 +312,14 @@ class IdsChecker (Checker):
              'the base file name of the page file.')
     formats = ['mallard']
     arguments = [
-        ('-h', None, 'Show this help and exit'),
-        ('-s', None, 'Treat pages as belonging to a Mallard site')]
+        ('help', '-h', None, 'Show this help and exit'),
+        ('site', '-s', None, 'Treat pages as belonging to a Mallard site')
+    ]
 
     def main(self, args):
         if self.parse_args(args) != 0:
             return 1
-        if '-h' in self.options:
+        if 'help' in self.options:
             self.print_help()
             return 0
 
@@ -270,10 +349,11 @@ class LinksChecker (Checker):
              'or broken linkend links in FILES in a DocBook document.')
     formats = ['docbook4', 'docbook5', 'mallard']
     arguments = [
-        ('-h', None, 'Show this help and exit'),
-        ('-s', None, 'Treat pages as belonging to a Mallard site'),
-        ('-c', 'CACHE', 'Use the existing Mallard cache CACHE'),
-        ('-i', None, 'Ignore xrefs where href is present')]
+        ('help', '-h', None, 'Show this help and exit'),
+        ('site', '-s', None, 'Treat pages as belonging to a Mallard site'),
+        ('cache', '-c', 'CACHE', 'Use the existing Mallard cache CACHE'),
+        ('ignore', '-i', None, 'Ignore xrefs where href is present')
+    ]
 
     def __init__(self, yelpcheck):
         super().__init__(yelpcheck)
@@ -288,6 +368,7 @@ class LinksChecker (Checker):
             else:
                 sectid = thisid
         curid = pageid
+        ignore = self.get_option_bool('ignore')
         if curid is not None:
             if sectid is not None:
                 # id attrs in cache files are already fully formed
@@ -303,7 +384,8 @@ class LinksChecker (Checker):
             if xrefs:
                 xref = node.get('xref')
                 if xref is not None:
-                    self.idstoxrefs[curid].append(xref)
+                    if not (ignore and (node.get('href') is not None)):
+                        self.idstoxrefs[curid].append(xref)
         for child in node:
             self._accumulate_mal(child, pageid, sectid, xrefs, sitedir)
 
@@ -324,14 +406,15 @@ class LinksChecker (Checker):
     def main(self, args):
         if self.parse_args(args) != 0:
             return 1
-        if '-h' in self.options:
+        if 'help' in self.options:
             self.print_help()
             return 0
 
         retcode = 0
 
-        if '-c' in self.options:
-            xml = self.get_xml(InputFile(os.getcwd(), self.options['-c']))
+        cachefile = self.get_option_str('cache')
+        if cachefile is not None:
+            xml = self.get_xml(InputFile(os.getcwd(), cachefile))
             self._accumulate_mal(xml.getroot(), None, None, False)
 
         for infile in self.iter_files():
@@ -373,13 +456,14 @@ class MediaChecker (Checker):
              'audiodata, imagedata, and videodata elements.')
     formats = ['docbook4', 'docbook5', 'mallard']
     arguments = [
-        ('-h', None, 'Show this help and exit'),
-        ('-s', None, 'Treat pages as belonging to a Mallard site')]
+        ('help', '-h', None, 'Show this help and exit'),
+        ('site', '-s', None, 'Treat pages as belonging to a Mallard site')
+    ]
 
     def main(self, args):
         if self.parse_args(args) != 0:
             return 1
-        if '-h' in self.options:
+        if 'help' in self.options:
             self.print_help()
             return 0
 
@@ -418,9 +502,10 @@ class OrphansChecker (Checker):
              'topic links alone from the index page.')
     formats = ['mallard']
     arguments = [
-        ('-h', None, 'Show this help and exit'),
-        ('-s', None, 'Treat pages as belonging to a Mallard site'),
-        ('-c', 'CACHE', 'Use the existing Mallard cache CACHE')]
+        ('help', '-h', None, 'Show this help and exit'),
+        ('site', '-s', None, 'Treat pages as belonging to a Mallard site'),
+        ('cache', '-c', 'CACHE', 'Use the existing Mallard cache CACHE')
+    ]
 
     def __init__(self, yelpcheck):
         super().__init__(yelpcheck)
@@ -471,20 +556,21 @@ class OrphansChecker (Checker):
     def main(self, args):
         if self.parse_args(args) != 0:
             return 1
-        if '-h' in self.options:
+        if 'help' in self.options:
             self.print_help()
             return 0
 
         retcode = 0
 
-        if '-c' in self.options:
-            xml = self.get_xml(InputFile(os.getcwd(), self.options['-c']))
+        cachefile = self.get_option_str('cache')
+        if cachefile is not None:
+            xml = self.get_xml(InputFile(os.getcwd(), cachefile))
             for page in xml.getroot():
                 if page.tag == '{' + NAMESPACES['mal'] + '}page':
                     pageid = page.get('id')
                     if pageid is None or pageid == '':
                         continue
-                    self._collect_links(page)
+                    self._collect_links(page, page.get('{http://projectmallard.org/site/1.0/}dir', ''))
 
         pageids = set()
         for infile in self.iter_files():
@@ -505,7 +591,7 @@ class OrphansChecker (Checker):
                         if mid != '' and '/' not in mid:
                             siteupdirs[subid] = pageid
 
-        if '-s' in self.options:
+        if self.get_option_bool('site'):
             okpages = set(['/index'])
         else:
             okpages = set(['index'])
@@ -546,16 +632,17 @@ class ValidateChecker (Checker):
              'based on the version attribute.')
     formats = ['docbook4', 'docbook5', 'mallard']
     arguments = [
-        ('-h', None, 'Show this help and exit'),
-        ('-s', None, 'Treat pages as belonging to a Mallard site'),
-        ('--strict', None, 'Disallow unknown namespaces'),
-        ('--allow', 'NS', 'Explicitly allow namespace NS in strict mode'),
-        ('--jing', None, 'Use jing instead of xmllint for RNG validation')]
+        ('help', '-h', None, 'Show this help and exit'),
+        ('site', '-s', None, 'Treat pages as belonging to a Mallard site'),
+        ('strict', None, None, 'Disallow unknown namespaces'),
+        ('allow', None, 'NS', 'Explicitly allow namespace NS in strict mode'),
+        ('jing', None, None, 'Use jing instead of xmllint for RNG validation')
+    ]
 
     def main(self, args):
         if self.parse_args(args) != 0:
             return 1
-        if '-h' in self.options:
+        if 'help' in self.options:
             self.print_help()
             return 0
 
@@ -581,17 +668,18 @@ class ValidateChecker (Checker):
                 rng = os.path.join(self.tmpdir,
                                    version.replace('/', '__').replace(' ', '__'))
                 if not os.path.exists(rng):
-                    strict = 'true()' if ('--strict' in self.options) else 'false()'
-                    if '--allow' in self.options:
-                        allow = ' '.join(self.options['--allow'])
+                    strict = 'true()' if self.get_option_bool('strict') else 'false()'
+                    allow = self.get_option_list('allow')
+                    if allow is None:
+                        allow = ''
                     else:
-                        allow = ' '
+                        allow = ' '.join(allow)
                     subprocess.call(['xsltproc', '-o', rng,
                                     '--param', 'rng.strict', strict,
                                     '--stringparam', 'rng.strict.allow', allow,
                                     os.path.join(DATADIR, 'xslt', 'mal-rng.xsl'),
                                     infile.absfile])
-                if '--jing' in self.options:
+                if self.get_option_bool('jing'):
                     command = ['jing', '-i', rng, infile.filename]
                 else:
                     command = ['xmllint', '--noout', '--xinclude', '--noent',
@@ -614,7 +702,7 @@ class ValidateChecker (Checker):
                 # look at catalogs. So just always feed jing an https URI.
                 rnghttp = 'http://docbook.org/xml/' + version + '/rng/docbook.rng'
                 rnghttps = 'https://docbook.org/xml/' + version + '/rng/docbook.rng'
-                if '--jing' in self.options:
+                if self.get_option_bool('jing'):
                     command = ['jing', '-i', rnghttps, infile.filename]
                 else:
                     # xmllint, on the other hand, does support catalogs. It also
@@ -664,13 +752,14 @@ class CommentsChecker (Checker):
              'comment element in Mallard and the remark element in DocBook.')
     formats = ['docbook4', 'docbook5', 'mallard']
     arguments = [
-        ('-h', None, 'Show this help and exit'),
-        ('-s', None, 'Treat pages as belonging to a Mallard site')]
+        ('help', '-h', None, 'Show this help and exit'),
+        ('site', '-s', None, 'Treat pages as belonging to a Mallard site')
+    ]
 
     def main(self, args):
         if self.parse_args(args) != 0:
             return 1
-        if '-h' in self.options:
+        if 'help' in self.options:
             self.print_help()
             return 0
 
@@ -752,12 +841,13 @@ class LicenseChecker (Checker):
              'href attribute are reported as \'unknown\'')
     formats = ['mallard']
     arguments = [
-        ('-h', None, 'Show this help and exit'),
-        ('-s', None, 'Treat pages as belonging to a Mallard site'),
-        ('--only', 'LICENSES', 'Only show pages whose license is in LICENSES'),
-        ('--except', 'LICENSES', 'Exclude pages whose license is in LICENSES'),
-        ('--totals', None, 'Show total counts for each license')]
-    postblurb = 'LICENSES may be a comma- and/or space-separated list.'
+        ('help', '-h', None, 'Show this help and exit'),
+        ('site', '-s', None, 'Treat pages as belonging to a Mallard site'),
+        ('only', None, 'LICENSES', 'Only show pages whose license is in LICENSES'),
+        ('except', None, 'LICENSES', 'Exclude pages whose license is in LICENSES'),
+        ('totals', None, None, 'Show total counts for each license')
+    ]
+    postblurb = 'LICENSES may be a comma- and/or space-separated list, or specified\nmultiple times.'
 
     def get_license(self, href):
         if href is None:
@@ -774,7 +864,7 @@ class LicenseChecker (Checker):
     def main(self, args):
         if self.parse_args(args) != 0:
             return 1
-        if '-h' in self.options:
+        if 'help' in self.options:
             self.print_help()
             return 0
 
@@ -790,16 +880,16 @@ class LicenseChecker (Checker):
             if len(licenses) == 0:
                 licenses.append('none')
 
-            if '--only' in self.options:
-                only = self.options['--only'].replace(',', ' ').split()
+            only = self.get_option_list('only')
+            if only is not None:
                 skip = True
                 for lic in licenses:
                     if lic in only:
                         skip = False
                 if skip:
                     continue
-            if '--except' in self.options:
-                cept = self.options['--except'].replace(',', ' ').split()
+            cept = self.get_option_list('except')
+            if cept is not None:
                 skip = False
                 for lic in licenses:
                     if lic in cept:
@@ -807,14 +897,14 @@ class LicenseChecker (Checker):
                 if skip:
                     continue
 
-            if '--totals' in self.options:
+            if self.get_option_bool('totals'):
                 for lic in licenses:
                     totals.setdefault(lic, 0)
                     totals[lic] += 1
             else:
                 print(infile.sitedir + thisid + ': ' + ' '.join(licenses))
 
-        if '--totals' in self.options:
+        if self.get_option_bool('totals'):
             for lic in sorted(totals):
                 print(lic + ': ' + str(totals[lic]))
 
@@ -828,26 +918,38 @@ class StatusChecker (Checker):
              'matching page is reporting along with its status.')
     formats = ['mallard']
     arguments = [
-        ('-h', None, 'Show this help and exit'),
-        ('-s', None, 'Treat pages as belonging to a Mallard site'),
-        ('--version', 'VER', 'Select revisions with the version attribute VER'),
-        ('--docversion', 'VER', 'Select revisions with the docversion attribute VER'),
-        ('--pkgversion', 'VER', 'Select revisions with the pkgversion attribute VER'),
-        ('--older', 'DATE', 'Only show pages older than DATE'),
-        ('--newer', 'DATE', 'Only show pages newer than DATE'),
-        ('--only', 'STATUSES', 'Only show pages whose status is in STATUSES'),
-        ('--except', 'STATUSES', 'Exclude pages whose status is in STATUSES'),
-        ('--totals', None, 'Show total counts for each status')]
-    postblurb = 'VER and STATUSES may be comma- and/or space-separated lists.'
+        ('help', '-h', None, 'Show this help and exit'),
+        ('site', '-s', None, 'Treat pages as belonging to a Mallard site'),
+        ('version',    None, 'VER', 'Select revisions with the version attribute VER'),
+        ('docversion', None, 'VER', 'Select revisions with the docversion attribute VER'),
+        ('pkgversion', None, 'VER', 'Select revisions with the pkgversion attribute VER'),
+        ('older',  None, 'DATE', 'Only show pages older than DATE'),
+        ('newer',  None, 'DATE', 'Only show pages newer than DATE'),
+        ('only',   None, 'STATUSES', 'Only show pages whose status is in STATUSES'),
+        ('except', None, 'STATUSES', 'Exclude pages whose status is in STATUSES'),
+        ('totals', None, None, 'Show total counts for each status')
+    ]
+    postblurb = 'VER and STATUSES may be comma- and/or space-separated lists, or specified\nmultiple times.'
 
     def main(self, args):
         if self.parse_args(args) != 0:
             return 1
-        if '-h' in self.options:
+        if 'help' in self.options:
             self.print_help()
             return 0
 
         totals = {}
+
+        checks = []
+        ver = self.get_option_list('version')
+        if ver is not None:
+            checks.append(ver)
+        ver = self.get_option_list('docversion')
+        if ver is not None:
+            checks.append(['doc:' + v for v in ver])
+        ver = self.get_option_list('pkgversion')
+        if ver is not None:
+            checks.append(['pkg:' + v for v in ver])
 
         for infile in self.iter_files():
             xml = self.get_xml(infile)
@@ -861,13 +963,6 @@ class StatusChecker (Checker):
                 pkgversion = rev.get('pkgversion')
                 if pkgversion is not None:
                     revversion.append('pkg:' + pkgversion)
-                checks = []
-                if '--version' in self.options:
-                    checks.append(self.options['--version'].replace(',', ' ').split())
-                if '--docversion' in self.options:
-                    checks.append(['doc:' + s for s in self.options['--docversion'].replace(',', ' ').split()])
-                if '--pkgversion' in self.options:
-                    checks.append(['pkg:' + s for s in self.options['--pkgversion'].replace(',', ' ').split()])
                 revok = True
                 for check in checks:
                     checkok = False
@@ -896,25 +991,29 @@ class StatusChecker (Checker):
             else:
                 status = 'none'
                 date = None
-            if '--older' in self.options:
-                if date is None or date >= self.options['--older']:
+            older = self.get_option_str('older')
+            if older is not None:
+                if date is None or date >= older:
                     continue
-            if '--newer' in self.options:
-                if date is None or date <= self.options['--newer']:
+            newer = self.get_option_str('newer')
+            if newer is not None:
+                if date is None or date <= newer:
                     continue
-            if '--only' in self.options:
-                if not status in self.options['--only'].replace(',', ' ').split():
+            only = self.get_option_list('only')
+            if only is not None:
+                if status not in only:
                     continue
-            if '--except' in self.options:
-                if status in self.options['--except'].replace(',', ' ').split():
+            cept = self.get_option_list('except')
+            if cept is not None:
+                if status in cept:
                     continue
-            if '--totals' not in self.options:
-                print(infile.sitedir + pageid + ': ' + status)
-            else:
+            if self.get_option_bool('totals'):
                 totals.setdefault(status, 0)
                 totals[status] += 1
+            else:
+                print(infile.sitedir + pageid + ': ' + status)
 
-        if '--totals' in self.options:
+        if self.get_option_bool('totals'):
             for st in sorted(totals):
                 print(st + ': ' + str(totals[st]))
 
@@ -928,17 +1027,18 @@ class StyleChecker (Checker):
              'FILES. Each matching page is reporting along with its status.')
     formats = ['mallard']
     arguments = [
-        ('-h', None, 'Show this help and exit'),
-        ('-s', None, 'Treat pages as belonging to a Mallard site'),
-        ('--only', 'STYLES', 'Only show pages whose style is in STATUSES'),
-        ('--except', 'STYLES', 'Exclude pages whose style is in STATUSES'),
-        ('--totals', None, 'Show total counts for each style')]
-    postblurb = 'STYLES may be comma- and/or space-separated lists.'
+        ('help', '-h', None, 'Show this help and exit'),
+        ('site', '-s', None, 'Treat pages as belonging to a Mallard site'),
+        ('only',   None, 'STYLES', 'Only show pages whose style is in STATUSES'),
+        ('except', None, 'STYLES', 'Exclude pages whose style is in STATUSES'),
+        ('totals', None, None, 'Show total counts for each style')
+    ]
+    postblurb = 'STYLES may be comma- and/or space-separated lists, or specified\nmultiple times.'
 
     def main(self, args):
         if self.parse_args(args) != 0:
             return 1
-        if '-h' in self.options:
+        if 'help' in self.options:
             self.print_help()
             return 0
 
@@ -952,8 +1052,8 @@ class StyleChecker (Checker):
                 style = 'none'
             styles = style.split()
             # We'll set style to None if it doesn't meat the criteria
-            if '--only' in self.options:
-                only = self.options['--only'].replace(',', ' ').split()
+            only = self.get_option_list('only')
+            if only is not None:
                 if len(only) == 0:
                     # We treat a blank --only as requesting pages with no style
                     if style != 'none':
@@ -966,22 +1066,22 @@ class StyleChecker (Checker):
                             break
                     if not allow:
                         style = None
-            if '--except' in self.options:
-                cept = self.options['--except'].replace(',', ' ').split()
+            cept = self.get_option_list('except')
+            if cept is not None:
                 for st in styles:
                     if st in cept:
                         style = None
                         break
-            if '--totals' not in self.options:
-                if style is not None:
-                    print(infile.sitedir + thisid + ': ' + style)
-            else:
+            if self.get_option_bool('totals'):
                 if style is not None:
                     for st in styles:
                         totals.setdefault(st, 0)
                         totals[st] += 1
+            else:
+                if style is not None:
+                    print(infile.sitedir + thisid + ': ' + style)
 
-        if '--totals' in self.options:
+        if self.get_option_bool('totals'):
             for st in sorted(totals):
                 print(st + ': ' + str(totals[st]))
 
@@ -1043,4 +1143,3 @@ if __name__ == '__main__':
         sys.exit(YelpCheck().main())
     except KeyboardInterrupt:
         sys.exit(1)
-
