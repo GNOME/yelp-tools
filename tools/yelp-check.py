@@ -25,6 +25,7 @@ import urllib.request
 import shutil
 import subprocess
 import tempfile
+import textwrap
 
 # FIXME: don't hardcode this
 DATADIR = '/usr/share/yelp-tools'
@@ -230,8 +231,9 @@ class Checker:
         print('Usage:   yelp-check ' + self.name + ' [OPTIONS] [FILES]')
         print('Formats: ' + ' '.join(self.formats) + '\n')
         #FIXME: prettify names of formats
-        print(self.blurb)
-        print('\nOptions:')
+        if self.blurb is not None:
+            print(self.blurb + '\n')
+        print('Options:')
         maxarglen = 2
         args = []
         for arg in self.arguments:
@@ -1095,6 +1097,61 @@ class StyleChecker (Checker):
         return 0
 
 
+class CustomChecker(Checker):
+    formats = ['docbook4', 'docbook5', 'mallard']
+    arguments = [
+        ('help', '-h', None, 'Show this help and exit'),
+        ('site', '-s', None, 'Treat pages as belonging to a Mallard site')
+    ]
+
+    def __init__(self, name, yelpcheck):
+        super().__init__(yelpcheck)
+        self.name = name
+
+    def main(self, args):
+        if self.parse_args(args) != 0:
+            return 1
+
+        sect = 'check:' + self.name
+        if sect not in self.config.sections():
+            print('Unrecognized command: ' + self.name, file=sys.stderr)
+            return 1
+        self.blurb = self.config.get(sect, 'blurb', fallback=None)
+        if self.blurb is not None:
+            self.blurb = '\n'.join(textwrap.wrap(self.blurb))
+
+        if 'help' in self.options:
+            self.print_help()
+            return 0
+
+        assertexpr = self.config.get(sect, 'assert', fallback=None)
+        if assertexpr is not None:
+            return self.run_assert(assertexpr)
+
+        print('No action found for command: ' + self.name, file=sys.stderr)
+        return 1
+
+    def run_assert(self, assertexpr):
+        sect = 'check:' + self.name
+        selectexpr = self.config.get(sect, 'select', fallback='/')
+        message = self.config.get(sect, 'message', fallback='Assertion failed')
+        self.xinclude = self.config.get(sect, 'xinclude', fallback='true') != 'false'
+
+        namespaces = {}
+        if 'namespaces' in self.config.sections():
+            for ns in self.config.options('namespaces'):
+                namespaces[ns] = self.config.get('namespaces', ns)
+
+        for infile in self.iter_files():
+            xml = self.get_xml(infile)
+            thisid = xml.getroot().get('id') or infile.filename
+            for root in xml.xpath(selectexpr, namespaces=namespaces):
+                if not bool(root.xpath(assertexpr, namespaces=namespaces)):
+                    print(infile.sitedir + thisid + ': ' + message)
+        # check if self.config has section check:self.name
+        # check if section has select, assert, message
+
+
 class YelpCheck:
     def __init__(self):
         pass
@@ -1107,13 +1164,12 @@ class YelpCheck:
         checker = None
         for cls in Checker.__subclasses__():
             if sys.argv[1] == cls.name:
-                checker = cls
+                checker = cls(self)
 
         if checker is None:
-            self.print_usage()
-            return 1
+            checker = CustomChecker(sys.argv[1], self)
 
-        return checker(self).main(sys.argv[2:])
+        return checker.main(sys.argv[2:])
 
     def print_usage(self):
         print('Usage: yelp-check <COMMAND> [OPTIONS] [FILES]')
@@ -1121,7 +1177,9 @@ class YelpCheck:
         checks = []
         reports = []
         others = []
-        for cls in sorted(Checker.__subclasses__(), key=(lambda cls: cls.name)):
+        for cls in sorted(Checker.__subclasses__(), key=(lambda cls: cls.name or '')):
+            if cls is CustomChecker:
+                continue
             namelen = max(namelen, len(cls.name) + 2)
             if cls in (HrefsChecker, IdsChecker, LinksChecker,
                        MediaChecker, OrphansChecker, ValidateChecker):
@@ -1143,6 +1201,31 @@ class YelpCheck:
             print('\nOther commands:')
             for cls in others:
                 print('  ' + cls.name.ljust(namelen) + cls.desc)
+        config = configparser.ConfigParser()
+        try:
+            config.read('.yelp-tools.cfg')
+        except:
+            return
+        customs = []
+        for sect in config.sections():
+            if sect.startswith('check:'):
+                name = sect[6:]
+                skip = False
+                for cls in Checker.__subclasses__():
+                    if name == cls.name:
+                        skip = True
+                        break
+                if skip:
+                    continue
+                if config.get(sect, 'assert', fallback=None) == None:
+                    continue
+                desc = config.get(sect, 'desc', fallback='')
+                namelen = max(namelen, len(name) + 2)
+                customs.append((name, desc))
+        if len(customs) > 0:
+            print('\nCustom commands:')
+            for name, desc in customs:
+                print('  ' + name.ljust(namelen) + desc)
 
 
 if __name__ == '__main__':
