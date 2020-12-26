@@ -38,8 +38,6 @@ xmllint_prg = find_program('xmllint', required: true)
 xsltproc_prg = find_program('xsltproc', required: true)
 itstool_prg = find_program('itstool', required: true)
 
-awk_prg = find_program('awk', required: false)
-
 yelp_db2html_path = yelp_xsl_dep.get_pkgconfig_variable('db2html')
 yelp_db2xhtml_path = yelp_xsl_dep.get_pkgconfig_variable('db2xhtml')
 yelp_mal2html_path = yelp_xsl_dep.get_pkgconfig_variable('mal2html')
@@ -53,18 +51,11 @@ yelp_icons_dir = join_paths(
   'hicolor', '24x24', 'status',
 )
 
-# Options
-build_yelp_manual = get_option('yelp_manual')
-if not awk_prg.found()
-  build_yelp_manual = false
-endif
-
 subdir('xslt')
 subdir('templates')
-
 subdir('tools')
 
-if build_yelp_manual == true
+if get_option('help') == true
   subdir('help')
 endif
 
@@ -73,8 +64,8 @@ summary = [
   '------',
   'yelp-tools @0@'.format(version),
   '',
-  '  Autotools: @0@'.format(get_option('autotools')),
-  '     Manual: @0@'.format(build_yelp_manual),
+  '    yelp.m4: @0@'.format(get_option('yelpm4')),
+  '       help: @0@'.format(get_option('help')),
   '',
   'Directories:',
   '     prefix: @0@'.format(prefix),

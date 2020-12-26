@@ -58,7 +58,7 @@ configure_file(
   install_dir: bindir,
 )
 
-if get_option('autotools') == true
+if get_option('yelpm4') == true
   install_data(
     'yelp.m4',
     install_dir: join_paths(

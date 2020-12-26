@@ -1,7 +1,7 @@
-option('autotools',
+option('yelpm4',
        type: 'boolean', value: true,
        description: 'Install autotools macros')
 
-option('yelp_manual',
+option('help',
        type: 'boolean', value: false,
-       description: 'Build user manual (requires awk)')
+       description: 'Install help files')
