@@ -1,3 +1,27 @@
+3.38.0
+======
+* Stable release. No changes since 3.37.90
+
+3.37.90
+=======
+* yelp-new: Added new templates
+
+3.32.2
+======
+* yelp-build: Fix spurious warning about missing stack files
+
+3.32.1
+======
+* yelp-check: Fix validation for DocBook 5 with https redirects
+
+3.32.0
+======
+* Stable release. No changes since 3.31.90
+
+3.31.90
+=======
+* Initial support for Mallard 1.2 stack files
+
 3.28.0
 ======
 * Stable release. No changes since 3.27.90

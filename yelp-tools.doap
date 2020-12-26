@@ -11,7 +11,7 @@
   <homepage rdf:resource="http://yelp.io"/>
   <mailing-list rdf:resource="http://mail.gnome.org/mailman/listinfo/gnome-doc-devel-list" />
   <download-page rdf:resource="http://download.gnome.org/sources/yelp-tools/" />
-  <bug-database rdf:resource="http://bugzilla.gnome.org/browse.cgi?product=yelp-tools" />
+  <bug-database rdf:resource="https://gitlab.gnome.org/GNOME/yelp-tools/issues/" />
 
   <category rdf:resource="http://api.gnome.org/doap-extensions#core" />
   <programming-language>sh</programming-language>

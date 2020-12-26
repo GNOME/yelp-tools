@@ -1,0 +1,49 @@
+@ducktype/1.0
+[-] yelp-tmpl-desc Navigational glue for Mallard documents
+
+= @TITLE@
+  [guide version=1.1]
+
+[--
+  Recommended statuses: stub incomplete draft outdated review candidate final
+  Remove version attributes you don't use.
+--]
+@revision[version=0.1 docversion=0.1 pkgversion=0.1 date=@DATE@ status=stub]
+
+@credit[author copyright]
+  @name @NAME@
+  @email @EMAIL@
+  @years @YEAR@
+
+[--
+  This puts a link to this topic on the index page.
+  Change the xref to link it from another guide.
+--]
+@link[guide >index]
+
+[--
+  Think about whether other pages should be in the seealso list.
+  The target page will automatically get a seealso link back.
+@link[seealso >someotherid]
+--]
+
+[--
+  Think about whether external resources should be in the seealso
+  list. These require a title.
+@link[seealso >>http://someurl]
+  @title Link title
+--]
+
+@desc Write a short page description here.
+
+@keywords comma-separated list, of keywords, for search
+
+
+Optionally, an introductory paragraph.
+
+[--
+  The links element is implicit, but you might want to add one
+  explicitly if you want to do link grouping or styles.
+[links topic .STYLE groups="GROUPS"]
+  . Optional title
+--]

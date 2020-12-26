@@ -1,0 +1,63 @@
+@ducktype/1.0
+[-] yelp-tmpl-desc Description of how to accomplish a user task
+
+= @TITLE@
+  [topic .task version=1.1]
+
+[--
+  Recommended statuses: stub incomplete draft outdated review candidate final
+  Remove version attributes you don't use.
+--]
+@revision[version=0.1 docversion=0.1 pkgversion=0.1 date=@DATE@ status=stub]
+
+@credit[author copyright]
+  @name @NAME@
+  @email @EMAIL@
+  @years @YEAR@
+
+[--
+  This puts a link to this topic on the index page.
+  Change the xref to link it from another guide.
+--]
+@link[guide >index]
+
+[--
+  Think about whether other pages should be in the seealso list.
+  The target page will automatically get a seealso link back.
+@link[seealso >someotherid]
+--]
+
+[--
+  Think about whether external resources should be in the seealso
+  list. These require a title.
+@link[seealso >>http://someurl]
+  @title Link title
+--]
+
+@desc Write a short page description here.
+
+@keywords comma-separated list, of keywords, for search
+
+
+Short introductory text: Write a couple sentences about what the
+user is doing here, and why they might want to do it.
+
+[list]
+. Prerequisites
+* Optionally, list things the user needs to know or do first.
+* Use links to other pages whenever they make sense.
+
+[steps]
+. Optional title if different from page title or if prereqs present
+* First step...
+* Second step...
+* Third step...
+
+Optionally, write expected results if non-obvious.
+
+[list]
+. Next steps
+* Optionally, links to other things the user might do now.
+* But consider using seealso and other info links instead.
+
+

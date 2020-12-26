@@ -154,13 +154,18 @@ yelp_paths_normalize () {
 
 yelp_cache_in_page () {
     fbase=$(basename "$1")
+    ext=$(echo "$fbase" | sed -e 's/.*\.//')
     fdir=$( (cd $(dirname "$1") && pwd) )
     sdir=${fdir##${cache_site_root}}/
     url=file://$(echo "$fdir/$fbase" | urlencode)
     if [ "x$cache_site" = "x1" ]; then
         siteattr=' site:dir="'"$sdir"'"'
     fi
-    echo '<page cache:href="'"$url"'"'"$siteattr"'/>'
+    if [ "x$ext" = "xstack" ]; then
+        echo '<stack cache:href="'"$url"'"'"$siteattr"'/>'
+    else
+        echo '<page cache:href="'"$url"'"'"$siteattr"'/>'
+    fi
 }
 
 yelp_cache_in_site () {
@@ -171,7 +176,7 @@ yelp_cache_in_site () {
             fi
         fi
     done
-    for page in "$1"/*.page; do
+    for page in "$1"/*.page "$1"/*.stack; do
         if [ -e "$page" ]; then
             yelp_cache_in_page "$page"
         fi
@@ -189,8 +194,10 @@ yelp_cache_in () {
             if [ "x$cache_site" = "x1" ]; then
                 yelp_cache_in_site "$page"
             else
-                for sub in "$page"/*.page; do
-                    yelp_cache_in_page "$sub"
+                for sub in "$page"/*.page "$page"/*.stack; do
+                    if [ -e "$sub" ]; then
+                        yelp_cache_in_page "$sub"
+                    fi
                 done
             fi
         else
@@ -376,13 +383,15 @@ yelp_html_mal2html () {
         html_cache_url='file://'`echo "$html_cache_file" | urlencode`
         echo '<xsl:param name="mal.cache.file" select="'"'$html_cache_url'"'"/>'
         echo '<xsl:template match="/">'
-        echo '<xsl:for-each select="cache:cache/mal:page">'
+        echo '<xsl:for-each select="cache:cache/mal:page | cache:cache/mal:stack">'
         echo '<xsl:variable name="href" select="@cache:href"/>'
-        echo '<xsl:for-each select="document(@cache:href)/mal:page">'
+        echo '<xsl:for-each select="document(@cache:href)">'
+        echo '<xsl:for-each select="mal:page | mal:stack/mal:page">'
         echo '<xsl:call-template name="html.output"/>'
         echo '<xsl:call-template name="mal.files.copy">'
         echo ' <xsl:with-param name="href" select="substring-after($href, '\''file://'\'')"/>'
         echo '</xsl:call-template>'
+        echo '</xsl:for-each>'
         echo '</xsl:for-each>'
         echo '</xsl:for-each>'
         echo '</xsl:template>'
