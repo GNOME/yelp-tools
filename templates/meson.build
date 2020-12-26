@@ -1,5 +1,12 @@
 yelp_tools_templates_data = [
-  'task.page',
+  'concept.duck',
+  'concept.page',
+  'guide.duck',
+  'guide.page',
+  'reference.duck',
+  'reference.page',
+  'task.duck',
+  'task.page'
 ]
 
 install_data(

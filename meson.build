@@ -1,7 +1,7 @@
 project('yelp-tools',
-  version: '3.27.90',
-  license: 'LGPL2.1+',
-  meson_version: '>= 0.43.0',
+  version: '3.38.0',
+  license: 'GPL-2.0-or-later',
+  meson_version: '>= 0.50.0',
 )
 
 gnome = import('gnome')
@@ -30,7 +30,7 @@ pkgtemplatesdir = join_paths(pkgdir, 'templates')
 pkgxsltdir = join_paths(pkgdir, 'xslt')
 
 # Dependencies
-yelp_xsl_req = '>= 3.17.3'
+yelp_xsl_req = '>= 3.38.0'
 
 yelp_xsl_dep = dependency('yelp-xsl', version: yelp_xsl_req)
 
