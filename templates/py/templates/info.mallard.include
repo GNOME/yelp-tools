@@ -1,0 +1,35 @@
+    <!--
+        Recommended statuses: stub incomplete draft outdated review candidate final
+        Remove version attributes you don't use.
+    -->
+    <revision version="{{VERSION}}" date="{{DATE}}" status="stub"/>
+
+    <credit type="author copyright">
+      <name>{{NAME}}</name>
+      <email>{{EMAIL}}</email>
+      <years>{{YEAR}}</years>
+    </credit>
+
+    <!--
+        This puts a link to this topic on the index page.
+        Change the xref to link it from another guide.
+    -->
+    <link type="guide" xref="index"/>
+
+    <!--
+        Think about whether other pages should be in the seealso list.
+        The target page will automatically get a seealso link back.
+    <link type="seealso" xref="someotherid"/>
+    -->
+
+    <!--
+        Think about whether external resources should be in the seealso
+        list. These require a title.
+    <link type="seealso" href="http://someurl">
+      <title>Link title</title>
+    </link>
+    -->
+
+    <desc>Write a short page description here.</desc>
+
+    <keywords>comma-separated list, of keywords, for search</keywords>

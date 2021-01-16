@@ -1,0 +1,29 @@
+@ducktype/1.0
+[-] yelp-tmpl-desc Description of how to accomplish a user task
+
+= {{TITLE}}
+  [topic .task version=1.1]
+
+{{INCLUDE info.ducktype.include}}
+
+
+Short introductory text: Write a couple sentences about what the
+user is doing here, and why they might want to do it.
+
+[list]
+. Prerequisites
+* Optionally, list things the user needs to know or do first.
+* Use links to other pages whenever they make sense.
+
+[steps]
+. Optional title if different from page title or if prereqs present
+* First step...
+* Second step...
+* Third step...
+
+Optionally, write expected results if non-obvious.
+
+[list]
+. Next steps
+* Optionally, links to other things the user might do now.
+* But consider using seealso and other info links instead.

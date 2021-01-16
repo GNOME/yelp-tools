@@ -1,0 +1,65 @@
+<?yelp-tmpl-desc Lists or tables of information for quick lookup?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="reference" version="1.1"
+      id="{{ID}}">
+  <info>
+{{INCLUDE info.mallard.include}}
+  </info>
+
+  <title>{{TITLE}}</title>
+
+  <p>Optionally provide introductory text.
+  Use terms lists, tables, and bullet lists for reference material.</p>
+
+  <terms>
+    <title>Example terms list (title optional)</title>
+    <item>
+      <title>Term 1</title>
+      <para>Description</para>
+    </item>
+    <item>
+      <title>Term 2</title>
+      <p>Terms can have multiple paragraphs.</p>
+      <screen>Or any other block element.</screen>
+    </item>
+    <item>
+      <title>Term 3.1</title>
+      <title>Term 3.2</title>
+      <p>Terms can also have multiple titles.</p>
+    </item>
+  </terms>
+
+  <table>
+    <title>Example table (title optional)</title>
+    <thead>
+      <tr>
+        <th>Column 1</th>
+        <th>Column 2</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Row 1, column 1</td>
+        <td>Row 1, column 2</td>
+      </tr>
+      <tr>
+        <td>Row 2, column 1</td>
+        <td>Row 2, column 2</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <list>
+    <title>Example list (title optional)</title>
+    <item><p>Item 1</p></item>
+    <item>
+      <p>Item 2</p>
+      <list>
+        <item><p>Subitem 2.1</p></item>
+        <item><p>Subitem 2.2</p></item>
+      </list>
+    </item>
+    <item><p>Item 3</p></item>
+  </list>
+
+</page>

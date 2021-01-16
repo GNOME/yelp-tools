@@ -1,0 +1,15 @@
+@ducktype/1.0
+[-] yelp-tmpl-desc Explanation of a concept or background information
+
+= {{TITLE}}
+  [topic .concept version=1.1]
+
+{{INCLUDE info.ducktype.include}}
+
+
+Provide as many paragraphs, lists, or media as necessary to explain.
+
+[list]
+. Next steps
+* Optionally, links to other things the user might do now.
+* But consider using seealso and other info links instead.

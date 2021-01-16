@@ -152,6 +152,9 @@ class Checker:
             val = self.config.get('check', arg, fallback=None)
             if val is not None:
                 return (val == 'true')
+            val = self.config.get('default', arg, fallback=None)
+            if val is not None:
+                return (val == 'true')
         return False
 
     def get_option_str(self, arg):
@@ -163,6 +166,9 @@ class Checker:
             if val is not None:
                 return val
             val = self.config.get('check', arg, fallback=None)
+            if val is not None:
+                return val
+            val = self.config.get('default', arg, fallback=None)
             if val is not None:
                 return val
         return None
@@ -179,6 +185,9 @@ class Checker:
             if val is not None:
                 return val.replace(',', ' ').split()
             val = self.config.get('check', arg, fallback=None)
+            if val is not None:
+                return val.replace(',', ' ').split()
+            val = self.config.get('default', arg, fallback=None)
             if val is not None:
                 return val.replace(',', ' ').split()
         return None
@@ -208,6 +217,7 @@ class Checker:
         for fname in os.listdir(filepath):
             newpath = os.path.join(filepath, fname)
             if os.path.isdir(newpath):
+                # FIXME https://github.com/projectmallard/pintail/issues/36
                 if fname == '__pintail__':
                     continue
                 for infile in self.iter_site(newpath, sitedir + fname + '/'):

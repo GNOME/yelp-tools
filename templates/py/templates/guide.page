@@ -1,0 +1,21 @@
+<?yelp-tmpl-desc Navigational glue for Mallard documents?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide" version="1.1"
+      id="{{ID}}">
+  <info>
+{{INCLUDE info.mallard.include}}
+  </info>
+
+  <title>{{TITLE}}</title>
+
+  <p>Optionally, an introductory paragraph.</p>
+
+  <!--
+      The links element is implicit, but you might want to add one
+      explicitly if you want to do link grouping or styles.
+  <links type="topic" style="STYLE" groups="GROUPS">
+    <title>Optional title</title>
+  </links>
+  -->
+
+</page>

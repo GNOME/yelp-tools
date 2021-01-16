@@ -1,0 +1,18 @@
+<?yelp-tmpl-desc Explanation of a concept or background information?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="topic" style="concept" version="1.1"
+      id="{{ID}}">
+  <info>
+{{INCLUDE info.mallard.include}}
+  </info>
+
+  <title>{{TITLE}}</title>
+
+  <p>Provide as many paragraphs, lists, or media as necessary to explain.</p>
+
+  <list>
+    <title>Next steps</title>
+    <item><p>Optionally, links to other things the user might do now.</p></item>
+    <item><p>But consider using seealso and other info links instead.</p></item>
+  </list>
+</page>

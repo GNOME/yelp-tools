@@ -1,0 +1,17 @@
+@ducktype/1.0
+[-] yelp-tmpl-desc Navigational glue for Mallard documents
+
+= {{TITLE}}
+  [guide version=1.1]
+
+{{INCLUDE info.ducktype.include}}
+
+
+Optionally, an introductory paragraph.
+
+[--
+  The links element is implicit, but you might want to add one
+  explicitly if you want to do link grouping or styles.
+[links topic .STYLE groups="GROUPS"]
+  . Optional title
+--]
