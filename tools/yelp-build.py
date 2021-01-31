@@ -1,0 +1,834 @@
+#!/bin/python3
+#
+# yelp-build
+# Copyright (C) 2010-2020 Shaun McCance <shaunm@gnome.org>
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+# General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+
+import configparser
+import os
+import sys
+import shutil
+import subprocess
+import tempfile
+import urllib.parse
+import uuid
+
+import lxml.etree
+import lxml.ElementInclude
+
+
+# FIXME: don't hardcode these
+XSL_DB2HTML = '/usr/share/yelp-xsl/xslt/docbook/html/db2html.xsl'
+XSL_DB2XHTML = '/usr/share/yelp-xsl/xslt/docbook/html/db2xhtml.xsl'
+XSL_MALCACHE = '/usr/share/yelp-xsl/xslt/mallard/cache/mal-cache.xsl'
+XSL_MAL2HTML = '/usr/share/yelp-xsl/xslt/mallard/html/mal2html.xsl'
+XSL_MAL2XHTML = '/usr/share/yelp-xsl/xslt/mallard/html/mal2xhtml.xsl'
+XSL_MAL_OPF='/usr/share/yelp-tools/xslt/mal-opf.xsl'
+XSL_MAL_NCX='/usr/share/yelp-tools/xslt/mal-ncx.xsl'
+DATADIR = '/usr/share/yelp-tools'
+YELP_JSDIR = '/usr/share/yelp-xsl/js'
+
+XSLCOMMON = ('''
+<xsl:variable name="yelp.internal.datadir" select="'{intdatadir}'"/>
+<xsl:param name="html.css.root" select="$yelp.internal.datadir"/>
+<xsl:param name="html.js.root" select="$yelp.internal.datadir"/>
+{includes}
+<xsl:template name="html.css">
+ <xsl:param name="node" select="."/>
+ <xsl:variable name="yelp.locale">
+  <xsl:choose>
+   <xsl:when test="$node/@xml:lang != ''">
+    <xsl:value-of select="$node/@xml:lang"/>
+   </xsl:when>
+   <xsl:when test="$node/@lang != ''">
+    <xsl:value-of select="$node/@lang"/>
+   </xsl:when>
+   <xsl:otherwise>
+    <xsl:text>C</xsl:text>
+   </xsl:otherwise>
+  </xsl:choose>
+ </xsl:variable>
+ <exsl:document href="{{$yelp.internal.datadir}}{{$yelp.locale}}.css" method="text">
+  <xsl:call-template name="html.css.content">
+   <xsl:with-param name="node" select="$node"/>
+   <xsl:with-param name="direction">
+    <xsl:call-template name="l10n.direction">
+     <xsl:with-param name="lang" select="$yelp.locale"/>
+    </xsl:call-template>
+   </xsl:with-param>
+  </xsl:call-template>
+ </exsl:document>
+ <link rel="stylesheet" type="text/css" href="{{$html.css.root}}{{$yelp.locale}}.css"/>
+</xsl:template>
+<xsl:template name="html.js.script">
+ <xsl:param name="node" select="."/>
+ <exsl:document href="{{$yelp.internal.datadir}}yelp.js" method="text">
+  <xsl:call-template name="html.js.content">
+   <xsl:with-param name="node" select="$node"/>
+  </xsl:call-template>
+ </exsl:document>
+ <script type="text/javascript" src="{{$html.js.root}}yelp.js"/>
+</xsl:template>
+''')
+
+DB2HTML = ('''
+<xsl:stylesheet
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:exsl="http://exslt.org/common"
+  xmlns="http://www.w3.org/1999/xhtml"
+  extension-element-prefixes="exsl"
+  version="1.0">
+<xsl:import href="file://{xslfile}"/>
+'''
++ XSLCOMMON + 
+'''
+</xsl:stylesheet>
+''')
+
+
+MAL2HTML = ('''
+<xsl:stylesheet
+  xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:mal="http://projectmallard.org/1.0/"
+  xmlns:cache="http://projectmallard.org/cache/1.0/"
+  xmlns:exsl="http://exslt.org/common"
+  xmlns="http://www.w3.org/1999/xhtml"
+  exclude-result-prefixes="mal cache"
+  extension-element-prefixes="exsl"
+  version="1.0">
+<xsl:import href="file://{xslfile}"/>
+<xsl:param name="mal.cache.file" select="'file://{cachefile}'"/>
+'''
++ XSLCOMMON + 
+'''
+<xsl:template match="/">
+  <xsl:for-each select="cache:cache/mal:page | cache:cache/mal:stack">
+    <xsl:variable name="href" select="@cache:href"/>
+    <xsl:for-each select="document(@cache:href)">
+      <xsl:for-each select="mal:page | mal:stack/mal:page">
+        <xsl:call-template name="html.output"/>
+      </xsl:for-each>
+    </xsl:for-each>
+  </xsl:for-each>
+</xsl:template>
+</xsl:stylesheet>
+''')
+
+
+
+class InputFile:
+    def __init__(self, filepath, filename, sitedir=None):
+        self.filepath = filepath
+        self.filename = filename
+        self.absfile = os.path.join(filepath, filename)
+        self.absdir = os.path.dirname(self.absfile)
+        self.sitedir = sitedir or ''
+        self.sitefilename = self.sitedir + self.filename
+
+
+class PathResolver(lxml.etree.Resolver):
+    def __init__(self, srcdir, path):
+        if srcdir.endswith('/'):
+            self.srcdir = srcdir
+        else:
+            self.srcdir = srcdir + '/'
+        self.path = path
+
+    def resolve(self, uri, id, context):
+        if os.path.exists(uri):
+            return self.resolve_filename(uri, context)
+        if uri.startswith(self.srcdir):
+            ref = uri[len(self.srcdir):]
+        else:
+            ref = uri
+        for p in self.path:
+            tryfile = os.path.join(p, ref)
+            if os.path.exists(tryfile):
+                return self.resolve_filename(tryfile, context)
+        return None
+
+
+class Builder:
+    name = None
+    desc = None
+    blurb = None
+    formats = []
+    arguments = []
+    postblurb = None
+    config = None
+
+    def __init__(self, yelpbuild):
+        self.yelpbuild = yelpbuild
+        self.options = {}
+        self.fileargs = []
+        self.tmpdir = None
+
+    def __del__(self):
+        if self.tmpdir is not None:
+            shutil.rmtree(self.tmpdir)
+            self.tmpdir = None
+
+    def parse_args(self, args):
+        while len(args) > 0:
+            argdef = None
+            if args[0].startswith('--'):
+                for arg_ in self.arguments:
+                    if args[0] == '--' + arg_[0]:
+                        argdef = arg_
+                        break
+                if argdef is None:
+                    self.print_help()
+                    return 1
+            elif args[0].startswith('-'):
+                for arg_ in self.arguments:
+                    if args[0] == arg_[1]:
+                        argdef = arg_
+                        break
+                if argdef is None:
+                    self.print_help()
+                    return 1
+            if argdef is not None:
+                takesarg = (argdef[2] is not None)
+                if takesarg:
+                    if len(args) < 2:
+                        self.print_help()
+                        return 1
+                    self.options.setdefault(argdef[0], [])
+                    self.options[argdef[0]].append(args[1])
+                    args = args[2:]
+                else:
+                    self.options[argdef[0]] = True
+                    args = args[1:]
+            else:
+                self.fileargs.append(args[0])
+                args = args[1:]
+        cfgfile = None
+        if len(self.fileargs) > 0:
+            cfgfile = os.path.join(os.path.dirname(self.fileargs[0]), '.yelp-tools.cfg')
+            if not os.path.exists(cfgfile):
+                cfgfile = None
+        if cfgfile is None:
+            cfgfile = os.path.join(os.getcwd(), '.yelp-tools.cfg')
+        if os.path.exists(cfgfile):
+            self.config = configparser.ConfigParser()
+            try:
+                self.config.read(cfgfile)
+            except Exception as e:
+                print(e, file=sys.stderr)
+                sys.exit(1)
+        return 0
+
+    def get_option_bool(self, arg):
+        if arg in self.options:
+            return self.options[arg] == True
+        if self.config is not None:
+            val = self.config.get('build:' + self.name, arg, fallback=None)
+            if val is not None:
+                return (val == 'true')
+            val = self.config.get('build', arg, fallback=None)
+            if val is not None:
+                return (val == 'true')
+            val = self.config.get('default', arg, fallback=None)
+            if val is not None:
+                return (val == 'true')
+        return False
+
+    def get_option_str(self, arg):
+        if arg in self.options:
+            if isinstance(self.options[arg], list):
+                return self.options[arg][-1]
+        if self.config is not None:
+            val = self.config.get('build:' + self.name, arg, fallback=None)
+            if val is not None:
+                return val
+            val = self.config.get('build', arg, fallback=None)
+            if val is not None:
+                return val
+            val = self.config.get('default', arg, fallback=None)
+            if val is not None:
+                return val
+        return None
+
+    def get_option_list(self, arg):
+        if arg in self.options:
+            if isinstance(self.options[arg], list):
+                ret = []
+                for opt in self.options[arg]:
+                    ret.extend(opt.replace(',', ' ').split())
+                return ret
+        if self.config is not None:
+            val = self.config.get('build:' + self.name, arg, fallback=None)
+            if val is not None:
+                return val.replace(',', ' ').split()
+            val = self.config.get('build', arg, fallback=None)
+            if val is not None:
+                return val.replace(',', ' ').split()
+            val = self.config.get('default', arg, fallback=None)
+            if val is not None:
+                return val.replace(',', ' ').split()
+        return None
+
+    def get_xml(self, infile, path):
+        parser = lxml.etree.XMLParser()
+        parser.resolvers.add(PathResolver(os.path.realpath(infile.absdir), path))
+        tree = lxml.etree.parse(infile.absfile, parser=parser)
+        def pathloader(href, parse, encoding=None):
+            usefile = os.path.join(infile.absdir, href)
+            if not os.path.exists(href):
+                usefile = None
+            if usefile is None:
+                absdir = infile.absdir
+                if not absdir.endswith('/'):
+                    absdir = absdir + '/'
+                ref = href
+                if ref.startswith(absdir):
+                    ref = ref[len(absdir):]
+                for p in path:
+                    tryfile = os.path.join(p, ref)
+                    if os.path.exists(tryfile):
+                        usefile = tryfile
+                        break
+            if usefile is not None:
+                if parse == 'xml':
+                    return lxml.etree.parse(usefile, parser=parser).getroot()
+                elif parse == 'text':
+                    return open(usefile).read()
+            return None
+        lxml.ElementInclude.include(tree, loader=pathloader)
+        return tree
+
+    def iter_files(self, sitedir=None):
+        issite = self.get_option_bool('site')
+        if len(self.fileargs) == 0:
+            self.fileargs.append('.')
+        for filearg in self.fileargs:
+            if os.path.isdir(filearg):
+                if issite:
+                    for infile in self.iter_site(filearg, '/'):
+                        yield infile
+                else:
+                    for fname in os.listdir(filearg):
+                        if fname.endswith('.page'):
+                            yield InputFile(filearg, fname)
+            else:
+                if issite:
+                    # FIXME: should do some normalization here, I guess.
+                    # It's hard to get this perfect without a defined start dir
+                    yield InputFile(os.getcwd(), filearg, '/' + os.path.dirname(filearg))
+                else:
+                    yield InputFile(os.getcwd(), filearg)
+
+    def iter_site(self, filepath, sitedir):
+        for fname in os.listdir(filepath):
+            newpath = os.path.join(filepath, fname)
+            if os.path.isdir(newpath):
+                # FIXME https://github.com/projectmallard/pintail/issues/36
+                if fname == '__pintail__':
+                    continue
+                for infile in self.iter_site(newpath, sitedir + fname + '/'):
+                    yield infile
+            elif fname.endswith('.page'):
+                yield InputFile(filepath, fname, sitedir)
+
+    def create_tmpdir(self):
+        if self.tmpdir is None:
+            self.tmpdir = tempfile.mkdtemp()
+
+    def print_help(self):
+        print('Usage:   yelp-build ' + self.name + ' [OPTIONS] [FILES]')
+        print('Formats: ' + ' '.join(self.formats) + '\n')
+        #FIXME: prettify names of formats
+        if self.blurb is not None:
+            print(self.blurb + '\n')
+        print('Options:')
+        maxarglen = 2
+        args = []
+        for arg in self.arguments:
+            argkey = '--' + arg[0]
+            if arg[1] is not None:
+                argkey = arg[1] + ', ' + argkey
+            if arg[2] is not None:
+                argkey = argkey + ' ' + arg[2]
+            args.append((argkey, arg[3]))
+        for arg in args:
+            maxarglen = max(maxarglen, len(arg[0]) + 1)
+        for arg in args:
+            print('  ' + (arg[0]).ljust(maxarglen) + '  ' + arg[1])
+        if self.postblurb is not None:
+            print(self.postblurb)
+
+    def main(self, args):
+        pass
+
+
+class CacheBuilder (Builder):
+    name = 'cache'
+    desc = 'Convert a Mallard cache file'
+    blurb = ('Create a Mallard cache file from the page files FILES.\n' +
+             'If FILES contains directories, all .page files in those\n' +
+             'directories will be used.')
+    formats = ['mallard']
+    arguments = [
+        ('help',   '-h', None, 'Show this help and exit'),
+        ('output', '-o', 'OUT', 'Output files in the directory OUT'),
+        ('path',   '-p', 'PATH', 'Extra directories to search for files'),
+        ('site',   '-s', None, 'Treat pages as belonging to a Mallard site')
+    ]
+
+    def build_cache_in(self, filename):
+        with open(filename, 'w') as cachein:
+            print('<cache:cache xmlns:cache="http://projectmallard.org/cache/1.0/"' +
+                  ' xmlns:site="http://projectmallard.org/site/1.0/"'
+                  ' xmlns="http://projectmallard.org/1.0/">',
+                  file=cachein)
+            for infile in self.iter_files():
+                if infile.filename.endswith('.page'):
+                    page = '<page'
+                elif infile.filename.endswith('.stack'):
+                    page = '<stack'
+                else:
+                    continue
+                page += ' cache:href="file://' + urllib.parse.quote(os.path.realpath(infile.absfile)) + '"'
+                if self.get_option_bool('site'):
+                    page += ' site:dir="' + infile.sitedir + '"'
+                page += '/>'
+                print(page, file=cachein)
+            print('</cache:cache>', file=cachein)
+
+    def main(self, args, output=None, path=None):
+        if self.parse_args(args) != 0:
+            return 1
+        if 'help' in self.options:
+            self.print_help()
+            return 0
+
+        retcode = 0
+        self.create_tmpdir()
+        cacheinfile = os.path.join(self.tmpdir, 'index.cache.in')
+        self.build_cache_in(cacheinfile)
+        if output is None:
+            output = self.get_option_str('output')
+        if output is None:
+            output = 'index.cache'
+        if path is None:
+            path = self.get_option_list('path')
+        if path is None:
+            path = ':'
+        else:
+            path = ':'.join(path)
+        retcode = subprocess.call(['xsltproc', '--xinclude', '-o', output,
+                                   '--path', path,
+                                   XSL_MALCACHE, cacheinfile])
+        return retcode
+
+
+class XhtmlBuilder (Builder):
+    name = 'xhtml'
+    desc = 'Convert input files to XHTML'
+    blurb = ('Create XHTML output from the input files FILES.\n' +
+             'FILES can be DocBook files, Mallard page files,\n' +
+             'or directories containing Mallard page files.')
+    formats = ['docbook4', 'docbook5', 'mallard']
+    arguments = [
+        ('help',   '-h', None, 'Show this help and exit'),
+        ('cache',  '-c', 'CACHE', 'Use the existing Mallard cache CACHE'),
+        ('output', '-o', 'OUT', 'Output files in the directory OUT'),
+        ('xsl',    '-x', 'CUSTOM', 'Import the custom XSLT file CUSTOM'),
+        ('path',   '-p', 'PATH', 'Extra directories to search for files'),
+        ('ignore', '-i', None, 'Ignore missing media files')
+    ]
+
+    def __init__(self, yelpbuild, xhtml=True, epub=False):
+        super().__init__(yelpbuild)
+        self.mal2html = None
+        self.db2html = None
+        self.xhtml = xhtml
+        self.epub = epub
+        if self.epub:
+            self.intdatadir = 'yelp'
+        else:
+            self.intdatadir = ''
+        self.cacheinfile = None
+
+
+    def build_mallard_all(self, cache=None, output=None, xsl=None, path=None):
+        if self.mal2html is not None:
+            # We build all the pages on the first call, because it's faster
+            return 0
+        if path is None:
+            path = self.get_option_list('path')
+        self.create_tmpdir()
+        if cache is None:
+            cachefile = self.get_option_str('cache')
+        else:
+            cachefile = cache
+        cachebuilder = CacheBuilder(self.yelpbuild)
+        if cachefile is None:
+            cachefile = os.path.join(self.tmpdir, 'index.cache')
+            retcode = cachebuilder.main(self.fileargs, output=cachefile, path=path)
+            if retcode != 0:
+                return retcode
+            self.cacheinfile = cachefile
+        else:
+            cachefile = os.path.realpath(cachefile)
+            self.cacheinfile = os.path.join(self.tmpdir, 'index.cache.in')
+            cachebuilder.parse_args(self.fileargs)
+            cachebuilder.build_cache_in(self.cacheinfile)
+        self.mal2html = os.path.join(self.tmpdir, 'mal2html.xsl')
+        with open(self.mal2html, 'w') as xslout:
+            if self.xhtml:
+                xslfile = XSL_MAL2XHTML
+            else:
+                xslfile = XSL_MAL2HTML
+            includes = ''
+            if xsl is None:
+                customxsl = self.get_option_str('xsl')
+            else:
+                customxsl = xsl
+            if customxsl is not None:
+                customxsl = urllib.parse.quote(os.path.realpath(customxsl))
+                includes += '<xsl:include href="file://' + customxsl + '"/>'
+            if self.epub:
+                includes += '''<xsl:param name="mal.if.target" select="'target:epub target:html target:xhtml'"/>'''
+                includes += '''<xsl:template mode="html.header.mode" match="mal:page"/>'''
+                includes += '''<xsl:template mode="html.footer.mode" match="mal:page"/>'''
+            xslout.write(MAL2HTML.format(xslfile=xslfile,
+                                         cachefile=cachefile,
+                                         includes=includes,
+                                         intdatadir=self.intdatadir))
+        if output is None:
+            output = self.get_option_str('output')
+        if output is None:
+            output = os.getcwd()
+        else:
+            if not os.path.isdir(output):
+                print('Output must be a directory', file=sys.stderr)
+                return 1
+        if not output.endswith('/'):
+            # xsltproc is picky about this
+            output = output + '/'
+        if path is None:
+            pathstr = ':'
+        else:
+            pathstr = ':'.join(path)
+        retcode = subprocess.call(['xsltproc', '--xinclude', '-o', output,
+                                   '--path', pathstr,
+                                   '--stringparam', 'mal.cache.file', cachefile,
+                                   self.mal2html, self.cacheinfile])
+        return retcode
+
+
+    def build_docbook(self, infile, output=None, xsl=None, path=None):
+        if self.db2html is None:
+            self.create_tmpdir()
+            self.db2html = os.path.join(self.tmpdir, 'db2html.xsl')
+            with open(self.db2html, 'w') as xslout:
+                if self.xhtml:
+                    xslfile = XSL_DB2XHTML
+                else:
+                    xslfile = XSL_DB2HTML
+                includes = ''
+                if xsl is not None:
+                    customxsl = xsl
+                else:
+                    customxsl = self.get_option_str('xsl')
+                if customxsl is not None:
+                    customxsl = urllib.parse.quote(os.path.realpath(customxsl))
+                    includes += '<xsl:include href="file://' + customxsl + '"/>'
+                xslout.write(DB2HTML.format(xslfile=xslfile,
+                                            includes=includes,
+                                            intdatadir=self.intdatadir))
+        if output is None:
+            output = self.get_option_str('output')
+        if output is None:
+            output = os.getcwd()
+        else:
+            if not os.path.isdir(output):
+                print('Output must be a directory', file=sys.stderr)
+                return 1
+        if path is None:
+            path = self.get_option_list('path')
+        if path is None:
+            pathstr = ':'
+        else:
+            pathstr = ':'.join(path)
+        retcode = subprocess.call(['xsltproc', '--xinclude', '-o', output,
+                                   '--path', pathstr,
+                                   self.db2html, infile.absfile])
+        return retcode
+
+
+    def main(self, args, cache=None, output=None, xsl=None, path=None, ignore=None):
+        if self.parse_args(args) != 0:
+            return 1
+        if 'help' in self.options:
+            self.print_help()
+            return 0
+
+        if path is None:
+            pathopt = self.get_option_list('path')
+        else:
+            pathopt = path
+        path = []
+        if pathopt is not None:
+            for p in pathopt:
+                path.extend(p.split(':'))
+        if output is None:
+            output = self.get_option_str('output')
+        srcs = {}
+        for infile in self.iter_files():
+            if infile.filename.endswith('.page') or infile.filename.endswith('.stack'):
+                retcode = self.build_mallard_all(cache=cache, output=output, xsl=xsl, path=path)
+                if retcode != 0:
+                    return retcode
+                if output is not None:
+                    tree = self.get_xml(infile, path)
+                    if tree is None:
+                        return 1
+                    for el in tree.xpath('//*[@src]'):
+                        src = el.get('src')
+                        srcs.setdefault(src, [])
+                        orig = os.path.join(os.path.realpath(infile.absdir), src)
+                        if orig not in srcs[src]:
+                            srcs[src].append(orig)
+            elif infile.filename.endswith('.docbook') or infile.filename.endswith('.xml'):
+                retcode = self.build_docbook(infile, output=output, xsl=xsl, path=path)
+                if retcode != 0:
+                    return retcode
+                if output is not None:
+                    tree = self.get_xml(infile, path)
+                    if tree is None:
+                        return 1
+                    for el in tree.xpath('//*[@fileref]'):
+                        src = el.get('fileref')
+                        srcs.setdefault(src, [])
+                        orig = os.path.join(os.path.realpath(infile.absdir), src)
+                        if orig not in srcs[src]:
+                            srcs[src].append(orig)
+            else:
+                print('Error: No builder for ' + infile.filename)
+                return 1
+
+        if ignore is None:
+            ignore = self.get_option_bool('ignore')
+        tocopy = {}
+        for src in srcs:
+            useorig = None
+            for orig in srcs[src]:
+                if os.path.exists(orig):
+                    if useorig is None:
+                        useorig = orig
+                    else:
+                        print('Warning: Multiple sources for ' + src + '. Using first.',
+                              file=sys.stderr)
+            if useorig is None:
+                for p in path:
+                    tryorig = os.path.join(p, src)
+                    if os.path.exists(tryorig):
+                        useorig = tryorig
+                        break
+            if useorig is None:
+                if ignore:
+                    print('Warning: No source found for ' + src, file=sys.stderr)
+                else:
+                    print('Error: No source found for ' + src, file=sys.stderr)
+                    return 1
+            if useorig is not None:
+                destfile = os.path.join(output, src)
+                destdir = os.path.dirname(destfile)
+                os.makedirs(destdir, exist_ok=True)
+                shutil.copyfile(useorig, destfile)
+
+        if output is None:
+            shutil.copyfile(os.path.join(YELP_JSDIR, 'highlight.pack.js'),
+                            os.path.join(self.intdatadir, 'highlight.pack.js'))
+        else:
+            shutil.copyfile(os.path.join(YELP_JSDIR, 'highlight.pack.js'),
+                            os.path.join(output, self.intdatadir, 'highlight.pack.js'))
+
+        return 0
+
+
+class HtmlBuilder (Builder):
+    name = 'html'
+    desc = 'Convert input files to HTML'
+    blurb = ('Create HTML output from the input files FILES.\n' +
+             'FILES can be DocBook files, Mallard page files,\n' +
+             'or directories containing Mallard page files.')
+    formats = ['docbook4', 'docbook5', 'mallard']
+    arguments = [
+        ('help',   '-h', None, 'Show this help and exit'),
+        ('cache',  '-c', 'CACHE', 'Use the existing Mallard cache CACHE'),
+        ('output', '-o', 'OUT', 'Output files in the directory OUT'),
+        ('xsl',    '-x', 'CUSTOM', 'Import the custom XSLT file CUSTOM'),
+        ('path',   '-p', 'PATH', 'Extra directories to search for files'),
+        ('ignore', '-i', None, 'Ignore missing media files')
+    ]
+
+    def __init__(self, yelpbuild):
+        super().__init__(yelpbuild)
+        self.xhtmlbuilder = XhtmlBuilder(yelpbuild, xhtml=False)
+
+    def main(self, args):
+        if self.parse_args(args) != 0:
+            return 1
+        if 'help' in self.options:
+            self.print_help()
+            return 0
+
+        return self.xhtmlbuilder.main(args)
+
+
+class EpubBuilder (Builder):
+    name = 'epub'
+    desc = 'Create an EPUB file for Mallard'
+    blurb = ('Create an EPUB file from the Mallard page files FILES')
+    formats = ['mallard']
+    arguments = [
+        ('help',   '-h', None, 'Show this help and exit'),
+        ('cache',  '-c', 'CACHE', 'Use the existing Mallard cache CACHE'),
+        ('output', '-o', 'OUT', 'Output files in the directory OUT'),
+        ('xsl',    '-x', 'CUSTOM', 'Import the custom XSLT file CUSTOM'),
+        ('path',   '-p', 'PATH', 'Extra directories to search for files'),
+        ('ignore', '-i', None, 'Ignore missing media files'),
+        ('nozip', None,  None, 'Do not zip the output directory')
+    ]
+
+    def __init__(self, yelpbuild):
+        super().__init__(yelpbuild)
+
+    def main(self, args):
+        if self.parse_args(args) != 0:
+            return 1
+        if 'help' in self.options:
+            self.print_help()
+            return 0
+
+        output = self.get_option_str('output')
+        nozip = self.get_option_bool('nozip')
+        if nozip:
+            if output is None:
+                output = 'EPUB'
+            if os.path.isfile(output):
+                print('Error: Output must be a directory', file=sys.stderr)
+                sys.exit(1)
+            epubdir = output
+        else:
+            self.create_tmpdir()
+            if output is None:
+                output = 'index.epub'
+            if os.path.isdir(output):
+                print('Error: Output must be a file', file=sys.stderr)
+                sys.exit(1)
+            epubdir = os.path.join(self.tmpdir, 'EPUB')
+            os.makedirs(epubdir, exist_ok=True)
+        os.makedirs(os.path.join(epubdir, 'OPS', 'yelp'), exist_ok=True)
+
+        xhtmlbuilder = XhtmlBuilder(self.yelpbuild, epub=True)
+        retcode = xhtmlbuilder.main(self.fileargs,
+                                    cache=self.get_option_str('cache'),
+                                    output=os.path.join(epubdir, 'OPS'),
+                                    xsl=self.get_option_str('xsl'),
+                                    path=self.get_option_list('path'),
+                                    ignore=self.get_option_bool('ignore'))
+        if retcode != 0:
+            return retcode
+
+        with open(os.path.join(epubdir, 'mimetype'), 'w') as fd:
+            fd.write('application/epub+zip\n')
+
+        os.makedirs(os.path.join(epubdir, 'META-INF'), exist_ok=True)
+
+        with open(os.path.join(epubdir, 'META-INF', 'container.xml'), 'w') as fd:
+            fd.write('<?xml version="1.0" encoding="UTF-8"?>')
+            fd.write('<container version="1.0" xmlns="urn:oasis:names:tc:opendocument:xmlns:container">')
+            fd.write('<rootfiles>')
+            fd.write('<rootfile full-path="OPS/opf.opf" media-type="application/oebps-package+xml"/>')
+            fd.write('</rootfiles>')
+            fd.write('</container>\n')
+
+        path = self.get_option_list('path')
+        if path is None:
+            pathstr = ':'
+        else:
+            pathstr = ':'.join(path)
+        epubid = str(uuid.uuid4())
+        opfdata = ''
+        for fname in os.listdir(os.path.join(epubdir, 'OPS', 'yelp')):
+            opfdata += ' OPS/yelp/' + urllib.parse.quote(fname)
+        retcode = subprocess.call(['xsltproc', '--xinclude',
+                                   '-o', os.path.join(epubdir, 'OPS', 'opf.opf'),
+                                   '--path', pathstr,
+                                   '--stringparam', 'opf.id', epubid,
+                                   '--stringparam', 'opf.data', opfdata,
+                                   XSL_MAL_OPF, xhtmlbuilder.cacheinfile])
+        if retcode != 0:
+            return retcode
+        retcode = subprocess.call(['xsltproc', '--xinclude',
+                                   '-o', os.path.join(epubdir, 'OPS', 'ncx.ncx'),
+                                   '--path', pathstr,
+                                   '--stringparam', 'ncx.id', epubid,
+                                   XSL_MAL_NCX, xhtmlbuilder.cacheinfile])
+        if retcode != 0:
+            return retcode
+
+        if not nozip:
+            retcode = subprocess.call(['zip', '-q', '-r', os.path.realpath(output),
+                                       'mimetype', 'META-INF', 'OPS'],
+                                      cwd=os.path.realpath(epubdir))
+            if retcode != 0:
+                return retcode
+        return 0
+
+
+class YelpBuild:
+    def __init__(self):
+        pass
+
+    def main(self):
+        if len(sys.argv) < 2:
+            self.print_usage()
+            return 1
+
+        builder = None
+        for cls in Builder.__subclasses__():
+            if sys.argv[1] == cls.name:
+                builder = cls(self)
+
+        if builder is None:
+            print('Unrecognized command: ' + sys.argv[1], file=sys.stderr)
+            return 1
+
+        return builder.main(sys.argv[2:])
+
+    def print_usage(self):
+        print('Usage: yelp-builder <COMMAND> [OPTIONS] [FILES]')
+        namelen = 2
+        builders = []
+        for cls in sorted(Builder.__subclasses__(), key=(lambda cls: cls.name or '')):
+            namelen = max(namelen, len(cls.name) + 2)
+            builders.append(cls)
+
+        print('\nCommands:')
+        for cls in builders:
+            print('  ' + cls.name.ljust(namelen) + cls.desc)
+
+
+if __name__ == '__main__':
+    try:
+        sys.exit(YelpBuild().main())
+    except KeyboardInterrupt:
+        sys.exit(1)
