@@ -1,12 +1,4 @@
-yelp_tools_xslt_data = [
-  'comments.xsl',
-  'mal-epub.xsl',
-  'mal-files.xsl',
-  'mal-license.xsl',
-  'mal-rng.xsl',
-  'mal-status.xsl',
-  'media.xsl',
-]
+yelp_tools_xslt_data = ['mal-rng.xsl']
 
 install_data(
   yelp_tools_xslt_data,
@@ -38,9 +30,7 @@ configure_file(
   output: 'mal-ncx.xsl',
   configuration: yelp_xslt_in,
   install: true,
-  install_dir: join_paths(
-    pkgxsltdir,
-  )
+  install_dir: pkgxsltdir
 )
 
 configure_file(
@@ -48,7 +38,5 @@ configure_file(
   output: 'mal-opf.xsl',
   configuration: yelp_xslt_in,
   install: true,
-  install_dir: join_paths(
-    pkgxsltdir,
-  )
+  install_dir: pkgxsltdir
 )

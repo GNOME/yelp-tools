@@ -6,6 +6,11 @@ project('yelp-tools',
 
 gnome = import('gnome')
 
+python = import('python')
+pyinst = python.find_installation('python3', required: true)
+lxml = run_command('python3', '-c', 'import lxml')
+assert(lxml.returncode() == 0, 'Python module `lxml` required')
+
 # Versioning
 version = meson.project_version()
 version_arr = version.split('.')

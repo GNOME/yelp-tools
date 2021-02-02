@@ -6,7 +6,9 @@ yelp_tools_templates_data = [
   'reference.duck',
   'reference.page',
   'task.duck',
-  'task.page'
+  'task.page',
+  'info.ducktype.include',
+  'info.mallard.include'
 ]
 
 install_data(
