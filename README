@@ -8,6 +8,9 @@ wraps things up in a developer-friendly way.
 
 ORGANIZATION
 ============
+templates/
+        The templates directory contains page templates used by yelp-new.
+
 tools/
         The tools directory contains scripts like yelp-build and yelp-check,
         as well as the yelp.m4 file that provides autotools integration.
