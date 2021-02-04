@@ -243,6 +243,8 @@ class Checker:
         #FIXME: prettify names of formats
         if self.blurb is not None:
             print(self.blurb + '\n')
+        elif self.desc is not None:
+            print(self.desc + '\n')
         print('Options:')
         maxarglen = 2
         args = []
@@ -1126,6 +1128,7 @@ class CustomChecker(Checker):
         if self.config is None or (sect not in self.config.sections()):
             print('Unrecognized command: ' + self.name, file=sys.stderr)
             return 1
+        self.desc = self.config.get(sect, 'desc', fallback=None)
         self.blurb = self.config.get(sect, 'blurb', fallback=None)
         if self.blurb is not None:
             self.blurb = '\n'.join(textwrap.wrap(self.blurb))
