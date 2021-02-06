@@ -1,5 +1,5 @@
 project('yelp-tools',
-  version: '3.38.0',
+  version: '40.alpha',
   license: 'GPL-2.0-or-later',
   meson_version: '>= 0.50.0',
 )
@@ -11,19 +11,9 @@ pyinst = python.find_installation('python3', required: true)
 lxml = run_command('python3', '-c', 'import lxml')
 assert(lxml.returncode() == 0, 'Python module `lxml` required')
 
-# Versioning
-version = meson.project_version()
-version_arr = version.split('.')
-version_major = version_arr[0].to_int()
-version_minor = version_arr[1].to_int()
-version_micro = version_arr[2].to_int()
-
 package_name = meson.project_name()
 
 # Paths
-srcdir = meson.source_root()
-builddir = meson.build_root()
-
 prefix = get_option('prefix')
 
 bindir = join_paths(prefix, get_option('bindir'))
@@ -67,7 +57,7 @@ endif
 summary = [
   '',
   '------',
-  'yelp-tools @0@'.format(version),
+  'yelp-tools @0@'.format(meson.project_version()),
   '',
   '    yelp.m4: @0@'.format(get_option('yelpm4')),
   '       help: @0@'.format(get_option('help')),

@@ -1,3 +1,12 @@
+40.alpha
+========
+* First release using the meson build system
+* Converted yelp-build, yelp-check, and yelp-new to python
+* New and improved templates for yelp-new
+* Support for .yelp-tools.cfg config file
+* Config file can specify custom checkers, like Schematron but easier
+* yelp-check hrefs takes a configurable allow list
+
 3.38.0
 ======
 * Stable release. No changes since 3.37.90
