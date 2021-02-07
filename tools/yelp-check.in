@@ -1155,6 +1155,7 @@ class CustomChecker(Checker):
             for ns in self.config.options('namespaces'):
                 namespaces[ns] = self.config.get('namespaces', ns)
 
+        retcode = 0
         for infile in self.iter_files():
             xml = self.get_xml(infile)
             thisid = xml.getroot().get('id') or infile.filename
@@ -1162,9 +1163,8 @@ class CustomChecker(Checker):
             for root in xml.xpath(selectexpr, namespaces=namespaces):
                 if not bool(root.xpath(assertexpr, namespaces=namespaces)):
                     print(infile.sitedir + thisid + ': ' + message)
-        # FIXME are these comments outdated? remove?
-        # check if self.config has section check:self.name
-        # check if section has select, assert, message
+                    retcode = 1
+        return retcode
 
 
 class YelpCheck:
