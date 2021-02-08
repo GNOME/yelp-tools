@@ -86,6 +86,7 @@ class Checker:
         self.options = {}
         self.fileargs = []
         self.tmpdir = None
+        self.skipfiles = []
 
     def __del__(self):
         if self.tmpdir is not None:
@@ -140,6 +141,7 @@ class Checker:
             except Exception as e:
                 print(e, file=sys.stderr)
                 sys.exit(1)
+        self.skipfiles = self.get_option_list('skip') or []
         return 0
 
     def get_option_bool(self, arg):
@@ -197,12 +199,16 @@ class Checker:
         if len(self.fileargs) == 0:
             self.fileargs.append('.')
         for filearg in self.fileargs:
+            if filearg in self.skipfiles:
+                continue
             if os.path.isdir(filearg):
                 if issite:
                     for infile in self.iter_site(filearg, '/'):
                         yield infile
                 else:
                     for fname in os.listdir(filearg):
+                        if fname in self.skipfiles:
+                            continue
                         if fname.endswith('.page'):
                             yield InputFile(filearg, fname)
             else:
@@ -275,7 +281,8 @@ class HrefsChecker (Checker):
     arguments = [
         ('help', '-h', None, 'Show this help and exit'),
         ('site', '-s', None, 'Treat pages as belonging to a Mallard site'),
-        ('allow', None, 'URL', 'Allow URL or list of URLs without checking')
+        ('allow', None, 'URL', 'Allow URL or list of URLs without checking'),
+        ('skip', None, 'FILES', 'List of files to skip')
     ]
     postblurb = 'URL may be a comma- and/or space-separated list, or specified\nmultiple times.'
 
@@ -333,7 +340,8 @@ class IdsChecker (Checker):
     formats = ['mallard']
     arguments = [
         ('help', '-h', None, 'Show this help and exit'),
-        ('site', '-s', None, 'Treat pages as belonging to a Mallard site')
+        ('site', '-s', None, 'Treat pages as belonging to a Mallard site'),
+        ('skip', None, 'FILES', 'List of files to skip')
     ]
 
     def main(self, args):
@@ -372,7 +380,8 @@ class LinksChecker (Checker):
         ('help', '-h', None, 'Show this help and exit'),
         ('site', '-s', None, 'Treat pages as belonging to a Mallard site'),
         ('cache', '-c', 'CACHE', 'Use the existing Mallard cache CACHE'),
-        ('ignore', '-i', None, 'Ignore xrefs where href is present')
+        ('ignore', '-i', None, 'Ignore xrefs where href is present'),
+        ('skip', None, 'FILES', 'List of files to skip')
     ]
 
     def __init__(self, yelpcheck):
@@ -477,7 +486,8 @@ class MediaChecker (Checker):
     formats = ['docbook4', 'docbook5', 'mallard']
     arguments = [
         ('help', '-h', None, 'Show this help and exit'),
-        ('site', '-s', None, 'Treat pages as belonging to a Mallard site')
+        ('site', '-s', None, 'Treat pages as belonging to a Mallard site'),
+        ('skip', None, 'FILES', 'List of files to skip')
     ]
 
     def main(self, args):
@@ -524,7 +534,8 @@ class OrphansChecker (Checker):
     arguments = [
         ('help', '-h', None, 'Show this help and exit'),
         ('site', '-s', None, 'Treat pages as belonging to a Mallard site'),
-        ('cache', '-c', 'CACHE', 'Use the existing Mallard cache CACHE')
+        ('cache', '-c', 'CACHE', 'Use the existing Mallard cache CACHE'),
+        ('skip', None, 'FILES', 'List of files to skip')
     ]
 
     def __init__(self, yelpcheck):
@@ -656,7 +667,8 @@ class ValidateChecker (Checker):
         ('site', '-s', None, 'Treat pages as belonging to a Mallard site'),
         ('strict', None, None, 'Disallow unknown namespaces'),
         ('allow', None, 'NS', 'Explicitly allow namespace NS in strict mode'),
-        ('jing', None, None, 'Use jing instead of xmllint for RNG validation')
+        ('jing', None, None, 'Use jing instead of xmllint for RNG validation'),
+        ('skip', None, 'FILES', 'List of files to skip')
     ]
     postblurb = 'NS may be a comma- and/or space-separated list, or specified\nmultiple times.'
 
@@ -774,7 +786,8 @@ class CommentsChecker (Checker):
     formats = ['docbook4', 'docbook5', 'mallard']
     arguments = [
         ('help', '-h', None, 'Show this help and exit'),
-        ('site', '-s', None, 'Treat pages as belonging to a Mallard site')
+        ('site', '-s', None, 'Treat pages as belonging to a Mallard site'),
+        ('skip', None, 'FILES', 'List of files to skip')
     ]
 
     def main(self, args):
@@ -866,7 +879,8 @@ class LicenseChecker (Checker):
         ('site', '-s', None, 'Treat pages as belonging to a Mallard site'),
         ('only', None, 'LICENSES', 'Only show pages whose license is in LICENSES'),
         ('except', None, 'LICENSES', 'Exclude pages whose license is in LICENSES'),
-        ('totals', None, None, 'Show total counts for each license')
+        ('totals', None, None, 'Show total counts for each license'),
+        ('skip', None, 'FILES', 'List of files to skip')
     ]
     postblurb = 'LICENSES may be a comma- and/or space-separated list, or specified\nmultiple times.'
 
@@ -948,7 +962,8 @@ class StatusChecker (Checker):
         ('newer',  None, 'DATE', 'Only show pages newer than DATE'),
         ('only',   None, 'STATUSES', 'Only show pages whose status is in STATUSES'),
         ('except', None, 'STATUSES', 'Exclude pages whose status is in STATUSES'),
-        ('totals', None, None, 'Show total counts for each status')
+        ('totals', None, None, 'Show total counts for each status'),
+        ('skip', None, 'FILES', 'List of files to skip')
     ]
     postblurb = 'VER and STATUSES may be comma- and/or space-separated lists, or specified\nmultiple times.'
 
@@ -1052,7 +1067,8 @@ class StyleChecker (Checker):
         ('site', '-s', None, 'Treat pages as belonging to a Mallard site'),
         ('only',   None, 'STYLES', 'Only show pages whose style is in STATUSES'),
         ('except', None, 'STYLES', 'Exclude pages whose style is in STATUSES'),
-        ('totals', None, None, 'Show total counts for each style')
+        ('totals', None, None, 'Show total counts for each style'),
+        ('skip', None, 'FILES', 'List of files to skip')
     ]
     postblurb = 'STYLES may be comma- and/or space-separated lists, or specified\nmultiple times.'
 
@@ -1113,7 +1129,8 @@ class CustomChecker(Checker):
     formats = ['docbook4', 'docbook5', 'mallard']
     arguments = [
         ('help', '-h', None, 'Show this help and exit'),
-        ('site', '-s', None, 'Treat pages as belonging to a Mallard site')
+        ('site', '-s', None, 'Treat pages as belonging to a Mallard site'),
+        ('skip', None, 'FILES', 'List of files to skip')
     ]
 
     def __init__(self, name, yelpcheck):
