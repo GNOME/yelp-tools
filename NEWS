@@ -1,3 +1,8 @@
+40.beta
+=======
+* Added --skip option to skip files in yelp-check
+* Custom checkers in yelp-check return 1 on failure
+
 40.alpha
 ========
 * First release using the meson build system
