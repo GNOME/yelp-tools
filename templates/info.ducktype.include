@@ -1,6 +1,5 @@
 [--
   Recommended statuses: stub incomplete draft outdated review candidate final
-  Remove version attributes you don't use.
 --]
 @revision[version={{VERSION}} date={{DATE}} status=stub]
 
