@@ -1,3 +1,8 @@
+40.rc
+=====
+* Removed comment about revision version attrs from templates
+* Use /usr/bin/python3 as shebang
+
 40.beta
 =======
 * Added --skip option to skip files in yelp-check
