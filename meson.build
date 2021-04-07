@@ -1,15 +1,13 @@
 project('yelp-tools',
   version: '40.0',
   license: 'GPL-2.0-or-later',
-  meson_version: '>= 0.50.0',
+  meson_version: '>= 0.51.0',
 )
 
 gnome = import('gnome')
 
 python = import('python')
-pyinst = python.find_installation('python3', required: true)
-lxml = run_command('python3', '-c', 'import lxml')
-assert(lxml.returncode() == 0, 'Python module `lxml` required')
+pyinst = python.find_installation('python3', required: true, modules: ['lxml'])
 
 package_name = meson.project_name()
 
