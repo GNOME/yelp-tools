@@ -160,7 +160,7 @@ copy it. The build utilities take care of this automatically.</p>
       currently files in HELP_FILES must be directly in the <file>C</file>
       directory, not a subdirectory. If you use a subdirectory, the directory
       structure will not be reproduced in translations. See
-      <link href="https://bugzilla.gnome.org/show_bug.cgi?id=690561">bug 690561</link>.</p>
+      <link href="https://gitlab.gnome.org/GNOME/yelp-tools/-/issues/7">bug 7</link>.</p>
     </note>
   </item>
 
