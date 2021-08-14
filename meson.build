@@ -1,5 +1,5 @@
 project('yelp-tools',
-  version: '40.0',
+  version: '41.beta',
   license: 'GPL-2.0-or-later',
   meson_version: '>= 0.51.0',
 )
