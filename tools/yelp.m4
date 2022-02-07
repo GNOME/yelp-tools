@@ -110,7 +110,9 @@ $(_HELP_LC_STAMPS): $(_HELP_C_FILES) $(_HELP_C_EXTRA)
 .PHONY: clean-help
 mostlyclean-am: $(if $(HELP_ID),clean-help)
 clean-help:
-	rm -f $(_HELP_LC_FILES) $(_HELP_LC_STAMPS) $(_HELP_MOFILES)
+	$(file >clean-help-files,$(_HELP_LC_FILES) $(_HELP_LC_STAMPS) $(_HELP_MOFILES))
+	@xargs -t rm -f < clean-help-files
+	rm -f clean-help-files
 
 EXTRA_DIST ?=
 EXTRA_DIST += $(_HELP_C_EXTRA) $(_HELP_C_MEDIA)
