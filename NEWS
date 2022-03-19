@@ -1,3 +1,7 @@
+42.0
+====
+* No changes since beta, stable release only
+
 42.beta
 =======
 * yelp.m4: Avoid argument list too long error when cleaning (Dan Nicholson)
