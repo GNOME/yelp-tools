@@ -557,6 +557,9 @@ class XhtmlBuilder (Builder):
             if not os.path.isdir(output):
                 print('Output must be a directory', file=sys.stderr)
                 return 1
+        if not output.endswith('/'):
+            # xsltproc is picky about this
+            output = output + '/'
         if path is None:
             path = self.get_option_list('path')
         if path is None:
