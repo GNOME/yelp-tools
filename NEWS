@@ -1,3 +1,7 @@
+42.1
+====
+* Fixed issue with DocBook when path is missing trailing slash, #22
+
 42.0
 ====
 * No changes since beta, stable release only
