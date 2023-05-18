@@ -1,5 +1,10 @@
 yelp_tools_in = configuration_data()
 yelp_tools_in.set('DATADIR', pkgdir)
+yelp_tools_in.set('HELPDIR', join_paths (
+  datadir,
+  'help',
+  )
+)
 
 yelp_tools_in.set('YELP_JS_DIR', yelp_js_dir)
 
@@ -46,5 +51,24 @@ if get_option('yelpm4') == true
     install_dir: join_paths(
       autoconfdatadir,
     )
+  )
+endif
+
+if get_option('url_handler').enabled()
+  configure_file(
+    input: 'yelp-build-url-handler.in',
+    output: 'yelp-build-url-handler',
+    configuration: yelp_tools_in,
+    install: true,
+    install_dir: bindir,
+  )
+
+  configure_file(
+    input: 'yelp-build-url-handler.desktop.in',
+    output: '@BASENAME@',
+    configuration: {
+      'bindir': join_paths(get_option('prefix'), get_option('bindir'))
+    },
+    install_dir: join_paths(datadir, 'applications')
   )
 endif

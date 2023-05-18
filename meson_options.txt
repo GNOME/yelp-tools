@@ -5,3 +5,7 @@ option('yelpm4',
 option('help',
        type: 'boolean', value: false,
        description: 'Install help files')
+
+option('url_handler',
+       type: 'feature', value: 'disabled',
+       description: 'Install URL handler to open help in web browesr, use when not building Yelp')

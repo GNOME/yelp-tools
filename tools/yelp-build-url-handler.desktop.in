@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=Yelp URL Handler
+Exec=@bindir@/yelp-build-url-handler %u
+Type=Application
+MimeType=x-scheme-handler/help;
+NoDisplay=true
