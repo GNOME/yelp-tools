@@ -48,3 +48,36 @@ if get_option('yelpm4') == true
     )
   )
 endif
+
+dbus_code = gnome.gdbus_codegen('org.freedesktop.portal.Documents',
+                                'org.freedesktop.portal.Documents.xml',
+                                namespace: 'Portal',
+                                interface_prefix: 'org.freedesktop.portal',
+                                autocleanup: 'all',
+)
+
+url_handler_src = [
+  'yelp-build-url-handler.c',
+  dbus_code,
+]
+
+url_handler_deps = [
+  glib_dep,
+  gio_dep,
+  gio_unix_dep,
+]
+
+url_handler = executable('yelp-build-url-handler',
+                         url_handler_src,
+                         dependencies: url_handler_deps,
+                         include_directories: '.',
+                         install: true)
+
+configure_file(
+  input: 'yelp-build-url-handler.desktop.in',
+  output: '@BASENAME@',
+  configuration: {
+    'bindir': join_paths(get_option('prefix'), get_option('bindir'))
+  },
+  install_dir: join_paths(datadir, 'applications')
+)

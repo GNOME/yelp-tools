@@ -1,10 +1,15 @@
-project('yelp-tools',
+project('yelp-tools', 'c',
   version: '42.1',
   license: 'GPL-2.0-or-later',
   meson_version: '>= 0.51.0',
 )
 
+add_project_arguments('-D_GNU_SOURCE', language: 'c')
+
 gnome = import('gnome')
+glib_dep = dependency('glib-2.0')
+gio_dep = dependency('gio-2.0')
+gio_unix_dep = dependency('gio-unix-2.0')
 
 python = import('python')
 pyinst = python.find_installation('python3', required: true, modules: ['lxml'])
