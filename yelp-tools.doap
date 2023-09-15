@@ -9,8 +9,8 @@
   <description>Collection of tools for building and converting documentation</description>
 
   <homepage rdf:resource="http://yelp.io"/>
-  <mailing-list rdf:resource="http://mail.gnome.org/mailman/listinfo/gnome-doc-devel-list" />
-  <download-page rdf:resource="http://download.gnome.org/sources/yelp-tools/" />
+  <support-forum rdf:resource="https://discourse.gnome.org/tag/documentation" />
+  <download-page rdf:resource="https://download.gnome.org/sources/yelp-tools/" />
   <bug-database rdf:resource="https://gitlab.gnome.org/GNOME/yelp-tools/issues/" />
 
   <category rdf:resource="http://api.gnome.org/doap-extensions#core" />
